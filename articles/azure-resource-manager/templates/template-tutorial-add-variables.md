@@ -1,21 +1,21 @@
 ---
 title: 자습서 - 템플릿에 변수 추가
-description: 구문을 간소화하기 위해 Azure Resource Manager 템플릿에 변수를 추가합니다.
+description: 구문을 간소화하기 위해 ARM 템플릿(Azure Resource Manager 템플릿)에 변수를 추가합니다.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 482608172ac9e6e2b9765f236a4b6d655e2455fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d259510d880cbfc60e9ae80b533af6792cc95536
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613155"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930731"
 ---
 # <a name="tutorial-add-variables-to-your-arm-template"></a>자습서: ARM 템플릿에 변수 추가
 
-이 자습서에서는 ARM(Azure Resource Manager) 템플릿에 변수를 추가하는 방법을 알아봅니다. 변수는 식을 한 번 작성하고 템플릿 전체에서 다시 사용할 수 있도록 하여 템플릿을 간소화합니다. 이 자습서를 완료하는 데 **7분**이 소요됩니다.
+이 자습서에서는 ARM 템플릿(Azure Resource Manager 템플릿)에 변수를 추가하는 방법을 알아봅니다. 변수는 식을 한 번 작성하고 템플릿 전체에서 다시 사용할 수 있도록 하여 템플릿을 간소화합니다. 이 자습서를 완료하는 데 **7분** 이 소요됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +37,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
-**uniqueStorageName**이라는 변수가 포함되어 있는 것을 확인하세요. 이 변수는 4개의 함수를 사용하여 문자열 값을 생성합니다.
+**uniqueStorageName** 이라는 변수가 포함되어 있는 것을 확인하세요. 이 변수는 4개의 함수를 사용하여 문자열 값을 생성합니다.
 
 [parameters](template-functions-deployment.md#parameters) 함수는 이미 익숙할 것이므로 다루지 않겠습니다.
 
@@ -90,9 +90,9 @@ az deployment group create \
 Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 1. 배포한 리소스 그룹을 선택합니다.
-1. 스토리지 계정 리소스가 배포된 것을 볼 수 있습니다. 스토리지 계정의 이름은 **store**에 임의의 문자 문자열을 더한 값입니다.
+1. 스토리지 계정 리소스가 배포된 것을 볼 수 있습니다. 스토리지 계정의 이름은 **store** 에 임의의 문자 문자열을 더한 값입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -100,10 +100,10 @@ Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있�
 
 지금 중지하는 경우에는 리소스 그룹을 삭제하여 배포된 리소스를 정리하는 것이 좋습니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
 3. 해당 리소스 그룹 이름을 선택합니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+4. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

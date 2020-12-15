@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 199da0586a061bccdf8a6ff8a1f53df2f703512f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 25db7104e565a987f3be9e2d6f3b239cf1884ae4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959444"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932339"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
@@ -51,6 +51,15 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 ![IoT Edge 3개 모듈 아키텍처의 다이어그램](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
 이 문서의 단계는 일반적으로 클라우드 개발자가 수행합니다.
+
+자습서의 이 섹션에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+>
+> * 사용자 지정 코드에서 IoT Edge 모듈을 만듭니다.
+> * 사용자 지정 모듈에서 Docker 이미지를 생성합니다.
+> * 사용자 지정 모듈을 지원하도록 IoT Hub 라우팅을 다시 구성합니다.
+> * 사용자 지정 모듈을 빌드, 게시 및 배포합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -804,6 +813,10 @@ IoT Edge 디바이스(여기서는 Linux VM)에 로그인하면 모듈 상태에
    ```bash
    sudo docker exec -it avroFileWriter bash
    ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서를 완료할 때까지 기다렸다가 리소스를 정리하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

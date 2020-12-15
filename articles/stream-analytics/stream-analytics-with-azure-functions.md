@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489950"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862006"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -195,7 +195,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이벤트를 Azure Functions에 전송하는 동안 오류가 발생하면 Stream Analytics는 대부분의 작업을 다시 시도합니다. 모든 http 예외는 http 오류 413(엔터티가 너무 큼) 예외를 제외하고 성공할 때까지 다시 시도됩니다. 엔터티가 너무 큰 오류는 [정책 다시 시도 또는 삭제](stream-analytics-output-error-policy.md)가 적용되는 데이터 오류로 처리됩니다.
 
 > [!NOTE]
-> Stream Analytics에서 Azure Functions로의 HTTP 요청에 대한 시간 제한은 100초로 설정됩니다. Azure Functions 앱에서 일괄 처리하는 데 100초 넘게 걸리는 경우 Stream Analytics 오류가 발생합니다.
+> Stream Analytics에서 Azure Functions로의 HTTP 요청에 대한 시간 제한은 100초로 설정됩니다. Azure Functions 앱에서 일괄 처리하는 데 100초 넘게 걸리는 경우 Stream Analytics 오류가 발생하므로 일괄 처리를 다시 시도합니다.
+
+시간 제한을 다시 시도하면 출력 싱크에 중복된 이벤트가 기록될 수 있습니다. Stream Analytics는 실패한 일괄 처리를 다시 시도할 때 일괄 처리의 모든 이벤트를 다시 시도합니다. 예를 들어 Stream Analytics에서 Azure Functions로 전송되는 20개의 이벤트를 일괄 처리할 수 있습니다. Azure Functions가 해당 일괄 처리에서 처음 10개의 이벤트를 처리하는 데 100초가 걸린다고 가정합니다. 100초가 지난 후 Stream Analytics는 Azure Functions에서 긍정적인 응답을 받지 못했으므로 요청을 일시 중단하고 동일한 일괄 처리에 대해 다른 요청을 보냅니다. 일괄 처리의 처음 10개 이벤트가 Azure Functions로 다시 처리되며, 이로 인해 중복이 발생합니다. 
 
 ## <a name="known-issues"></a>알려진 문제
 

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.author: banders
-ms.openlocfilehash: 3df6b694f3a40cef17c6e0114464ad4aa2fa30ce
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a9e3297ad055157d552424ecc48db6801f43b220
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344337"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929958"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Azure Portal의 청구 계정 및 범위
 
@@ -25,7 +25,7 @@ Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니�
 
 - **기업 계약**: 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)에 서명할 때 생성됩니다. 기업계약에는 최대 2000개의 구독을 가질 수 있습니다.
 
-- **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 [종량제 요금을 사용한 계정](https://azure.microsoft.com/offers/ms-azr-0003p/)이나 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)에 가입한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 있을 수도 있습니다. Microsoft 고객 계약에는 최대 20개의 구독을 가질 수 있습니다. 자세한 내용은 [Microsoft 고객 계약의 청구 계정 시작](../understand/mca-overview.md)을 참조하세요.
+- **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 [종량제 요금을 사용한 계정](https://azure.microsoft.com/offers/ms-azr-0003p/)이나 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)에 가입한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 있을 수도 있습니다. 개인에 대한 Microsoft 고객 계약에는 최대 20개의 구독을 가질 수 있습니다. 기업에 대한 Microsoft 고객 계약에는 구독 수에 제한이 없습니다. 자세한 내용은 [Microsoft 고객 계약의 청구 계정 시작](../understand/mca-overview.md)을 참조하세요.
 
 - **Microsoft 파트너 계약**: Microsoft 파트너 계약의 청구 계정은 CSP(클라우드 솔루션 공급자) 파트너가 자체 고객을 새로운 상거래 환경에서 관리할 수 있도록 생성되었습니다. Azure Portal에서 청구 계정을 관리하려면 파트너에게 [Azure 플랜](/partner-center/purchase-azure-plan)을 사용하는 고객이 하나 이상 있어야 합니다. 자세한 내용은 [Microsoft 파트너 계약의 청구 계정 시작](../understand/mpa-overview.md)을 참조하세요.
 

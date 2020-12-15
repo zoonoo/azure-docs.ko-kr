@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/21/2020
-ms.openlocfilehash: 949992418cb19c5c69ed8da92e9c2f0fc5f2f791
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c9b7d796612981f0e8194be84b0ed141721f644d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445430"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862380"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "96445430"
 
 Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Synapse Studio를 열 수 있습니다.
 
-* [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 엽니다. **개요** 섹션의 위쪽에서 **Synapse Studio 시작** 을 선택합니다.
+* [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 엽니다. **개요** 섹션의 위쪽에서 **Synapse Studio 열기** 를 선택합니다.
 * `https://web.azuresynapse.net`(으)로 이동하여 작업 영역에 로그인합니다.
 
 ## <a name="create-a-dedicated-sql-pool"></a>전용 SQL 풀 만들기

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 28b34ecaf51406b35c67d3838714691390f5adf7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c1dba383f259e35b143688b2db68f05f1a67def6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453055"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938208"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기(미리 보기)
 
@@ -50,10 +50,19 @@ ms.locfileid: "96453055"
 IoT Edge 디바이스의 계층 구조를 만들려면 다음이 필요합니다.
 
 * 인터넷에 연결된 컴퓨터(Windows 또는 Linux)
-* IoT Edge 디바이스로 구성할 Linux 디바이스 2개. 사용 가능한 디바이스가 없으면 [Azure Virtual Machines](../virtual-machines/linux/index.yml)를 사용할 수 있습니다.
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Azure IoT 확장 v0.10.6 이상이 설치된 Azure CLI v2.3.1. 이 자습서에서는 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다. Azure Cloud Shell에 익숙하지 않은 경우 [빠른 시작에서 자세한 내용을 확인하세요.](./quickstart-linux.md#use-azure-cloud-shell)
+* Azure IoT 확장 v0.10.6 이상이 설치된 Azure CLI v2.3.1. 이 자습서에서는 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다. Azure Cloud Shell에 익숙하지 않은 경우 [빠른 시작에서 자세한 내용을 확인하세요.](./quickstart-linux.md#prerequisites)
+* IoT Edge 디바이스로 구성할 Linux 디바이스 2개. 사용 가능한 디바이스가 없는 경우 다음 명령에서 자리 표시자 텍스트를 대체하고, 두 번 실행하여 두 개의 Azure 가상 머신을 만들 수 있습니다.
+
+   ```azurecli-interactive
+   az vm create \
+    --resource-group <REPLACE_WITH_RESOURCE_GROUP> \
+    --name <REPLACE_WITH_UNIQUE_NAMES_FOR_EACH_VM> \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --admin-password <REPLACE_WITH_PASSWORD>
+   ```
 
 이 시나리오는 스크립팅된 [산업 IoT용 Azure IoT Edge 샘플](https://aka.ms/iotedge-nested-sample)을 수행하여 시도할 수도 있습니다. 이 샘플에서는 Azure 가상 머신을 미리 구성된 디바이스로 배포하여 공장 환경을 시뮬레이션합니다.
 
@@ -185,11 +194,11 @@ Linux 디바이스에서 데모 인증서를 만들려면 생성 스크립트를
    sudo apt-get install moby-engine
    ```
 
-1. hsmlib 및 IoT Edge 디먼을 설치합니다. <!-- Update with proper image links on release -->
+1. hsmlib 및 IoT Edge 디먼을 설치합니다. 다른 Linux 배포판에 대한 자산을 보려면 [GitHub 릴리스를 방문하세요](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1). <!-- Update with proper image links on release -->
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/libiothsm-std_1.2.0.rc2-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc2/iotedge_1.2.0_rc2-1_debian9_amd64.deb -o iotedge.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0.rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
+   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
    sudo dpkg -i ./libiothsm-std.deb
    sudo dpkg -i ./iotedge.deb
    ```
@@ -611,7 +620,7 @@ You can also view these messages through the [Azure Cloud Shell](https://shell.a
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 두 개의 IoT Edge 디바이스를 게이트웨이로 구성하고 다른 디바이스를 부모 디바이스로 설정했습니다. 그런 다음, 게이트웨이를 통해 자식 디바이스로 컨테이너 이미지를 끌어오는 방법을 시연했습니다. 이 시나리오는 스크립팅된 [산업 IoT용 Azure IoT Edge 샘플](https://aka.ms/iotedge-nested-sample)을 수행하여 시도할 수도 있습니다. 이 샘플에서는 Azure 가상 머신을 미리 구성된 디바이스로 배포하여 공장 환경을 시뮬레이션합니다.
+이 자습서에서는 두 개의 IoT Edge 디바이스를 게이트웨이로 구성하고 다른 디바이스를 부모 디바이스로 설정했습니다. 그런 다음, 게이트웨이를 통해 자식 디바이스로 컨테이너 이미지를 끌어오는 방법을 시연했습니다.
 
 Azure IoT Edge에서 추가 업무용 솔루션을 만드는 방법을 확인하려는 경우 다른 자습서를 계속 진행할 수 있습니다.
 

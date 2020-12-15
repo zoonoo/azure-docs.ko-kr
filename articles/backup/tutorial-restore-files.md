@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure VM에서 파일 
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 236b2c2c7799ef6a0df1da2ddded0e689349e222
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d977919b806be32b84001a9b91dc9e396fbd63ce
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842212"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557912"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
 
@@ -21,13 +21,15 @@ Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구
 > * VM에 복구 지점 연결
 > * 복구 지점에서 파일 복원
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.18 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 Azure Backup으로 보호된 Linux VM이 필요합니다. 실수로 인한 파일 삭제 및 복구 프로세스를 시뮬레이션하려면 웹 서버에서 페이지를 삭제합니다. 웹 서버를 실행하고 Azure Backup으로 보호된 Linux VM이 필요한 경우 [CLI를 사용하여 Azure에서 가상 컴퓨터 백업](quick-backup-vm-cli.md)을 참조하세요.
+
+환경 준비:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 이 문서에는 Azure CLI 버전 2.0.18 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="backup-overview"></a>Backup 개요
 

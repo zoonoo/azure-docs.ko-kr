@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - C에서 대칭 키를 사용하여 Azure IoT Hub에 시뮬레이션된 디바이스 프로비저닝
-description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub DPS(Device Provisioning Service)로 대칭 키를 사용하는 시뮬레이션된 디바이스를 만듭니다.
+title: 빠른 시작 - 대칭 키를 통해 C#를 사용하여 Azure IoT Hub에 디바이스 프로비저닝
+description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub DPS(Device Provisioning Service)로 대칭 키를 사용하는 디바이스를 프로비저닝합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/14/2020
@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ab998756f219cd7bc155f98c2d29454be8018825
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7df7c9ab6bfbc8a39050b78a76114ae2a0a9d9b7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968216"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746508"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
+# <a name="quickstart-provision-a-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 디바이스 프로비저닝
 
-이 빠른 시작에서는 Windows 개발 머신에서 디바이스 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. 대칭 키를 사용하여 Device Provisioning Service 인스턴스로 인증하고 IoT 허브에 할당되도록 이 시뮬레이션된 디바이스를 구성합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드는 프로비전을 시작하는 디바이스에 대한 부팅 시퀀스를 시뮬레이션하는 데 사용됩니다. 디바이스는 프로비전 서비스 인스턴스의 개별 등록을 기반으로 인식되고 IoT 허브에 할당됩니다.
+이 빠른 시작에서는 Windows 개발 머신에서 디바이스 프로비저닝 코드를 실행하여 IoT 디바이스로 IoT Hub에 연결하는 방법을 알아봅니다. Device Provisioning Service 인스턴스와 대칭 키 인증을 사용하고 IoT 허브에 할당되도록 이 디바이스를 구성합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드는 디바이스를 프로비저닝하는 데 사용됩니다. 디바이스는 프로비전 서비스 인스턴스의 개별 등록을 기반으로 인식되고 IoT 허브에 할당됩니다.
 
 이 문서에서는 개별 등록을 통한 프로비저닝을 보여주지만 등록 그룹을 사용할 수 있습니다. 등록 그룹을 사용할 때는 몇 가지 차이점이 있습니다. 예를 들어 디바이스에 대한 고유한 등록 ID가 있는 파생된 디바이스 키를 사용해야 합니다. 대칭 키 등록 그룹은 레거시 디바이스로 제한되지 않지만 [대칭 키 증명을 사용하여 레거시 디바이스를 프로비전하는 방법](how-to-legacy-device-symm-key.md)은 등록 그룹 예제를 제공합니다. 자세한 내용은 [대칭 키 증명에 대한 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)을 참조하세요.
 
@@ -46,7 +46,7 @@ ms.locfileid: "94968216"
 
 이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 빌드하는 데 사용되는 개발 환경을 준비합니다. 
 
-SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
+SDK에는 디바이스에 대한 샘플 코드가 포함되어 있습니다. 이 코드는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
@@ -73,7 +73,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
     cd cmake
     ```
 
-5. 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 또한 시뮬레이션된 디바이스에 대한 Visual Studio 솔루션이 `cmake` 디렉터리에서 생성됩니다. 
+5. 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 디바이스 프로비저닝 코드에 대한 Visual Studio 솔루션이 `cmake` 디렉터리에서 생성됩니다. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -123,7 +123,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>디바이스에 대한 첫 번째 부팅 시퀀스 시뮬레이션
+## <a name="run-the-provisioning-code-for-the-device"></a>디바이스에 대한 프로비저닝 코드 실행
 
 이 섹션에서는 디바이스의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보내도록 샘플 코드를 업데이트합니다. 이 부팅 시퀀스를 사용하면 디바이스가 인식되고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당됩니다.
 
@@ -158,7 +158,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. **prov\_dev\_client\_sample.c** 에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
+6. **prov\_dev\_client\_sample.c** 에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()`에 대한 호출을 찾습니다.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -176,9 +176,9 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
 
 7. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다. 
 
-8. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
+8. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트 다시 빌드 프롬프트에서 **예** 를 선택하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 시뮬레이션된 디바이스를 성공적으로 부팅하고, IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
+    다음 출력은 IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 성공적으로 연결하는 디바이스의 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -194,7 +194,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
     Press enter key to exit:
     ```
 
-9. 포털에서 시뮬레이션된 디바이스가 할당된 IoT 허브로 이동하고, **IoT 디바이스** 탭을 선택합니다. 시뮬레이션된 디바이스가 허브에 성공적으로 프로비전되면 *상태* 가 **사용** 인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
+9. 포털에서 디바이스가 할당된 IoT 허브로 이동하고 **IoT 디바이스** 탭을 선택합니다. 디바이스가 허브에 성공적으로 프로비저닝되면 디바이스 ID가 **IoT 디바이스** 블레이드에 나타나고 *상태* 는 **사용** 으로 표시됩니다. 위쪽에서 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device-symm-key/hub-registration.png) 
 
@@ -209,7 +209,7 @@ SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 시뮬레이션된 디바이스를 Windows 머신에 만들고, 포털에서 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하여 IoT 허브에 이 디바이스를 프로비저닝했습니다. 프로그래밍 방식으로 디바이스를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 디바이스를 등록하는 빠른 시작을 계속 진행하세요. 
+이 빠른 시작에서는 Windows 머신에서 디바이스 프로비저닝 코드를 실행했습니다.  디바이스가 인증되고 대칭 키를 사용하여 IoT 허브에 프로비저닝되었습니다. X.509 인증서 디바이스를 프로비저닝하는 방법을 알아보려면 X.509 디바이스에 대한 빠른 시작을 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 디바이스 등록](quick-enroll-device-x509-java.md)
+> [Azure 빠른 시작 - Azure IoT C SDK를 사용하여 X.509 디바이스 프로비전](quick-create-simulated-device-x509.md)

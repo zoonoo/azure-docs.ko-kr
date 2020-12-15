@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657315"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905681"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -262,7 +262,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 ## <a name="export-cost-data-to-azure-storage"></a>비용 데이터를 Azure Storage로 내보내기
 
-파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 자신의 비용과 사용 현황 데이터를 Azure Storage Blob에 내보낼 수 있습니다. Blob은 공유 서비스 구독이나 고객의 구독이 아닌 파트너 테넌트의 구독에 있어야 합니다. 비용 데이터 내보내기를 사용하도록 설정하려면, 내보낸 비용 데이터를 호스팅할 파트너 테넌트에 독립적인 종량제 구독을 설정하는 것이 좋습니다. 내보내기 스토리지 계정은 종량제 구독에서 호스팅되는 Azure Storage Blob에 생성됩니다. 파트너가 내보내기를 만드는 범위를 기반으로, 연결된 데이터가 스토리지 계정에 자동으로 반복해서 내보내집니다.
+파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 자신의 비용과 사용 현황 데이터를 Azure Storage Blob에 내보낼 수 있습니다. Blob은 [공유 서비스 구독](/partner-center/shared-services)이나 고객의 구독이 아닌 파트너 테넌트의 구독에 있어야 합니다. 비용 데이터 내보내기를 사용하도록 설정하려면, 내보낸 비용 데이터를 호스팅할 파트너 테넌트에 독립적인 종량제 구독을 설정하는 것이 좋습니다. 내보내기 스토리지 계정은 종량제 구독에서 호스팅되는 Azure Storage Blob에 생성됩니다. 파트너가 내보내기를 만드는 범위를 기반으로, 연결된 데이터가 스토리지 계정에 자동으로 반복해서 내보내집니다.
 
 구독에 대한 Azure RBAC 액세스 권한이 있는 사용자는 고객 테넌트의 구독에서 호스팅되는 Azure Storage Blob으로 비용 데이터를 내보낼 수도 있습니다.
 

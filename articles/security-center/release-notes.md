@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d8b690201ea4349f9577377ff24c91bd75ecd58b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751872"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922924"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -37,6 +37,7 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 - [머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.](#azure-defender-for-sql-servers-on-machines-is-generally-available)
 - [Azure Synapse Analytics 전용 SQL 풀에 대한 Azure Defender for SQL 지원이 일반적으로 제공됩니다.](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
+- [전역 관리자는 이제 자신에게 테넌트 수준 권한을 부여할 수 있습니다.](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.
@@ -69,6 +70,13 @@ Azure Defender for SQL은 다음을 통해 전용 SQL 풀을 보호합니다.
 Azure Synapse Analytics SQL 풀에 대한 Azure Defender for SQL의 지원은 Azure Security Center의 Azure SQL 데이터베이스 번들에 자동으로 추가됩니다. Azure Portal의 Synapse 작업 영역 페이지에 새로운 "Azure Defender for SQL" 탭을 찾을 수 있습니다.
 
 [Azure Defender for SQL](defender-for-sql-introduction.md)에 대해 자세히 알아봅니다.
+
+
+### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>전역 관리자는 이제 자신에게 테넌트 수준 권한을 부여할 수 있습니다.
+
+**전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테넌트 전체의 책임이 있지만 Azure Security Center에서 해당 조직 전체 정보를 볼 수 있는 Azure 권한은 없습니다. 
+
+자신에게 테넌트 수준 사용 권한을 할당하려면 [자신에게 테넌트 전체 사용 권한 부여](security-center-management-groups.md#grant-tenant-wide-permissions-to-yourself)의 지침을 따르세요.
 
 
 ### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)

@@ -1,21 +1,21 @@
 ---
 title: 여러 리소스 인스턴스 만들기
-description: Azure Resource Manager 템플릿을 만들어 여러 Azure 리소스 인스턴스를 만드는 방법을 알아봅니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 만들어 여러 Azure 리소스 인스턴스를 만드는 방법을 알아봅니다.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614396"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930801"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
-ARM(Azure Resource Manager) 템플릿을 반복하여 Azure 리소스의 여러 인스턴스를 만드는 방법을 알아봅니다. 이 자습서에서는 3개의 스토리지 계정 인스턴스를 만들도록 템플릿을 수정합니다.
+ARM 템플릿(Azure Resource Manager 템플릿)을 반복하여 Azure 리소스의 여러 인스턴스를 만드는 방법을 알아봅니다. 이 자습서에서는 3개의 스토리지 계정 인스턴스를 만들도록 템플릿을 수정합니다.
 
 ![Azure Resource Manager가 여러 인스턴스를 생성하는 다이어그램](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -32,21 +32,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 빠른 시작에서 사용되는 템플릿은 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
 
-1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
-2. **파일 이름**에서 다음 URL을 붙여넣습니다.
+1. Visual Studio Code에서 **파일**>**파일 열기** 를 차례로 선택합니다.
+2. **파일 이름** 에서 다음 URL을 붙여넣습니다.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. **열기**를 선택하여 파일을 엽니다.
+3. **열기** 를 선택하여 파일을 엽니다.
 4. 템플릿에 'Microsoft.Storage/storageAccounts' 리소스가 정의되어 있습니다. 이 템플릿을 [템플릿 참조](/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다. 템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
-5. **파일**>**이름으로 저장**을 차례로 선택하여 파일을 **azuredeploy.json**으로 저장합니다.
+5. **파일**>**이름으로 저장** 을 차례로 선택하여 파일을 **azuredeploy.json** 으로 저장합니다.
 
 ## <a name="edit-the-template"></a>템플릿 편집
 
@@ -119,7 +119,7 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 
     ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다. 이전 스크린샷을 참조하세요. 이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
+1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. 이전 스크린샷을 참조하세요. 이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
 1. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
 
@@ -178,10 +178,10 @@ Write-Host "Press [ENTER] to continue ..."
 
 Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
 3. 해당 리소스 그룹 이름을 선택합니다.  리소스 그룹에 총 세 개의 리소스가 표시됩니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+4. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

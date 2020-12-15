@@ -9,18 +9,26 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: f57e809373a8bd06c4b4afbb9b193464315e788f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959580"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932356"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
 이 문서에서는 Linux를 실행하는 Azure 가상 머신을 투명 게이트웨이로 작동하는 Azure IoT Edge 디바이스로 구성합니다. 투명 게이트웨이를 구성하면 디바이스가 게이트웨이 존재 여부를 알지 못해도 게이트웨이를 통해 Azure IoT Hub에 연결할 수 있습니다. 그와 동시에, Azure IoT Hub의 디바이스와 상호 작용하는 사용자는 중간에 있는 게이트웨이 디바이스를 인식하지 못합니다. 궁극적으로 투명 게이트웨이에 IoT Edge 모듈을 추가함으로써 시스템에 에지 분석 기능을 추가합니다.
 
 이 문서의 단계는 일반적으로 클라우드 개발자가 수행합니다.
+
+자습서의 이 섹션에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+>
+> * 게이트웨이 디바이스가 다운스트림 디바이스에 안전하게 연결할 수 있도록 인증서를 만듭니다.
+> * IoT Edge 디바이스를 만듭니다.
+> * IoT Edge 디바이스를 시뮬레이션하는 Azure 가상 머신을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -295,6 +303,10 @@ IoT Edge VM을 만들 때 사용한 *Azure IoT Edge on Ubuntu* 이미지는 conf
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서를 완료할 때까지 기다렸다가 리소스를 정리하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure VM을 Azure IoT Edge 투명 게이트웨이로 구성했습니다. 가장 먼저 테스트 인증서를 생성하여 Azure Key Vault에 업로드했습니다. 다음으로, 스크립트와 Resource Manager 템플릿을 사용하여 Azure Marketplace의 "Ubuntu Server 16.04 LTS + Azure IoT Edge 런타임" 이미지로 VM을 배포했습니다. SSH를 통해 연결된 VM을 실행하여 Azure에 로그인하고 Key Vault에서 인증서를 다운로드했습니다. config.yaml 파일을 업데이트하여 IoT Edge 런타임의 구성에 대해 몇 가지 업데이트를 수행했습니다.

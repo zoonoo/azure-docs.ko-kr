@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: aa9e7612a5b3b9655b0c1981fbba87645526b3a2
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 20792d58ab259f93d7725fbafda1507f9eddc740
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327205"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862159"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>자습서: Java에서 Event Hub 트리거 및 Azure Cosmos DB 출력 바인딩을 사용하여 함수 만들기
 
@@ -30,17 +30,14 @@ ms.locfileid: "96327205"
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
-* [Apache Maven](https://maven.apache.org), 버전 3.0 이상
-* [Azure CLI](/cli/azure/install-azure-cli)(Cloud Shell을 사용하지 않으려는 경우)
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 버전 2.6.666 이상
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), 버전 8
+- [Apache Maven](https://maven.apache.org), 버전 3.0 이상
+- [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 버전 2.6.666 이상 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 `JAVA_HOME` 환경 변수를 JDK의 설치 위치로 설정해야 합니다.
 
 이 자습서의 코드를 직접 사용하려면 [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) 샘플 리포지토리를 참조하세요.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Azure 리소스 만들기
 
@@ -53,17 +50,13 @@ ms.locfileid: "96327205"
 
 다음 섹션에서는 Azure CLI를 사용하여 이러한 리소스를 만드는 방법을 보여 줍니다.
 
-### <a name="log-in-to-azure"></a>Azure에 로그인
-
-Cloud Shell을 사용하지 않는 경우 Azure CLI를 로컬로 사용하여 계정에 액세스해야 합니다. Bash 프롬프트의 `az login` 명령을 사용하여 브라우저 기반 로그인 환경을 시작합니다. 둘 이상의 Azure 구독에 액세스할 수 있는 경우 기본값을 구독 ID가 뒤에 나오는 `az account set --subscription`으로 설정합니다.
-
 ### <a name="set-environment-variables"></a>환경 변수 설정
 
 다음으로, 만들 리소스의 이름과 위치에 대한 몇 가지 환경 변수를 만듭니다. 다음 명령을 사용하여 `<value>` 자리 표시자를 선택한 값으로 바꿉니다. 값은 [Azure 리소스에 대한 명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 준수해야 합니다. `LOCATION` 변수의 경우 `az functionapp list-consumption-locations` 명령으로 생성되는 값 중 하나를 사용합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 EVENT_HUB_NAMESPACE=<value>
 EVENT_HUB_NAME=<value>
@@ -350,7 +343,7 @@ Cloud Shell을 사용하여 리소스를 만든 경우 Azure에 로컬로 연결
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 RESOURCE_GROUP=<value>
 FUNCTION_APP=<value>
 ```
@@ -370,7 +363,7 @@ set FUNCTION_APP=<value>
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype \
@@ -406,7 +399,7 @@ mvn archetype:generate --batch-mode ^
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 cd telemetry-functions
 rm -r src/test
 ```
@@ -426,7 +419,7 @@ rmdir /s /q src\test
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 func azure functionapp fetch-app-settings $FUNCTION_APP
 ```
 
@@ -584,7 +577,7 @@ public class TelemetryItem {
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn clean package
 mvn azure-functions:run
 ```
@@ -623,7 +616,7 @@ mvn azure-functions:run
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-```bash
+```Bash
 mvn azure-functions:deploy
 ```
 

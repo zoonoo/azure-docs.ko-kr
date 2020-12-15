@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959631"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932390"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
 
@@ -26,6 +26,14 @@ ms.locfileid: "94959631"
 Azure Notebooks는 기계 학습 모델을 실험, 학습 및 배포하는 데 사용되는 기본 블록인 Azure Machine Learning 작업 영역을 활용합니다.
 
 이 문서의 단계는 일반적으로 데이터 과학자가 수행할 수 있습니다.
+
+자습서의 이 섹션에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+>
+> * 기계 학습 모델을 학습하기 위한 Azure Notebooks 프로젝트를 만듭니다.
+> * 학습된 기계 학습 모델을 컨테이너화합니다.
+> * 컨테이너화된 기계 학습 모델에서 Azure IoT Edge 모듈을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -179,6 +187,10 @@ Notebook이 성공적으로 완료되었는지 확인하려면 몇 가지 항목
 디버깅을 위해 노트북에 Python 문(예: `print()` 명령)을 삽입하여 값을 표시할 수 있습니다. 정의되지 않은 변수 또는 개체가 표시되는 경우 처음으로 선언되거나 인스턴스화된 셀을 실행합니다.
 
 노트북을 다시 실행해야 하는 경우 이전에 만든 파일과 Azure 리소스를 삭제해야 할 수도 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서를 완료할 때까지 기다렸다가 리소스를 정리하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

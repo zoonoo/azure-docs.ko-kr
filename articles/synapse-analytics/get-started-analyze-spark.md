@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: d7b198790b1ecc884321ad42c97eb5cf0c239b7e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: ee4dc945f63180fd06f13287b22949d0ac1e3873
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95241984"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862023"
 ---
 # <a name="analyze-with-apache-spark"></a>Apache Spark를 사용하여 분석
 
@@ -23,7 +23,7 @@ ms.locfileid: "95241984"
 
 이 자습서에서는 Azure Synapse용 Apache Spark를 사용하여 데이터를 로드하고 분석하는 기본 단계에 대해 알아봅니다.
 
-1. **데이터** 허브에서 **새 리소스 추가**(**연결됨** 위에 단추 추가) >> **샘플 찾아보기** 를 클릭합니다. 
+1. **데이터** 허브에서 **새 리소스 추가**(**연결됨** 위에 단추 추가) >> **갤러리 찾아보기** 를 클릭합니다. 
 1. **NYC Taxi 및 리무진 위원회 - 노란색 택시 운행 레코드** 를 찾아 클릭합니다. 
 1. 페이지의 하단에서 **계속** 을 누른 후 **데이터 세트 추가** 를 누릅니다. 
 1. 이제 **연결됨** 아래의 **데이터** 허브에서 **Azure Blob Storage >> 샘플 데이터 세트 >> nyc_tlc_yellow** 를 마우스 오른쪽 단추로 클릭하고 **새 Notebook** 을 선택합니다.

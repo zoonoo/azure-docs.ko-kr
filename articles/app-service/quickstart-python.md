@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506195"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780776"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -74,23 +74,11 @@ az login
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-그런 다음, 해당 폴더로 이동합니다.
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-그런 다음, 해당 폴더로 이동합니다.
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ cd python-docs-hello-django
 ## <a name="run-the-sample"></a>샘플 실행
 
 ::: zone pivot="python-framework-flask"
-1. *python-docs-hello-world* 폴더에 있는지 확인합니다. 
+1. *python-docs-hello-world* 폴더로 이동합니다.
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. 가상 환경을 만들고 종속성을 설치합니다.
 
@@ -115,7 +107,11 @@ cd python-docs-hello-django
     flask run
     ```
     
-    기본적으로 서버는 샘플에서 사용되는 것처럼 앱의 진입 모듈이 *app.py* 에 있다고 간주합니다. (다른 모듈 이름을 사용하는 경우 `FLASK_APP` 환경 변수를 해당 이름으로 설정합니다.)
+    기본적으로 서버는 샘플에서 사용되는 것처럼 앱의 진입 모듈이 *app.py* 에 있다고 간주합니다.
+
+    다른 모듈 이름을 사용하는 경우 `FLASK_APP` 환경 변수를 해당 이름으로 설정합니다.
+
+    오류가 발생하면 "Flask 애플리케이션을 찾을 수 없습니다. 'FLASK_APP' 환경 변수를 제공하지 않고 'wsgi.py' 또는 'app.py' 모듈을 현재 디렉터리에서 찾을 수 없습니다."라는 메시지가 포함된 `python-docs-hello-world` 폴더에 있는지 확인하세요.
 
 1. 웹 브라우저를 열고 `http://localhost:5000/`의 샘플 앱으로 이동합니다. 앱에 **Hello World!** 메시지가 표시됩니다.
 
@@ -125,7 +121,11 @@ cd python-docs-hello-django
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. *python-docs-hello-django* 폴더에 있는지 확인합니다. 
+1. *python-docs-hello-django* 폴더로 이동합니다.
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. 가상 환경을 만들고 종속성을 설치합니다.
 

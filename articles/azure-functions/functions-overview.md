@@ -1,20 +1,26 @@
 ---
 title: Azure 함수 개요
-description: Azure Functions에서 확장 가능한 서버리스 앱을 빌드하는 데 도움이 되는 방법을 알아봅니다.
+description: Azure Functions에서 강력한 서버리스 앱을 빌드하는 데 도움이 되는 방법을 알아봅니다.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 269d911c13cbc59a054c5548e106780d630c8e2b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167780"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620872"
 ---
 # <a name="introduction-to-azure-functions"></a>Azure Functions 소개
+
+Azure Functions는 더 적은 코드를 쓰고, 인프라를 적게 유지하고, 비용을 절감할 수 있도록 하는 서버리스 솔루션입니다. 서버 배포 및 유지 관리에 대해 걱정하는 대신 클라우드 인프라는 애플리케이션을 계속 실행하는 데 필요한 모든 최신 서버를 제공합니다.
+
+가장 중요한 코드 조각에 초점을 맞춘 Azure Functions가 나머지를 처리합니다.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
 
 일련의 중요한 이벤트에 대응하는 시스템을 빌드하는 경우가 많습니다. 웹 API를 빌드하든지, 데이터베이스 변경에 응답하든지, IoT 데이터 스트림을 처리하든지 또는 메시지 큐를 관리하든지 간에 모든 애플리케이션에는 이러한 이벤트가 발생할 때 일부 코드를 실행할 수 있는 방법이 필요합니다.
 
@@ -43,7 +49,7 @@ ms.locfileid: "96167780"
 | **예약된 작업 실행** | 코드를 [설정 시간](./functions-bindings-timer.md)에 실행합니다. |
 | **안정적인 메시지 큐 시스템 만들기** | [Queue Storage](./functions-bindings-storage-queue.md), [Service Bus](./functions-bindings-service-bus.md) 또는 [Event Hubs](./functions-bindings-event-hubs.md)를 사용하여 메시지 큐를 처리합니다. |
 | **IoT 데이터 스트림 분석** | [IoT 디바이스](./functions-bindings-event-iot.md)에서 데이터를 수집하고 처리합니다. |
-| **실시간 데이터 처리** | [Functions 및 Signal R](./functions-bindings-signalr-service.md)을 사용하여 현재 데이터에 응답합니다. |
+| **실시간 데이터 처리** | [Functions 및 SignalR](./functions-bindings-signalr-service.md)을 사용하여 현재 데이터에 응답합니다. |
 
 함수를 빌드할 때 사용할 수 있는 옵션과 리소스는 다음과 같습니다.
 

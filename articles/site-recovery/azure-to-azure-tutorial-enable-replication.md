@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure Site Recovery를 사용하여 다른 A
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394103"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922483"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>자습서: Azure VM에 대한 재해 복구 설정
 
@@ -56,7 +56,7 @@ Azure 계정에는 Recovery Services 자격 증명 모음을 만들고 대상 �
 
 ### <a name="verify-target-settings"></a>대상 설정 확인
 
-검색 복구 중에 원본 지역에서 장애 조치(failover)를 수행하면 대상 지역에 VM이 만들어집니다. 
+재해 복구 중에 원본 지역에서 장애 조치(failover)를 수행하면 대상 지역에 VM이 만들어집니다. 
 
 구독이 대상 지역에 충분한 리소스가 있는지 확인합니다. 원본 지역의 VM과 일치하는 크기로 VM을 만들 수 있어야 합니다. 재해 복구를 설정할 때 Site Recovery는 대상 VM에 대해 동일한 크기(또는 가장 가까운 크기)를 선택합니다.
 

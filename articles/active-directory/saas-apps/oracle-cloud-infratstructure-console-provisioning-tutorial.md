@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 70b60d340e3af8d726915db513e30eaff26ed217
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 203af02841e6d17546d254ed83868c859ba3ac0d
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96347602"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938939"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Oracle Cloud Infrastructure Console 구성
 
@@ -37,8 +37,8 @@ ms.locfileid: "96347602"
 
 * [Azure AD 테넌트](../develop/quickstart-create-new-tenant.md) 
 * 프로비저닝을 구성할 [권한](../roles/permissions-reference.md)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* Oracle Cloud Infrastructure Console [테넌트](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)
-* 관리자 권한이 있는 Oracle Cloud Infrastructure Console의 사용자 계정
+* Oracle Cloud Infrastructure Console [테넌트](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton).
+* 관리자 권한이 있는 Oracle Cloud Infrastructure Console의 사용자 계정.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.

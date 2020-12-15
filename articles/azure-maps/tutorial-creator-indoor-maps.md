@@ -1,21 +1,27 @@
 ---
-title: '자습서: Creator를 사용하여 실내 맵 만들기'
-description: Azure Maps Creator를 사용하여 실내 맵을 만드는 방법에 대한 자습서입니다.
+title: '자습서: Microsoft Azure Maps Creator(미리 보기)를 사용하여 실내 맵 만들기'
+description: Microsoft Azure Maps Creator(미리 보기)를 사용하여 실내 맵을 만드는 방법에 대한 자습서
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 09/22/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896782"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905726"
 ---
-# <a name="tutorial-use-creator-to-create-indoor-maps"></a>자습서: Creator를 사용하여 실내 맵 만들기
+# <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>자습서: Creator(미리 보기)를 사용하여 실내 맵 만들기
+
+> [!IMPORTANT]
+> Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+
 
 이 자습서에서는 실내 맵을 만드는 방법을 보여 줍니다. 이 자습서에서 API를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -34,7 +40,7 @@ ms.locfileid: "92896782"
 
 1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-3. [Creator 리소스를 만듭니다](how-to-manage-creator.md).
+3. [Creator(미리 보기) 리소스 만들기](how-to-manage-creator.md)
 4. [그리기 패키지 샘플](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip)을 다운로드합니다.
 
 이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
@@ -111,7 +117,7 @@ ms.locfileid: "92896782"
     ```
 
     >[!IMPORTANT]
-    > 이 문서의 API URL은 Creator 리소스의 위치에 따라 조정해야 할 수 있습니다. 자세한 내용은 [Creator 서비스에 대한 액세스](how-to-manage-creator.md#access-to-creator-services)를 참조하세요.
+    > 이 문서의 API URL은 Creator 리소스의 위치에 따라 조정해야 할 수 있습니다. 자세한 내용은 [Creator 서비스(미리 보기)에 대한 액세스](how-to-manage-creator.md#access-to-creator-services)를 참조하세요.
 
 3. **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동하여 **위치** 키를 찾습니다. 변환 요청에 대한 `status URL`인 **위치** 키의 값을 복사합니다. 이 값은 다음 단계에서 사용합니다.
 
@@ -404,7 +410,7 @@ ms.locfileid: "92896782"
 
 [기능 상태 가져오기 API](/rest/api/maps/featurestate/getstatespreview)를 사용하면 기능 `ID`를 사용하여 기능의 상태를 검색할 수 있습니다. 또한 [기능 상태 삭제 API](/rest/api/maps/featurestate/deletestatesetpreview)를 사용하여 상태 세트 및 해당 리소스를 삭제할 수도 있습니다.
 
-이 문서에서 설명하는 다양한 Azure Maps Creator 서비스에 대한 자세한 내용은 [실내 맵용 Creator](creator-indoor-maps.md)를 참조하세요.
+이 문서에서 설명하는 다양한 Azure Maps Creator 서비스(미리 보기)에 대한 자세한 내용은 [실내 맵용 Creator](creator-indoor-maps.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

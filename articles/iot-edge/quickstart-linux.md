@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 Linux에서 IoT Edge 디바이스를 만
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/30/2020
+ms.date: 12/02/2020
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 720a4d14a73350d98b3f9054f748b93d296be11b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: ff9ba73e71e4525fe56a3cbb54626030f57e990b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579303"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920800"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -33,23 +33,15 @@ ms.locfileid: "94579303"
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에서는 Azure CLI를 사용하여 많은 단계를 수행하고, Azure IoT에는 추가 기능을 사용할 수 있게 하는 확장이 있습니다.
+Azure CLI에 대한 환경을 준비합니다.
 
-Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 클라우드 리소스:
 
-* 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 이 빠른 시작과 다음 자습서에서는 **IoTEdgeResources** 라는 예제 리소스 그룹을 사용합니다.
+- 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 이 빠른 시작과 다음 자습서에서는 **IoTEdgeResources** 라는 예제 리소스 그룹을 사용합니다.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -119,11 +111,11 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
    az deployment group create \
    --resource-group IoTEdgeResources \
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
-   --parameters dnsLabelPrefix='my-edge-vm' \
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
    <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password'
+   --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
@@ -133,7 +125,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
    az deployment group create `
    --resource-group IoTEdgeResources `
    --template-uri "https://aka.ms/iotedge-vm-deploy" `
-   --parameters dnsLabelPrefix='my-edge-vm1' `
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
    --parameters adminUsername='azureUser' `
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
    --parameters authenticationType='password' `
@@ -146,7 +138,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 | --------- | ----------- |
 | **resource-group** | 네트워크를 만들 리소스 그룹입니다. 지금까지 이 문서 전체에서 사용한 기본 **IoTEdgeResources** 를 사용하거나, 구독의 기존 리소스 그룹 이름을 입력합니다. |
 | **template-uri** | 사용 중인 Resource Manager 템플릿을 가리키는 포인터입니다. |
-| **dnsLabelPrefix** | 가상 머신의 호스트 이름을 만드는 데 사용되는 문자열입니다. **my-edge-vm** 예제를 사용하거나 새 문자열을 입력합니다. |
+| **dnsLabelPrefix** | 가상 머신의 호스트 이름을 만드는 데 사용되는 문자열입니다. 자리 표시자 텍스트를 가상 머신의 이름으로 바꿉니다. |
 | **adminUsername** | 가상 머신의 관리자 계정 사용자 이름입니다. **azureUser** 예제를 사용하거나 새 사용자 이름을 입력합니다. |
 | **deviceConnectionString** | IoT Hub에서 디바이스 ID의 연결 문자열입니다. 가상 머신의 IoT Edge 디바이스의 런타임을 구성하는 데 사용됩니다. 이 매개 변수 내의 CLI 명령은 사용자 대신 연결 문자열을 가져옵니다. 자리 표시자 텍스트를 IoT 허브 이름으로 바꿉니다. |
 | **authenticationType** | 관리자 계정의 인증 방법입니다. 이 빠른 시작에서는 **암호** 인증을 사용하지만, 이 매개 변수를 **sshPublicKey** 로 설정할 수도 있습니다. |

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 49f244ea8e602f3b5e6499b8e14db2be15bfc8f7
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: b40a13b84a0191b5c454d7edac2226f8f06fadcd
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317080"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780164"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 인증서 클라이언트 라이브러리(SDK v4)
 
@@ -54,6 +54,13 @@ Key Vault 및 인증서에 대한 자세한 내용은 다음을 참조하세요.
 
 2. 브라우저에서 계정 자격 증명으로 로그인합니다.
 
+#### <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
+
+인증서 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
+
+```console
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
+```
 
 ### <a name="create-new-net-console-app"></a>새 .NET 콘솔 앱 만들기
 
@@ -89,14 +96,6 @@ dotnet add package Azure.Security.KeyVault.Certificates
 
 ```dotnetcli
 dotnet add package Azure.Identity
-```
-
-#### <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
-
-인증서 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
-
-```console
-az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --certificate-permissions delete get list create purge
 ```
 
 #### <a name="set-environment-variables"></a>환경 변수 설정
@@ -137,7 +136,7 @@ using Azure.Security.KeyVault.Certificates;
 
 이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
 
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)를 참조하세요.
+아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) 클래스를 사용합니다. 키 자격 증명 모음 인증에 대한 자세한 내용은 [개발자 가이드](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code)를 참조하세요.
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -228,61 +227,20 @@ await client.PurgeDeletedCertificateAsync("myCertificate");
     ```
 ### <a name="test-and-verify"></a>테스트 및 확인
 
-1.  다음 명령을 실행하여 프로젝트를 빌드합니다.
+다음 명령을 실행하여 프로젝트를 빌드합니다.
 
-    ```dotnetcli
-    dotnet build
-    ```
-
-1. 다음 명령을 실행하여 앱을 실행합니다.
-
-    ```dotnetcli
-    dotnet run
-    ```
-
-1. 메시지가 표시되면 비밀 값을 입력합니다. 예를 들어 mySecretPassword입니다.
-
-    다음과 유사한 출력이 표시됩니다.
-
-    ```console
-    Creating a certificate in mykeyvault called 'myCertificate' ... done.
-    Retrieving your certificate from mykeyvault.
-    Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
-    Deleting your certificate from jl-kv ... done
-    ```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 Azure CLI 또는 Azure PowerShell을 사용하여 키 자격 증명 모음 및 해당 리소스 그룹을 제거할 수 있습니다.
-
-### <a name="delete-a-key-vault"></a>Key Vault 삭제
-
-```azurecli
-az keyvault delete --name <your-unique-keyvault-name>
+```dotnetcli
+dotnet build
 ```
 
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name>
-```
+다음과 유사한 출력이 표시됩니다.
 
-### <a name="purge-a-key-vault"></a>Key Vault 제거
-
-```azurecli
-az keyvault purge --location eastus --name <your-unique-keyvault-name>
-```
-
-```azurepowershell
-Remove-AzKeyVault -VaultName <your-unique-keyvault-name> -InRemovedState -Location eastus
-```
-
-### <a name="delete-a-resource-group"></a>리소스 그룹 삭제
-
-```azurecli
-az group delete -g "myResourceGroup"
-```
-
-```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+```console
+Creating a certificate in mykeyvault called 'myCertificate' ... done.
+Retrieving your certificate from mykeyvault.
+Your certificate version is '8532359bced24e4bb2525f2d2050738a'.
+Deleting your certificate from mykeyvault ... done
+Purging your certificate from mykeyvault ... done
 ```
 
 ## <a name="next-steps"></a>다음 단계

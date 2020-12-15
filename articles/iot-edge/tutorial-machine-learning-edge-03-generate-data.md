@@ -8,12 +8,12 @@ ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6e86bbb55a2c51779f2dcf60f802ce549516cb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: eef5e60b06eedb1fb07c57aa2e369dd3830fcad5
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959682"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932407"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>자습서: 시뮬레이션된 디바이스 데이터 생성
 
@@ -42,6 +42,14 @@ DeviceHarness 프로젝트는 4개 클래스로 구성된 C#으로 작성된 .NE
 이 문서에 설명된 작업은 완료하는 데 약 20분이 소요됩니다.
 
 이 단계의 작업과 동일한 실제 환경은 디바이스 개발자와 클라우드 개발자가 수행할 가능성이 높습니다.
+
+자습서의 이 섹션에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+>
+> * 외부 프로젝트를 개발 환경에 통합합니다.
+> * 샘플 DeviceHarness 프로젝트를 사용하여 시뮬레이션된 IoT 디바이스 데이터를 생성합니다.
+> * IoT Hub에서 생성된 데이터를 봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -157,6 +165,10 @@ DeviceHarness가 보낸 데이터는 IoT 허브로 이동했으며, Azure Portal
 1. 파일은 [Avro](https://avro.apache.org/) 형식으로 기록되어 있습니다. 이러한 파일 중 하나를 두 번 클릭하여 다른 브라우저 탭을 열고 데이터를 부분적으로 렌더링합니다. 프로그램에서 파일을 열지 묻는 메시지가 표시되는 경우 VS Code를 선택하면 올바르게 렌더링됩니다.
 
 1. 지금 당장 데이터를 읽거나 해석하려고 할 필요가 없습니다. 다음 문서에서 수행하게 됩니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서를 완료할 때까지 기다렸다가 리소스를 정리하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

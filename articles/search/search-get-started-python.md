@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python에서 검색 인덱스 만들기'
 titleSuffix: Azure Cognitive Search
-description: Python, Jupyter Notebook 및 Azure.Documents.Search 라이브러리를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
+description: Python, Notebooks 및 Azure.Documents.Search 라이브러리를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/19/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 528d29f3b285c2583fd1bb52e1de7c24fdc9e28a
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 126fc69678148d4d478c96ff8d05f194c7e3d1b3
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917089"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861870"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebooks를 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 
 > [!div class="op_single_selector"]
 > * [Python](search-get-started-python.md)

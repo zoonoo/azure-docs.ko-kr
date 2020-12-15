@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 0802f09cfb03f837fb7080620da776e79b37c9ed
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7400aeeba80ce168a9dea0d81e1ad0f2fbe24c95
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845087"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750846"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>빠른 시작: Azure Spring Cloud 구성 서버 설정
 
@@ -82,6 +82,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 ---
 ::: zone-end
+
+> [!TIP]
+> 구성 서버용 프라이빗 리포지토리를 사용하는 경우 [인증 설정에 대한 자습서](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)를 참조하세요.
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud 구성 서버 문제 해결
 

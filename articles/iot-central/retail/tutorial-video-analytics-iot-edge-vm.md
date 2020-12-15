@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426548"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763879"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)
 
@@ -51,15 +51,15 @@ IoT Edge에서 이러한 서비스는 플랫폼 간 IoT 디바이스에서 직�
 | Subscription | Azure 구독을 선택합니다. |
 | Resource group | *lva-rg* - 이전 자습서에서 만든 리소스 그룹입니다. |
 | Azure 지역       | *미국 동부* |
-| DNS 레이블 접두사 | VM의 고유한 DNS 접두사를 선택합니다. |
+| DNS 레이블 접두사 | VM의 고유한 DNS 접두사를 선택합니다. 모두 영문자여야 하며 숫자 또는 특수 문자가 없어야 합니다. |
 | 관리자 사용자 이름 | *AzureUser* |
 | 관리자 암호 | 암호를 입력합니다. *scratchpad.txt* 파일에 암호를 기록해 둡니다. 나중에 필요합니다. |
 | 범위 ID | 이전 자습서에서 게이트웨이 디바이스를 추가할 때 *scratchpad.txt* 파일에 기록해 둔 **범위 ID** 입니다. |
 | 디바이스 ID | *gateway-001* - 이전 자습서에서 만든 게이트웨이 디바이스입니다. |
-| 디바이스 키 | 이전 자습서에서 게이트웨이 디바이스를 추가할 때 *scratchpad.txt* 파일에 기록해 둔 디바이스 기본 키입니다. |
+| 디바이스 키 | 이전 자습서에서 게이트웨이 디바이스를 추가할 때 *scratchpad.txt* 파일에 기록해 둔 **디바이스 기본 키** 입니다. |
 | Iot Central 앱 호스트 | 이전 자습서에서 *scratchpad.txt* 파일에 기록해 둔 **애플리케이션 URL** 입니다. 예를 들어 *traders.azureiotcentral.com* 입니다. |
-| Iot Central 앱 Api 토큰 | 이전 자습서에서 기록해 둔 연산자 API 토큰입니다. |
-| Iot Central 디바이스 프로비저닝 키 | 이전 자습서에서 *scratchpad.txt* 파일에 적어둔 기본 그룹 공유 액세스 서명 토큰입니다. |
+| Iot Central 앱 Api 토큰 | 이전 자습서에서 *scratchpad.txt* 파일에 기록해 둔 **연산자 API 토큰** 입니다. |
+| Iot Central 디바이스 프로비저닝 키 | 이전 자습서에서 *scratchpad.txt* 파일에 기록해 둔 **SAS-IoT-Devices 그룹 기본 키** 입니다. |
 | VM 크기 | *Standard_DS1_v2* |
 | Ubuntu OS 버전 | *18.04-LTS* |
 | 위치 | *[resourceGroup().location]* |

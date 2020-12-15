@@ -2,13 +2,13 @@
 title: Azure Lab Services를 사용하여 클래스룸 랩 설정 | Microsoft Docs
 description: 이 자습서에서는 Azure Lab Services를 사용하여 클래스의 학생이 사용하는 가상 머신이 포함된 클래스룸 랩을 설정합니다.
 ms.topic: tutorial
-ms.date: 06/26/2020
-ms.openlocfilehash: 8981a03b53b1cfb67b03d89f8a1468511d9b1b93
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/03/2020
+ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96434858"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602511"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -121,19 +121,71 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
 
 ## <a name="add-users-to-the-lab"></a>랩에 사용자 추가
 
-1. 왼쪽 메뉴에서 **사용자** 를 선택합니다. 기본적으로 **액세스 제한** 옵션이 사용되도록 설정됩니다. 이 설정이 켜져 있으면 사용자가 사용자 목록에 없으면 등록 링크가 있어도 랩에 등록할 수 없습니다. 목록의 사용자만 전송 받은 등록 링크를 사용하여 랩에 등록할 수 있습니다. 이 절차에서는 사용자를 목록에 추가합니다. **액세스 제한** 을 끌 수도 있습니다. 이 경우 사용자는 등록 링크가 있기만 하면 랩에 등록할 수 있습니다. 
-2. 도구 모음에서 **사용자 추가** 를 선택한 다음, **이메일 주소로 추가** 를 선택합니다. 
+사용자를 추가하면 기본적으로 **액세스 제한** 옵션이 설정되며, 사용자 목록에 없는 경우 등록 링크가 있어도 학생은 랩에 등록할 수 없습니다. 나열된 사용자만 보내는 등록 링크를 사용하여 랩에 등록할 수 있습니다. **액세스 제한** 은 해제할 수 있습니다. 이 경우 등록 링크가 있는 한 학생은 랩에 등록할 수 있습니다. 
 
-    ![사용자 추가 단추](./media/how-to-configure-student-usage/add-users-button.png)
-1. **사용자 추가** 페이지에서 여러 줄에 걸쳐 또는 세미콜론으로 구분해서 단일 줄에 사용자의 이메일 주소를 입력합니다. 
+### <a name="add-users-from-an-azure-ad-group"></a>Azure AD 그룹에서 사용자 추가
 
-    ![사용자 이메일 주소 추가](./media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. **저장** 을 선택합니다. 목록에서 사용자의 이메일 주소 및 해당 상태(등록됨 또는 등록 해제됨)를 확인합니다. 
+사용자를 수동으로 추가하거나 삭제할 필요가 없도록 랩 사용자 목록을 기존 Azure AD(Azure Active Directory) 그룹에 동기화할 수 있습니다. 
 
-    ![사용자 목록](./media/how-to-configure-student-usage/users-list-new.png)
+조직 리소스 및 클라우드 기반 앱에 대한 액세스를 관리하기 위해 Azure AD 그룹을 조직의 Azure Active Directory 내에 만들 수 있습니다. 자세한 내용은 [Azure AD 그룹](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)을 참조하세요. 조직에서 Microsoft Office 365 또는 Azure 서비스를 사용하는 경우 조직에는 이미 Azure Active Directory를 관리하는 관리자가 있습니다. 
 
-    사용자가 랩에 등록되면 목록에 사용자 이름이 표시됩니다. 
+> [!IMPORTANT]
+> 사용자 목록이 비어 있어야 합니다. 수동으로 또는 CSV 파일 가져오기를 통해 추가한 랩 내에 기존 사용자가 있는 경우 랩을 기존 그룹에 동기화하는 옵션이 표시되지 않습니다. 
+
+1. 왼쪽 창에서 **사용자** 를 선택합니다. 
+1. **그룹에서 동기화** 를 클릭합니다. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-sync-group.png" alt-text="Azure AD 그룹에서 동기화하여 사용자 추가":::
     
+1. 랩을 동기화할 기존 Azure AD 그룹을 선택하라는 메시지가 표시됩니다. 
+    
+    Azure AD 그룹이 목록에 표시되지 않으면 다음과 같은 이유 때문일 수 있습니다.
+
+    -   Azure Active Directory의 게스트 사용자인 경우(일반적으로 Azure AD를 소유한 조직 외부에 있는 경우) Azure AD 내에서 그룹을 검색할 수 없습니다. 이 경우 Azure AD 그룹을 랩에 추가할 수 없습니다. 
+    -   Teams를 통해 만든 Azure AD 그룹은 이 목록에 표시되지 않습니다. Teams 내에서 랩을 직접 만들고 관리하는 Azure Lab Services 앱을 추가할 수 있습니다. [Teams 내에서 랩의 사용자 목록을 관리](how-to-manage-user-lists-within-teams.md)하는 방법에 대한 자세한 내용을 참조하세요. 
+1. 랩을 동기화할 Azure AD 그룹이 선택되면 **추가** 를 클릭합니다.
+1. 랩이 동기화되면 Azure AD 그룹 내의 모든 사용자를 사용자로 랩에 끌어오고 업데이트된 사용자 목록을 표시합니다. 이 Azure AD 그룹의 사용자만 랩에 액세스할 수 있습니다. 사용자 목록은 Azure AD 그룹의 최신 멤버 자격과 일치하도록 24시간마다 새로 고쳐집니다. 또한 [사용자] 탭에서 [동기화] 단추를 클릭하여 Azure AD 그룹의 최신 변경 내용에 수동으로 동기화할 수 있습니다.
+1. **모두 초대** 단추를 클릭하여 사용자를 랩에 초대합니다. 그러면 모든 사용자에게 랩에 대한 등록 링크가 포함된 이메일이 보내집니다. 
+
+### <a name="add-users-manually-from-emails-or-csv-file"></a>이메일 또는 CSV 파일에서 수동으로 사용자 추가
+
+이 섹션에서는 학생을 수동으로(이메일 주소 사용 또는 CSV 파일 업로드) 추가합니다. 
+
+#### <a name="add-users-by-email-address"></a>이메일 주소로 사용자 추가
+
+1. 왼쪽 창에서 **사용자** 를 선택합니다. 
+1. **수동으로 사용자 추가** 를 클릭합니다. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-manually.png" alt-text="수동으로 사용자 추가":::
+1. **이메일 주소로 추가**(기본값)를 선택하고, 학생의 이메일 주소를 별도의 줄 또는 세미콜론으로 구분된 단일 줄에 입력합니다. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/add-users-email-addresses.png" alt-text="사용자의 이메일 주소 추가":::
+1. **저장** 을 선택합니다. 
+
+    랩에 등록되었는지 여부에 관계없이 현재 사용자의 이메일 주소 및 상태가 목록에 표시됩니다. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="사용자 목록":::
+
+    > [!NOTE]
+    > 학생이 랩에 등록되면 해당 이름이 목록에 표시됩니다. 목록에 표시되는 이름은 Azure Active Directory에 있는 학생의 이름과 성을 사용하여 구성됩니다. 
+
+#### <a name="add-users-by-uploading-a-csv-file"></a>CSV 파일을 업로드하여 사용자 추가
+
+이메일 주소가 포함된 CSV 파일을 업로드하여 사용자를 추가할 수도 있습니다. 
+
+CSV 텍스트 파일은 CSV(쉼표로 구분) 테이블 형식 데이터(숫자 및 텍스트)를 저장하는 데 사용됩니다. CSV 파일은 정보를 열 필드(예: 스프레드시트)에 저장하는 대신 쉼표로 구분된 정보를 저장합니다. CSV 파일의 각 줄에는 동일한 수의 쉼표로 구분된 "필드"가 있습니다. Excel을 사용하여 CSV 파일을 쉽게 만들고 편집할 수 있습니다.
+
+1. Microsoft Excel에서 학생의 이메일 주소를 한 열에 나열하는 CSV 파일을 만듭니다.
+
+    :::image type="content" source="./media/how-to-configure-student-usage/csv-file-with-users.png" alt-text="CSV 파일의 사용자 목록":::
+1. **사용자** 창의 위쪽에서 **사용자 추가** 를 선택한 다음, **CSV 업로드** 를 선택합니다.
+1. 학생의 이메일 주소가 포함된 CSV 파일을 선택한 다음, **열기** 를 선택합니다.
+
+    **사용자 추가** 창에 CSV 파일의 이메일 주소 목록이 표시됩니다. 
+1. **저장** 을 선택합니다. 
+1. **사용자** 창에서 추가된 학생 목록을 봅니다. 
+
+    :::image type="content" source="./media/how-to-configure-student-usage/list-of-added-users.png" alt-text="사용자 창에 추가된 사용자 목록"::: 
 
 ## <a name="send-invitation-emails-to-users"></a>사용자에게 초대 이메일 보내기
 
@@ -145,7 +197,7 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
     ![이메일로 등록 링크 보내기](./media/tutorial-setup-classroom-lab/send-email.png)
 4. **사용자** 목록에 **초대** 상태가 표시됩니다. 상태가 **보내는 중** 으로 변경된 다음, **&lt;날짜&gt;에 보냄** 으로 변경됩니다. 
 
-    학생을 클래스에 추가하고 이들의 랩 사용을 관리하는 방법에 대한 자세한 내용은 [학생의 사용을 구성하는 방법](how-to-configure-student-usage.md)을 참조하세요.
+학생을 클래스에 추가하고 이들의 랩 사용을 관리하는 방법에 대한 자세한 내용은 [학생의 사용을 구성하는 방법](how-to-configure-student-usage.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure에서 클래스에 대한 랩을 만들었습니다. 학생이 등록 링크를 사용하여 랩에서 VM에 액세스하는 방법을 알아보려면 다음 자습서로 이동하십시오.

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c4d4c659fd1c33c9ffc1b833b92d0727b5c17bf7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099191"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922886"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
@@ -82,7 +82,7 @@ ms.locfileid: "93099191"
 
    이제 Azure 창의 **Logic Apps** 및 **통합 계정** 섹션에서 계정과 연결된 Azure 구독이 표시됩니다. 그러나 원하는 구독이 표시되지 않거나 섹션에서 너무 많은 구독이 표시되는 경우 다음 단계를 수행합니다.
 
-   1. 포인터를 **Logic Apps** 레이블 위로 이동합니다. 도구 모음이 표시되면 **구독 선택** (필터 아이콘)을 선택합니다.
+   1. 포인터를 **Logic Apps** 레이블 위로 이동합니다. 도구 모음이 표시되면 **구독 선택**(필터 아이콘)을 선택합니다.
 
       ![Azure 구독 찾기 또는 필터링](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
 
@@ -307,4 +307,4 @@ Visual Studio Code에서는 논리 앱의 이전 버전을 열고 검토할 수 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Visual Studio Code(미리 보기)에서 상태 저장 또는 상태 비저장 논리 앱 만들기](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Visual Studio Code(미리 보기)에서 상태 저장 및 상태 비저장 논리 앱 만들기](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 12/02/2020
 ms.author: banders
-ms.openlocfilehash: 070d105785ee3ab9811188406bda56dbe6ceb558
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350894"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545607"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업계약 예약 비용 및 사용량 가져오기
 
@@ -139,6 +139,8 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 1. 예상 종량제 비용을 구합니다. 사용량에 예약 할인이 적용되지 않은 경우 _UnitPrice_ 값에 _Quantity_ 값을 곱하여 예상 종량제 비용을 구합니다.
 2. 예약 비용을 구합니다. _Cost_ 값을 합산하여 예약 인스턴스에 대해 지불한 금전적 가치를 구합니다. 여기에는 사용된 예약 및 사용되지 않은 예약 비용이 포함됩니다.
 3. 예상 종량제 비용에서 예약 비용을 빼서 예상 절감액을 구합니다.
+
+미달 사용 예약이 있는 경우 _ChargeType_ 에 대한 _UnusedReservation_ 항목이 고려해야 할 요인이 됩니다. 완전히 활용된 예약이 있으면 최대한의 절감 효과를 얻을 수 있습니다. _UnusedReservation_ 수량에서는 절감이 줄여듭니다.
 
 ## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>비용 분석의 예약 구매 및 분할 상환
 

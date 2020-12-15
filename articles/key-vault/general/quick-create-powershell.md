@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ace6d21d2928eac1fb91903c5e395f1e3479a3ff
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c3407b9539047b5c683f304549977eace7b57341
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823446"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779008"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 키 자격 증명 모음 만들기
 
@@ -74,7 +74,7 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+이 빠른 시작에서는 Azure PowerShell을 사용하여 Key Vault를 만들었습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](overview.md) 참조
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)에 대한 참조를 참조하세요.

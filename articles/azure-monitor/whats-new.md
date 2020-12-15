@@ -5,17 +5,81 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 11/11/2020
-ms.openlocfilehash: bf15e380eb1a88acc39ca63165d18d04a260b35d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/04/2020
+ms.openlocfilehash: 91aa76fd3d9dbb54316f32fdb319e92ca2283b1d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185898"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745777"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="general"></a>일반
+- [Azure Monitor 서비스 제한](service-limits.md) - Azure Arc 지원을 위해 업데이트되었습니다.
+
+### <a name="agents"></a>에이전트
+- [Azure 모니터링 에이전트 개요](platform/agents-overview.md) - Azure Arc 지원을 위해 업데이트되었습니다.
+- [Azure Monitor 에이전트 설치](platform/azure-monitor-agent-install.md) - 새 문서.
+- [Azure Monitor 에이전트 개요](platform/azure-monitor-agent-overview.md) - Azure Arc 지원을 위해 업데이트되었습니다.
+- [에이전트용 Resource Manager 템플릿 샘플](samples/resource-manager-agent.md) - Azure Arc 지원을 위해 업데이트되었습니다.
+
+### <a name="alerts"></a>경고
+- [Azure Portal에서 작업 그룹 만들기 및 관리](platform/action-groups.md) - 웹후크에 대한 원본 IP 주소를 추가했습니다.
+
+### <a name="application-insights"></a>Application Insights
+- [Java 코드리스 애플리케이션 모니터링 Azure Monitor Application Insights](app/java-in-process-agent.md) - 구성 예제를 추가했습니다.
+- [Application Insights JavaScript SDK에 대한 반응 플러그 인](app/javascript-react-plugin.md) - 반응 후크 사용에 대한 섹션을 추가했습니다.
+- [Application Insights Java 2.x SDK에서 업그레이드](app/java-standalone-upgrade-from-2x.md) - 새 문서.
+- [Microsoft.ApplicationInsights.SnapshotCollector에 대한 릴리스 정보](app/snapshot-collector-release-notes.md) - 새 문서.
+
+### <a name="autoscale"></a>자동 크기 조정
+- [Azure에서 자동 크기 조정 시작](platform/autoscale-get-started.md) - 자동 크기 조정을 다른 지역으로 이동하는 섹션을 추가했습니다.
+
+### <a name="data-collection"></a>데이터 수집
+- [Azure Monitor 에이전트를 위한 데이터 컬렉션 구성(미리 보기)](platform/data-collection-rule-azure-monitor-agent.md) - Azure Arc 지원을 위해 업데이트되었습니다.
+- [Azure Monitor의 데이터 컬렉션 규칙(미리 보기)](platform/data-collection-rule-overview.md) - Azure Arc 지원을 위해 업데이트되었습니다.
+- [데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플](samples/resource-manager-data-collection-rules.md) - 새 문서.
+
+### <a name="insights-and-solutions"></a>인사이트 및 솔루션
+- [보안 내보내기를 사용하여 Azure를 ITSM 도구에 연결](platform/it-service-management-connector-secure-webhook-connections.md) - ServiceNow에 연결하는 섹션을 추가했습니다.
+
+### <a name="logs"></a>로그
+- [Log Analytics와 Excel 통합](log-query/log-excel.md) - 새 문서.
+- [Log Analytics 데이터 보안](platform/data-security.md) - 추가 보안 기능에 대한 섹션이 추가되었습니다.
+- [Power BI와 Log Analytics 통합](log-query/log-powerbi.md) - 새 문서.
+- [Azure Monitor 로그 레코드의 표준 열](platform/log-standard-columns.md) - _SubscriptionId 열이 추가되었습니다.
+
+로그 쿼리 콘텐츠의 재구성에서 새롭게 업데이트된 문서.
+
+- [Log Analytics 자습서](log-query/log-analytics-tutorial.md)
+- [Azure Monitor의 로그 쿼리](log-query/log-query-overview.md)
+- [Azure Monitor의 Log Analytics 개요](log-query/log-analytics-overview.md)
+- [Azure Data Explorer 및 Azure Monitor의 쿼리 샘플](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor)
+- [자습서: Azure Data Explorer 및 Azure Monitor에서 Kusto 쿼리 사용](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor)
+
+
+
+### <a name="virtual-machines"></a>가상 머신
+
+- [VM용 Azure Monitor 사용 개요](insights/vminsights-enable-overview.md) - 지원되는 지역을 추가했습니다.
+
+VM용 Azure Monitor 게스트 상태에 대한 새 문서(미리 보기)
+
+- [VM용 Azure Monitor 게스트 상태(미리 보기)](insights/vminsights-health-overview.md)
+- [VM용 Azure Monitor 게스트 상태 경고(미리 보기)](insights/vminsights-health-alerts.md)
+- [VM용 Azure Monitor 게스트 상태에서 모니터링 구성(미리 보기)](insights/vminsights-health-configure.md)
+- [데이터 컬렉션 규칙을 사용하여 VM용 Azure Monitor 게스트 상태에서 모니터링 구성(미리 보기)](insights/vminsights-health-configure-dcr.md)
+- [VM용 Azure Monitor 게스트 상태 사용(미리 보기)](insights/vminsights-health-enable.md)
+- [VM용 Azure Monitor 게스트 상태 문제 해결(미리 보기)](insights/vminsights-health-troubleshoot.md)
+
+
+
+
 
 ## <a name="october-2020"></a>2020년 10월
 

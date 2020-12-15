@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426780"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763464"
 ---
 ### <a name="publish-the-device-template"></a>디바이스 템플릿 게시
 
@@ -40,6 +40,12 @@ ms.locfileid: "94426780"
 1. **마이그레이션** 대화 상자의 목록에서 **LVA Edge 게이트웨이 v2** 를 선택한 다음, **마이그레이션** 을 선택합니다.
 
 몇 초 후 마이그레이션이 완료됩니다. 이제 디바이스에서 사용자 지정된 배포 매니페스트와 함께 **LVA Edge 게이트웨이 v2** 디바이스 템플릿을 사용하고 있습니다.
+
+이제 원래 **LVA Edge Gateway** 디바이스 템플릿을 사용하는 디바이스가 없습니다. 이 디바이스 템플릿 삭제:
+
+1. **디바이스 템플릿** 페이지로 이동하여 **LVA Edge 게이트웨이** 디바이스 템플릿을 선택합니다.
+
+1. **삭제** 를 선택하여 디바이스 템플릿을 삭제합니다.
 
 ### <a name="get-the-device-credentials"></a>디바이스 자격 증명 가져오기
 

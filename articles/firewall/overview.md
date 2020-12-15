@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fc68170a89a3d9a359ae9cb2c0d5543af301e738
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658386"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573037"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -70,7 +70,8 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |사용자 지정 DNS는 강제 터널링에서 작동하지 않습니다.|강제 터널링이 활성화된 경우 사용자 지정 DNS가 작동하지 않습니다.|수정 사항을 조사하고 있습니다.|
 |여러 가용성 영역에 대한 새 공용 IP 주소 지원|두 개의 가용성 영역(1과 2, 2와 3 또는 1과 3)이 있는 방화벽을 배포할 때 새 공용 IP 주소를 추가할 수 없습니다.|이는 공용 IP 주소 리소스 제한입니다.|
 |강제 터널 모드로 구성된 방화벽에서 시작/중지가 작동하지 않습니다.|강제 터널 모드로 구성된 Azure 방화벽에서 시작/중지가 작동하지 않습니다. 강제 터널링이 구성된 Azure Firewall을 시작하려고 하면 다음 오류가 발생합니다.<br><br>*Set-AzFirewall: AzureFirewall FW-xx 관리 IP 구성은 기존 방화벽에 추가할 수 없습니다. 강제 터널링 지원을 사용하려면 관리 IP 구성으로 다시 배포합니다.<br>StatusCode: 400<br>ReasonPhrase: 잘못된 요청*|확인 중입니다.<br><br>해결 방법으로 기존 방화벽을 삭제하고 동일한 매개 변수를 사용하여 새 방화벽을 만들 수 있습니다.|
-|포털을 사용하여 방화벽 정책 태그를 추가할 수 없습니다.|Azure Firewall 정책에는 Azure Portal을 사용하여 태그를 추가할 수 없도록 하는 패치 지원 제한이 있습니다. 다음 오류가 생성됩니다. *리소스에 대한 태그를 저장할 수 없습니다*.|수정 사항을 조사하고 있습니다. 또는 Azure PowerShell cmdlet `Set-AzFirewallPolicy`를 사용하여 태그를 업데이트할 수 있습니다.
+|포털을 사용하여 방화벽 정책 태그를 추가할 수 없습니다.|Azure Firewall 정책에는 Azure Portal을 사용하여 태그를 추가할 수 없도록 하는 패치 지원 제한이 있습니다. 다음 오류가 생성됩니다. *리소스에 대한 태그를 저장할 수 없습니다*.|수정 사항을 조사하고 있습니다. 또는 Azure PowerShell cmdlet `Set-AzFirewallPolicy`를 사용하여 태그를 업데이트할 수 있습니다.|
+|IPv6는 아직 지원되지 않음|규칙에 IPv6 주소를 추가하면 방화벽이 실패합니다.|IPv4 주소만 사용합니다. IPv6 지원은 조사 중에 있습니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

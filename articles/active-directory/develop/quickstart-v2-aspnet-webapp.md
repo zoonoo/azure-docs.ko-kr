@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: d356674819304897aef353d161ddf236e19db1f5
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 3fed5fa53af9bd69f828eaf40db5d2ac441ffa08
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592246"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762774"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 
@@ -39,7 +39,7 @@ ms.locfileid: "94592246"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
 > 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) 창으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록** 을 클릭합니다.
+> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
@@ -47,16 +47,15 @@ ms.locfileid: "94592246"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록** 을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
->      - **리디렉션 URI** 에 `https://localhost:44368/`을 추가하고 **등록** 을 클릭합니다.
->      - 관리 섹션 아래의 왼쪽 탐색 창에서 **인증** 을 선택합니다.
->          - **암시적 권한 부여** 하위 섹션에서 **ID 토큰** 을 선택합니다.
->          - 그런 다음, **저장** 을 선택합니다.
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `ASPNET-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **리디렉션 URI** 에 `https://localhost:44368/`을 추가하고 **등록** 을 선택합니다.
+> 1. 관리 섹션 아래의 왼쪽 탐색 창에서 **인증** 을 선택합니다.
+> 1. **암시적 권한 부여** 하위 섹션에서 **ID 토큰** 을 선택합니다.
+> 1. **저장** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성

@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511270"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576029"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics 질문과 대답
 
@@ -22,7 +22,7 @@ ms.locfileid: "96511270"
 
 ## <a name="general"></a>일반
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>Q: 어떤 RBAC 역할이 있으며, 이러한 역할을 사용하여 Synapse 작업 영역을 보호하는 방법은 무엇인가요?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>Q: RBAC 역할을 사용하여 내 작업 영역을 보호하려면 어떻게 해야 하나요?
 
 A: Azure Synapse는 할당할 여러 역할과 범위를 도입하여 작업 영역에 대한 보안을 간소화할 수 있습니다.
 
@@ -36,8 +36,8 @@ Synapse RBAC 역할:
 * Synapse 컴퓨팅 운영자(미리 보기)
 * Synapse 자격 증명 사용자(미리 보기)
 
-Synapse RBAC 범위:
-* 작업 영역 
+Synapse 작업 영역을 보호하려면 다음 RBAC 범위에 RBAC 역할을 할당합니다.
+* 작업 영역
 * Spark 풀
 * 통합 런타임
 * 연결된 서비스
@@ -45,7 +45,7 @@ Synapse RBAC 범위:
 
 또한 전용 SQL 풀을 사용하면 사용자가 알고 있고 좋아하는 동일한 보안 기능을 모두 사용할 수 있습니다.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>Q: 전용 SQL 풀, 서버리스 Spark 풀 및 서버리스 SQL 풀과 같은 Synapse 작업 영역 내의 기능에 대한 비용을 제어하려면 어떻게 해야 하나요?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>Q: 전용 SQL 풀, 서버리스 SQL 풀 및 서버리스 Spark 풀을 제어하려면 어떻게 해야 하나요?
 
 A: Azure Synapse는 처음 시작할 때 Azure 구독 수준에서 사용할 수 있는 기본 제공 비용 분석 및 비용 경고와 함께 작동합니다.
 
@@ -83,7 +83,7 @@ A: 현재는 없습니다.
 
 ### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>Q: 기존 파이프라인을 Azure Data Factory에서 Azure Synapse 작업 영역으로 마이그레이션하려면 어떻게 해야 하나요?
 
-A: 지금은 Azure Data Factory 파이프라인 및 관련 아티팩트를 수동으로 다시 만들어야 합니다. 
+A: 이때 원래 파이프라인에서 JSON을 내보내고 Synapse 작업 영역으로 가져와서 Azure Data Factory 파이프라인 및 관련 아티팩트를 수동으로 다시 만들어야 합니다.
 
 ## <a name="apache-spark"></a>Apache Spark
 

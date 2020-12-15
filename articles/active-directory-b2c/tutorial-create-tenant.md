@@ -7,19 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/24/2020
+ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c15b3a64b4a0017c5c352e08cebc796537255479
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447036"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859615"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
-애플리케이션이 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하려면 먼저 사용자가 관리하는 테넌트에 등록되어야 합니다.
+애플리케이션이 Azure AD B2C(Azure Active Directory B2C)와 상호 작용하려면 먼저 사용자가 관리하는 테넌트에 등록되어야 합니다. 
+
+> [!NOTE]
+> 구독당 최대 20개의 테넌트를 만들 수 있습니다. 이 제한 사항을 사용하면 서비스 거부 공격과 같은 리소스에 대한 위협을 방지하고 Azure Portal 및 기본 테넌트 생성 API 모두에 적용됩니다. 20개 이상의 테넌트를 만들어야 하는 경우 [Microsoft 지원](support-options.md)에 문의하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -46,8 +49,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![구독 테넌트, 구독 테넌트가 선택된 디렉터리 + 구독 필터](media/tutorial-create-tenant/portal-01-pick-directory.png)
 
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
+
+   ![리소스 만들기 단추를 선택합니다.](media/tutorial-create-tenant/create-a-resource.png)
+
 1. **Active Directory B2C** 를 검색한 다음, **만들기** 를 선택합니다.
-1. **새 Azure AD B2C 테넌트 만들기** 를 선택합니다.
+2. **새 Azure AD B2C 테넌트 만들기** 를 선택합니다.
 
     ![Azure Portal에서 선택한 새 Azure AD B2C 테넌트 만들기](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
@@ -57,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **초기 도메인 이름** - Azure AD B2C 테넌트의 도메인 이름을 입력합니다.
    - **국가 또는 지역** - 목록에서 국가 또는 지역을 선택합니다. 이 이름은 나중에 변경할 수 없습니다.
    - **구독** - 목록에서 구독을 선택합니다.
-   - **리소스 그룹** - 테넌트를 포함하는 리소스 그룹을 선택합니다. 또는 **새로 만들기** 에서 리소스 그룹에 사용할 **이름** 을 입력하고 **리소스 그룹 위치** 를 선택한 다음, **확인** 을 선택합니다.
+   - **리소스 그룹** - 테넌트를 포함하는 리소스 그룹을 선택하거나 검색합니다.
 
     ![Azure Portal에서 예제 값을 사용하여 테넌트 양식 만들기](media/tutorial-create-tenant/review-and-create-tenant.png)
 

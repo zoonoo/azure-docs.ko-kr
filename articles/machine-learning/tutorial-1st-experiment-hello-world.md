@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393221"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570963"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>자습서: "Hello world!" Python 스크립트 실행(2/4부)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>로컬로 스크립트 테스트
+
+### <a name="test-your-script-locally"></a><a name="test"></a>로컬로 스크립트 테스트
 
 즐겨 사용하는 IDE 또는 터미널을 사용하여 코드를 로컬로 실행할 수 있습니다. 코드를 로컬로 실행하면 코드의 대화형 디버깅을 활용할 수 있습니다.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>제어 스크립트 만들기
+> [!div class="nextstepaction"]
+> [스크립트를 로컬로 실행했습니다.](?success=run-local#control-script) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> 제어 스크립트 만들기
 
 *제어 스크립트* 를 사용하면 클라우드에서 `hello.py` 스크립트를 실행할 수 있습니다. 제어 스크립트를 사용하여 기계 학습 코드가 실행되는 방법과 위치를 제어합니다.  
 
@@ -89,6 +93,8 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
+
+
 
 ### <a name="understand-the-code"></a>코드 이해
 
@@ -135,7 +141,10 @@ print(aml_url)
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>클라우드에서 코드 제출 및 실행
+> [!div class="nextstepaction"]
+> [제어 스크립트를 만들었습니다.](?success=create-control-script#submit) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> 클라우드에서 코드 제출 및 실행
 
 제어 스크립트를 실행합니다. 그러면 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터에서 `hello.py`가 실행됩니다.
 
@@ -154,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > 이 코드를 실행하면 구독에 대한 액세스 권한이 없다는 오류가 표시됩니다. 인증 옵션에 대한 자세한 내용은 [작업 영역에 연결](how-to-manage-workspace.md?tab=python#connect-multi-tenant)을 참조하세요.
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>스튜디오를 사용하여 클라우드에서 코드 모니터링
+> [!div class="nextstepaction"]
+> [클라우드에서 코드를 제출했습니다.](?success=submit-to-cloud#monitor) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>스튜디오를 사용하여 클라우드에서 코드 모니터링
 
 출력에는 다음과 같은 스튜디오에 대한 링크(`https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`)가 포함됩니다.
 
@@ -185,6 +197,9 @@ python 03-run-hello.py
 8번 줄에 "Hello World!" 출력이 표시됩니다.
 
 `70_driver_log.txt` 파일에는 실행의 표준 출력이 포함됩니다. 이 파일은 클라우드에서 원격 실행을 디버그할 때 유용할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [스튜디오에서 로그를 확인했습니다.](?success=monitor-in-studio#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>다음 단계
 

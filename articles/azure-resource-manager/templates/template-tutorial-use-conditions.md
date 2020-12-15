@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896993"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931370"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>자습서: ARM 템플릿에서 조건 사용
 
-ARM(Azure Resource Manager) 템플릿의 조건에 따라 Azure 리소스를 배포하는 방법에 대해 알아봅니다.
+ARM 템플릿(Azure Resource Manager 템플릿)의 조건에 따라 Azure 리소스를 배포하는 방법에 대해 알아봅니다.
 
 [리소스 배포 순서 설정](./template-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신, 가상 네트워크 및 스토리지 계정을 포함한 기타 종속 리소스를 만듭니다. 매번 새 스토리지 계정을 만드는 대신, 사용자가 새 스토리지 계정을 만들지, 기존 스토리지 계정을 사용할지 선택하도록 할 수 있습니다. 이 목표를 달성하기 위해 추가 매개 변수를 정의합니다. 매개 변수의 값이 “new”인 경우 새 스토리지 계정이 만들어집니다. 그렇지 않을 경우 지정된 이름의 기존 스토리지 계정이 사용됩니다.
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 * 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
 
     ```console
@@ -136,7 +136,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash** (CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
 
     ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 

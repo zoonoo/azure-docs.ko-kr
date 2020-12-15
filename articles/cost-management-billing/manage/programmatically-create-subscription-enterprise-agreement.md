@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34fe909c7fca3c91845c58b41abb0d8885e156e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94850943"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780606"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 기업계약 구독 만들기
 
@@ -89,7 +89,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/?ap
 
 ```
 
-`enrollmentAccounts` 중 하나의 `id`를 확인합니다. 이것이 바로 구독 만들기 요청이 시작되는 청구 범위입니다. 
+청구 범위와 `id`의 값은 동일합니다. 등록 계정의 `id`는 구독 요청이 시작되는 청구 범위입니다. 구독을 만들기 위해 문서의 뒷부분에서 사용하는 필수 매개 변수이므로 ID를 알고 있어야 합니다.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -130,6 +130,8 @@ PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampl
   }
 }
 ```
+
+`Workload`에 허용되는 값은 `Production` 및 `DevTest`입니다.
 
 #### <a name="response"></a>응답
 

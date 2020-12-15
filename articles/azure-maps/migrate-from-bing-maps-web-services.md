@@ -3,18 +3,18 @@ title: '자습서: Bing Maps에서 웹 서비스 마이그레이션 | Microsoft 
 description: Bing Maps에서 Microsoft Azure Maps로 웹 서비스를 마이그레이션하는 방법에 대한 자습서.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897027"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904961"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>자습서 - Bing Maps에서 웹 서비스 마이그레이션
 
@@ -37,21 +37,21 @@ Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스
 | SDS(Spatial Data Services)           | [검색](/rest/api/maps/search) + [경로](/rest/api/maps/route) + 기타 Azure 서비스 |
 | 표준 시간대                             | [표준 시간대](/rest/api/maps/timezone)  |
 | 교통 사고                     | [트래픽 인시던트 세부 정보](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| 상승                             | [권한 상승(미리 보기)](/rest/api/maps/elevation)
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
--   권한 상승 - 계획됨
 -   최적화된 일정표 경로 - 계획됨. Azure Maps 경로 API는 단일 차량에 대한 외판원 최적화를 지원합니다.
 -   이미지 메타데이터 – 주로 Bing Maps에서 타일 URL을 가져오는 데 사용됩니다. Azure Maps에는 지도 타일에 직접 액세스하기 위한 독립 실행형 서비스가 있습니다.
 
 Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비스가 있습니다.
 
--   [Azure Maps Creator](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 쌍을 만듭니다.
+-   [Azure Maps Creator(미리 보기)](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 쌍을 만듭니다.
 -   [공간 작업](/rest/api/maps/spatial) - 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
 -   [지도 타일](/rest/api/maps/render/getmaptile) – 래스터 및 벡터 타일로 Azure Maps의 도로 및 이미지 타일에 액세스합니다.
 -   [일괄 처리 라우팅](/rest/api/maps/route/postroutedirectionsbatchpreview) – 일정 기간 동안 단일 일괄 처리에서 최대 1,000개의 경로 요청을 만들 수 있습니다. 처리 속도를 높이기 위해 서버에서 경로가 병렬로 계산됩니다.
 -   [트래픽](/rest/api/maps/traffic) 흐름 – 래스터 및 벡터 타일로 실시간 트래픽 흐름 데이터에 액세스합니다.
--   [지리적 위치 API](/rest/api/maps/geolocation/getiptolocationpreview) - IP 주소의 위치를 가져옵니다.
+-   [지리적 위치 API(미리 보기)](/rest/api/maps/geolocation/getiptolocationpreview) - IP 주소의 위치를 가져옵니다.
 -   [날씨 서비스](/rest/api/maps/weather) – 실시간 및 예측 날씨 데이터에 대한 액세스 권한을 얻습니다.
 
 다음 모범 사례 가이드도 꼭 검토하세요.
@@ -186,7 +186,7 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 
 -   [경로 계산](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 추천하는 방법입니다.
 -   [일괄 처리 경로](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
--   [모바일 서비스](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
+-   [Mobility Services(미리 보기)](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 
 다음 표에서는 Bing Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 

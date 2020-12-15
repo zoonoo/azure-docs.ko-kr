@@ -8,16 +8,23 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d86a273a69203a92a9b437f021486feb3bcb31da
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433479"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932373"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 
 이 문서는 개발 및 배포 환경을 준비하는 데 도움이 됩니다. 먼저, 필요한 모든 도구를 사용하여 개발 머신을 설정합니다. 그런 다음, Azure에서 필요한 클라우드 리소스를 만듭니다.
+
+자습서의 이 섹션에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+>
+> * 개발용 가상 머신을 설정합니다.
+> * 개발 환경에서 사용할 IoT Hub 및 클라우드 스토리지를 설정합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -210,15 +217,13 @@ IoT Hub 만들기의 일환으로, 우리가 이전 섹션에서 실행한 스�
 
 1. 편집되지 않았으므로 이 페이지를 닫기만 하면 됩니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서를 완료할 때까지 기다렸다가 리소스를 정리하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 IoT Hub를 만들고 Azure Storage 계정의 경로를 구성했습니다. 다음으로, IoT Hub를 통해 데이터를 시뮬레이션된 디바이스 세트에서 스토리지 계정으로 보냅니다. 이 자습서의 뒷부분에서 IoT Edge 디바이스 및 모듈을 구성한 후 경로를 다시 방문하여 라우팅 쿼리를 좀 더 살펴보겠습니다.
-
-IoT Edge의 Machine Learning에 대한 자습서 파트에서 다루는 단계에 대한 자세한 내용은 다음 항목을 참조하세요.
-
-* [Azure IoT 기본 사항](../iot-fundamentals/index.yml)
-* [IoT Hub로 메시지 라우팅 구성](../iot-hub/tutorial-routing.md)
-* [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)
 
 다음 문서로 넘어가서 모니터링할 시뮬레이션된 디바이스 만들기를 진행하세요.
 

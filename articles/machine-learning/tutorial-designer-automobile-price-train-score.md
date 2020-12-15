@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555277"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575978"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
 
@@ -48,7 +48,10 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 
 ### <a name="create-a-new-workspace"></a>새 작업 영역 만들기
 
-디자이너를 사용하려면 먼저 Azure Machine Learning 작업 영역이 필요합니다. 작업 영역은 Azure Machine Learning의 최상위 리소스로, Azure Machine Learning에서 만든 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다.
+디자이너를 사용하려면 Azure Machine Learning 작업 영역이 필요합니다. 작업 영역은 Azure Machine Learning의 최상위 리소스로, Azure Machine Learning에서 만든 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다. 작업 영역 만들기에 대한 지침은 [Azure Machine Learning 작업 영역 만들기 및 관리](how-to-manage-workspace.md)를 참조하세요.
+
+> [!NOTE]
+> 작업 영역에서 가상 네트워크를 사용하는 경우 디자이너를 사용하기 위해 사용해야 하는 추가 구성 단계가 있습니다. 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조하세요.
 
 ### <a name="create-the-pipeline"></a>파이프라인 만들기
 

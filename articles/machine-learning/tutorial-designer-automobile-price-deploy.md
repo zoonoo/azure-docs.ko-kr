@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: designer
-ms.openlocfilehash: 28358db2e538867957fcc8d4984cf1c028f9ab2c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030370"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575961"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>자습서: 디자이너를 사용하여 Machine Learning 모델 배포
 
@@ -123,7 +123,7 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 디자이너에서 기계 학습 모델을 만들고, 배포하고, 사용하는 방법에 대한 주요 단계를 알아보았습니다. 디자이너를 사용하여 다른 유형의 문제를 해결하는 방법에 대해 자세히 알아보려면 다른 샘플 파이프라인을 참조하세요.
+이 자습서에서는 디자이너에서 기계 학습 모델을 만들고, 배포하고, 사용하는 방법에 대한 주요 단계를 알아보았습니다. 디자이너를 사용하는 방법에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [디자이너 샘플](samples-designer.md)
++ [디자이너 샘플](samples-designer.md): 디자이너를 사용하여 다른 유형의 문제를 해결하는 방법을 알아봅니다.
++ [Azure 가상 네트워크에서 Azure Machine Learning Studio를 사용](how-to-enable-studio-virtual-network.md)합니다.

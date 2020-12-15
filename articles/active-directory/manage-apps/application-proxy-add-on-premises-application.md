@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 12/04/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656448"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928470"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -51,8 +51,12 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp] "EnableDefaultHttp2"=dword:00000000
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
 > ```
+>
+> 다음 명령을 사용하여 PowerShell을 통해 키를 설정할 수 있습니다.
+> ```
+> Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 >
 
 #### <a name="recommendations-for-the-connector-server"></a>커넥터 서버에 대한 권장 사항
@@ -87,6 +91,9 @@ TLS 1.2를 사용하도록 설정하려면:
 
 1. 서버를 다시 시작합니다.
 
+> [!Note]
+> Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문입니다. 자세한 내용은 [Azure TLS 인증서 변경](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes)을 참조하세요.
+
 ## <a name="prepare-your-on-premises-environment"></a>온-프레미스 환경 준비
 
 먼저 Azure 데이터 센터와 통신하도록 설정하여 Azure AD 애플리케이션 프록시를 위한 환경을 준비합니다. 경로에 방화벽이 있는 경우 열려 있는지 확인합니다. 방화벽이 열려 있으면 커넥터가 애플리케이션 프록시에 대해 HTTPS(TCP) 요청을 수행할 수 있습니다.
@@ -113,7 +120,7 @@ TLS 1.2를 사용하도록 설정하려면:
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 | ctldl.windowsupdate.com | 80/HTTP |커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
 방화벽 또는 프록시에서 DNS 허용 목록을 구성할 수 있는 경우 &ast;.msappproxy.net, &ast;.servicebus.windows.net 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
@@ -184,10 +191,10 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 1. [Azure Portal](https://portal.azure.com/)에서 관리자로 로그인합니다.
 2. 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
 3. **엔터프라이즈 애플리케이션**, **새 애플리케이션** 을 차례로 선택합니다.
-4. **온-프레미스 애플리케이션** 섹션에서 **온-프레미스 애플리케이션 추가** 를 선택합니다.
+4. **사용자 고유의 애플리케이션 만들기** 섹션에서 **온-프레미스 애플리케이션에 대한 보안 원격 액세스를 위한 애플리케이션 프록시 구성** 을 선택합니다.
 5. **사용자 고유의 온-프레미스 애플리케이션 추가** 섹션에서 애플리케이션에 대해 다음 정보를 제공합니다.
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     | :---- | :---------- |
     | **이름** | 내 앱 및 Azure Portal에 표시될 애플리케이션의 이름입니다. |
     | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 https:\//yourapp/app에 위치하고 https:\//yourapp/media에 있는 이미지를 사용하는 경우 https:\//yourapp/를 경로로 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |

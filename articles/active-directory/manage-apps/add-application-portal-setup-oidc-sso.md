@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656601"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780181"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정
 
 Azure AD(Azure Active Directory) 테넌트에 추가한 애플리케이션에 대한 SSO(Single Sign-On)를 설정하여 간단한 사용자 로그인을 시작합니다. SSO를 설정한 후 사용자는 해당 Azure AD 자격 증명을 사용하여 애플리케이션에 로그인할 수 있습니다. SSO는 Azure AD 평가판에 포함되어 있습니다.
+
+OIDC 기반 SSO에 대한 자세한 내용은 [OIDC 기반 Single Sign-On 이해](configure-oidc-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -52,7 +54,7 @@ SSO에 대한 OIDC 표준을 사용하는 앱을 추가하는 경우 설정 단�
    > [!IMPORTANT]
     > 애플리케이션에 대한 구독이 이미 있는 경우 사용자 세부 정보 및 테넌트/디렉터리 정보에 대한 유효성 검사가 수행됩니다. 애플리케이션에서 사용자를 확인할 수 없는 경우 사용자가 애플리케이션 서비스 또는 오류 페이지에 가입하도록 리디렉션됩니다.
 
-3. 인증에 성공하면 관리자 동의를 요청하는 대화 상자가 나타납니다. **조직 대신 동의** 를 선택하고 **수락** 을 선택합니다. 
+3. 인증에 성공하면 관리자 동의를 요청하는 대화 상자가 나타납니다. **조직 대신 동의** 를 선택하고 **수락** 을 선택합니다. 사용자 및 관리자 동의에 대한 자세한 내용은 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조하세요.
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="앱에 대한 동의 화면을 보여 주는 스크린샷" lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,6 +64,11 @@ SSO에 대한 OIDC 표준을 사용하는 앱을 추가하는 경우 설정 단�
 > [!TIP]
 > Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](/graph/application-saml-sso-configure-api)를 참조하세요.
 
+다음은 Azure AD에 OIDC 기반 앱을 추가하는 방법에 대한 추가 세부 정보를 안내하는 비디오입니다.
+
+Azure Active Directory에서 OIDC 기반 앱 추가
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

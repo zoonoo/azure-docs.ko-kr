@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 98d2b4ed4b0d3cef2cde156dc05ebb314edff365
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 085ebcc147082ac78de9f8b97c810dee5bb1e96a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592263"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762808"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -50,7 +50,7 @@ ms.locfileid: "94592263"
 > 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록**, **새 등록** 을 차례로 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `AspNetCore-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. `https://localhost:44321/`의 **리디렉션 URI** 를 입력합니다.
 > 1. **등록** 을 선택합니다.

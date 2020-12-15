@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/24/2020
-ms.openlocfilehash: fe335b00df23ff132ad61b27efd733d195ee3bfb
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7ee203595a796529ae0aefe8b0c52a689ac29968
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030953"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762332"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -28,7 +28,11 @@ ms.locfileid: "96030953"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!IMPORTANT]
+> 지역 간 Azure Load Balancer는 현재 공개 미리 보기로 제공됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독
 - 두 개의 서로 다른 Azure 지역에 배포된 백 엔드 풀을 사용하는 두 개의 **표준** SKU Azure Load Balancer
@@ -37,8 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 
-> [!IMPORTANT]
-> 지역 간 부하 분산 장치는 현재 미리 보기 상태이며 미리 보기 포털에서 숨겨집니다.  **https://preview.portal.azure.com/?feature.globallb=true** 에 로그인하여 기능을 확인하고 배포합니다.
+Azure 미리 보기 포털에 [로그인](https://preview.portal.azure.com)합니다.
 
 ## <a name="create-cross-region-load-balancer"></a>지역 간 부하 분산 장치 만들기
 
@@ -119,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHealthProbe** 를 입력합니다. |
+    | 이름 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다. |
     | 간격 | **5** 를 입력합니다. |

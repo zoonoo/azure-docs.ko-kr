@@ -1,21 +1,21 @@
 ---
 title: 자습서 - 템플릿의 리소스에 태그 추가
-description: Azure Resource Manager 템플릿에 배포하는 리소스에 태그를 추가합니다. 태그를 사용하여 리소스를 논리적으로 구성할 수 있습니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)에서 배포하는 리소스에 태그를 추가합니다. 태그를 사용하여 리소스를 논리적으로 구성할 수 있습니다.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4084508202fc7db5280d34c157552fe723b1dfba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613206"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930945"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>자습서: ARM 템플릿에서 태그 추가
 
-이 자습서에서는 ARM(Azure Resource Manager) 템플릿의 리소스에 태그를 추가하는 방법을 알아봅니다. [태그](../management/tag-resources.md)를 통해 리소스를 논리적으로 구성할 수 있습니다. 태그 값이 비용 보고서에 표시됩니다. 이 자습서를 완료하는 데 **8분**이 소요됩니다.
+이 자습서에서는 ARM 템플릿(Azure Resource Manager 템플릿)의 리소스에 태그를 추가하는 방법을 알아봅니다. [태그](../management/tag-resources.md)를 통해 리소스를 논리적으로 구성할 수 있습니다. 태그 값이 비용 보고서에 표시됩니다. 이 자습서를 완료하는 데 **8분** 이 소요됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -79,7 +79,7 @@ az deployment group create \
 Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 1. 배포한 리소스 그룹을 선택합니다.
 1. 스토리지 계정 리소스와 같은 리소스 중 하나를 선택합니다. 이제 태그가 있음을 볼 수 있습니다.
 
@@ -91,10 +91,10 @@ Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있�
 
 지금 중지하는 경우에는 리소스 그룹을 삭제하여 배포된 리소스를 정리하는 것이 좋습니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
 3. 해당 리소스 그룹 이름을 선택합니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+4. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

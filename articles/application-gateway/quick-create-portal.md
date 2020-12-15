@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/24/2020
+ms.date: 12/08/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 904456de527e8d0acb1319059c18f9a3c6b0a1a3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95992952"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906406"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -153,8 +153,9 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
     - **리소스 그룹**: 리소스 그룹 이름으로 **myResourceGroupAG** 를 선택합니다.
     - **가상 머신 이름**: 가상 머신의 이름으로 *myVM* 을 입력합니다.
     - **지역**: 애플리케이션 게이트웨이를 만든 동일한 지역을 선택합니다.
-    - **사용자 이름**: 관리자 사용자 이름에 *azureuser* 를 입력합니다.
+    - **사용자 이름**: 관리자 사용자 이름의 이름을 입력합니다.
     - **암호**: 암호를 입력합니다.
+    - **공용 인바운드 포트**: 없음
 4. 나머지는 기본값으로 두고 **다음: 디스크** 를 선택합니다.  
 5. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹** 을 선택합니다.
 6. **네트워킹** 탭에서 **가상 네트워크** 로 **myVNet** 이 선택되었고 **서브넷** 이 **myBackendSubnet** 으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리** 를 선택합니다.<br>Application Gateway는 가상 네트워크 외부의 인스턴스와 통신할 수 있지만, IP가 연결되어야 합니다.

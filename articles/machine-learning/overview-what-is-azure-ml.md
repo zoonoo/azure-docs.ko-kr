@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: af38f68a9709b21989ba787fb5b2c623e07dc440
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 85080c018749f9aab716eff0a4527363da987007
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541286"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620480"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -49,7 +49,7 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 + + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
-+ [Visual Studio Code 확장](tutorial-setup-vscode-extension.md)
++ [Visual Studio Code 사용자를 위한 기계 학습 확장](tutorial-setup-vscode-extension.md)
 
 + [기계 학습 CLI](reference-azure-machine-learning-cli.md)
 

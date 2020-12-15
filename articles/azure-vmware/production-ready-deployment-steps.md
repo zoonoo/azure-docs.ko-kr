@@ -3,12 +3,12 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95529736"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558694"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -25,7 +25,7 @@ ms.locfileid: "95529736"
 Azure VMware Solution을 배포하는 데 사용할 구독을 확인합니다.  새 구독을 만들거나 기존 구독을 다시 사용할 수 있습니다.
 
 >[!NOTE]
->구독은 Microsoft 기업계약과 연결되어야 합니다.
+>구독은 Microsoft 기업계약 또는 클라우드 솔루션 공급자 Azure 플랜과 연결되어야 합니다. 자세한 내용은 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md)을 참조하세요.
 
 ## <a name="resource-group"></a>Resource group
 

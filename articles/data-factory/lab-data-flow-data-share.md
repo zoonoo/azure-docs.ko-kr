@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489040"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921037"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -34,7 +34,7 @@ ms.locfileid: "96489040"
 
 * **Azure Data Lake Storage Gen2 스토리지 계정**: ADLS Gen2 스토리지 계정이 없는 경우 [ADLS Gen2 스토리지 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
-* **Azure Synapse Analytics(이전의 SQL DW)** : Azure Synapse Analytics(이전의 SQL DW)가 없는 경우 [Azure Synapse Analytics 인스턴스 만들기](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)를 참조하세요.
+* **Azure Synapse Analytics**: Azure Synapse Analytics가 없는 경우 [Azure Synapse Analytics 인스턴스를 생성](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)하는 방법을 알아봅니다.
 
 * **Azure Data Factory**: 아직 데이터 팩터리를 만들지 않은 경우 [데이터 팩터리 만들기](./quickstart-create-data-factory-portal.md)를 참조하세요.
 
@@ -79,7 +79,7 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Azure Synapse Analytics 연결된 서비스 만들기
 
-1. 동일한 프로세스를 반복하여 Azure Synapse Analytics 연결된 서비스를 추가합니다. 연결 탭에서 **새로 만들기** 를 클릭합니다. **Azure Synapse Analytics(이전의 SQL DW)** 타일을 선택하고 [계속]을 클릭합니다.
+1. 동일한 프로세스를 반복하여 Azure Synapse Analytics 연결된 서비스를 추가합니다. 연결 탭에서 **새로 만들기** 를 클릭합니다. **Azure Synapse Analytics** 타일을 선택하고 [계속]을 클릭합니다.
 
     ![포털 구성 6](media/lab-data-flow-data-share/configure6.png)
 1. 연결된 서비스 구성 창에서 연결된 서비스 이름으로 'SQLDW'를 입력합니다. 데이터 팩터리에서 데이터베이스에 연결할 수 있도록 자격 증명을 입력합니다. SQL 인증을 사용하는 경우 서비스 이름, 데이터베이스, 사용자 이름 및 암호를 입력합니다. **연결 테스트** 를 클릭하여 연결 정보가 올바른지 확인할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
@@ -274,7 +274,7 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
 
     ![포털 싱크 2](media/lab-data-flow-data-share/sink2.png)
 
-1. **Azure Synapse Analytics(이전의 SQL DW)** 타일을 선택하고 [계속]을 클릭합니다.
+1. **Azure Synapse Analytics** 타일을 선택하고 [계속]을 클릭합니다.
 
     ![포털 싱크 3](media/lab-data-flow-data-share/sink3.png)
 1. 'AggregatedTaxiData' 데이터 세트를 호출합니다. 연결된 서비스로 'SQLDW'를 선택합니다. **새 테이블 만들기** 를 선택하고 새 테이블의 이름을 dbo.AggregateTaxiData로 지정합니다. 작업이 완료되면 [확인]을 클릭합니다.

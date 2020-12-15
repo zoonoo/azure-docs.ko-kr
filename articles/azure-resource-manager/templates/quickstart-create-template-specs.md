@@ -2,15 +2,15 @@
 title: 템플릿 사양 만들기 및 배포
 description: ARM 템플릿에서 템플릿 사양을 만드는 방법에 대해 알아봅니다. 그런 다음 구독에서 리소스 그룹에 템플릿 사양을 배포합니다.
 author: tfitzmac
-ms.date: 11/17/2020
+ms.date: 12/01/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 03cf2013f1cec9722af5d7e72285d9f11d8a6bc1
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94747505"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518960"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>빠른 시작: 템플릿 사양 만들기 및 배포(미리 보기)
 
@@ -21,15 +21,37 @@ ms.locfileid: "94747505"
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. 이를 사용하려면 최신 버전의 PowerShell 또는 Azure CLI를 설치해야 합니다. Azure PowerShell의 경우 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 사용합니다. Azure CLI의 경우 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
 
 ## <a name="create-template-spec"></a>템플릿 사양 만들기
 
-템플릿 사양은 **Microsoft.Resources/templateSpecs** 라는 리소스 형식입니다. 템플릿 사양을 만들려면 Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하면 됩니다. 모든 옵션에서 템플릿 사양에 패키징된 ARM 템플릿이 필요합니다.
+템플릿 사양은 **Microsoft.Resources/templateSpecs** 라는 리소스 형식입니다. 템플릿 사양을 만들려면 Azure Portal, Azure PowerShell, Azure CLI 또는 ARM 템플릿을 사용하면 됩니다. 모든 옵션에서 템플릿 사양에 패키징된 ARM 템플릿이 필요합니다.
 
 PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 전달됩니다. ARM 템플릿을 사용하면 템플릿 사양에 패키징되는 ARM 템플릿이 템플릿 사양 정의에 포함됩니다.
 
 아래에는 두 옵션이 모두 나와 있습니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 화면 상단에 있는 **리소스, 서비스 및 문서 검색** 에 **템플릿 사양** 을 입력한 다음, **템플릿 사양** 을 선택합니다.
+1. **템플릿 사양 만들기** 를 선택합니다.
+1. 다음 값을 선택하거나 입력합니다.
+
+    - **이름**: 템플릿 사양의 이름을 입력합니다.  예: **storageSpec**
+    - **구독**: 템플릿 사양을 만드는 데 사용되는 Azure 구독을 선택합니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택한 다음, 새 리소스 그룹 이름을 지정합니다.  예: **templateSpecRG**.
+    - **위치**: 리소스 그룹에 대한 위치를 선택합니다. 예: **미국 서부 2**.
+    - **버전**: 탬플릿 사양의 버전을 입력합니다. 예: **1.0** 또는 **v1.0**.
+
+1. 완료되면 **다음: 템플릿 편집** 을 선택합니다.
+1. 템플릿 콘텐츠를 다음 JSON으로 바꿉니다.
+
+    :::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+
+    템플릿 사양 내에서 패키징되는 템플릿입니다.
+1. **검토 + 만들기** 를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -203,7 +225,23 @@ PowerShell 및 CLI를 사용하면 ARM 템플릿이 명령에 매개 변수로 �
 
 ## <a name="deploy-template-spec"></a>템플릿 사양 배포
 
-이제 템플릿 사양을 배포할 수 있습니다. 템플릿 사양 배포는 템플릿 사양의 리소스 ID를 전달하는 것을 제외하고 포함된 템플릿을 배포하는 것과 같습니다. 동일한 배포 명령을 사용하고 필요한 경우 템플릿 사양에 대한 매개 변수 값을 전달합니다.
+이제 템플릿 사양을 배포할 수 있습니다. 템플릿 사양 배포는 Azure PowerShell 또는 Azure CLI에서 템플릿 사양의 리소스 ID를 전달하는 것을 제외하면 포함된 템플릿을 배포하는 것과 같습니다. 동일한 배포 명령을 사용하고 필요한 경우 템플릿 사양에 대한 매개 변수 값을 전달합니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. Azure Portal의 마지막 절차에서 사용자가 만든 리소스 그룹을 엽니다.  예: **templateSpecRG**.
+1. 사용자가 만든 템플릿 사양을 선택합니다. 예: **storageSpec**.
+1. **배포** 를 선택합니다.
+1. 다음 값을 선택하거나 입력합니다.
+
+    - **구독**: 리소스를 만들 Azure 구독을 선택합니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택한 다음, **storageRG** 를 입력합니다.
+    - **스토리지 계정 유형**: **Standard_GRS** 를 선택합니다.
+
+    새 리소스 그룹을 만들고 템플릿 사양 내의 템플릿을 새 리소스 그룹에 배포합니다.
+
+1. **검토 + 만들기** 를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

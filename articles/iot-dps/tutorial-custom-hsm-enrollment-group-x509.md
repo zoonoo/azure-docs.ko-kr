@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f6026680dd566bf7a13c83b37883341bff8b4570
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354792"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780096"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>자습서: 등록 그룹을 사용하여 여러 X.509 디바이스 프로비저닝
 
@@ -26,7 +26,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 이 자습서는 등록 그룹을 사용하여 디바이스 세트를 프로비저닝하는 방법을 보여주는 이전 자습서와 비슷합니다. 그러나 이 자습서에서는 대칭 키 대신 X.509 인증서가 사용됩니다. [대칭 키](./concepts-symmetric-key-attestation.md)를 사용하는 간단한 방법을 보려면 이 섹션의 이전 자습서를 검토하세요.
 
-이 자습서에서는 하드웨어 기반의 보안 스토리지와 상호 작용하기 위한 스텁 구현을 제공하는 [사용자 지정 HSM 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example)을 보여 줍니다. [HSM(하드웨어 보안 모듈)](./concepts-service.md#hardware-security-module)은 디바이스 비밀을 안전한 하드웨어 기반 스토리지에 저장하는 데 사용됩니다. HSM은 대칭 키, X.509 인증서 또는 TPM 증명에 사용하여 비밀을 안전하게 저장할 수 있습니다. 디바이스 비밀은 하드웨어 기반 스토리지에 저장하는 것이 좋습니다.
+이 자습서에서는 하드웨어 기반의 보안 스토리지와 상호 작용하기 위한 스텁 구현을 제공하는 [사용자 지정 HSM 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example)을 보여 줍니다. [HSM(하드웨어 보안 모듈)](./concepts-service.md#hardware-security-module)은 디바이스 비밀을 안전한 하드웨어 기반 스토리지에 저장하는 데 사용됩니다. HSM은 대칭 키, X.509 인증서 또는 TPM 증명에 사용하여 비밀을 안전하게 저장할 수 있습니다. 디바이스 비밀의 하드웨어 기반 스토리지는 필수는 아니지만 디바이스 인증서의 프라이빗 키와 같은 중요한 정보를 보호하는 데 적극 권장됩니다.
 
 자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 또한 이 자습서를 계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)의 단계를 먼저 완료해야 합니다. 
 
@@ -225,7 +225,9 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="configure-the-custom-hsm-stub-code"></a>사용자 지정 HSM 스텁 코드 구성
 
-실제 보안 하드웨어 기반 스토리지와 이루어지는 구체적인 상호 작용은 하드웨어에 따라 달라집니다. 따라서 이 자습서의 디바이스에 사용되는 인증서 체인은 사용자 지정 HSM 스텁 코드에 하드 코딩됩니다. 실제 시나리오에서 인증서 체인은 중요한 정보를 보다 안전하게 보호하기 위해 실제 HSM 하드웨어에 저장됩니다. 그런 다음, 이 샘플의 스텁 방법과 비슷한 방법을 구현하여 해당 하드웨어 기반 스토리지에서 비밀을 읽습니다.
+실제 보안 하드웨어 기반 스토리지와 이루어지는 구체적인 상호 작용은 하드웨어에 따라 달라집니다. 따라서 이 자습서의 디바이스에 사용되는 인증서 체인은 사용자 지정 HSM 스텁 코드에 하드 코딩됩니다. 실제 시나리오에서 인증서 체인은 중요한 정보를 보다 안전하게 보호하기 위해 실제 HSM 하드웨어에 저장됩니다. 그런 다음, 이 샘플의 스텁 방법과 비슷한 방법을 구현하여 해당 하드웨어 기반 스토리지에서 비밀을 읽습니다. 
+
+HSM 하드웨어는 필요하지는 않지만 인증서의 프라이빗 키와 같은 중요한 정보를 소스 코드에 체크 인하지 않는 것이 좋습니다. 그러면 코드를 볼 수 있는 모든 사용자에게 키가 노출됩니다. 이 문서에서는 학습을 지원하기 위해서만 이 작업을 수행합니다.
 
 이 자습서의 사용자 지정 HSM 스텁 코드를 업데이트하려면 다음을 수행합니다.
 
@@ -287,7 +289,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>루트 인증서의 소유권 확인
 
-1. [X.509 인증서의 공개 부분 등록 및 확인 코드 가져오기](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code)의 지침에 따라 루트 인증서를 업로드하고 DPS에서 확인 코드를 가져옵니다.
+1. [X.509 인증서의 공개 부분 등록 및 확인 코드 가져오기](how-to-verify-certificates.md#register-the-public-part-of-an-x509-certificate-and-get-a-verification-code)의 지침에 따라 루트 인증서(`./certs/azure-iot-test-only.root.ca.cert.pem`)를 업로드하고 DPS에서 확인 코드를 가져옵니다.
 
 2. DPS의 루트 인증서 확인 코드를 얻은 후에는 인증서 스크립트 작업 디렉터리에서 다음 명령을 실행하여 확인 인증서를 생성합니다.
  
@@ -297,7 +299,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     ./certGen.sh create_verification_certificate 1B1F84DE79B9BD5F16D71E92709917C2A1CA19D5A156CB9F    
     ```    
 
-    이 스크립트는 루트 인증서로 서명되고 주체 이름이 확인 코드로 설정된 인증서를 만듭니다. 이 인증서를 통해 DPS는 사용자에게 루트 인증서의 프라이빗 키에 대한 액세스 권한이 있는 것을 확인할 수 있습니다. 스크립트의 출력에서 확인 인증서의 위치를 확인하세요.
+    이 스크립트는 루트 인증서로 서명되고 주체 이름이 확인 코드로 설정된 인증서를 만듭니다. 이 인증서를 통해 DPS는 사용자에게 루트 인증서의 프라이빗 키에 대한 액세스 권한이 있는 것을 확인할 수 있습니다. 스크립트의 출력에서 확인 인증서의 위치를 확인하세요. 이 인증서는 `.pfx` 형식으로 생성됩니다.
 
     ```output
     Leaf Device PFX Certificate Generated At:

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a52188dc5058dbc74d3b03fba860b98540cd4a41
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519356"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608506"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -48,13 +48,10 @@ Communication Services는 Azure Notification Hub를 통과 서비스로 사용�
 Notification Hubs를 사용하여 클라이언트 디바이스에 푸시 알림을 전달하려면 Communication Services 리소스와 동일한 구독 내에서 [Notification Hub를 만듭니다](../../notification-hubs/create-notification-hub-portal.md). Azure Notification Hubs는 사용할 플랫폼 알림 서비스에 대해 구성되어야 합니다. Notification Hubs에서 클라이언트 앱의 푸시 알림을 받는 방법을 알아보려면 [Notification Hubs 시작](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)을 참조하고 페이지 위쪽의 드롭다운 목록에서 대상 클라이언트 플랫폼을 선택하세요.
 
 > [!NOTE]
-> 현재 APN 및 FCM 플랫폼이 지원됩니다.
+> 현재 APN 및 FCM 플랫폼이 지원됩니다.  
+APN 플랫폼은 토큰 인증 모드로 구성되어야 합니다. 현재 인증서 인증 모드는 지원되지 않습니다. 
 
 알림 허브가 구성되면 Azure Resource Manager 클라이언트를 사용하여 또는 Azure Portal을 통해 허브에 대한 연결 문자열을 제공하여 Communication Services 리소스에 연결할 수 있습니다. 연결 문자열에는 "보내기" 권한이 포함되어야 합니다. 허브 전용으로 "보내기" 권한이 있는 액세스 정책을 따로 만드는 것이 좋습니다. [Notification Hubs 보안 및 액세스 정책](../../notification-hubs/notification-hubs-push-notification-security.md)에 대한 자세한 정보
-
-> [!IMPORTANT]
-> 이는 토큰 인증 모드에만 적용됩니다. 현재 인증서 인증 모드는 지원되지 않습니다.  
-APNS VOIP 알림을 사용하도록 설정하려면 알림 허브를 `.voip` 접미사가 있는 애플리케이션 번들 ID로 구성할 때 번들 ID 값을 설정해야 합니다. 자세한 내용은 [Notification Hubs를 통해 APNS VOIP 사용](../../notification-hubs/voip-apns.md)을 참조하세요.
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Azure Resource Manager 클라이언트를 사용하여 Notification Hub 구성
 

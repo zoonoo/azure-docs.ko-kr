@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 5f6e5de61c9f43d5958e68c545105c4373996f7c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175069"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96936984"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -115,7 +115,7 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 
 
 > [!NOTE]
-> 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다.
+> 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다. 지원되는 특성 목록을 편집하는 기능은 기본적으로 잠겨 있지만 고객은 https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true URL로 이동하여 기능을 사용하도록 설정할 수 있습니다. 그런 다음, [위](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes)에 설명된 대로 애플리케이션으로 이동하여 특성 목록을 볼 수 있습니다. 
 
 지원되는 특성 목록을 편집할 때는 다음과 같은 속성이 제공됩니다.
 

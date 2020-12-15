@@ -2,21 +2,21 @@
 title: Azure Active Directory Domain Services 개요 | Microsoft Docs
 description: 이 개요에서는 Azure Active Directory Domain Services에서 제공하는 기능과 조직에서 이를 사용하여 ID 서비스를 클라우드의 애플리케이션 및 서비스에 제공하는 방법을 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/14/2020
-ms.author: joflore
+ms.date: 12/03/2020
+ms.author: justinha
 ms.custom: contperfq1
-ms.openlocfilehash: 988119c34ab0a8ef0e20ec86a7552fb7b4643cd1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 141b59e400154ef40ebced25c69eaf162ac1787a
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967990"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619116"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services란?
 
@@ -31,9 +31,9 @@ Azure AD DS는 기존 Azure AD 테넌트와 통합됩니다. 이러한 통합을
 
 ## <a name="how-does-azure-ad-ds-work"></a>Azure AD DS의 작동 방식
 
-Azure AD DS 관리되는 도메인을 만들 때 고유한 네임스페이스를 정의합니다. 이 네임스페이스는 *aaddscontoso.com*과 같은 도메인 이름입니다. 그런 다음, 두 개의 Windows Server DC(도메인 컨트롤러)가 선택한 Azure 지역에 배포됩니다. 이 DC 배포를 복제본 세트라고 합니다.
+Azure AD DS 관리되는 도메인을 만들 때 고유한 네임스페이스를 정의합니다. 이 네임스페이스는 *aaddscontoso.com* 과 같은 도메인 이름입니다. 그런 다음, 두 개의 Windows Server DC(도메인 컨트롤러)가 선택한 Azure 지역에 배포됩니다. 이 DC 배포를 복제본 세트라고 합니다.
 
-이러한 DC를 관리, 구성 또는 업데이트할 필요가 없습니다. Azure 플랫폼은 백업을 포함하여 관리되는 도메인의 일부로 DC를 처리합니다.
+이러한 DC를 관리, 구성 또는 업데이트할 필요가 없습니다. Azure 플랫폼은 Azure Disk Encryption을 사용한 저장 데이터 백업 및 암호화를 포함하여 관리되는 도메인의 일부로 DC를 처리합니다.
 
 관리되는 도메인은 Azure AD에서 단방향 동기화를 수행하여 한 곳의 사용자, 그룹 및 자격 증명 세트에 대한 액세스를 제공하도록 구성되어 있습니다. 관리되는 도메인에서 리소스를 직접 만들 수 있지만, Azure AD와 다시 동기화되지는 않습니다. 그러면 관리되는 도메인에 연결되는 Azure의 애플리케이션, 서비스 및 VM에서 도메인 조인, 그룹 정책, LDAP 및 Kerberos/NTLM 인증과 같은 일반적인 AD DS 기능을 사용할 수 있습니다.
 

@@ -6,16 +6,16 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: e2df34b7897ee2543d967d147317859ab26971e9
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 933b71d75eacdca015a38524870f25a345e76d22
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510485"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746168"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>자습서: Azure Portal을 사용하여 VPN 게이트웨이 만들기 및 관리
 
-Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스 간 연결을 제공합니다. 이 자습서에서는 VPN 게이트웨이 만들기 및 관리 같은 기본적인 Azure VPN 게이트웨이 배포 항목을 다룹니다.
+Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스 간 연결을 제공합니다. 이 자습서에서는 VPN 게이트웨이 만들기 및 관리 같은 기본적인 Azure VPN 게이트웨이 배포 항목을 다룹니다. [Azure CLI](create-routebased-vpn-gateway-cli.md) 또는 [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)을 사용하여 게이트웨이를 만들 수도 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

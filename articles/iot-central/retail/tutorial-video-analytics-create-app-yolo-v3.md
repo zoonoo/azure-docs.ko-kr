@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: 3994b05f613cbebcf6daa05cf8db3ef429b52407
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ecc32908aea2fb474d2ebe5bd94f556527eda814
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428065"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763449"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>자습서: Azure IoT Central(YOLO v3)에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 만들기
 
@@ -24,10 +24,10 @@ ms.locfileid: "94428065"
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) - 이 파일은 이러한 자습서를 수행할 때 필요한 다양한 구성 옵션을 기록하는 데 도움이 됩니다.
 - [deployment.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) - 두 번째 자습서에서 Intel NUC 디바이스를 사용하려는 경우에만 이 파일을 다운로드해야 합니다.
 
 > [!NOTE]
 > GitHub 리포지토리에는 **LvaEdgeGatewayModule** 및 **lvaYolov3** IoT Edge 모듈의 소스 코드도 포함되어 있습니다. 소스 코드를 사용하는 방법에 대한 자세한 내용은 [LVA 게이트웨이 모듈 빌드](tutorial-video-analytics-build-module.md)를 참조하세요.
@@ -42,7 +42,7 @@ ms.locfileid: "94428065"
 
 1. 텍스트 편집기를 사용하여 *lva-configuration* 폴더에 저장한 *deployment.amd64.json* 파일을 엽니다.
 
-1. 다음 코드 조각과 같이 `LvaEdgeGatewayModule` 설정을 찾아서 이미지 이름을 변경합니다.
+1. `LvaEdgeGatewayModule` 설정을 찾아 이미지 이름이 다음 코드 조각에 표시된 것과 같은지 확인합니다.
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -50,7 +50,7 @@ ms.locfileid: "94428065"
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. `LvaEdgeGatewayModule` 섹션의 `env` 노드에 Media Services 계정 이름을 추가합니다. 앞에서 *scratchpad.txt* 파일에 Media Services 계정 이름을 기록해 두었습니다.
+1. `LvaEdgeGatewayModule` 섹션의 `env` 노드에 Media Services 계정 이름을 추가합니다. *scratchpad.txt* 파일에 Media Services 계정 이름을 기록했습니다.
 
     ```json
     "env": {
@@ -58,7 +58,7 @@ ms.locfileid: "94428065"
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -67,7 +67,16 @@ ms.locfileid: "94428065"
 
     `azureMediaServicesArmId`는 앞에서 Media Services 계정을 만들 때 *scratchpad.txt* 파일에 기록해 둔 **리소스 ID** 입니다.
 
-    앞에서 Media Services 계정의 서비스 주체를 만들 때 *scratchpad.txt* 파일에 `aadTenantId`, `aadServicePrincipalAppId` 및 `aadServicePrincipalSecret`을 기록해 두었습니다.
+    다음 표에서는 배포 매니페스트에서 사용해야 하는 *scratchpad.txt* 파일에 있는 **Media Services API에 연결(JSON)** 의 값을 보여줍니다.
+
+    | 배포 매니페스트       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > 이전 표를 사용하여 배포 매니페스트에 올바른 값을 추가했는지 확인합니다. 그렇지 않으면 디바이스가 작동하지 않습니다.
 
     ```json
     {

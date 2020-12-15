@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 11/20/2020
 ms.author: jeedes
-ms.openlocfilehash: ccf945f8bfec85a18493d515dce48f4cb3e3b612
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182363"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602056"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -77,9 +77,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://*.softwareag.cloud/auth/realms/TENANT-NAME` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Software AG Cloud 클라이언트 지원 팀](mailto:support@softwareag.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -99,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -121,19 +121,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1.  **관리** 를 클릭합니다.
 
-    ![Software AG Cloud1 구성](./media/software-ag-cloud-tutorial/admin.png)
+    ![Software AG Cloud 관리 구성](./media/software-ag-cloud-tutorial/admin.png)
 
 1. **Single Sign-On > ID 공급자 추가** 로 이동합니다.
 
-    ![Software AG Cloud2 구성](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Software AG Cloud ID 공급자 구성](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. 다음 페이지에서 다음 단계를 수행합니다.
 
-    ![Software AG Cloud3 구성](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Software AG Cloud 구성 다음 단계](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. **ID 공급자 표시 이름** 텍스트 상자에 이름(예: `azure ad`)을 입력합니다.
 
-    b. Azure Portal에서 복사한 **엔터티 ID** 값을 **Software AG Cloud 리디렉션 URI에 사용할 ID 공급자 고유 식별자** 텍스트 상자에 붙여넣습니다.
+    b. **Software AG Cloud 리디렉션 URI에서 사용할 ID 공급자 고유 식별자** 텍스트 상자에 ID 공급자의 고유 이름을 입력합니다. **Software AG Cloud 리디렉션 URI** 필드가 새로 고쳐지고 URI로 채워집니다. 이 URI를 복사하여 정의된 패턴에 따라 Azure Portal에서 **엔터티 ID** 및 기타 정보를 구성하는 데 사용합니다.
 
     다. **ID 공급자 구성** 에서 **페더레이션 메타데이터 XML** 파일을 가져오고 **다음** 을 클릭합니다.
 
@@ -147,11 +147,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Software AG Cloud 로그온 URL로 리디렉션됩니다. 
+* Microsoft Azure가 Software AG Cloud의 공급자로 구성되어 있다고 가정하고, `www.softwareag.cloud`로 이동하여 로그인 단추를 클릭하고 환경 이름을 입력합니다. 다음 화면에서 "<IDP NAME>으로 로그인" 링크를 클릭하고 자격 증명을 입력합니다. 인증되면 로그인되고 Software AG Cloud 홈 페이지로 이동합니다.
 
-2. Software AG Cloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Software AG Cloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Software AG Cloud 타일을 클릭하면 Software AG Cloud 로그온 URL로 리디렉션됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Software AG Cloud 타일을 클릭하면 Software AG Cloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

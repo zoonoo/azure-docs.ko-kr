@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 450d471beebbcc554a6d534fb2d5361778f158bc
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 74e9224b30ccee274eaf52ba47a0ec05573c2e9d
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992321"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558728"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
@@ -109,7 +109,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 프로젝트에 이미지를 더 추가하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지의 적절한 폴더에 업로드합니다. 
 
-프로젝트에서 데이터 저장소의 새 데이터를 지속적으로 모니터링하려면 **증분 새로 고침 사용** 확인란을 선택합니다.
+프로젝트에서 데이터 저장소의 새 데이터를 지속적으로 모니터링하려면 **증분 새로 고침 사용** 확인란을 선택합니다. 이 데이터를 사용하도록 설정하면 하루에 한 번 프로젝트로 가져옵니다.
 
 데이터 저장소에 표시되는 새 이미지를 프로젝트에 추가하지 않으려면 이 확인란을 선택 취소합니다.
 

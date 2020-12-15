@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537393"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533964"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -25,6 +25,31 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 - 버그 수정
 
 이 문서는 매월 업데이트됩니다. 새 업데이트를 유지하려면 이 문서를 다시 확인하세요.
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="azure-portal-experience"></a>Azure Portal 환경
+
+Azure Portal 사용자 환경에서 다음과 같은 두 가지 버그를 해결했습니다.
+
+- 데스크톱 애플리케이션 이름을 "VM 추가" 워크플로에서 더 이상 덮어쓰지 않습니다.
+- 이제 세션 호스트가 확장 집합의 일부인 경우 세션 호스트 탭이 로드됩니다.
+
+### <a name="fslogix-client-version-2009"></a>FSLogix 클라이언트 버전 2009 
+
+여러 수정 및 개선 사항이 있는 새 버전의 FSLogix 클라이언트를 출시했습니다. [블로그 게시물](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix)에서 자세히 알아보세요.
+
+### <a name="rdp-shortpath-public-preview"></a>RDP Shortpath 공개 미리 보기
+
+RDP Shortpath는 지점 및 사이트 간과 사이트 간 VPN 및 ExpressRoute를 사용하여 Windows Virtual Desktop 세션 호스트에 직접 연결하는 것을 소개합니다. URCP 전송 프로토콜도 소개합니다. RDP Shortpath는 사용자 환경을 개선하기 위해 대기 시간과 네트워크 홉을 줄이도록 설계되었습니다. [Windows Virtual Desktop RDP Shortpath](shortpath.md)에서 자세히 알아보세요.
+
+### <a name="azdesktopvirtualization-version-201"></a>Az.DesktopVirtualization 버전 2.0.1
+
+Windows Virtual Desktop cmdlet 2.0.1을 출시했습니다. 이 업데이트에는 MSIX 앱 연결을 관리할 수 있는 cmdlet이 포함되어 있습니다. [PowerShell 갤러리](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1)에서 새 버전을 다운로드할 수 있습니다.
+
+### <a name="azure-advisor-updates"></a>Azure Advisor 업데이트
+
+이제 Azure Advisor는 Windows Virtual Desktop의 근접 지침에 대한 새로운 권장 사항을 제공합니다. [Azure 웹 사이트](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/)에서 자세히 알아보세요.
 
 ## <a name="october-2020"></a>2020년 10월
 
@@ -174,7 +199,6 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니�
 - PowerShell 또는 진단 서비스 웹앱을 통해 수행되는 함수 모니터링은 이제 Azure Portal의 Log Analytics로 이동되었습니다. 또한 이제 두 가지 옵션을 통해 보고서를 시각화할 수 있습니다. Kusto 쿼리를 실행하고 통합 문서를 사용하여 시각적 보고서를 만들 수 있습니다.
 
 - 더 이상 Windows Virtual Desktop을 사용하도록 Azure AD(Azure Active Directory) 동의를 완료할 필요가 없습니다. 이 업데이트에서 Azure 구독의 Azure AD 테넌트는 사용자를 인증하고 관리자를 위한 Azure RBAC 제어를 제공합니다.
-
 
 ### <a name="powershell-support"></a>PowerShell 지원
 

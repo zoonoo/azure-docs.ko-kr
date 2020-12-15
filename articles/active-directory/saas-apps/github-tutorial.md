@@ -1,6 +1,6 @@
 ---
-title: '자습서: GitHub와 Azure Active Directory 통합 | Microsoft Docs'
-description: Azure Active Directory와 GitHub 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: '자습서: GitHub Enterprise Cloud Organization과 Azure Active Directory 통합 | Microsoft Docs'
+description: Azure Active Directory와 GitHub Enterprise Cloud Organization 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: cb5ef751a3fc2241924eaee1c5da9507006389cc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 67a17aaa647d9aa6943b37d54fc0e3308ad8955f
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449274"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558541"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>자습서: GitHub와 Azure Active Directory SSO(Single Sign-On) 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>자습서: GitHub Enterprise Cloud Organization과 Azure Active Directory SSO(Single Sign-On) 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 GitHub를 통합하는 방법에 대해 알아봅니다. Azure AD와 GitHub를 통합하는 경우 다음을 수행할 수 있습니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 GitHub Enterprise Cloud **Organization** 을 통합하는 방법에 대해 알아봅니다. GitHub Enterprise Cloud Organization을 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
 * GitHub Enterprise Cloud Organization에 액세스할 수 있는 사용자를 Azure AD에서 제어합니다.
 * Azure Portal 중앙에서 GitHub Enterprise Cloud Organization에 대한 액세스를 관리합니다.
@@ -29,7 +29,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-GitHub와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+GitHub Enterprise Cloud Organization과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
 * [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
@@ -52,7 +52,7 @@ Azure AD에 GitHub 통합을 구성하려면 갤러리의 GitHub를 관리되는
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **GitHub** 를 입력합니다.
-1. 결과 패널에서 **GitHub** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. 결과 패널에서 **GitHub Enterprise Cloud Organization** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>GitHub용 Azure AD Single Sign-On 구성 및 테스트
 
@@ -111,7 +111,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  

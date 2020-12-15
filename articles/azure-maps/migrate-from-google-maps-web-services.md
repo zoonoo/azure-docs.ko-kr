@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187037"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904893"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>자습서 - Google Maps에서 웹 서비스 마이그레이션
 
@@ -40,19 +40,19 @@ Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세�
 
 | Google Maps 서비스 API | Azure Maps 서비스 API                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| 방향              | [Route](/rest/api/maps/route)                                     |
-| 거리 행렬         | [경로 행렬](/rest/api/maps/route/postroutematrixpreview)       |
-| 지오코딩               | [검색](/rest/api/maps/search)                                   |
-| 장소 검색           | [검색](/rest/api/maps/search)                                   |
-| 장소 자동 완성      | [검색](/rest/api/maps/search)                                   |
-| 도로에 맞춤            | [경로 및 방향 계산](#calculate-routes-and-directions) 섹션을 참조하세요.            |
-| 속도 제한            | [좌표 역방향 지오코딩](#reverse-geocode-a-coordinate) 섹션을 참조하세요.                  |
-| 정적 맵              | [Render](/rest/api/maps/render/getmapimage)                       |
-| 표준 시간대               | [표준 시간대](/rest/api/maps/timezone)                              |
+| 방향              | [Route](/rest/api/maps/route)                                     |                         
+| 거리 행렬         | [경로 행렬](/rest/api/maps/route/postroutematrixpreview)       |                         
+| 지오코딩               | [검색](/rest/api/maps/search)                                   |                         
+| 장소 검색           | [검색](/rest/api/maps/search)                                   |                         
+| 장소 자동 완성      | [검색](/rest/api/maps/search)                                   |                         
+| 도로에 맞춤            | [경로 및 방향 계산](#calculate-routes-and-directions) 섹션을 참조하세요.            
+| 속도 제한            | [좌표 역방향 지오코딩](#reverse-geocode-a-coordinate) 섹션을 참조하세요.                  
+| 정적 맵              | [Render](/rest/api/maps/render/getmapimage)                       |                         
+| 표준 시간대               | [표준 시간대](/rest/api/maps/timezone)                              |                         
+| 상승               | [권한 상승(미리 보기)](/rest/api/maps/elevation)                   |                         |
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
-- 상승
 - 지리적 위치
 - 위치 세부 정보 및 사진 - 전화 번호 및 웹 사이트 URL은 Azure Maps 검색 API에서 사용할 수 있습니다.
 - 맵 URL
@@ -203,7 +203,7 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 
 - [**경로 계산**](/rest/api/maps/route/getroutedirections): 경로를 계산하고 요청을 즉시 처리합니다. 이 API는 GET 및 POST 요청을 모두 지원합니다. POST 요청은 많은 수의 중간 지점을 지정할 때 또는 URL 요청이 너무 길어서 문제가 발생하지 않도록 많은 경로 옵션을 사용할 때 권장되는 방법입니다. Azure Maps의 POST 경로 방향에는 수천 개의 [지원 요소](/rest/api/maps/route/postroutedirections#supportingpoints)를 사용할 수 있는 옵션이 있으며 이를 사용하여 둘 사이의 논리적 경로를 다시 만들 수 있습니다(도로에 맞춤). 
 - [**일괄 처리 경로**](/rest/api/maps/route/postroutedirectionsbatchpreview): 최대 1,000개의 경로 요청을 포함하는 요청을 만들고 일정 기간 동안 처리합니다. 모든 데이터가 서버에서 병렬로 처리되며, 처리가 완료되면 전체 결과 세트를 다운로드할 수 있습니다.
-- [**모바일 서비스**](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
+- [**Mobility Services(미리 보기) **](/rest/api/maps/mobility): 대중 교통을 사용하여 경로 및 방향을 계산합니다.
 
 다음 표에서는 Google Maps API 매개 변수와 Azure Maps의 비슷한 API 매개 변수를 상호 참조합니다.
 
@@ -221,8 +221,8 @@ Azure Maps 라우팅 서비스는 경로 계산을 위한 다음 API를 제공�
 | `origin`                       | `query`                            |
 | `region`                       | *해당 없음* - 이 기능은 지오코딩과 관련이 있습니다. Azure Maps 지오코딩 API를 사용하는 경우 *countrySet* 매개 변수를 사용합니다.  |
 | `traffic_model`               | *해당 없음* – *traffic* 매개 변수에 트래픽 데이터를 사용해야 하는 경우에만 지정할 수 있습니다. |
-| `transit_mode`                | [모바일 서비스 설명서](/rest/api/maps/mobility) 참조 |
-| `transit_routing_preference` | [모바일 서비스 설명서](/rest/api/maps/mobility) 참조 |
+| `transit_mode`                | [Mobility Services(미리 보기) 설명서](/rest/api/maps/mobility) 참조 |
+| `transit_routing_preference` | [Mobility Services(미리 보기) 설명서](/rest/api/maps/mobility) 참조 |
 | `units`                        | *해당 없음* – Azure Maps는 메트릭 시스템만 사용합니다.  |
 | `waypoints`                    | `query`                            |
 

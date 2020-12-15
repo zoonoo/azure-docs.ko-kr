@@ -1,20 +1,20 @@
 ---
 title: 배포 문제 해결
-description: Azure Resource Manager 템플릿 배포를 모니터링하고 문제를 해결하는 방법에 대해 알아봅니다. 활동 로그 및 배포 기록을 표시합니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿) 배포를 모니터링하고 문제를 해결하는 방법에 대해 알아봅니다. 활동 로그 및 배포 기록을 표시합니다.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891808"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928531"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>자습서: ARM 템플릿 배포 문제 해결
 
-ARM (Azure Resource Manager) 템플릿 배포 오류 문제를 해결하는 방법에 대해 알아봅니다. 이 자습서에서는 템플릿에서 두 가지 오류를 설정하고 활동 로그 및 배포 기록을 사용하여 문제를 해결하는 방법을 알아봅니다.
+ARM 템플릿(Azure Resource Manager 템플릿) 배포 오류 문제를 해결하는 방법에 대해 알아봅니다. 이 자습서에서는 템플릿에서 두 가지 오류를 설정하고 활동 로그 및 배포 기록을 사용하여 문제를 해결하는 방법을 알아봅니다.
 
 템플릿 배포와 관련된 오류는 다음과 같은 두 가지 유형이 있습니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-- Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)
+- Resource Manager 도구 확장이 포함된 Visual Studio Code. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="create-a-problematic-template"></a>문제가 있는 템플릿 만들기
 

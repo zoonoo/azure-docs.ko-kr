@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cdbc972d230988420a066c4b927388b885f99a17
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6109164d8827a343a550a114acc42db2461f3a2c
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896748"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905352"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -24,7 +24,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 > [!div class="checklist"]
 > * 차량 추적 데이터를 기록하기 위해 Azure 스토리지 계정을 만듭니다.
-> * 데이터 업로드 API를 사용하여 Azure Maps Data Service에 지오펜스를 업로드합니다.
+> * 데이터 업로드 API를 사용하여 Azure Maps 데이터 서비스(미리 보기)에 지오펜스를 업로드합니다.
 > * Azure IoT Hub에 허브를 만들고 디바이스를 등록합니다.
 > * Azure Maps 공간 분석을 기반으로 하는 비즈니스 논리를 구현하는 Azure Functions에서 함수를 만듭니다.
 > * Azure Event Grid를 통해 Azure 함수에서 IoT 디바이스 원격 분석 이벤트를 구독합니다.
@@ -91,7 +91,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 다음 그림에는 지오펜스 영역이 파란색으로 표시되어 있습니다. 렌터카의 경로는 녹색 선으로 표시되어 있습니다.
 
-   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="시스템 개요 다이어그램":::
+   :::image type="content" source="./media/tutorial-iot-hub-maps/geofence-route.png" border="false" alt-text="지오펜스 경로를 보여주는 그림":::
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
@@ -103,13 +103,15 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 1. 새로 만든 스토리지 계정으로 이동합니다. **기본 정보** 섹션에서 **컨테이너** 링크를 클릭합니다.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="시스템 개요 다이어그램":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Blob 스토리지용 컨테이너의 스크린샷":::
 
 2. 왼쪽 위 모서리에서 **+ 컨테이너** 를 선택합니다. 브라우저의 오른쪽에 패널이 나타납니다. 컨테이너의 이름을 *contoso-rental-logs* 라고 지정하고 **만들기** 를 선택합니다.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="시스템 개요 다이어그램" 섹션에서 두 값이 모두 필요합니다.
+     :::image type="content" source="./media/tutorial-iot-hub-maps/container-new.png" alt-text="Blob 컨테이너 만들기 스크린샷":::
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="시스템 개요 다이어그램":::
+3. 스토리지 계정의 **액세스 키** 창으로 이동하여 **key1** 섹션의 **스토리지 계정 이름** 과 **키** 값을 복사합니다. "Azure 함수 만들기 및 Event Grid 구독 추가" 섹션에서 두 값이 모두 필요합니다.
+
+    :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="스토리지 계정 이름 및 키 복사 스크린샷":::
 
 ## <a name="upload-a-geofence"></a>지오펜스 업로드
 
@@ -178,7 +180,7 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
 
 1. **함수 앱** 만들기 페이지에서 함수 앱의 이름을 지정합니다. **리소스 그룹** 의 드롭다운 목록에서 **ContosoRental** 을 선택합니다. **런타임 스택** 으로 **.NET Core** 를 선택합니다. 페이지 맨 아래에서 **다음: 호스팅 >** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="시스템 개요 다이어그램":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/rental-app.png" alt-text="함수 앱 만들기 스크린샷":::
 
 1. **스토리지 계정** 에서 [Azure 스토리지 계정 만들기](#create-an-azure-storage-account)에서 만든 스토리지 계정을 선택합니다. **검토 + 만들기** 를 선택합니다.
 
@@ -189,32 +191,32 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
      >[!IMPORTANT]
     > **Azure Event Hub 트리거** 와 **Azure Event Grid 트리거** 템플릿은 이름이 비슷합니다. **Azure Event Grid 트리거** 템플릿을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="시스템 개요 다이어그램":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="함수 만들기 스크린샷":::
 
 1. 함수에 이름을 지정합니다. 이 자습서에서는 *GetGeoFunction* 이라는 이름을 사용하지만, 일반적으로 원하는 이름을 사용할 수 있습니다. **함수 만들기** 를 선택합니다.
 
 1. 왼쪽 메뉴에서 **코드 + 테스트** 창을 선택합니다. [C# 스크립트](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx)를 복사하여 코드 창에 붙여넣습니다.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="시스템 개요 다이어그램":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-code.png" alt-text="복사/함수 창에 코드 붙여넣기 스크린샷":::
 
 1. C# 코드에서 다음 매개 변수를 바꿉니다.
     * **SUBSCRIPTION_KEY** 를 Azure Maps 계정 기본 구독 키로 바꿉니다.
     * **UDID** 를 [지오펜스 업로드](#upload-a-geofence)에서 업로드한 지오펜스의 `udid`로 바꿉니다.
-    * 스크립트의 `CreateBlobAsync` 함수는 이벤트당 Blob을 데이터 스토리지 계정에 만듭니다. **ACCESS_KEY** , **ACCOUNT_NAME** 및 **STORAGE_CONTAINER_NAME** 을 스토리지 계정의 액세스 키, 계정 이름 및 데이터 스토리지 컨테이너로 바꿉니다. 이러한 값은 [Azure 스토리지 계정 만들기](#create-an-azure-storage-account)에서 스토리지 계정을 만들 때 생성되었습니다.
+    * 스크립트의 `CreateBlobAsync` 함수는 이벤트당 Blob을 데이터 스토리지 계정에 만듭니다. **ACCESS_KEY**, **ACCOUNT_NAME** 및 **STORAGE_CONTAINER_NAME** 을 스토리지 계정의 액세스 키, 계정 이름 및 데이터 스토리지 컨테이너로 바꿉니다. 이러한 값은 [Azure 스토리지 계정 만들기](#create-an-azure-storage-account)에서 스토리지 계정을 만들 때 생성되었습니다.
 
-1. 왼쪽 메뉴에서 **통합** 창을 선택합니다. 다이어그램에서 **Event Grid 트리거** 를 선택합니다. 트리거 이름(예: *eventGridEvent* )을 입력하고 **Event Grid 구독 만들기** 를 선택합니다.
+1. 왼쪽 메뉴에서 **통합** 창을 선택합니다. 다이어그램에서 **Event Grid 트리거** 를 선택합니다. 트리거 이름(예: *eventGridEvent*)을 입력하고 **Event Grid 구독 만들기** 를 선택합니다.
 
-     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="시스템 개요 다이어그램":::
+     :::image type="content" source="./media/tutorial-iot-hub-maps/function-integration.png" alt-text="이벤트 구독 추가 스크린샷":::
 
 1. 구독 세부 정보를 입력합니다. 이벤트 구독에 이름을 지정합니다. **이벤트 스키마** 에 대해 **Event Grid 스키마** 를 선택합니다. **토픽 유형** 에는 **Azure IoT Hub 계정** 을 선택합니다. **리소스 그룹** 의 경우 이 자습서의 시작 부분에서 만든 리소스 그룹을 선택합니다. **리소스** 의 경우 "Azure IoT 허브 만들기"에서 만든 IoT 허브를 선택합니다. **이벤트 형식 필터** 에는 **디바이스 원격 분석** 을 선택합니다.
 
    이러한 옵션을 선택하면 **토픽 유형** 이 **IoT Hub** 로 변경됩니다. **시스템 토픽 이름** 에는 리소스와 동일한 이름을 사용할 수 있습니다. 마지막으로 **엔드포인트 세부 정보** 섹션에서 **엔드포인트 선택** 을 선택합니다. 모든 설정을 적용하고 **선택 확인** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="시스템 개요 다이어그램":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription.png" alt-text="이벤트 구독 만들기 스크린샷":::
 
 1. 설정을 검토합니다. 엔드포인트가 이 섹션의 시작 부분에서 만든 함수를 지정하는지 확인합니다. **만들기** 를 선택합니다.
 
-    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="시스템 개요 다이어그램":::
+    :::image type="content" source="./media/tutorial-iot-hub-maps/function-create-event-subscription-confirm.png" alt-text="이벤트 구독 만들기 확인 스크린샷":::
 
 1. 이제 **트리거 편집** 패널로 돌아왔습니다. **저장** 을 선택합니다.
 
@@ -222,11 +224,11 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
 
 Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시지 경로가 자동으로 만들어집니다. 메시지 라우팅을 사용하면 다양한 데이터 형식을 다양한 엔드포인트로 라우팅할 수 있습니다. 예를 들어 디바이스 원격 분석 메시지, 디바이스 수명 주기 이벤트 및 디바이스 쌍 변경 이벤트를 라우팅할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅 사용](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)을 참조하세요.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="시스템 개요 다이어그램":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="IoT 허브의 메시지 라우팅 스크린샷":::
 
 예제 시나리오에서는 렌터카가 이동할 때만 메시지를 수신하려고 합니다. `Engine` 속성이 **"ON"** 인 이벤트를 필터링하는 라우팅 쿼리를 만듭니다. 라우팅 쿼리를 만들려면 **RouteToEventGrid** 경로를 선택하고, **라우팅 쿼리** 를 **"Engine='ON'"** 으로 바꿉니다. 그런 다음 **저장** 을 선택합니다. 이제 IoT 허브는 엔진이 켜진 디바이스 원격 분석만 게시합니다.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="시스템 개요 다이어그램":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="라우팅 메시지 필터링 스크린샷":::
 
 >[!TIP]
 >IoT 디바이스-클라우드 메시지를 쿼리하는 다양한 방법이 있습니다. 메시지 라우팅에 대한 자세한 내용은 [IoT Hub 메시지 라우팅 사용](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax)을 참조하세요.
@@ -254,15 +256,15 @@ Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시
 
   로컬 터미널은 다음과 같습니다.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="시스템 개요 다이어그램":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="터미널 출력 스크린샷":::
 
 이제 Blob 스토리지 컨테이너를 열면 차량이 지오펜스 외부에 있었던 위치에 대한 4개의 Blob을 볼 수 있습니다.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="시스템 개요 다이어그램":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/blob.png" alt-text="컨테이너 내부의 Blob 보기 스크린샷":::
 
 다음 맵은 지오펜스 외부에 있는 차량 네 대의 위치 지점을 보여줍니다. 각 위치는 일정한 시간 간격으로 기록되었습니다.
 
-:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="시스템 개요 다이어그램":::
+:::image type="content" source="./media/tutorial-iot-hub-maps/violation-map.png" alt-text="위치 이탈 맵 스크린샷":::
 
 ## <a name="explore-azure-maps-and-iot"></a>Azure Maps 및 IoT 살펴보기
 

@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: ae96a81485064637db9e23b7164021bfbc952162
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 12/09/2020
+ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555947"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920871"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 자습서에서는 **Azure SQL Database에서 Azure Synapse Analytics(이전의 SQL DW)로 여러 테이블을 복사** 하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 테이블을 SQL Server/Oracle에서 Azure SQL Database/Azure Synapse Analytics(이전의 SQL DW)/Azure Blob으로 복사하고, 다른 경로를 Blob에서 Azure SQL Database 테이블로 복사합니다.
+이 자습서에서는 **Azure SQL Database에서 Azure Synapse Analytics로 여러 테이블을 복사** 하는 방법을 보여줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 테이블을 SQL Server/Oracle에서 Azure SQL Database/Azure Synapse Analytics/Azure Blob으로 복사하고, 다른 경로를 Blob에서 Azure SQL Database 테이블로 복사합니다.
 
 > [!NOTE]
 > - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -31,8 +31,8 @@ ms.locfileid: "94555947"
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
-> * Azure SQL Database, Azure Synapse Analytics(이전의 SQL DW) 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL DW) 데이터 세트를 만듭니다.
+> * Azure SQL Database, Azure Synapse Analytics 및 Azure Storage 연결 서비스를 만듭니다.
+> * Azure SQL Database 및 Azure Synapse Analytics 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.
@@ -40,35 +40,35 @@ ms.locfileid: "94555947"
 이 자습서에서는 Azure Portal을 사용합니다. 다른 도구/SDK를 사용하여 데이터 팩터리를 만드는 방법을 알아보려면 [빠른 시작](quickstart-create-data-factory-dot-net.md)을 참조하세요. 
 
 ## <a name="end-to-end-workflow"></a>엔드투엔드 워크플로
-이 시나리오에서는 Azure Synapse Analytics(이전의 SQL DW)에 복사하려는 여러 테이블이 Azure SQL Database에 있습니다. 다음은 파이프라인에서 발생하는 워크플로 단계의 논리적 시퀀스입니다.
+이 시나리오에서는 Azure Synapse Analytics에 복사하려는 여러 테이블이 Azure SQL Database에 있습니다. 다음은 파이프라인에서 발생하는 워크플로 단계의 논리적 시퀀스입니다.
 
 ![워크플로](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * 첫 번째 파이프라인은 싱크 데이터 저장소로 복사해야 하는 테이블의 목록을 찾습니다.  또는 싱크 데이터 저장소에 복사할 모든 테이블을 나열하는 메타데이터 테이블을 유지할 수 있습니다. 그런 다음 파이프라인에서 다른 파이프라인을 트리거하여 데이터베이스의 각 테이블을 반복하고 데이터 복사 작업을 수행합니다.
-* 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob 스토리지 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 사용하여 Azure SQL Database의 특정 테이블을 Azure Synapse Analytics(이전의 SQL DW)의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
+* 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob 스토리지 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 사용하여 Azure SQL Database의 특정 테이블을 Azure Synapse Analytics의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure Storage 계정**. Azure Storage 계정은 대량 복사 작업에서 스테이징 Blob 스토리지로 사용됩니다. 
 * **Azure SQL Database**. 이 데이터베이스에는 원본 데이터가 포함되어 있습니다. 
-* **Azure Synapse Analytics(이전의 SQL DW)** . 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
+* **Azure Synapse Analytics**. 이 데이터 웨어하우스에는 SQL Database에서 복사된 데이터를 보관하고 있습니다. 
 
-### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>SQL Database 및 Azure Synapse Analytics(이전의 SQL DW) 준비
+### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>SQL Database 및 Azure Synapse Analytics 준비 
 
 **원본 Azure SQL Database 준비**:
 
-[Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
+[Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하여 Adventure Works LT 샘플 데이터를 사용하여 SQL Database에 데이터베이스를 만듭니다. 이 자습서에서는 이 샘플 데이터베이스의 모든 테이블을 Azure Synapse Analytics로 복사합니다.
 
-**싱크 Azure Synapse Analytics(이전의 SQL DW) 준비**:
+**싱크 Azure Synapse Analytics 준비**:
 
-1. Azure Synapse Analytics(이전의 SQL DW) 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
+1. Azure Synapse Analytics 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
 
-1. Azure Synapse Analytics(이전의 SQL DW)에서 해당 테이블 스키마를 만듭니다. Azure Data Factory를 사용하여 이후 단계에서 데이터를 마이그레이션/복사합니다.
+1. Azure Synapse Analytics에서 해당 테이블 스키마를 만듭니다. Azure Data Factory를 사용하여 이후 단계에서 데이터를 마이그레이션/복사합니다.
 
 ## <a name="azure-services-to-access-sql-server"></a>SQL 서버에 액세스하는 Azure 서비스
 
-SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure 서비스에서 SQL 서버에 액세스할 수 있도록 허용합니다. 서버에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 설정이 **켜기** 로 지정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database로부터 데이터를 읽고, Azure Synapse Analytics(이전의 SQL DW)에 데이터를 쓸 수 있습니다. 
+SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 SQL 서버에 액세스할 수 있도록 허용합니다. 서버에 대해 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 설정이 **켜기** 로 지정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory 서비스에서 Azure SQL Database로부터 데이터를 읽고, Azure Synapse Analytics에 데이터를 쓸 수 있습니다. 
 
 이 설정을 확인하고 설정하려면 서버 > 보안 > 방화벽 및 가상 네트워크로 이동하여 **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 을 **켜기** 로 설정합니다.
 
@@ -106,7 +106,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 연결된 서비스를 만들어 데이터 저장소와 계산을 데이터 팩터리에 연결합니다. 연결된 서비스에는 런타임에 Data Factory 서비스에서 데이터 저장소에 연결하는 데 사용하는 연결 정보가 있습니다. 
 
-이 자습서에서는 Azure SQL Database, Azure Synapse Analytics(이전의 SQL DW) 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure Synapse Analytics(이전의 SQL DW)는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 Azure Synapse Analytics(이전의 SQL DW)에 로드하기 전에 데이터를 스테이징하는 스토리지입니다. 
+이 자습서에서는 Azure SQL Database, Azure Synapse Analytics 및 Azure Blob Storage 데이터 저장소를 데이터 팩터리에 연결합니다. Azure SQL Database는 원본 데이터 저장소입니다. Azure Synapse Analytics는 싱크/대상 데이터 저장소입니다. Azure Blob Storage는 PolyBase를 사용하여 데이터를 Azure Synapse Analytics에 로드하기 전에 데이터를 스테이징하는 스토리지입니다. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>원본 Azure SQL Database 연결된 서비스 만들기
 이 단계에서는 Azure SQL Database의 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다. 
@@ -134,11 +134,11 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
     g. **만들기** 를 클릭하여 연결된 서비스를 저장합니다.
 
 
-### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>싱크 Azure Synapse Analytics(이전의 SQL DW) 연결된 서비스 만들기
+### <a name="create-the-sink-azure-synapse-analytics-linked-service"></a>싱크 Azure Synapse Analytics 연결 서비스 만들기
 
 1. **연결** 탭의 도구 모음에서 **+ 새로 만들기** 를 다시 클릭합니다. 
-1. **새 연결된 서비스** 창에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 선택하고, **계속** 을 클릭합니다. 
-1. **새 연결된 서비스(Azure Synapse Analytics(이전의 SQL DW))** 창에서 다음 단계를 수행합니다. 
+1. **새 연결된 서비스** 창에서 **Azure Synapse Analytics** 를 선택하고 **계속** 을 클릭합니다. 
+1. **새 연결된 서비스(Azure Synapse Analytics)** 창에서 다음 단계를 수행합니다. 
    
     a. **이름** 에 대해 **AzureSqlDWLinkedService** 를 입력합니다.
      
@@ -171,7 +171,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 
 **AzureSqlDatabaseDataset** 입력 데이터 세트는 **AzureSqlDatabaseLinkedService** 를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
 
-**AzureSqlDWDataset** 출력 데이터 세트는 **AzureSqlDWLinkedService** 를 참조합니다. 연결된 서비스는 Azure Synapse Analytics(이전의 SQL DW)에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
+**AzureSqlDWDataset** 출력 데이터 세트는 **AzureSqlDWLinkedService** 를 참조합니다. 연결된 서비스는 Azure Synapse Analytics에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
 
 이 자습서에서는 원본 및 대상 SQL 테이블이 데이터 세트 정의에 하드 코드되지 않습니다. 대신 ForEach 활동에서 런타임에 테이블의 이름을 복사 활동으로 전달합니다. 
 
@@ -187,10 +187,10 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 1. **연결** 탭으로 전환하여 **테이블** 로 아무 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 세트에 대한 쿼리를 지정합니다. 이 쿼리는 데이터베이스에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고, 테이블 이름으로 **dbo.dummyName** 을 입력할 수 있습니다. 
  
 
-### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>싱크 Azure Synapse Analytics(이전의 SQL DW)에 대한 데이터 세트 만들기
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics"></a>싱크 Azure Synapse Analytics에 대한 데이터 세트 만들기 
 
 1. 왼쪽 창에서 **+(더하기)** , **데이터 세트** 를 차례로 클릭합니다. 
-1. **새 데이터 세트** 창에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 선택한 다음, **계속** 을 클릭합니다.
+1. **새 데이터 세트** 창에서 **Azure Synapse Analytics** 를 선택한 다음, **계속** 을 클릭합니다.
 1. **속성 설정** 창의 **이름** 아래에 **AzureSqlDWDataset** 를 입력합니다. **연결된 서비스** 아래에서 **AzureSqlDWLinkedService** 를 선택합니다. 그런 후 **OK** 를 클릭합니다.
 1. **매개 변수** 탭으로 전환하고, **+ 새로 만들기** 를 클릭하고, 매개 변수 이름에 **DWTableName** 을 입력합니다. **+ 새로 만들기** 를 다시 클릭하고 매개 변수 이름에 **DWSchema** 를 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 *DWTableName* 과 *DWSchema* 끝에 **후행 공백 문자** 가 없는지 확인합니다. 
 1. **연결** 탭으로 전환합니다. 
@@ -212,7 +212,7 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
 * Azure SQL Database 시스템 테이블을 찾아 복사할 테이블의 목록을 가져옵니다.
 * **IterateAndCopySQLTables** 파이프라인을 트리거하여 실제 데이터 복사를 수행합니다.
 
-**IterateAndCopySQLTables** 파이프라인은 테이블 목록을 매개 변수로 사용합니다. 목록의 각 테이블에 대해 스테이징된 복사 및 PolyBase를 사용하여 데이터를 Azure SQL Database의 테이블에서 Azure Synapse Analytics(이전의 SQL DW)로 복사합니다.
+**IterateAndCopySQLTables** 파이프라인은 테이블 목록을 매개 변수로 사용합니다. 목록의 각 테이블에 대해 스테이징된 복사 및 PolyBase를 사용하여 데이터를 Azure SQL Database의 테이블에서 Azure Synapse Analytics로 복사합니다.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>IterateAndCopySQLTables 파이프라인 만들기
 
@@ -393,15 +393,15 @@ SQL Database와 Azure Synapse Analytics(이전의 SQL DW)의 경우 모두 Azure
     ```    
 1. **파이프라인 실행** 보기로 다시 전환하려면 이동 경로 메뉴의 위쪽에서 **모든 파이프라인 실행** 링크를 클릭합니다. 파이프라인의 활동 실행을 보려면 **IterateAndCopySQLTables** 링크(**파이프라인 이름** 열 아래)를 클릭합니다. **조회** 활동 출력의 테이블마다 하나의 **복사** 활동이 실행되는 것을 볼 수 있습니다. 
 
-1. 이 자습서에서 사용한 대상 Azure Synapse Analytics(이전의 SQL DW)에 데이터가 복사되었는지 확인합니다. 
+1. 이 자습서에서 사용한 대상 Azure Synapse Analytics에 데이터가 복사되었는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서 다음 단계를 수행했습니다. 
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
-> * Azure SQL Database, Azure Synapse Analytics(이전의 SQL DW) 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL DW) 데이터 세트를 만듭니다.
+> * Azure SQL Database, Azure Synapse Analytics 및 Azure Storage 연결 서비스를 만듭니다.
+> * Azure SQL Database 및 Azure Synapse Analytics 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.

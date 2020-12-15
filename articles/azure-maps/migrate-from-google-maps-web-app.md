@@ -1,20 +1,20 @@
 ---
-title: 자습서 - Google Maps에서 웹앱 마이그레이션 | Microsoft Azure Maps
+title: 자습서 - Google Maps에서 Microsoft Azure Maps로 웹앱 마이그레이션
 description: Google Maps에서 Microsoft Azure Maps로 웹앱을 마이그레이션하는 방법에 대한 자습서
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896449"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905063"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>자습서 - Google Maps에서 웹앱 마이그레이션
 
@@ -75,7 +75,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 | Geocoder 서비스        | ✓                          |
 | 방향 서비스      | ✓                          |
 | 거리 행렬 서비스 | ✓                          |
-| 권한 상승 서비스       | 계획                     |
+| 권한 상승 서비스       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>웹 SDK의 주목할 만한 차이점
 
@@ -1032,7 +1032,7 @@ MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다
 
 클러스터링을 사용하도록 설정하면 데이터 원본이 클러스터형 및 비클러스터형 데이터 요소를 렌더링하기 위해 레이어로 보냅니다. 데이터 원본은 수십만 개의 데이터 요소를 클러스터링할 수 있습니다. 클러스터링된 데이터 요소에는 다음과 같은 속성이 있습니다.
 
-| 속성 이름             | Type    | 설명   |
+| 속성 이름             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | 기능이 클러스터를 표시하는지 여부를 나타냅니다. |
 | `cluster_id`              | 문자열  | DataSource `getClusterExpansionZoom`, `getClusterChildren` 및 `getClusterLeaves` 메서드에 사용할 수 있는 클러스터의 고유 ID입니다. |

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adc08e978be699ea6ea3dd00beae1762d48644c0
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454952"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781065"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -70,6 +70,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | 다음을 제외한 모든 공용 지역: 독일 중부, 독일 북동부 <br/> Azure Government 지역  | | GA <br/> [Azure Batch에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../batch/private-connectivity.md) |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
+|Azure Managed Disks | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항을 보려면 여기를 클릭하세요.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 
