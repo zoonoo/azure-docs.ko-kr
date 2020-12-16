@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: cephalin
-ms.openlocfilehash: 70ab0b5c70e94c4784a7ab260b3304107bcb1175
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7458f6868d7fbee72b55ad002148691a113c269d
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096384"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97532026"
 ---
 다른 배포 슬롯으로부터 구성을 복제할 때 복제된 구성을 편집할 수 있습니다. 일부 구성 요소는 교환 (슬롯 특정)에서 콘텐츠를 따르고, 다른 구성 요소는 교환 (슬롯 특정) 후에 동일한 슬롯에 유지 됩니다. 다음 목록은 슬롯을 교환할 때 변경되는 설정을 보여줍니다.
 
@@ -41,5 +41,7 @@ ms.locfileid: "97096384"
 * 가상 네트워크 통합
 
 > [!NOTE]
+> 이러한 설정을 스왑할 수 있게 하려면 `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` 앱의 모든 슬롯에 앱 설정을 추가 하 고 해당 값을 또는로 `0` 설정 `false` 합니다. 이러한 설정은 모두 스왑할 수 있거나 전혀 그렇지 않습니다. 일부 설정은 다른 방법으로는 변경할 수 없습니다.
+
 > 또한 스왑 되지 않은 설정에 적용 되는 특정 앱 설정은 교환 되지 않습니다. 예를 들어 진단 설정이 교환 되지 않으므로 및와 같은 관련 앱 설정은 `WEBSITE_HTTPLOGGING_RETENTION_DAYS` `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` 슬롯 설정으로 표시 되지 않는 경우에도 교환 되지 않습니다.
 >
