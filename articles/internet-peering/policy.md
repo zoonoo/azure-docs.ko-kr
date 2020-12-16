@@ -6,14 +6,14 @@ services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: conceptual
-ms.date: 11/27/2019
+ms.date: 12/15/2020
 ms.author: prmitiki
-ms.openlocfilehash: 20f25e0add5d05bb2dcf7f3ebdc86ccd5ae889d0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bee41bb8e5beb4df3086ab50499cb185a83e4efe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510790"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592333"
 ---
 # <a name="peering-policy"></a>피어링 정책
 Microsoft는 업계 표준 및 모범 사례에 따라 지원 되는 최상의 사용자 환경을 보장 하 고, 향후 수요에 맞게 크기를 조정 하 고, 피어 링의 전략적 배치를 위해 설계 된 선택적 피어 링 정책을 유지 합니다 따라서 Microsoft는 필요에 따라 정책에 대 한 예외를 만들 수 있는 권리를 보유 합니다. 네트워크의 일반적인 Microsoft 요구 사항은 아래 섹션에 설명 되어 있습니다. 이는 직접 피어 링 및 교환 피어 링 요청 모두에 적용 됩니다. 

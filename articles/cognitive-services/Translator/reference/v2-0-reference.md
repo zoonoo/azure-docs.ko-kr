@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 25dda63c6450040e396de9ee0d3fb0a459416343
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369514"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606830"
 ---
 # <a name="translator-v20"></a>Translator v2.0
 
@@ -51,9 +51,9 @@ ms.locfileid: "94369514"
 
 |ProfanityAction    |작업 |예제 소스 (일본어)  |변환 예 (영어)  |
 |:--|:--|:--|:--|
-|NoAction   |기본값 옵션을 설정하지 않는 것과 같습니다. 욕설이 원본에서 대상으로 전달됩니다.        |彼はジャッカスです。     |He is a jackass.   |
-|Marked     |욕설 단어에 XML 태그 \<profanity> 및 \</profanity>가 지정됩니다.       |彼はジャッカスです。 |He is a \<profanity>jackass\</profanity>.  |
-|삭제됨    |욕설 단어가 바뀌지 않고 출력에서 제거됩니다.     |彼はジャッカスです。 |He is a.   |
+|NoAction   |기본값 옵션을 설정하지 않는 것과 같습니다. 욕설이 원본에서 대상으로 전달됩니다. |彼はジャッカスです。 |He is a jackass.  |
+|Marked |욕설 단어에 XML 태그 \<profanity> 및 \</profanity>가 지정됩니다. |彼はジャッカスです。   |He is a \<profanity>jackass\</profanity>.  |
+|삭제됨    |욕설 단어가 바뀌지 않고 출력에서 제거됩니다. |彼はジャッカスです。 |He is a.   |
 
     
 ## <a name="excluding-content-from-translation"></a>번역에서 콘텐츠 제외
@@ -83,12 +83,12 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명    |매개 변수 형식|데이터 형식|
+|매개 변수|값|Description    |매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId  |(empty)    |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(empty)   |필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트는 1만 자를 초과할 수 없습니다.|Query|문자열|
+|appId  |(empty)    |필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|텍스트|(empty)   |필수 요소. 변환할 텍스트를 나타내는 문자열입니다. 텍스트는 1만 자를 초과할 수 없습니다.|Query|문자열|
 |원본|(empty)   |선택 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우는 en입니다.|Query|문자열|
-|to|(empty) |필수 사항입니다. 텍스트를 변환할 언어의 코드를 나타내는 문자열입니다.|Query|문자열|
+|to|(empty) |필수 요소. 텍스트를 변환할 언어의 코드를 나타내는 문자열입니다.|Query|문자열|
 |contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` (기본값) 및  `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.|Query|문자열|
 |category|(empty)   |선택 사항입니다. 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
 |권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
@@ -188,7 +188,7 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
 |권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
@@ -229,10 +229,10 @@ HTML ()과 같은 태그를 사용 하 여 콘텐츠를 변환 하 `contentType=
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|locale|(empty) |필수 사항입니다. 언어 이름을 지역화 하는 데 사용 되는 다음 중 하나를 나타내는 문자열입니다. <ul><li>언어 및 ISO 3166 2 문자 대문자 하위 문화권 코드와 관련 된 ISO 639 2 문자 소문자 문화권 코드의 조합입니다. <li>ISO 639 소문자 문화권 코드 자체입니다.|Query|문자열|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|locale|(empty) |필수 요소. 언어 이름을 지역화 하는 데 사용 되는 다음 중 하나를 나타내는 문자열입니다. <ul><li>언어 및 ISO 3166 2 문자 대문자 하위 문화권 코드와 관련 된 ISO 639 2 문자 소문자 문화권 코드의 조합입니다. <li>ISO 639 소문자 문화권 코드 자체입니다.|Query|문자열|
 |권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -263,9 +263,9 @@ Translator 서비스에서 지 원하는 언어 코드를 포함 하는 문자�
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
 |권한 부여|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -296,9 +296,9 @@ Translator 서비스의 음성 합성에 대해 지원 되는 언어 코드를 �
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
  
@@ -328,11 +328,11 @@ binary
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(empty)   |필수 사항입니다. 지정 된 언어로 스트림에 대해 말할 문장이 하나 이상 포함 된 문자열입니다. 텍스트는 2000 자를 초과 하면 안 됩니다.|Query|문자열|
-|언어|(empty)   |필수 사항입니다. 텍스트를 말할 언어의 지원 되는 언어 코드를 나타내는 문자열입니다. 코드는 메서드에서 반환 되는 코드 중 하나 여야 합니다 `GetLanguagesForSpeak` .|Query|문자열|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|텍스트|(empty)   |필수 요소. 지정 된 언어로 스트림에 대해 말할 문장이 하나 이상 포함 된 문자열입니다. 텍스트는 2000 자를 초과 하면 안 됩니다.|Query|문자열|
+|language|(empty)   |필수 요소. 텍스트를 말할 언어의 지원 되는 언어 코드를 나타내는 문자열입니다. 코드는 메서드에서 반환 되는 코드 중 하나 여야 합니다 `GetLanguagesForSpeak` .|Query|문자열|
 |format|(empty)|선택 사항입니다. Content-type ID를 지정 하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|Query|문자열|
 |옵션|(empty)    |선택 사항입니다. 합성 된 음성의 속성을 지정 하는 문자열입니다.<ul><li>`MaxQuality` 및는 `MinSize` 오디오 신호의 품질을 지정 합니다. `MaxQuality` 최고 품질을 제공 합니다. `MinSize` 가장 작은 파일 크기를 제공 합니다. 기본값은  `MinSize` 입니다.</li><li>`female` 및 `male` 원하는 음성의 성별을 지정 합니다. 기본값은 `female`입니다. 세로 막대 ( <code>\|</code> )를 사용 하 여 여러 옵션을 포함 합니다. 예: `MaxQuality|Male`.</li></li></ul>  |Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
@@ -364,10 +364,10 @@ binary
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)  |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(empty)|필수 사항입니다. 해당 언어를 식별할 텍스트가 포함 된 문자열입니다. 텍스트는 1만 자를 초과 하면 안 됩니다.|Query|  문자열|
+|appId|(empty)  |필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|텍스트|(empty)|필수 요소. 해당 언어를 식별할 텍스트가 포함 된 문자열입니다. 텍스트는 1만 자를 초과 하면 안 됩니다.|Query|  문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key  |(empty)    |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -420,9 +420,9 @@ binary
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -454,17 +454,17 @@ binary
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식   |
+|매개 변수|값|Description|매개 변수 형식|데이터 형식   |
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|originalText|(empty)|필수 사항입니다. 변환할 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 1000 자입니다.|Query|문자열|
-|translatedText|(empty) |필수 사항입니다. 대상 언어로 번역 된 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 2000 자입니다.|Query|문자열|
-|원본|(empty)   |필수 사항입니다. 텍스트의 원래 언어에 대 한 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우 en, 독일의 경우 de입니다.|Query|문자열|
-|to|(empty)|필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|originalText|(empty)|필수 요소. 변환할 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 1000 자입니다.|Query|문자열|
+|translatedText|(empty) |필수 요소. 대상 언어로 번역 된 텍스트를 포함 하는 문자열입니다. 문자열의 최대 길이는 2000 자입니다.|Query|문자열|
+|원본|(empty)   |필수 요소. 텍스트의 원래 언어에 대 한 언어 코드를 나타내는 문자열입니다. 예를 들어 영어의 경우 en, 독일의 경우 de입니다.|Query|문자열|
+|to|(empty)|필수 요소. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
 |rating|(empty) |선택 사항입니다. 문자열의 품질 등급을 나타내는 정수입니다. 값은-10에서 10 사이입니다. 기본값은 1입니다.|Query|integer|
 |contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원 되는 형식은 `text/plain` 및 `text/html` 입니다. 모든 HTML 요소는 올바른 형식의 완전 한 요소가 되어야 합니다.    |Query|문자열|
 |category|(empty)|선택 사항입니다. 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.|Query|문자열|
-|사용자|(empty)|필수 사항입니다. 제출 작성기를 추적 하는 데 사용 되는 문자열입니다.|Query|문자열|
+|사용자|(empty)|필수 요소. 제출 작성기를 추적 하는 데 사용 되는 문자열입니다.|Query|문자열|
 |uri|(empty)|선택 사항입니다. 변환의 콘텐츠 위치를 포함 하는 문자열입니다.|Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.  |header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
@@ -533,7 +533,7 @@ binary
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
@@ -566,11 +566,11 @@ integer
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)  |필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query| 문자열|
-|text|(empty)   |필수 사항입니다. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
-|언어   |(empty)    |필수 사항입니다. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|appId|(empty)  |필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query| 문자열|
+|텍스트|(empty)   |필수 요소. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
+|language   |(empty)    |필수 요소. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
 |권한 부여|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.   |header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -607,11 +607,11 @@ integer
 
 * `Category`: 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.
 * `ContentType`: 지원 되는 유일한 옵션은 이며 기본값은 `text/plain` 입니다.
-* `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 변환 프레임 워크)와 완전히 통합 된 인공 대안을 만들 수 있습니다. 이 기능을 사용 하면 디코더의 *n* -최적 목록에서 인공 대안을 추가 하 여 ctf에서 번역이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
+* `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 변환 프레임 워크)와 완전히 통합 된 인공 대안을 만들 수 있습니다. 이 기능을 사용 하면 디코더의 *n*-최적 목록에서 인공 대안을 추가 하 여 ctf에서 번역이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
     - 평점. 등급은 다음과 같이 적용 됩니다. 
          - 최고 품질의 자동 번역은 5등급입니다.
        - CTF의 대안은 검토자의 권한을 반영 합니다. 범위는-10에서 + 10 사이입니다.
-       - 자동으로 생성 된 ( *n* 최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
+       - 자동으로 생성 된 (*n* 최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
     - 대안의 수입니다. 반환 되는 대체 항목의 수는에 지정 된 값 만큼 높을 수 `maxTranslations` 있지만 더 낮을 수 있습니다.
     - 언어 쌍. 이 기능은 두 방향 모두에서 중국어 간체와 중국어 번체 간 번역에는 사용할 수 없습니다. Microsoft Translator에서 지 원하는 다른 모든 언어 쌍에 사용할 수 있습니다.
 * `State`: 요청 및 응답의 상관 관계를 관리할 수 있는 사용자 상태입니다. 동일한 콘텐츠가 응답에서 반환 됩니다.
@@ -663,13 +663,13 @@ integer
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|appId|(empty)|필수 사항입니다. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
-|text|(empty)|필수 사항입니다. 변환할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
-|원본|(empty)|필수 사항입니다. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|to |(empty)    |필수 사항입니다. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
-|maxTranslations|(empty)|필수 사항입니다. 반환할 최대 번역 수를 나타내는 정수입니다.|Query|integer|
+|appId|(empty)|필수 요소. `Authorization`또는 헤더를 `Ocp-Apim-Subscription-Key` 사용 하는 경우 필드를 `appid` 비워 둡니다. 그렇지 않으면를 포함 하는 문자열을 포함 `"Bearer" + " " + "access_token"` 합니다.|Query|문자열|
+|텍스트|(empty)|필수 요소. 변환할 텍스트를 나타내는 문자열입니다. 텍스트의 최대 크기는 1만 자입니다.|Query|문자열|
+|원본|(empty)|필수 요소. 번역할 텍스트의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|to |(empty)    |필수 요소. 텍스트를 변환할 언어의 언어 코드를 나타내는 문자열입니다.|Query|문자열|
+|maxTranslations|(empty)|필수 요소. 반환할 최대 번역 수를 나타내는 정수입니다.|Query|integer|
 |권한 부여| (empty)|필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|문자열|  header|
 |Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|
 
@@ -719,11 +719,11 @@ integer
 * `Options`: 선택 사항입니다. `Options`다음 값을 포함 하는 개체입니다. 모든 옵션 이며 기본값은 가장 일반적인 설정입니다. 지정된 요소는 사전순으로 나열되어야 합니다.
     - `Category`: 번역의 범주 (도메인)가 포함 된 문자열입니다. 기본값은 `general`입니다.
     - `ContentType`: 지원 되는 유일한 옵션은 이며 기본값은 `text/plain` 입니다.
-    - `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 번역 프레임 워크)와 완전히 통합 된 번역에서 인공 대안을 생성할 수 있습니다. 이 기능을 사용 하면 디코더의 *n* -최적 목록에서 인공 대안을 추가 하 여 ctf에서 대안이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
+    - `IncludeMultipleMTAlternatives`: 두 개 이상의 대안을 MT 엔진에서 반환 해야 하는지 여부를 지정 하는 부울 플래그입니다. 유효한 값은 `true` 및 `false` (대/소문자 구분)입니다. 기본값은 `false` 하나의 대체만 반환 하는입니다. 플래그를로 설정 하면 `true` CTF (공동 작업 번역 프레임 워크)와 완전히 통합 된 번역에서 인공 대안을 생성할 수 있습니다. 이 기능을 사용 하면 디코더의 *n*-최적 목록에서 인공 대안을 추가 하 여 ctf에서 대안이 없는 문장에 대 한 대체 (no)를 반환할 수 있습니다.
         - 등급 등급은 다음과 같이 적용 됩니다.
           - 최고 품질의 자동 번역은 5등급입니다.
           - CTF의 대안은 검토자의 권한을 반영 합니다. 범위는-10에서 + 10 사이입니다.
-          - 자동으로 생성 된 ( *n* 최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
+          - 자동으로 생성 된 (*n* 최적) 번역 대안은 등급은 0이 고 일치 정도는 100입니다.
         - 대안의 수입니다. 반환 되는 대체 항목의 수는에 지정 된 값 만큼 높을 수 `maxTranslations` 있지만 더 낮을 수 있습니다.
         - 언어 쌍. 이 기능은 두 방향 모두에서 중국어 간체와 중국어 번체 간 번역에는 사용할 수 없습니다. Microsoft Translator에서 지 원하는 다른 모든 언어 쌍에 사용할 수 있습니다.
 * `State`: 요청 및 응답의 상관 관계를 관리할 수 있는 사용자 상태입니다. 동일한 콘텐츠가 응답에서 반환 됩니다.
@@ -786,7 +786,7 @@ integer
  
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수|값|설명|매개 변수 형식|데이터 형식|
+|매개 변수|값|Description|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
 |권한 부여  |(empty)    |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Ocp-Apim-Subscription-Key` 입니다.  권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|header|문자열|
 |Ocp-Apim-Subscription-Key|(empty)  |필드와 머리글을 모두 비워 두면 필수 사항 `appid` `Authorization` 입니다.|header|문자열|

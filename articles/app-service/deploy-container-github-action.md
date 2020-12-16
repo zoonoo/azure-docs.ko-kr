@@ -7,16 +7,16 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: ae587b9501c9c68600ff880744d311ba966923ed
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008030"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604977"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 사용자 지정 컨테이너 배포
 
-[GitHub 작업](https://help.github.com/en/articles/about-github-actions) 을 통해 자동화 된 소프트웨어 개발 워크플로를 유연 하 게 빌드할 수 있습니다. [Azure 웹 배포 작업](https://github.com/Azure/webapps-deploy)을 사용 하면 GitHub 작업을 사용 하 여 사용자 지정 컨테이너를 [App Service](overview.md) 에 배포 하는 워크플로를 자동화할 수 있습니다.
+[GitHub 작업](https://docs.github.com/en/free-pro-team@latest/actions) 을 통해 자동화 된 소프트웨어 개발 워크플로를 유연 하 게 빌드할 수 있습니다. [Azure 웹 배포 작업](https://github.com/Azure/webapps-deploy)을 사용 하면 GitHub 작업을 사용 하 여 사용자 지정 컨테이너를 [App Service](overview.md) 에 배포 하는 워크플로를 자동화할 수 있습니다.
 
 워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의에는 워크플로에 포함 된 다양 한 단계 및 매개 변수가 포함 되어 있습니다.
 
@@ -28,7 +28,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 |**빌드** | 1. 환경을 만듭니다. <br /> 2. 컨테이너 이미지를 빌드합니다. |
 |**배포** | 1. 컨테이너 이미지를 배포 합니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [무료 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요. Azure App Service에 배포 하려면 GitHub 리포지토리에 코드가 있어야 합니다. 
@@ -39,7 +39,7 @@ Azure App Service 컨테이너 워크플로의 경우 파일에는 다음과 같
 
 GitHub 작업에 대해 Azure 앱 서비스를 사용 하 여 인증 하는 권장 방법은 게시 프로필을 사용 하는 것입니다. 서비스 주체를 사용 하 여 인증할 수도 있지만이 프로세스에는 추가 단계가 필요 합니다. 
 
-Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 주체를 [GitHub 암호로](https://docs.github.com/en/actions/reference/encrypted-secrets) 저장 합니다. 워크플로 내에서 비밀에 액세스 합니다. 
+Azure를 인증 하기 위해 게시 프로필 자격 증명 또는 서비스 주체를 [GitHub 암호로](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) 저장 합니다. 워크플로 내에서 비밀에 액세스 합니다. 
 
 # <a name="publish-profile"></a>[프로필 게시](#tab/publish-profile)
 
@@ -88,7 +88,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 
 [앱 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 다운로드 한 게시 프로필 파일의 내용을 비밀의 값 필드에 붙여넣습니다. 비밀의 이름을로 `AZURE_WEBAPP_PUBLISH_PROFILE` 합니다.
 
-GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예를 들어:
+GitHub 워크플로를 구성 하는 경우 `AZURE_WEBAPP_PUBLISH_PROFILE` Azure 웹 앱 배포 작업에서를 사용 합니다. 예:
     
 ```yaml
 - uses: azure/webapps-deploy@v2
@@ -273,7 +273,7 @@ GitHub에서 다양한 리포지토리로 그룹화된 일련의 작업을 찾�
 
 - [Docker 로그인/로그아웃](https://github.com/Azure/docker-login)
 
-- [워크플로를 트리거하는 이벤트](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [워크플로를 트리거하는 이벤트](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [K8s 배포](https://github.com/Azure/k8s-deploy)
 

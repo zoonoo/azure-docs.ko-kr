@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7a206d61124b2524feae0cf155083c1939696e18
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 20e9ed7e83ff3359651acebc11a939a998f2889d
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853325"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607918"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -79,7 +79,6 @@ Application Insights를 정의 하는 [W3C 추적-컨텍스트로](https://w3c.g
 | `Operation_Id`                         | [추적 id](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | 이 범위의 부모 범위에 대 한 [부모 id](https://w3c.github.io/trace-context/#parent-id) 입니다. 루트 범위 이면이 필드는 비어 있어야 합니다.     |
 
-
 자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>.NET 앱에 대해 W3C distributed tracing 지원 사용
@@ -103,7 +102,7 @@ W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에�
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - 스프링 부팅 앱의 경우 다음 속성을 추가 합니다.
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -139,7 +138,7 @@ W3C TraceContext 기반 분산 추적은 최신 .NET Framework/.NET Core Sdk에�
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
-  
+
 - **[코드 조각 기반 설정](./javascript.md#snippet-based-setup)**
 
 다음 구성을 추가 합니다.

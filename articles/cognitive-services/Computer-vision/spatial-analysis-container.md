@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014597"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606269"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
 공간 분석 컨테이너를 사용 하 여 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 이해할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
@@ -113,7 +113,7 @@ Azure 구독이 승인 되지 않은 경우에는 컨테이너를 실행할 수 
 
 **만들기** 를 클릭합니다. IoT Hub 리소스 생성은 몇 분 정도 걸릴 수 있습니다. IoT Hub 리소스를 만든 후에에 **지 계산 구성** 타일이 새 구성을 표시 하도록 업데이트 됩니다. Edge 계산 역할이 구성 되어 있는지 확인 하려면 **계산 구성** 타일에서 구성 **보기** 를 선택   합니다.
 
-Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이스, 즉 IoT 디바이스와 IoT Edge 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. Azure IoT Edge 런타임은 이미 IoT Edge 장치에서 실행 되 고 있습니다.            
+Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이스, 즉 IoT 디바이스와 IoT Edge 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. Azure IoT Edge 런타임은 이미 IoT Edge 장치에서 실행 되 고 있습니다.
 
 > [!NOTE]
 > * 현재 IoT Edge 장치에는 Linux 플랫폼만 지원 됩니다. Azure Stack Edge 장치에 대 한 문제 해결에 대 한 도움말은 [로깅 및 문제 해결](spatial-analysis-logging.md) 문서를 참조 하세요.

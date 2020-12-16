@@ -4,16 +4,16 @@ description: GitHub 작업을 사용 하 여 Azure Resource Manager 템플릿 (A
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4cda8307d417880469e6043b84c3ac55ed30071c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8c669393d38d7af2af4f63f251740d8ad72edf7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905845"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607306"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>GitHub 작업을 사용 하 여 ARM 템플릿 배포
 
-[Github 작업](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) 은 코드를 저장 하 고 끌어오기 요청 및 문제에 대해 공동으로 작업 하는 것과 동일한 장소에서 소프트웨어 개발 워크플로를 자동화 하는 github의 기능 모음입니다.
+[Github 작업](https://docs.github.com/en/free-pro-team@latest/actions) 은 코드를 저장 하 고 끌어오기 요청 및 문제에 대해 공동으로 작업 하는 것과 동일한 장소에서 소프트웨어 개발 워크플로를 자동화 하는 github의 기능 모음입니다.
 
 [Azure Resource Manager 템플릿 배포 작업](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) 을 사용 하 여 Azure에 Azure Resource Manager 템플릿 (ARM 템플릿) 배포를 자동화할 수 있습니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "96905845"
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.
-    - 리소스 관리자 템플릿 및 워크플로 파일을 저장할 GitHub 리포지토리입니다. 리포지토리를 만들려면 [새 리포지토리 만들기](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository)를 참조하세요.
+    - 리소스 관리자 템플릿 및 워크플로 파일을 저장할 GitHub 리포지토리입니다. 리포지토리를 만들려면 [새 리포지토리 만들기](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)를 참조하세요.
 
 
 ## <a name="workflow-file-overview"></a>워크플로 파일 개요

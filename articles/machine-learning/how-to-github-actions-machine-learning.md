@@ -1,5 +1,5 @@
 ---
-title: CI/CD에 대 한 GitHub 작업
+title: CI/CD에 대한 GitHub Actions
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning에서 모델을 학습 하는 GitHub 작업 워크플로를 만드는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4336827dc7f8cb45f04e4cef94d79d1e6409d5c0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e7f6066cb7ed5c166d3e2bdc3f895073b05b92b9
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795212"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605028"
 ---
-# <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning GitHub 작업 사용
+# <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
 
-Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://help.github.com/en/articles/about-github-actions) 을 시작 하세요. 
+Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://docs.github.com/en/free-pro-team@latest/actions) 을 시작 하세요. 
 
 > [!NOTE]
 > Azure Machine Learning에 대 한 GitHub 작업은 있는 그대로 제공 되며 Microsoft에서 완벽 하 게 지원 되지 않습니다. 특정 작업에 문제가 발생 하는 경우 작업에 대 한 리포지토리에서 문제를 엽니다. 예를 들어 aml-배포 작업에 문제가 발생 하는 경우 리포지토리의 문제를 보고 [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) 합니다.
@@ -27,7 +27,7 @@ Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://
 ## <a name="prerequisites"></a>필수 구성 요소 
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- GitHub 계정. 없는 경우 [무료로](https://github.com/join)등록 하세요.  
+- GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
 
 ## <a name="workflow-file-overview"></a>워크플로 파일 개요
 
@@ -39,7 +39,7 @@ Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://
 |---------|---------|
 |**인증** | 1. 서비스 주체를 정의합니다. <br /> 2. GitHub 비밀을 만듭니다. |
 |**연결** | 1. machine learning 작업 영역에 연결 합니다. <br /> 2. 계산 대상에 연결 합니다. |
-|**실행** | 1. 학습 실행을 제출 합니다. |
+|**Run** | 1. 학습 실행을 제출 합니다. |
 |**배포** | 1. Azure Machine Learning 레지스트리에 모델을 등록 합니다. 1. 모델을 배포합니다. |
 
 ## <a name="create-repository"></a>리포지토리 만들기
@@ -63,7 +63,7 @@ az ad sp create-for-rbac --name "myML" --role contributor \
                             --sdk-auth
 ```
 
-위의 예제에서 자리 표시자를 구독 ID, 리소스 그룹 이름 및 앱 이름으로 바꿉니다. 출력은 아래와 같이 App Service 앱에 대 한 액세스를 제공 하는 역할 할당 자격 증명을 포함 하는 JSON 개체입니다. 나중에이 JSON 개체를 복사 합니다.
+위의 예제에서 자리 표시자를 구독 ID, 리소스 그룹 이름 및 앱 이름으로 바꿉니다. 출력은 아래와 비슷한 App Service 앱에 대한 액세스를 제공하는 역할 할당 자격 증명이 있는 JSON 개체입니다. 나중에 사용할 수 있도록 이 JSON 개체를 복사합니다.
 
 ```output 
   {

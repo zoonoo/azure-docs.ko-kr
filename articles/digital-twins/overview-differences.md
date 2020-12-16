@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: af8d768ceeaacdf1c8a0f6cdc8be0041e4ae4ed1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb0d3e3c57a26f7ca14b74edc42cb657ba6074c3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099082"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605003"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>새로운 Azure Digital Twins란? 이전 버전(2018)과 어떻게 다릅니까?
 
 Azure Digital Twins의 첫 번째 공개 미리 보기는 2018년 10월에 릴리스됐습니다. 첫 번째 버전의 핵심 개념은 새 서비스로 전달 되었지만 서비스를 보다 유연 하 고 액세스할 수 있도록 많은 인터페이스 및 구현 세부 정보가 변경 되었습니다. 이러한 변경 내용은 고객의 피드백에 따라 반영되었습니다.
 
 > [!IMPORTANT]
-> 새 서비스의 확장된 기능을 사용하는 경우 이전 Azure Digital Twins 서비스는 2020년 말에 사용 중지 됩니다.
+> 새 서비스의 확장 된 기능을 사용 하는 경우 이전 Azure Digital Twins 서비스는 사용 중지 되며, 해당 Api 및 연결 된 데이터는 2021 년 1 월 18 일부터 더 이상 사용 되지 않습니다.
 
 첫 번째 공개 미리 보기 중에 첫 번째 버전의 Azure Digital Twins를 사용 하는 경우이 문서의 정보 및 모범 사례를 사용 하 여 새 서비스로 작업 하는 방법을 알아보고 기능을 활용 합니다.
 
@@ -38,7 +38,7 @@ Azure Digital Twins의 첫 번째 공개 미리 보기는 2018년 10월에 릴�
 
 ## <a name="service-limits"></a>서비스 제한
 
-Azure Digital Twins 제한 목록은 [*참조: 서비스 제한*](reference-service-limits.md)을 참조 하세요.
+Azure Digital Twins 제한 목록은 [*참조: 서비스 제한*](reference-service-limits.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

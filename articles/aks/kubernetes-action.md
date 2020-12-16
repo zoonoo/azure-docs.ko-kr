@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: b17d005afa4b14a7895dbc7c9d7f9a67c680e320
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: d03acab340e593a925f042ca41f9e8967b468858
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560358"
+ms.locfileid: "97605448"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Kubernetes service에 배포 하는 GitHub 작업
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions)를 사용하면 자동화된 소프트웨어 개발 수명 주기 워크플로를 유연성 있게 빌드할 수 있습니다. 여러 Kubernetes 작업을 사용 하 여 GitHub 작업을 통해 Azure Container Registry에서 Azure Kubernetes Service로 컨테이너에 배포할 수 있습니다. 
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions)를 사용하면 자동화된 소프트웨어 개발 수명 주기 워크플로를 유연성 있게 빌드할 수 있습니다. 여러 Kubernetes 작업을 사용 하 여 GitHub 작업을 통해 Azure Container Registry에서 Azure Kubernetes Service로 컨테이너에 배포할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 

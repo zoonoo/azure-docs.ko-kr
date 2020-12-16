@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azure, kinect, 사양, 하드웨어, 진한, 기능, 깊이, 색, RGB, IMU, 배열, 깊이, 다중 동기화
-ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30961152b31a659cb27e91a99d6806490998d18d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361163"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592282"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>여러 Azure Kinect 진한 장치 동기화
 
@@ -89,6 +89,9 @@ ms.locfileid: "91361163"
 
 소프트웨어에서 또는를 사용 ```depth_delay_off_color_usec``` ```subordinate_delay_off_master_usec``` 하 여 각 IR 레이저가 고유한 160 &mu; s 창에서 발생 하거나 다른 보기 필드를 포함 하는지 확인 합니다.
 
+> [!NOTE]  
+> 실제 펄스 너비는 미국 125us, 일부 여유을 제공 하기 위해 160us를 제공 합니다. 예를 들어 NFOV를 수행 하는 경우 각 125us 펄스 다음에는 1450us가 유휴 상태입니다. 합계 (9 x 125) + (8 x 1450)-12.8 t b m의 노출 시간을 산출 합니다. 두 장치를 표시 하는 것을 변기 하는 것은 첫 번째 카메라의 첫 번째 유휴 기간에 해당 하는 첫 번째 카메라의 첫 번째 펄스를 포함 하는 것입니다. 첫 번째 카메라와 두 번째 카메라 사이의 지연은 미국 125us 펄스의 너비) 만큼 약간의 차이가 있을 수 있습니다. 단, 160us는 약간의 여유 권장 됩니다. 160us를 지정 하면 최대 10 개 카메라의 노출 기간을 인터리브 할 수 있습니다.
+
 ## <a name="prepare-your-devices-and-other-hardware"></a>장치 및 기타 하드웨어 준비
 
 여러 Azure Kinect 진한 장치 외에도 빌드 하려는 구성을 지원 하기 위해 추가 호스트 컴퓨터 및 기타 하드웨어를 가져와야 할 수 있습니다. 설치를 시작 하기 전에이 섹션의 정보를 사용 하 여 모든 장치와 하드웨어가 준비 되었는지 확인 합니다.
@@ -122,7 +125,7 @@ ms.locfileid: "91361163"
    ```
    > [!NOTE]  
    > 이 명령은 USB 메모리를 32 MB로 설정 합니다. 기본값은 두 번 설정 된 예제입니다. 솔루션에 맞게 훨씬 더 큰 값을 설정할 수 있습니다.
-1. **Sudo 업데이트-grub**를 실행 합니다.
+1. **Sudo 업데이트-grub** 를 실행 합니다.
 1. 컴퓨터를 다시 시작합니다.
 
 ### <a name="cables"></a>케이블
@@ -160,18 +163,18 @@ ms.locfileid: "91361163"
 > 이 절차에서는 각 Azure Kinect의 일련 번호를 알고 있어야 합니다.
 
 1. Azure Kinect Viewer의 두 인스턴스를 엽니다.
-1. **장치 열기**에서 테스트 하려는 하위 장치의 일련 번호를 선택 합니다.  
+1. **장치 열기** 에서 테스트 하려는 하위 장치의 일련 번호를 선택 합니다.  
    ![장치 열기](./media/open-devices.png)
    > [!IMPORTANT]  
    > 모든 장치 간에 정확한 이미지 캡처 맞춤을 얻으려면 마스터 장치를 마지막으로 시작 해야 합니다.  
-1. **외부 동기화**아래에서 **Sub**를 선택 합니다.  
+1. **외부 동기화** 아래에서 **Sub** 를 선택 합니다.  
    ![하위 카메라 시작](./media/sub-device-start.png)
-1.  **시작**을 선택합니다.  
+1.  **시작** 을 선택합니다.  
     > [!NOTE]  
     > 이는 하위 장치 이므로 Azure Kinect Viewer는 장치가 시작 된 후 이미지를 표시 하지 않습니다. 하위 장치가 마스터 장치에서 동기화 신호를 받을 때까지 이미지가 표시 되지 않습니다.
 1. 하위 장치가 시작 된 후 Azure Kinect Viewer의 다른 인스턴스를 사용 하 여 마스터 장치를 엽니다.
-1. **외부 동기화**아래에서 **마스터**를 선택 합니다.
-1. **시작**을 선택합니다.
+1. **외부 동기화** 아래에서 **마스터** 를 선택 합니다.
+1. **시작** 을 선택합니다.
 
 마스터 Azure Kinect 장치가 시작 되 면 Azure Kinect Viewer의 두 인스턴스가 모두 이미지를 표시 해야 합니다.
 

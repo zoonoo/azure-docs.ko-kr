@@ -9,22 +9,22 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 544b22e3395cacf0cc2e7a21e4b86325a8f4d236
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543105"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605261"
 ---
-# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포 하는 GitHub 작업 워크플로를 설정 합니다.
+# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
 
-워크플로를 사용 하 여 Azure storage 계정에 정적 사이트를 배포 하 여 [GitHub 작업](https://docs.github.com/en/actions) 을 시작 합니다. GitHub 작업 워크플로를 설정 하면 사이트의 코드를 변경 하는 경우 GitHub에서 Azure에 자동으로 사이트를 배포할 수 있습니다.
+워크플로를 사용 하 여 Azure storage 계정에 정적 사이트를 배포 하 여 [GitHub 작업](https://docs.github.com/en/free-pro-team@latest/actions) 을 시작 합니다. GitHub 작업 워크플로를 설정 하면 사이트의 코드를 변경 하는 경우 GitHub에서 Azure에 자동으로 사이트를 배포할 수 있습니다.
 
 > [!NOTE]
 > [Azure 정적 Web Apps](../../static-web-apps/index.yml)를 사용 하는 경우 GitHub 작업 워크플로를 수동으로 설정할 필요가 없습니다.
 > Azure 정적 Web Apps는 자동으로 GitHub 작업 워크플로를 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독 및 GitHub 계정. 
 
@@ -45,7 +45,7 @@ Azure 구독 및 GitHub 계정.
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-위의 예제에서 자리 표시자를 구독 ID 및 리소스 그룹 이름으로 바꿉니다. 출력은 아래와 같이 저장소 계정에 대 한 액세스를 제공 하는 역할 할당 자격 증명을 포함 하는 JSON 개체입니다. 나중에이 JSON 개체를 복사 합니다.
+위의 예제에서 자리 표시자를 구독 ID 및 리소스 그룹 이름으로 바꿉니다. 출력은 아래와 같이 저장소 계정에 대 한 액세스를 제공 하는 역할 할당 자격 증명을 포함 하는 JSON 개체입니다. 나중에 사용할 수 있도록 이 JSON 개체를 복사합니다.
 
 ```output 
   {

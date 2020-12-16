@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2866633503399e9f6d78e8665f7a45d9063f01d9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585788"
+ms.locfileid: "97605601"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management에서 관리 되는 id 사용
 
@@ -38,7 +38,6 @@ Azure Portal에서 관리 되는 id를 설정 하려면 먼저 API Management �
 3. **시스템 할당 됨** 탭에서 **상태** 를 **켜기** 로 전환 합니다. **저장** 을 선택합니다.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="시스템 할당 관리 id 사용을 위한 선택 항목" border="true":::
-
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -118,7 +117,6 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 ```
 
 `tenantId`속성은 id가 속하는 AZURE AD 테 넌 트를 식별 합니다. `principalId`속성은 인스턴스의 새 id에 대 한 고유 식별자입니다. Azure AD 내에서 서비스 주체는 API Management 인스턴스에 제공한 이름과 동일 합니다.
-
 
 > [!NOTE]
 > API Management 인스턴스에는 시스템 할당 id와 사용자 할당 id가 동시에 있을 수 있습니다. 이 경우 `type` 속성은 `SystemAssigned,UserAssigned` 입니다.
@@ -265,7 +263,6 @@ API Management 인스턴스의 시스템 할당 id를 사용 하 여 Azure Key V
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>API Management id를 사용 하 여 백 엔드에 인증
 
 시스템이 할당 한 id를 사용 하 여 [인증 관리 id](api-management-authentication-policies.md#ManagedIdentity) 정책을 통해 백 엔드에 인증할 수 있습니다.
-
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
 
@@ -415,7 +412,6 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 ### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>사용자 할당 id를 사용 하 여 백 엔드 인증
 
 사용자 할당 id를 사용 하 여 [인증 관리 id](api-management-authentication-policies.md#ManagedIdentity) 정책을 통해 백 엔드에 인증할 수 있습니다.
-
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>ID 제거
 

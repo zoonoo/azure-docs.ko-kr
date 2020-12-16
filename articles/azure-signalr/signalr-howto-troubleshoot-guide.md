@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185660"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607426"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR Service의 일반적인 문제에 대 한 문제 해결 가이드
 
@@ -36,7 +36,7 @@ SDK 버전 **1.0.6** 이상에서는 생성 된 `/negotiate` `413 Payload Too La
 
 ### <a name="solution"></a>해결 방법:
 
-기본적으로에서 클레임 `context.User.Claims` 은 **asrs**(z) **S** ignal **R** **s** ervice **A**)로 JWT 액세스 토큰을 생성할 때 포함 되므로 클라이언트가에 연결할 때 클레임은 유지 되 고 **asrs** 에서로 전달 될 수 있습니다 `Hub` `Hub` .
+기본적으로에서 클레임 `context.User.Claims` 은 **asrs**(z) **S** ignal **R** **s** ervice)로 JWT 액세스 토큰을 생성할 때 포함 되므로 클라이언트가에 연결할 때 클레임은 유지 되 고 **asrs** 에서로 전달 될 수 있습니다 `Hub` `Hub` .
 
 일부 경우에는 `context.User.Claims` 앱 서버에 대 한 많은 정보를 저장 하는 데 사용 되며, 대부분은에서 사용 되지 않고 `Hub` 다른 구성 요소에서 사용 됩니다.
 
@@ -144,11 +144,17 @@ ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_conne
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (너무 많은 요청)이 클라이언트 요청에 대해 반환 됨
 
-429는 **동시** 연결 수가 제한을 초과 하는 경우를 반환 합니다.
+다음 두 가지 경우가 있습니다.
+
+### <a name="concurrent-connection-count-exceeds-limit"></a>**동시** 연결 수가 한도를 초과 합니다.
 
 **무료** 인스턴스의 경우에는 **동시** 연결 수 제한이 **표준** 인스턴스의 경우 20이 고 **단위당** **동시** 연결 수 제한은 1 K입니다. 즉, Unit100에서 100-K 동시 연결을 허용 합니다.
 
 연결에는 클라이언트 연결과 서버 연결이 모두 포함 됩니다. 연결 수를 계산 하는 방법은 [여기](./signalr-concept-messages-and-connections.md#how-connections-are-counted) 를 참조 하세요.
+
+### <a name="too-many-negotiate-requests-at-the-same-time"></a>동시에 negotiate 요청 수가 너무 많습니다.
+
+다시 연결 하기 전에 임의 지연이 발생 하는 것이 좋습니다. 다시 시도 샘플은 [여기](#restart_connection) 를 확인 하세요.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 협상 시 오류 발생: Azure SignalR 서비스가 아직 연결 되지 않았습니다. 나중에 다시 시도 하세요.
 
@@ -257,7 +263,7 @@ SignalR 클라이언트 연결 `DisposeAsync` 을 호출할 수 없습니다. �
 
 연결을 닫고 있는지 확인 합니다. `HubConnection.DisposeAsync()`를 사용 하 여 연결을 중지 하려면 수동으로를 호출 합니다.
 
-예를 들어:
+예:
 
 ```C#
 var connection = new HubConnectionBuilder()

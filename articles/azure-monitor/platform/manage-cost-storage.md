@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a6b92d1b7f36b73d91b8e0e8e519981b936d8735
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185915"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592435"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -150,11 +150,11 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 30 일 보존이 있는 작업 영역은 실제로 31 일 동안 데이터를 보존할 수 있습니다. 데이터를 30 일 동안 유지 해야 하는 경우에는 Azure Resource Manager를 사용 하 여 보존 기간을 30 일로 설정 하 고 `immediatePurgeDataOn30Days` 매개 변수를 사용 합니다.  
 
-`Usage` 및 `AzureActivity`의 두 데이터 형식은 기본적으로 최소 90일 동안 보존되며, 이 90일의 보존 기간에 대한 요금은 청구되지 않습니다. 작업 영역 보존 기간이 90일 넘게 증가하는 경우, 이러한 데이터 형식의 보존 기간도 증가하게 됩니다.  이러한 데이터 형식에 대해서도 데이터 수집 요금이 부과되지 않습니다. 
+두 데이터 형식 (- `Usage` 및) `AzureActivity` 은 기본적으로 최소 90 일 동안 유지 되며, 90 일 보존에는 요금이 부과 되지 않습니다. 작업 영역 보존 기간이 90일 넘게 증가하는 경우, 이러한 데이터 형식의 보존 기간도 증가하게 됩니다.  이러한 데이터 형식에 대해서도 데이터 수집 요금이 부과되지 않습니다. 
 
 작업 영역을 기반으로 한 Application Insights 리소스의 데이터 형식(`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` 및 `AppTraces`)은 기본적으로 90일 동안 보존되며 이러한 90일의 보존 기간에 대한 요금은 청구되지 않습니다. 이들 데이터 형식의 보존 기간은 데이터 형식별 보존 기간 기능을 적용하여 조정할 수 있습니다. 
 
-Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge) 는 보존 요금에 영향을 주지 않으며 매우 제한적인 사례에 사용 하기 위한 것입니다. 보존 요금을 줄이려면 작업 영역 또는 특정 데이터 형식에 대 한 보존 기간을 줄여야 합니다. 
+Log Analytics [제거 API](/rest/api/loganalytics/workspacepurge/purge)는 보존 청구에 영향을 미치지 않으며 매우 제한된 경우에만 사용됩니다. 보존 요금을 줄이려면 작업 영역 또는 특정 데이터 형식에 대 한 보존 기간을 줄여야 합니다. 
 
 ### <a name="retention-by-data-type"></a>데이터 형식별 보존 기간
 

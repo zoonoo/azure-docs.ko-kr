@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 439714f8fe4a6373f2ffce80e744802dd19b67f0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928786"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606915"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -173,7 +173,7 @@ Moby (docker) 런타임을 사용 하 여 노드 풀을 만들려면 사용자 �
 * 더 이상 docker 엔진에 액세스 하거나 docker (docker)를 사용할 수 없습니다 `/var/run/docker.sock` .
   * 현재 Docker 엔진에서 응용 프로그램 로그 또는 모니터링 데이터를 추출 하는 경우 [컨테이너에 Azure Monitor](../azure-monitor/insights/container-insights-enable-new-cluster.md) 와 같은 항목을 대신 사용 하세요. 또한 AKS는 에이전트 노드에서 모든 대역외 명령이 실행 되는 것을 지원 하지 않습니다 .이로 인해 불안정 해질 수 있습니다.
   * Moby/docker를 사용 하는 경우에도 위의 방법으로 이미지를 빌드하고 docker 엔진을 직접 활용 하는 것은 권장 되지 않습니다. Kubernetes는 소비 된 리소스를 완전히 인식 하지 못하므로 이러한 접근 방식은 [여기](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) 및 [여기](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)에서 자세히 설명 하는 다양 한 문제를 제공 합니다.
-* 이미지 빌드-이미지를 빌드하기 위한 권장 접근 방식은 [ACR 작업](../container-registry/container-registry-quickstart-task-cli.md)을 사용 하는 것입니다. 또 다른 방법은 [docker buildx](https://github.com/docker/buildx)와 같은 더 안전한 클러스터 내 옵션을 사용 하는 것입니다.
+* 이미지 빌드-AKS 클러스터 내에서 imagages를 작성 하지 않는 한 현재 docker 빌드 워크플로를 정상적으로 계속 사용할 수 있습니다. 이 경우 [ACR 작업](../container-registry/container-registry-quickstart-task-cli.md)을 사용 하 여 이미지를 빌드하기 위한 권장 접근 방법으로 전환 하거나 [docker buildx](https://github.com/docker/buildx)와 같은 좀 더 안전한 클러스터 내 옵션으로 전환 하는 것을 고려해 보세요.
 
 ## <a name="generation-2-virtual-machines-preview"></a>2 세대 가상 컴퓨터 (미리 보기)
 

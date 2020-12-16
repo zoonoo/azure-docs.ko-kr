@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939073"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607510"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale 이란?
 
@@ -43,14 +43,14 @@ Azure (PaaS)에서 Database as a Service로 제공 되는 postgres 데이터베�
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="PostgreSQL Hyperscale (Citus)에 대 한 Azure SQL Database":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Azure Arc 사용 PostgreSQL Hyperscale":::
 
 Azure Arc 사용 데이터 서비스에서 사용할 수 있는 postgres 데이터베이스 엔진의 대규모 폼 요소입니다. 또한 하이퍼 크기 조정 환경을 가능 하 게 하는 Citus 확장을 기반으로 합니다. 이 폼 팩터에서 고객은 시스템을 호스트 하 고 운영 하는 인프라를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - **만들기**
-   > **작업을 시도해보시겠습니까?**  
-   > AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)를 사용하여 빠르게 시작하세요.
+   > **단지 작업을 시도해 보 시겠습니까? 사용할 수 있는 Kubernetes 클러스터가 없습니다. 샌드박스를 제공 합니다.**  
+   > AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빠르게 시작하세요.
 
    - **만드십시오**
       - [클라이언트 도구 설치](install-client-tools.md)

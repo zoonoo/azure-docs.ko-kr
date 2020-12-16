@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 203af02841e6d17546d254ed83868c859ba3ac0d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 94de0ca0a5393c891e567e558cbbadd0ca1f453b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938939"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608003"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Oracle Cloud Infrastructure Console 구성
 
@@ -120,40 +120,40 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Oracle Cloud Infrastructure Console로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Oracle Cloud Infrastructure Console의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하도록 선택하는 경우 Oracle Cloud Infrastructure Console API에서 해당 특성에 따라 사용자를 필터링하도록 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|
-      |---|---|
-      |displayName|String|
-      |userName|String|
-      |활성|부울|
-      |title|String|
-      |emails[type eq "work"].value|String|
-      |preferredLanguage|String|
-      |name.givenName|String|
-      |name.familyName|String|
-      |addresses[type eq "work"].formatted|String|
-      |addresses[type eq "work"].locality|String|
-      |addresses[type eq "work"].region|String|
-      |addresses[type eq "work"].postalCode|String|
-      |addresses[type eq "work"].country|String|
-      |addresses[type eq "work"].streetAddress|String|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
-      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|부울|
-      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|부울|
+    |attribute|Type|
+    |---|---|
+    |displayName|String|
+    |userName|String|
+    |활성|부울|
+    |title|String|
+    |emails[type eq "work"].value|String|
+    |preferredLanguage|String|
+    |name.givenName|String|
+    |name.familyName|String|
+    |addresses[type eq "work"].formatted|String|
+    |addresses[type eq "work"].locality|String|
+    |addresses[type eq "work"].region|String|
+    |addresses[type eq "work"].postalCode|String|
+    |addresses[type eq "work"].country|String|
+    |addresses[type eq "work"].streetAddress|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
+    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+    |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|부울|
+    |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|부울|
 
 10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 Oracle Cloud Infrastructure Console에 동기화** 를 선택합니다.
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Oracle Cloud Infrastructure Console로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Oracle Cloud Infrastructure Console의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-      |attribute|Type|
-      |---|---|
-      |displayName|String|
-      |externalId|String|
-      |members|참조|
+    | attribute | Type |
+    |--|--|
+    | displayName | String |
+    | externalId | String |
+    | members | 참조 |
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

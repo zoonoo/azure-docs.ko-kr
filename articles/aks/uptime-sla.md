@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033020"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607342"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -25,9 +25,8 @@ ms.locfileid: "97033020"
 
 ## <a name="region-availability"></a>지역 가용성
 
-작동 시간 SLA는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 지역 및 Azure Government 지역에서 사용할 수 있습니다.
-
-## <a name="limitations"></a>제한 사항
+* 작동 시간 SLA는 [AKS가 지원](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)되는 지역 및 Azure Government 지역에서 사용할 수 있습니다.
+* 가동 시간 SLA는 AKS이 지원 되는 모든 지역에서 [개인 AKS 클러스터][private-clusters] 에 대해 사용할 수 있습니다.
 
 ## <a name="sla-terms-and-conditions"></a>SLA 사용 약관
 
@@ -138,3 +137,4 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

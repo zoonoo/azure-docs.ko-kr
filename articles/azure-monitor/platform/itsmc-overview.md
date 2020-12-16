@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ecdecc78d4c1adeba49a28f3cf555caa164a97a5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507374"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592452"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -154,9 +154,9 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
     * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우: **각 구성 항목에 대 한 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 모든 경고에서 새 작업 항목을 만듭니다. 구성 항목 마다 경고가 여러 개 있을 수 있습니다.
 
-       ![ITSM 인시던트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
-
-    * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다.
+   ![' 작업 항목 '에 대해 ' 인시던트 '가 선택 된 ITSM 티켓 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * 작업 항목 드롭다운에서 "이벤트"를 선택 하는 경우: 라디오 단추 선택에서 **각 로그 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 경고에서 새 작업 항목이 생성 됩니다. 라디오 단추 선택에서 **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 고유한 작업 항목이 포함 됩니다.
    ![ITSM 이벤트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. **확인** 을 선택합니다.

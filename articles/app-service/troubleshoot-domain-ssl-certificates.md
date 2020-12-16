@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c8d6f59f64aed2870494fa8697014e670e373337
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590361"
+ms.locfileid: "97607612"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Azure App Service의 도메인 및 TLS/SSL 인증서 문제 해결
 
 이 문서에는 Azure App Service에서 웹 앱에 대 한 도메인 또는 TLS/SSL 인증서를 구성할 때 발생할 수 있는 일반적인 문제가 나열 되어 있습니다. 또한 이러한 문제에 대한 가능한 원인 및 해결 방법을 설명합니다.
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 받기** 를 선택 합니다.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

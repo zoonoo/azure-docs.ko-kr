@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: a454c1297b0f25c64b11217811999d4331148205
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022465"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606218"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -32,7 +32,7 @@ ms.locfileid: "96022465"
 | [Azure Machine Learning Studio (클래식)](#azure-machine-learning-studio-classic-linked-service) | [Machine Learning Studio (클래식) 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 실행 파이프라인](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
-| [AZURE SQL](#azure-sql-database-linked-service), [azure Synapse Analytics (이전의 SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
+| [AZURE SQL](#azure-sql-database-linked-service), [azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure 함수 작업](control-flow-azure-function-activity.md)
 >  
@@ -253,7 +253,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 "dataNodeSize": "Standard_D4",
 ```
 
-이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외:  클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure' 이 오류가 발생하면 [Virtual Machines 크기](../virtual-machines/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.          
+이러한 속성에 잘못된 값을 지정하는 경우 다음과 같은 오류가 발생할 수 있습니다. **오류:** 클러스터를 만들지 못했습니다. 예외:  클러스터 만들기 작업을 완료할 수 없습니다. 작업이 실패했습니다. 오류 코드는 '400'입니다. 클러스터의 상태가 '오류'로 남아 있습니다. 메시지: 'PreClusterCreationValidationFailure' 이 오류가 발생하면 [Virtual Machines 크기](../virtual-machines/sizes.md) 문서의 테이블에서 **CMDLET 및 API** 이름을 사용하고 있는지 확인합니다.
 
 ### <a name="bring-your-own-compute-environment"></a>사용자 고유의 컴퓨팅 환경 가져오기
 이 구성의 형식에서는 사용자가 이미 기존 컴퓨팅 환경을 데이터 팩터리에서 연결된 서비스로 등록할 수 있습니다. 컴퓨팅 환경은 이를 사용하여 작업을 실행하는 데이터 팩터리 서비스와 사용자에 의해 관리됩니다.
@@ -547,8 +547,8 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 | name                 | 연결된 서비스의 이름입니다.               | 예   |
 | type                 | 형식 속성은 **Azure Databricks**. | 예                                      |
 | 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예: https://eastus.azuredatabricks.net | 예                                 |
-| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | No                                       |
-| MSI          | Data Factory의 관리 id (시스템 할당)를 사용 하 여 Azure Databricks에 인증 합니다. ' MSI ' 인증을 사용 하는 경우 액세스 토큰이 필요 하지 않습니다.  | No                                       |
+| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | 예                                       |
+| MSI          | Data Factory의 관리 id (시스템 할당)를 사용 하 여 Azure Databricks에 인증 합니다. ' MSI ' 인증을 사용 하는 경우 액세스 토큰이 필요 하지 않습니다.  | 예                                       |
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 정보](https://docs.databricks.com/user-guide/clusters/tags.html) | 예 
 | instancePoolId    | Databricks 작업 영역에 있는 기존 풀의 인스턴스 풀 ID입니다.  | 예  |
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 예  |
@@ -564,7 +564,7 @@ Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](transfor
 
 ## <a name="azure-synapse-analytics-linked-service"></a>Azure Synapse Analytics 연결 된 서비스
 
-Azure Synapse Analytics (이전의 SQL Data Warehouse) 연결 된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용 하 여 Data Factory 파이프라인에서 저장 프로시저를 호출 합니다. 이 연결 된 서비스에 대 한 자세한 내용은 [Azure Synapse Analytics (이전의 SQL Data Warehouse) 커넥터](connector-azure-sql-data-warehouse.md#linked-service-properties) 문서를 참조 하세요.
+Azure Synapse Analytics 연결 된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용 하 여 Data Factory 파이프라인에서 저장 프로시저를 호출 합니다. 이 연결 된 서비스에 대 한 자세한 내용은 [Azure Synapse Analytics 커넥터](connector-azure-sql-data-warehouse.md#linked-service-properties) 문서를 참조 하세요.
 
 ## <a name="sql-server-linked-service"></a>SQL Server 연결된 서비스
 

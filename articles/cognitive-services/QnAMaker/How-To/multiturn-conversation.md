@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: b04a5535ada9532d62d395f7070d9bcd8aa4380c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591781"
+ms.locfileid: "97605147"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
@@ -38,7 +38,6 @@ ms.locfileid: "97591781"
 이전 이미지에서 사용자는 **내 계정을** 입력 하 여 대화를 시작 했습니다. 기술 자료에는 세 개의 연결 된 질문 및 답변 쌍이 있습니다. 답변을 구체화 하기 위해 사용자는 기술 자료에서 세 가지 옵션 중 하나를 선택 합니다. 질문 (#1)에는 세 가지 옵션 (#2)으로 채팅 봇에 표시 되는 세 가지 추가 프롬프트가 있습니다.
 
 사용자가 옵션 (#3)을 선택 하면 다음의 구체화 옵션 (#4) 목록이 표시 됩니다. 사용자가 올바른 최종 응답 (#6)을 결정할 때까지이 시퀀스는 계속 (#5) 합니다.
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>봇에서 멀티 턴 사용
 
@@ -79,7 +78,6 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 > [!Caution]
 > 새 기술 자료 또는 비어 있는 기술 자료에 대 한 데이터 원본으로 내보낸 TSV 또는 XLS 멀티 턴 기술 자료 파일 사용에 대 한 지원은 지원 되지 않습니다. 내보낸 다중 턴 프롬프트를 기술 자료에 추가 하려면 QnA Maker 포털의 **설정** 페이지에서 해당 파일 형식을 **가져와야** 합니다.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>API 만들기를 사용 하 여 다중 전환 프롬프트에서 기술 자료 만들기
 
 [QNA MAKER API 만들기](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용 하 여 다중 전환 프롬프트가 포함 된 기술 자료를 만들 수 있습니다. 프롬프트는 `context` 속성의 배열에 추가 됩니다 `prompts` .
@@ -116,7 +114,6 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
     |컨텍스트 전용| 이 확인란을 선택합니다. 질문이 컨텍스트를 지정 하는 경우에만 대답이 반환 됩니다.|
     |답변에 대 한 링크|**로그인 화면 사용** 을 입력 하 여 기존 질문 및 답변 쌍을 찾습니다.|
 
-
 1.  일치 항목 하나가 반환 됩니다. 이 답변을 추가 작업으로 선택한 다음, **저장** 을 선택 합니다.
 
     !["추가 작업 프롬프트 (미리 보기)" 페이지](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -137,7 +134,6 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 1. 표시 텍스트 편집이 완료 되 면 **저장** 을 선택 합니다.
 1. 위쪽 탐색 모음에서를 **저장 하 고 학습** 합니다.
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>새 질문 및 답변 쌍을 추가 작업 프롬프트로 추가 합니다.
 
 새 질문 및 답변 쌍을 기술 자료에 추가 하는 경우 각 쌍을 추가 작업 프롬프트로 기존 질문에 연결 해야 합니다.
@@ -155,7 +151,6 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
     |||
 
     ![새 프롬프트 질문 및 답변 만들기](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. **새로 만들기** 를 선택한 다음, **저장** 을 선택 합니다.
 
@@ -353,7 +348,6 @@ QnA Maker _Generateanswer_ JSON 응답에는 `context` 개체의 첫 번째 항�
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>QnA Maker ID를 사용 하 여 기술 자료 쿼리
 
 다중 턴 기능을 사용 하 여 사용자 지정 응용 프로그램을 빌드하는 경우 초기 질문의 응답에서 추가 작업 프롬프트와 연결 된 `qnaId` 이 반환 됩니다. 이제 ID가 있으므로 추가 작업 프롬프트의 요청 본문에서이 ID를 전달할 수 있습니다. 요청 본문에이 포함 되어 `qnaId` 있고 이전 QnA Maker 속성을 포함 하는 컨텍스트 개체를 포함 하는 경우, GenerateAnswer는 순위 알고리즘을 사용 하 여 질문 텍스트에서 답변을 찾는 대신 ID를 사용 하 여 정확한 질문을 반환 합니다.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>표시 순서는 업데이트 API에서 지원 됩니다.
 

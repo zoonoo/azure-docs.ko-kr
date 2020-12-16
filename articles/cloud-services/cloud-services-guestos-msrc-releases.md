@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: adaea28d105b72152e1af28cc9d79da19c548c2c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 2fb1ae2bbda55a04f4e76505a55b28372af00f33
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561412"
+ms.locfileid: "97606677"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
@@ -1171,8 +1171,8 @@ ms.locfileid: "97561412"
 | Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 2018년 12월 11일 |
 | 해당 없음 | [4468323] | 표준 시간대 업데이트    | 2.81, 3.68, 4.61 | 2018년 12월 13일 |
 | 해당 없음 | [4467107] | 11월 비보안 롤업   | 2.81 | 2018년 11월 13일 |
-| 해당 없음 | [4467701] | 11월 비보안 롤업     | 3.68 | 2018년 11월 13일 |
-| 해당 없음 | [4467697] | 11월 비보안 롤업     | 4.61 | 2018년 11월 13일 |
+| 해당 없음 | [4467701] | 11월 비보안 롤업 | 3.68 | 2018년 11월 13일 |
+| 해당 없음 | [4467697] | 11월 비보안 롤업 | 4.61 | 2018년 11월 13일 |
 
 [4471321]: https://support.microsoft.com/kb/4471321
 [4471328]: https://support.microsoft.com/kb/4471328
