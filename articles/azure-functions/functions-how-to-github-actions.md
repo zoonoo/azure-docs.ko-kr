@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: ae3ffb9dc387129153b684a849ba4e58274ad80c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563282"
+ms.locfileid: "97608513"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
 [GitHub 작업](https://github.com/features/actions) 을 사용 하 여 Azure 함수 앱에 코드를 자동으로 빌드 및 배포 하는 워크플로를 정의 합니다. 
 
-GitHub 작업에서 [워크플로](https://help.github.com/articles/about-github-actions#workflow) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
+GitHub 작업에서 [워크플로](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
 
 워크플로는 리포지토리의 `/.github/workflows/` 경로에 있는 YAML(.yml) 파일에서 정의됩니다. 이 정의는 워크플로를 구성하는 다양한 단계와 매개 변수를 포함합니다. 
 
@@ -40,7 +40,7 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 
 GitHub 작업에 대해 Azure Functions를 사용 하 여 인증 하는 권장 방법은 게시 프로필을 사용 하는 것입니다. 서비스 주체를 사용 하 여 인증할 수도 있습니다. 자세히 알아보려면 [이 GitHub 작업 리포지토리](https://github.com/Azure/functions-action)를 참조 하세요. 
 
-게시 프로필 자격 증명을 [GitHub 암호로](https://docs.github.com/en/actions/reference/encrypted-secrets)저장 한 후 워크플로 내에서이 암호를 사용 하 여 Azure에 인증 합니다. 
+게시 프로필 자격 증명을 [GitHub 암호로](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)저장 한 후 워크플로 내에서이 암호를 사용 하 여 Azure에 인증 합니다. 
 
 #### <a name="download-your-publish-profile"></a>게시 프로필 다운로드
 

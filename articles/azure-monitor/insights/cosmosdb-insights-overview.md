@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: dcd64cf779b931dbf3b4f743844071835e0b8c91
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5e40f91945f83af7880f272f1578370f2ee1ec42
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932059"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608496"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 살펴보기
 
@@ -39,17 +39,17 @@ Azure Cosmos DB 메트릭은 기본적으로 수집되므로 아무것도 설정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **모니터**를 검색하고 **모니터**를 선택합니다.
+2. **모니터** 를 검색하고 **모니터** 를 선택합니다.
 
     !["모니터"라는 단어가 포함된 검색 상자와 속도계 스타일 이미지를 사용하는 서비스 "모니터"라고 적힌 드롭다운](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. **Cosmos DB**를 선택합니다.
+3. **Cosmos DB** 를 선택합니다.
 
     ![Cosmos DB 개요 통합 문서의 스크린샷](./media/cosmosdb-insights-overview/cosmos-db.png)
 
 ### <a name="overview"></a>개요
 
-**개요**에서 표는 대화형 Azure Cosmos DB 메트릭을 보여줍니다. 다음 드롭다운 목록에서 선택하는 옵션을 기준으로 결과를 필터링할 수 있습니다.
+**개요** 에서 표는 대화형 Azure Cosmos DB 메트릭을 보여줍니다. 다음 드롭다운 목록에서 선택하는 옵션을 기준으로 결과를 필터링할 수 있습니다.
 
 * **구독** - Azure Cosmos DB 리소스가 있는 구독만 나열됩니다.  
 
@@ -63,15 +63,15 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ![개별 데이터베이스 컨테이너 및 관련 성능 분석 정보를 표시하는 확장된 드롭다운](./media/cosmosdb-insights-overview/container-view.png)
 
-파란색으로 강조 표시된 Azure Cosmos DB 리소스 이름을 선택하면 연결된 Azure Cosmos DB 계정의 기본 **개요**로 이동됩니다. 
+파란색으로 강조 표시된 Azure Cosmos DB 리소스 이름을 선택하면 연결된 Azure Cosmos DB 계정의 기본 **개요** 로 이동됩니다. 
 
 ### <a name="failures"></a>오류
 
-페이지 맨 위에서 **실패**를 선택하면 통합 문서 템플릿의 **실패** 부분이 열립니다. 이러한 요청을 구성하는 응답의 분포가 포함된 총 요청 수가 표시됩니다.
+페이지 맨 위에서 **실패** 를 선택하면 통합 문서 템플릿의 **실패** 부분이 열립니다. 이러한 요청을 구성하는 응답의 분포가 포함된 총 요청 수가 표시됩니다.
 
 ![HTTP 요청 유형별 분석이 포함된 실패 스크린샷](./media/cosmosdb-insights-overview/failures.png)
 
-| 코드      |  Description       | 
+| 코드 |  Description       | 
 |-----------|:--------------------|
 | `200 OK`  | 다음 REST 작업 중 하나가 정상적으로 완료되었습니다. </br>- 리소스에 대한 GET </br> - 리소스에 대한 PUT </br> - 리소스에 대한 POST </br> - 저장 프로시저를 실행하기 위한 저장 프로시저에 대한 POST|
 | `201 Created` | 리소스를 만들기 위한 POST 작업이 정상적으로 완료되었습니다. |
@@ -81,7 +81,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ### <a name="capacity"></a>용량
 
-페이지 맨 위에서 **용량**을 선택하면 통합 문서 템플릿의 **용량** 부분이 열립니다. 현재 보유한 문서 수, 시간에 따른 문서 증가 속도, 데이터 사용량, 남아 있는 사용 가능한 스토리지 양을 보여줍니다.  이를 사용하여 잠재적 스토리지 및 데이터 사용률 문제를 식별할 수 있습니다.
+페이지 맨 위에서 **용량** 을 선택하면 통합 문서 템플릿의 **용량** 부분이 열립니다. 현재 보유한 문서 수, 시간에 따른 문서 증가 속도, 데이터 사용량, 남아 있는 사용 가능한 스토리지 양을 보여줍니다.  이를 사용하여 잠재적 스토리지 및 데이터 사용률 문제를 식별할 수 있습니다.
 
 ![용량 통합 문서](./media/cosmosdb-insights-overview/capacity.png) 
 
@@ -89,7 +89,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ### <a name="operations"></a>작업 
 
-페이지 맨 위에서 **작업**을 선택하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 유형별로 세분화된 요청을 볼 수 있는 기능을 제공합니다. 
+페이지 맨 위에서 **작업** 을 선택하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 유형별로 세분화된 요청을 볼 수 있는 기능을 제공합니다. 
 
 따라서 아래 예제에서 `eastus-billingint`는 주로 read 요청을 수신하지만, 약간의 upsert 및 create 요청도 수신하는 것을 볼 수 있습니다. 반면 `westeurope-billingint`는 적어도 시간 범위 매개 변수를 통해 통합 문서의 현재 범위로 지정된 지난 4시간 동안은 요청 관점에서 읽기 전용입니다.
 
@@ -111,7 +111,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 사용자 지정
 
-이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 구축되었으므로 수정된 버전의 복사본을 **사용자 지정** > **편집** 및 사용자 지정 통합 문서에 **저장**하는 기능을 제공합니다. 
+이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 구축되었으므로 수정된 버전의 복사본을 **사용자 지정** > **편집** 및 사용자 지정 통합 문서에 **저장** 하는 기능을 제공합니다. 
 
 ![사용자 지정 막대](./media/cosmosdb-insights-overview/customize.png)
 

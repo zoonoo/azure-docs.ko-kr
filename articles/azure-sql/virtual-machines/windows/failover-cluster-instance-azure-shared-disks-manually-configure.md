@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6a000daa7d9e2aa93e68844e8aec5aa168c9fa60
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: becf9f8c7f6a967ed63cfd3040de90de76e32fff
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592418"
+ms.locfileid: "97607272"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,7 +26,6 @@ ms.locfileid: "97592418"
 이 문서에서는 Azure Virtual Machines (Vm)에서 SQL Server와 함께 Azure 공유 디스크를 사용 하 여 FCI (장애 조치 (failover) 클러스터 인스턴스)를 만드는 방법을 설명 합니다. 
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
-
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -37,12 +36,10 @@ ms.locfileid: "97592418"
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 
-
 ## <a name="add-azure-shared-disk"></a>Azure 공유 디스크 추가
 공유 디스크 기능이 사용 하도록 설정 된 관리 되는 프리미엄 SSD 디스크를 배포 합니다. `maxShares`모든 FCI 노드에서 디스크를 공유할 수 있도록 **클러스터 노드 수와 맞추려면** 를 설정 합니다. 
 
 다음을 수행 하 여 Azure 공유 디스크를 추가 합니다. 
-
 
 1. *SharedDiskConfig.js에* 다음 스크립트를 저장 합니다. 
 
@@ -85,7 +82,6 @@ ms.locfileid: "97592418"
    }
    ```
 
-
 2. PowerShell을 사용 하 여 *SharedDiskConfig.js를* 실행 합니다. 
 
    ```powershell
@@ -119,7 +115,6 @@ ms.locfileid: "97592418"
 - 장애 조치 (failover) 클러스터의 이름입니다.
 - 장애 조치 클러스터의 IP 주소 클러스터 노드와 동일한 Azure 가상 네트워크 및 서브넷에 사용되지 않는 IP 주소를 사용할 수 있습니다.
 
-
 # <a name="windows-server-2012-2016"></a>[Windows Server 2012-2016](#tab/windows2012)
 
 다음 PowerShell 스크립트는 장애 조치 (failover) 클러스터를 만듭니다. 스크립트를 노드의 이름(가상 머신 이름) 및 Azure 가상 네트워크에서 사용 가능한 IP 주소 이름으로 업데이트합니다.
@@ -139,7 +134,6 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 자세한 내용은 [장애 조치(failover) 클러스터: 클러스터 네트워크 개체](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)를 참조하세요.
 
 ---
-
 
 ## <a name="configure-quorum"></a>쿼럼 구성
 
@@ -198,7 +192,6 @@ FCI 데이터 디렉터리는 Azure 공유 디스크에 있어야 합니다.
 
 포털에서 SQL Server VM를 관리 하려면 [경량 관리 모드로](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode)SQL IaaS 에이전트 확장 (RP)을 사용 하 여 등록 합니다. 현재는 fci SQL Server와 Azure vm에서 지원 되는 유일한 모드입니다. 
 
-
 PowerShell을 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.  
 
 ```powershell-interactive
@@ -221,7 +214,6 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 ## <a name="next-steps"></a>다음 단계
 
 아직 수행 하지 않은 경우 [가상 네트워크 이름 및 Azure 부하 분산 장치](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 또는 [DNN (분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md)을 사용 하 여 fci에 대 한 연결을 구성 합니다. 
-
 
 Azure 공유 디스크가 적합 한 FCI 저장소 솔루션이 아니면 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 fci를 만들거나 대신 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 하는 것이 좋습니다. 
 

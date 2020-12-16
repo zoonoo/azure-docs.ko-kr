@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ddf8236dbbc9714c705e442bb65eb2ac3d293cc7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 653a53d6bb5c69cd95fd5e9a2483b51de8293b40
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589579"
+ms.locfileid: "97608581"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
 
@@ -26,7 +26,6 @@ ms.locfileid: "97589579"
 
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Azure Data Factory 서비스를 사용 중인 경우, [V2의 HTTP 커넥터](../connector-http.md)를 참조하세요.
-
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 또는 클라우드 HTTP 엔드포인트의 데이터를 지원되는 싱크 데이터 저장소로 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md)을 기반으로 합니다. 이 문서에는 복사 작업이 원본 및 싱크로 지원하는 데이터 저장소도 나열되어 있습니다.
 
@@ -50,7 +49,7 @@ ms.locfileid: "97589579"
 
 다음 표는 HTTP 연결 서비스에 해당하는 JSON 요소에 대해 설명합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type | **type** 속성은 **Http** 로 설정해야 합니다. | 예 |
 | url | 웹 서버의 기본 URL입니다. | 예 |
@@ -65,7 +64,7 @@ ms.locfileid: "97589579"
 
 **authenticationType** 을 **Basic**, **Digest** 또는 **Windows** 로 설정합니다. 이전 섹션에서 설명한 일반 HTTP 커넥터 속성 외에 다음 속성을 설정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**username**)의 암호입니다. | 예 |
@@ -93,7 +92,7 @@ ms.locfileid: "97589579"
 
 기본 인증을 사용하려면 **authenticationType** 을 **ClientCertificate** 로 설정합니다. 이전 섹션에서 설명한 일반 HTTP 커넥터 속성 외에 다음 속성을 설정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | embeddedCertData | PFX 파일의 이진 데이터의 Base64 인코딩 콘텐츠입니다. | **EmbeddedCertData** 또는 **certthumbprint** 를 지정 합니다. |
 | certThumbprint | 게이트웨이 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에만 적용됩니다. | **EmbeddedCertData** 또는 **certthumbprint** 를 지정 합니다. |
@@ -120,9 +119,8 @@ ms.locfileid: "97589579"
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-        "certThumbprint": "thumbprint of certificate",
-        "gatewayName": "gateway name"
-
+            "certThumbprint": "thumbprint of certificate",
+            "gatewayName": "gateway name"
         }
     }
 }
@@ -142,8 +140,8 @@ ms.locfileid: "97589579"
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-        "embeddedCertData": "Base64-encoded cert data",
-        "password": "password of cert"
+            "embeddedCertData": "Base64-encoded cert data",
+            "password": "password of cert"
         }
     }
 }
@@ -157,7 +155,7 @@ ms.locfileid: "97589579"
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식 마다 다릅니다. **typeProperties** 섹션은 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **Http** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 을 **Http** 로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | 예 |
@@ -176,9 +174,9 @@ ms.locfileid: "97589579"
     "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-      "relativeUrl": "XXX/test.xml",
-        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-    },
+          "relativeUrl": "XXX/test.xml",
+          "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+        },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -220,7 +218,7 @@ ms.locfileid: "97589579"
 
 현재 복사 작업의 원본이 **HttpSource** 형식인 경우 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | -------- | ----------- | -------- |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 예<br />(기본값: **00:01:40**) |
 
