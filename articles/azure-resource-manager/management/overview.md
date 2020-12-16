@@ -3,13 +3,13 @@ title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
 ms.date: 09/01/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 317d7cae9c0febcc99831b20525b9d9d2cc96651
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903193"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032255"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 

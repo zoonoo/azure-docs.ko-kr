@@ -2,18 +2,18 @@
 title: Azure Functions와 Azure App Configuration에 대한 빠른 시작 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure App Configuration 및 C#을 사용하여 Azure Functions 앱을 만듭니다. App Configuration 저장소를 만들고 연결합니다. 로컬로 함수를 테스트합니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
-ms.author: lcozzens
-ms.openlocfilehash: 24620351cdd831ec5079e1f37726b2aa65339205
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: 4197891949062123042736e578cfbcc5def4e1f9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075861"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930808"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
@@ -29,15 +29,15 @@ ms.locfileid: "92075861"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **구성 탐색기** >  **+ 만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** >  **+ 만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:Message | Azure App Configuration의 정보 |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
-8. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 
 ## <a name="create-a-functions-app"></a>Functions 앱 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "92075861"
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭에서 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
+1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 패키지를 검색하여 프로젝트에 추가합니다. 찾을 수 없으면 **시험판 포함** 확인란을 선택합니다.
 
 2. *Function1.cs* 파일을 열고, .NET Core 구성 및 App Configuration 공급자의 네임스페이스를 추가합니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "92075861"
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString** 이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"

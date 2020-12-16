@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5109139c7168026c74a475128832fbb0733ce832
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7bc15b369bfa4964384d4f7910d6953bdfeaa664
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447130"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97094168"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -177,7 +177,7 @@ Private Link를 사용하면 이제 고객이 NSG와 같은 네트워크 액세�
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Polybase 및 COPY 문을 사용하여 Azure Synapse Analytics에서 Azure Storage로 연결
 
-PolyBase 및 COPY 문은 일반적으로 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정에서 프라이빗 엔드포인트, 서비스 엔드포인트 또는 IP 기반 방화벽을 통해 가상 네트워크 서브넷 세트에만 액세스하도록 제한하는 경우 PolyBase 및 COPY 문에서 계정으로의 연결이 끊어집니다. 가상 네트워크로 보안이 유지되는 Azure Storage에 연결하는 Azure Synapse Analytics를 통해 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 [여기](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)에서 제공하는 단계를 따르세요. 
+PolyBase 및 COPY 문은 일반적으로 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정에서 프라이빗 엔드포인트, 서비스 엔드포인트 또는 IP 기반 방화벽을 통해 가상 네트워크 서브넷 세트에만 액세스하도록 제한하는 경우 PolyBase 및 COPY 문에서 계정으로의 연결이 끊어집니다. 가상 네트워크로 보안이 유지되는 Azure Storage에 연결하는 Azure Synapse Analytics를 통해 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 [여기](vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)에서 제공하는 단계를 따르세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

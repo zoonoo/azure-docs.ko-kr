@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기(미리 보기)'
 description: 이 빠른 시작에서는 Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정을 만드는 방법을 설명합니다.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: d03e343e9158f237ee786ff1b1d06436bdd2d6e7
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96555647"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400305"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
 

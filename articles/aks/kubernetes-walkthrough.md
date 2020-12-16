@@ -12,13 +12,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-- contperfq1
-ms.openlocfilehash: c3aa2c77141c599348c4ce939114bff4c81a9773
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+- contperf-fy21q1
+ms.openlocfilehash: e69db59789dbaf45c0830ba6e6ac3afbe87f9a19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887470"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029450"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포
 

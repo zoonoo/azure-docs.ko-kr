@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cc5bb2b434e757e090bac45202704eb934a522
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835750"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033343"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -111,8 +111,8 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 | 보안 보고서 | 위험한 로그인  | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 모든 권한|
 | 보안 보고서 | 위험 탐지   | 예 | 제한된 정보. 세부 정보 서랍이 없습니다.| 모든 권한|
 | 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 아니요 |예 |
-| 공지 | 주 단위 요약| 아니요 | 아니요 | 예 | 
-| | MFA 등록 정책 | 아니요 | 아니요 | 예 |
+| 공지 | 주 단위 요약| 아니요 | 예 | 예 | 
+| | MFA 등록 정책 | 아니요 | 예 | 예 |
 
 이러한 풍부한 보고서에 대한 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#navigating-the-reports) 문서를 참조하세요.
 

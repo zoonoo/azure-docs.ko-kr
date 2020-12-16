@@ -4,14 +4,14 @@ description: 첫 번째 ASP.NET Core 앱을 배포하여 Azure App Service에서
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: bf7d911c6f9d90e400e589828c093877875e7d97
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d7b7d8845eda87132cbfa7981c20c39bb210aa5c
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96015692"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032697"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -322,7 +322,7 @@ await context.Response.WriteAsync("Hello Azure!");
 변경 내용을 저장한 다음, `az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
 
 ```azurecli
-az webapp up
+az webapp up --os-type linux
 ```
 
 이 명령은 앱 이름, 리소스 그룹 및 App Service 계획을 포함하여 *.azure/config* 파일에서 로컬로 캐시된 값을 사용합니다.

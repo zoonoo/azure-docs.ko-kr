@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a69a9fa712aaa9d4c02243d28dcae8b72c3db73
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 03545aafa1cbf6efa82ae063e7e966443b1d5e8b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348282"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106124"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>빠른 시작: Bing Autosuggest REST API 및 Node.js로 검색 쿼리 제안
 
@@ -27,7 +27,7 @@ ms.locfileid: "96348282"
 
 이 빠른 시작에 따라 Bing Autosuggest API를 호출하고 JSON 응답을 읽는 방법을 알아봅니다. 이 간단한 Node.js 애플리케이션은 부분 검색 쿼리를 API로 보내고 검색에 대한 제안을 반환합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 샘플의 소스 코드는 [GitHub에](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js) 제공됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Node.js 6](https://nodejs.org/en/download/) 이상
 
@@ -86,14 +86,13 @@ ms.locfileid: "96348282"
         //...
         let req = https.request(request_params, response_handler);
         req.end();
-        ```
+    ```
 
-## Create a search handler
+## <a name="create-a-search-handler"></a>검색 처리기 만들기
 
-1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
-Do the following steps within this function:
+1. HTTP 호출, `response`를 매개 변수로 사용하는 `response_handler` 함수를 정의합니다. 이 함수 내에서 다음 단계를 수행합니다.
     
-    1. Define a variable to contain the body of the JSON response.  
+    1. JSON 응답 본문을 포함할 변수를 정의합니다.  
 
         ```javascript
         let response_handler = function (response) {
@@ -101,7 +100,7 @@ Do the following steps within this function:
         };
         ```
 
-    2. Store the body of the response when the `data` flag is called
+    2. `data` 플래그가 호출될 때 응답 본문을 저장합니다.
         
         ```javascript
         response.on ('data', function (d) {
@@ -109,7 +108,7 @@ Do the following steps within this function:
         });
         ```
 
-    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
+    3. `end` 플래그가 신호로 전송되면 사용자는 `JSON.parse()` 및 `JSON.stringify()`를 수행하여 응답을 출력합니다.
     
         ```javascript
         response.on ('end', function () {
@@ -122,11 +121,11 @@ Do the following steps within this function:
         });
         ```
 
-2. Call `get_suggestions()` to send the request to the Bing Autosuggest API.
+2. `get_suggestions()`를 호출하여 Bing Autosuggest API에 요청을 보냅니다.
 
-## Example JSON response
+## <a name="example-json-response"></a>예제 JSON 응답
 
-A successful response is returned in JSON, as shown in the following example: 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

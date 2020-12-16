@@ -88,8 +88,8 @@ az postgres flexible-server create --resource-group myresourcegroup --location w
 
 - 리소스 그룹이 없는 경우 생성합니다.
 - 서버 이름을 입력하지 않은 경우 서버 이름을 생성합니다.
-- 새 postgreSQL 서버에 사용할 새 가상 네트워크를 만듭니다. 동일한 가상 네트워크에 웹앱을 추가해야 하므로, 서버에 사용하기 위해 만든 **가상 네트워크 이름과 서브넷 이름을 적어 둡니다** .
-- 서버의 관리자 사용자 이름 및 암호를 입력하지 않은 경우 지금 만듭니다. 다음 단계에서 사용할 수 있도록 **사용자 이름과 암호를 적어둡니다** .
+- 새 postgreSQL 서버에 사용할 새 가상 네트워크를 만듭니다. 동일한 가상 네트워크에 웹앱을 추가해야 하므로, 서버에 사용하기 위해 만든 **가상 네트워크 이름과 서브넷 이름을 적어 둡니다**.
+- 서버의 관리자 사용자 이름 및 암호를 입력하지 않은 경우 지금 만듭니다. 다음 단계에서 사용할 수 있도록 **사용자 이름과 암호를 적어둡니다**.
 - 개발에 사용할 수 있는 ```postgres``` 데이터베이스를 만듭니다. [**psql** 을 실행하여 데이터베이스에 연결](quickstart-create-server-portal.md#connect-to-the-postgresql-database-using-psql)하면 다른 데이터베이스를 만들 수 있습니다.
 
 > [!NOTE]
@@ -140,7 +140,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 
 1. *https://\<app-name>.scm.azurewebsites.net/webssh/host* 로 이동하여 브라우저에서 SSH 세션을 열고, 데이터베이스 서버 자격 증명이 아니라 Azure 계정 자격 증명을 사용하여 로그인합니다.
 
-1. SSH 세션에서 다음 명령을 실행합니다( **Ctrl**+**Shift**+**V** 를 사용하여 명령을 붙여넣을 수 있음).
+1. SSH 세션에서 다음 명령을 실행합니다(**Ctrl**+**Shift**+**V** 를 사용하여 명령을 붙여넣을 수 있음).
 
     ```bash
     cd site/wwwroot
@@ -270,11 +270,11 @@ python manage.py migrate
 
 [Azure Portal](https://portal.azure.com)에서 앱 이름을 검색하고, 결과에서 앱을 선택합니다.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Django 개발 서버 출력 예제":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/navigate-to-django-app-in-app-services-in-the-azure-portal.png" alt-text="Azure Portal에서 Python Django 앱으로 이동합니다.":::
 
 기본적으로 포털에는 일반적인 성능 보기를 제공하는 앱의 **개요** 페이지가 표시됩니다. 여기서는 찾아보기, 중지, 다시 시작 및 삭제와 같은 기본 관리 작업을 수행할 수도 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
 
-:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Django 개발 서버 출력 예제":::
+:::image type="content" source="./media/tutorial-django-app-service-postgres/manage-django-app-in-app-services-in-the-azure-portal.png" alt-text="Azure Portal의 개요 페이지에서 Python Django 앱 관리":::
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

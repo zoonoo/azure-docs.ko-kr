@@ -10,21 +10,22 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 271d7ce38d50fd21975327eb1f21528aeacc485e
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070353"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937239"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>전화 통신 및 SMS 솔루션 계획
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services를 사용하면 전화 번호를 사용하여 PSTN(공중 전화망)을 통해 음성 통화를 하고 SMS 메시지를 보낼 수 있습니다. 이 문서에서는 Communication Services를 사용하여 전화 통신 및 SMS 솔루션을 계획하기 위한 전화 번호 유형, 구성 옵션 및 지역 가용성을 검토합니다.
 
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
+
+
 
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
@@ -52,6 +53,8 @@ Communication Services는 **현지** 및 **무료** 라는 두 가지 유형의 
 
 
 ## <a name="phone-number-features-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 기능 
+
+[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 대부분의 전화 번호에 대해 "a la carte(맞춤형)" 기능을 구성할 수 있습니다. 이러한 기능은 Azure Communication Services 내에서 전화 번호를 임대할 때 선택할 수 있습니다.
 

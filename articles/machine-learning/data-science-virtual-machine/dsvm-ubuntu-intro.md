@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349055"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109847"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
 
@@ -73,8 +73,6 @@ Ubuntu DSVM에는 다음 세 가지 방법 중 하나를 사용하여 액세스�
   * 터미널 세션에 대한 SSH
   * 그래픽 세션에 대한 X2Go
   * Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
-
-또한 Data Science Virtual Machine을 Azure Notebooks에 연결하여 VM에서 Jupyter Notebook을 실행하고 체험 서비스 계층의 제한을 무시할 수 있습니다. 자세한 내용은 [Azure Notebooks 프로젝트 관리 및 구성](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier)을 참조하세요.
 
 ### <a name="ssh"></a>SSH
 

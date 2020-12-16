@@ -3,13 +3,13 @@ title: 빠른 시작 - Azure에서 주문형 컨테이너 이미지 빌드
 description: Azure Container Registry 명령을 사용하여 Azure 클라우드에서 주문형 Docker 컨테이너 이미지를 신속하게 빌드, 푸시 및 실행합니다.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperfq1, devx-track-azurecli
-ms.openlocfilehash: adb63b716172c979ca31f1ef70bf1523ff1ad5cc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: contperf-fy21q1, devx-track-azurecli
+ms.openlocfilehash: c6fe1fc246d112218b492072155175b2db99c8c9
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845070"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032952"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 

@@ -4,19 +4,19 @@ description: Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1, devx-track-azurecli
+ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21ccbc83c80e1b659dd240973a609d624f270835
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791514"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028515"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
@@ -45,10 +45,10 @@ Azure Portal에서 단일 데이터베이스를 만들기 위해 이 빠른 시�
 1. **리소스 그룹** 의 경우 **새로 만들기** 를 선택하고, *myResourceGroup* 을 입력하고, **확인** 을 선택합니다.
 1. **데이터베이스 이름** 에 *mySampleDatabase* 를 입력합니다.
 1. **서버** 에 대해 **새로 만들기** 를 선택하고 **새 서버** 양식을 다음 값으로 입력합니다.
-   - **서버 이름** : *mysqlserver* 를 입력하고 고유하게 유지하기 위한 일부 문자를 추가합니다. 서버 이름은 구독 내에서 고유한 것이 아니라 Azure의 모든 서버에 대해 전역적으로 고유해야 하므로 사용할 정확한 서버 이름을 제공할 수 없습니다. 따라서 mysqlserver12345와 같은 항목을 입력하면 포털에서 사용 가능 여부를 알 수 있습니다.
-   - **서버 관리자 로그인** : *azureuser* 를 입력합니다.
-   - **암호** : 요구 사항을 충족하는 암호를 입력하고, **암호 확인** 필드에서 다시 입력합니다.
-   - **위치** : 드롭다운 목록에서 위치를 선택합니다.
+   - **서버 이름**: *mysqlserver* 를 입력하고 고유하게 유지하기 위한 일부 문자를 추가합니다. 서버 이름은 구독 내에서 고유한 것이 아니라 Azure의 모든 서버에 대해 전역적으로 고유해야 하므로 사용할 정확한 서버 이름을 제공할 수 없습니다. 따라서 mysqlserver12345와 같은 항목을 입력하면 포털에서 사용 가능 여부를 알 수 있습니다.
+   - **서버 관리자 로그인**: *azureuser* 를 입력합니다.
+   - **암호**: 요구 사항을 충족하는 암호를 입력하고, **암호 확인** 필드에서 다시 입력합니다.
+   - **위치**: 드롭다운 목록에서 위치를 선택합니다.
 
    **확인** 을 선택합니다.
 
