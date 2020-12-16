@@ -1,20 +1,20 @@
 ---
-title: ADF의 파이프라인 오케스트레이션 및 트리거 문제 해결
-description: ADF에서 파이프라인 트리거 문제를 해결 하는 다른 방법 사용
+title: Azure Data Factory 파이프라인 오케스트레이션 및 트리거 문제 해결
+description: Azure Data Factory에서 파이프라인 트리거 문제를 해결 하는 다른 방법을 사용 합니다.
 author: ssabat
 ms.service: data-factory
 ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: ed3728513820da9f4ef85d44cac983dc09c3fc7d
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97521854"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589171"
 ---
-# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-adf"></a>ADF의 파이프라인 오케스트레이션 및 트리거 문제 해결
+# <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory 파이프라인 오케스트레이션 및 트리거 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -27,10 +27,10 @@ Azure Data Factory의 파이프라인 실행은 파이프라인 실행의 인스
 ### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>Azure Function을 사용 하는 파이프라인이 개인 끝점 연결을 사용 하 여 오류를 throw 합니다.
  
 #### <a name="issue"></a>문제
-일부 컨텍스트의 경우 개인 끝점에서 ADF 및 Azure 함수 앱 실행 되 고 있습니다. 작업 하기 위해 Azure 함수 앱와 상호 작용 하는 파이프라인을 가져오려고 합니다. 3 개의 다른 메서드를 시도 했지만 하나 `Bad Request` 는 오류를 반환 하 고 다른 두 메서드는를 반환 `103 Error Forbidden` 합니다.
+일부 컨텍스트의 경우 개인 끝점에서 실행 되는 Data Factory 및 Azure 함수 앱 있습니다. 작업 하기 위해 Azure 함수 앱와 상호 작용 하는 파이프라인을 가져오려고 합니다. 3 개의 다른 메서드를 시도 했지만 하나 `Bad Request` 는 오류를 반환 하 고 다른 두 메서드는를 반환 `103 Error Forbidden` 합니다.
 
 #### <a name="cause"></a>원인 
-ADF는 현재 Azure 함수 앱에 대 한 개인 끝점 커넥터를 지원 하지 않습니다. 이는 Azure 함수 앱가 개인 링크의 연결만 허용 하도록 구성 되기 때문에 호출을 거부 하는 이유입니다.
+현재 Data Factory는 Azure 함수 앱에 대 한 개인 끝점 커넥터를 지원 하지 않습니다. 이는 Azure 함수 앱가 개인 링크의 연결만 허용 하도록 구성 되기 때문에 호출을 거부 하는 이유입니다.
 
 #### <a name="resolution"></a>해결 방법
 **PrivateLinkService** 형식의 개인 끝점을 만들고 함수 앱의 DNS를 제공할 수 있으며 연결이 작동 합니다.
@@ -46,7 +46,7 @@ ADF는 현재 Azure 함수 앱에 대 한 개인 끝점 커넥터를 지원 하�
 ### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>복사 파이프라인 오류 – 필요한 열 개수 보다 많은 열을 찾았습니다 (DelimitedTextMoreColumnsThanDefined).
 
 #### <a name="issue"></a>문제  
-복사할 특정 폴더의 파일에 가변 개수의 열, 다른 구분 기호, 따옴표 문자 설정 또는 일부 데이터 문제와 같은 다른 스키마가 있는 파일이 포함 되어 있는 경우 ADF 파이프라인이 다음 오류에서 실행 됩니다.
+복사할 특정 폴더의 파일에 가변 개수의 열, 다른 구분 기호, 따옴표 문자 설정 또는 일부 데이터 문제와 같은 다른 스키마가 있는 파일이 포함 되어 있는 경우이 오류가 발생 하면 Data Factory 파이프라인이 실행 됩니다.
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -57,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 `
 
 #### <a name="resolution"></a>해결 방법
-데이터 복사 작업을 만드는 동안 "이진 복사" 옵션을 선택 합니다. 이러한 방식으로 한 Data Lake에서 다른 컴퓨터로 데이터를 대량 복사 하거나 마이그레이션하는 경우 ( **이진** 옵션 사용) ADF는 스키마를 읽을 파일을 열지 않지만 모든 파일을 이진으로 처리 하 고 다른 위치에 복사 합니다.
+데이터 복사 작업을 만드는 동안 "이진 복사" 옵션을 선택 합니다. 이러한 방식으로, **이진** 옵션을 사용 하 여 Data Lake 간에 데이터를 대량 복사 하거나 마이그레이션하는 경우에는 Data Factory 스키마를 읽기 위해 파일이 열리지 않지만 모든 파일을 이진으로 처리 하 고 다른 위치에 복사 하면 됩니다.
 
 ### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>Integration runtime의 용량 제한에 도달 하면 파이프라인 실행이 실패 합니다.
 
@@ -79,14 +79,14 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 ### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>정기적인 간격으로 파이프라인 오류를 모니터링 하는 방법
 
 #### <a name="issue"></a>문제
-일반적으로 5 분 이라는 간격으로 ADF 파이프라인을 모니터링 해야 합니다. 끝점을 사용 하 여 데이터 팩터리에서 파이프라인 실행을 쿼리하고 필터링 할 수 있습니다. 
+5 분 이라는 간격으로 Data Factory 파이프라인을 모니터링 해야 하는 경우가 종종 있습니다. 끝점을 사용 하 여 데이터 팩터리에서 파이프라인 실행을 쿼리하고 필터링 할 수 있습니다. 
 
 #### <a name="recommendation"></a>권장
 1. 5 분 마다 실패 한 모든 파이프라인을 쿼리하려면 Azure 논리 앱을 설정 합니다.
 2. 그런 다음 [Querybyfactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory)를 기준으로 티켓 시스템에 인시던트를 보고할 수 있습니다.
 
 #### <a name="reference"></a>참조
-- [외부-ADF에서 알림 보내기](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+- [외부-Data Factory에서 알림 보내기](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
 
 ### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>파이프라인에서 활동 수준 오류 및 실패를 처리 하는 방법
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746457"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588797"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -202,10 +202,10 @@ set EventHubConsumerGroup=YourConsumerGroupName
    git remote add webapp <Git clone URL>
    ```
 
-8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격 기능의 master 분기로 푸시하는지 확인합니다.
+8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 주 분기로 푸시 해야 합니다.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. 배포 진행률이 명령 창에서 업데이트됩니다. 성공적으로 배포되면 다음 출력과 유사한 줄로 끝납니다.
@@ -216,7 +216,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. 다음 명령을 실행하여 웹앱의 상태를 쿼리하고 실행 중인지 확인합니다.

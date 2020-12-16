@@ -4,20 +4,20 @@ description: Azure Key Vault에서 일시 삭제는 키, 암호 및 인증서와
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452193"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589987"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
 > [!IMPORTANT]
-> 키 자격 증명 모음에서 즉시 일시 삭제를 사용 하도록 설정 해야 합니다. 일시 삭제를 옵트아웃 (opt out) 하는 기능은 해당 연도의 끝에서 더 이상 사용 되지 않으며, 모든 키 자격 증명 모음에 대해 일시 삭제 보호가 자동으로 켜 집니다.  자세한 내용은 [여기](soft-delete-change.md) 를 참조 하세요.
+> 키 자격 증명 모음에서 즉시 일시 삭제를 사용 하도록 설정 해야 합니다. 일시 삭제를 옵트아웃 하는 기능은 곧 사용 되지 않습니다. 자세한 내용은 [여기](soft-delete-change.md) 를 참조 하세요.
 
 Key Vault의 일시 삭제 기능을 사용 하면 삭제 된 자격 증명 모음 및 삭제 된 키 자격 증명 모음 개체 (예: 키, 암호, 인증서)를 복구할 수 있으며 일시 삭제 라고 합니다. 구체적으로 다음 시나리오를 해결 합니다 .이 보호는 다음과 같은 보호 기능을 제공 합니다.
 

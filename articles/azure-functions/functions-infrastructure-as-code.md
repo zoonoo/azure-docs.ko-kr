@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994658"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589800"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -30,7 +30,7 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
 | 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
 | [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 옵션    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
 | [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
 <sup>1</sup> 호스팅 계획은 [프리미엄 계획이](./functions-premium-plan.md) 나 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행 하도록 선택 하는 경우에만 필요 합니다.
@@ -299,8 +299,6 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## <a name="deploy-on-premium-plan"></a>프리미엄 계획에 배포
@@ -380,7 +378,6 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 고 속성을로 설정 해�
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 

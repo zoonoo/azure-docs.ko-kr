@@ -1,18 +1,18 @@
 ---
 title: Azure Purview(미리 보기) 소개
 description: 이 문서에서는 해당 기능 및 이를 통해 해결하는 문제를 포함하여 Azure Purview에 대한 개요를 제공합니다. Azure Purview를 사용하면 모든 사용자가 데이터 원본을 등록, 검색, 이해 및 사용할 수 있습니다.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 9ead9a564c11901775ac7c471cd53fe65b3fdef9
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855110"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401545"
 ---
 # <a name="what-is-azure-purview"></a>Azure Purview란?
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 9b870e21ffd5c6a8261b6731b939b5dff558256d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17b31e365e311b97e322828927827f40733313a6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501195"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588831"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK
 
@@ -43,9 +43,9 @@ C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C9
 
 GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
-최신 버전의 라이브러리는 이 리포지토리의 **master** 분기에서 찾을 수 있습니다.
+최신 버전의 라이브러리는 리포지토리의 **주** 분기에서 찾을 수 있습니다.
 
-  ![리포지토리의 마스터 분기 스크린샷](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
+  ![리포지토리의 주 분기 스크린샷](./media/iot-hub-device-sdk-c-intro/RepoMasterBranch.png)
 
 * SDK의 핵심 구현은 SDK의 최하위 API 계층인 **IoTHubClient** 라이브러리의 구현을 포함하고 있는 **iothub\_client** 폴더에 있습니다. **IoTHubClient** 라이브러리에는 IoT Hub와 메시지를 보내고 받기 위한 원시 메시징을 구현하는 API가 포함되어 있습니다. 이 라이브러리를 사용할 때 메시지 직렬화를 구현해야 하며 IoT Hub와 통신하기 위한 기타 세부 사항도 직접 처리해야 합니다.
 
@@ -72,7 +72,7 @@ C 용 Azure IoT 디바이스 SDK에서 샘플을 실행하려면 먼저 Azure �
 
 패키지는 일반적인 플랫폼(예: Windows용 NuGet 또는 Debian 및 Ubuntu용 apt_get)을 위해 제공되며, 샘플에서는 사용 가능한 경우 이러한 패키지를 사용합니다. 경우에 따라 SDK를 디바이스용으로 또는 디바이스에서 컴파일해야 합니다. SDK를 컴파일해야 하는 경우 GitHub 리포지토리에 있는 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)(영문)를 참조하세요.
 
-샘플 애플리케이션 코드를 얻으려면 GitHub에서 SDK 복사본을 다운로드합니다. **GitHub 리포지토리** 의 [master](https://github.com/Azure/azure-iot-sdk-c)분기에서 원본의 복사본을 가져옵니다.
+샘플 애플리케이션 코드를 얻으려면 GitHub에서 SDK 복사본을 다운로드합니다. [GitHub 리포지토리의](https://github.com/Azure/azure-iot-sdk-c) **주** 분기에서 원본의 복사본을 가져옵니다.
 
 
 ### <a name="obtain-the-device-credentials"></a>디바이스 자격 증명 가져오기

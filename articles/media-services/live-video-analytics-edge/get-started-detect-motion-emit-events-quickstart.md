@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: e67c717a4476ab9191471483d9aa8e8f222cd750
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: db48183e918fcb1096734f912f02c091ddac1d74
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498271"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511878"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -115,7 +115,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
     ```
     {
-        "@apiVersion" : "1.0"
+        "@apiVersion" : "2.0"
     }
     ```
 
@@ -141,7 +141,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion": "1.0",
+    "@apiVersion": "2.0",
     "name": "MotionDetection",
     "properties": {
         "description": "Analyzing live video to detect motion and emit events",
@@ -304,7 +304,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```
@@ -402,7 +402,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1",
     "properties" : {
         "topologyName" : "MotionDetection",
@@ -462,7 +462,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -486,7 +486,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
  {
-     "@apiVersion" : "1.0",
+     "@apiVersion" : "2.0",
      "name" : "Sample-Graph-1"
  }
  ```
@@ -619,7 +619,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -645,7 +645,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "Sample-Graph-1"
 }
 ```
@@ -669,7 +669,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ```
 {
-    "@apiVersion" : "1.0",
+    "@apiVersion" : "2.0",
     "name" : "MotionDetection"
 }
 ```

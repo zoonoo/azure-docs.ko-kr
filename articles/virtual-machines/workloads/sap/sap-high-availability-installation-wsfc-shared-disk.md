@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ce13bdc14ea2af0a4528606d5b12fabf50da06d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 81721cb52035a51cffa2667568914c780b4c397b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965394"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588661"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
 
@@ -153,7 +153,7 @@ ms.locfileid: "94965394"
 - [Azure 공유 디스크](../../disks-shared.md)
 - [Sios DataKeeper 클러스터 버전](https://us.sios.com/products/datakeeper-cluster/) 을 사용 하 여 미러된 저장소를 만들면 클러스터 된 공유 디스크를 시뮬레이션 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
@@ -188,8 +188,8 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
 
    > [!IMPORTANT]
    > ASCS/SCS 인스턴스의 가상 호스트 이름에 할당 하는 IP 주소는 Azure Load Balancer에 할당 한 IP 주소와 동일 해야 합니다.  
-   
-   
+
+
    ![그림 1: SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 DNS 항목 정의][sap-ha-guide-figure-3046]
 
    _SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 DNS 항목 정의_
@@ -198,8 +198,8 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
 
    > [!IMPORTANT]
    > ERS2 인스턴스의 가상 호스트 이름에 할당 하는 IP 주소는 Azure Load Balancer에 할당 한 두 번째 IP 주소 여야 합니다.    
-   
-   
+
+
    ![그림 1A: SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대 한 DNS 항목 정의][sap-ha-guide-figure-3046-ers2]
 
    _SAP ERS2 클러스터 가상 이름 및 TCP/IP 주소에 대 한 DNS 항목을 정의 합니다._
@@ -219,7 +219,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
    * **Java 시스템**: **SCS** 인스턴스 번호 **01**
    * **ABAP+Java 시스템**: **ASCS** 인스턴스 번호 **00** 및 **SCS** 인스턴스 번호 **01**
 
-   
+
    > [!IMPORTANT]
    > Azure 내부 부하 분산 장치 부하 분산 규칙 (기본 SKU를 사용 하는 경우)의 구성과 선택한 SAP 인스턴스 번호가 일치 해야 한다는 점에 유의 하세요.
 
@@ -239,7 +239,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
    ```
    enque/encni/set_so_keepalive = true
    ```
-   
+
    ERS1 및 ERS2 둘 다에 대해 `keepalive` SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명 된 대로 OS 매개 변수를 설정 해야 합니다.   
 
 2. SAP 프로필 매개 변수 변경 내용을 적용 하려면 SAP ASCS/SCS 인스턴스를 다시 시작 합니다.
@@ -268,74 +268,74 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
  함수 코드는 `Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource` 다음과 같습니다.
    ```powershell
     function Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource {
-    
+
     <#
     .SYNOPSIS 
     Set-AzureLoadBalancerHealthProbePortOnSAPClusterIPResource will set a new Azure Load Balancer Health Probe Port on 'SAP $SAPSID IP' cluster resource.
-    
+
     .DESCRIPTION
     Set-AzureLoadBalancerHealthProbePortOnSAPClusterIPResource will set a new Azure Load Balancer Health Probe Port on 'SAP $SAPSID IP' cluster resource.
     It will also restart SAP Cluster group (default behavior), to activate the changes. 
-    
+
     You need to run it on one of the SAP ASCS/SCS Windows cluster nodes.
-    
+
     Expectation is that SAP group is installed with official SWPM installation tool, which will set default expected naming convention for:
     - SAP Cluster Group:               'SAP $SAPSID'
     - SAP Cluster IP Address Resource: 'SAP $SAPSID IP' 
-    
+
     .PARAMETER SAPSID 
     SAP SID - 3 characters staring with letter.
-    
+
     .PARAMETER ProbePort 
     Azure Load Balancer Health Check Probe Port.
-    
+
     .PARAMETER RestartSAPClusterGroup 
     Optional parameter. Default value is '$True', so SAP cluster group will be restarted to activate the changes.
-    
+
     .PARAMETER IsSAPERSClusteredInstance 
     Optional parameter.Default value is '$False'.
     If set to $True , then handle clsutered new SAP ERS2 instance.
-    
-    
+
+
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP', and restart the SAP cluster group 'SAP AB1', to activate the changes.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 
-    
+
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
     # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
-    
+
     .EXAMPLE 
     # Set probe port to 62001, on SAP cluster resource 'SAP AB1 ERS IP'. SAP cluster group 'SAP AB1 ERS' IS restarted, to activate the changes.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -IsSAPERSClusteredInstance $True
-    
+
     #> 
-    
+
         [CmdletBinding()]
         param(
-            
+
             [Parameter(Mandatory=$True)]
             [ValidateNotNullOrEmpty()]  
             [ValidateLength(3,3)]      
             [string]$SAPSID,
-                  
+
             [Parameter(Mandatory=$True)]
             [ValidateNotNullOrEmpty()]        
             [int] $ProbePort,
-    
+
             [Parameter(Mandatory=$False)] 
             [bool] $RestartSAPClusterGroup = $True,
-    
+
             [Parameter(Mandatory=$False)] 
             [bool] $IsSAPERSClusteredInstance = $False
         )
-    
+
         BEGIN{}
-        
+
         PROCESS{
             try{                                      
-                
+
                 if($IsSAPERSClusteredInstance){
                     #Handle clustered SAP ERS Instance
                     $SAPClusterRoleName = "SAP $SAPSID ERS"
@@ -345,7 +345,7 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
                     $SAPClusterRoleName = "SAP $SAPSID"
                     $SAPIPresourceName = "SAP $SAPSID IP"
                 }
-    
+
                 $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
                 $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
                 $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
@@ -353,44 +353,44 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
                 $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
                 $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
                 $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
-    
+
                 $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
                 Write-Output "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" 
-    
+
                 Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
-    
+
                 Write-Output " "
                 Write-Output "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." 
                 Write-Output " "
                 Write-Output "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." 
                 Write-Output " "
-    
+
                 $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
-    
+
                 Write-Output " "
-                    
+
                 if($RestartSAPClusterGroup){
                     Write-Output ""
                     Write-Output "Activating changes..." 
-    
+
                     Write-Output " "
                     Write-Output "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..."
                     Stop-ClusterResource -Name $SAPIPresourceName
                     sleep 5
-    
+
                     Write-Output "Starting SAP cluster role '$SAPClusterRoleName' ..."
                     Start-ClusterGroup -Name $SAPClusterRoleName
-    
+
                     Write-Output "New ProbePort parameter is active." 
                     Write-Output " "
-    
+
                     Write-Output "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" 
                     Write-Output " " 
                     Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
                 }else
                 {
                     Write-Output "SAP cluster role '$SAPClusterRoleName' is not restarted, therefore changes are not activated."
-                }   
+                }
             }
             catch{
                Write-Error  $_.Exception.Message
@@ -437,7 +437,7 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
     ```powershell
     $SAPSID = "PR1"     # SAP <SID>
- 
+
     $SAPClusterGroup = "SAP $SAPSID"
     Move-ClusterGroup -Name $SAPClusterGroup
 

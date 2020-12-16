@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c40a0cb362f8c43541194cd1ca0c57abbf8fa974
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 49388ee75fa3e5570a906998fdeaa579208fd636
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033105"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588593"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -80,10 +80,12 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 커넥터가 동일한 서브넷에 있을 필요는 없습니다. 그러나 리소스 및 필요한 네트워크 연결 (리소스에 대 한 라우팅, 리소스에서 열린 포트 등)에 대 한 이름 확인 (DNS, 호스트 파일)이 필요 합니다. 권장 사항은 Azure Active Directory 응용 프로그램 프록시를 [사용할 때 네트워크 토폴로지 고려 사항](application-proxy-network-topology.md)을 참조 하세요.
 
 ### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>커넥터를 설치할 수 있는 Windows Server 버전은 무엇입니까?
+
 응용 프로그램 프록시에는 Windows Server 2012 R2 이상이 필요 합니다. 현재 Windows Server 2019에 대 한 HTTP2에는 제한이 있습니다. Windows Server 2019에서 커넥터를 성공적으로 사용 하려면 다음 레지스트리 키를 추가 하 고 서버를 다시 시작 해야 합니다.
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+```
 
 ## <a name="application-configuration"></a>애플리케이션 구성
 

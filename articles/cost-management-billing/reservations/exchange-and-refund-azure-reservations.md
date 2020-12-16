@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344286"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560545"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -21,7 +21,7 @@ Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 �
 US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능을 사용할 수 없습니다. 종량제와 CSP(클라우드 솔루션 공급자)를 비롯한 다른 US Government 구독 유형은 지원됩니다.
 
 > [!NOTE]
-> - **기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다**. [예약을 관리할 수 있는 사용자를 추가 또는 변경](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)할 수 있습니다.
+> - **기존 예약을 교환하거나 환불하려면 예약 주문에 대한 소유자 액세스 권한이 있어야 합니다**. [예약을 관리할 수 있는 사용자를 추가 또는 변경](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default)할 수 있습니다.
 > - Microsoft는 현재 예약 환불에 대해 조기 종료 수수료를 청구하지 않습니다. 향후에 환불에 대한 수수료가 부과될 수 있습니다. 현재 이 요금을 사용하도록 설정된 날짜가 없습니다.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>기존 예약을 교환하거나 환불하는 방법
@@ -66,7 +66,7 @@ Azure에는 취소, 교환 및 환불에 대해 다음과 같은 정책이 있�
 **교환 정책**
 
 - 기존 예약 여러 개를 반환하여 동일한 유형의 새 예약 하나를 구매할 수 있습니다. 한 가지 유형의 예약을 다른 유형으로 교환할 수 없습니다. 예를 들어, VM 예약을 반환하고 SQL 예약을 구매할 수 없습니다. 교환을 통해 제품군, 시리즈, 버전, SKU, 지역, 수량 및 기간과 같은 예약 속성을 변경할 수 있습니다.
-- 예약 소유자만 교환을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- 예약 소유자만 교환을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - 교환은 환불 및 재구매로 처리됩니다. 취소 및 새 예약 구매에 대해서는 다른 거래가 생성됩니다. 거래한 예약에 대해서는 비례 배분된 예약 금액이 환불됩니다. 새로운 구매에 대해서는 전체 금액이 청구됩니다. 비례 배분된 예약 금액은 반환하는 예약에 대한 일일 비례 배분 잔액입니다.
 - 예약을 구매하는 데 사용된 기업 계약이 만료되고 새 계약으로 갱신된 경우에도 예약을 교환하거나 환불할 수 있습니다.
 - 새 예약의 수명 약정은 반환된 예약의 남은 약정보다 크거나 같아야 합니다. 예제: 매월 $100이고 18번째 지급 후에 교환되는 3년 예약의 경우 새 예약의 수명 약정은 $1800 이상(월별 지불 또는 선불)이어야 합니다.
@@ -79,7 +79,7 @@ Azure에는 취소, 교환 및 환불에 대해 다음과 같은 정책이 있�
 - 취소된 총 약정은 청구 프로필 또는 단일 등록에 대한 12개월 연속 기간 동안 50,000USD를 초과할 수 없습니다. 예를 들어 매월 100USD이고 18개월 내 환불된 3년 예약의 경우 취소된 약정은 1,800USD입니다. 환불 후 환불에 대한 사용 가능한 새 한도는 48,200USD가 됩니다. 환불로부터 365일 내에 48,200USD 한도가 1,800USD로 증가하고 새 풀이 50,000USD가 됩니다. 청구 프로필 또는 EA 등록에 대한 다른 모든 예약 취소는 동일한 풀을 소진하고, 동일한 보급 논리가 적용됩니다.
 - Azure는 청구 프로필 또는 EA 등록에 대해 12개월 기간 동안 50,000USD 한도를 초과하는 환불을 처리하지 않습니다.
 - 환불은 예약의 구매 가격 또는 현재 가격 중 가장 낮은 가격을 기준으로 계산됩니다.
-- 예약 주문 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- 예약 주문 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

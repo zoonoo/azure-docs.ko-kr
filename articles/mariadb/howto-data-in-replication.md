@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535370"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587930"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
 
@@ -52,7 +52,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
 다음 단계는 온-프레미스, VM 또는 클라우드 데이터베이스 서비스에서 호스트 되는 입력 데이터 복제에 대해 온-프레미스에 호스트 된 Aadb 서버를 준비 하 고 구성 합니다. 이 서버는 입력 데이터 복제의 원본입니다.
 
-1. 계속 하기 전에 [마스터 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토 하십시오. 
+1. 계속 하기 전에 [주 서버 요구 사항을](concepts-data-in-replication.md#requirements) 검토 하십시오. 
 
 2. 원본 서버에서 포트 3306에 대 한 인바운드 및 아웃 바운드 트래픽을 모두 허용 하는지 확인 하 **고, DNS가 공개적으로 액세스할** 수 있거나 FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다. 
    
@@ -78,7 +78,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
       ```bash
       ping <output of step 2b>
       ``` 
-      다음은 그 예입니다.  
+      예: 
       ```bash      
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
@@ -237,7 +237,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
     
     * Master_ssl_ca 매개 변수를 변수로 전달 하는 것이 좋습니다. 자세한 내용은 다음 예를 참조하세요.
 
-   **예**
+   **예제**
 
    - SSL을 사용한 복제
 
@@ -284,7 +284,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
     
     MariaDB의 기본 복제 제한으로 인해  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) GTID 시나리오를 제외 하 고 복제 시 및 변수를 설정 해야 합니다 [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) .
 
-    슬레이브 서버의 `sync_master_info` 및 변수를 확인 `sync_relay_log_info` 하 여 데이터 인 복제가 안정적인 지 확인 하 고 변수를로 설정 `1` 합니다.
+    복제본 서버의 `sync_master_info` 및 변수를 확인 `sync_relay_log_info` 하 여 데이터 인 복제가 안정적인 지 확인 하 고 변수를로 설정 `1` 합니다.
     
 ## <a name="other-stored-procedures"></a>기타 저장 프로시저
 

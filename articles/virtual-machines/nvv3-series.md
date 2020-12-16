@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: dc6056653fc50976439d4b16594e6d554e62f061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65107b0924351ca6debf37201e8849ffe8dd1eab
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652825"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589430"
 ---
 # <a name="nvv3-series"></a>NVv3 시리즈
 
@@ -26,6 +26,7 @@ NVv3 인스턴스의 각 GPU는 그리드 라이선스로 제공 됩니다. 이 
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+가속 네트워킹: 지원 됨<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) | 가상 워크스테이션 | 가상 애플리케이션 |
@@ -35,8 +36,6 @@ NVv3 인스턴스의 각 GPU는 그리드 라이선스로 제공 됩니다. 이 
 | Standard_NV48s_v3 |48 | 448 | 1280 | 4 | 32 | 32 | 80000/800 | 8 / 24000 | 4 | 100 |
 
 <sup>1</sup> 1 GPU = 1-절반 M60 카드.
-
-<sup>2</sup> 이 시점에서 가속화 된 네트워킹은이 VM 제품군에서 지원 되지 않으므로 실제 네트워크 성능은 여기에서 캡처한 최대 이론적 수 보다 낮을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

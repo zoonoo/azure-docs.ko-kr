@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 37c1854aeb1a1fa3d9283c00b07c665b213b306c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74bd7bc159f7f5974452adf6b2f51148d869b4ed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708155"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589239"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -45,9 +45,9 @@ Azure Pipelines, Jenkins 및 편집기 플러그 인 같은 배포 도구는 이
 
 프로젝트에 테스트, QA 및 스테이징에 대 한 분기가 지정 된 경우 각 분기는 스테이징 슬롯에 지속적으로 배포 되어야 합니다. 이를 [Gitflow 디자인](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)이라고 합니다. 이를 통해 관련자는 배포 된 분기를 쉽게 평가 하 고 테스트할 수 있습니다. 
 
-프로덕션 슬롯에 대해 연속 배포를 사용 하도록 설정 하면 안 됩니다. 대신 프로덕션 분기 (종종 마스터)를 비프로덕션 슬롯에 배포 해야 합니다. 기본 분기를 릴리스할 준비가 되 면 프로덕션 슬롯으로 바꿉니다. 프로덕션에 배포 하는 대신 프로덕션으로 교체 하면 가동 중지 시간을 방지 하 고 다시 교환 하 여 변경 내용을 롤백할 수 있습니다. 
+프로덕션 슬롯에 대해 연속 배포를 사용 하도록 설정 하면 안 됩니다. 대신 프로덕션 분기 (주로 주)가 비프로덕션 슬롯에 배포 되어야 합니다. 기본 분기를 릴리스할 준비가 되 면 프로덕션 슬롯으로 바꿉니다. 프로덕션에 배포 하는 대신 프로덕션으로 교체 하면 가동 중지 시간을 방지 하 고 다시 교환 하 여 변경 내용을 롤백할 수 있습니다. 
 
-![개발, 스테이징 및 마스터 분기와 배포 되는 슬롯 간의 흐름을 보여 주는 다이어그램입니다.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
+![개발, 스테이징 및 주 분기와 배포 되는 슬롯 간의 흐름을 보여 주는 다이어그램입니다.](media/app-service-deploy-best-practices/slot_flow_code_diagam.png)
 
 ### <a name="continuously-deploy-containers"></a>계속 컨테이너 배포
 
@@ -55,9 +55,9 @@ Docker 또는 다른 컨테이너 레지스트리의 사용자 지정 컨테이�
 
 슬롯에 배포할 각 분기에 대해 분기에 대 한 각 커밋에서 다음을 수행 하도록 자동화를 설정 합니다.
 
-1. **이미지를 빌드하고 태그를 태그**합니다. 빌드 파이프라인의 일부로 이미지에 git 커밋 ID, 타임 스탬프 또는 기타 식별 가능한 정보를 사용 하 여 태그를 만듭니다. 기본 "최신" 태그를 사용 하지 않는 것이 좋습니다. 그렇지 않으면 현재 배포 된 코드를 추적 하기가 어렵기 때문에 디버깅이 훨씬 더 어려워집니다.
+1. **이미지를 빌드하고 태그를 태그** 합니다. 빌드 파이프라인의 일부로 이미지에 git 커밋 ID, 타임 스탬프 또는 기타 식별 가능한 정보를 사용 하 여 태그를 만듭니다. 기본 "최신" 태그를 사용 하지 않는 것이 좋습니다. 그렇지 않으면 현재 배포 된 코드를 추적 하기가 어렵기 때문에 디버깅이 훨씬 더 어려워집니다.
 1. **태그가 지정 된 이미지를 푸시합니다**. 이미지를 빌드하고 태그를 지정 하면 파이프라인에서 이미지를 컨테이너 레지스트리로 푸시합니다. 다음 단계에서 배포 슬롯은 컨테이너 레지스트리에서 태그가 지정 된 이미지를 가져옵니다.
-1. **새 이미지 태그를 사용 하 여 배포 슬롯을 업데이트**합니다. 이 속성이 업데이트 되 면 사이트가 자동으로 다시 시작 되 고 새 컨테이너 이미지를 끌어옵니다.
+1. **새 이미지 태그를 사용 하 여 배포 슬롯을 업데이트** 합니다. 이 속성이 업데이트 되 면 사이트가 자동으로 다시 시작 되 고 새 컨테이너 이미지를 끌어옵니다.
 
 ![슬롯 사용 시각적 개체](media/app-service-deploy-best-practices/slot_flow_container_diagram.png)
 
@@ -65,7 +65,7 @@ Docker 또는 다른 컨테이너 레지스트리의 사용자 지정 컨테이�
 
 ### <a name="use-azure-devops"></a>Azure DevOps 사용
 
-App Service에는 배포 센터를 통해 컨테이너에 대 한 [지속적인 지속적인 배달이 제공](deploy-continuous-deployment.md) 됩니다. [Azure Portal](https://portal.azure.com/) 에서 앱으로 이동 하 고 **배포**아래에서 **deployment Center** 를 선택 합니다. 지침에 따라 리포지토리 및 분기를 선택 합니다. 그러면 새 커밋이 선택한 분기로 푸시 될 때 컨테이너를 자동으로 빌드, 태그 및 배포할 수 있도록 DevOps 빌드 및 릴리스 파이프라인이 구성 됩니다.
+App Service에는 배포 센터를 통해 컨테이너에 대 한 [지속적인 지속적인 배달이 제공](deploy-continuous-deployment.md) 됩니다. [Azure Portal](https://portal.azure.com/) 에서 앱으로 이동 하 고 **배포** 아래에서 **deployment Center** 를 선택 합니다. 지침에 따라 리포지토리 및 분기를 선택 합니다. 그러면 새 커밋이 선택한 분기로 푸시 될 때 컨테이너를 자동으로 빌드, 태그 및 배포할 수 있도록 DevOps 빌드 및 릴리스 파이프라인이 구성 됩니다.
 
 ### <a name="use-github-actions"></a>GitHub 작업 사용
 
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@main
 
     -name: Authenticate using a Service Principal
       uses: azure/actions/login@v1

@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfe3d995cef888d2f0e973a6a6b2a06e0dd6cb54
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b26c24149d422021dcb86f75c915ade89cbccdec
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563214"
+ms.locfileid: "97589878"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -60,19 +60,19 @@ Azure AD는 아래와 같은 몇 가지 특정 요구 사항에 따라 SAML 2.0 
 SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 디지털 서명 정보가 포함됩니다. 서명 블록에는 다음 요구 사항이 적용됩니다.
 
 1. 어설션 노드 자체에 서명해야 합니다.
-2.  RSA-sha1 알고리즘을 DigestMethod로 사용해야 합니다. 기타 디지털 서명 알고리즘은 허용되지 않습니다.
+2. RSA-sha1 알고리즘을 DigestMethod로 사용해야 합니다. 기타 디지털 서명 알고리즘은 허용되지 않습니다.
    `<ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1"/>`
-3.  XML 문서에 서명을 할 수도 있습니다. 
-4.  Transform 알고리즘은 다음 샘플의 값과 일치해야 합니다. `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+3. XML 문서에 서명을 할 수도 있습니다. 
+4. 변환 알고리즘은 다음 샘플의 값과 일치 해야 합니다.     `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  SignatureMethod 알고리즘은 다음 샘플과 일치해야 합니다. `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9. 서명 방법 알고리즘은 다음 샘플과 일치 해야 합니다.    `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>지원되는 바인딩
 바인딩은 필요한 전송 관련 통신 매개 변수입니다. 바인딩에는 다음 요구 사항이 적용됩니다.
 
 1. HTTPS는 필수 전송입니다.
-2.  Azure AD에는 로그인 중의 토큰 제출을 위해 HTTP POST가 필요합니다.
-3.  Azure AD는 ID 공급자에 대한 인증 요청에 HTTP POST를 사용하고, ID 공급자에 대한 로그아웃 메시지에 REDIRECT를 사용합니다.
+2. Azure AD에는 로그인 중의 토큰 제출을 위해 HTTP POST가 필요합니다.
+3. Azure AD는 ID 공급자에 대한 인증 요청에 HTTP POST를 사용하고, ID 공급자에 대한 로그아웃 메시지에 REDIRECT를 사용합니다.
 
 ## <a name="required-attributes"></a>필수 특성
 다음 표에는 SAML 2.0 메시지의 특정 특성에 대한 요구 사항을 표시됩니다.
@@ -91,16 +91,16 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
 다음은 Azure AD에서 샘플 SAML 2.0 ID 공급자로 전송되는 샘플 요청 메시지입니다. 샘플 SAML 2.0 ID 공급자는 SAML-P 프로토콜을 사용하도록 구성된 AD FS(Active Directory Federation Services)입니다. 다른 SAML 2.0 ID 공급자와의 상호 운용성 테스트도 완료되었습니다.
 
 ```xml
-    <samlp:AuthnRequest 
-        xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
-        xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
-        ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
-        IssueInstant="2014-01-30T16:18:35Z" 
-        Version="2.0" 
-        AssertionConsumerServiceIndex="0" >
-            <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
-            <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
-    </samlp:AuthnRequest>
+  <samlp:AuthnRequest 
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" 
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" 
+    ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" 
+    IssueInstant="2014-01-30T16:18:35Z" 
+    Version="2.0" 
+    AssertionConsumerServiceIndex="0" >
+        <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
+        <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
+  </samlp:AuthnRequest>
 ```
 
 다음은 샘플 SAML 2.0 호환 id 공급자에서 Azure AD/Microsoft 365로 전송 되는 샘플 응답 메시지입니다.
@@ -196,47 +196,47 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 
 1. Azure AD 디렉터리에 테넌트 관리자 권한으로 연결:
 
-    ```powershell
-    Connect-MsolService
-    ```
-    
+  ```powershell
+  Connect-MsolService
+  ```
+  
 2. SAML 2.0에서 페더레이션을 사용 하도록 원하는 Microsoft 365 도메인을 구성 합니다.
 
-    ```powershell
-    $dom = "contoso.com" 
-    $BrandName - "Sample SAML 2.0 IDP" 
-    $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
-    $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
-    $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
-    $MyURI = "urn:uri:MySamlp2IDP" 
-    $MySigningCert = "MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" 
-    $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" 
-    $Protocol = "SAMLP" 
-    Set-MsolDomainAuthentication `
-        -DomainName $dom `
-        -FederationBrandName $BrandName `
-        -Authentication Federated `
-        -PassiveLogOnUri $LogOnUrl `
-        -ActiveLogOnUri $ecpUrl `
-        -SigningCertificate $MySigningCert `
-        -IssuerUri $MyURI `
-        -LogOffUri $LogOffUrl `
-        -PreferredAuthenticationProtocol $Protocol
-    ``` 
+  ```powershell
+  $dom = "contoso.com" 
+  $BrandName - "Sample SAML 2.0 IDP" 
+  $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" 
+  $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" 
+  $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" 
+  $MyURI = "urn:uri:MySamlp2IDP" 
+  $MySigningCert = "MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" 
+  $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" 
+  $Protocol = "SAMLP" 
+  Set-MsolDomainAuthentication `
+    -DomainName $dom `
+    -FederationBrandName $BrandName `
+    -Authentication Federated `
+    -PassiveLogOnUri $LogOnUrl `
+    -ActiveLogOnUri $ecpUrl `
+    -SigningCertificate $MySigningCert `
+    -IssuerUri $MyURI `
+    -LogOffUri $LogOffUrl `
+    -PreferredAuthenticationProtocol $Protocol
+  ``` 
 
 3.  IDP 메타데이터 파일에서 서명 인증서 base64 인코딩 문자열을 얻을 수 있습니다. 이 위치의 예가 제공되어 있으나 구현에 따라 약간 다를 수 있습니다.
 
-    ```xml
-    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-        <KeyDescriptor use="signing">
-          <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
-             <X509Data>
-                 <X509Certificate> MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate>
-              </X509Data>
-            </KeyInfo>
-        </KeyDescriptor>
-    </IDPSSODescriptor>
-    ``` 
+  ```xml
+  <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
+       <X509Data>
+         <X509Certificate> MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate>
+        </X509Data>
+      </KeyInfo>
+    </KeyDescriptor>
+  </IDPSSODescriptor>
+  ``` 
 
 "Set-msoldomainauthentication"에 대 한 자세한 내용은 [/previous-versions/azure/dn194112 (v = azure. 100)](/previous-versions/azure/dn194112(v=azure.100))를 참조 하세요.
 
@@ -278,13 +278,12 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>SAML 2.0 IDP를 사용하여 Single Sign-On 확인
 관리자는 Single Sign-On(ID 페더레이션이라고도 함)을 확인 및 관리하기 전에 해당 정보를 검토하고 다음 문서의 단계를 수행하여 SAML 2.0 SP-Lite 기반 ID 공급자로 Single Sign-On을 설정해야 합니다.
 
-
-1.  Azure AD SAML 2.0 프로토콜 요구 사항을 검토해야 합니다.
-2.  SAML 2.0 ID 공급자를 구성해야 합니다.
-3.  SAML 2.0 ID 공급자를 사용한 Single Sign-On을 위해 Windows PowerShell 설치해야 합니다.
-4.  SAML 2.0 ID 공급자 및 Azure AD 간에 트러스트를 설정해야 합니다.
-5.  Windows PowerShell 또는 Azure AD Connect를 통해 Azure Active Directory (Microsoft 365)에 대해 알려진 테스트 사용자 보안 주체를 프로 비전 했습니다.
-6.  [Azure AD Connect](whatis-hybrid-identity.md)를 사용하여 디렉터리 동기화를 구성해야 합니다.
+1. Azure AD SAML 2.0 프로토콜 요구 사항을 검토해야 합니다.
+2. SAML 2.0 ID 공급자를 구성해야 합니다.
+3. SAML 2.0 ID 공급자를 사용한 Single Sign-On을 위해 Windows PowerShell 설치해야 합니다.
+4. SAML 2.0 ID 공급자 및 Azure AD 간에 트러스트를 설정해야 합니다.
+5. Windows PowerShell 또는 Azure AD Connect를 통해 Azure Active Directory (Microsoft 365)에 대해 알려진 테스트 사용자 보안 주체를 프로 비전 했습니다.
+6. [Azure AD Connect](whatis-hybrid-identity.md)를 사용하여 디렉터리 동기화를 구성해야 합니다.
 
 SAML 2.0 SP-Lite 기반 ID 공급자를 사용하여 Single Sign-On을 설정한 후 올바르게 작동하는지 확인해야 합니다.
 
@@ -302,29 +301,33 @@ Microsoft는 SAML 2.0 기반된 ID 공급자를 테스트하는 데 사용할 �
 
 
 
-1. 연결 분석기를 [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client)에서 다운로드합니다.
-2.  지금 설치를 클릭하여 이 도구를 다운로드하여 설치하기 시작합니다.
-3.  "Office 365, Azure 또는 Azure Active Directory를 사용하는 다른 서비스와 페더레이션을 설정할 수 없습니다."를 선택합니다.
-4.  이 도구가 다운로드되고 실행되면 연결 진단 창이 표시됩니다. 이 도구는 페더레이션 연결을 테스트하는 과정을 안내합니다.
-5.  연결 분석기가 로그인 할 수 있도록 SAML 2.0 IDP을 열고, 테스트 중인 사용자 계정에 대 한 자격 증명을 입력 합니다. ( ![ saml 2.0 IDP 로그인 창을 보여 주는 스크린샷)](./media/how-to-connect-fed-saml-idp/saml1.png)
+1. [연결 분석기](https://testconnectivity.microsoft.com/?tabid=Client)를 다운로드 합니다.
+2. 지금 설치를 클릭하여 이 도구를 다운로드하여 설치하기 시작합니다.
+3. "Office 365, Azure 또는 Azure Active Directory를 사용하는 다른 서비스와 페더레이션을 설정할 수 없습니다."를 선택합니다.
+4. 이 도구가 다운로드되고 실행되면 연결 진단 창이 표시됩니다. 이 도구는 페더레이션 연결을 테스트하는 과정을 안내합니다.
+5. 연결 분석기가 로그인 할 수 있도록 SAML 2.0 IDP을 열고 테스트 중인 사용자 계정에 대 한 자격 증명을 입력 합니다.
+
+    ![SAML 2.0 IDP에 대 한 로그인 창을 보여 주는 스크린샷](./media/how-to-connect-fed-saml-idp/saml1.png)
+
 6.  페더레이션 테스트 로그인 창에서 SAML 2.0 ID 공급자와 페더레이션되도록 구성된 Azure AD 테넌트에 대한 계정 이름 및 암호를 입력해야 합니다. 이 도구는 해당 자격 증명을 사용하여 로그인을 시도하고 로그인 기도 중에 수행된 자세한 테스트 결과를 출력으로 제공합니다.
-![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
+
+    ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
+
 7. 이 창에는 실패한 테스트 결과가 표시됩니다. 자세한 결과 검토를 클릭하면 수행한 각 테스트 결과에 대한 정보가 표시됩니다. 또한 결과를 공유하기 위해 디스크를 저장할 수도 있습니다.
  
->[!NOTE]
->또한 연결 분석기는 WS* 기반 및 ECP/PAOS 프로토콜을 사용하여 활성 페더레이션을 테스트합니다. 이러한 기능을 사용하지 않는 경우 다음 오류를 무시해도 됩니다. ID 공급자의 활성 페더레이션 엔드포인트를 사용하여 활성 로그인 흐름 테스트
+> [!NOTE]
+> 또한 연결 분석기는 WS* 기반 및 ECP/PAOS 프로토콜을 사용하여 활성 페더레이션을 테스트합니다. 이러한 기능을 사용하지 않는 경우 다음 오류를 무시해도 됩니다. ID 공급자의 활성 페더레이션 엔드포인트를 사용하여 활성 로그인 흐름 테스트
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Single Sign-On이 올바르게 설정되어 있는지 수동으로 확인
+
 수동 확인은 SAML 2.0 ID 공급자가 많은 시나리오에서 제대로 작동하고 있는지 확인하기 위해 수행할 수 있는 추가 단계를 제공합니다.
 Single Sign-On이 올바르게 설정되어 있는지 확인하려면 다음 단계를 완료합니다.
 
-
 1. 도메인에 조인된 컴퓨터에서 회사 자격 증명에 사용하는 것과 동일한 로그인 이름을 사용하여 클라우드 서비스에 로그인합니다.
-2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에 로그인해야 합니다"라는 메시지가 표시됩니다.
-3.  &lt;회사&gt; 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
+2. 암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에 로그인해야 합니다"라는 메시지가 표시됩니다.
+3. &lt;회사&gt; 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 
 - [Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정](how-to-connect-fed-management.md)
 - [Azure AD 페더레이션 호환성 목록](how-to-connect-fed-compatibility.md)
