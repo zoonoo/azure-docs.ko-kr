@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: d8af626d2f04ad33899f4757b2ee85aaa122ea26
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e9d0e9d78f58807a05784e1606670e3a97fd600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511929"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97583918"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "97511929"
 
 지속적인 서비스 유지 관리의 일환으로, 게이트웨이를 호스트 하는 계산 하드웨어를 주기적으로 새로 고쳐 가장 안전 하 고 성능이 뛰어난 환경을 제공 합니다. 게이트웨이 하드웨어를 새로 고치면 계산 노드의 새 링이 먼저 빌드됩니다. 이 새 링은 새로 생성 된 모든 Azure Database for MariaDB 서버에 대 한 트래픽을 처리 하며, 트래픽을 구분 하기 위해 동일한 지역에 있는 이전 게이트웨이 링과 다른 IP 주소를 갖게 됩니다. 새 링이 완전 하 게 작동 하면 기존 서버를 처리 하는 이전 게이트웨이 하드웨어는 서비스 해제에 대해 계획 됩니다. 게이트웨이 하드웨어의 서비스를 해제 하기 전에 서버를 실행 하 고 이전 게이트웨이 링에 연결 하는 고객은 메일을 통해, Azure Portal 그리고 사용자가 서비스를 해제 하기 전에 3 개월 전에 미리 알림 메시지를 받을 수 있습니다. 게이트웨이를 서비스 해제 하면 서버에 대 한 연결에 영향을 줄 수 있습니다. 
 
-* 응용 프로그램의 연결 문자열에 게이트웨이 IP 주소를 하드 코딩 합니다. **권장 되지 않습니다**. 
+* 응용 프로그램의 연결 문자열에 게이트웨이 IP 주소를 하드 코딩 합니다. **권장 되지 않습니다**. <servername>응용 프로그램에 대 한 연결 문자열에서 서버의 FQDN (정규화 된 도메인 이름)을 mariadb.database.azure.com 형식으로 사용 해야 합니다. 
 * 아웃 바운드 트래픽이 새 게이트웨이 링에 도달할 수 있도록 클라이언트 쪽 방화벽에서 최신 게이트웨이 IP 주소를 업데이트 하지 않습니다.
 
 다음 표에서는 모든 데이터 영역에 대 한 Azure Database for MariaDB 게이트웨이의 게이트웨이 IP 주소를 나열 합니다. 각 지역의 게이트웨이 IP 주소에 대 한 최신 정보는 아래 테이블에서 유지 관리 됩니다. 아래 표에서 열은 다음을 나타냅니다.

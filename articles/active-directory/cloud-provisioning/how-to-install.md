@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 클라우드 프로비저닝 에이전트 설치
-description: 이 문서에서는 Azure AD Connect 클라우드 프로비저닝 에이전트를 설치하는 방법을 설명합니다.
+description: Azure AD Connect 클라우드 프로 비전 에이전트를 설치 하는 방법 및 Azure Portal에서 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9553608fdd72d4dec4c1572e0d38cd460018a469
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348537"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584343"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 설치
 이 문서에서는 Azure AD(Azure Active Directory) Connect 프로비저닝 에이전트의 설치 프로세스와 Azure Portal에 이를 처음으로 구성하는 방법을 안내합니다.

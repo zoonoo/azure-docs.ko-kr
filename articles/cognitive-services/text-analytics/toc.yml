@@ -31,24 +31,8 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 클라이언트 라이브러리
-      items:
-        - name: 클라이언트 라이브러리를 사용하여 텍스트 분석
-          href: quickstarts/text-analytics-sdk.md
-    - name: REST API
-      items:
-        - name: Java 사용
-          href: quickstarts/java.md
-        - name: Python 사용
-          href: quickstarts/python.md
-        - name: Node.js 사용
-          href: quickstarts/nodejs.md
-        - name: PHP 사용
-          href: quickstarts/php.md
-        - name: Go 사용
-          href: quickstarts/go.md
-        - name: Ruby 사용
-          href: quickstarts/ruby.md
+    - name: 클라이언트 라이브러리 및 REST API 사용
+      href: quickstarts/client-libraries-rest-api.md
 - name: 자습서
   items:
     - name: Power BI를 통합하여 고객 피드백 분석

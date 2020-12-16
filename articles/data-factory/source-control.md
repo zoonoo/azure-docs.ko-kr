@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355225"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584204"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -103,7 +103,7 @@ Azure Repos Git 통합을 통한 시각적 작성은 데이터 팩터리 파이�
 | **Azure Repos 조직** | Azure Repos 조직 이름입니다. Azure Repos 조직 이름은 `https://{organization name}.visualstudio.com`에서 확인할 수 있습니다. [Azure Repos 조직에 로그인](https://www.visualstudio.com/team-services/git/)하여 Visual Studio 프로필에 액세스하고 리포지토리 및 프로젝트를 확인할 수 있습니다. | `<your organization name>` |
 | **ProjectName** | Azure Repos 프로젝트 이름입니다. Azure Repos 프로젝트 이름은 `https://{organization name}.visualstudio.com/{project name}`에서 확인할 수 있습니다. | `<your Azure Repos project name>` |
 | **RepositoryName** | Azure Repos 코드 리포지토리 이름입니다. Azure Repos 프로젝트는 프로젝트가 확장됨에 따라 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 프로젝트에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | `<your Azure Repos code repository name>` |
-| **협업 분기** | 게시에 사용되는 Azure Repos 협업 분기입니다. 기본적으로 `master`입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch name>` |
+| **협업 분기** | 게시에 사용되는 Azure Repos 협업 분기입니다. 기본적으로 `main` 입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch name>` |
 | **루트 폴더** | Azure Repos 협업 분기의 루트 폴더입니다. | `<your root folder name>` |
 | **리포지토리로 기존 Data Factory 리소스 가져오기** | UX **제작 캔버스** 에서 기존 데이터 팩터리 리소스를 Azure Repos Git 리포지토리로 가져올 것인지를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 세트를 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기** | 데이터 팩터리 리소스(파이프라인, 데이터 세트, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 협업 b. 새로 만들기 c. 기존 리소스 사용 |  |
@@ -153,7 +153,7 @@ GitHub 리포지토리를 지정하려면 사용하고 있는 Azure 구독에 �
 | **GitHub Enterprise URL** | GitHub Enterprise 루트 URL(로컬 GitHub Enterprise 서버의 HTTPS여야 함) 예: `https://github.mydomain.com` **GitHub Enterprise 사용** 을 선택한 경우에만 필요 | `<your GitHub enterprise url>` |                                                           
 | **GitHub 계정** | 사용자 GitHub 계정 이름. 이 이름은 https:\//github.com/{이름}/{리포지토리 이름}에서 찾을 수 있습니다. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다. | `<your GitHub account name>` |
 | **리포지토리 이름**  | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | `<your repository name>` |
-| **협업 분기** | 게시에 사용되는 GitHub 협업 분기입니다. 기본값은 마스터입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch>` |
+| **협업 분기** | 게시에 사용되는 GitHub 협업 분기입니다. 기본적으로 기본입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch>` |
 | **루트 폴더** | GitHub 협업 분기의 루트 폴더입니다. |`<your root folder name>` |
 | **리포지토리로 기존 Data Factory 리소스 가져오기** | UX 제작 캔버스에서 기존 데이터 팩터리 리소스를 GitHub 리포지토리로 가져올지 여부를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 세트를 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기** | 데이터 팩터리 리소스(파이프라인, 데이터 세트, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 협업 b. 새로 만들기 c. 기존 리소스 사용 |  |
@@ -207,11 +207,11 @@ _원본 제어_ 라고도 하는 버전 제어 시스템을 통해 개발자는 
 
 ### <a name="creating-feature-branches"></a>기능 분기 만들기
 
-데이터 팩터리와 연결된 각 Azure Repos Git 리포지토리에는 협업 분기가 생성됩니다. (`main`는 기본 협업 분기입니다). 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 새 분기 창이 나타나면 기능 분기의 이름을 입력합니다.
+데이터 팩터리와 연결된 각 Azure Repos Git 리포지토리에는 협업 분기가 생성됩니다. ( `main` )는 기본 공동 작업 분기입니다. 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 새 분기 창이 나타나면 기능 분기의 이름을 입력합니다.
 
 ![새 분기 만들기](media/author-visually/new-branch.png)
 
-기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 만들기** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Azure Repos Git로 이동합니다. (기본값은 `master`입니다.) 협업 분기에서 Data Factory 서비스에 게시할 수만 있습니다. 
+기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 만들기** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Azure Repos Git로 이동합니다. (기본값은 `main`입니다.) 협업 분기에서 Data Factory 서비스에 게시할 수만 있습니다. 
 
 ![새 끌어오기 요청 만들기](media/author-visually/create-pull-request.png)
 
@@ -232,7 +232,7 @@ Azure Data Factory는 게시 분기를 한 번에 하나만 포함할 수 있습
 
 ### <a name="publish-code-changes"></a>코드 변경 내용 게시
 
-협업 분기에 변경 내용을 병합한 후에(기본값은 `master`) **게시** 를 클릭하여 마스터 분기의 코드 변경 내용을 Data Factory 서비스에 수동으로 게시합니다.
+공동 작업 분기에 변경 내용을 병합 한 후 ( `main` 기본값) **게시** 를 클릭 하 여 main 분기의 코드 변경 내용을 Data Factory 서비스에 수동으로 게시 합니다.
 
 ![Data Factory 서비스에 변경 내용 게시](media/author-visually/publish-changes.png)
 
@@ -241,7 +241,7 @@ Azure Data Factory는 게시 분기를 한 번에 하나만 포함할 수 있습
 ![올바른 게시 분기 확인](media/author-visually/configure-publish-branch.png)
 
 > [!IMPORTANT]
-> 마스터 분기는 Data Factory 서비스에 배포된 내용을 반영하지 않습니다. 따라서 마스터 분기를 *반드시* Data Factory 서비스에 수동으로 게시해야 합니다.
+> Main 분기는 Data Factory 서비스에 배포 된 항목을 나타내지는 않습니다. Main 분기는 Data Factory 서비스에 수동으로 게시 *해야* 합니다.
 
 ## <a name="best-practices-for-git-integration"></a>Git 통합에 대한 모범 사례
 
@@ -264,7 +264,7 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 
 ### <a name="stale-publish-branch"></a>부실한 게시 분기
 
-게시 분기가 마스터 분기와 동기화되지 않고 최근 게시에도 불구하고 오래된 리소스가 포함된 경우에는 다음 단계를 수행합니다.
+게시 분기가 주 분기와 동기화 되지 않은 상태에서 최근 게시에도 불구 하 고 오래 된 리소스를 포함 하는 경우 다음 단계를 수행 합니다.
 
 1. 현재 Git 리포지토리 제거
 1. 동일한 설정으로 Git를 다시 구성하지만 **리포지토리로 기존 Data Factory 리소스 가져오기** 가 선택되어 있는지 확인하고 **새 분기** 를 선택합니다.
