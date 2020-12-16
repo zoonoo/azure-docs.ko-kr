@@ -3,25 +3,25 @@ title: 클라이언트 앱에서 명령 업데이트
 titleSuffix: Azure Cognitive Services
 description: 클라이언트 응용 프로그램에서 명령을 업데이트 하는 방법을 알아봅니다.
 services: cognitive-services
-author: encorona-ms
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: encorona
-ms.openlocfilehash: 765bcbd0521f93bacb0799595e6fbef565d0f313
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.author: nitinme
+ms.openlocfilehash: 08c674a7a7ec060a4273836064cb1c21e979e725
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963626"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560290"
 ---
 # <a name="update-a-command-from-a-client-app"></a>클라이언트 앱에서 명령 업데이트
 
 이 문서에서는 클라이언트 응용 프로그램에서 진행 중인 명령을 업데이트 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 > [!div class = "checklist"]
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 

@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20088ccc79abe978eb5b3f1c98e958f6c26bcb86
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: cfe3d995cef888d2f0e973a6a6b2a06e0dd6cb54
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861802"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563214"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -273,7 +273,7 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
 "Set-msoluser" 체크 아웃에 대 한 자세한 내용은 [/previous-versions/azure/dn194096 (v = azure. 100)을 (를)](/previous-versions/azure/dn194096(v=azure.100))
 
 >[!NOTE]
->"UserPrinciplName" 값은 SAML 2.0 클레임의 "IDPEmail"에 대해 전송하는 값과 일치해야 하고 "ImmutableID" 값은 "NameID" 어설션에 전송된 값과 일치해야 합니다.
+>"UserPrincipalName" 값은 SAML 2.0 클레임에서 "IDPEmail"에 대해 전송 하는 값과 일치 해야 하 고 "ImmutableID" 값은 "NameID" 어설션에 전달 된 값과 일치 해야 합니다.
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>SAML 2.0 IDP를 사용하여 Single Sign-On 확인
 관리자는 Single Sign-On(ID 페더레이션이라고도 함)을 확인 및 관리하기 전에 해당 정보를 검토하고 다음 문서의 단계를 수행하여 SAML 2.0 SP-Lite 기반 ID 공급자로 Single Sign-On을 설정해야 합니다.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5a23cf031b5d7cf40e2077f2e5287e10de563207
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 757dfa119649e21c6e1787671afa61ee18184300
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903006"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561905"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>ARM 템플릿에 대 한 질문과 대답
 
@@ -154,7 +154,7 @@ ms.locfileid: "96903006"
 
 * **-If를 사용 하는 경우 내 템플릿에 없는 속성의 변경 내용이 표시 됩니다. 이 "노이즈"가 필요 한가요?**
 
-  What은 미리 보기 상태입니다. 노이즈를 줄이기 위해 노력 하 고 있습니다. GitHub 리포지토리에서 문제를 제출 하 여 개선 하는 데 도움을 주세요. https://aka.ms/WhatIfIssues
+  노이즈를 줄이기 위해 노력 하 고 있습니다. GitHub 리포지토리에서 문제를 제출 하 여 개선 하는 데 도움을 주세요. https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>템플릿 시각화 도우미
 

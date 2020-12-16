@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8340712e10721374bb2f0a35ac2e2e9a6abf181c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: deb05083ca45c24a58cabf9e923b706575ef093b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743040"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562143"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>기존 NPS (네트워크 정책 서버) 인프라를 Azure AD Multi-Factor Authentication와 통합
 
@@ -224,6 +224,10 @@ PowerShell 스크립트가 생성 하는 자체 서명 된 인증서 대신 자�
    ```
 
 1. 설치 관리자가 만든 PowerShell 스크립트를 실행합니다.
+
+   먼저 PowerShell에 대 한 TLS 1.2을 사용 하도록 설정 하 여 패키지를 올바르게 연결 하 고 다운로드할 수 있습니다.
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
    > Azure Government 또는 Azure 중국 21Vianet 클라우드를 사용 하는 고객의 경우 먼저 `Connect-MsolService` *AzureMfaNpsExtnConfigSetup.ps1* 스크립트에서 cmdlet을 편집 하 여 필요한 클라우드에 대 한 *azureenvironment* 매개 변수를 포함 합니다. 예를 들어 *-Azureenvironment USGovernment* 또는 *-azureenvironment AzureChinaCloud* 를 지정 합니다.

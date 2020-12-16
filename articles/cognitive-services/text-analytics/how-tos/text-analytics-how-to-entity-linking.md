@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/15/2020
 ms.author: aahi
-ms.openlocfilehash: 5b064365a6f0bd8a544f57d67cd6e4beb98bb404
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505242"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562534"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -99,6 +99,14 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 
 [명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
+**비동기 작업**
+
+부터 `v3.1-preview.3` 끝점을 사용 하 여 NER 요청을 비동기적으로 보낼 수 있습니다 `/analyze` .
+
+* 비동기 작업- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+
+비동기 요청을 보내는 방법에 대 한 자세한 내용은 [텍스트 분석 API를 호출 하는 방법을](text-analytics-how-to-call-api.md) 참조 하세요.
+
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 명명 된 엔터티 인식 v3은 NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
@@ -117,7 +125,11 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 
 Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 요청 본문에서 준비한 JSON 문서를 제공 합니다.
 
-### <a name="example-ner-request"></a>예제 NER 요청 
+## <a name="example-requests"></a>예제 요청
+
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-preview)
+
+### <a name="example-synchronous-ner-request"></a>동기 NER 요청 예 
 
 다음 JSON은 API에 보낼 수 있는 콘텐츠의 예입니다. 두 API 버전의 요청 형식은 동일합니다.
 
@@ -131,8 +143,64 @@ Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 요�
     }
   ]
 }
-
 ```
+
+### <a name="example-asynchronous-ner-request"></a>비동기 NER 요청 예제
+
+`/analyze` [비동기 작업](text-analytics-how-to-call-api.md)에 끝점을 사용 하는 경우 API로 보낸 작업을 포함 하는 응답을 받게 됩니다.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+### <a name="example-synchronous-ner-request"></a>동기 NER 요청 예 
+
+버전 3.0에는 동기 작업만 포함 됩니다. 다음 JSON은 API에 보낼 수 있는 콘텐츠의 예입니다. 두 API 버전의 요청 형식은 동일합니다.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## <a name="post-the-request"></a>요청 게시
 
@@ -148,11 +216,68 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 ### <a name="example-responses"></a>예제 응답
 
-버전 3은 일반 NER, PII 및 엔터티 링크를 위한 별도의 끝점을 제공 합니다. 두 작업 모두에 대 한 응답은 아래와 같습니다. 
+버전 3은 일반 NER, PII 및 엔터티 링크를 위한 별도의 끝점을 제공 합니다. 버전 3.1-pareview에는 비동기 분석 모드가 포함 되어 있습니다. 이러한 작업에 대 한 응답은 다음과 같습니다. 
 
 #### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-preview)
 
+### <a name="synchronous-example-results"></a>동기 예제 결과
+
+일반적인 NER 응답의 예는 다음과 같습니다.
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
 PII 응답의 예:
+
 ```json
 {
   "documents": [
@@ -236,6 +361,58 @@ PII 응답의 예:
   ],
   "errors": [],
   "modelVersion": "2020-02-01"
+}
+```
+
+### <a name="example-asynchronous-result"></a>예제 비동기 결과
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
 }
 ```
 

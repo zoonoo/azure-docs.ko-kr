@@ -1,14 +1,14 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516799"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563027"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -80,9 +80,9 @@ Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 �
 
 ### <a name="networking-configuration"></a>네트워킹 구성
 
-Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 아래의 요구 사항을 검토하여 필요한 네트워크 구성을 파악하세요.
+Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 컴퓨터가 인터넷을 통해 통신 하기 위해 방화벽 또는 프록시 서버를 통해 연결 하는 경우 다음을 검토 하 여 네트워크 구성 요구 사항을 파악 합니다.
 
-방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트가 서비스와 통신하는 데 필요한 IP 범위 또는 도메인 이름만 허용하는 경우 다음 서비스 태그와 URL에 대한 액세스도 허용해야 합니다.
+방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트에서 서비스와 통신 하는 데 필요한 IP 범위 또는 도메인 이름만 허용 하는 경우 다음 서비스 태그와 Url에 대 한 액세스를 허용 해야 합니다.
 
 서비스 태그:
 
@@ -181,8 +181,9 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
     |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
-    |himds |Azure Hybrid Instance Metadata Service |himds.exe |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
-    |DscService |Guest Configuration Service |dsc_service.exe |In-Guest 정책을 구현 하기 위해 Azure 내에서 사용 되는 DSC v2 (필요한 상태 구성) 코드 베이스입니다.|
+    |himds |Azure Hybrid Instance Metadata Service |himds |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
+    |GCArcService |게스트 구성 Arc 서비스 |gc_service |컴퓨터의 필요한 상태 구성을 모니터링 합니다.|
+    |ExtensionService |게스트 구성 확장 서비스 | gc_service |컴퓨터를 대상으로 하는 필수 확장을 설치 합니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다.
 
@@ -232,8 +233,9 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 
     |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
-    |himdsd.service |Azure Hybrid Instance Metadata Service |/opt/azcmagent/bin/himds |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
-    |dscd.service |Guest Configuration Service |/opt/DSC/dsc_linux_service |게스트 내 정책을 구현하기 위해 Azure 내부에서 사용되는 DSC(Desired State Configuration) v2 코드베이스입니다.|
+    |himdsd.service |Azure 연결 된 컴퓨터 에이전트 서비스 |himds |이 서비스는 azure 인스턴스 메타 데이터 서비스 (IMDS)를 구현 하 여 Azure 및 연결 된 컴퓨터의 Azure id에 대 한 연결을 관리 합니다.|
+    |gcad. servce |GC Arc 서비스 |gc_linux_service |컴퓨터의 필요한 상태 구성을 모니터링 합니다. |
+    |extd. 서비스 |확장 서비스 |gc_linux_service | 컴퓨터를 대상으로 하는 필수 확장을 설치 합니다.|
 
 * 문제 해결에 사용할 수 있는 로그 파일은 여러 가지가 있습니다. 이 내용은 다음 표에 설명되어 있습니다.
 

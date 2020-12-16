@@ -2,14 +2,14 @@
 title: 요청 제한
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4d387749261747eb9ea1ea26629ade4fe8729856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239357"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563129"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -25,7 +25,7 @@ ms.locfileid: "80239357"
 
 시간당 기본 제한 제한은 다음 표에 나와 있습니다.
 
-| 범위 | 작업 | 제한 |
+| Scope | 작업 | 제한 |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -66,9 +66,16 @@ Microsoft. Network 리소스 공급자는 다음과 같은 제한 제한을 적�
 
 [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 는 해당 작업에 대 한 요청 수를 제한 합니다. 이 문서의 단계에 따라 남은 요청을 확인 하 고 제한에 도달 했을 때 응답 하는 방법을 리소스 그래프에도 적용 합니다. 그러나 리소스 그래프는 자체 제한 및 재설정 률을 설정 합니다. 자세한 내용은 [리소스 그래프 제한 헤더](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers)를 참조 하세요.
 
+### <a name="other-resource-providers"></a>기타 리소스 공급자
+
+다른 리소스 공급자의 제한에 대 한 자세한 내용은 다음을 참조 하세요.
+
+* [Azure Key Vault 제한 지침](../../key-vault/general/overview-throttling.md)
+* [AKS 문제 해결](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+
 ## <a name="error-code"></a>오류 코드
 
-한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다. 응답에는 다음 요청을 보내기 전에 응용 프로그램이 대기 (또는 절전) 해야 하는 시간 (초)을 지정 하는 **다시 시도-이후** 값이 포함 됩니다. 재시도 값이 경과하기 전에 요청을 보내면 요청이 처리되지 않고 새 재시도 값이 반환됩니다.
+한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청** 이 표시됩니다. 응답에는 다음 요청을 보내기 전에 응용 프로그램이 대기 (또는 절전) 해야 하는 시간 (초)을 지정 하는 **다시 시도-이후** 값이 포함 됩니다. 재시도 값이 경과하기 전에 요청을 보내면 요청이 처리되지 않고 새 재시도 값이 반환됩니다.
 
 지정 된 시간 동안 기다린 후 Azure에 대 한 연결을 닫았다가 다시 열 수도 있습니다. 연결을 다시 설정 하 여 Azure Resource Manager의 다른 인스턴스에 연결할 수 있습니다.
 
@@ -97,13 +104,13 @@ Azure SDK를 사용 하는 경우 SDK에 자동 다시 시도 구성이 있을 �
 
 코드 또는 스크립트에서 이러한 헤더 값을 검색하는 것은 임의의 헤더 값을 검색하는 것과 같습니다. 
 
-예를 들어 **C#** 에서는 다음 코드로 **response**로 명명된 **HttpWebResponse** 개체에서 헤더 값을 검색합니다.
+예를 들어 **C#** 에서는 다음 코드로 **response** 로 명명된 **HttpWebResponse** 개체에서 헤더 값을 검색합니다.
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)
 ```
 
-**PowerShell**에서는 Invoke-WebRequest 작업에서 헤더 값을 검색합니다.
+**PowerShell** 에서는 Invoke-WebRequest 작업에서 헤더 값을 검색합니다.
 
 ```powershell
 $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
@@ -150,7 +157,7 @@ Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
-**Azure CLI**에서 더 많은 자세한 정보 표시 옵션을 사용하여 헤더 값을 검색합니다.
+**Azure CLI** 에서 더 많은 자세한 정보 표시 옵션을 사용하여 헤더 값을 검색합니다.
 
 ```azurecli
 az group list --verbose --debug

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025945"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561225"
 ---
 # <a name="testing-for-luis-devops"></a>LUIS DevOps에 대한 테스트
 
@@ -18,7 +18,7 @@ LUIS (Language Understanding) 앱을 개발 하는 소프트웨어 엔지니어�
 
 Agile Software Development 방법론에서 테스트는 품질 소프트웨어 구축의 필수적인 역할을 합니다. LUIS 앱에 대 한 모든 주요 변경 내용에는 개발자가 앱에 빌드하는 새 기능을 테스트 하기 위해 설계 된 테스트가 수반 되어야 합니다. 이러한 테스트는 `.lu` LUIS 앱의 소스와 함께 소스 코드 리포지토리에 체크 인 됩니다. 앱이 테스트를 충족 하면 변경 내용의 구현이 완료 됩니다.
 
-테스트는 [CI/CD 워크플로의](luis-concept-devops-automation.md)중요 한 부분입니다. LUIS 앱에 대 한 변경 내용이 끌어오기 요청 (PR)에서 제안 되거나 변경 내용이 마스터 분기로 병합 된 경우 CI 워크플로는 테스트를 실행 하 여 업데이트가 재발을 발생 하지 않았는지 확인 해야 합니다.
+테스트는 [CI/CD 워크플로의](luis-concept-devops-automation.md)중요 한 부분입니다. LUIS 앱에 대 한 변경 내용이 끌어오기 요청 (PR)에서 제안 되거나 변경 내용이 주 분기에 병합 된 경우 CI 워크플로는 해당 테스트를 실행 하 여 업데이트가 재발을 발생 하지 않았는지 확인 해야 합니다.
 
 ## <a name="how-to-do-unit-testing-and-batch-testing"></a>단위 테스트 및 배치 테스트를 수행 하는 방법
 
@@ -123,7 +123,7 @@ Nlu를 사용할 수 있습니다 [. ](https://github.com/microsoft/NLU.DevOps) 
 또한 NLU를 사용할 수 있습니다. 명령줄에서 일괄 처리 테스트를 실행 하는 DevOps 패키지.
 
 * NLU를 사용 합니다. DevOps [테스트 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) 사용 하 여 테스트 파일에서 끝점으로 테스트를 제출 하 고, 단위 테스트와 같이 파일에서 실제 예측 결과를 캡처합니다.
-* NLU를 사용 합니다. [성능 테스트 모드](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) 의 devops [compare 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) 통해 응용 프로그램의 성능을 측정 하는 것은 응용 프로그램의 성능을 기준 성능 벤치 마크와 비교할 수 있습니다. 예를 들어 최신 커밋 마스터나 현재 릴리스에 대 한 결과입니다. 성능 테스트 모드에서 `compare` 명령은 NUnit 테스트 출력과 [일괄 처리 테스트 결과](./luis-glossary.md#batch-test) 를 JSON 형식으로 생성 합니다.
+* NLU를 사용 합니다. [성능 테스트 모드](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) 의 devops [compare 명령을](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) 통해 응용 프로그램의 성능을 측정 하 여 기본 성능 벤치 마크에 대 한 앱의 성능을 비교할 수도 있습니다 (예: 최신 커밋에서 주 버전 또는 현재 릴리스에 대 한 결과). 성능 테스트 모드에서 `compare` 명령은 NUnit 테스트 출력과 [일괄 처리 테스트 결과](./luis-glossary.md#batch-test) 를 JSON 형식으로 생성 합니다.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>비결 정적 교육 및 테스트에 미치는 영향 LUIS
 

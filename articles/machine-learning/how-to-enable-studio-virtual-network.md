@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032731"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559542"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
 
@@ -89,17 +89,23 @@ Azure Machine Learning는 데이터 저장소를 사용 [하 여 저장소](conc
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>기본 저장소 계정에 관리 되는 id 인증 사용
 
-각 Azure Machine Learning 작업 영역에는 작업 영역을 만들 때 정의 되는 두 개의 기본 저장소 계정과 함께 제공 됩니다. 스튜디오는 기본 저장소 계정을 사용 하 여 실험 및 모델 아티팩트를 저장 하며,이는 스튜디오의 특정 기능에 중요 합니다.
+각 Azure Machine Learning 작업 영역에는 기본 blob 저장소 계정과 기본 파일 저장소 계정 (작업 영역을 만들 때 정의 됨)의 두 가지 기본 저장소 계정이 있습니다. **데이터 저장소** 관리 페이지에서 새 기본값을 설정할 수도 있습니다.
+
+![기본 데이터 저장소를 찾을 수 있는 위치를 보여 주는 스크린샷](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 다음 표에서는 작업 영역 기본 저장소 계정에 대해 관리 id 인증을 사용 하도록 설정 해야 하는 이유에 대해 설명 합니다.
 
-|스토리지 계정  | 참고  |
+|스토리지 계정  | 메모  |
 |---------|---------|
 |작업 영역 기본 blob storage| 디자이너에서 모델 자산을 저장 합니다. 디자이너에서 모델을 배포 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. <br> <br> 관리 id를 사용 하도록 구성 된 기본이 아닌 데이터 저장소를 사용 하는 경우 디자이너 파이프라인을 시각화 하 고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 id를 사용 하도록 설정 하지 않고 학습 된 모델을 배포 하려고 하면 사용 중인 다른 데이터 저장소에 관계 없이 배포가 실패 합니다.|
 |작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장 합니다. AutoML 실험을 제출 하려면이 저장소 계정에서 관리 되는 id 인증을 사용 하도록 설정 해야 합니다. |
 
-
-![기본 데이터 저장소를 찾을 수 있는 위치를 보여 주는 스크린샷](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> 기본 파일 저장소에서 자동 `azureml-filestore` ml 실험을 제출 하는 데 필요한 폴더를 자동으로 만들지 않는 알려진 문제가 있습니다. 사용자가 작업 영역을 만드는 동안 기존 파일 저장소를 기본 파일 저장소로 설정할 때 발생 합니다.
+> 
+> 이 문제를 방지 하려면 두 가지 옵션이 있습니다. 1) 작업 영역을 만들 때 자동으로 만들어지는 기본 파일 저장소를 사용 합니다. 2) 고유한 파일 저장소를 가져오려면 작업 영역을 만드는 동안 파일 저장소가 VNet 외부에 있는지 확인 합니다. 작업 영역을 만든 후 가상 네트워크에 저장소 계정을 추가 합니다.
+>
+> 이 문제를 해결 하려면 가상 네트워크에서 파일 저장소 계정을 제거한 다음 가상 네트워크에 다시 추가 합니다.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>저장소 개인 링크에 대 한 작업 영역 관리 id __판독기__ 액세스 권한 부여

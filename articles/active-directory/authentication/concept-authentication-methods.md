@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 12/14/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: e239d9da4a083b50460ef746f9c538aa3081a577
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027325"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562126"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -26,9 +26,11 @@ Azure AD(Azure Active Directory)의 계정에 대한 로그인 환경에는 사�
 
 Windows Hello, FIDO2 보안 키, Microsoft Authenticator 앱 등의 passwordless 인증 방법은 가장 안전한 로그인 이벤트를 제공 합니다.
 
-Azure AD Multi-Factor Authentication는 사용자가 로그인 할 때 암호를 사용 하는 경우에만 추가 보안을 추가 합니다. 사용자에 게 푸시 알림에 응답 하거나, 소프트웨어 또는 하드웨어 토큰에서 코드를 입력 하거나, SMS 또는 전화 통화에 응답 하는 등의 추가 인증 양식을 입력 하 라는 메시지가 표시 될 수 있습니다.
+MFA (Azure AD Multi-Factor Authentication)는 사용자가 로그인 할 때 암호만 사용 하 여 추가 보안을 추가 합니다. 사용자에 게 푸시 알림에 응답 하거나, 소프트웨어 또는 하드웨어 토큰에서 코드를 입력 하거나, SMS 또는 전화 통화에 응답 하는 등의 추가 인증 양식을 입력 하 라는 메시지가 표시 될 수 있습니다.
 
-사용자가 온 보 딩 환경을 간소화 하 고 MFA 및 SSPR 모두에 등록 하려면 [결합 된 보안 정보 등록을 사용](howto-registration-mfa-sspr-combined.md)하는 것이 좋습니다. 복원 력을 위해 사용자에 게 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 로그인 또는 SSPR 중에 한 가지 방법을 사용자가 사용할 수 없는 경우 다른 방법으로 인증 하도록 선택할 수 있습니다. 자세한 내용은 [AZURE AD에서 복원 력 있는 액세스 제어 관리 전략 만들기](concept-resilient-controls.md)를 참조 하세요.
+사용자가 온 보 딩 환경을 간소화 하 고 MFA 및 SSPR (셀프 서비스 암호 재설정)에 등록 하는 것을 간소화 하기 위해 [결합 된 보안 정보 등록을 사용](howto-registration-mfa-sspr-combined.md)하는 것이 좋습니다. 복원 력을 위해 사용자에 게 여러 인증 방법을 등록 하도록 요구 하는 것이 좋습니다. 로그인 또는 SSPR 중에 한 가지 방법을 사용자가 사용할 수 없는 경우 다른 방법으로 인증 하도록 선택할 수 있습니다. 자세한 내용은 [AZURE AD에서 복원 력 있는 액세스 제어 관리 전략 만들기](concept-resilient-controls.md)를 참조 하세요.
+
+다음은 조직을 안전 하 게 유지 하기 위해 가장 적합 한 인증 방법을 선택 하는 데 도움이 되도록 만든 [비디오](https://www.youtube.com/watch?v=LB2yj4HSptc&feature=youtu.be) 입니다.
 
 ## <a name="authentication-method-strength-and-security"></a>인증 방법 강도 및 보안
 
@@ -47,7 +49,10 @@ Azure AD Multi-Factor Authentication는 사용자가 로그인 할 때 암호를
 | 음성                          | 중간   | 중간    | 중간       |
 | 암호                       | 낮음      | 높음      | 높음         |
 
-보안에 대 한 자세한 내용은 [인증 취약성 및 공격 벡터](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)를 참조 하세요.
+보안에 대 한 최신 정보는 블로그 게시물을 확인 하세요.
+
+- [인증을 위해 전화 전송에서 중단 하는 시간입니다.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
+- [인증 취약성 및 공격 벡터](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)
 
 > [!TIP]
 > 유연성과 유용성을 위해 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 이 인증 방법은 passwordless, MFA 푸시 알림 및 OATH 코드와 같은 최상의 사용자 환경 및 여러 모드를 제공 합니다.

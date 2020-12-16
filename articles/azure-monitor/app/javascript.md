@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f5f81fe5d3f7f7d24e5e6618ba3956b80451570c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921865"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559882"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -107,7 +107,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 사용 가능한 구성 옵션은
 
-| 이름 | Type | Description
+| 이름 | 유형 | Description
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -132,7 +132,7 @@ appInsights.trackPageView();
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 여기에는 다음이 포함됩니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 여기에는 다음이 해당합니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적

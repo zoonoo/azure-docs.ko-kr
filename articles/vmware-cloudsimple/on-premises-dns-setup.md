@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424705"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563010"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 사설 클라우드 vCenter 액세스의 이름 확인에 대 한 DNS 구성
 
@@ -23,9 +23,9 @@ ms.locfileid: "92424705"
 
 1. [Cloudsimple 포털](access-cloudsimple-portal.md)에 로그인 합니다.
 
-2. **리소스**사설 클라우드로 이동 하 여  >  **Private Clouds** 연결 하려는 사설 클라우드를 선택 합니다.
+2. **리소스** 사설 클라우드로 이동 하 여  >   연결 하려는 사설 클라우드를 선택 합니다.
 
-3. 사설 클라우드의 **요약** 페이지에 있는 **기본 정보**에서 사설 클라우드 DNS 서버 IP 주소를 복사 합니다.
+3. 사설 클라우드의 **요약** 페이지에 있는 **기본 정보** 에서 사설 클라우드 DNS 서버 IP 주소를 복사 합니다.
 
     ![사설 클라우드 DNS 서버](media/private-cloud-dns-server.png)
 
@@ -45,6 +45,9 @@ DNS 구성에 대해 이러한 옵션 중 하나를 사용 합니다.
 
 예를 들어 기본 바인드 서버 구성의 경우 DNS 서버에서/etc/named.conf 파일을 편집 하 고 다음 영역 정보를 추가 합니다.
 
+> [!NOTE]
+>이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 종속 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+
 ```
 zone "az.cloudsimple.io"
 {
@@ -56,19 +59,19 @@ zone "az.cloudsimple.io"
 
 ### <a name="create-a-zone-on-a-microsoft-windows-dns-server"></a>Microsoft Windows DNS 서버에서 영역 만들기
 
-1. DNS 서버를 마우스 오른쪽 단추로 클릭 하 고 **새 영역**을 선택 합니다. 
+1. DNS 서버를 마우스 오른쪽 단추로 클릭 하 고 **새 영역** 을 선택 합니다. 
   
     ![새 영역 메뉴 옵션을 강조 표시 하는 스크린샷](media/DNS01.png)
-2. **스텁 영역** 을 선택 하 고 **다음**을 클릭 합니다.
+2. **스텁 영역** 을 선택 하 고 **다음** 을 클릭 합니다.
 
     ![스텁 영역 옵션을 강조 표시 하는 스크린샷](media/DNS02.png)
-3. 사용자 환경에 따라 적절 한 옵션을 선택 하 고 **다음**을 클릭 합니다.
+3. 사용자 환경에 따라 적절 한 옵션을 선택 하 고 **다음** 을 클릭 합니다.
 
     ![영역 데이터 복제 옵션을 보여 주는 스크린샷](media/DNS03.png)
-4. **전방 조회 영역** 을 선택 하 고 **다음**을 클릭 합니다.
+4. **전방 조회 영역** 을 선택 하 고 **다음** 을 클릭 합니다.
 
     ![전방 조회 영역 옵션을 강조 표시 하는 스크린샷](media/DNS01.png)
-5. 영역 이름을 입력 하 고 **다음**을 클릭 합니다.
+5. 영역 이름을 입력 하 고 **다음** 을 클릭 합니다.
 
     ![영역 이름을 입력할 위치를 보여 주는 스크린샷](media/DNS05.png)
 6. CloudSimple 포털에서 가져온 사설 클라우드에 대 한 DNS 서버의 IP 주소를 입력 합니다.
@@ -99,4 +102,4 @@ zone "az.cloudsimple.io" {
 2. **조건부 전달자** 를 마우스 오른쪽 단추로 클릭 하 고 옵션을 선택 하 여 새 조건부 전달자를 추가 합니다.
 
     ![조건부 전달자 1 Windows DNS](media/DNS08.png)
-3. 사설 클라우드에 dns 도메인 및 DNS 서버의 IP 주소를 입력 하 고 **확인**을 클릭 합니다.
+3. 사설 클라우드에 dns 도메인 및 DNS 서버의 IP 주소를 입력 하 고 **확인** 을 클릭 합니다.

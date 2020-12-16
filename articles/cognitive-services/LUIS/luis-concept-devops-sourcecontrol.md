@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535557"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561276"
 ---
 # <a name="devops-practices-for-luis"></a>LUIS에 대한 DevOps 사례
 
@@ -48,7 +48,7 @@ DevOps의 성공에 따라 달라 지는 주요 요소 중 하나는 [원본 제
 
 LUIS 앱을 형식으로 저장 하 `.lu` 고 소스 제어에 추가 하려면 다음을 수행 합니다.
 
-- 둘 중 하나: LUIS 포털에서 [앱 버전을 내보내고](./luis-how-to-manage-versions.md#other-actions) `.lu` 소스 [LUIS portal](https://www.luis.ai/) 제어 리포지토리에 추가 합니다.
+- 둘 중 하나: LUIS 포털에서 [앱 버전을 내보내고](./luis-how-to-manage-versions.md#other-actions) `.lu` 소스 [](https://www.luis.ai/) 제어 리포지토리에 추가 합니다.
 
 - 또는 텍스트 편집기를 사용 하 여 `.lu` LUIS 앱에 대 한 파일을 만들고 소스 제어 리포지토리에 추가 합니다.
 
@@ -62,7 +62,7 @@ LUIS 앱의 경우 *원본에서 빌드하려면* [ `.lu` 원본을 가져와 �
 
 - LUIS 포털을 사용 하 여 소스 제어에서 앱 [ `.lu` 버전을 가져오고](./luis-how-to-manage-versions.md#import-version) 앱을 [학습](./luis-how-to-train.md) 하 고 [게시할](./luis-how-to-publish-app.md) 수 있습니다.
 
-- 명령줄 또는 CI/CD 워크플로에서 [LUIS 용 Bot Framework 명령줄 인터페이스](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) 를 사용 하 여 [import](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) `.lu` 소스 제어에서 앱 버전을 LUIS 응용 프로그램으로 가져오고 앱을 [학습](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) 하 고 [게시할](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) 수 있습니다.
+- 명령줄 또는 CI/CD 워크플로에서 [LUIS 용 Bot Framework 명령줄 인터페이스](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) 를 사용 하 여 [](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisversionimport) `.lu` 소스 제어에서 앱 버전을 LUIS 응용 프로그램으로 가져오고 앱을 [학습](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luistrainrun) 하 고 [게시할](https://github.com/microsoft/botframework-cli/blob/master/packages/luis/README.md#bf-luisapplicationpublish) 수 있습니다.
 
 ### <a name="files-to-maintain-under-source-control"></a>원본 제어에서 유지할 파일
 
@@ -98,7 +98,7 @@ Git과 같은 분산 버전 제어 시스템은 팀 멤버가 다른 사용자�
 
 LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 하려면 다음을 수행 합니다.
 
-- **마스터 분기에는 자체 LUIS 앱이 있습니다.** 이 앱은 프로젝트에 대 한 솔루션의 현재 상태를 나타내며, 현재 활성 버전은 항상 `.lu` 마스터 분기에 있는 원본에 매핑되어야 합니다. 이 앱 `.lu` 의 원본에 대 한 모든 업데이트를 검토 하 고 테스트 하 여 언제 든 지 프로덕션과 같은 빌드 환경에이 앱을 배포할 수 있도록 해야 합니다. 에 대 한 업데이트가 `.lu` 기능 분기의 마스터로 병합 되는 경우 LUIS 앱에서 새 버전을 만들고 [버전 번호](#versioning)를 지정 해야 합니다.
+- **Main 분기에는 자체 LUIS 앱이 있습니다.** 이 앱은 프로젝트에 대 한 솔루션의 현재 상태를 나타내며, 현재 활성 버전은 항상 `.lu` main 분기에 있는 소스에 매핑되어야 합니다. 이 앱 `.lu` 의 원본에 대 한 모든 업데이트를 검토 하 고 테스트 하 여 언제 든 지 프로덕션과 같은 빌드 환경에이 앱을 배포할 수 있도록 해야 합니다. 에 대 한 업데이트가 `.lu` 기능 분기에서 기본으로 병합 된 경우 LUIS 앱에서 새 버전을 만들고 [버전 번호](#versioning)를 지정 해야 합니다.
 
 - **각 기능 분기는 LUIS 앱의 고유한 인스턴스를 사용 해야 합니다**. 개발자는 다른 분기에서 작업 하는 개발자에 게 영향을 주는 위험 없이 기능 분기에서이 앱을 사용 합니다. 이 ' dev branch ' 앱은 기능 분기가 삭제 될 때 삭제 해야 하는 작업 복사본입니다.
 
@@ -108,13 +108,13 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 개발자는 다음을 수행 하 여 다른 분기와 독립적으로 LUIS 앱의 업데이트 작업을 수행할 수 있습니다.
 
-1. 주 분기에서 기능 분기 만들기 (일반적으로 마스터 또는 개발에 따라 분기 전략에 따라)
+1. 주 분기에서 기능 분기 만들기 (일반적으로 주 또는 개발 분기 전략에 따라)
 
 1. 기능 분기의 작업을 지원 하기 위해서만 LUIS 포털 ("*dev branch 앱*") [에서 새 LUIS 앱을 만듭니다](./luis-how-to-start-new-app.md) .
 
    * 솔루션의 `.lu` 소스가 이전에 프로젝트의 다른 분기에서 작업을 수행한 후에 저장 되었기 때문에 분기에 이미 있는 경우 해당 파일을 가져와서 dev BRANCH LUIS 앱을 만듭니다 `.lu` .
 
-   * 새 프로젝트에 대 한 작업을 시작 하는 경우 리포지토리에 `.lu` MASTER LUIS 앱의 원본이 아직 없는 것입니다. `.lu`기능 분기 작업을 완료 했을 때 포털에서 dev branch 앱을 내보내 PR의 일부로 제출 하 여 파일을 만듭니다.
+   * 새 프로젝트에 대 한 작업을 시작 하는 경우 리포지토리에 `.lu` 주 LUIS 앱에 대 한 원본이 아직 없는 것입니다. `.lu`기능 분기 작업을 완료 했을 때 포털에서 dev branch 앱을 내보내 PR의 일부로 제출 하 여 파일을 만듭니다.
 
 1. 개발 분기 앱의 활성 버전에서 작업 하 여 필요한 변경 내용을 구현 합니다. 모든 기능 분기 작업에 대해 단일 버전의 dev branch 앱 에서만 작업 하는 것이 좋습니다. Dev branch 앱에서 두 개 이상의 버전을 만드는 경우 PR을 발생 시킬 때 체크 인할 변경 내용이 포함 된 버전을 추적 해야 합니다.
 
@@ -124,7 +124,7 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 1. 업데이트를 체크 인하고 업데이트에 대 한 피어 검토를 초대 합니다. GitHub를 사용 하는 경우 [끌어오기 요청](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests)을 발생 시킵니다.
 
-1. 변경 내용이 승인 되 면 업데이트를 마스터 분기로 병합 합니다. 이때 master에서 업데이트 된를 사용 하 여 *마스터* LUIS 앱의 새 [버전](./luis-how-to-manage-versions.md) 을 만듭니다 `.lu` . 버전 이름 설정 시 고려 사항은 버전 [관리](#versioning) 를 참조 하세요.
+1. 변경 내용이 승인 되 면 주 분기에 업데이트를 병합 합니다. 이 시점에서 기본 업데이트를 사용 하 여 *주* LUIS 앱의 새 [버전](./luis-how-to-manage-versions.md) 을 만듭니다 `.lu` . 버전 이름 설정 시 고려 사항은 버전 [관리](#versioning) 를 참조 하세요.
 
 1. 기능 분기가 삭제 되 면 기능 분기 작업을 위해 만든 dev branch LUIS 앱을 삭제 하는 것이 좋습니다.
 
@@ -146,11 +146,11 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 - Dev branch LUIS 앱에 [참가자로 팀 멤버를 추가](./luis-how-to-collaborate.md) 합니다.
 
-- 기능 분기 작업이 완료 되 면 버전 목록에서와 같이 dev branch LUIS 앱의 활성 버전을 내보내고, 업데이트 된 파일을 리포지토리에 `.lu` 저장 하 고, [versions list](./luis-how-to-manage-versions.md) `.lu` 변경 내용을 체크 인하고 PR 합니다.
+- 기능 분기 작업이 완료 되 면 버전 목록에서와 같이 dev branch LUIS 앱의 활성 버전을 내보내고, 업데이트 된 파일을 리포지토리에 `.lu` 저장 하 고, [](./luis-how-to-manage-versions.md) `.lu` 변경 내용을 체크 인하고 PR 합니다.
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>기준 주소 다시 지정 또는 병합을 사용 하 여 한 분기에서 다른 분기로 변경 내용 통합
 
-다른 분기에서 작업 하는 팀의 다른 개발자가 소스를 업데이트 `.lu` 하 고 기능 분기를 만든 후 마스터 분기에 병합할 수 있습니다. 기능 분기 내에서 변경을 계속 하기 전에 변경 내용을 작업 버전에 통합 해야 할 수 있습니다. 이렇게 하려면 다른 코드 자산과 동일한 방법으로 [마스터에 다시 기준으로 병합 하거나 병합](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) 합니다. LUDown 형식의 LUIS 앱은 사람이 읽을 수 있으므로 표준 병합 도구를 사용한 병합을 지원 합니다.
+다른 분기에서 작업 하는 팀의 다른 개발자가 소스를 업데이트 `.lu` 하 고 기능 분기를 만든 후 주 분기에 병합할 수 있습니다. 기능 분기 내에서 변경을 계속 하기 전에 변경 내용을 작업 버전에 통합 해야 할 수 있습니다. 이 작업을 수행 하려면 다른 코드 자산과 동일한 방식으로 [주에 대 한 기준 주소를 다시 지정 하거나 병합](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) 합니다. LUDown 형식의 LUIS 앱은 사람이 읽을 수 있으므로 표준 병합 도구를 사용한 병합을 지원 합니다.
 
 기능 분기에서 LUIS 앱을의 기준 주소 하는 경우 다음 팁을 따르세요.
 
@@ -162,7 +162,7 @@ LUIS 프로젝트를 사용 하 여 분기에서 독립적인 작업을 지원 �
 
 ### <a name="merge-prs"></a>Merge Pr
 
-PR이 승인 되 면 변경 내용을 마스터 분기에 병합할 수 있습니다. LUIS 앱의 LUDown 원본에는 특별 한 고려 사항이 적용 되지 않습니다 .이는 사람이 읽을 수 있으므로 표준 병합 도구를 사용 하 여 병합을 지원 합니다. 모든 병합 충돌은 다른 원본 파일과 동일한 방법으로 해결할 수 있습니다.
+PR이 승인 되 면 변경 내용을 주 분기에 병합할 수 있습니다. LUIS 앱의 LUDown 원본에는 특별 한 고려 사항이 적용 되지 않습니다 .이는 사람이 읽을 수 있으므로 표준 병합 도구를 사용 하 여 병합을 지원 합니다. 모든 병합 충돌은 다른 원본 파일과 동일한 방법으로 해결할 수 있습니다.
 
 PR을 병합 한 후에는 정리 하는 것이 좋습니다.
 
@@ -173,7 +173,7 @@ PR을 병합 한 후에는 정리 하는 것이 좋습니다.
 응용 프로그램 코드 자산을 사용 하는 것과 동일한 방식으로 LUIS 앱 업데이트와 함께 제공 되는 단위 테스트를 작성 해야 합니다. 연속 통합 워크플로를 사용 하 여 테스트 해야 합니다.
 
 - PR이 병합 되기 전에 PR의 업데이트
-- PR이 승인 되 고 변경 내용이 마스터에 병합 된 후의 master branch LUIS 앱입니다.
+- PR이 승인 되 고 변경 내용이 주에 병합 된 후의 main branch LUIS 앱입니다.
 
 LUIS DevOps 테스트에 대 한 자세한 내용은 [LUIS에 대 한 DevOps 테스트](luis-concept-devops-testing.md)를 참조 하십시오. 워크플로 구현에 대 한 자세한 내용은 [LUIS DevOps에 대 한 자동화 워크플로](luis-concept-devops-automation.md)를 참조 하세요.
 
@@ -185,9 +185,9 @@ LUDown 형식의 LUIS 앱은 사람이 읽을 수 있으며,이는 검토에 적
 
 응용 프로그램은 [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech Service](../speech-service/overview.md)등에서 실행 되는 봇과 같은 항목을 포함할 수 있는 여러 구성 요소로 구성 됩니다. 느슨하게 연결 된 응용 프로그램의 목표를 달성 하려면 [버전 제어](/azure/devops/learn/git/what-is-version-control) 를 사용 하 여 응용 프로그램의 각 구성 요소를 독립적으로 버전 관리 함으로써 개발자가 버전 번호를 확인 하 여 주요 변경 내용 또는 업데이트를 검색할 수 있도록 합니다. 자체 리포지토리에 유지 관리 하는 경우 다른 구성 요소와 독립적으로 LUIS 앱의 버전을 지정 하는 것이 더 쉽습니다.
 
-Master 분기에 대 한 LUIS 앱에 버전 관리 체계가 적용 되어 있어야 합니다. LUIS 앱에 대 한 업데이트를 마스터에 병합 하는 경우 `.lu` 업데이트 된 원본을 master 분기에 대 한 LUIS 앱의 새 버전으로 가져옵니다.
+Main 분기에 대 한 LUIS 앱에는 버전 관리 체계가 적용 되어 있어야 합니다. LUIS 앱에 대 한 업데이트를 main에 병합 하는 경우 해당 `.lu` 업데이트 된 원본을 주 분기에 대 한 LUIS 앱의 새 버전으로 가져옵니다.
 
-Master LUIS app 버전에 대해 숫자 버전 관리 체계를 사용 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+주 LUIS 앱 버전에 대해 숫자 버전 관리 체계를 사용 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 `major.minor[.build[.revision]]`
 
@@ -199,7 +199,7 @@ Master LUIS app 버전에 대해 숫자 버전 관리 체계를 사용 하는 �
 * 부 버전: 중요 한 새 교육 후와 같은 이전 버전과 호환 되는 사소한 변경 내용
 * 빌드: 기능을 변경 하지 않고 다른 빌드만 수행 합니다.
 
-Master LUIS 앱의 최신 수정 버전에 대 한 버전 번호를 확인 한 후 새 앱 버전을 빌드 및 테스트 하 고, 품질 보증 또는 프로덕션과 같은 다양 한 빌드 환경에서 사용할 수 있는 끝점에 게시 해야 합니다. CI (연속 통합) 워크플로에서 이러한 모든 단계를 자동화 하는 것이 좋습니다.
+주 LUIS 앱의 최신 수정 버전에 대 한 버전 번호를 확인 한 후 새 앱 버전을 빌드 및 테스트 하 고, 품질 보증 또는 프로덕션과 같은 다양 한 빌드 환경에서 사용할 수 있는 끝점에 게시 해야 합니다. CI (연속 통합) 워크플로에서 이러한 모든 단계를 자동화 하는 것이 좋습니다.
 
 다음을 참조하세요.
 - LUIS 앱을 테스트 하 고 릴리스 하는 CI 워크플로를 구현 하는 방법에 대 한 자세한 내용은 [자동화 워크플로](luis-concept-devops-automation.md) 를 참조 하세요.
@@ -207,9 +207,9 @@ Master LUIS 앱의 최신 수정 버전에 대 한 버전 번호를 확인 한 �
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>' Feature branch ' LUIS 앱 버전 관리
 
-기능 분기에서 작업을 지원 하기 위해 만든 ' dev branch ' LUIS 앱을 사용 하는 경우 작업이 완료 될 때 앱을 내보내고 PR에 업데이트를 포함 합니다 `'lu` . 리포지토리의 분기 및 ' dev branch ' LUIS 앱은 PR을 master에 병합 한 후 삭제 해야 합니다. 이 앱은 기능 분기의 작업을 지원 하기 위해서만 존재 하므로이 앱 내에서 적용 해야 하는 특정 버전 지정 체계가 없습니다.
+기능 분기에서 작업을 지원 하기 위해 만든 ' dev branch ' LUIS 앱을 사용 하는 경우 작업이 완료 될 때 앱을 내보내고 PR에 업데이트를 포함 합니다 `'lu` . 리포지토리의 분기 및 ' dev branch ' LUIS 앱은 PR이 main으로 병합 된 후 삭제 되어야 합니다. 이 앱은 기능 분기의 작업을 지원 하기 위해서만 존재 하므로이 앱 내에서 적용 해야 하는 특정 버전 지정 체계가 없습니다.
 
-PR의 변경 내용이 마스터에 병합 되 면 (버전 관리를 적용 해야 하는 경우) master에 대 한 모든 업데이트의 버전이 독립적으로 관리 됩니다.
+PR의 변경 내용이 주에 병합 되 면 (버전 관리를 적용 해야 하는 경우) 주에 대 한 모든 업데이트의 버전이 독립적으로 관리 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

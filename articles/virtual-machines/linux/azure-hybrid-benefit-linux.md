@@ -1,6 +1,6 @@
 ---
 title: Azure 하이브리드 혜택 및 Linux Vm
-description: Azure 하이브리드 혜택를 사용 하면 Azure에서 실행 되는 Linux 가상 컴퓨터에 비용을 절감할 수 있습니다.
+description: Azure에서 실행 되는 Linux 가상 머신에 대 한 비용을 절감 하는 데 도움이 되 Azure 하이브리드 혜택 방법을 알아보세요.
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
@@ -10,63 +10,67 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 5b565a3e653d05ffcecfbc5718c74d07d8f45373
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1bc108f76ac35b13474de18d473f5728dbad9d23
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109167"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560019"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택 – Linux Virtual Machines에 적용 되는 방법
+# <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Linux 가상 머신에 Azure 하이브리드 혜택 적용 되는 방법
 
-## <a name="overview"></a>개요
+Azure 하이브리드 혜택는 클라우드에서 Red Hat Enterprise Linux (RHEL) 및 SUSE Linux Enterprise Server (Vm) Vm (가상 머신)을 실행 하는 비용을 크게 줄일 수 있는 라이선스 혜택입니다. 이 혜택을 통해 RHEL 또는 SLES 구독이 소프트웨어 요금을 포함 하기 때문에 VM의 인프라 비용에 대해서만 비용을 지불 합니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
 
-Azure 하이브리드 혜택는 클라우드에서 Red Hat Enterprise Linux (RHEL) 및 SUSE Linux Enterprise Server (SLES) 가상 머신을 실행 하는 비용을 대폭 줄일 수 있는 라이선스 혜택입니다. 이 혜택을 통해 소프트웨어 요금은 RHEL 또는 SLES 구독에 포함 되므로 VM의 인프라 비용에 대해서만 비용을 지불 하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
-
-> [!IMPORTANT]
-> 이제 Linux Vm에 대 한 Azure 하이브리드 혜택를 공용에서 사용할 수 있습니다.
-
+Linux Vm에 대 한 Azure 하이브리드 혜택는 이제 공개적으로 사용할 수 있습니다.
 
 ## <a name="benefit-description"></a>혜택 설명
 
-Azure 하이브리드 혜택를 통해 Azure에서 기존 RHEL 및 SLES PAYG Vm을 변환 하 여 BYOS (사용자 소유의 구독) 요금 청구를 통해 온-프레미스 RHEL 및 SLES 서버를 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 일반적으로 Azure의 PAYG 이미지에서 배포 된 Vm은 소프트웨어 요금 뿐만 아니라 인프라 요금을 부과 합니다. Azure 하이브리드 혜택를 사용 하 여 PAYG Vm을 다시 배포 하지 않고 BYOS 청구 모델로 변환 하 여 가동 중지 위험을 방지할 수 있습니다.
+Azure 하이브리드 혜택를 통해 Azure에서 기존 RHEL 및 SLES PAYG Vm을 변환 하 여 BYOS (사용자 소유의 구독) 요금 청구를 통해 온-프레미스 RHEL 및 SLES 서버를 Azure로 마이그레이션할 수 있습니다. 일반적으로 Azure의 PAYG 이미지에서 배포 된 Vm은 인프라 요금 및 소프트웨어 요금을 모두 청구 합니다. Azure 하이브리드 혜택를 사용 하 여 PAYG Vm을 다시 배포 하지 않고 BYOS 청구 모델로 변환할 수 있으므로 가동 중지 위험을 피할 수 있습니다.
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Linux Vm에 대 한 비용 시각화를 Azure 하이브리드 혜택 합니다.":::
 
-RHEL 또는 SLES VM에서 혜택을 사용 하도록 설정 하면 일반적으로 PAYG VM에서 발생 하는 추가 소프트웨어 요금에 대 한 요금이 더 이상 청구 되지 않습니다. 대신 VM은 compute 하드웨어 요금만 포함 하 고 소프트웨어 요금은 포함 하지 않는 BYOS 요금 내보내기가 시작 됩니다.
+RHEL 또는 SLES VM에서 혜택을 사용 하도록 설정한 후에는 일반적으로 PAYG VM에서 발생 하는 추가 소프트웨어 요금에 대 한 요금이 더 이상 청구 되지 않습니다. 대신 VM은 계산 하드웨어 요금 및 소프트웨어 요금은 포함 하지 않는 BYOS 요금 발생 시작 합니다.
 
-원하는 경우 혜택을 사용 하도록 설정 된 VM을 PAYG 청구 모델로 변환할 수도 있습니다.
+혜택을 사용 하도록 설정 된 VM을 PAYG 청구 모델로 변환 하도록 선택할 수도 있습니다.
 
 ## <a name="scope-of-azure-hybrid-benefit-eligibility-for-linux-vms"></a>Linux Vm에 대 한 Azure 하이브리드 혜택 자격의 범위
 
-Azure 하이브리드 혜택은 모든 RHEL 및 SLES Marketplace PAYG 이미지에 사용할 수 있습니다. RHEL 또는 SLES Marketplace BYOS 이미지 또는 사용자 지정 이미지에 대 한 혜택은 아직 제공 되지 않습니다.
+Azure 하이브리드 혜택은 Azure Marketplace의 모든 RHEL 및 SLES PAYG 이미지에 사용할 수 있습니다. RHEL 또는 SLES BYOS 이미지 또는 Azure Marketplace의 사용자 지정 이미지에 대 한 혜택은 아직 제공 되지 않습니다.
 
-Linux Vm에 대 한 혜택을 이미 사용 하 고 있는 경우 예약 된 인스턴스, 전용 호스트 및 SQL 하이브리드 혜택은 Azure 하이브리드 혜택에 적합 하지 않습니다.
+Linux Vm을 사용 하 여 혜택을 이미 사용 하 고 있는 경우 예약 된 인스턴스, Azure 전용 호스트 인스턴스 및 SQL 하이브리드 혜택을 Azure 하이브리드 혜택 자격이 없습니다.
 
-## <a name="how-to-get-started"></a>시작하는 방법
+## <a name="get-started"></a>시작하기
 
 ### <a name="red-hat-customers"></a>Red Hat 고객
 
-RHEL에 대 한 Azure 하이브리드 혜택은 Azure에서 사용 하기에 적합 한 활성/사용 하지 않는 RHEL 구독을 사용 하 고 Azure에서 [Red Hat 클라우드 액세스](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램을 사용 하 여 해당 구독을 하나 이상 사용 하도록 설정한 고객에 게 제공 됩니다. 
+RHEL에 대 한 Azure 하이브리드 혜택는 다음 조건을 모두 충족 하는 Red Hat 고객에 게 제공 됩니다.
 
-1.  [Red Hat Cloud Access customer 인터페이스](https://access.redhat.com/management/cloud)를 사용 하 여 Azure에서 사용 하기에 적합 한 RHEL 구독을 하나 이상 사용 하도록 설정 합니다.
-1.  Red Hat Cloud Access 사용 프로세스 중에 제공한 Azure 구독은 Azure 하이브리드 혜택 기능을 사용 하도록 허용 됩니다.
-1.  기존 RHEL PAYG Vm 및 Azure Marketplace PAYG 이미지에서 배포 하는 모든 새 RHEL Vm에 Azure 하이브리드 혜택을 적용 합니다.
-1.  RHEL Vm에 대 한 업데이트 원본을 구성 하는 데 권장 되는 [다음 단계](https://access.redhat.com/articles/5419341) 와 RHEL 구독 준수 지침을 따릅니다.
+- Azure에서 사용할 수 있는 활성 또는 사용 하지 않는 RHEL 구독 보유
+- [Red Hat 클라우드 액세스](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 프로그램을 사용 하 여 Azure에서 사용 하기 위해 이러한 구독을 하나 이상 사용 하도록 설정 했습니다.
+
+Red Hat의 혜택 사용을 시작 하려면 다음을 수행 합니다.
+
+1. [Red Hat Cloud Access customer 인터페이스](https://access.redhat.com/management/cloud)를 사용 하 여 Azure에서 사용 하기에 적합 한 RHEL 구독을 하나 이상 사용 하도록 설정 합니다.
+
+   Red Hat Cloud Access 사용 프로세스 중에 제공 하는 Azure 구독은 Azure 하이브리드 혜택 기능을 사용 하도록 허용 됩니다.
+1. 기존 RHEL PAYG Vm 및 Azure Marketplace PAYG 이미지에서 배포 하는 모든 새 RHEL Vm에 Azure 하이브리드 혜택을 적용 합니다.
+1. RHEL Vm에 대 한 업데이트 원본을 구성 하는 데 권장 되는 [다음 단계](https://access.redhat.com/articles/5419341) 와 RHEL 구독 준수 지침을 따릅니다.
 
 
 ### <a name="suse-customers"></a>SUSE 고객
 
-1.    SUSE 공용 클라우드 프로그램에 등록
-1.    Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
-1.    별도의 업데이트 원본으로 혜택을 받을 수 있도록 Vm 등록
+SUSE에 대 한 혜택 사용을 시작 하려면 다음을 수행 합니다.
+
+1. SUSE 공용 클라우드 프로그램에 등록 합니다.
+1. Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
+1. 별도의 업데이트 원본으로 혜택을 받는 Vm을 등록 합니다.
 
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI 혜택 사용 및 사용 안 함
+## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI 혜택 사용 및 사용 안 함
 
-' Az vm update ' 명령을 사용 하 여 기존 Vm을 업데이트할 수 있습니다. RHEL Vm의 경우--라이선스 형식 매개 변수를 "RHEL_BYOS"로 사용 하 여 명령을 실행 합니다. SLES Vm의 경우--라이선스 형식 매개 변수를 "SLES_BYOS"로 사용 하 여 명령을 실행 합니다.
+명령을 사용 하 여 `az vm update` 기존 vm을 업데이트할 수 있습니다. RHEL Vm의 경우 매개 변수를 사용 하 여 명령을 실행 합니다 `--license-type` `RHEL_BYOS` . SLES Vm의 경우 매개 변수를 사용 하 여 명령을 실행 합니다 `--license-type` `SLES_BYOS` .
 
-#### <a name="cli-example-to-enable-the-benefit"></a>혜택을 사용 하도록 설정 하는 CLI 예제:
+### <a name="cli-example-to-enable-the-benefit"></a>혜택을 사용 하도록 설정 하는 CLI 예제
 ```azurecli
 # This will enable the benefit on a RHEL VM
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
@@ -74,24 +78,26 @@ az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS
 # This will enable the benefit on a SLES VM
 az vm update -g myResourceGroup -n myVmName --license-type SLES_BYOS
 ```
-#### <a name="cli-example-to-disable-the-benefit"></a>이점을 사용 하지 않도록 설정 하는 CLI 예제:
-이 혜택을 사용 하지 않도록 설정 하려면 라이선스 유형 값인 "None"을 사용 합니다.
+### <a name="cli-example-to-disable-the-benefit"></a>혜택을 사용 하지 않도록 설정 하는 CLI 예제
+이 혜택을 사용 하지 않도록 설정 하려면 다음 값을 사용 합니다 `--license-type` `None` .
+
 ```azurecli
 # This will disable the benefit on a VM
 az vm update -g myResourceGroup -n myVmName --license-type None
 ```
 
-#### <a name="cli-example-to-enable-the-benefit-on-a-large-number-of-vms"></a>많은 수의 Vm에서 혜택을 사용 하도록 설정 하는 CLI 예제
-다 수의 Vm에 대 한 혜택을 사용 하도록 설정 하려면 `--ids` Azure CLI에서 매개 변수를 사용 합니다.
+### <a name="cli-example-to-enable-the-benefit-on-a-large-number-of-vms"></a>많은 수의 Vm에서 혜택을 사용 하도록 설정 하는 CLI 예제
+많은 수의 Vm에 대 한 혜택을 사용 하도록 설정 하려면 `--ids` Azure CLI에서 매개 변수를 사용할 수 있습니다.
 
 ```azurecli
 # This will enable the benefit on a RHEL VM. In this example, ids.txt is an
-# existing text file containing a delimited list of resource IDs corresponding
+# existing text file that contains a delimited list of resource IDs corresponding
 # to the VMs using the benefit
 az vm update -g myResourceGroup -n myVmName --license-type RHEL_BYOS --ids $(cat ids.txt)
 ```
 
-다음 예제에서는 리소스 그룹 수준에서 하나, 구독 수준에서 하나씩 리소스 Id 목록을 가져오는 두 가지 방법을 보여 줍니다.
+다음 예제에서는 리소스 그룹 수준에서 하나, 구독 수준에서 리소스 Id 목록을 가져오는 두 가지 방법을 보여 줍니다.
+
 ```azurecli
 # To get a list of all the resource IDs in a resource group:
 $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
@@ -100,13 +106,18 @@ $(az vm list -g MyResourceGroup --query "[].id" -o tsv)
 az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
-## <a name="check-ahb-status-of-a-vm"></a>VM의 AHB 상태 확인
-Azure CLI를 사용 하거나 Azure Instance Metadata Service (Azure IMDS)를 사용 하는 두 가지 방법으로 VM의 AHB 상태를 볼 수 있습니다.
+## <a name="apply-the-azure-hybrid-benefit-at-vm-create-time"></a>VM 만들기 시간에 Azure 하이브리드 혜택 적용
+기존 종 량 제 Vm에 Azure 하이브리드 혜택를 적용 하는 것 외에 VM을 만들 때이를 호출할 수 있습니다. 이렇게 하면 다음과 같은 이점이 증가량 됩니다.
+- 동일한 이미지와 프로세스를 사용 하 여 PAYG 및 BYOS Vm을 둘 다 프로 비전 할 수 있습니다.
+- 이후 라이선스 모드를 변경 하거나, BYOS 전용 이미지에서 사용할 수 없는 경우 또는 사용자 고유의 VM을 가져올 수 있습니다.
+- VM은 기본적으로 RHUI (Red Hat Update Infrastructure)에 연결 되어 최신 상태를 유지 하 고 안전 하 게 유지 됩니다. 언제 든 지 배포 후 업데이트 된 메커니즘을 변경할 수 있습니다.
 
+## <a name="check-the-azure-hybrid-benefit-status-of-a-vm"></a>VM의 Azure 하이브리드 혜택 상태를 확인 합니다.
+Azure CLI를 사용 하거나 Azure Instance Metadata Service를 사용 하 여 VM의 Azure 하이브리드 혜택 상태를 볼 수 있습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-`az vm get-instance-view`이러한 용도로 명령을 사용할 수 있습니다. 응답에서 licenseType 필드를 찾습니다. LicenseType 필드가 존재 하 고 값이 ' RHEL_BYOS ' 또는 ' SLES_BYOS ' 이면 VM에서 혜택을 사용할 수 있습니다.
+이를 위해 명령을 사용할 수 있습니다 `az vm get-instance-view` . `licenseType`응답에서 필드를 찾습니다. `licenseType`필드가 존재 하 고 값이 또는 이면 `RHEL_BYOS` `SLES_BYOS` VM에서 혜택을 사용할 수 있습니다.
 
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVm
@@ -114,7 +125,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
-VM 자체 내에서 IMDS 증명 된 메타 데이터를 쿼리하여 VM의 licenseType을 확인할 수 있습니다. LicenseType 값 ' RHEL_BYOS ' 또는 ' SLES_BYOS '는 VM이 사용 하도록 설정 된 것을 의미 합니다. 증명 된 메타 데이터에 대 한 자세한 내용은 여기를 참조 [하세요](./instance-metadata-service.md#attested-data) .
+VM 자체 내에서 Azure Instance Metadata Service의 증명 된 메타 데이터를 쿼리하여 VM의 값을 확인할 수 있습니다 `licenseType` . `licenseType`또는 값은 `RHEL_BYOS` `SLES_BYOS` VM이 사용 하도록 설정 된 것을 의미 합니다. [증명 된 메타 데이터에 대해 자세히 알아보세요](./instance-metadata-service.md#attested-data).
 
 ## <a name="compliance"></a>규정 준수
 
@@ -122,70 +133,66 @@ VM 자체 내에서 IMDS 증명 된 메타 데이터를 쿼리하여 VM의 licen
 
 RHEL에 대 한 Azure 하이브리드 혜택를 사용 하는 고객은 Azure Marketplace [RHEL 제품과 관련 된 표준 약관 및](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) [개인 정보 취급 방침](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) 에 동의 합니다.
 
-RHEL에 대해 Azure 하이브리드 혜택를 사용 하는 고객에 게는 해당 Vm에 소프트웨어 업데이트 및 패치를 제공 하는 세 가지 옵션이 있습니다.
+RHEL에 대 한 Azure 하이브리드 혜택를 사용 하는 고객에 게는 해당 Vm에 소프트웨어 업데이트 및 패치를 제공 하기 위한 세 가지 옵션이 있습니다.
 
-1.  [RHUI (Red Hat 업데이트 인프라](../workloads/redhat/redhat-rhui.md) ) (기본 옵션)
-1.  Red Hat 위성 서버
-1.  Red Hat 구독 관리자
+- [Red Hat 업데이트 인프라](../workloads/redhat/redhat-rhui.md) (기본 옵션)
+- Red Hat 위성 서버
+- Red Hat 구독 관리자
 
-RHUI 옵션을 선택 하는 고객은 RHEL 구독을 해당 Vm에 연결 하지 않고도 RHUI를 AHB RHEL Vm에 대 한 주 업데이트 원본으로 계속 사용할 수 있습니다.  RHUI 옵션을 선택 하는 고객은 RHEL 구독 준수를 보장 해야 합니다.
+RHUI 옵션을 선택 하는 고객은 RHUI를 해당 Vm에 연결 하지 않고 Azure 하이브리드 혜택 해당 Vm에 대 한 기본 업데이트 원본으로 계속 사용할 수 있습니다. RHUI 옵션을 선택 하는 고객은 RHEL 구독 준수를 보장 해야 합니다.
 
-Red Hat 위성 서버 또는 Red Hat Subscription Manager를 선택 하는 고객은 RHUI 구성을 제거한 후 해당 AHB RHEL VM에 Cloud Access enabled RHEL 구독을 연결 해야 합니다.  
+Red Hat 위성 서버 또는 Red Hat Subscription Manager 중 하나를 선택 하는 고객은 RHUI 구성을 제거한 후 클라우드 액세스 사용 RHEL 구독을 해당 Azure 하이브리드 혜택 RHEL Vm에 연결 해야 합니다.  
 
-Red Hat 구독 준수, 소프트웨어 업데이트 및 AHB RHEL Vm에 대 한 원본에 대 한 자세한 내용은 [여기](https://access.redhat.com/articles/5419341)에서 찾을 수 있습니다.
+Red Hat 구독 준수, 소프트웨어 업데이트 및 Azure 하이브리드 혜택 RHEL Vm에 대 한 원본에 대 한 자세한 내용은 [Azure 하이브리드 혜택에서 RHEL 구독 사용에 대 한 Red hat 문서](https://access.redhat.com/articles/5419341)를 참조 하세요.
 
 ### <a name="suse"></a>SUSE
 
-SLES Vm에 대 한 Azure 하이브리드 혜택를 사용 하려면 먼저 SUSE 공용 클라우드 프로그램에 등록 해야 합니다. 프로그램에 대 한 자세한 내용은 여기를 참조 하세요. SUSE 구독을 구매한 후에는 SUSE 고객 센터, 구독 관리 도구 서버 또는 SUSE Manager를 사용 하 여 사용자 고유의 업데이트 원본에 해당 구독을 사용 하 여 Vm을 등록 해야 합니다.
+SLES Vm에 대 한 Azure 하이브리드 혜택를 사용 하려면 먼저 [SUSE 공용 클라우드 프로그램](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf)에 등록 해야 합니다. SUSE 구독을 구매한 후에는 해당 구독을 사용 하는 Vm을 자체 업데이트 원본에 등록 해야 합니다. SUSE 고객 센터, 구독 관리 도구 서버 또는 SUSE Manager를 사용 하 여이 등록을 사용 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
-*Q: SLES 이미지를 사용 하 여 "RHEL_BYOS" 라이선스 유형을 사용 하거나 그 반대로 사용할 수 있나요?*
+*Q: SLES 이미지를 사용 하 여 라이선스 유형을 사용 `RHEL_BYOS` 하거나 그 반대로 사용할 수 있나요?*
 
-A: 아니요. VM에서 실행 되는 배포판 잘못 일치 하는 라이선스 유형을 입력 하려고 하면 청구 메타 데이터가 업데이트 되지 않습니다. 그러나 잘못 된 라이선스 유형을 실수로 입력 한 경우 VM을 올바른 라이선스 유형으로 다시 업데이트 하면 혜택을 계속 사용할 수 있습니다.
+A: 아니요, 할 수 없습니다. VM에서 실행 되는 배포와 부정확 하 게 일치 하는 라이선스 유형을 입력 하려고 하면 청구 메타 데이터가 업데이트 되지 않습니다. 그러나 잘못 된 라이선스 유형을 실수로 입력 한 경우 VM을 올바른 라이선스 유형으로 다시 업데이트 하면 혜택을 계속 사용할 수 있습니다.
 
-*Q: Red Hat Cloud Access에 등록 했지만 여전히 내 RHEL Vm에서 혜택을 사용 하도록 설정할 수 없습니다. 뭐 할까요?*
+*Q: Red Hat Cloud Access에 등록 했지만 여전히 RHEL Vm에 대 한 혜택을 사용할 수 없습니다. 제가 뭘 해야 하나요?*
 
 A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 데 약간의 시간이 걸릴 수 있습니다. 한 영업일 후에도 오류가 계속 표시 되 면 Microsoft 지원에 문의 하세요.
 
 *Q: RHEL BYOS "골든 이미지"를 사용 하 여 VM을 배포 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
 
-A: 아니요. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 변환을 지원 합니다.
+A: 아니요, 할 수 없습니다. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 변환을 지원 합니다.
 
-*Q: RHEL BYOS "골든 이미지"를 사용 하 여 VM을 배포 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
+*Q: 온-프레미스 (Azure Migrate, Azure Site Recovery 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
 
-A: 아니요. Azure 하이브리드 혜택는 종 량 제 이미지 에서만 변환을 지원 합니다.
+A: 아니요, 할 수 없습니다. Azure 하이브리드 혜택 기능은 현재 Azure Marketplace에서 RHEL 및 SLES 이미지에만 사용할 수 있습니다. 
 
-*Q: 온-프레미스 (Azure Migrate, ASR 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. 이러한 이미지에 대 한 청구를 BYOS에서 PAYG로 변환할 수 있나요?*
+*Q: 온-프레미스 (Azure Migrate, Azure Site Recovery 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. Azure 하이브리드 혜택 혜택을 얻기 위해 어떤 작업을 수행 해야 하나요?*
 
-A: 아니요. Azure 하이브리드 혜택 기능은 현재 RHEL 및 SLES Marketplace 이미지에만 사용할 수 있습니다. 
+A: 아니요, 그렇지 않습니다. 업로드 하는 RHEL 이미지는 이미 BYOS로 간주 되며, Azure 인프라 비용에 대해서만 요금이 부과 됩니다. 온-프레미스 환경에 대 한 것 처럼 RHEL 구독 비용을 담당 하 고 있습니다. 
 
-*Q: 온-프레미스 (Azure Migrate, ASR 또는 기타)에서 Azure로 자체 RHEL 이미지를 업로드 했습니다. Azure 하이브리드 혜택 혜택을 얻기 위해 어떤 작업을 수행 해야 하나요?*
+*Q: Azure Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 Vm에 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
-A: 아니요. 업로드 하는 RHEL 이미지는 이미 BYOS로 간주 되며 Azure 인프라 비용에 대해서만 요금이 청구 됩니다. 온-프레미스 환경에 대 한 것과 같은 방식으로 RHEL 구독 비용을 지불 해야 합니다. 
+A: 예, 가능합니다. `RHEL_BYOS`RHEL vm에 대 한 라이선스 유형과 `SLES_BYOS` Azure Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 vm의 변환에 사용할 수 있습니다.
 
-*Q: Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 Vm에 대 한 Azure 하이브리드 혜택를 사용할 수 있나요?*
+*Q: RHEL 및 SLES에 대 한 가상 머신 확장 집합에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
-A: 예, 가능합니다. RHEL Vm에는 ' RHEL_BYOS ' 라이선스 유형을 사용 하 고 Marketplace RHEL 및 SLES SAP 이미지에서 배포 된 Vm의 변환에는 ' SLES_BYOS '를 사용할 수 있습니다.
+A: 아니요, 할 수 없습니다. 가상 머신 확장 집합은 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택 범위에 없습니다.
 
-*Q: RHEL 및 SLES에 대해 VMSS (가상 머신 확장 집합)에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
+*Q: RHEL 및 SLES에 대 한 예약 된 인스턴스에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
-A: 아니요, 할 수 없습니다. VMSS가 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택 범위에 없습니다.
-
-*Q: RHEL 및 SLES에 대해 Azure 하이브리드 혜택를 사용할 수 있습니까?*
-
-A: 아니요, 할 수 없습니다. 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택의 범위에 RIs가 없습니다.
+A: 아니요, 할 수 없습니다. 예약 인스턴스는 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택 범위에 속하지 않습니다.
 
 *Q: RHEL 이미지에 대해 SQL Server 배포 된 가상 머신에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
 A: 아니요, 할 수 없습니다. 이러한 지원에 대 한 계획은 없습니다.
  
 
-## <a name="common-issues"></a>일반적인 문제
-이 섹션에는 발생할 수 있는 일반적인 문제 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
+## <a name="common-problems"></a>일반적인 문제
+이 섹션에는 발생할 수 있는 일반적인 문제와 완화 단계를 나열 합니다.
 
-| 오류 | 완화 방법 |
+| Error | 완화 방법 |
 | ----- | ---------- |
-| "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.
+| "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에 대 한 혜택을 사용 하려면 먼저 [Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록](https://access.redhat.com/management/cloud)해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Azure CLI를 사용 하 여 Vm을 만들고 업데이트 하 고 Azure 하이브리드 혜택에 대 한 라이선스 유형 (RHEL_BYOS, SLES_BYOS)을 추가 하는 방법에 대해 알아봅니다 [.](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)
+* [을 사용 하 여 Vm을 만들고 업데이트 하 고 Azure 하이브리드 혜택에 대 한 라이선스 유형 (RHEL_BYOS, SLES_BYOS)을 추가 하는 방법에 대해 알아봅니다 Azure CLI](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)

@@ -3,19 +3,19 @@ title: 웹 엔드포인트에서 명령 업데이트
 titleSuffix: Azure Cognitive Services
 description: 웹 끝점에 대 한 호출을 사용 하 여 명령의 상태를 업데이트 하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: encorona-ms
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: encorona
-ms.openlocfilehash: 737b6e0534111924a31204d4548dfa59805c2fe5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.author: nitinme
+ms.openlocfilehash: d0b77e6af36f0a71405f6c032bfdd121abeb0071
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352578"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560273"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>웹 엔드포인트에서 명령 업데이트
 

@@ -6,27 +6,32 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6d111379cbeb0ea4eeac9ea0868b6d263a0a540c
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 35653840c5ddd6f5ae2d5dc078513f0fa35ab34a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435725"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560936"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서 .NET 앱에 대 한 스냅숏 디버거 사용
 
 스냅숏 디버거 현재 Windows 서비스 계획에서 Azure App Service 실행 되는 ASP.NET 및 ASP.NET Core 앱에 대해 작동 합니다. 스냅숏 디버거를 사용 하는 경우 기본 서비스 계층 이상에서 응용 프로그램을 실행 하는 것이 좋습니다. 대부분의 응용 프로그램의 경우 무료 및 공유 서비스 계층에는 스냅숏을 저장할 수 있는 충분 한 메모리가 없습니다.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> 스냅숏 디버거 사용
-앱에 대 한 스냅숏 디버거를 사용 하도록 설정 하려면 아래 지침을 따르세요. 다른 유형의 Azure 서비스를 실행 하는 경우 지원 되는 다른 플랫폼에서 스냅숏 디버거를 사용 하도록 설정 하는 지침은 다음과 같습니다.
+앱에 대 한 스냅숏 디버거를 사용 하도록 설정 하려면 아래 지침을 따르세요.
+
+다른 유형의 Azure 서비스를 실행 하는 경우 지원 되는 다른 플랫폼에서 스냅숏 디버거를 사용 하도록 설정 하는 지침은 다음과 같습니다.
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric 서비스](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [온-프레미스 가상 또는 물리적 컴퓨터](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
-.NET Core의 미리 보기 버전을 사용 하는 경우 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 에 대 한 지침에 따라 먼저 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 고 아래 지침의 나머지를 완료 하세요. 
+> [!NOTE]
+> .NET Core의 미리 보기 버전을 사용 하거나 응용 프로그램에서 종속 어셈블리를 사용 하 여 직접 또는 간접적으로 Application Insights SDK를 참조 하는 경우 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 에 대 한 지침에 따라 먼저 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 고 아래 지침의 나머지를 완료 합니다. 
 
-Application Insights 스냅숏 디버거 App Services 런타임의 일부로 미리 설치 되지만 App Service 앱에 대 한 스냅숏을 가져오려면 설정 해야 합니다. 앱을 배포한 후에는 소스 코드에 Application Insights SDK를 포함 했더라도 스냅숏 디버거를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+스냅숏 디버거 App Services 런타임의 일부로 미리 설치 되지만 App Service 앱에 대 한 스냅숏을 가져오려면 설정 해야 합니다.
+
+앱을 배포한 후에는 다음 단계에 따라 스냅숏 디버거를 사용 하도록 설정 합니다.
 
 1. App Service에 대 한 Azure 제어판으로 이동 합니다.
 2. **설정 > Application Insights** 페이지로 이동 합니다.
@@ -44,11 +49,12 @@ Application Insights 스냅숏 디버거 App Services 런타임의 일부로 미
 ## <a name="disable-snapshot-debugger"></a>스냅숏 디버거 사용 안 함
 
 **스냅숏 디버거를 사용 하도록 설정** 하는 것과 동일한 단계를 수행 하 되 스냅숏 디버거에 대 한 스위치를 모두 **Off** 로 전환 합니다.
+
 응용 프로그램 예외를 쉽게 진단 하기 위해 모든 앱에서 스냅숏 디버거 사용 하도록 설정 하는 것이 좋습니다.
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-Azure App Service의 경우 스냅숏 디버거 및 프로파일러를 사용 하도록 Azure Resource Manager 템플릿에서 앱 설정을 지정할 수 있습니다. 앱 설정을 포함 하는 구성 리소스를 웹 사이트의 자식 리소스로 추가 합니다.
+Azure App Service 스냅숏 디버거 및 프로파일러를 사용 하도록 설정 하려면 Azure Resource Manager 템플릿 내에서 앱 설정을 지정할 수 있습니다. 다음 템플릿 코드 조각을 참조 하세요.
 
 ```json
 {

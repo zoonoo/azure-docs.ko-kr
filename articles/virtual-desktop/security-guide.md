@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511538"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562619"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -101,7 +101,7 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 ### <a name="enable-screen-capture-protection-preview"></a>화면 캡처 보호 사용 (미리 보기)
 
-화면 캡처 보호 기능은 중요 한 정보가 클라이언트 끝점에서 캡처되지 않도록 합니다. 이 기능을 사용 하는 경우 스크린샷 및 화면 공유에서 원격 콘텐츠가 자동으로 차단 되거나 숨겨집니다. 또한 화면 콘텐츠를 지속적으로 캡처할 수 있는 악성 소프트웨어에서 숨겨집니다.
+화면 캡처 보호 기능은 중요 한 정보가 클라이언트 끝점에서 캡처되지 않도록 합니다. 이 기능을 사용 하는 경우 스크린샷 및 화면 공유에서 원격 콘텐츠가 자동으로 차단 되거나 숨겨집니다. 또한 화면 콘텐츠를 지속적으로 캡처할 수 있는 악성 소프트웨어에서 숨겨집니다. 이 기능을 사용 하는 동안 원격 콘텐츠를 끝점에 복사 하지 않도록 클립보드 리디렉션을 사용 하지 않도록 설정 하는 것이 좋습니다.
 
 이 정책은 레지스트리 키를 구성 하 여 호스트 수준에서 적용 됩니다. 이 정책을 사용 하도록 설정 하려면 PowerShell을 열고 다음 cmdlet을 실행 하 여 **fEnableScreenCaptureProtection** 레지스트리 키를 설정 합니다.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025979"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561310"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>LUIS DevOps에 대한 지속적인 통합 및 지속적인 전송
 
@@ -22,8 +22,8 @@ LUIS (Language Understanding) 앱을 개발 하는 소프트웨어 엔지니어�
 
 SCM (소스 코드 관리) 시스템에서 자동화 된 빌드 파이프라인이 다음 이벤트에서 실행 되도록 구성 합니다.
 
-1. Pr **워크플로** 는 [끌어오기 요청](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (pr)이 발생할 때 트리거됩니다. 이 워크플로는 업데이트가 마스터 분기로 병합 *되기 전에* PR 콘텐츠의 유효성을 검사 합니다.
-1. PR에서 변경 내용을 병합 하는 등의 방법으로 업데이트가 마스터 분기로 푸시되는 경우 **CI/CD 워크플로가** 트리거됩니다. 이 워크플로는 마스터 분기에 대 한 모든 업데이트의 품질을 보장 합니다.
+1. Pr **워크플로** 는 [끌어오기 요청](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (pr)이 발생할 때 트리거됩니다. 이 워크플로는 업데이트를 주 분기에 병합 *하기 전에* PR 콘텐츠의 유효성을 검사 합니다.
+1. PR에서 변경 내용을 병합 하는 등의 방법으로 업데이트를 주 분기로 푸시할 때 트리거되는 **CI/CD 워크플로입니다** . 이 워크플로는 주 분기에 대 한 모든 업데이트의 품질을 보장 합니다.
 
 **CI/CD 워크플로** 는 다음과 같은 두 가지 보완 개발 프로세스를 결합 합니다.
 
@@ -31,7 +31,7 @@ SCM (소스 코드 관리) 시스템에서 자동화 된 빌드 파이프라인�
 
 * CD ( [지속적인](/azure/devops/learn/what-is-continuous-delivery) 업데이트)는 더 자세한 테스트를 수행할 수 있는 환경에 응용 프로그램을 자동으로 배포 하기 위해 연속 통합 개념을 추가로 사용 합니다. CD를 사용 하면 가능한 한 빨리 변경에서 발생 하는 예측할 수 없는 문제를 조기에 알아보고, 테스트 검사의 간격에 대해 알아볼 수 있습니다.
 
-연속 통합 및 지속적인 업데이트의 목표는 "master is always 제공 가능한" 인지 확인 하는 것입니다. LUIS 앱의 경우,이는 필요한 경우 master branch LUIS 앱에서 모든 버전을 가져와 프로덕션 환경에 제공 하는 것을 의미 합니다.
+연속 통합 및 지속적인 업데이트의 목표는 "main is always 제공 가능한"를 확인 하는 것입니다. LUIS 앱의 경우,이는 필요한 경우 main branch LUIS 앱에서 모든 버전을 가져와 프로덕션 환경에 제공 하는 것을 의미 합니다.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>LUIS에 대 한 자동화 워크플로를 작성 하기 위한 도구
 
@@ -47,7 +47,7 @@ LUIS에 대 한 자동화 워크플로를 작성 하려면 다음 도구를 사�
 
 ### <a name="the-pr-workflow"></a>PR 워크플로
 
-앞서 언급 했 듯이, 개발자가 PR을 발생 시켜 기능 분기에서 마스터 분기로 병합 될 변경 내용을 제안 하는 경우이 워크플로를 실행 하도록 구성 합니다. 이는 PR의 변경 내용 품질이 마스터 분기로 병합 되기 전에 확인 하는 것입니다.
+앞서 언급 했 듯이, 개발자가 PR을 발생 시켜 기능 분기에서 주 분기로 병합 될 변경 내용을 제안 하는 경우이 워크플로를 실행 하도록 구성 합니다. 이는 기본 분기에 병합 되기 전에 PR의 변경 내용 품질을 확인 하기 위한 것입니다.
 
 이 워크플로는 다음을 수행 해야 합니다.
 
@@ -59,13 +59,13 @@ LUIS에 대 한 자동화 워크플로를 작성 하려면 다음 도구를 사�
 
 SCM에서 지 원하는 경우 PR을 완료 하기 전에이 워크플로를 성공적으로 완료 해야 하도록 분기 보호 규칙을 구성 합니다.
 
-### <a name="the-master-branch-cicd-workflow"></a>Master branch CI/CD 워크플로
+### <a name="the-main-branch-cicd-workflow"></a>주 분기 CI/CD 워크플로
 
-PR의 업데이트를 마스터 분기로 병합 한 후이 워크플로를 실행 하도록 구성 합니다. 이는 업데이트를 테스트 하 여 마스터 분기의 품질 막대를 높게 유지 하는 것입니다. 업데이트가 품질 막대를 충족 하는 경우이 워크플로는 추가 심층 테스트를 수행할 수 있는 환경에 새 LUIS app 버전을 배포 합니다.
+PR의 업데이트가 주 분기에 병합 된 후이 워크플로를 실행 하도록 구성 합니다. 업데이트를 테스트 하 여 주 분기의 품질 막대를 높게 유지 하는 것이 목적입니다. 업데이트가 품질 막대를 충족 하는 경우이 워크플로는 추가 심층 테스트를 수행할 수 있는 환경에 새 LUIS app 버전을 배포 합니다.
 
 이 워크플로는 다음을 수행 해야 합니다.
 
-* 업데이트 된 소스 코드를 사용 하 여 기본 LUIS 앱 (master 분기에 대해 유지 관리 하는 앱)에서 새 버전을 빌드합니다.
+* 업데이트 된 소스 코드를 사용 하 여 기본 LUIS 앱 (주 분기에 대해 유지 관리 하는 앱)에서 새 버전을 빌드합니다.
 
 * LUIS app 버전을 학습 하 고 게시 합니다.
 

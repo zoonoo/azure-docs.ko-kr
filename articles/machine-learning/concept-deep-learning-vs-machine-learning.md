@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 09/22/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: 0379fd186c499e19d949d9494b0eb5dec4f2bb50
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/15/2020
+ms.custom: contperf-fy21q1,contperfq1
+ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032544"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562840"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
@@ -57,6 +57,16 @@ ms.locfileid: "97032544"
 |  **실행 시간** | 몇 초에서 몇 시간까지 학습 하는 데 비교적 적은 시간이 소요 됩니다. | 는 심층 학습 알고리즘에 많은 계층이 포함 되어 있기 때문에 일반적으로 학습 하는 데 시간이 오래 걸립니다. |
 |  **출력** | 출력은 일반적으로 점수 또는 분류와 같은 숫자 값입니다. | 출력에는 텍스트, 점수 또는 사운드와 같은 여러 형식이 있을 수 있습니다. |
 
+## <a name="transfer-learning"></a>전이 학습
+
+심층 학습 모델을 학습 하려면 많은 양의 학습 데이터, GPU (TPU) 및 학습 시간이 더 오래 걸립니다. 이러한 사용자에 게 제공 되는 것이 없는 시나리오에서 전송 학습 이라는 기법을 사용 하 여 학습 프로세스의 바로 가기를 만들 수 있습니다.
+
+이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다.
+
+신경망의 구조로 인해 첫 번째 계층 집합은 일반적으로 하위 수준의 기능을 포함 하는 반면, 최종 계층 집합에는 해당 도메인에 더 가까운 상위 수준의 기능이 포함 되어 있습니다. 새 도메인 또는 문제에 사용 하기 위해 최종 계층을 재활용 하 여 새 모델을 학습 하는 데 필요한 시간, 데이터 및 계산 리소스의 양을 크게 줄일 수 있습니다. 예를 들어 자동차를 인식 하는 모델이 이미 있는 경우 transfer learning을 사용 하 여 해당 모델을 사용 하 여 트럭, 오토바이 및 기타 종류의 차량도 인식할 수 있습니다.
+
+Azure Machine Learning에서 오픈 소스 프레임 워크를 사용 하 여 이미지 분류에 대해 전송 학습을 적용 하는 방법에 대해 알아봅니다. [Pytorch 모델을 사용 하 여 이미지를 분류](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)합니다.
+
 ## <a name="deep-learning-use-cases"></a>심층 학습 사용 사례
 
 인위적인 신경망 구조 때문에 심층 학습은 이미지, 사운드, 비디오 및 텍스트와 같은 구조화 되지 않은 데이터의 패턴을 식별 하는 데 뛰어나지만 합니다. 이러한 이유로 심층 학습은 의료, 에너지, 재무 및 교통를 비롯 한 많은 산업을 신속 하 게 변환 하 고 있습니다. 이러한 산업은 이제 기존 비즈니스 프로세스를 재고 합니다. 
@@ -72,8 +82,6 @@ ms.locfileid: "97032544"
 심층 학습은 많은 개체 검색 사용 사례에 적용 되었습니다. 개체 검색은 이미지 분류 및 이미지 지역화의 두 부분으로 이루어져 있습니다. 이미지 _분류_ 는 자동차 또는 사람과 같은 이미지의 개체를 식별 합니다. 이미지 _지역화_ 는 이러한 개체의 특정 위치를 제공 합니다. 
 
 개체 검색은 게임, 소매, 관광 및 자동 운전 자동차와 같은 업계에서 이미 사용 되 고 있습니다.
-
-Azure Machine Learning의 오픈 소스 프레임 워크에서 이미지 분류 모델을 사용 하는 방법에 대해 알아봅니다. [Pytorch 모델을 사용 하 여 이미지 분류](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>이미지 캡션 생성
 
@@ -107,7 +115,7 @@ Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. F
 
 되풀이 신경망은 널리 사용 되는 인공 신경망입니다. 이러한 네트워크는 계층의 출력을 저장 하 고 다시 입력 계층에 공급 하 여 계층의 결과를 예측 합니다. 되풀이 신경망에는 훌륭한 학습 기능이 있습니다. 시계열 예측, 필기 학습, 언어 인식 등의 복잡 한 작업에 널리 사용 되 고 있습니다.
 
-### <a name="convolutional-neural-networks"></a>나선형 신경망
+### <a name="convolutional-neural-network"></a>나선형 신경망
 
 나선형 신경망은 특히 효과적인 인공 신경망 이며 고유한 아키텍처를 제공 합니다. 계층은 너비, 높이 및 깊이의 3 차원으로 구성 됩니다. 한 계층의 뉴런는 다음 계층의 모든 뉴런에 연결 하는 것이 아니라 계층의 뉴런 작은 영역에만 연결 됩니다. 최종 출력은 깊이 차원을 따라 구성 된 확률 점수의 단일 벡터로 줄어듭니다. 
 

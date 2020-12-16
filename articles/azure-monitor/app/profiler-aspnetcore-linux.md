@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ec25348c3056536a2e09fd889b48e1e63ea7bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6ef52e946edb5db8074a9b4e3ce5e4a81ae0bde5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998161"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561055"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
 
@@ -24,7 +24,7 @@ ms.locfileid: "95998161"
 
 ![Profiler 추적](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 다음 지침은 모든 Windows, Linux 및 Mac 개발 환경에 적용됩니다.
 
 * [.NET Core SDK 2.1.2 이상](https://dotnet.microsoft.com/download/archives)을 설치합니다.
@@ -123,7 +123,7 @@ ms.locfileid: "95998161"
 2. 변경 내용을 Azure로 푸시하여 프로젝트를 배포합니다.
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     다음 예제와 비슷한 내용이 출력됩니다.
@@ -134,7 +134,7 @@ ms.locfileid: "95998161"
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.

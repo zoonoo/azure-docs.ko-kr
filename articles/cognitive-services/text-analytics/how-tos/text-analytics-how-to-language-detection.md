@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: a3ef198c79683786a7d6fb36a46cd0c989071c9e
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 0ff6bcd2e50b64993966f2780c6c8118aea2694f
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346896"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505174"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
 
@@ -303,5 +303,5 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
 ## <a name="see-also"></a>참고 항목
 
 * [Text Analytics 개요](../overview.md)
-* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)

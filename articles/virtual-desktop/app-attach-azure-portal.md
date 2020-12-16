@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ffae02a11f2857e72cf7c5d2bbc84d8ab6174e17
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425890"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562279"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Azure Portal를 사용 하 여 MSIX 앱 연결 설정
 
@@ -31,6 +31,7 @@ MSIX 앱 연결을 구성 하는 데 필요한 사항은 다음과 같습니다.
 
 - 작동하는 Windows Virtual Desktop 배포 Windows 가상 데스크톱 (클래식)을 배포 하는 방법을 알아보려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)를 참조 하세요. Azure Resource Manager 통합을 사용 하 여 Windows 가상 데스크톱을 배포 하는 방법을 알아보려면 [Azure Portal를 사용 하 여 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조 하세요.
 - 하나 이상의 활성 세션 호스트를 포함 하는 Windows 가상 데스크톱 호스트 풀
+- 이 호스트 풀은 유효성 검사 환경에 있어야 합니다. 
 - MSIX 패키징 도구입니다.
 - MSIX 패키지 응용 프로그램은 파일 공유에 업로드 된 MSIX 이미지로 확장 됩니다.
 - MSIX 패키지가 저장 되는 Windows 가상 데스크톱 배포의 파일 공유입니다.

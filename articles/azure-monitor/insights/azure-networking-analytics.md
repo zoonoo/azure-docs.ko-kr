@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032187"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563112"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
@@ -107,19 +107,31 @@ Application insights는 Application Gateway 리소스 내에서 insights 탭을 
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Azure Gateway analytics 솔루션에서 Azure Monitor 통합 문서로 마이그레이션
 
 > [!NOTE]
-> Azure 애플리케이션 Gateway analytics 솔루션은 오래 되었으며, Application Gateway 리소스에 대 한 Azure Monitor Network insights를 통해 제공 되는 통합 문서를 사용 하는 데 권장 되는 방법입니다.
+> Azure Monitor Network Insights 통합 문서는 Application Gateway 리소스에 대 한 메트릭 및 log analytics에 액세스 하기 위한 권장 솔루션입니다.
 
-* 진단 설정이 이미 Log Analytics 작업 영역에 로그를 저장 하도록 설정 된 경우 Azure Monitor Network insights 통합 문서는 동일한 위치의 데이터를 사용할 수 있습니다. 새 구성이 필요 하지 않습니다.
+1. 로그를 Log Analytics 작업 영역에 저장 하려면 [진단 설정을 사용](#enable-azure-application-gateway-diagnostics-in-the-portal) 하도록 설정 해야 합니다. 이미 구성 되어 있는 경우 Azure Monitor Network Insights 통합 문서는 동일한 위치의 데이터를 사용할 수 있으며 추가 변경이 필요 하지 않습니다.
 
-* 모든 이전 데이터는 해당 시점 진단 설정에서 통합 문서 내에 이미 사용할 수 있습니다. 데이터 전송이 필요 하지 않습니다.
+> [!NOTE]
+> 이전 데이터는 이미 사용 하도록 설정 된 시점부터 통합 문서 내에서 사용할 수 있습니다. 데이터 전송이 필요 하지 않습니다.
 
-* 통합 문서로 전환 하는 데 필요한 활성 토글은 없습니다. 분석 솔루션과 네트워크 정보 통합 문서는 동시에 작동할 수 있습니다.
+2. Application Gateway 리소스에 대 한 [기본 insights 통합 문서](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) 에 액세스 합니다. Application Gateway analytics 솔루션에서 지원 되는 모든 기존 정보는 통합 문서에 이미 있습니다. 메트릭 & 로그 데이터를 기반으로 사용자 지정 [시각화](../platform/workbooks-overview.md#visualizations) 를 추가 하 여이를 확장할 수 있습니다.
 
-* Azure Monitor 통합 문서와 관련 된 추가 비용은 없습니다. Log Analytics 작업 영역에는 사용량에 따라 계속 요금이 청구 됩니다.
-
-* 작업 영역에서 Azure Gateway analytics 솔루션을 정리 하려면 솔루션 리소스 페이지에서 솔루션을 삭제할 수 있습니다.
+3. 모든 메트릭 및 로그 정보를 볼 수 있으며, 작업 영역에서 Azure Gateway analytics 솔루션을 정리 하려면 솔루션 리소스 페이지에서 솔루션을 삭제 하면 됩니다.
 
 [![Azure 애플리케이션 Gateway analytics 솔루션에 대 한 삭제 옵션의 스크린샷](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Azure Monitor Network Insights 통합 문서를 사용 하는 새로운 기능
+
+> [!NOTE]
+> Azure Monitor Insights 통합 문서와 관련 된 추가 비용은 없습니다. Log Analytics 작업 영역에는 사용량에 따라 계속 요금이 청구 됩니다.
+
+Network Insights 통합 문서를 사용 하면 다음을 포함 하 여 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
+
+* [메트릭](../insights/network-insights-overview.md#resource-health-and-metrics) 및 로그 데이터를 모두 사용 하 여 모니터링 하 고 문제를 해결 하기 위한 중앙 집중식 콘솔
+
+* 사용자 지정 풍부한 [시각화](../platform/workbooks-overview.md#visualizations)만들기를 지 원하는 유연한 캔버스입니다.
+
+* 더 광범위 한 커뮤니티에서 [통합 문서 템플릿을](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) 사용 및 공유 하는 기능
 
 새 통합 문서 솔루션의 기능에 대 한 자세한 정보를 보려면 [통합 문서 체크 아웃-개요](../platform/workbooks-overview.md) 를 참조 하세요.
 

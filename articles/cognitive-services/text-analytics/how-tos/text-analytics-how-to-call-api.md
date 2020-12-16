@@ -10,16 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 7b035af85e250d97fb05625bf386bec8dc94a74c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.custom: references_regions
+ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505259"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562568"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
 이 문서에서는 Text Analytics REST API 및 [Postman](https://www.postman.com/downloads/) 을 사용 하 여 주요 개념을 보여 줍니다. API는 서비스의 기능을 사용 하기 위한 여러 동기 및 비동기 끝점을 제공 합니다. 
+
+## <a name="create-a-text-analytics-resource"></a>Text Analytics 리소스 만들기
+
+> [!NOTE]
+> * 또는 끝점을 사용 하려는 경우 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 을 사용 하 여 Text Analytics 리소스가 필요 합니다 `/analyze` `/health` . `/analyze`끝점은 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)에 포함 되어 있습니다.
+
+텍스트 분석 API를 사용 하기 전에 응용 프로그램에 대 한 키 및 끝점을 사용 하 여 Azure 리소스를 만들어야 합니다. 
+
+1.  먼저 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 로 이동 하 여 새 Text Analytics 리소스를 만듭니다 (아직 없는 경우). [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)을 선택 합니다.
+
+2.  끝점에 사용할 지역을 선택 합니다.  `/analyze`및 끝점은 미국 `/health` 서 부 2, 미국 동부 2, 미국 중부, 서유럽 및 유럽 서부 지역 에서만 사용할 수 있습니다.
+
+3.  Text Analytics 리소스를 만들고 페이지 왼쪽의 "키 및 끝점 블레이드"로 이동 합니다. 나중에 Api를 호출할 때 사용할 키를 복사 합니다. 나중에 헤더에 대 한 값으로이를 추가 `Ocp-Apim-Subscription-Key` 합니다.
+
+## <a name="using-the-api-synchronously"></a>동기적으로 API 사용
+
+대기 시간이 짧은 시나리오의 경우 Text Analytics를 동기적으로 호출할 수 있습니다. 동기 API를 사용 하는 경우 각 API (기능)를 개별적으로 호출 해야 합니다. 여러 기능을 호출 해야 하는 경우에는 Text Analytics를 비동기적으로 호출 하는 방법에 대 한 아래 섹션을 참조 하세요. 
 
 ## <a name="using-the-api-asynchronously"></a>비동기식으로 API 사용
 
@@ -48,28 +66,20 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-
-> [!NOTE]
-> * 또는 끝점을 사용 하려는 경우 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) 을 사용 하 여 Text Analytics 리소스가 필요 합니다 `/analyze` `/health` .
-
-1.  먼저 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 로 이동 하 여 새 Text Analytics 리소스를 만듭니다 (아직 없는 경우). 또는 끝점을 사용 하려는 경우 **표준 가격 책정 계층** 을 선택 합니다 `/analyze` `/health` . `/analyze`끝점은 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)에 포함 되어 있습니다.
-
-2.  끝점에 사용할 지역을 선택 합니다.  `/analyze`및 끝점은 미국 `/health` 서 부 2, 미국 동부 2, 미국 중부, 서유럽 및 유럽 서부 지역 에서만 사용할 수 있습니다.
-
-3.  Text Analytics 리소스를 만들고 페이지 왼쪽의 "키 및 끝점 블레이드"로 이동 합니다. 나중에 Api를 호출할 때 사용할 키를 복사 합니다. 나중에 헤더에 대 한 값으로이를 추가 `Ocp-Apim-Subscription-Key` 합니다.
-
 
 <a name="json-schema"></a>
 
-## <a name="api-request-format"></a>API 요청 형식
+## <a name="api-request-formats"></a>API 요청 형식
+
+텍스트 분석 API에 대 한 동기 및 비동기 호출을 모두 보낼 수 있습니다.
 
 #### <a name="synchronous"></a>[동기](#tab/synchronous)
 
+### <a name="synchronous-requests"></a>동기 요청
+
 API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 JSON 개체에서 원시 비구조적 텍스트로 전송 됩니다. XML은 지원되지 않습니다. JSON 스키마는 아래에 설명 된 요소로 구성 됩니다.
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../language-support.md)로 작성되어야 합니다. |
@@ -89,7 +99,9 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 }
 ```
 
-#### <a name="analyze"></a>[분석](#tab/analyze)
+#### <a name="asynchronous"></a>[비동기](#tab/asynchronous)
+
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>끝점에 대 한 비동기 요청 `/analyze`
 
 > [!NOTE]
 > Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용 하면 클라이언트 개체를 사용 하 여 비동기 분석 작업을 호출할 수 있습니다. GitHub에 대 한 예제를 찾을 수 있습니다.
@@ -102,7 +114,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 * 핵심 구 추출 
 * 명명 된 엔터티 인식 (PII 및 no 포함)
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`displayName` | String | 선택 사항 | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
 |`analysisInput` | 아래 필드가 포함 됩니다. `documents` | 필수 | 보내려는 문서에 대 한 정보를 포함 합니다. |
@@ -154,11 +166,11 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[의료 분야 Text Analytics](#tab/health)
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>끝점에 대 한 비동기 요청 `/health`
 
 상태 호스팅 API에 대 한 Text Analytics에 대 한 API 요청 형식은 해당 컨테이너의 경우와 동일 합니다. 문서는 JSON 개체에서 원시 비구조적 텍스트로 전송 됩니다. XML은 지원되지 않습니다. JSON 스키마는 아래에 설명 된 요소로 구성 됩니다.  상태 공개 미리 보기에 대 한 Text Analytics에 대 한 액세스를 요청 하려면 [Cognitive Services 요청 양식을](https://aka.ms/csgate) 작성 하 고 제출 하세요. 상태 사용에 대 한 Text Analytics 요금은 청구 되지 않습니다. 
 
-| 요소 | 유효한 값 | 필수 여부 | 사용량 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. |
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 영어 텍스트만 현재 지원 됩니다. |
@@ -194,6 +206,8 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 
 #### <a name="synchronous"></a>[동기](#tab/synchronous)
 
+### <a name="endpoints-for-sending-synchronous-requests"></a>동기 요청을 보내기 위한 끝점
+
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
 | 언어 검색 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,14 +218,16 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 | 명명 된 엔터티 인식-PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | 명명 된 엔터티 인식-화 | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[분석](#tab/analyze)
+#### <a name="asynchronous"></a>[비동기](#tab/asynchronous)
+
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>끝점에 비동기 요청을 보내기 위한 끝점 `/analyze`
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
 | 분석 작업 제출 | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | 분석 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[의료 분야 Text Analytics](#tab/health)
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>끝점에 비동기 요청을 보내기 위한 끝점 `/health`
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
@@ -267,6 +283,8 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
  
 # <a name="synchronous"></a>[동기](#tab/synchronous)
 
+### <a name="example-responses-for-synchronous-operation"></a>동기 작업에 대 한 예제 응답
+
 동기 끝점 응답은 사용 하는 끝점에 따라 달라 집니다. 예제 응답은 다음 문서를 참조 하세요.
 
 + [언어 감지](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,70 +292,15 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 + [감정 분석](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [엔터티 인식](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[분석](#tab/analyze)
+# <a name="asynchronous"></a>[비동기](#tab/asynchronous)
+
+### <a name="example-responses-for-asynchronous-operations"></a>비동기 작업에 대 한 예제 응답
 
 성공 하는 경우 끝점에 대 한 GET 요청은 `/analyze` 할당 된 작업을 포함 하는 개체를 반환 합니다. 예: `keyPhraseExtractionTasks`. 이러한 작업은 적절 한 Text Analytics 기능의 응답 개체를 포함 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 + [핵심 구 추출](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [엔터티 인식](text-analytics-how-to-entity-linking.md#view-results)
-
-
-```json
-{
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
-# <a name="text-analytics-for-health"></a>[의료 분야 Text Analytics](#tab/health)
-
-상태 비동기 API 응답의 Text Analytics에 대 한 자세한 내용은 다음 문서를 참조 하세요.
-
 + [의료 분야 Text Analytics](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 

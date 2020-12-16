@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743176"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559843"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>대체 로그인 ID (미리 보기)로 전자 메일을 사용 하 여 Azure Active Directory 로그인
 
@@ -36,6 +36,9 @@ ms.locfileid: "96743176"
 
 > [!NOTE]
 > 이 기능은 클라우드 인증 Azure AD 사용자 전용입니다.
+
+> [!NOTE]
+> 현재이 기능은 클라우드 인증을 사용 하는 테 넌 트에 대해 Azure AD에 가입 된 Windows 10 장치에서 지원 되지 않습니다. 하이브리드 Azure AD 조인 장치에는이 기능을 적용할 수 없습니다.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Azure AD 로그인 방법 개요
 
