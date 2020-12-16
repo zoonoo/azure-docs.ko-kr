@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 응용 프로그램 관리의 새로운 기능
 description: Azure Active Directory 응용 프로그램 관리를 위한 새롭고 업데이트 된 설명서입니다.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,30 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571014"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563401"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
 Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 응용 프로그램 관리 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
+- [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)
+- [OIDC 기반 Single Sign-On 이해](configure-oidc-single-sign-on.md)
+- [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
+- [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory 응용 프로그램 관리: 새로운 기능](whats-new-docs.md)
+- [AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하 여 응용 프로그램을 Azure AD로 마이그레이션합니다.](migrate-adfs-application-activity.md)
+- [Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## <a name="november-2020"></a>2020년 11월
 

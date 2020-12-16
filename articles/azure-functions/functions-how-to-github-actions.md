@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 651c1913491952c53af42abec5ce5d5009da06a0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ae3ffb9dc387129153b684a849ba4e58274ad80c
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168069"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563282"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -29,7 +29,7 @@ Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 
 | **빌드** | 환경을 설정 합니다.<br/>함수 앱을 빌드합니다.|
 | **배포** | 함수 앱을 배포 합니다.|
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
@@ -59,7 +59,7 @@ GitHub 작업에 대해 Azure Functions를 사용 하 여 인증 하는 권장 �
 
    :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="비밀 추가":::
 
-1. 이름으로를 사용 하 여 새 암호를 추가 하 `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` 고 **값** 에 대 한 게시 프로필 파일의 콘텐츠를 추가한 다음 **비밀 추가** 를 선택 합니다. **Name**
+1. 이름으로를 사용 하 여 새 암호를 추가 하 `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` 고 **값** 에 대 한 게시 프로필 파일의 콘텐츠를 추가한 다음 **비밀 추가** 를 선택 합니다. 
 
 이제 GitHub에서 Azure의 함수 앱에 인증할 수 있습니다.
 
@@ -217,7 +217,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -256,7 +256,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -299,7 +299,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -341,7 +341,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
       uses: actions/setup-java@v1
@@ -384,7 +384,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -426,7 +426,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
       uses: actions/setup-node@v1
@@ -470,7 +470,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
       uses: actions/setup-python@v1

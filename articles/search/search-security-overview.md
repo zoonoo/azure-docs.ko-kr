@@ -1,7 +1,7 @@
 ---
 title: 보안 개요
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search은 SOC 2, HIPAA 및 기타 인증을 준수 합니다. 필터 식의 사용자 및 그룹 보안 식별자를 통한 연결 및 데이터 암호화, 인증 및 id 액세스
+description: 끝점, 콘텐츠 및 작업을 보호 하기 위해 Azure Cognitive Search의 보안 기능에 대해 알아봅니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: 118ee6ffb189b7a5558477912bd6b27ea739afde
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516163"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563452"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
