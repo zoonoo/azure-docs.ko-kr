@@ -48,7 +48,7 @@
         - name: 투명성 메모
           items:
             - name: 공간 분석 소개
-              href: /legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+              href: intro-to-spatial-analysis-public-preview.md
             - name: 특성 및 제한 사항
               href: /legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
         - name: 윤리 및 책임 있는 사용

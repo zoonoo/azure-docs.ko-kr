@@ -12,18 +12,18 @@ ms.date: 11/17/2020
 ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 0f5e6a2327f5d952f92009b0c9e408ab8188d6d7
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558779"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563231"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
 Text Analytics API는 감성 분석, 오피니언 마이닝, 핵심 구 추출, 언어 감지 및 명명된 엔터티 인식을 포함하는 텍스트 마이닝 및 텍스트 분석을 위한 NLP(자연어 처리) 기능을 제공하는 클라우드 기반 서비스입니다.
 
-이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](../index.yml)의 일부입니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/text-analytics-sdk.md)에서 이러한 기능을 사용할 수 있습니다.
+이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](../index.yml)의 일부입니다. [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) 또는 [클라이언트 라이브러리](quickstarts/client-libraries-rest-api.md)에서 이러한 기능을 사용할 수 있습니다.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
@@ -64,7 +64,7 @@ NER(명명된 엔터티 인식)은 사람, 장소, 조직, 수량으로 텍스�
 
 간단한 워크플로: 분석을 위해 데이터를 제출하고 코드의 출력을 처리합니다. 분석기는 추가 구성 또는 사용자 지정 없이 있는 그대로 사용됩니다.
 
-1. Text Analytics용 [Azure 리소스를 만듭니다](../cognitive-services-apis-create-account.md). 그런 다음, 요청을 인증할 수 있도록 생성된 [키를 가져옵니다](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource).
+1. Text Analytics용 [Azure 리소스를 만듭니다](how-tos/text-analytics-how-to-call-api.md). 그런 다음, 요청을 인증할 수 있도록 생성된 [키를 가져옵니다](how-tos/text-analytics-how-to-call-api.md).
 
 2. 데이터를 구조화되지 않은 원시 텍스트로 포함하는 [요청을 JSON으로 구성](how-tos/text-analytics-how-to-call-api.md#json-schema)합니다.
 
@@ -109,7 +109,7 @@ Text Analytics API는 텍스트 표현 및 문자 수 계산에 유니코드 인
 
 + Text Analytics에 대한 [Azure 리소스를 생성](../cognitive-services-apis-create-account.md)하여 애플리케이션의 키와 엔드포인트를 가져옵니다.
 
-+ [빠른 시작](quickstarts/text-analytics-sdk.md)를 사용하여 API 호출 보내기를 시작합니다. 최소의 코드로 텍스트를 제출하고, 분석을 선택하고, 결과를 보는 방법을 알아봅니다.
++ [빠른 시작](quickstarts/client-libraries-rest-api.md)를 사용하여 API 호출 보내기를 시작합니다. 최소의 코드로 텍스트를 제출하고, 분석을 선택하고, 결과를 보는 방법을 알아봅니다.
 
 + 새 릴리스 및 기능에 대한 자세한 내용은 [Text Analytics API의 새로운 기능](whats-new.md)을 참조하세요.
 

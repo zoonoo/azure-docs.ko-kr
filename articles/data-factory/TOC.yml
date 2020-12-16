@@ -374,7 +374,7 @@
           href: connector-presto.md
         - name: QuickBooks Online
           href: connector-quickbooks.md
-        - name: REST
+        - name: REST (영문)
           href: connector-rest.md
         - name: Salesforce
           href: connector-salesforce.md
@@ -758,6 +758,8 @@
           href: data-factory-troubleshoot-guide.md
         - name: 커넥터
           href: connector-troubleshoot-guide.md
+        - name: 파이프라인 트리거
+          href: pipeline-trigger-troubleshoot-guide.md
         - name: 데이터 흐름
           href: data-flow-troubleshoot-guide.md
         - name: 연속 통합 및 배포

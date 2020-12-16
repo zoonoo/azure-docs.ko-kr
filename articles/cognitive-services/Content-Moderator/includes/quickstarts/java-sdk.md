@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 30360253c0b1aa34c4af1e5efdf3cf9b4d8baaa0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7713765a36207f0d9da05c4c11629e4a7f1164d9
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356497"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561514"
 ---
 Java용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 Maven 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -24,8 +24,8 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 
 Java용 Content Moderator 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-* 이미지 조정
 * 텍스트 조정
+* 이미지 조정
 
 [참조 설명서](/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator) |[아티팩트(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [샘플](/samples/browse/?products=azure&term=content-moderator)
 
@@ -127,14 +127,42 @@ Content Moderator Java 클라이언트 라이브러리의 주요 기능 중 일�
 여기에 나와 있는 코드 조각에서는 Java용 Content Moderator 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * [클라이언트 인증](#authenticate-the-client)
-* [이미지 조정](#moderate-images)
 * [텍스트 조정](#moderate-text)
+* [이미지 조정](#moderate-images)
+
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 애플리케이션의 `main` 메서드에서 구독 엔드포인트 값 및 구독 키를 사용하여 [ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) 개체를 만듭니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
+
+
+
+## <a name="moderate-text"></a>텍스트 조정
+
+### <a name="set-up-sample-text"></a>샘플 텍스트 설정
+
+**ContentModeratorQuickstart** 클래스 상단에 있는 로컬 텍스트 파일에 대한 참조를 정의합니다. 프로젝트 디렉터리에 .txt 파일을 추가하고 분석할 텍스트를 입력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
+
+### <a name="analyze-text"></a>텍스트 분석
+
+.txt 파일을 읽고 각 줄에 있는 **screenText** 메서드를 호출하는 새 메서드를 만듭니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
+
+### <a name="print-text-moderation-results"></a>텍스트 조정 결과 출력
+
+다음 코드를 추가하여 프로젝트 디렉터리의 .json 파일에 중재 결과를 출력합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
+
+메서드를 완료하려면 `try` 및 `catch` 문을 닫습니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
+
 
 ## <a name="moderate-images"></a>이미지 조정
 
@@ -180,31 +208,6 @@ Content Moderator Java 클라이언트 라이브러리의 주요 기능 중 일�
 `try` 문을 닫고 메서드를 완료하는 `catch` 문을 추가합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
-
-## <a name="moderate-text"></a>텍스트 조정
-
-### <a name="set-up-sample-text"></a>샘플 텍스트 설정
-
-**ContentModeratorQuickstart** 클래스 상단에 있는 로컬 텍스트 파일에 대한 참조를 정의합니다. 프로젝트 디렉터리에 .txt 파일을 추가하고 분석할 텍스트를 입력합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
-
-### <a name="analyze-text"></a>텍스트 분석
-
-.txt 파일을 읽고 각 줄에 있는 **screenText** 메서드를 호출하는 새 메서드를 만듭니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
-
-### <a name="print-text-moderation-results"></a>텍스트 조정 결과 출력
-
-다음 코드를 추가하여 프로젝트 디렉터리의 .json 파일에 중재 결과를 출력합니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
-
-메서드를 완료하려면 `try` 및 `catch` 문을 닫습니다.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
-
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

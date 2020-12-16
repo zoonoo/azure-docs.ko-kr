@@ -978,6 +978,8 @@
           href: find-request-unit-charge-cassandra.md
         - name: Spring 데이터 저장 및 관리
           href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+        - name: 일반적인 문제 해결
+          href: cassandra-troubleshoot.md
         - name: Cassandra 및 Spark
           items:
             - name: 소개

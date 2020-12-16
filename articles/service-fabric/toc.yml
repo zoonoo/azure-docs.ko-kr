@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: 가용성 영역에서 Azure Service Fabric 클러스터 배포
                   href: service-fabric-cross-availability-zones.md
+                - name: 상태 비저장 노드 유형을 사용하여 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-stateless-node-types.md
                 - name: Azure Active Directory 인증 설정
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: 사용자 지정 클러스터 템플릿 만들기

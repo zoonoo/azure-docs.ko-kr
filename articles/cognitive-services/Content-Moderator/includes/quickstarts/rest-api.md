@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: include
 ms.date: 12/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 06af722e8c827acdad356acb982ac3761ef68236
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ebef33072b802ffc35b8c011d974dbcd203fa6e1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905677"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561480"
 ---
 Azure Content Moderator REST API를 시작합니다. 
 
@@ -23,10 +23,10 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 
 Content Moderator REST API를 사용하여 다음을 수행합니다.
 
-* [텍스트 조정](#moderate-text)
-* [이미지 조정](#moderate-images)
+* 텍스트 조정
+* 이미지 조정
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure 구독을 보유한 후에는 Azure Portal에서 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Content Moderator 리소스 만들기"  target="_blank">Content Moderator 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만들어 키와 엔드포인트를 가져옵니다. 배포될 때까지 기다렸다가 **리소스로 이동** 단추를 클릭합니다.

@@ -118,31 +118,31 @@
       items:
         - name: 범용 가상 컴퓨터
           href: ../virtual-machines/sizes-general.md
-          maintainContext: true
           items:
             - name: B-시리즈 버스터블
               href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
+          maintainContext: true
         - name: 컴퓨팅 최적화
           href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: 메모리에 최적화
           href: ../virtual-machines/sizes-memory.md
-          maintainContext: true
           items:
             - name: 제한된 vCPU
               href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
+          maintainContext: true
         - name: Storage에 최적화
           href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: GPU에 최적화
           href: ../virtual-machines/sizes-gpu.md
-          maintainContext: true
           items:
             - name: NVIDIA GPU 드라이버 설정
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
+          maintainContext: true
         - name: 고성능 컴퓨팅
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
@@ -165,8 +165,6 @@
     - name: 유지 관리 및 업데이트
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: 오케스트레이션 모드
-      href: orchestration-modes.md
     - name: 디스크 스토리지
       items:
         - name: Managed Disks

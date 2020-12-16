@@ -114,10 +114,6 @@
           href: developers-guide.md
         - name: Azure Resource Manager를 사용하여 Key Vault 배포
           href: vault-create-template.md
-        - name: 웹앱 비밀 저장
-          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-        - name: .NET을 사용하여 서비스 간 인증
-          href: service-to-service-authentication.md
         - name: Key Vault 연결된 서비스 사용
           href: vs-key-vault-add-connected-service.md
     - name: 모니터링 및 제어
