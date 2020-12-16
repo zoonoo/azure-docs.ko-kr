@@ -1,31 +1,31 @@
 ---
 title: Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 큐 데이터 액세스
 titleSuffix: Azure Storage
-description: PowerShell은 Azure AD 자격 증명으로 로그인 하 여 Azure Storage 큐 데이터에 대해 명령을 실행할 수 있도록 지원 합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 사용 권한은 Azure AD 보안 주체에 할당 된 Azure 역할에 따라 달라 집니다.
-services: storage
+description: PowerShell은 azure Queue Storage 데이터에 대 한 명령을 실행 하기 위해 Azure AD 자격 증명으로 로그인을 지원 합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 사용 권한은 Azure AD 보안 주체에 할당 된 Azure 역할에 따라 달라 집니다.
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/14/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 09/14/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637404"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590718"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 큐 데이터 액세스
 
-Azure Storage는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 로그인 하 고 스크립팅 명령을 실행할 수 있는 PowerShell에 대 한 확장을 제공 합니다. Azure AD 자격 증명을 사용 하 여 PowerShell에 로그인 하면 OAuth 2.0 액세스 토큰이 반환 됩니다. 이 토큰은 PowerShell에서 자동으로 사용 되어 큐 저장소에 대해 후속 데이터 작업에 권한을 부여 합니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
+Azure Storage는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 로그인 하 고 스크립팅 명령을 실행할 수 있는 PowerShell에 대 한 확장을 제공 합니다. Azure AD 자격 증명을 사용 하 여 PowerShell에 로그인 하면 OAuth 2.0 액세스 토큰이 반환 됩니다. 이 토큰은 Queue Storage에 대해 후속 데이터 작업에 권한을 부여 하기 위해 PowerShell에서 자동으로 사용 됩니다. 지원되는 작업의 경우, 더 이상 명령과 함께 계정 키 또는 SAS 토큰을 전달할 필요가 없습니다.
 
 Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 데이터를 큐에 추가할 수 있는 권한을 할당할 수 있습니다. Azure Storage의 Azure 역할에 대 한 자세한 내용은 [AZURE RBAC를 사용 하 여 데이터 Azure Storage에 대 한 액세스 권한 관리](../common/storage-auth-aad-rbac-portal.md)를 참조 하세요.
 
 ## <a name="supported-operations"></a>지원되는 작업
 
-Azure Storage 확장은 큐 데이터 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. Azure Storage 큐에 대 한 사용 권한은 Azure RBAC를 통해 할당 됩니다. 예를 들어 **큐 데이터 판독기** 역할이 할당 된 경우 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **큐 데이터 참가자** 역할이 할당 된 경우 큐 또는 큐에 포함 된 데이터를 읽거나 쓰거나 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
+Azure Storage 확장은 큐 데이터 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. 큐에 대 한 사용 권한은 Azure RBAC를 통해 할당 됩니다. 예를 들어 **큐 데이터 판독기** 역할이 할당 된 경우 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **큐 데이터 참가자** 역할이 할당 된 경우 큐 또는 큐에 포함 된 데이터를 읽거나 쓰거나 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
 
 큐의 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 [OAuth 토큰을 사용 하 여 저장소 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조 하세요.
 

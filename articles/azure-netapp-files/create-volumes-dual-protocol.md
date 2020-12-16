@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: b-juche
-ms.openlocfilehash: ee5e1230acd059d69648144b84a8fbfa652ef6e7
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ceaf0209dd14c8d97088d7f8e8e6990429607089
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854056"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591825"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -49,8 +49,8 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
     
     | 보안 스타일    | 사용 권한을 수정할 수 있는 클라이언트   | 클라이언트에서 사용할 수 있는 사용 권한  | 결과 유효 보안 스타일    | 파일에 액세스할 수 있는 클라이언트     |
     |-  |-  |-  |-  |-  |
-    | UNIX  | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
-    | NTFS  | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
+    | `Unix`    | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
+    | `Ntfs`    | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
 * NFS를 사용 하 여 NTFS 보안 스타일 볼륨을 탑재 하는 UNIX 사용자는 `root` unix `root` 및 `pcuser` 기타 모든 사용자로 인증 됩니다. NFS를 사용 하는 경우 볼륨을 탑재 하기 전에 Active Directory에 이러한 사용자 계정이 존재 하는지 확인 합니다. 
 
 

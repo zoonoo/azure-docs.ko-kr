@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518688"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591198"
 ---
 # <a name="msix-app-attach-faq"></a>MSIX 앱 연결 FAQ
 
@@ -27,7 +27,7 @@ MSIX은 앱에 대 한 패키징 형식이 고, MSIX 앱 연결은 배포에 MSI
 
 MSIX 앱 연결에서는 FSLogix를 사용 하지 않습니다. 그러나 MSIX 앱 연결 및 FSLogix는 원활한 사용자 환경을 제공 하기 위해 함께 작동 하도록 설계 되었습니다.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Windows 가상 데스크톱 외부에서 MSIX 앱 연결을 사용할 수 있나요?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>Windows 가상 데스크톱 외부에서 MSIX 앱 연결을 사용할 수 있나요?
 
 Windows 10 Enterprise에서 power MSIX 앱을 연결 하는 Api를 사용할 수 있습니다. 이러한 Api는 Windows 가상 데스크톱 외부에서 사용할 수 있습니다. 그러나 Windows 가상 데스크톱 외부에서 MSIX 앱 연결에 대 한 관리 평면이 없습니다.
 

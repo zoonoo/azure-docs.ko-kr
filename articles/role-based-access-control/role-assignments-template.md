@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9bdd70baa906d9dc03a37eecb0388eee5638f153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e05ecd162ccb333c6ab29b0185f6ffcb04a6213
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184283"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591364"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가
 
@@ -109,14 +109,14 @@ Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가
 }
 ```
 
-ExampleGroup이라는 리소스 그룹에서 배포를 시작하는 방법에 대한 예제 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령은 다음과 같습니다.
+다음은 ExampleGroup 이라는 리소스 그룹에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) 명령 예제입니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
 다음에서는 템플릿을 배포한 후 리소스 그룹에 대한 읽기 권한자 역할을 사용자에게 할당하는 예를 보여 줍니다.
@@ -187,24 +187,24 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 > [!NOTE]
 > 동일한 `roleNameGuid` 값이 템플릿의 각 배포에 대한 매개 변수로 제공되지 않는 한, 이 템플릿은 idempotent가 아닙니다. `roleNameGuid`를 제공하지 않으면 기본적으로 각 배포에 새 GUID가 생성되고 후속 배포는 `Conflict: RoleAssignmentExists` 오류로 인해 실패합니다.
 
-역할 할당의 범위는 배포 수준에서 결정됩니다. 리소스 그룹 범위에서 배포를 시작하는 방법에 대한 예제 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령은 다음과 같습니다.
+역할 할당의 범위는 배포 수준에서 결정됩니다. 다음은 리소스 그룹 범위에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az deployment group 만들기](/cli/azure/deployment/group#az_deployment_group_create) 명령 예제입니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-구독 범위에서 배포를 시작하고 위치를 지정하는 방법에 대한 예제 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) 및 [az deployment create](/cli/azure/deployment#az-deployment-create) 명령은 다음과 같습니다.
+다음은 구독 범위에서 배포를 시작 하 고 위치를 지정 하는 방법에 대 한 [AzDeployment](/powershell/module/az.resources/new-azdeployment) 및 [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create) 명령의 예입니다.
 
 ```azurepowershell
 New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+az deployment sub create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 ### <a name="resource-scope"></a>리소스 범위
@@ -290,14 +290,14 @@ az deployment create --location centralus --template-file rbac-test.json --param
 }
 ```
 
-이전 템플릿을 배포하려면 리소스 그룹 명령을 사용합니다. 리소스 범위에서 배포를 시작하는 방법에 대한 예제 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령은 다음과 같습니다.
+이전 템플릿을 배포하려면 리소스 그룹 명령을 사용합니다. 다음은 리소스 범위에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) 명령 예제입니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
+az deployment group create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 다음에서는 템플릿을 배포한 후 스토리지 계정에 대한 기여자 역할을 사용자에게 할당하는 예를 보여 줍니다.
@@ -360,14 +360,14 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 }
 ```
 
-리소스 그룹 범위에서 배포를 시작하는 방법에 대한 예제 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령은 다음과 같습니다.
+다음은 리소스 그룹 범위에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az deployment group 만들기](/cli/azure/deployment/group#az_deployment_group_create) 명령 예제입니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
+az deployment group create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
 다음에서는 템플릿을 배포한 후 새 관리 ID 서비스 주체에 기여자 역할을 할당하는 예를 보여 줍니다.
@@ -385,7 +385,7 @@ Azure RBAC에서 Azure 리소스에 대한 액세스를 제거하려면 역할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)
+- [빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
+- [ARM 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)
 - [구독 수준에서 리소스 그룹 및 리소스 만들기](../azure-resource-manager/templates/deploy-to-subscription.md)
 - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=rbac)

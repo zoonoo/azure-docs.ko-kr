@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e31c18338243f9405a071b8fa544fe44044be
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 734d37af58290201b415f1a4b7c8ff7553187550
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903159"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591262"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -159,6 +159,8 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 **제품 기능:** 모니터링 및 보고
  
 로그인 진단의 초기 미리 보기 릴리스에서는 이제 관리자가 사용자 로그인을 검토할 수 있습니다. 관리자는 로그인 중에 발생 하는 작업과 문제를 해결 하는 방법에 대 한 상황에 맞는 특정 세부 정보 및 지침을 받을 수 있습니다. 이 진단은 Azure AD 수준 및 조건부 액세스 진단 및 분석 블레이드에서 모두 사용할 수 있습니다. 이 릴리스에 포함 된 진단 시나리오는 조건부 액세스, Multi-Factor Authentication 및 성공한 로그인입니다.
+
+자세한 내용은 [AZURE AD의 로그인 진단 이란?](../reports-monitoring/overview-sign-in-diagnostics.md)을 참조 하세요.
  
 ---
 
@@ -511,7 +513,7 @@ Azure AD Connect 클라우드 프로 비전 공개 미리 보기 새로 고침 �
 
 - Azure Portal를 통한 특성 매핑 환경
 
-    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세히 알아보기](../cloud-provisioning/how-to-attribute-mapping.md)
+    IT 관리자는이 기능을 통해 현재 제공 되는 다양 한 매핑 유형을 사용 하 여 AD의 사용자, 그룹 또는 연락처 특성을 Azure AD에 매핑할 수 있습니다. 특성 매핑은 Active Directory에서 Azure Active Directory로 전달 되는 특성의 값을 표준화 하는 데 사용 되는 기능입니다. AD에서 Azure AD로 특성 값을 직접 매핑할지 또는 식을 사용 하 여 사용자를 프로 비전 할 때 특성 값을 변환할 수 있는지 여부를 결정할 수 있습니다. [자세한 정보](../cloud-provisioning/how-to-attribute-mapping.md)
 
 - 주문형 프로 비전 또는 테스트 사용자 환경
 

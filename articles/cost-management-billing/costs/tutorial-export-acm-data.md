@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 32989b4d5c595416f82fc9d3f1cec2eddec1d6ee
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e3c1fa071cd23b871f754e89d6f17eb2cc44b394
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929262"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400355"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -153,7 +153,7 @@ Azure PowerShell에 대한 환경을 준비하는 것으로 시작합니다.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
 
-* > [!IMPORTANT]
+  > [!IMPORTANT]
   > **Az.CostManagement** PowerShell 모듈이 미리 보기로 제공되는 동안에는 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일반 공급되면 이후 Az PowerShell 모듈 릴리스의 일부가 되며 기본적으로 Azure Cloud Shell 내에서 사용할 수 있습니다.
 
   ```azurepowershell-interactive

@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792534"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590854"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL Managed Instance에 대 한 루트 CA 변경 내용 이해
 
@@ -72,7 +72,7 @@ SSL/TLS를 사용 하지 않는 경우에는 이러한 변경에 대 한 작업�
 ### <a name="how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>Microsoft에서 인증서를 업데이트 하는 빈도 또는 만료 정책 이란?
 Azure SQL Database & SQL Managed Instance에서 사용 하는 이러한 인증서는 신뢰할 수 있는 CA (인증 기관)에서 제공 합니다. 따라서 Azure SQL Database & SQL Managed Instance에서 이러한 인증서를 지 원하는 것은 CA에서 이러한 인증서를 지 원하는 것과 관련이 있습니다. 그러나이 경우에는 미리 정의 된 이러한 인증서에 예측할 수 없는 버그가 있을 수 있으며,이는 초기에 수정 해야 합니다.
 
-### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>읽기 복제본을 사용 하는 경우 마스터 서버 또는 모든 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
+### <a name="if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-primary-server-or-all-the-read-replicas"></a>읽기 복제본을 사용 하는 경우 주 서버 또는 모든 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
 이 업데이트는 클라이언트 쪽 변경 이기 때문에 클라이언트가 복제본 서버에서 데이터를 읽는 데 사용 되는 경우에도 해당 클라이언트에 대 한 변경 내용을 적용 해야 합니다. 
 
 ### <a name="do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>SSL이 사용 되 고 있는지 확인 하는 서버 쪽 쿼리가 있나요?

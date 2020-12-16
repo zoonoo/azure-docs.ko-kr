@@ -1,16 +1,16 @@
 ---
 title: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 description: 이 문서에서는 Azure Automation의 특정 기능과 관련이 있으므로 Automation 계정과 Log Analytics 작업 영역 간에 지원 되는 지역 매핑을 설명 합니다.
-ms.date: 12/01/2020
+ms.date: 12/15/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 25ddf562f92ca96a505432a58f137657a2bbc4bd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446968"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590888"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 
@@ -44,12 +44,16 @@ Azure Automation에서 서버 및 가상 컴퓨터에 대 한 업데이트 관�
 |ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**유럽**||
+|NorthEurope|NorthEurope|
+|FranceCentral|FranceCentral|
 |UKSouth|UKSouth|
 |WestEurope|WestEurope|
 |SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>3</sup>|USGovArizona|
+
+
 
 <sup>1</sup> Automation 계정에 대한 Log Analytics 작업 영역의 EastUS 매핑은 정확한 지역 간 매핑이 아니라 올바른 매핑입니다.
 

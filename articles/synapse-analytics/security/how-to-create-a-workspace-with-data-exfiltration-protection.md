@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8f11f104e8d3d0a4f3a004ebe9f149cb4132d910
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501489"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590563"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>데이터 반출 보호를 사용 하는 작업 영역 만들기
 이 문서에서는 데이터 반출 보호를 사용 하도록 설정 된 작업 영역을 만드는 방법과이 작업 영역에 대해 승인 된 Azure AD 테 넌 트를 관리 하는 방법을 설명 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "96501489"
 >[!Note]
 >작업 영역을 만든 후에는 관리 되는 가상 네트워크 및 데이터 반출 보호에 대 한 작업 영역 구성을 변경할 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - Azure에서 작업 영역 리소스를 만들 수 있는 권한.
 - 관리 되는 개인 끝점을 만들 수 있는 작업 영역 권한을 Synapse 합니다.
 - 네트워킹 리소스 공급자에 등록 된 구독입니다. [자세한 정보](../../azure-resource-manager/management/resource-providers-and-types.md)
@@ -33,7 +33,7 @@ ms.locfileid: "96501489"
 1. "승인 된 대상에 대 한 아웃 바운드 데이터 트래픽만 허용" 옵션에 대해 "예"를 선택 합니다.
 1. 이 작업 영역에 대해 승인 된 Azure AD 테 넌 트를 선택 합니다.
 1. 구성을 검토 하 고 작업 영역을 만듭니다.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="데이터 반출 보호를 사용 하 여 작업 영역 만들기":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="' 가상 네트워크 관리 사용 '이 선택 된 Create Synapse 작업 영역을 보여 주는 스크린샷":::
 
 ## <a name="manage-approved-azure-active-directory-tenants-for-the-workspace"></a>작업 영역에 대해 승인 된 Azure Active Directory 테 넌 트 관리
 1. 작업 영역의 Azure Portal에서 "승인 된 Azure AD 테 넌 트"로 이동 합니다. 작업 영역에 대해 승인 된 Azure AD 테 넌 트 목록이 여기에 나열 됩니다. 작업 영역의 테 넌 트는 기본적으로 포함 되어 있으며 나열 되지 않습니다.

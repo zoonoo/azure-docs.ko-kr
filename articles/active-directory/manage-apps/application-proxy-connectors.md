@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8086bd2a193ac52e76bf8da245063163ab2ea2f9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658267"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591058"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -37,7 +37,7 @@ ms.locfileid: "94658267"
 Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 프록시 커넥터를 설치해야 합니다. 서버에서 TLS 1.2을 사용 하도록 설정 하려면 다음을 수행 합니다.
 
 1. 다음 레지스트리 키를 설정합니다.
-    
+
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001

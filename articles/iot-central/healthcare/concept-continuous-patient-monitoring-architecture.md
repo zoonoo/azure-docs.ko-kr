@@ -3,17 +3,17 @@ title: Azure IoT Central의 지속적인 환자 모니터링 아키텍처 | Micr
 description: 자습서 - 지속적인 환자 모니터링 솔루션 아키텍처에 대해 알아봅니다.
 author: philmea
 ms.author: philmea
-ms.date: 09/14/2020
+ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dad6327acd24fe7642bf1033b1527ef3e40b772e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122154"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590106"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>환자 연속 모니터링 아키텍처
 

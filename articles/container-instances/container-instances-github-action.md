@@ -4,12 +4,12 @@ description: 컨테이너 이미지를 빌드, 푸시 및 배포 하기 위한 �
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 0068b9869e5ef7a3b6c0fd21c1b69cdae1d4ab4b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 270aa69e74045a48a3567ca74b722ca48a030654
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454822"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591636"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "96454822"
 > [!IMPORTANT]
 > Azure Container Instances에 대 한 GitHub 동작은 현재 미리 보기 상태입니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **GitHub 계정** -아직 계정이 없는 경우에 계정을 만듭니다 https://github.com .
 * **Azure CLI** -Azure CLI의 Azure Cloud Shell 또는 로컬 설치를 사용 하 여 Azure CLI 단계를 완료할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
@@ -141,7 +141,7 @@ jobs:
         steps:
         # checkout the repo
         - name: 'Checkout GitHub Action'
-          uses: actions/checkout@master
+          uses: actions/checkout@main
           
         - name: 'Login via Azure CLI'
           uses: azure/login@v1

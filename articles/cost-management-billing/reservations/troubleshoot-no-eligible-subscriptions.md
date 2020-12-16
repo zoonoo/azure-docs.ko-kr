@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 12/15/2020
+ms.openlocfilehash: ad85bd278b5dff1532f218acc0b8e88515d96070
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887198"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561208"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>적격 구독 없음 문제 해결
 
@@ -94,8 +94,8 @@ You can only purchase reservations using subscriptions on which you have owner o
 1. 소유자로 추가할 사용자의 메일 주소를 입력합니다.
 1. 사용자를 선택한 다음 **저장** 을 선택합니다.
 
-자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요.
+자세한 내용은 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 예약 소유자에게 액세스 권한을 부여해야 하는 경우 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 검토합니다.
+- 예약 소유자에게 액세스 권한을 부여해야 하는 경우 [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default)을 검토합니다.

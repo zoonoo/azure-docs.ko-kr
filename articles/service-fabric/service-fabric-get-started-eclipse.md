@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
-ms.openlocfilehash: 004fb022847432a9739e79f7063b80636f8dcf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94f43b74edf5da18acd7e67417f3b7e10a07d5d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374238"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590871"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 애플리케이션을 만들며 Service Fabric 애플리케이션을 Eclipse의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다. 
@@ -31,25 +31,25 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. 
 
 [Eclipse 사이트](https://www.eclipse.org)에서 Eclipse Neon 이상을 설치합니다.  또한 Buildship의 버전 2.2.1 이상을 설치합니다(Service Fabric 플러그 인은 이전 버전의 Buildship과 호환되지 않음).
--   설치 된 구성 요소의 버전을 확인 하려면 eclipse에서 **도움말**  >  **eclipse**  >  **설치 세부 정보**로 이동 합니다.
+-   설치 된 구성 요소의 버전을 확인 하려면 eclipse에서 **도움말**  >  **eclipse**  >  **설치 세부 정보** 로 이동 합니다.
 -   Buildship을 업데이트하려면 [Eclipse Buildship: Gradle용 Eclipse 플러그 인][buildship-update]을 참조하세요.
--   Eclipse 용 업데이트를 확인 하 고 설치 하려면 **도움말**  >  **업데이트 확인**으로 이동 합니다.
+-   Eclipse 용 업데이트를 확인 하 고 설치 하려면 **도움말**  >  **업데이트 확인** 으로 이동 합니다.
 
-Service Fabric 플러그 인을 설치 하 고 Eclipse에서 **도움말**  >  **새 소프트웨어 설치**로 이동 합니다.
+Service Fabric 플러그 인을 설치 하 고 Eclipse에서 **도움말**  >  **새 소프트웨어 설치** 로 이동 합니다.
 1. **작업** 위치 상자에 https: \/ /dl.microsoft.com/eclipse를 입력 합니다.
-2. **추가**를 클릭합니다.
+2. **추가** 를 클릭합니다.
 
    ![Eclipse용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
-3. Service Fabric 플러그 인을 선택한 다음 **다음**을 클릭합니다.
+3. Service Fabric 플러그 인을 선택한 다음 **다음** 을 클릭합니다.
 4. 설치 단계를 완료한 다음 Microsoft 소프트웨어 사용 조건에 동의합니다.
-  
+
 Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치합니다. 
-1. 사용 가능한 업데이트를 확인 하려면 **도움말**  >  **Eclipse**  >  **설치 정보**로 이동 합니다. 
-2. 설치된 플러그 인 목록에서 Service Fabric을 선택하고 **업데이트**를 클릭합니다. 사용 가능한 업데이트가 설치됩니다.
-3. Service Fabric 플러그 인을 업데이트한 후 Gradle 프로젝트를 새로 고칩니다.  마우스 오른쪽 단추로 **build.gradle**을 클릭한 다음, **새로 고침**을 선택합니다.
+1. 사용 가능한 업데이트를 확인 하려면 **도움말**  >  **Eclipse**  >  **설치 정보** 로 이동 합니다. 
+2. 설치된 플러그 인 목록에서 Service Fabric을 선택하고 **업데이트** 를 클릭합니다. 사용 가능한 업데이트가 설치됩니다.
+3. Service Fabric 플러그 인을 업데이트한 후 Gradle 프로젝트를 새로 고칩니다.  마우스 오른쪽 단추로 **build.gradle** 을 클릭한 다음, **새로 고침** 을 선택합니다.
 
 > [!NOTE]
-> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치 (https:/dl.microsoft.com/eclipse/azure/servicefabric)를 가리키는 확인란을 제외 하 고 모든 사이트에 대 한 확인란의 선택을 취소 \/ 합니다.
+> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트** 로 이동합니다. Service Fabric 플러그 인 위치 (https:/dl.microsoft.com/eclipse/azure/servicefabric)를 가리키는 확인란을 제외 하 고 모든 사이트에 대 한 확인란의 선택을 취소 \/ 합니다.
 
 > [!NOTE]
 >Eclipse가 Mac에서 예상대로 작동하지 않는 경우 또는 슈퍼 사용자로 실행해야 하는 경우 **ECLIPSE_INSTALLATION_PATH** 폴더로 이동하고 **Eclipse.app/Contents/MacOS** 하위 폴더를 탐색합니다. `./eclipse`를 실행하여 Eclipse를 시작합니다.
@@ -57,23 +57,23 @@ Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치�
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 애플리케이션 만들기
 
-1.  Eclipse에서 **파일**  >  **새로 만들기**  >  **기타**로 이동 합니다. **Service Fabric 프로젝트**를 선택하고 **다음**을 클릭합니다.
+1.  Eclipse에서 **파일**  >  **새로 만들기**  >  **기타** 로 이동 합니다. **Service Fabric 프로젝트** 를 선택하고 **다음** 을 클릭합니다.
 
     ![Service Fabric 새 프로젝트 페이지 1][create-application/p1]
 
-2.  프로젝트의 이름을 입력하고 **다음**을 클릭합니다.
+2.  프로젝트의 이름을 입력하고 **다음** 을 클릭합니다.
 
     ![Service Fabric 새 프로젝트 페이지 2][create-application/p2]
 
-3.  템플릿 목록에서 **서비스 템플릿**을 선택합니다. 서비스 템플릿 유형(행위자, 상태 비저장, 컨테이너 또는 게스트 이진 파일)을 선택한 다음 **다음**을 클릭합니다.
+3.  템플릿 목록에서 **서비스 템플릿** 을 선택합니다. 서비스 템플릿 유형(행위자, 상태 비저장, 컨테이너 또는 게스트 이진 파일)을 선택한 다음 **다음** 을 클릭합니다.
 
     ![Service Fabric 새 프로젝트 페이지 3][create-application/p3]
 
-4.  서비스 이름 및 서비스 세부 정보를 입력한 다음 **마침**을 클릭합니다.
+4.  서비스 이름 및 서비스 세부 정보를 입력한 다음 **마침** 을 클릭합니다.
 
     ![Service Fabric 새 프로젝트 페이지 4][create-application/p4]
 
-5. 첫 번째 Service Fabric 프로젝트를 만들 경우 **연결된 큐브 뷰 열기** 대화 상자에서 **예**를 클릭합니다.
+5. 첫 번째 Service Fabric 프로젝트를 만들 경우 **연결된 큐브 뷰 열기** 대화 상자에서 **예** 를 클릭합니다.
 
     ![Service Fabric 새 프로젝트 페이지 5][create-application/p5]
 
@@ -83,25 +83,25 @@ Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치�
 
 ## <a name="build-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 애플리케이션 빌드
 
-1.  새 Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음 **Service Fabric**을 선택합니다.
+1.  새 Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭한 다음 **Service Fabric** 을 선택합니다.
 
     ![Service Fabric 마우스 오른쪽 클릭 메뉴][publish/RightClick]
 
 2. 팝업 메뉴에서 다음 옵션 중 하나를 선택합니다.
-    -   정리하지 않고 애플리케이션을 빌드하려면 **애플리케이션 빌드**를 클릭합니다.
-    -   애플리케이션의 정리-빌드를 수행하려면 **애플리케이션 다시 빌드**를 클릭합니다.
-    -   빌드한 아티팩트의 애플리케이션을 정리하려면 **애플리케이션 정리**를 클릭합니다.
-     
+    -   정리하지 않고 애플리케이션을 빌드하려면 **애플리케이션 빌드** 를 클릭합니다.
+    -   애플리케이션의 정리-빌드를 수행하려면 **애플리케이션 다시 빌드** 를 클릭합니다.
+    -   빌드한 아티팩트의 애플리케이션을 정리하려면 **애플리케이션 정리** 를 클릭합니다.
+
 ## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Eclipse를 사용하여 로컬 클러스터에 Service Fabric 애플리케이션 배포
 
 Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라 로컬 클러스터에 배포합니다.
 
 1. 로컬 클러스터를 시작하지 않은 경우 [로컬 클러스터 설정](./service-fabric-get-started-linux.md#set-up-a-local-cluster)의 지침에 따라 로컬 클러스터를 시작하고 실행합니다.
-2. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric**을 선택합니다.
+2. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 을 선택합니다.
 
     ![Service Fabric 마우스 오른쪽 클릭 메뉴][publish/RightClick]
 
-3.  팝업 메뉴에서 **애플리케이션 배포**를 클릭합니다.
+3.  팝업 메뉴에서 **애플리케이션 배포** 를 클릭합니다.
 4.  콘솔 창에서 배포 작업의 진행률을 확인할 수 있습니다.
 5.  애플리케이션이 실행되고 있는지 확인하려면 브라우저 창 `http://localhost:19080/Explorer`의 로컬 클러스터에서 Service Fabric Explorer를 엽니다. **애플리케이션** 노드를 확장하고 애플리케이션이 실행 중인지 확인합니다. 
 
@@ -109,9 +109,9 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 
 또한 **애플리케이션 게시** 명령을 사용하여 애플리케이션을 로컬 클러스터에 배포할 수도 있습니다.
 
-1. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric**을 선택합니다.
+1. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 을 선택합니다.
 2. 팝업 메뉴에서 **애플리케이션 게시...** 를 클릭합니다.
-3. **애플리케이션 게시** 창에서 **PublishProfiles/Local.json**을 대상 프로필로 선택하고 **게시**를 클릭합니다.
+3. **애플리케이션 게시** 창에서 **PublishProfiles/Local.json** 을 대상 프로필로 선택하고 **게시** 를 클릭합니다.
 
     ![Publish Dialog Local](./media/service-fabric-get-started-eclipse/localjson.png)
 
@@ -148,9 +148,9 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
      }
      ```
 
-2. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric**을 선택합니다.
+2. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 을 선택합니다.
 3. 팝업 메뉴에서 **애플리케이션 게시...** 를 클릭합니다.
-3. **애플리케이션 게시** 창에서 **PublishProfiles/Cloud.json**을 대상 프로필로 선택하고 **게시**를 클릭합니다.
+3. **애플리케이션 게시** 창에서 **PublishProfiles/Cloud.json** 을 대상 프로필로 선택하고 **게시** 를 클릭합니다.
 
     ![Publish Dialog Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
@@ -166,14 +166,14 @@ Java로 작성 된 Service Fabric Reliable Services 응용 프로그램을 보�
 
 Service Fabric 애플리케이션을 배포할 수 있는 다른 방법은 Eclipse 실행 구성을 사용하는 것입니다.
 
-1. Eclipse **에서 실행**  >  **실행 구성**으로 이동 합니다.
+1. Eclipse **에서 실행**  >  **실행 구성** 으로 이동 합니다.
 2. **등급 프로젝트** 아래에서 **ServiceFabricDeployer** 실행 구성을 선택합니다.
 3. 오른쪽 창의 **인수** 탭에서 **ip**, **포트**, **clientCert** 및 **clientKey** 매개 변수를 배포에 맞게 적절하게 설정합니다. 기본적으로 매개 변수는 다음 스크린샷처럼 로컬 클러스터에 배포하도록 설정됩니다. 앱을 Azure에 게시하려면 Azure 클러스터에 대한 엔드포인트 세부 정보 및 보안 자격 증명을 포함하도록 매개 변수를 수정하면 됩니다. 자세한 내용은 이전 섹션 [Eclipse를 사용하여 Azure에 Service Fabric 애플리케이션 게시](#publish-your-service-fabric-application-to-azure-with-eclipse)를 참조하세요.
 
     ![실행 구성 대화 상자 로컬](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
-5. **작업 디렉터리**가 배포하려는 애플리케이션을 가리키는지 확인합니다. 애플리케이션을 변경하려면 **작업 영역** 단추를 클릭한 다음 원하는 애플리케이션을 선택합니다.
-6. **적용**을 클릭한 다음 **실행**을 클릭합니다.
+5. **작업 디렉터리** 가 배포하려는 애플리케이션을 가리키는지 확인합니다. 애플리케이션을 변경하려면 **작업 영역** 단추를 클릭한 다음 원하는 애플리케이션을 선택합니다.
+6. **적용** 을 클릭한 다음 **실행** 을 클릭합니다.
 
 몇 분 내로 애플리케이션을 빌드하고 배포합니다. Service Fabric Explorer에서 배포 상태를 모니터링할 수 있습니다.  
 
@@ -181,12 +181,12 @@ Service Fabric 애플리케이션을 배포할 수 있는 다른 방법은 Eclip
 
 Service Fabric 서비스를 기존 Service Fabric 애플리케이션에 추가하려면 다음 단계에 따릅니다.
 
-1.  서비스를 추가하려는 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Service Fabric**을 클릭합니다.
+1.  서비스를 추가하려는 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Service Fabric** 을 클릭합니다.
 
     ![Service Fabric 서비스 추가 페이지 1][add-service/p1]
 
-2.  **Service Fabric 서비스 추가**를 클릭하고 서비스 프로젝트에 추가하는 일련의 단계를 완료합니다.
-3.  프로젝트에 추가할 서비스 템플릿을 선택한 다음 **다음**을 클릭합니다.
+2.  **Service Fabric 서비스 추가** 를 클릭하고 서비스 프로젝트에 추가하는 일련의 단계를 완료합니다.
+3.  프로젝트에 추가할 서비스 템플릿을 선택한 다음 **다음** 을 클릭합니다.
 
     ![Service Fabric 서비스 추가 페이지 2][add-service/p2]
 
@@ -200,21 +200,21 @@ Service Fabric 서비스를 기존 Service Fabric 애플리케이션에 추가�
 
 ## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Service Fabric Java 애플리케이션의 매니페스트 버전 편집
 
-매니페스트 버전을 편집하려면 프로젝트를 클릭하고 **Service Fabric**으로 이동하여 드롭다운 메뉴에서 **매니페스트 버전 편집...** 을 선택합니다. 마법사에서 애플리케이션 매니페스트, 서비스 매니페스트의 매니페스트 버전 및 **코드**, **구성** 및 **데이터** 패키지의 버전을 업데이트할 수 있습니다.
+매니페스트 버전을 편집하려면 프로젝트를 클릭하고 **Service Fabric** 으로 이동하여 드롭다운 메뉴에서 **매니페스트 버전 편집...** 을 선택합니다. 마법사에서 애플리케이션 매니페스트, 서비스 매니페스트의 매니페스트 버전 및 **코드**, **구성** 및 **데이터** 패키지의 버전을 업데이트할 수 있습니다.
 
-**애플리케이션 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침**을 클릭하면 서비스 매니페스트 버전 및 애플리케이션 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
+**애플리케이션 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침** 을 클릭하면 서비스 매니페스트 버전 및 애플리케이션 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java 애플리케이션 업그레이드
 
-업그레이드 시나리오의 경우 Eclipse에서 Service Fabric 플러그 인을 사용하여 **App1** 프로젝트를 만들었다고 가정합니다. **fabric:/App1Application**라는 애플리케이션을 만드는 플러그 인을 사용하여 배포합니다. 애플리케이션 유형은 **App1ApplicationType**이고, 애플리케이션 버전은 1.0입니다. 이제 가용성을 해치지 않고 애플리케이션을 업그레이드하려고 합니다.
+업그레이드 시나리오의 경우 Eclipse에서 Service Fabric 플러그 인을 사용하여 **App1** 프로젝트를 만들었다고 가정합니다. **fabric:/App1Application** 라는 애플리케이션을 만드는 플러그 인을 사용하여 배포합니다. 애플리케이션 유형은 **App1ApplicationType** 이고, 애플리케이션 버전은 1.0입니다. 이제 가용성을 해치지 않고 애플리케이션을 업그레이드하려고 합니다.
 
 먼저 애플리케이션을 변경하고 수정된 서비스를 다시 빌드합니다. 수정된 서비스의 매니페스트 파일(ServiceManifest.xml)을 업데이트된 버전의 서비스(및 관련된 코드, 구성 또는 데이터)로 업데이트합니다. 또한 애플리케이션의 매니페스트(ApplicationManifest.xml)를 애플리케이션에 대한 업데이트된 버전 번호와 수정된 서비스로 수정합니다.  
 
 Eclipse를 사용하여 애플리케이션을 업그레이드하려면 중복 실행 구성 프로필을 만들 수 있습니다. 그런 다음 필요에 따라 애플리케이션을 업그레이드하는 데 사용합니다.
 
-1.  **실행**  >  **실행 구성**으로 이동 합니다. 왼쪽 창에서 **등급 프로젝트**의 왼쪽에 있는 작은 화살표를 클릭합니다.
-2.  **ServiceFabricDeployer**를 마우스 오른쪽 단추로 클릭하고 **중복**을 선택합니다. 예를 들어 **ServiceFabricUpgrader**와 같이 이 구성의 새 이름을 입력합니다.
-3.  오른쪽 패널의 **인수** 탭에서 **-Pconfig='deploy'** 를 **-Pconfig='upgrade'** 로 변경한 다음 **적용**을 클릭합니다.
+1.  **실행**  >  **실행 구성** 으로 이동 합니다. 왼쪽 창에서 **등급 프로젝트** 의 왼쪽에 있는 작은 화살표를 클릭합니다.
+2.  **ServiceFabricDeployer** 를 마우스 오른쪽 단추로 클릭하고 **중복** 을 선택합니다. 예를 들어 **ServiceFabricUpgrader** 와 같이 이 구성의 새 이름을 입력합니다.
+3.  오른쪽 패널의 **인수** 탭에서 **-Pconfig='deploy'** 를 **-Pconfig='upgrade'** 로 변경한 다음 **적용** 을 클릭합니다.
 
 이 프로세스는 애플리케이션을 업그레이드하기 위해 언제든지 사용할 수 있는 실행 구성 프로필을 만들고 저장합니다. 그러면 애플리케이션 매니페스트 파일에서 최신 업데이트된 애플리케이션 유형 버전을 가져옵니다.
 

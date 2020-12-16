@@ -2,21 +2,21 @@
 title: Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 titleSuffix: Azure Storage
 description: Azure Portal를 사용 하 여 큐 데이터에 액세스 하는 경우 포털은 내부적으로 Azure Storage에 대 한 요청을 수행 합니다. 이러한 Azure Storage에 대 한 요청은 Azure AD 계정 또는 저장소 계정 액세스 키를 사용 하 여 인증 하 고 권한을 부여할 수 있습니다.
-services: storage
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/08/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozguns
+ms.date: 09/08/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 68ac9cd5e89617a820cba9a1d6c61890e50a56a7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 504d2eb939758e6045a2af095c66093c8754cb94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031745"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590752"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
@@ -28,22 +28,22 @@ Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하려는
 
 ### <a name="use-the-account-access-key"></a>계정 액세스 키 사용
 
-계정 액세스 키를 사용 하 여 큐 데이터에 액세스 하려면 Azure RBAC 동작 **Microsoft. Storage/storageAccounts/listkeys/action** 을 포함 하는 azure 역할을 할당 받아야 합니다. 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. **Microsoft. Storage/storageAccounts/listkeys/action** 을 지 원하는 기본 제공 역할은 다음과 같습니다.
+계정 액세스 키를 사용 하 여 큐 데이터에 액세스 하려면 Azure RBAC 작업을 포함 하는 Azure 역할을 사용자에 게 할당 해야 합니다 `Microsoft.Storage/storageAccounts/listkeys/action` . 이 Azure 역할은 기본 제공 또는 사용자 지정 역할 일 수 있습니다. 을 지 원하는 기본 제공 역할은 `Microsoft.Storage/storageAccounts/listkeys/action` 다음과 같습니다.
 
-- Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
-- Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
-- [저장소 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
+- Azure Resource Manager [소유자 역할](../../role-based-access-control/built-in-roles.md#owner)
+- Azure Resource Manager [참가자 역할](../../role-based-access-control/built-in-roles.md#contributor)
+- [저장소 계정 기여자 역할](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Azure Portal에서 큐 데이터에 액세스 하려고 하면 포털은 먼저 **Microsoft. Storage/storageAccounts/listkeys/action** 을 사용 하 여 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할이 할당 된 경우 포털은 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업을 사용 하 여 역할을 할당 하지 않은 경우 포털은 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
+Azure Portal에서 큐 데이터에 액세스 하려고 하면 포털에서 먼저를 사용 하 여 역할이 할당 되었는지 여부를 확인 `Microsoft.Storage/storageAccounts/listkeys/action` 합니다. 이 작업을 사용 하 여 역할이 할당 된 경우 포털은 큐 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업을 사용 하 여 역할을 할당 하지 않은 경우 포털은 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
 
 > [!NOTE]
-> 클래식 구독 관리자 역할 서비스 관리자 및 Co-Administrator에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당 하는 항목이 포함 됩니다. **Owner** 역할은 **Microsoft. Storage/storageaccounts/listkeys/action** 을 비롯 한 모든 동작을 포함 하므로 이러한 관리 역할 중 하나가 있는 사용자는 계정 키를 사용 하 여 큐 데이터에 액세스할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
+> 클래식 구독 관리자 역할 **서비스 관리자** 와 **공동 관리자** 는 Azure Resource Manager 역할에 해당 하는 항목을 포함 합니다 [`Owner`](../../role-based-access-control/built-in-roles.md#owner) . **소유자** 역할은를 비롯 한 모든 동작을 포함 `Microsoft.Storage/storageAccounts/listkeys/action` 하므로 이러한 관리 역할 중 하나가 있는 사용자는 계정 키를 사용 하 여 큐 데이터에 액세스할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
 
 ### <a name="use-your-azure-ad-account"></a>Azure AD 계정 사용
 
 Azure AD 계정을 사용 하 여 Azure Portal에서 큐 데이터에 액세스 하려면 다음 두 문이 모두 true 여야 합니다.
 
-- 최소한 저장소 계정 수준으로 범위가 지정 된 Azure Resource Manager [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할이 할당 되었습니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다.
+- [`Reader`](../../role-based-access-control/built-in-roles.md#reader)최소한 저장소 계정 수준으로 범위가 지정 된 Azure Resource Manager 역할이 할당 되었습니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다.
 - 큐 데이터에 대 한 액세스를 제공 하는 기본 제공 또는 사용자 지정 역할이 할당 되었습니다.
 
 사용자가 Azure Portal에서 저장소 계정 관리 리소스를 보고 탐색할 수 있도록 **읽기** 역할 할당 또는 다른 Azure Resource Manager 역할 할당이 필요 합니다. 큐 데이터에 대 한 액세스 권한을 부여 하는 Azure 역할은 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하지 않습니다. 포털에서 큐 데이터에 액세스 하려면 저장소 계정 리소스를 탐색할 수 있는 권한이 사용자에 게 필요 합니다. 이 요구 사항에 대 한 자세한 내용은 [포털 액세스를 위한 읽기 권한자 역할 할당](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access)을 참조 하세요.
@@ -58,7 +58,7 @@ Azure AD 계정을 사용 하 여 Azure Portal에서 큐 데이터에 액세스 
 클래식 구독 관리자 역할을 사용 하 여 큐를 나열 하는 것은 지원 되지 않습니다. 큐를 나열 하려면 사용자가 Azure Resource Manager **읽기 권한자** 역할, **저장소 큐 데이터 판독기** 역할 또는 **저장소 큐 데이터 참가자** 역할에 할당 되어 있어야 합니다.
 
 > [!IMPORTANT]
-> Azure Portal Storage 탐색기의 미리 보기 버전은 Azure AD 자격 증명을 사용 하 여 큐 데이터를 확인 하 고 수정 하는 기능을 지원 하지 않습니다. Azure Portal Storage 탐색기는 항상 계정 키를 사용 하 여 데이터에 액세스 합니다. Azure Portal에서 Storage 탐색기를 사용 하려면 **Microsoft. Storage/storageAccounts/listkeys/action** 이 포함 된 역할이 할당 되어야 합니다.
+> Azure Portal Storage 탐색기의 미리 보기 버전은 Azure AD 자격 증명을 사용 하 여 큐 데이터를 확인 하 고 수정 하는 기능을 지원 하지 않습니다. Azure Portal Storage 탐색기는 항상 계정 키를 사용 하 여 데이터에 액세스 합니다. Azure Portal에서 Storage 탐색기를 사용 하려면를 포함 하는 역할이 할당 되어야 합니다 `Microsoft.Storage/storageAccounts/listkeys/action` .
 
 ## <a name="navigate-to-queues-in-the-azure-portal"></a>Azure Portal 큐로 이동 합니다.
 

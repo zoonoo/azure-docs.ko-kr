@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902326"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591902"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -41,9 +41,9 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
 1.  개발자는 [기능 분기를 만들어](source-control.md#creating-feature-branches) 변경합니다. 가장 최근 변경 내용으로 파이프라인 실행을 디버그합니다. 파이프라인 실행을 디버그하는 방법에 대한 자세한 내용은 [Azure Data Factory를 사용한 반복 개발 및 디버깅](iterative-development-debugging.md)을 참조하세요.
 
-1.  개발자가 해당 변경 내용을 충족하면 해당 기능 분기에서 마스터 또는 협업 분기로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
+1.  개발자가 변경 내용에 만족 하면 해당 기능 분기에서 주 또는 공동 작업 분기로 끌어오기 요청을 만들어 해당 변경 내용을 피어로 검토할 수 있습니다.
 
-1.  끌어오기 요청을 승인하고 변경 내용을 마스터 분기에서 병합한 후에 변경 내용이 개발 팩터리에 게시됩니다.
+1.  끌어오기 요청이 승인 되 고 주 분기에 변경 내용이 병합 되 면 변경 내용이 개발 팩터리에 게시 됩니다.
 
 1.  팀이 테스트 또는 UAT (사용자 수용 테스트) 팩터리에 대 한 변경 내용을 배포할 준비가 되 면 팀은 해당 Azure Pipelines 릴리스로 이동 하 여 원하는 버전의 개발 팩터리를 UAT에 배포 합니다. 이 배포는 Azure Pipelines 작업의 일부로 발생하고 Resource Manager 템플릿 매개 변수를 사용하여 적절한 구성을 적용합니다.
 

@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc638eec174a52d501120d5e53bb2dc9e35b688
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997684"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591177"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -55,7 +55,7 @@ ms.locfileid: "95997684"
 
 ![Azure Active Directory 관리 센터: 로그인 보고서](./media/tshoot-connect-sso/sso9.png)
 
-**Azure Active Directory**  >  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 Azure Active Directory **로그인** 으로 이동한 다음 특정 사용자의 로그인 활동을 선택 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+  >  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/)에서 Azure Active Directory **로그인** 으로 이동한 다음 특정 사용자의 로그인 활동을 선택 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -94,11 +94,11 @@ ms.locfileid: "95997684"
 도메인 컨트롤러에서 성공 감사가 사용되면 사용자가 Seamless SSO를 통해 로그인할 때마다 보안 항목이 이벤트 로그에 기록됩니다. 다음 쿼리를 사용하여 이러한 보안 이벤트를 찾을 수 있습니다. (**AzureADSSOAcc$** 컴퓨터 계정과 연결된 **4769** 이벤트를 찾습니다.)
 
 ```
-    <QueryList>
-      <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-      </Query>
-    </QueryList>
+  <QueryList>
+    <Query Id="0" Path="Security">
+      <Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
+    </Query>
+  </QueryList>
 ```
 
 ## <a name="manual-reset-of-the-feature"></a>기능의 수동 다시 설정

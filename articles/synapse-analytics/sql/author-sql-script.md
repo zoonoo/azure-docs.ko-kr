@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457999"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590514"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Synapse Studio SQL 스크립트 
 
@@ -79,7 +79,7 @@ SQL 데이터베이스의 노드를 마우스 오른쪽 단추로 클릭 하 여
 SQL 스크립트 개발의 동작 메뉴에서 SQL 스크립트 개발의 "작업" 메뉴에서 "새 폴더"를 선택 합니다. 을 입력 하 고 팝업 창에서 새 폴더의 이름을 입력 합니다. 
 
 > [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+> ![' 새 폴더 '가 선택 된 SQL 스크립트의 예를 보여 주는 스크린샷](./media/author-sql-script/new-sql-script-create-folder.png)
 
 SQL 스크립트를 폴더로 이동 하려면 sql 스크립트를 선택 하 고 동작 메뉴에서 "이동"을 선택 하면 됩니다. 그런 다음 새 창에서 대상 폴더를 찾고 sql 스크립트를 선택한 폴더로 이동 합니다. Sql 스크립트를 신속 하 게 끌어 폴더에 놓을 수도 있습니다.  
 
