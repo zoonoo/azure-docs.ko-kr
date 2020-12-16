@@ -5,15 +5,15 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
-ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/15/2020
+ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573666"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587573"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>관리 Id (미리 보기)를 사용 하 여 Azure Stream Analytics 작업을 Azure Blob Storage 출력으로 인증
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>관리 Id (미리 보기)를 사용 하 여 Azure Stream Analytics 작업을 Azure Blob Storage에 인증 합니다.
 
 Azure Blob storage에 출력 하 [는 관리 id 인증](../active-directory/managed-identities-azure-resources/overview.md) (미리 보기)은 연결 문자열을 사용 하는 대신 저장소 계정에 직접 액세스 하 Stream Analytics 작업을 제공 합니다. 이 기능을 사용 하면 보안을 개선 하는 것 외에도 Azure 내에서 VNET (Virtual Network)의 저장소 계정에 데이터를 쓸 수 있습니다.
 

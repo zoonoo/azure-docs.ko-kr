@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229857"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586196"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
@@ -55,12 +55,12 @@ ms.locfileid: "89229857"
 * Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Azure AD 감사 로그에 액세스할 수 있는 Azure AD Free, Basic, Premium 1 또는 Premium 2 [라이선스](https://azure.microsoft.com/pricing/details/active-directory/). 
 * Azure AD 테넌트.
-* Azure AD 테넌트의 **글로벌 관리자** 또는 **보안 관리자**인 사용자.
+* Azure AD 테넌트의 **글로벌 관리자** 또는 **보안 관리자** 인 사용자.
 * Azure Portal에서 Azure AD 로그인 로그에 액세스할 수 있는 Azure AD Premium 1 또는 Premium 2 [라이선스](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 감사 로그 데이터를 라우팅하려는 위치에 따라 다음 둘 중 하나가 필요합니다.
 
-* *ListKeys* 권한이 있는 Azure Storage 계정. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
+* *Listkeys* 권한이 있는 Azure 저장소 계정입니다. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
 * 타사 솔루션과 통합할 Azure Event Hubs 네임스페이스.
 * Azure Monitor 로그에 로그를 보내는 Azure Log Analytics 작업 영역
 
@@ -111,11 +111,11 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 
 
-| 로그 범주       | 사용자 수 | 일간 이벤트 수 | 월 당 이벤트 (30 일) | USD (est)의 월간 비용 |
-| :--                | ---             | ---            | ---                        | --:                          |
-| 감사 및 로그인 | 100,000         | 1650만     | 4억9500만                |  $1093.00                       |
-| 감사              | 100,000         | 150만      | 45,000,000                 |  $246.66                     |
-| 로그인           | 100,000         | 15,000,000     | 450,000,000                |  $847.28                     |
+| 로그 범주 | 사용자 수 | 일간 이벤트 수 | 월 당 이벤트 (30 일) | USD (est)의 월간 비용 |
+|:-|--|--|--|-:|
+| 감사 및 로그인 | 100,000 | 1650만 | 4억9500만 | $1093.00 |
+| 감사 | 100,000 | 150만 | 45,000,000 | $246.66 |
+| 로그인 | 100,000 | 15,000,000 | 450,000,000 | $847.28 |
 
 
 

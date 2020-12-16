@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9d24bd65f1bd473560585ec9d594ddc77d858177
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0f70c8d501a7d56f4bc29e0f2b065760cad625e5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111457"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585023"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 고객 등록 중에 전자 메일 확인 사용 안 함
 
@@ -30,7 +31,7 @@ ms.locfileid: "97111457"
 > [!WARNING]
 > 등록 프로세스에서 전자 메일 확인을 사용하지 않도록 설정하면 스팸 메일이 수신될 수 있습니다. 기본 Azure AD B2C 제공 전자 메일 확인을 사용 하지 않도록 설정 하는 경우 대체 확인 시스템을 구현 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 ## <a name="disable-email-verification"></a>메일 확인을 사용하지 않도록 설정

@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1abc0f075098768d3823b6ce916d7c44711c0567
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1ade28af1094694d2cb6dffaecec4e4131630535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516179"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584870"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
@@ -279,7 +280,7 @@ LinkedIn [은 최근에 해당 api를 v1.0에서 v 2.0으로 업데이트 했습
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-대상:
+아래와 같이 변경합니다.
 
 ```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -305,7 +306,7 @@ LinkedIn [은 최근에 해당 api를 v1.0에서 v 2.0으로 업데이트 했습
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-대상:
+아래와 같이 변경합니다.
 
 ```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />

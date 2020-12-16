@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: edbd8b2fefb90bb95bfcd08c126a42c810ad081b
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 2de6cceb1e3b85060a146b18a689b57573bc932e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511602"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585431"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 시리즈 (미리 보기) 
 
@@ -30,6 +30,8 @@ NCasT4_v3 시리즈 가상 머신은 [Nvidia Tesla T4](https://www.nvidia.com/en
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
+가속 네트워킹: 지원 됨<br>
+Nvidia NVLink Interconnect: 지원 되지 않음<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |

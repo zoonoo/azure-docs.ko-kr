@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
-ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 12/15/2020
+ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324961"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587114"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "96324961"
 
 일시 삭제 및 보호 제거는 두 가지 주요 자격 증명 모음 복구 기능입니다.
 > [!IMPORTANT]
-> 모든 주요 자격 증명 모음에서 일시 삭제 보호를 사용 하도록 설정 해야 합니다. 일시 삭제 보호를 사용 하지 않도록 설정 하는 기능은 12 월 2020 일까 지 사용 되지 않습니다. 자세한 내용은 [ **여기** 를 참조 하세요.](soft-delete-change.md)
+> 키 자격 증명 모음 및 자격 증명을 실수로 삭제 하지 않도록 보호 하려면 일시 삭제를 설정 하는 것이 중요 합니다. 그러나 일시 삭제를 설정 하는 것은 응용 프로그램 논리를 변경 하거나 서비스 사용자에 게 추가 권한을 제공 해야 할 수 있으므로 주요 변경 내용으로 간주 됩니다. 아래 지침을 사용 하 여 일시 삭제를 설정 하기 전에이 문서를 사용 하 여 응용 프로그램이 변경 내용과 호환 되는지 확인 하세요 [ .](soft-delete-change.md)
 
 **일시 삭제** 는 key vault 내에서 저장 된 키 자격 증명 모음 및 키, 암호 및 인증서를 실수로 삭제 하지 않도록 설계 되었습니다. 휴지통 같은 일시 삭제를 생각해 봅니다. 키 자격 증명 모음 또는 주요 자격 증명 모음 개체를 삭제 하는 경우 사용자 구성 가능한 보존 기간 또는 기본값 90 일에 대해 복구 가능한 상태로 유지 됩니다. 일시 삭제 된 상태의 키 자격 증명 모음은 영구적으로 삭제 되는 것을 의미 하는 **지울** 수도 있습니다. 이를 통해 키 자격 증명 모음 및 주요 자격 증명 모음 개체를 같은 이름으로 다시 만들 수 있습니다. 키 자격 증명 모음 및 개체를 복구 하 고 삭제 하려면 상승 된 액세스 정책 권한이 필요 합니다. **일시 삭제를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.**
 

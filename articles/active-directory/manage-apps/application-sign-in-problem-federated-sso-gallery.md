@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6d3674aaa4c89f42c2e7b87a6be6cdc8ecabf64
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028277"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586349"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제
 아래의 로그인 문제를 해결 하려면 다음을 수행 하 여 진단 및 해결 단계를 자동화 하는 것이 좋습니다.
@@ -33,7 +33,9 @@ SAML 기반 Single Sign-On 구성 페이지를 열려면 다음을 수행합니�
 1.  필터 검색 상자에 **"Azure Active Directory"** 를 입력 하 고 **Azure Active Directory** 항목을 선택 합니다.
 1.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 선택합니다.
 1.  **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다.
+
     여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록** 의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션** 으로 설정합니다.
+
 1.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 1. 응용 프로그램이 로드 되 면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single sign-on** 을 선택 합니다.
 1. SAML 기반 SSO를 선택합니다.
@@ -63,7 +65,7 @@ SAML 기반 SSO 구성 페이지의 **기본 SAML 구성** 섹션에서 식별�
 `AssertionConsumerServiceURL`SAML 요청의 값이 AZURE AD에 구성 된 회신 URL 값과 일치 하는지 확인 합니다. 
 
 SAML 요청의 값과 일치 하도록 회신 URL 텍스트 상자의 값을 확인 하거나 업데이트 `AssertionConsumerServiceURL` 합니다.   
-    
+
 Azure AD에서 회신 URL 값을 업데이트 하 고 SAML 요청에서 응용 프로그램에 의해 전송 된 값과 일치 하는 경우 응용 프로그램에 로그인 할 수 있어야 합니다.
 
 ## <a name="user-not-assigned-a-role"></a>역할이 지정되지 않은 사용자

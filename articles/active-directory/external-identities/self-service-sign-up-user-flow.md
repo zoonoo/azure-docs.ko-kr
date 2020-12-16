@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560036"
+ms.locfileid: "97586026"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>앱에 셀프 서비스 가입 사용자 흐름 추가(미리 보기)
 > [!NOTE]
@@ -70,6 +70,9 @@ Azure AD는 셀프 서비스 가입의 기본 ID 공급자입니다. 즉, 사용
 7. **사용자 특성** 에서 사용자로부터 수집하려는 특성을 선택합니다. 추가 특성의 경우 **더 보기** 를 선택합니다. 예를 들어 **자세히 보기** 를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호** 의 특성 및 클레임을 선택합니다. **확인** 을 선택합니다.
 
    ![새 사용자 흐름 만들기 페이지](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> 사용자가 처음으로 등록 하는 경우에만 특성을 수집할 수 있습니다. 사용자가 등록 한 후에는 사용자 흐름을 변경 하는 경우에도 더 이상 특성 정보를 수집 하 라는 메시지가 표시 되지 않습니다.
 
 8. **만들기** 를 선택합니다.
 9. **사용자 흐름(미리 보기)** 목록에 새 사용자 흐름이 표시됩니다. 필요한 경우 페이지를 새로 고칩니다.

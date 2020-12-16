@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2613a4fd931ad49a4f40a4221ea20e8c25f185fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501587"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586978"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Azure 개인 링크 허브를 사용 하 여 Azure Synapse Studio에 연결 
 
@@ -35,9 +35,9 @@ Azure Portal에서 *Synapse 개인 링크 허브* 를 검색 하 고 서비스�
 ## <a name="azure-private-links-hubs-and-azure-virtual-network"></a>Azure 개인 링크 허브 및 Azure Virtual Network
 Synapse Studio에 대 한 종단 간 연결을 보호 하려면 Azure 가상 네트워크를 Synapse 개인 링크 허브 리소스에 연결 해야 합니다. 이렇게 하려면 가상 네트워크에서 사용자가 만든 개인 링크 허브에 대 한 개인 끝점을 만들어야 합니다. 개인 링크 허브에 대 한 Azure Portal를 사용 하 고 개인 끝점 섹션으로 이동할 수 있습니다. "+ 개인 끝점"을 선택 하 여 개인 링크 허브에 연결 되는 새 개인 끝점을 만듭니다.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="개인 링크 허브에 대 한 개인 끝점 만들기":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="개인 끝점 연결 페이지를 보여 주는 스크린샷":::
 
-"리소스" 탭에서 "Synapse/privateLinkHubs" 리소스 종류를 선택 해야 합니다. 개인 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="링크 허브에 대 한 개인 끝점을 만듭니다"::: .
+"리소스" 탭에서 "Synapse/privateLinkHubs" 리소스 종류를 선택 해야 합니다. ' :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="리소스 종류 '가 강조 표시 된 ' 개인 끝점 만들기 ' 페이지가 표시 된 스크린샷":::
 
 "구성" 탭에서 가상 네트워크 및 개인 DNS 영역과 통합할 때 사설 DNS 영역에 대해 "privatelink.azuresynapse.net"를 선택 합니다.
 

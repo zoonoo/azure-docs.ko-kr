@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: c1545efc43d034dba5b8ffe8d19b9bbee95dff68
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5f9733866e85d79bdb85b8a24d1878e1169c2479
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455468"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586043"
 ---
-# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램 모니터링
+# <a name="how-to-use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램을 모니터링 하는 방법
 
 Azure Synapse Analytics를 사용 하면 Spark 풀의 작업 영역에서 Spark를 사용 하 여 노트북, 작업 및 기타 종류의 응용 프로그램을 실행할 수 있습니다.
 

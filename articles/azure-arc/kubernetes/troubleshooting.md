@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Arc 사용 Kubernetes 클러스터를 통한 일반적인 문제를 해결합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 2e05701b92d2d96074a07e0e61ce65145a1d9dfd
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 42c90708854af6973ed1ef399b9867101a736b07
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302388"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586162"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc 사용 Kubernetes 문제 해결(미리 보기)
 
@@ -50,16 +50,16 @@ Helm 릴리스가 있고 `STATUS: deployed`인 경우 `kubectl`를 사용하여 
 
 ```console
 $ kubectl -n azure-arc get deployments,pods
-NAME                                        READY   UP-TO-DATE AVAILABLE AGE
-deployment.apps/cluster-metadata-operator   1/1     1           1        16h
-deployment.apps/clusteridentityoperator     1/1     1           1        16h
-deployment.apps/config-agent                1/1     1           1        16h
-deployment.apps/controller-manager          1/1     1           1        16h
-deployment.apps/flux-logs-agent             1/1     1           1        16h
-deployment.apps/metrics-agent               1/1     1           1        16h
-deployment.apps/resource-sync-agent         1/1     1           1        16h
+NAME                                       READY  UP-TO-DATE  AVAILABLE  AGE
+deployment.apps/clusteridentityoperator     1/1       1          1       16h
+deployment.apps/config-agent                1/1       1          1       16h
+deployment.apps/cluster-metadata-operator   1/1       1          1       16h
+deployment.apps/controller-manager          1/1       1          1       16h
+deployment.apps/flux-logs-agent             1/1       1          1       16h
+deployment.apps/metrics-agent               1/1       1          1       16h
+deployment.apps/resource-sync-agent         1/1       1          1       16h
 
-NAME                                            READY   STATUS   RESTART AGE
+NAME                                            READY   STATUS  RESTART  AGE
 pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
 pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
 pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h

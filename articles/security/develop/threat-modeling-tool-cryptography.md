@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7af115d8f1244253e461f796c5665609d3b84b21
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517447"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587182"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>보안 프레임: 암호화 | 완화 
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **웹 애플리케이션** | <ul><li>[승인 된 대칭 블록 암호화 및 키 길이만 사용](#cipher-length)</li><li>[대칭 암호화에 승인된 블록 암호화 모드 및 초기화 벡터 사용](#vector-ciphers)</li><li>[승인된 비대칭 알고리즘, 키 길이 및 패딩 사용](#padding)</li><li>[승인된 난수 생성기 사용](#numgen)</li><li>[대칭 스트림 암호화 사용 안 함](#stream-ciphers)</li><li>[승인 된 MAC/HMAC/키 지정 해시 알고리즘 사용](#mac-hash)</li><li>[승인 된 암호화 해시 함수만 사용](#hash-functions)</li></ul> |
-| **데이터베이스** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
+| **Database** | <ul><li>[강력한 암호화 알고리즘을 사용 하 여 데이터베이스의 데이터 암호화](#strong-db)</li><li>[SSIS 패키지는 암호화 되 고 디지털 서명 되어야 합니다.](#ssis-signed)</li><li>[중요 한 데이터베이스 보안 개체에 디지털 서명 추가](#securables-db)</li><li>[SQL server EKM을 사용 하 여 암호화 키 보호](#ekm-keys)</li><li>[암호화 키를 데이터베이스 엔진에 표시 하지 않아야 하는 경우 AlwaysEncrypted 기능을 사용 합니다.](#keys-engine)</li></ul> |
 | **IoT 디바이스** | <ul><li>[IoT 장치에 안전 하 게 암호화 키 저장](#keys-iot)</li></ul> | 
 | **IoT 클라우드 게이트웨이** | <ul><li>[IoT Hub에 대 한 인증에 충분 한 길이의 임의 대칭 키 생성](#random-hub)</li></ul> | 
 | **Dynamics CRM 모바일 클라이언트** | <ul><li>[PIN 사용이 필요 하 고 원격 지우기를 허용 하는 장치 관리 정책이 있는지 확인](#pin-remote)</li></ul> | 
@@ -109,7 +109,7 @@ ms.locfileid: "94517447"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA512 사용)</li><li>SHA384Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 알고리즘 이름으로 SHA384 사용)</li><li>SHA256Managed (FIPS 규격) (HashAlgorithm 또는 CryptoConfig에 대 한 호출에서 SHA256을 알고리즘 이름으로 사용)</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
+| **단계** | <p>제품에서는 SHA-2 해시 알고리즘 제품군(SHA256, SHA384 및 SHA512)을 사용해야 합니다. 짧은 MD5 해시를 고려하여 설계된 데이터 구조에 맞추기 위해 128비트 출력 길이와 같이 더 짧은 해시가 필요한 경우 제품 팀이 SHA2 해시 중 하나(일반적으로 SHA256)를 자를 수 있습니다. SHA384는 SHA512의 잘린 버전입니다. 보안을 위해 암호화 해시를 128비트 미만으로 자르는 것은 허용되지 않습니다. 새 코드에서는 MD2, MD4, MD5, SHA-0, SHA-1 또는 RIPEMD 해시 알고리즘을 사용하면 안됩니다. 해시 충돌은 이러한 알고리즘에 대해 컴퓨터를 통해 실행 가능하며 효과적으로 해독할 수 있습니다.</p><p>관리되는 암호화 민첩성을 위해 허용되는 .NET 해시 알고리즘(기본 설정 순서대로)</p><ul><li>SHA512Cng(FIPS 규격)</li><li>SHA384Cng(FIPS 규격)</li><li>SHA256Cng(FIPS 규격)</li><li>SHA512Managed(비 FIPS 규격) - HashAlgorithm.Create 또는 CryptoConfig.CreateFromName에 대한 호출에서 알고리즘 이름으로 SHA512 사용</li><li>SHA384Managed(비 FIPS 규격) - HashAlgorithm.Create 또는 CryptoConfig.CreateFromName에 대한 호출에서 알고리즘 이름으로 SHA384 사용</li><li>SHA256Managed(비 FIPS 규격) - HashAlgorithm.Create 또는 CryptoConfig.CreateFromName에 대한 호출에서 알고리즘 이름으로 SHA256 사용</li><li>SHA512CryptoServiceProvider(FIPS 규격)</li><li>SHA256CryptoServiceProvider(FIPS 규격)</li><li>SHA384CryptoServiceProvider(FIPS 규격)</li></ul>| 
 
 ## <a name="use-strong-encryption-algorithms-to-encrypt-data-in-the-database"></a><a id="strong-db"></a>강력한 암호화 알고리즘을 사용하여 데이터베이스 데이터 암호화
 
@@ -177,7 +177,7 @@ ms.locfileid: "94517447"
 | **참조**              | [Windows IoT Core의 TPM](/windows/iot-core/secure-your-device/TPM)(영문), [Windows IoT Core에서 TPM 설정](/windows/iot-core/secure-your-device/setuptpm)(영문), [Azure IoT 디바이스 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
 | **단계** | 대칭 또는 인증서 프라이빗 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 스토리지에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```
 TpmDevice myDevice = new TpmDevice(0);
 // Use logical device 0 on the TPM 

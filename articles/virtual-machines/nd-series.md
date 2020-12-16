@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 1dfd4185f077806d6b84376e786cfe5de1a8ffc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f37341233eec45a22fe92450e69d486e61f26eb4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653445"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585312"
 ---
 # <a name="nd-series"></a>ND 시리즈
 
@@ -23,6 +23,7 @@ ND 시리즈 가상 머신은 AI 및 딥러닝 워크로드용으로 설계된 G
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+Nvidia NVLink Interconnect: 지원 되지 않음<br>
 
 > [!IMPORTANT]
 > 이 VM 시리즈의 경우 구독에서 지역별 vCPU (코어) 할당량은 처음에 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-portal/supportability/resource-manager-core-quotas-request.md) 합니다.

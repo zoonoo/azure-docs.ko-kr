@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869cf5a47831844b04e0461a95fb7d16aa4d1569
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111493"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585193"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -29,9 +29,7 @@ ms.locfileid: "97111493"
 > [!TIP]
 > 배너 로고, 배경 이미지 및 사용자 흐름 페이지의 배경색을 수정 하려는 경우 [회사 브랜딩](company-branding.md) 기능을 사용해 볼 수 있습니다.
 
-
 ## <a name="custom-html-and-css-overview"></a>사용자 지정 HTML 및 CSS 개요
-
 
 Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)를 사용 하 여 고객의 브라우저에서 코드를 실행 합니다. 런타임에 사용자 흐름이 나 사용자 지정 정책에 지정 하는 URL에서 콘텐츠가 로드 됩니다. 사용자 환경의 각 페이지는 해당 페이지에 대해 지정한 URL에서 해당 콘텐츠를 로드 합니다. URL에서 콘텐츠를 로드 한 후에는 Azure AD B2C에 의해 삽입 된 HTML 조각과 병합 되 고,이 페이지는 고객에 게 표시 됩니다.
 
@@ -61,7 +59,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 
 다음 표에서는 Azure AD B2C에서 제공 하는 기본 페이지 콘텐츠를 나열 합니다. 파일을 다운로드 하 여 고유한 사용자 지정 페이지를 만들기 위한 시작 지점으로 사용 합니다.
 
-| 기본 페이지 | Description | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
+| 기본 페이지 | 설명 | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **자체 어설션된 페이지**. 이 파일은 소셜 계정 등록 페이지, 로컬 계정 등록 페이지, 로컬 계정 로그인 페이지, 암호 다시 설정 등의 사용자 지정 페이지 콘텐츠로 사용 합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. | api. *localaccountsignin*, *localaccountsignup*, *localaccountpasswordreset*, *selfasserted* |
@@ -118,10 +116,9 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 1. 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 1. 사용자 지정 정책 콘텐츠 URI에 대 한 정책을 가리킵니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### <a name="1-create-your-html-content"></a>1. HTML 콘텐츠 만들기
 
@@ -235,7 +232,6 @@ Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 �
 1. **요청 보내기** 를 선택 합니다.
     결과는 여야 `XHR status: 200` 합니다. 
     오류가 발생하는 경우 CORS 설정이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -378,12 +374,12 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
 
 1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. 템플릿 폴더 또는를 `/ocean_blue` 선택 `/slate_gray` 합니다.
 1. `/assets`이전 섹션에 설명 된 대로 템플릿 폴더 및 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다.
-1. 그런 다음 `\*.html` 또는의 루트에 있는 각 파일 `/ocean_blue` 을 열고 `/slate_gray` 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 예를 들면 다음과 같습니다.
+1. 그런 다음 `\*.html` 또는의 루트에 있는 각 파일 `/ocean_blue` 을 열고 `/slate_gray` 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 예:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    대상
+    작업
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -391,10 +387,7 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
 1. 이제 앞에서 설명한 것 처럼 HTML 파일을 가리키는 정책을 수정 합니다.
 1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 .html 파일의 참조를 확인 합니다. \*
 
-
 ## <a name="next-steps"></a>다음 단계
 
 [클라이언트 쪽 JavaScript 코드](javascript-and-page-layout.md)를 사용 하도록 설정 하는 방법을 알아봅니다.
-
-
 
