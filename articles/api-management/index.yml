@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: ba4e1c4d1083894b5de2df635414cc30ca3745c0
-  ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+  ms.openlocfilehash: 5a3b09c3835e09d734c1083f84893224c3fe8cfd
+  ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/19/2020
-  ms.locfileid: "94917752"
+  ms.lasthandoff: 12/14/2020
+  ms.locfileid: "97399097"
 landingContent:
 - title: API Management 정보
   linkLists:
@@ -61,6 +61,8 @@ landingContent:
       url: api-management-get-started-publish-versions.md
     - text: 9. 개발자 포털 페이지의 스타일 사용자 지정
       url: api-management-howto-developer-portal-customize.md
+    - text: 10. Visual Studio Code의 API 관리
+      url: visual-studio-code-tutorial.md
 - title: 샘플
   linkLists:
   - linkListType: sample

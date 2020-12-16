@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 0dad7add63102d462a2111f1ecf12ae43dae123c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996188"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507764"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>자습서: Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -373,15 +373,16 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
    1. 솔루션 탐색기에서 프로젝트를 선택하고, [속성] 창을 봅니다([속성] 창이 표시되지 않으면 F4를 누름).
    1. SSL 사용을 `True`로 변경합니다.
    1. Visual Studio에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **속성**, **웹** 탭을 차례로 선택합니다. **서버** 섹션에서 **프로젝트 URL** 설정을 **SSL URL** 로 변경합니다.
-   1. SSL URL을 복사합니다. 다음 단계에 나오는 등록 포털의 리디렉션 URL 목록에서 이 URL을 리디렉션 URL 목록에 추가합니다.<br/><br/>![프로젝트 속성](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. 회사 또는 학교 계정을 사용하거나 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정에서 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
-1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-1. **새 등록** 을 선택합니다.
-1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-   1. **이름** 섹션에서 앱의 사용자에게 표시될 의미 있는 애플리케이션 이름(예: **ASPNET-Tutorial**)을 입력합니다.
-   1. 1단계에서 Visual Studio로부터 복사한 SSL URL(예: `https://localhost:44368/`)을 **회신 URL** 에 추가하고, **등록** 을 선택합니다.
-1. **인증** 메뉴를 선택하고, **암시적 허용** 아래에서 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
+   1. SSL URL을 복사합니다. 다음 단계에 나오는 등록 포털의 리디렉션 URI 목록에서 이 URL을 리디렉션 URI 목록에 추가합니다.<br/><br/>![프로젝트 속성](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `ASPNET-Tutorial`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. 1단계에서 Visual Studio로부터 복사한 SSL URL(예: `https://localhost:44368/`)을 **리디렉션 URI** 에서 추가합니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **인증** 을 선택합니다.
+1. **암시적 권한 부여** 섹션에서 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 1. 루트 폴더에 있는 web.config 파일의 `configuration\appSettings` 섹션에 다음을 추가합니다.
 
     ```xml
@@ -425,7 +426,7 @@ Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리
 
 컨트롤러 뷰로 이동 후 사용자를 위한 기본 속성이 담긴 테이블을 확인해야 합니다.
 
-|속성 |값 |Description |
+|속성 |값 |설명 |
 |---|---|---|
 |**이름** |사용자의 전체 이름 | 사용자의 이름과 성
 |**사용자 이름** |user<span>@domain.com</span> | 사용자를 식별하는 데 사용되는 사용자 이름|

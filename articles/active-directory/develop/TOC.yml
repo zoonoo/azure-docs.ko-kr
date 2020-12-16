@@ -32,8 +32,10 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: ASP.NET Core
+        - name: ASP.NET Core(로그인 사용자)
           href: quickstart-v2-aspnet-core-webapp.md
+        - name: ASP.NET Core(Microsoft Graph 호출)
+          href: quickstart-v2-aspnet-core-webapp-calls-graph.md
         - name: Node.js - MSAL | 미리 보기
           href: quickstart-v2-nodejs-webapp-msal.md
         - name: Node.js - Passport.js

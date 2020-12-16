@@ -42,6 +42,8 @@
       href: api-management-get-started-publish-versions.md
     - name: 9 - 개발자 포털 사용자 지정
       href: api-management-howto-developer-portal-customize.md
+    - name: 10 - Visual Studio Code의 API 관리
+      href: visual-studio-code-tutorial.md
 - name: 샘플
   items:
     - name: 정책
@@ -216,7 +218,7 @@
           href: api-management-sample-flexible-throttling.md
         - name: 외부 서비스 사용
           href: api-management-sample-send-request.md
-        - name: 속성을 사용하여 기밀 관리
+        - name: 명명된 값을 사용하여 비밀 관리
           href: api-management-howto-properties.md
         - name: 액세스 제한 정책
           href: api-management-access-restriction-policies.md
