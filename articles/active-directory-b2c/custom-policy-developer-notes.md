@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68526fd542d8bc891358a36d031af3314edab4c2
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507985"
+ms.locfileid: "97516096"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -116,7 +116,7 @@ ms.locfileid: "97507985"
 | 쿼리 문자열 매개 변수 `login_hint` |  |  | X | 클레임으로 사용 가능, IDP로 전달될 수 있음 |
 | `client_assertion`을 통해 사용자 경험에 JSON 삽입 | X |  |  | 지원 중단 예정 |
 | 사용자 경험에 `id_token_hint`로 JSON 삽입 |  | X |  | JSON을 전달하는 진행 방법 |
-| [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-custom.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
+| [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-user-flow.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
 
 
 ### <a name="session-management"></a>세션 관리

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750512"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516379"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보호 
 
@@ -230,7 +230,7 @@ Authorization: Bearer <token>
 
 ### <a name="acquiring-an-access-token"></a>액세스 토큰 획득 
 
-[페더레이션 ID 공급자에서](idp-pass-through-custom.md) 가져오거나 액세스 토큰을 반환하는 REST API를 호출하거나 [ROPC 흐름](../active-directory/develop/v2-oauth-ropc.md)을 사용하거나 [클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 사용하여 액세스 토큰을 가져올 수 있습니다.  
+[페더레이션 ID 공급자에서](idp-pass-through-user-flow.md) 가져오거나 액세스 토큰을 반환하는 REST API를 호출하거나 [ROPC 흐름](../active-directory/develop/v2-oauth-ropc.md)을 사용하거나 [클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 사용하여 액세스 토큰을 가져올 수 있습니다.  
 
 다음 예제에서는 REST API 기술 프로필을 사용하여 HTTP 기본 인증으로 전달된 클라이언트 자격 증명을 사용하여 Azure AD 토큰 엔드포인트에 대한 요청을 만듭니다. Azure AD에서 이를 구성하려면 [Microsoft ID 플랫폼 및 OAuth 2.0 클라이언트 자격 증명 흐름](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md)을 참조하세요. ID 공급자와 상호 작용하도록 이를 수정해야 할 수도 있습니다. 
 

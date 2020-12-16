@@ -7,67 +7,40 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/23/2020
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/14/2020
+ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88923452"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516605"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
 
-특수 쿼리 형식에 대 한 리치 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문을 기반으로 Azure Cognitive Search에 대 한 쿼리를 작성할 수 있습니다. 와일드 카드, 유사 항목 검색, 근접 검색, 정규식은 몇 가지 예입니다. 모든 Lucene 쿼리 파서 구문은 azure [Cognitive Search에서 그대로 구현](search-lucene-query-architecture.md)되며, 식을 통해 azure Cognitive Search에 생성 되는 *범위 검색* 을 제외 합니다 `$filter` . 
+쿼리를 만들 때 특수 쿼리 형식 (와일드 카드, 유사 항목 검색, 근접 검색, 정규식)에 대해 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문을 옵트인 (opt in) 할 수 있습니다. 모든 Lucene 쿼리 파서 구문은 식을 통해 생성 되는 *범위 검색* 을 제외 하 고 [Azure Cognitive Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다 **`$filter`** . 
 
-> [!NOTE]
-> Full Lucene 구문은 [검색 문서](/rest/api/searchservice/search-documents) api의 **검색** 매개 변수에 전달 된 쿼리 식에 사용 되며, 해당 api의 [$filter](search-filters.md) 매개 변수에 사용 되는 [OData 구문과](query-odata-filter-orderby-syntax.md) 혼동 되지 않습니다. 이러한 다른 구문에는 쿼리를 생성 하 고 문자열을 이스케이프 처리 하는 데 사용할 수 있는 고유 규칙이 있습니다.
+Full Lucene 구문은 **`search`** 같은 요청에서 및 식에 사용 되는 [OData 구문과](query-odata-filter-orderby-syntax.md) 혼동 하지 않도록 [검색 문서 (REST API)](/rest/api/searchservice/search-documents) 요청의 매개 변수에 전달 된 쿼리 식에 사용 됩니다 [**`$filter`**](search-filters.md) [**`$orderby`**](search-query-odata-orderby.md) . OData 매개 변수에는 쿼리를 생성 하 고 문자열을 이스케이프 처리 하는 다양 한 구문과 규칙이 있습니다.
 
-## <a name="invoke-full-parsing"></a>전체 구문 분석 호출
+## <a name="example-full-syntax"></a>예 (전체 구문)
 
-`queryType` 검색 매개 변수를 설정하여 사용할 파서를 지정합니다. 유효한 값에는 기본값이 `simple`인 `simple|full`과 Lucene용 `full`이 포함됩니다. 
+**`queryType`** 매개 변수를 설정 하 여 전체 Lucene을 지정 합니다. 다음 예에서는 필드 내 검색 및 용어 부스트를 호출 합니다. 이 쿼리는 category 필드가 "예산" 이라는 용어를 포함 하는 호텔을 찾습니다. "최근 리모델링한" 라는 구가 포함 된 문서는 용어 상승 값 (3)의 결과 보다 더 높은 순위를 갖습니다.  
 
-<a name="bkmk_example"></a> 
-
-### <a name="example-showing-full-syntax"></a>전체 구문을 보여 주는 예제
-
-다음 예제에서는 `queryType=full` 매개 변수에 명확하게 나타나는 Lucene 쿼리 구문을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 범주 필드에 “예산"이라는 용어가 포함된 호텔 및 “최근 혁신된" 문구가 포함된 모든 검색 가능 필드를 반환합니다. 용어 boost 값(3)의 결과로 "최근 혁신된" 문구가 포함된 문서가 더 높은 순위가 됩니다.  
-
-`searchMode=all` 매개 변수가 이 예제에 해당 합니다. 쿼리에서 연산자를 사용할 때마다 일반적으로 `searchMode=all`을 설정하여 *모든* 조건이 일치하는지 확인해야 합니다.
-
-```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
-```
-
- 또는 다음과 같이 POST를 사용합니다.  
-
-```
-POST /indexes/hotels/docs/search?api-version=2020-06-30
+```http
+POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-  "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
+  "search": "category:budget AND \"recently renovated\"^3",
   "searchMode": "all"
 }
 ```
 
-추가 예제는 [Azure Cognitive Search에서 쿼리를 작성 하기 위한 Lucene 쿼리 구문 예제](search-query-lucene-examples.md)를 참조 하세요. 쿼리 매개 변수를 완전히 지정 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search REST API&#41;&#40;문서 검색 ](/rest/api/searchservice/Search-Documents)을 참조 하세요.
+**`searchMode`** 매개 변수는이 예제와 관련이 있습니다. 쿼리에서 연산자를 사용할 때마다 일반적으로 `searchMode=all`을 설정하여 *모든* 조건이 일치하는지 확인해야 합니다.  
 
-> [!NOTE]  
->  Azure Cognitive Search는 간단한 키워드 검색에 사용할 수 있는 단순 하 고 강력한 쿼리 언어인 [간단한 쿼리 구문도](query-simple-syntax.md)지원 합니다.  
+추가 예제는 [Lucene 쿼리 구문 예](search-query-lucene-examples.md)를 참조 하세요. 쿼리 요청 및 매개 변수에 대 한 자세한 내용은 [문서 검색 (REST API)](/rest/api/searchservice/Search-Documents)을 참조 하세요.
 
-##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> 구문 기본 사항  
+## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> 구문 기본 사항  
 
-다음 구문 기초는 Lucene 구문을 사용 하는 모든 쿼리에 적용 됩니다.  
+다음 구문 기본 사항은 Lucene 구문을 사용하는 모든 쿼리에 적용됩니다.  
 
 ### <a name="operator-evaluation-in-context"></a>컨텍스트의 연산자 평가
 
@@ -95,39 +68,15 @@ URL에서 안전하지 않은 문자 및 예약된 문자를 모두 인코딩하
 
 안전하지 않은 문자는 ``" ` < > # % { } | \ ^ ~ [ ]``입니다. 예약된 문자는 `; / ? : @ = + &`입니다.
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> 쿼리 크기 제한
+## <a name="boolean-operators"></a><a name="bkmk_boolean"></a> 부울 연산자
 
- Azure Cognitive Search에 보낼 수 있는 쿼리 크기에는 제한이 있습니다. 특히, 최대 1024개 절(AND, OR 등으로 구분된 식)을 사용할 수 있습니다. 또한 한 쿼리의 개별 용어 크기도 약 32KB로 제한됩니다. 애플리케이션이 검색 쿼리를 프로그래밍 방식으로 생성하는 경우 쿼리가 제한 없는 크기로 생성되지 않도록 디자인하는 것이 좋습니다.  
+쿼리 문자열에 부울 연산자를 포함 하 여 일치 하는 항목의 전체 자릿수를 향상할 수 있습니다. 전체 구문은 문자 연산자 외에도 텍스트 연산자를 지원 합니다. 항상 텍스트 부울 연산자(AND, OR, NOT)는 모두 대문자로 지정합니다.
 
-### <a name="precedence-operators-grouping"></a>선행 연산자 (그룹화)
-
- 괄호를 사용(괄호문 내에 연산자를 포함)하여 하위 쿼리를 만들 수 있습니다. 예를 들어, `motel+(wifi||luxury)`는 용어 motel과 "wifi" 또는 "luxury" 중 하나(또는 둘 다)를 포함하는 문서를 검색합니다.|
-
-필드 그룹화는 유사하지만 그룹화 범위가 단일 필드입니다. 예를 들어, `hotelAmenities:(gym+(wifi||pool))`은 필드 "hotelAmenities"에서 "gym"과 "wifi" 또는 "gym"과 "pool"을 검색합니다.  
-
-##  <a name="boolean-search"></a><a name="bkmk_boolean"></a> 부울 검색
-
- 항상 텍스트 부울 연산자(AND, OR, NOT)는 모두 대문자로 지정합니다.  
-
-### <a name="or-operator-or-or-"></a>OR 연산자 `OR` 또는 `||`
-
-OR 연산자는 세로줄 또는 파이프 문자입니다. 예를 들어, `wifi || luxury`는 "wifi" 또는 "luxury" 중 하나(또는 둘 다)를 포함하는 문서를 검색합니다. OR은 기본 결합 연산자이므로 `wifi luxury`가 `wifi || luxury`와 동일한 것처럼 생략할 수도 있습니다.
-
-### <a name="and-operator-and--or-"></a>AND 연산자 `AND`, `&&` 또는 `+`
-
-AND 연산자는 앰퍼샌드 또는 더하기 기호입니다. 예를 들어, `wifi && luxury`는 "wifi"와 "luxury"를 둘 다 포함하는 문서를 검색합니다. 더하기 문자(+)는 필수 용어에 사용됩니다. 예를 들어, `+wifi +luxury`는 두 용어가 단일 문서의 필드에 나타나야 한다고 명시합니다.
-
-### <a name="not-operator-not--or--"></a>NOT 연산자 `NOT`, `!` 또는 `-`
-
-NOT 연산자는 빼기 기호입니다. 예를 들어는 `wifi –luxury` 및/를 포함 하는 문서를 검색 하거나 없는 문서를 검색 `wifi` `luxury` 합니다.
-
-쿼리 요청에 대 한 **Searchmode** 매개 변수는 not 연산자를 사용 하는 용어가 쿼리에서 다른 용어를 사용 하 여 And 또는 ORed 여부를 제어 합니다 ( `+` 다른 조건에 or 연산자가 없는 것으로 가정 `|` ). 유효한 값은 `any`나 `all`입니다.
-
-`searchMode=any` 더 많은 결과를 포함 하 여 쿼리 회수를 향상 시키고 기본적으로 `-` "OR NOT"으로 해석 됩니다. 예를 들어, `wifi -luxury`는 용어 `wifi`를 포함하는 문서 또는 용어 `luxury`를 포함하지 않는 문서를 검색합니다.
-
-`searchMode=all` 더 작은 결과를 포함 하 여 쿼리의 전체 자릿수를 늘리고 기본적으로-는 "AND NOT"으로 해석 됩니다. 예를 들어 `wifi -luxury`는 용어 `wifi`를 포함하고 용어 "luxury"를 포함하지 않는 문서를 검색합니다. 이러한 동작이 `-` 연산자의 좀 더 간단한 동작일 것입니다. 따라서 `searchMode=all` `searchMode=any` 회수 대신 전체 자릿수에 대 한 검색을 최적화 하 *고* 사용자가 `-` 검색에서 연산자를 자주 사용 하는 경우 대신를 사용 하는 것을 고려해 야 합니다.
-
-**Searchmode** 설정을 결정할 때 다양 한 응용 프로그램의 쿼리에 대 한 사용자 상호 작용 패턴을 고려 합니다. 정보를 검색 하는 사용자는 더 많은 기본 제공 탐색 구조를 포함 하는 전자 상거래 사이트와는 달리 쿼리에 연산자를 포함할 가능성이 높습니다.
+|텍스트 연산자 | 문자 | 예제 | 사용 |
+|--------------|----------- |--------|-------|
+| AND | `&`, `+` | `wifi + luxury` | 일치 항목에 포함 되어야 하는 용어를 지정 합니다. 이 예에서 쿼리 엔진은 및를 모두 포함 하는 문서를 `wifi` 찾습니다 `luxury` . 필요한 조건에는 더하기 문자 ( `+` )가 사용 됩니다. 예를 들어, `+wifi +luxury`는 두 용어가 단일 문서의 필드에 나타나야 한다고 명시합니다.|
+| 또는 | `|` | `wifi | luxury` | 용어 중 하나가 발견 될 때 일치 하는 항목을 찾습니다. 이 예제에서 쿼리 엔진은 또는 둘 다를 포함 하는 문서에 대해 일치 하는 항목을 반환 `wifi` `luxury` 합니다. OR은 기본 결합 연산자이므로 `wifi luxury`가 `wifi | luxury`와 동일한 것처럼 생략할 수도 있습니다.|
+| NOT | `!`, `-` | `wifi –luxury` | 용어를 제외 하는 문서에 대 한 일치 항목을 반환 합니다. 예를 들어는 `wifi –luxury` 용어를 포함 하지만이 아닌 문서를 검색 합니다 `wifi` `luxury` . <br/><br/>`searchMode`쿼리 요청의 매개 변수는 not 연산자를 사용 하는 용어가 쿼리의 다른 용어와 함께 and 또는 ORed 여부를 제어 합니다 ( `+` `|` 다른 조건에 or 연산자가 없는 경우). 유효한 값은 `any`나 `all`입니다.  <br/><br/>`searchMode=any` 더 많은 결과를 포함 하 여 쿼리 회수를 향상 시키고 기본적으로 `-` "OR NOT"으로 해석 됩니다. 예를 들어, `wifi -luxury`는 용어 `wifi`를 포함하는 문서 또는 용어 `luxury`를 포함하지 않는 문서를 검색합니다.  <br/><br/>`searchMode=all` 더 작은 결과를 포함 하 여 쿼리의 전체 자릿수를 늘리고 기본적으로-는 "AND NOT"으로 해석 됩니다. 예를 들어 `wifi -luxury`는 용어 `wifi`를 포함하고 용어 "luxury"를 포함하지 않는 문서를 검색합니다. 이러한 동작이 `-` 연산자의 좀 더 간단한 동작일 것입니다. 따라서 `searchMode=all` `searchMode=any` 회수 대신 전체 자릿수에 대 한 검색을 최적화 하 *고* 사용자가 `-` 검색에서 연산자를 자주 사용 하는 경우 대신를 사용 하는 것을 고려해 야 합니다.<br/><br/>설정을 결정할 때 `searchMode` 다양 한 응용 프로그램의 쿼리에 대 한 사용자 상호 작용 패턴을 고려 합니다. 정보를 검색 하는 사용자는 더 많은 기본 제공 탐색 구조를 포함 하는 전자 상거래 사이트와는 달리 쿼리에 연산자를 포함할 가능성이 높습니다. |
 
 ##  <a name="fielded-search"></a><a name="bkmk_fields"></a> 필드 지정 검색
 
@@ -148,20 +97,19 @@ NOT 연산자는 빼기 기호입니다. 예를 들어는 `wifi –luxury` 및/�
 
 유사 항목 검색은 유사한 구성이 있는 일치 항목을 찾아 두 개 이하의 거리 기준을 충족 하는 최대 50의 용어로 확장 합니다. 자세한 내용은 [유사 항목 검색](search-query-fuzzy.md)을 참조 하세요.
 
- 유사 항목 검색을 수행하려면 한 단어의 끝에 물결표("~") 기호를 붙입니다. 그리고 선택적으로 편집 거리를 지정하는 0과 2(기본값) 사이의 수를 매개 변수로 붙입니다. 예를 들어, "blue~" 또는 "blue~1"은 "blue", "blues" 및 "glue"를 반환합니다.
+유사 항목 검색을 수행하려면 한 단어의 끝에 물결표("~") 기호를 붙입니다. 그리고 선택적으로 편집 거리를 지정하는 0과 2(기본값) 사이의 수를 매개 변수로 붙입니다. 예를 들어, "blue~" 또는 "blue~1"은 "blue", "blues" 및 "glue"를 반환합니다.
 
- 유사 항목 검색은 구가 아니라 용어에만 적용할 수 있지만 각 용어에 물결표를 여러 부분으로 구성 된 이름이 나 구에 추가할 수 있습니다. 예를 들어 "Unviersty ~ of ~" Wshington ~ "는" 대학 대학 "과 일치 합니다.
+유사 항목 검색은 구가 아니라 용어에만 적용할 수 있지만 각 용어에 물결표를 여러 부분으로 구성 된 이름이 나 구에 추가할 수 있습니다. 예를 들어 "Unviersty ~ of ~" Wshington ~ "는" 대학 대학 "과 일치 합니다.
  
 ##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> 근접 검색
 
 근접 검색은 문서에서 서로 근접한 용어를 찾는 데 사용됩니다. 구 끝에 물결표("~") 기호, 그리고 근접 경계를 생성하는 단어 수를 넣습니다. 예를 들어, `"hotel airport"~5`는 문서에서 서로 5개의 단어 내에서 “hotel”과 “airport”라는 용어를 찾게 됩니다.  
 
-
 ##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> 용어 상승
 
 용어 상승은 해당 용어가 포함되지 않은 문서와 상대적으로, 상승된 용어가 포함된 경우 문서에 더 높은 순위를 매기는 것을 의미합니다. 이것은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다.  
 
-다음 예제는 차이점을 설명하는 데 도움이 됩니다. [musicstoreindex 예제](index-add-scoring-profiles.md#bkmk_ex)에서 *genre*와 같이 특정 필드에서 일치 항목을 상승시키는 점수 매기기 프로필을 고려해 보세요. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, `rock^2 electronic`은 genre 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 *rock*이라는 검색어가 포함된 문서는 *electronic*이라는 다른 검색어보다 높은 순위로 매겨집니다.  
+다음 예제는 차이점을 설명하는 데 도움이 됩니다. [musicstoreindex 예제](index-add-scoring-profiles.md#bkmk_ex)에서 *genre* 와 같이 특정 필드에서 일치 항목을 상승시키는 점수 매기기 프로필을 고려해 보세요. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, `rock^2 electronic`은 genre 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 *rock* 이라는 검색어가 포함된 문서는 *electronic* 이라는 다른 검색어보다 높은 순위로 매겨집니다.  
 
  용어를 상승시키려면 검색하려는 용어 끝 부분에 상승 계수(숫자)와 함께 캐럿("^") 기호를 사용합니다. 또한 구를 상승시킬 수도 있습니다. 상승 계수가 높을수록 해당 용어는 다른 검색어에 비해 더 관련성이 높아집니다. 기본적으로, 상승 계수는 1입니다. 상승 계수는 양수여야 하지만, 1 미만일 수도 있습니다(예: 0.20).  
 
@@ -194,9 +142,27 @@ En-us (영어 Lucene) 분석기를 사용 하는 경우 각 용어의 적극적 
 
 다른 측면에서 Microsoft 분석기 (이 경우에는 en-us)는 약간 더 고급 이며 형태소 분석 대신 분류 정리를 사용 합니다. 즉, 생성 된 모든 토큰은 유효한 영어 단어 여야 합니다. 예를 들어 ' terminate ', ' terminate ' 및 ' 종료 '는 대부분 인덱스에서 전반적으로 유지 되며 와일드 카드 및 유사 항목 검색에 많은 영향을 주는 시나리오에 적합 합니다.
 
-##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> 와일드카드 및 정규식 쿼리 점수 매기기
+## <a name="scoring-wildcard-and-regex-queries"></a> 와일드카드 및 정규식 쿼리 점수 매기기
 
 Azure Cognitive Search는 텍스트 쿼리에 대해 빈도 기반 점수 매기기 ([TF IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))를 사용 합니다. 그러나 용어 범위가 광범위할 수 있는 와일드카드 및 정규식 쿼리의 경우 순위 오류가 발생하여 더 드물게 나오는 용어가 검색되지 않도록 빈도 계수가 무시됩니다. 모든 일치 항목은 와일드카드 및 정규식에 대한 동일하게 처리됩니다.
+
+## <a name="special-characters"></a>특수 문자
+
+일부 경우에는 ' ❤ '이 모 지 또는 ' € ' 기호와 같은 특수 문자를 검색 해야 할 수 있습니다. 이 경우 사용 하는 분석기에서 해당 문자를 필터링 하지 않는지 확인 합니다. 표준 분석기는 인덱스에서 제외 하 고 많은 특수 문자를 건너뜁니다.
+
+특수 문자를 토큰화 하는 분석기에는 "공백" 분석기가 포함 됩니다 .이 분석기는 공백으로 구분 되는 문자 시퀀스를 토큰으로 간주 하므로 "❤" 문자열은 토큰으로 간주 됩니다. 또한 Microsoft English analyzer ("en-us")와 같은 언어 분석기는 "€" 문자열을 토큰으로 사용 합니다. 분석기를 [테스트](/rest/api/searchservice/test-analyzer) 하 여 지정 된 쿼리에 대해 생성 되는 토큰을 확인할 수 있습니다.
+
+유니코드 문자를 사용 하는 경우 쿼리 url에서 기호가 제대로 이스케이프 되었는지 확인 합니다. 예를 들어 "❤"은 이스케이프 시퀀스를 사용 `%E2%9D%A4+` 합니다. Postman은이 변환을 자동으로 수행 합니다.  
+
+## <a name="precedence-grouping"></a>우선 순위 (그룹화)
+
+괄호를 사용(괄호문 내에 연산자를 포함)하여 하위 쿼리를 만들 수 있습니다. 예를 들어, `motel+(wifi|luxury)`는 용어 motel과 "wifi" 또는 "luxury" 중 하나(또는 둘 다)를 포함하는 문서를 검색합니다.|
+
+필드 그룹화는 유사하지만 그룹화 범위가 단일 필드입니다. 예를 들어, `hotelAmenities:(gym+(wifi|pool))`은 필드 "hotelAmenities"에서 "gym"과 "wifi" 또는 "gym"과 "pool"을 검색합니다.  
+
+## <a name="query-size-limits"></a>쿼리 크기 제한
+
+Azure Cognitive Search에 보낼 수 있는 쿼리 크기에는 제한이 있습니다. 특히, 최대 1024개 절(AND, OR 등으로 구분된 식)을 사용할 수 있습니다. 또한 한 쿼리의 개별 용어 크기도 약 32KB로 제한됩니다. 애플리케이션이 검색 쿼리를 프로그래밍 방식으로 생성하는 경우 쿼리가 제한 없는 크기로 생성되지 않도록 디자인하는 것이 좋습니다.  
 
 ## <a name="see-also"></a>참고 항목
 

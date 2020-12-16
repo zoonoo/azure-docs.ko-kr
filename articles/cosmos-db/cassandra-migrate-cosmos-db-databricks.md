@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 827abcdb9eb2eb8b7328eb3e3a78f49d51e87e6b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349183"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516549"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Azure Databricks를 사용 하 여 Cassandra에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -42,7 +42,7 @@ Azure Cosmos DB Cassandra API는 다음과 같은 다양 한 이유로 Apache Ca
 
 ## <a name="provision-an-azure-databricks-cluster"></a>Azure Databricks 클러스터 프로비전
 
-지침에 따라 [Azure Databricks 클러스터를 프로 비전](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)할 수 있습니다. 그러나 Apache Spark 3. x는 Apache Cassandra 커넥터에 대해 현재 지원 되지 않습니다. Apache Spark의 지원 되는 v2. x 버전을 사용 하 여 Databricks 런타임을 프로 비전 해야 합니다. Databricks 런타임의 버전 6.6을 권장 합니다.
+지침에 따라 [Azure Databricks 클러스터를 프로 비전](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)할 수 있습니다. 그러나 Apache Spark 3. x는 Apache Cassandra 커넥터에 대해 현재 지원 되지 않습니다. Apache Spark의 지원 되는 v2. x 버전을 사용 하 여 Databricks 런타임을 프로 비전 해야 합니다. 최신 버전의 Spark 2.x를 지 원하는 Databricks 런타임 버전을 선택 하는 것이 좋습니다. Scala 버전 2.11는 이후 버전입니다.
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks 런타임":::
 

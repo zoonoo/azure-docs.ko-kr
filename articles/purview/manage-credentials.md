@@ -7,20 +7,20 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: c991559d550b351ce70bcc5834f96f313f856a82
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553448"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516678"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure 부서의 범위에서 원본 인증에 대 한 자격 증명
 
 이 문서에서는 Azure 부서의 범위에서 자격 증명을 만들어 저장 된 인증 정보를 데이터 원본 검색에 신속 하 게 다시 사용 하 고 적용 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 키 자격 증명 모음. 아직 없는 경우 (KV 생성 문서에 링크 삽입) 하 여 만듭니다.
+* Azure 키 자격 증명 모음. 새로 만드는 방법을 알아보려면 [빠른 시작: Azure Portal 사용 하 여 key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
 
 ## <a name="introduction"></a>소개
 자격 증명은 Azure 부서의 범위에서 등록 된 데이터 원본에 인증 하는 데 사용할 수 있는 인증 정보입니다. 자격 증명 개체는 다양 한 유형의 인증 시나리오 (예: 사용자 이름/암호를 요구 하는 기본 인증)에 대해 만들 수 있으며 선택한 인증 방법 유형에 따라 필요한 특정 정보를 캡처합니다. 자격 증명 자격 증명을 만드는 동안 중요 한 인증 정보를 검색 하기 위해 기존 Azure 주요 자격 증명 모음 암호를 사용 합니다.

@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 4c6252b31b4be05ea3c0bcf160a28bf335239b23
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 893a04f5acd48cf1e6f34033c06a758492e70abf
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95324859"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516715"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트 설치 (미리 보기)
 이 문서에서는 Azure virtual machines와 Azure Arc 사용 서버 모두에 [Azure Monitor 에이전트](azure-monitor-agent-overview.md) 를 설치 하는 데 사용할 수 있는 여러 옵션을 제공 하며, 에이전트가 수집 해야 하는 데이터를 정의 하는 [데이터 수집 규칙을 사용 하 여 연결](data-collection-rule-azure-monitor-agent.md) 을 만드는 옵션도 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure Monitor 에이전트를 설치 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
 - Azure virtual machines에서 [관리 되는 시스템 id](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) 를 사용 하도록 설정 해야 합니다. 이는 Azure Arc 사용 서버에는 필요 하지 않습니다. 에이전트를 [Azure Portal를 사용 하 여 데이터 수집 규칙을 만들고 할당 하](#install-with-azure-portal)는 프로세스의 일부로 설치 하는 경우 시스템 id가 자동으로 사용 됩니다.
@@ -27,7 +27,7 @@ Azure Monitor 에이전트는 다음 표의 세부 정보를 사용 하 여 [AZU
 
 | 속성 | Windows | Linux |
 |:---|:---|:---|
-| 게시자 | Microsoft. Azure 모니터  | Microsoft. Azure 모니터 |
+| Publisher | Microsoft. Azure 모니터  | Microsoft. Azure 모니터 |
 | 유형      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
@@ -75,11 +75,11 @@ Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publishe
 다음 PowerShell 명령을 사용 하 여 Azure Monitor 에이전트 onAzure Arc 사용 서버를 설치 합니다.
 # <a name="windows"></a>[Windows](#tab/PowerShellWindowsArc)
 ```powershell
-New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <virtual-machine-name> -Location <location>
 ```
 # <a name="linux"></a>[Linux](#tab/PowerShellLinuxArc)
 ```powershell
-New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location>
+New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <virtual-machine-name> -Location <location>
 ```
 ---
 ## <a name="azure-cli"></a>Azure CLI

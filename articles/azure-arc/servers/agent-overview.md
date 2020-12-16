@@ -3,12 +3,12 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1bc9546e6db35153424ba670f8157adb86d19b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 277e6616ce1bf90ada83516cb71f9cb55de1b7b0
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452952"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516799"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -55,6 +55,9 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 - SLES(SUSE Linux Enterprise Server) 15(x64)
 - RHEL(Red Hat Enterprise Linux) 7(x64)
 - Amazon Linux 2(x64)
+
+> [!WARNING]
+> Linux 호스트 이름 또는 Windows 컴퓨터 이름에는 이름에 있는 예약 된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결 된 컴퓨터를 등록 하는 데 실패 합니다. 예약 된 단어 목록에 대해서는 [예약 된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md) 을 참조 하세요.
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 

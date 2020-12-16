@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 94da22fbb2940bddaad1324bedc8759706eca37b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173569"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516505"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "96173569"
 다음 검사 목록을 사용 하 여 응용 프로그램이 [Microsoft id 플랫폼과](./index.yml)효과적으로 통합 되었는지 확인 합니다.
 
 > [!TIP]
-> Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant (미리 보기)** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
+> Azure Portal의 *통합 길잡이* 를 통해 이러한 모범 사례와 권장 사항을 대부분 적용할 수 있습니다. Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 중 하나를 선택한 다음 **Integration assistant** 메뉴 항목을 선택 하 여 길잡이를 시작 합니다.
 
 ## <a name="basics"></a>기본
 
@@ -44,7 +44,7 @@ ms.locfileid: "96173569"
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 이 정보는 [응용 프로그램의 동의 프롬프트](application-consent-experience.md)에 표시 됩니다. 사용자가 합리적인 의사 결정을 내릴 수 있도록 이름 및 로고가 회사/제품을 대표 하는지 확인 합니다. 모든 상표를 위반 하지 않는지 확인 합니다.
 
-## <a name="privacy"></a>개인 정보 취급 방침
+## <a name="privacy"></a>개인 정보 보호
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 앱의 서비스 약관 및 개인 정보 취급 방침에 대 한 링크를 제공 합니다.
 

@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/08/2020
+ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: dab34b26d8237d743e22149ed0da2dd9471d7431
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: deb52c8716f97874beae4accbf6f34f72e20ca04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096104"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516460"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Data Box 및 Data Box Heavy 장치에서 사용자 고유의 인증서 사용
 
@@ -44,10 +44,10 @@ Data Box 또는 Data Box Heavy 장치에서는 두 가지 유형의 끝점 인�
 - 장치 이름 또는 DNS 도메인 이름이 변경 되 면 인증서를 변경 해야 합니다.
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-  |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+  |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
   |---------|---------|---------|---------|
   |로컬 UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
-  |Blob Storage|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+  |Blob 스토리지|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
   |다중 SAN 단일 인증서|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
 자세한 내용은 [인증서 요구 사항](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md)을 참조 하세요.
@@ -95,11 +95,12 @@ Data Box 또는 Data Box Heavy 장치에서는 두 가지 유형의 끝점 인�
 
    ![Error after a new Local web UI certificate is added to a Data Box device](media/data-box-bring-your-own-certificates/certificates-unable-to-communicate-error.png) TEST. RESTORE IF ERROR IS REPRODUCED.-->
 
-6. 로컬 웹 UI에 액세스 하는 데 사용 중인 클라이언트 컴퓨터에 새 인증서를 설치 합니다. 자세한 내용은 아래의 [클라이언트로 인증서 가져오기](#import-certificates-to-client)를 참조 하세요.
-
-7. 로컬 웹 UI에 대 한 인증서를 변경한 경우 브라우저를 다시 시작한 다음 로컬 웹 UI를 다시 시작 해야 합니다. 이 단계는 SSL 캐시 문제를 방지 하는 데 필요 합니다.
+6. 로컬 웹 UI에 대 한 인증서를 변경한 경우 브라우저를 다시 시작한 다음 로컬 웹 UI를 다시 시작 해야 합니다. 이 단계는 SSL 캐시 문제를 방지 하는 데 필요 합니다.
 
   <!-- TESTING THIS - The communication error should be gone from the **Certificates** screen.-->
+
+7. 로컬 웹 UI에 액세스 하는 데 사용 중인 클라이언트 컴퓨터에 새 인증서를 설치 합니다. 자세한 내용은 아래의 [클라이언트로 인증서 가져오기](#import-certificates-to-client)를 참조 하세요.
+
 
 ## <a name="import-certificates-to-client"></a>클라이언트에 인증서 가져오기
 

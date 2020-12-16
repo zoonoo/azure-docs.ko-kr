@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700225"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516421"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스에 대 한 api 키 만들기 및 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "94700225"
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="포털 페이지, 설정 검색, 키 섹션" border="false":::
 
-## <a name="what-is-an-api-key"></a>api-key란?
+## <a name="what-is-an-api-key"></a>Api 키 란?
 
 api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. [역할 기반 권한](search-security-rbac.md)을 통해 키를 삭제하거나 읽을 수 있지만 사용자 정의 암호로 키를 대체하거나 검색 작업에 액세스하기 위한 기본 인증 방법으로 Active Directory를 사용할 수 없습니다. 
 
@@ -88,6 +88,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 포털 또는 관리 계층을 통해 새 키를 만든 후 새 키가 있고 요청에 이러한 키를 제공 하면 콘텐츠 (인덱스, 인덱서, 데이터 원본, 동의어 맵)로 액세스가 복원 됩니다.
 
 ## <a name="secure-api-keys"></a>api-key 보안
+
 키 보안은 포털 또는 Resource Manager 인터페이스를 통해 액세스를 제한하여 보장됩니다(PowerShell 또는 명령줄 인터페이스). 설명한 것처럼 구독 관리자는 모든 api-key를 보고 다시 생성할 수 있습니다. 예방 조치로 역할 할당을 검토하여 관리 키에 대한 액세스 권한이 있는 사용자를 파악할 수 있습니다.
 
 + 서비스 대시보드에서 **액세스 제어(IAM)**, **역할 할당** 탭을 차례로 클릭하여 서비스에 대한 역할 할당을 봅니다.
@@ -97,7 +98,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 > [!Note]
 > 검색 결과에 대한 ID 기반 액세스의 경우 보안 필터를 만들어서 ID를 기준으로 결과를 잘라 요청자에게 액세스 권한이 없어야 하는 문서를 제거할 수 있습니다. 자세한 내용은 [보안 필터](search-security-trimming-for-azure-search.md) 및 [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search의 azure 역할 기반 액세스 제어](search-security-rbac.md)
 + [Powershell을 사용하여 관리](search-manage-powershell.md) 

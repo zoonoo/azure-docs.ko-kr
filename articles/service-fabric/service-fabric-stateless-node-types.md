@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: d3ce6e888c937676027f2b71578c38b56f3bd6af
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97388026"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516616"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>상태 비저장 전용 노드 유형 (미리 보기)을 사용 하 여 Azure Service Fabric 클러스터 배포
 Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노드에 배치 될 수 있다는 가정 하에 제공 됩니다. 상태 비저장 노드 형식은 노드 형식에 대 한 이러한 가정을 완화 하므로 더 빠른 규모 확장 작업과 같은 다른 기능을 사용할 수 있도록 하 고, 단일 가상 머신 확장 집합에서 100 개 보다 많은 노드를 확장 하 여 청동 내구성에서 자동 OS 업그레이드를 지원 합니다.
@@ -24,6 +24,8 @@ Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노�
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Service Fabric 클러스터에서 상태 비저장 노드 형식 사용
 클러스터 리소스에서 하나 이상의 노드 유형을 상태 비저장으로 설정 하려면 **Isstateless 비저장** 속성을 "true"로 설정 합니다. 상태 비저장 노드 유형을 사용 하 여 Service Fabric 클러스터를 배포 하는 경우 클러스터 리소스에 하나 이상의 주 노드 유형을 포함 해야 합니다.
+
+* Service Fabric cluster resource apiVersion는 "2020-12-01-preview" 이상 이어야 합니다.
 
 ```json
 {
@@ -238,6 +240,8 @@ Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노�
 
 
 ### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>기본 SKU Load Balancer 및 기본 SKU IP를 사용 하 여 클러스터에서 상태 비저장 노드 유형을 사용 하도록 마이그레이션
+모든 마이그레이션 시나리오에 대해 새 상태 비저장 전용 노드 유형을 추가 해야 합니다. 기존 노드 형식은 상태 비저장 전용으로 마이그레이션할 수 없습니다.
+
 기본 SKU를 사용 하 여 Load Balancer 및 IP를 사용 하는 클러스터를 마이그레이션하려면 먼저 표준 SKU를 사용 하 여 완전히 새로운 Load Balancer 및 IP 리소스를 만들어야 합니다. 이러한 리소스는 내부에서 업데이트할 수 없습니다.
 
 새 LB 및 IP는 사용할 새 상태 비저장 노드 형식에서 참조 되어야 합니다. 위의 예제에서는 상태 비저장 노드 형식에 사용할 새 가상 머신 확장 집합 리소스를 추가 합니다. 이러한 가상 머신 확장 집합은 새로 만든 LB 및 IP를 참조 하 고 Service Fabric 클러스터 리소스에서 상태 비저장 노드 유형으로 표시 됩니다.
@@ -247,28 +251,8 @@ Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노�
 * 표준 SKU를 사용 하는 Load Balancer 리소스입니다.
 * 가상 머신 확장 집합을 배포 하는 서브넷에서 참조 하는 NSG입니다.
 
-
-이러한 리소스의 예제는 [샘플 템플릿에서](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure)찾을 수 있습니다.
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 리소스 배포를 완료 한 후에는 원본 클러스터에서 제거 하려는 노드 형식의 노드를 사용 하지 않도록 설정할 수 있습니다.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
 ## <a name="next-steps"></a>다음 단계 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

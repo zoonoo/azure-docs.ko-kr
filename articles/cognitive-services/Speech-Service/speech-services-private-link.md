@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: c88a7820518d0a73bfb0e93d3b364190207b8f90
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 01a0171ed2b660fbabebf4276a74f8a3ea631bde
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051220"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516537"
 ---
 # <a name="using-speech-services-with-private-endpoints-provided-by-azure-private-link"></a>Azure 개인 링크에서 제공 하는 개인 끝점에서 음성 서비스 사용
 
@@ -53,11 +53,11 @@ ms.locfileid: "97051220"
 - 리소스에 대해 고유한 사용자 지정 하위 도메인을 만드는 지침이 포함 된 새 패널이 표시 됩니다.
 > [!WARNING]
 > 사용자 지정 도메인 이름을 만든 후에는 변경할 수 **없습니다** . 위의 경고에서 추가 정보를 참조 하세요.
-- 작업이 완료 된 후에는 *키와 끝점* (*리소스 관리* 그룹)을 선택 하 고 다음 형식으로 리소스의 새 끝점 이름을 확인 하는 것이 좋습니다. `{your custom name}.cognitiveservices.azure.com`
+- 작업이 완료 된 후에는 *키와 끝점* (*리소스 관리* 그룹)을 선택 하 고 다음 형식으로 리소스의 새 끝점 이름을 확인 하는 것이 좋습니다. <p />`{your custom name}.cognitiveservices.azure.com`
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-이 섹션에서는 Azure PowerShell 모듈 버전 5.1.0 이상을 사용 하 여 PowerShell 버전 4.x 이상을 로컬로 실행 해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드 해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps) 를 참조 하세요.
+이 섹션에서는 Azure PowerShell 모듈 버전 5.1.0 이상을 사용 하 여 PowerShell 버전 4.x 이상을 로컬로 실행 해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
 `Connect-AzAccount`Azure를 사용 하 여 연결을 만들기 위해 추가 실행을 계속 합니다.
 
@@ -275,10 +275,10 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 음성 텍스트에는 두 가지 REST Api가 있습니다. 각 API는 다른 용도로 사용 되 고, 다른 끝점을 사용 하며, 개인 끝점 사용 시나리오에서 사용 되는 경우 다른 방법이 필요 합니다.
 
 음성 텍스트 REST Api는 다음과 같습니다.
-- 온라인 기록에는 [v 1.0](rest-speech-to-text.md) 이 사용 됩니다.
-- v 3.0은 [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 됩니다. ( [전체 참조](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)참조)
+- [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) 은 [일괄 처리](batch-transcription.md) 기록 및 [Custom Speech](custom-speech-overview.md)에 사용 됩니다. v 3.0은 v2.0 [의 후속 작업](/azure/cognitive-services/speech-service/migrate-v2-to-v3)입니다.
+- [짧은 오디오의 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 은 온라인 기록에 사용 됩니다. 
 
-개인 끝점 시나리오에서 음성 텍스트 v 1.0 및 텍스트 음성 변환 REST API 사용은이 문서의 뒷부분에 설명 된 [음성 SDK 사례](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) 와 동일 하 고 동일 합니다. 
+개인 끝점 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API 사용은이 문서의 뒷부분에 설명 된 [음성 SDK 사례](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) 와 동일 하 고 동일 합니다. 
 
 음성 텍스트 REST API v 3.0은 다른 끝점 집합을 사용 하 고 있으므로 개인 끝점 사용 시나리오에 대해 다른 접근 방식이 필요 합니다.
 
@@ -287,7 +287,7 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 
 ##### <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
 
-일반적으로 음성 리소스는 [Cognitive Services 지역 끝점](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 을 사용 하 여 [음성 텍스트 REST API v 3.0](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)과 통신 합니다. 이러한 리소스에는 다음과 같은 명명 형식이 있습니다. <p/>`{region}.api.cognitive.microsoft.com`
+일반적으로 음성 리소스는 [Cognitive Services 지역 끝점](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 을 사용 하 여 [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30)과 통신 합니다. 이러한 리소스에는 다음과 같은 명명 형식이 있습니다. <p/>`{region}.api.cognitive.microsoft.com`
 
 샘플 요청 URL은 다음과 같습니다.
 
@@ -311,15 +311,18 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 >
 > 음성 리소스 사용자 지정 도메인 이름에는 리소스가 배포 되는 지역에 대 한 정보가 포함 되어 **있지 않습니다** . 따라서 위에 설명 된 응용 프로그램 논리는 작동 **하지** 않으며 변경 해야 합니다.
 
-##### <a name="speech-to-text-rest-api-v10-and-text-to-speech-rest-api"></a>음성 텍스트 REST API v 1.0 및 텍스트 음성 변환 REST API
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
 
-[음성 텍스트 REST API v 1.0](rest-speech-to-text.md) 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) 는 두 가지 유형의 끝점을 사용 합니다.
+짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) [에 대 한 음성 텍스트 REST API는](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 두 가지 유형의 끝점을 사용 합니다.
 - Cognitive Services REST API와 통신 하 여 권한 부여 토큰을 가져오는 [지역 끝점 Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)
 - 다른 모든 작업에 대 한 특수 끝점
 
 특수 끝점에 대 한 자세한 설명과 개인 끝점을 사용 하도록 설정 된 음성 리소스에 대 한 URL을 변환 하는 방법은 아래의 "음성 SDK 사용 사용" [섹션에서 제공](#general-principle) 합니다. SDK에 대해 설명 하는 것과 동일한 원칙이 음성 텍스트 v 1.0 및 텍스트 음성 변환 REST API에 적용 됩니다.
 
-이전 단락에서 언급 한 하위 섹션의 자료를 숙지 하 고 다음 예제를 참조 하세요. (이 예제에서는 텍스트 음성 변환 REST API 설명 하 고, 음성-텍스트 v 1.0 REST API 사용은 완전히 동일 합니다.)
+이전 단락에서 언급 한 하위 섹션의 자료를 숙지 하 고 다음 예제를 참조 하세요. 이 예제에서는 텍스트 음성 변환 REST API에 대해 설명 합니다. 짧은 오디오에 대 한 음성 텍스트 REST API 사용은 완전히 동일 합니다.
+
+> [!NOTE]
+> 전용 끝점 시나리오에서 **짧은 오디오에 대해 음성 텍스트 REST API** 를 사용 하는 경우 헤더를 [통해 전달 되](rest-speech-to-text.md#request-headers) 는 인증 토큰을 사용 해야 `Authorization` [](rest-speech-to-text.md#request-headers)합니다. 헤더를 통해 특수 끝점에 음성 구독 키를 전달 하는 것 `Ocp-Apim-Subscription-Key` 은 작동 **하지** 않으며 오류 401을 생성 합니다.
 
 **텍스트 음성 변환 REST API 사용 예입니다.**
 
@@ -497,14 +500,16 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 
 음성 텍스트 REST API v 3.0 사용은 [개인 끝점 사용 음성 리소스](#speech-to-text-rest-api-v30)의 경우와 완전히 동일 합니다.
 
-##### <a name="speech-to-text-rest-api-v10-and-text-to-speech-rest-api"></a>음성 텍스트 REST API v 1.0 및 텍스트 음성 변환 REST API
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
 
-이 경우 음성 텍스트 REST API v 1.0 및 텍스트 음성 변환 REST API 사용은 일반적인 경우와는 차이가 없으며, [음성 텍스트 REST API v 1.0](rest-speech-to-text.md) 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) 설명서에 설명 된 대로 사용 해야 합니다.
+이 경우 짧은 오디오 및 텍스트 음성 변환 REST API 사용에 대 한 음성-텍스트 REST API은 짧은 오디오의 음성 텍스트 REST API에 대 한 한 가지 예외를 제외 하 고 일반적인 경우와 차이가 없습니다 (아래 참고 참조). 짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) 설명서 [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 에 설명 된 대로 두 api를 사용 해야 합니다.
 
+> [!NOTE]
+> 사용자 지정 도메인 시나리오에서 **짧은 오디오에 음성 텍스트 REST API** 를 사용 하는 경우 헤더를 [통해 전달 되](rest-speech-to-text.md#request-headers) 는 인증 토큰을 사용 해야 `Authorization` [](rest-speech-to-text.md#request-headers)합니다. 헤더를 통해 특수 끝점에 음성 구독 키를 전달 하면 `Ocp-Apim-Subscription-Key` 작동 **하지** 않으며 오류 401이 생성 됩니다.
 
 #### <a name="speech-resource-with-custom-domain-name-without-private-endpoints-usage-with-speech-sdk"></a>개인 끝점이 없는 사용자 지정 도메인 이름을 사용 하는 음성 리소스입니다. Speech SDK 사용
 
-사용자 지정 도메인 이름을 사용 하는 음성 SDK와 개인 끝점 **없이** 음성 리소스를 사용 하려면 응용 프로그램 코드를 검토 하 고 변경 해야 합니다. 이러한 변경 내용은 [개인 끝점 사용 음성 리소스](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk)의 대/소문자 비교 **와 다릅니다** . 개인 끝점/사용자 지정 도메인을 더욱 원활 하 게 지원 하기 위해 노력 하 고 있습니다.
+사용자 지정 도메인 이름을 사용 하는 음성 SDK와 개인 끝점 **없이** 음성 리소스를 사용 하려면 응용 프로그램 코드를 검토 하 고 변경 해야 합니다. 이러한 변경 내용은 [개인 끝점 사용 음성 리소스](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk)의 대/소문자 비교 **와 다릅니다** . 개인 끝점/사용자 지정 도메인 시나리오를 더욱 원활 하 게 지원 하기 위해 노력 하 고 있습니다.
 
 `my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름 (사용자 지정 도메인)으로를 사용 합니다.
 

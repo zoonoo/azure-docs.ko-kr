@@ -3,25 +3,20 @@ title: Windows 가상 데스크톱 (클래식)에 대 한 진단 도구 배포-A
 description: Windows 가상 데스크톱에 대 한 진단 UX 도구 (클래식)를 배포 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023074"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515635"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows 가상 데스크톱 (클래식) 진단 도구 배포
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
-
->[!IMPORTANT]
->2020 년 3 월 16 일부 터 서비스에 대 한 수요 증가로 인해 사용자 환경에 영향을 주는 진단 쿼리를 일시적으로 사용 하지 않도록 설정 했습니다. 이렇게 하면 해당 쿼리가 작동 하는 데 의존 하므로 도구가 작동을 중지 합니다. 진단 쿼리를 다시 사용할 수 있게 되 면이 문서를 업데이트 합니다.
->
->그때 까지는 계속 모니터링을 위해 [Log Analytics를 사용](diagnostics-log-analytics-2019.md) 하는 것이 좋습니다.
 
 Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -32,7 +27,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -43,8 +38,8 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 
 또한 시작 하기 전에 다음 두 PowerShell 모듈을 설치 해야 합니다.
 
-- [Azure PowerShell 모듈](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Azure PowerShell 모듈](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 로그인 할 때 구독 ID가 준비 되어 있는지 확인 합니다.
 
