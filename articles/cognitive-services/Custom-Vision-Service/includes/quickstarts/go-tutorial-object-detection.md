@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 1f07cda0afa7213ca9c803754950c86a3f246469
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bae0887ca540dd553cc80849d9e134516089d016
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021347"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582525"
 ---
 이 가이드는 Go용 Custom Vision 클라이언트 라이브러리를 사용하여 개체 감지 모델을 빌드하는 데 유용한 지침과 샘플 코드를 제공합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습시키고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -274,6 +274,8 @@ go run sample.go
 ```
 
 애플리케이션의 출력이 콘솔에 표시됩니다. 그러면 테스트 이미지(**samples/vision/images/Test** 에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 

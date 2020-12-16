@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4d8f8783e9f6eece4de8dc1c35740fa7aaf03f8
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512619"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531997"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "86512619"
 | 최대 이미지 레이어 크기(GiB) | 200 | 200 | 200 |
 | 분당 ReadOps<sup>2, 3</sup> | 1,000 | 3,000 | 10000 |
 | 분당 WriteOps<sup>2, 4</sup> | 100 | 500 | 2,000 |
-| 다운로드 대역폭 MBps<sup>2</sup> | 30 | 60 | 100 |
-| 업로드 대역폭 MBps<sup>2</sup> | 10 | 20 | 50 |
+| 다운로드 대역폭 Mbps<sup>2</sup> | 30 | 60 | 100 |
+| 업로드 대역폭 Mbps<sup>2</sup> | 10 | 20 | 50 |
 | Webhook | 2 | 10 | 500 |
 | 지역에서 복제 | 해당 없음 | 해당 없음 | [지원됨][geo-replication] |
 | 콘텐츠 신뢰 | 해당 없음 | 해당 없음 | [지원됨][content-trust] |
@@ -39,11 +39,11 @@ ms.locfileid: "86512619"
 
 <sup>1</sup> 각 계층의 일별 요금에 포함된 스토리지입니다. 추가 스토리지의 경우 스토리지 한도까지 GiB당 추가 일일 요금이 청구됩니다. 요금 정보는 [Azure Container Registry 가격 책정][pricing]을 참조하세요.
 
-<sup>2</sup>*ReadOps*, *WriteOps* 및 *Bandwidth*는 최소 추정치입니다. Azure Container Registry는 필요한 사용량에 따라 성능을 개선하려고 합니다.
+<sup>2</sup>*ReadOps*, *WriteOps* 및 *Bandwidth* 는 최소 추정치입니다. Azure Container Registry는 필요한 사용량에 따라 성능을 개선하려고 합니다.
 
 <sup>3</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image)은 이미지의 레이어 수와 매니페스트 검색을 더한 값에 따라 여러 읽기 작업으로 변환됩니다.
 
-<sup>4</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image)는 푸시해야 하는 레이어 수에 따라 여러 쓰기 작업으로 변환됩니다. `docker push`에는 기존 이미지에 대해 매니페스트를 검색할 *ReadOps*가 포함되어 있습니다.
+<sup>4</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image)는 푸시해야 하는 레이어 수에 따라 여러 쓰기 작업으로 변환됩니다. `docker push`에는 기존 이미지에 대해 매니페스트를 검색할 *ReadOps* 가 포함되어 있습니다.
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

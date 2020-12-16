@@ -16,6 +16,8 @@
       items:
         - name: 앱에 채팅 추가
           href: quickstarts/chat/get-started.md
+        - name: 채팅 앱으로 Teams 미팅에 참가
+          href: quickstarts/chat/meeting-interop.md
     - name: 전화 통신 및 SMS
       items:
         - name: 전화 번호 가져오기

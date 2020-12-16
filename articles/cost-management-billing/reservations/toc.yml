@@ -126,7 +126,7 @@
           href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 예약 권장 사항 문제 해결
           href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
-        - name: 예약 사용 불가 문제 해결
+        - name: 예약 SKU 비활성화 문제 해결
           href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: 사용량 세부 정보 다운로드 문제 해결
           href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json

@@ -306,10 +306,12 @@
       items:
         - name: 계층 선택
           href: search-sku-tier.md
-        - name: 서비스 제한
-          href: search-limits-quotas-capacity.md
+        - name: 용량 및 비용 예측
+          href: search-sku-manage-costs.md
         - name: 용량 조정
           href: search-capacity-planning.md
+        - name: 서비스 제한
+          href: search-limits-quotas-capacity.md
         - name: 성능 확장
           href: search-performance-optimization.md
         - name: 다중 테넌트 아키텍처
@@ -362,12 +364,6 @@
               href: service-configure-firewall.md
             - name: 프라이빗 엔드포인트 만들기
               href: service-create-private-endpoint.md
-        - name: ID 기반 액세스
-          items:
-            - name: 보안 필터
-              href: search-security-trimming-for-azure-search.md
-            - name: 사용자 ID 필터링
-              href: search-security-trimming-for-azure-search-with-aad.md
         - name: 아웃바운드 보안(인덱서)
           items:
             - name: IP 범위에 대한 액세스
@@ -376,6 +372,12 @@
               href: search-indexer-howto-access-trusted-service-exception.md
             - name: 프라이빗 엔드포인트를 통한 액세스
               href: search-indexer-howto-access-private.md
+        - name: ID 기반 액세스
+          items:
+            - name: 보안 필터
+              href: search-security-trimming-for-azure-search.md
+            - name: 사용자 ID 필터링
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: 관리
       items:
         - name: 포털

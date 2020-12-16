@@ -6,6 +6,8 @@
       href: overview-reports.md
     - name: Azure AD 모니터링이란?
       href: overview-monitoring.md
+    - name: 로그인 진단이란?
+      href: overview-sign-in-diagnostics.md
 - name: 빠른 시작
   expanded: true
   items:

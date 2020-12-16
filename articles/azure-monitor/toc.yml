@@ -190,6 +190,8 @@
               href: platform/metrics-getting-started.md
             - name: 메트릭 탐색기의 고급 기능
               href: platform/metrics-charts.md
+            - name: 메트릭 탐색기에서 여러 리소스 보기
+              href: platform/metrics-dynamic-scope.md
             - name: 메트릭 차트의 예
               href: platform/metric-chart-samples.md
             - name: 메트릭 차트 문제 해결
@@ -546,12 +548,12 @@
               href: platform/itsmc-overview.md
             - name: IT Service Management 연결
               href: platform/itsmc-connections.md
-            - name: 보안 내보내기와 통합
-              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Service Manager 웹앱 만들기
               href: platform/itsmc-service-manager-script.md
             - name: ITSM 커넥터의 문제 해결
               href: platform/itsmc-resync-servicenow.md
+            - name: 보안 내보내기와 통합
+              href: platform/it-service-management-connector-secure-webhook-connections.md
         - name: 클래식 경고 규칙 마이그레이션
           items:
             - name: 클래식 경고 정보
@@ -752,6 +754,8 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: 로그 기반 메트릭 정의
               href: platform/app-insights-metrics.md
+            - name: 표준 메트릭
+              href: app/standard-metrics.md
         - name: 검색
           href: app/diagnostic-search.md
         - name: 프로파일러

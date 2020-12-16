@@ -92,8 +92,18 @@
           href: diagnostics-log-analytics.md
     - name: 기본 제공 앱 게시
       href: publish-apps.md
-    - name: MSIX 앱 연결 설정
-      href: app-attach.md
+    - name: MSIX 앱 연결 사용
+      items:
+        - name: Azure Portal을 사용하여 MSIX 앱 연결 설정
+          href: app-attach-azure-portal.md
+        - name: PowerShell을 사용하여 MSIX 앱 연결 설정
+          href: app-attach-powershell.md
+        - name: PowerShell 스크립트 만들기
+          href: app-attach.md
+        - name: MSIX 이미지 준비
+          href: app-attach-image-prep.md
+        - name: 파일 공유 설정
+          href: app-attach-file-share.md
     - name: Microsoft Teams 사용
       href: teams-on-wvd.md
     - name: Azure AD Multi-Factor Authentication 설정
@@ -112,6 +122,8 @@
       href: disaster-recovery.md
 - name: 개념
   items:
+    - name: 기본 제공 역할
+      href: rbac.md
     - name: 인증
       href: authentication.md
     - name: Windows Virtual Desktop 환경

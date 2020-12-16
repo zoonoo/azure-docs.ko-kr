@@ -7,18 +7,19 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341977"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516512"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Azure Defender for Storage 소개
 
-**Azure Defender for Storage**는 Azure Storage 계정에서 이루어지는 잠재적으로 유해한 활동을 탐지합니다. Blob 컨테이너, 파일 공유 또는 데이터 레이크로 저장된 데이터를 보호할 수 있습니다.
 
-이 보호 계층을 사용하면 보안 전문가가 *아니더라도* 위협을 처리할 수 있으며, 보안 모니터링 시스템을 관리할 수 있습니다.
+**Azure Defender for Storage** 는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지하는 Azure 기본 보안 인텔리전스 계층입니다. 보안 AI 및 [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684)의 고급 기능을 활용하여 상황별 보안 경고 및 권장 사항을 제공합니다.
+
+보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 경고는 Azure Security Center와 통합되며, 의심스러운 활동의 세부 정보와 위협을 조사하고 수정하는 방법에 대한 권장 사항을 포함하여 이메일을 통해 구독 관리자에게 전송됩니다.
 
 
 ## <a name="availability"></a>가용성
@@ -26,7 +27,7 @@ ms.locfileid: "92341977"
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|**Azure Defender for Storage**는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
+|가격 책정:|**Azure Defender for Storage** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
 |보호된 스토리지 형식:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure 파일](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
@@ -36,14 +37,14 @@ ms.locfileid: "92341977"
 
 다음과 같은 경우에 보안 경고가 트리거됩니다.
 
-- **의심스러운 활동** - 예를 들어 Tor의 활성 종료 노드로 알려진 IP 주소에서 스토리지 계정에 성공적으로 액세스했습니다.
-- **비정상 동작** - 예를 들어 스토리지 계정에 대한 액세스 패턴이 변했습니다.
-- **잠재적 맬웨어 업로드** - 해시 평판 분석을 보면 업로드된 파일에 맬웨어가 포함되어 있습니다.
+- **의심스러운 액세스 패턴** - Tor 종료 노드 또는 Microsoft 위협 인텔리전스에서 의심스러운 것으로 간주되는 IP에서 성공한 액세스 등
+- **의심스러운 활동** - 비정상적인 데이터 추출 또는 비정상적인 액세스 권한 변경 등
+- **악의적인 콘텐츠 업로드** - 잠재적인 맬웨어 파일(해시 평판 분석 기반) 또는 피싱 콘텐츠 호스팅 등
 
-경고에는 경고를 트리거한 인시던트의 세부 정보와 위협을 조사하고 완화하는 방법에 대한 권장 사항이 포함됩니다.
+경고에는 경고를 트리거한 인시던트의 세부 정보와 위협을 조사하고 완화하는 방법에 대한 권장 사항이 포함됩니다. 경고는 Azure Sentinel이나 기타 타사 SIEM 또는 기타 외부 도구로 내보낼 수 있습니다.
 
 > [!TIP]
-> [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131)의 지침에 따라 스토리지 경고를 시뮬레이션할 수 있습니다.
+> 구독 수준에서 [Azure Defender for Storage를 구성](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center)하는 것이 모범 사례이지만 [개별 스토리지 계정에서 구성](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal)할 수도 있습니다.
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>맬웨어에 대한 해시 평판 분석이란?
@@ -55,7 +56,7 @@ ms.locfileid: "92341977"
 > [!NOTE]
 > Security Center의 위협 방지 기능을 사용하도록 설정하려면 해당 워크로드가 포함된 구독에서 Azure Defender를 사용하도록 설정해야 합니다.
 >
-> **Azure Defender for Storage**는 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
+> **Azure Defender for Storage** 는 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
 
 
 
