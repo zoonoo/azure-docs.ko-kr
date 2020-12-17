@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 031a4993d9858dd4285abb35b20fca89dd2c9f18
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 70c310903461a4639a1eec1db9441d8f53e9e125
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181731"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505395"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-procaire"></a>자습서: Procaire와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -75,11 +75,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
-
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에 `https://praisidio.app/auth/login` URL을 입력합니다.
-
 
 1. **저장** 을 클릭합니다.
 

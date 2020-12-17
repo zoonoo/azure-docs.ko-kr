@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 2d9169e836b5819756e716c64ed9d41094f08c5e
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512371"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093522"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>ARO(Azure Red Hat OpenShift)에 대한 네트워크 개념
 
@@ -76,7 +76,7 @@ OpenShift [SDN](https://docs.openshift.com/container-platform/4.5/networking/ope
 * Pod CIDR의 최소 크기는 /18입니다(Pod 네트워크는 라우팅할 수 없는 IP이며, OpenShift SDN 내에서만 사용됨).
 * 각 노드에는 Pod에 대한 /23 서브넷(512개 IP)이 할당됩니다. 이 값은 변경할 수 없습니다.
 * Pod를 여러 네트워크에 연결할 수 없습니다.
-* 송신 고정 IP를 구성할 수 없습니다. (이것은 OpenShift 기능입니다. 자세한 내용은 [송신 IP 구성](https://docs.openshift.com/aro/4/networking/openshift_sdn/assigning-egress-ips.html)을 참조하세요).
+* 송신 고정 IP를 구성할 수 없습니다. (이것은 OpenShift 기능입니다. 자세한 내용은 [송신 IP 구성](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)을 참조하세요).
 
 ## <a name="network-settings"></a>네트워크 설정
 

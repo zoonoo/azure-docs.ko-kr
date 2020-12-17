@@ -3,12 +3,12 @@ title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: e50454c2299ed0f7e249563eecac1935a29a9c47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352469"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357894"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
@@ -163,7 +163,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="vCenter 상태가 녹색인 대시보드의 스크린샷" lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 활성화](https://www.youtube.com/embed/jzQZawslF8w) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 활성화](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) 비디오를 시청하세요.
 
    > [!IMPORTANT]
    > VMware HCX Advanced 또는 VMware HCX Enterprise를 사용하는지 여부에 관계없이 VMware의 [81558 KB 문서](https://kb.vmware.com/s/article/81558)에서 패치를 설치해야 할 수 있습니다. 
@@ -192,7 +192,7 @@ Azure VMware Solution의 VMware HCX Cloud Manager를 데이터 센터의 VMware 
 
    :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Azure VMware Solution의 HCX Manager와 VMware HCX Connector의 페어링을 보여주는 스크린샷.":::
 
-이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 사이트 페어링](https://www.youtube.com/embed/iTJtjbiwvsw) 비디오를 시청하세요.
+이 절차의 엔드투엔드 개요는 [Azure VMware Solution: HCX 사이트 페어링](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720) 비디오를 시청하세요.
 
 ### <a name="create-network-profiles"></a>네트워크 프로필 만들기
 

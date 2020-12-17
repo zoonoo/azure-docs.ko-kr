@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097280"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359543"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB의 SQL API 계정을 관리하는 Node.js 웹앱 빌드 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -470,7 +470,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 
 3. 원격에 푸시하여 애플리케이션을 배포합니다.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. 몇 초 후 웹 애플리케이션이 게시되고 브라우저에서 시작됩니다.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 473ed1f14d77470e31c2f14665a12542a70a2a98
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 6bb1aafd942046faa77072d99af043ebd43b4a8a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512301"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589970"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure 웹앱에 연결
 
@@ -180,7 +180,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 다음 명령을 사용하여 앱을 배포할 Azure 원격에 푸시합니다. Git 자격 증명 관리자에서 자격 증명을 요구하는 메시지가 표시되면 [로컬 Git 배포 구성](#configure-the-local-git-deployment) 섹션에서 만든 자격 증명을 사용합니다.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행되는 동안 아래와 비슷한 정보가 표시됩니다.
@@ -191,7 +191,7 @@ Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
 Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 remote: Deploy Async
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'd6b54472f7'.
 remote: Repository path is /home/site/repository
@@ -208,7 +208,7 @@ remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
 remote: Deployment successful.
 remote: Deployment Logs : 'https://&lt;your-webapp-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
 To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-name&gt;.git
-   d87e6ca..d6b5447  master -> master
+   d87e6ca..d6b5447  main -> main
 </pre>
 
 웹 브라우저를 사용하여 배포된 애플리케이션으로 이동하거나 해당 애플리케이션을 새로 고칩니다.
@@ -311,7 +311,7 @@ await context.Response.WriteAsync(secretValue);
 ```bash
 git add .
 git commit -m "Updated web app to access my key vault"
-git push azure master
+git push azure main
 ```
 
 ## <a name="go-to-your-completed-web-app"></a>완성된 웹앱으로 이동

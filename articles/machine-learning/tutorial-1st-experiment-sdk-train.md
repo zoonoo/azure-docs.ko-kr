@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 17bf7b3f457ff6046d92012ffd679ed4b9315530
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a2f76df05878151405d56b1bff5e588f426d9d92
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574125"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093556"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>자습서: 첫 번째 기계 학습 모델 학습(3/4부)
 
@@ -133,7 +133,7 @@ python src/train.py                             # train model
 :::row-end:::
 
 > [!div class="nextstepaction"]
-> [제어 스크립트를 만들었습니다.](?success=control-script#submit) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQ?issue=control-script)
+> [제어 스크립트를 만들었습니다.](?success=control-script#submit) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=control-script)
 
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Azure Machine Learning에 실행 제출
@@ -186,7 +186,7 @@ Finished Training
 간단히 말해, 등록된 환경을 사용하면 시간을 절약할 수 있습니다! 자세한 내용은 [환경을 사용하는 방법](./how-to-use-environments.md)을 확인하세요.
 
 > [!div class="nextstepaction"]
-> [실행을 제출했습니다.](?success=test-w-environment#log) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQ?issue=test-w-environment)
+> [실행을 제출했습니다.](?success=test-w-environment#log) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
 
 ## <a name="log-training-metrics"></a><a name="log"></a> 학습 메트릭 기록
 
@@ -221,7 +221,7 @@ Azure Machine Learning의 메트릭은 다음과 같습니다.
 - 크기를 조정할 수 있도록 설계되었으므로 수백 개의 실험을 실행하는 경우에도 이러한 이점을 유지할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [train.py를 수정했습니다.](?success=modify-train#log) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQ?issue=modify-train)
+> [train.py를 수정했습니다.](?success=modify-train#log) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=modify-train)
 
 ### <a name="update-the-conda-environment-file"></a>Conda 환경 파일 업데이트
 
@@ -230,7 +230,7 @@ Azure Machine Learning의 메트릭은 다음과 같습니다.
 :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
 > [!div class="nextstepaction"]
-> [환경 파일을 업데이트했습니다.](?success=update-environment#submit-again) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQ?issue=update-environment)
+> [환경 파일을 업데이트했습니다.](?success=update-environment#submit-again) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=update-environment)
 
 ### <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit-again"></a> Azure Machine Learning에 실행 제출
 다음 스크립트를 한 번 더 제출합니다.
@@ -244,7 +244,7 @@ python 04-run-pytorch.py
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="메트릭 탭의 학습 손실 그래프":::
 
 > [!div class="nextstepaction"]
-> [실행을 다시 제출했습니다.](?success=resubmit-with-logging#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQ?issue=resubmit-with-logging)
+> [실행을 다시 제출했습니다.](?success=resubmit-with-logging#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
 
 ## <a name="next-steps"></a>다음 단계
 

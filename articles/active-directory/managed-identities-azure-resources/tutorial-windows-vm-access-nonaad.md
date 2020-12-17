@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 668d3cb044512220ff7afbc165c77da704a9a5d7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180509"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107518"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 
@@ -61,6 +61,20 @@ ms.locfileid: "96180509"
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
+### <a name="create-a-secret"></a>비밀 만들기
+
+다음으로, Key Vault에 비밀을 추가하면 나중에 VM에서 실행 중인 코드를 사용하여 비밀을 검색할 수 있습니다. 이 자습서에서는 PowerShell을 사용하지만 이 가상 머신에서 실행되는 모든 코드에 동일한 개념이 적용됩니다.
+
+1. 새로 만든 Key Vault로 이동합니다.
+1. **비밀** 을 선택하고 **추가** 를 클릭합니다.
+1. **생성/가져오기** 를 선택합니다.
+1. **업로드 옵션 **의** 비밀 만들기** 화면에서 **수동** 을 선택한 상태로 둡니다.
+1. 비밀의 이름과 값을 입력합니다.  원하는 어떤 값이나 입력할 수 있습니다. 
+1. 활성화 날짜와 만료 날짜는 비워 두고 **사용 가능** 은 **예** 로 유지합니다. 
+1. **만들기** 를 클릭하여 비밀을 만듭니다.
+
+   ![비밀 만들기](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>액세스 권한 부여
 
 가상 머신에서 사용하는 관리 ID에는 Key Vault에 저장할 비밀을 읽을 수 있는 액세스 권한이 부여되어야 합니다.
@@ -76,19 +90,6 @@ ms.locfileid: "96180509"
 1. **추가** 를 선택합니다.
 1. **저장** 을 선택합니다.
 
-## <a name="create-a-secret"></a>비밀 만들기
-
-다음으로, Key Vault에 비밀을 추가하면 나중에 VM에서 실행 중인 코드를 사용하여 비밀을 검색할 수 있습니다. 이 자습서에서는 PowerShell을 사용하지만 이 가상 머신에서 실행되는 모든 코드에 동일한 개념이 적용됩니다.
-
-1. 새로 만든 Key Vault로 이동합니다.
-1. **비밀** 을 선택하고 **추가** 를 클릭합니다.
-1. **생성/가져오기** 를 선택합니다.
-1. **업로드 옵션 **의** 비밀 만들기** 화면에서 **수동** 을 선택한 상태로 둡니다.
-1. 비밀의 이름과 값을 입력합니다.  원하는 어떤 값이나 입력할 수 있습니다. 
-1. 활성화 날짜와 만료 날짜는 비워 두고 **사용 가능** 은 **예** 로 유지합니다. 
-1. **만들기** 를 클릭하여 비밀을 만듭니다.
-
-   ![비밀 만들기](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## <a name="access-data"></a>데이터 액세스  
 

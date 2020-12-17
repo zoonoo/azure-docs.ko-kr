@@ -11,15 +11,14 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: f00448f19cc0a2118477a9527005548fea25537e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187275"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346370"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>자습서: Azure IoT Central에서 데이터 내보내기 및 Power BI에서 인사이트 시각화
-
 
 
 이전 두 자습서에서 **스토어 내 분석 - 체크 아웃** 애플리케이션 템플릿을 사용하여 IoT Central 애플리케이션을 만들고 사용자 지정했습니다. 이 자습서에서는 디바이스에서 수집된 원격 분석을 내보내도록 IoT Central 애플리케이션을 구성합니다. 그런 다음, Power BI를 사용하여 스토어 관리자가 원격 분석에서 파생된 인사이트를 시각화할 수 있는 사용자 지정 대시보드를 만듭니다.

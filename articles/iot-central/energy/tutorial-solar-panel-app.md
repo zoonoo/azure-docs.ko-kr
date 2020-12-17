@@ -3,21 +3,19 @@ title: '자습서: IoT Central을 사용하여 태양 전지판 모니터링 앱
 description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 태양광 패널 애플리케이션을 만드는 방법에 대해 알아봅니다.'
 author: op-ravi
 ms.author: omravi
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 145aefbe5a31d71ae614826c63d285c37ac03571
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123928"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516748"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>자습서: 태양광 패널 모니터링 앱 템플릿 만들기 및 연습 
-
-
 
 이 자습서에서는 태양광 패널 모니터링 애플리케이션을 만드는 과정을 안내하며, 여기에는 시뮬레이션된 데이터를 사용하는 샘플 디바이스 모델이 포함됩니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -31,22 +29,22 @@ ms.locfileid: "92123928"
 구독이 없는 경우 [평가판 계정을 만듭니다](https://azure.microsoft.com/free).
 
 ## <a name="prerequisites"></a>필수 구성 요소
-- None
-- Azure 구독을 권장하지만, 꼭 사용할 필요는 없습니다.
+* None
+* Azure 구독을 권장하지만, 꼭 사용할 필요는 없습니다.
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>태양 전지판 모니터링 앱 만들기 
 
 이 애플리케이션은 다음과 같은 세 가지 간단한 단계로 만들 수 있습니다.
 
-1. [Azure IoT Central 홈페이지](https://apps.azureiotcentral.com)를 열고 **빌드**를 클릭하여 새 애플리케이션을 만듭니다. 
+1. [Azure IoT Central 홈페이지](https://apps.azureiotcentral.com)를 열고 **빌드** 를 클릭하여 새 애플리케이션을 만듭니다. 
 
-2. **에너지** 탭을 선택하고 **태양광 패널 모니터링** 애플리케이션 타일 아래에서 **앱 만들기**를 클릭합니다. 
+1. **에너지** 탭을 선택하고 **태양광 패널 모니터링** 애플리케이션 타일 아래에서 **앱 만들기** 를 클릭합니다. 
 
     > [!div class="mx-imgBorder"]
     > ![앱 빌드](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-3. **앱 만들기**에서 **새 애플리케이션** 양식이 열립니다. 아래 그림처럼 요청된 정보를 입력합니다.
+1. **앱 만들기** 에서 **새 애플리케이션** 양식이 열립니다. 아래 그림처럼 요청된 정보를 입력합니다.
     * **애플리케이션 이름**: IoT Central 애플리케이션의 이름을 선택합니다. 
     * **URL**: IoT Central URL을 선택하면 플랫폼에서 해당 URL의 고유성을 확인합니다.
     * **7일 평가판**: Azure 구독이 이미 있는 경우 기본 설정을 사용하는 것이 좋습니다. Azure 구독이 없는 경우 평가판으로 시작하세요.
@@ -61,7 +59,7 @@ ms.locfileid: "92123928"
 
 새로 생성된 태양광 패널 앱은 여러분의 앱이며 언제든지 수정할 수 있습니다. 앱을 수정하기 전에 앱이 배포되었고 예상대로 작동하는지 확인합니다.
 
-앱 만들기 및 데이터 시뮬레이션을 확인하려면 **대시보드**로 이동합니다. 데이터가 포함된 타일이 보이면 앱 배포에 성공한 것입니다. 데이터 시뮬레이션에서 데이터를 생성할 때까지 몇 분 정도 걸릴 수 있으므로 1-2분 정도 기다립니다. 
+앱 만들기 및 데이터 시뮬레이션을 확인하려면 **대시보드** 로 이동합니다. 데이터가 포함된 타일이 보이면 앱 배포에 성공한 것입니다. 데이터 시뮬레이션에서 데이터를 생성할 때까지 몇 분 정도 걸릴 수 있으므로 1-2분 정도 기다립니다. 
 
 ## <a name="application-walk-through"></a>애플리케이션 연습
 앱 템플릿을 성공적으로 배포한 후에는 앱과 함께 샘플 스마트 미터 디바이스, 디바이스 모델 및 대시보드가 제공됩니다.
@@ -100,7 +98,7 @@ Adatum은 태양광 패널을 모니터링 및 관리하는 가상의 에너지 
 이 애플리케이션이 더 이상 필요 없는 경우 다음 단계에 따라 애플리케이션을 삭제합니다.
 
 1. 왼쪽 창에서 [관리] 탭을 엽니다.
-2. [애플리케이션 설정]을 선택하고 페이지 아래쪽에서 [삭제] 단추를 클릭합니다. 
+1. [애플리케이션 설정]을 선택하고 페이지 아래쪽에서 [삭제] 단추를 클릭합니다. 
 
     > [!div class="mx-imgBorder"]
     > ![애플리케이션 삭제](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)

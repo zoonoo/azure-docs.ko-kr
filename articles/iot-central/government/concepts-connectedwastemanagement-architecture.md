@@ -3,20 +3,18 @@ title: Azure IoT Central로 빌드된 연결된 폐기물 관리 솔루션을 �
 description: Azure IoT Central로 빌드된 연결된 폐기물 관리 솔루션에 대한 개념을 알아보세요.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 94098a1a2a9ac1b4889ad165a65c8b9d50d734dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873695"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586808"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>연결된 폐기물 모니터링 참조 아키텍처 
-
-
 
 **Azure IoT Central 앱 템플릿** 을 사용하여 연결된 폐기물 관리 솔루션을 킥스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
 
@@ -27,8 +25,8 @@ ms.locfileid: "94873695"
 
 1. 디바이스 및 연결  
 1. IoT Central 
-2. 확장성 및 통합
-3. 비즈니스 애플리케이션
+1. 확장성 및 통합
+1. 비즈니스 애플리케이션
 
 용수 사용량 모니터링 솔루션과 관련된 주요 구성 요소를 살펴보겠습니다.
 

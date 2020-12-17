@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-ms.openlocfilehash: f7348cc2559e73c83ea4c65bc67efebcfe2b031d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9cfc48e3fdb96ba5b63b28288a801095f7b36f43
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520526"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589887"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>자습서: SpringCM과 Azure Active Directory 통합
 
@@ -125,19 +125,19 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 1. 다른 웹 브라우저 창에서 **SpringCM** 회사 사이트에 관리자로 로그인합니다.
 
 1. 위쪽에 있는 메뉴에서 **이동** 을 클릭하고 **기본 설정** 을 클릭한 다음 **계정 기본 설정** 섹션에서 **SAML SSO** 를 클릭합니다.
-   
+
     ![SAML SSO](./media/spring-cm-tutorial/ic797051.png "SAML SSO")
 
 1. ID 공급자 구성 섹션에서 다음 단계를 수행합니다.
-   
+
     ![ID 공급자 구성](./media/spring-cm-tutorial/ic797052.png "Id 공급자 구성")
-    
+
     a. 다운로드한 Azure Active Directory 인증서를 업로드하려면 **발급자 인증서 선택** 또는 **발급자 인증서 변경** 을 클릭합니다.
-    
+
     b. **발급자** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
-    
+
     다. Azure Portal에서 복사한 **로그인 URL** 값을 **SP(서비스 공급자)가 시작한 엔드포인트** 텍스트 상자에 붙여넣습니다.
-            
+
     d. **사용** 으로 **SAML 사용** 을 선택합니다.
 
     e. **저장** 을 클릭합니다.
@@ -146,7 +146,7 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -159,7 +159,7 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다. 예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
@@ -170,7 +170,7 @@ SpringCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 SpringCM에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **SpringCM** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **SpringCM** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -204,7 +204,7 @@ Azure Active Directory 사용자가 SpringCM에 로그인하려면 SpringCM에 �
 1. **SpringCM** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 1. **GOTO** 를 클릭하고 **주소록** 을 클릭합니다.
-   
+
     ![사용자 만들기](./media/spring-cm-tutorial/ic797054.png "사용자 만들기")
 
 1. **사용자 만들기** 를 클릭합니다.

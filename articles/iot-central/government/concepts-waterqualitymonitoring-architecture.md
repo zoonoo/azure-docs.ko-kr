@@ -3,23 +3,19 @@ title: Azure IoT Central로 빌드된 용수 품질 모니터링 솔루션을 �
 description: Azure IoT Central로 빌드된 용수 품질 모니터링 솔루션의 개념에 대해 알아보세요.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1c4cc7f5440aca27be085c238179cd0ab20b226a
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 229074ad97e6d066a358da19bbbd43158fe1d6fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874052"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586723"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>용수 품질 모니터링 참조 아키텍처 
-
-
-
 용수 품질 모니터링 솔루션은 **Azure IoT Central 앱 템플릿** 을 사용하여 킥 스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
-
 
 ![용수 품질 모니터링 아키텍처](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
 
@@ -27,8 +23,8 @@ ms.locfileid: "94874052"
 
 1. 디바이스 및 연결  
 1. IoT Central 
-2. 확장성 및 통합
-3. 비즈니스 애플리케이션
+1. 확장성 및 통합
+1. 비즈니스 애플리케이션
 
 용수 품질 모니터링 솔루션에 일반적으로 관여하는 주요 구성 요소를 살펴보겠습니다.
 

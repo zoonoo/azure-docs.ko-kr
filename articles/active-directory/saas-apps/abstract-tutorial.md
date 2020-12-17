@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: baae0f89165e292408150dd419c6de8dc41a320c
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335561"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587828"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>자습서: Azure Active Directory와 Abstract 통합
 
@@ -114,7 +114,7 @@ Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App F
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -130,7 +130,7 @@ Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App F
 1. 애플리케이션 목록에서 **Abstract** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
+    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 

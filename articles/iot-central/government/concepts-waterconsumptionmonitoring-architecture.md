@@ -3,20 +3,18 @@ title: Azure IoT Central로 빌드된 용수 사용량 모니터링 솔루션을
 description: Azure IoT Central로 빌드된 용수 사용량 모니터링 솔루션의 개념에 대해 알아보세요.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: df402064f2aa26e29ef72c0f73f8f5aa761506e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: a291a32c8fd635c9124a7e1f997b6c676c8c0bd4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873562"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586791"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>용수 사용량 모니터링 참조 아키텍처 
-
-
 
 용수 사용량 모니터링 솔루션은 **Azure IoT Central 앱 템플릿** 을 사용하여 킥 스타터 IoT 애플리케이션으로 빌드할 수 있습니다. 이 문서는 엔드투엔드 솔루션 빌드에 관한 높은 수준의 참조 아키텍처를 제공합니다. 
 
@@ -26,8 +24,8 @@ ms.locfileid: "94873562"
 
 1. 디바이스 및 연결  
 1. IoT Central 
-2. 확장성 및 통합
-3. 비즈니스 애플리케이션
+1. 확장성 및 통합
+1. 비즈니스 애플리케이션
 
 용수 사용량 모니터링 솔루션과 관련된 주요 구성 요소를 살펴보겠습니다.
 
