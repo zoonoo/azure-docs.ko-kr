@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457438"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합(레거시 자습서)
 
@@ -119,17 +119,17 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | Name  | 원본 특성  | 네임스페이스 |
+    | 속성  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
-    | 역할            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
-    | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  `https://aws.amazon.com/SAML/Attributes` |
+    | 역할 | user.assignedroles | `https://aws.amazon.com/SAML/Attributes`|
+    | SessionDuration | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  `https://aws.amazon.com/SAML/Attributes` |
 
-    a. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
+    1. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![스크린샷은 새 클레임이 추가되고 저장이 호출된 사용자 클레임을 보여줍니다.](common/new-save-attribute.png)
+        ![스크린샷은 새 클레임이 추가되고 저장이 호출된 사용자 클레임을 보여줍니다.](common/new-save-attribute.png)
 
-    ![스크린샷은 이 단계에서 설명한 값을 입력할 수 있는 사용자 클레임 관리를 보여줍니다.](common/new-attribute-details.png)
+        ![스크린샷은 이 단계에서 설명한 값을 입력할 수 있는 사용자 클레임 관리를 보여줍니다.](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
@@ -169,7 +169,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **공급자 유형** 으로 **SAML** 을 선택합니다.
 
-    b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD* )을 입력합니다.
+    b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
 
     c. Azure Portal에서 다운로드한 **메타데이터 파일** 을 업로드하려면 **파일 선택** 을 클릭합니다.
 
@@ -192,10 +192,10 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     a. **신뢰할 수 있는 엔터티 유형 선택** 에서 **SAML 2.0 페더레이션** 을 선택합니다.
 
-    b. **SAML 2.0 공급자 선택** 에서 이전에 만든 **SAML 공급자** 를 선택합니다(예: *WAAD* ).
+    b. **SAML 2.0 공급자 선택** 에서 이전에 만든 **SAML 공급자** 를 선택합니다(예: *WAAD*).
 
     다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용** 을 선택합니다.
-  
+
     d. **다음: 권한** 을 클릭합니다.
 
 1. 검색 창에서 **관리자 액세스** 를 검색하여 **AdministratorAccess** 확인란을 선택하고, **다음: 태그** 를 선택합니다.
@@ -253,39 +253,35 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 1. 다른 창에서 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
 
-    a. 테넌트에 대한 전역 관리자/공동 관리자 자격 증명을 사용하여 Microsoft Graph Explorer 사이트에 로그인합니다.
+    1. 테넌트에 대한 전역 관리자/공동 관리자 자격 증명을 사용하여 Microsoft Graph Explorer 사이트에 로그인합니다.
 
-    b. 역할을 만들 수 있는 권한이 필요합니다. **권한 수정** 을 클릭하여 필요한 권한을 얻을 수 있습니다.
+    1. 역할을 만들 수 있는 권한이 필요합니다. **권한 수정** 을 클릭하여 필요한 권한을 얻을 수 있습니다.
 
-    ![Microsoft Graph Explorer 대화 상자 1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
+        ![Microsoft Graph Explorer 대화 상자 1](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
+    1. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
 
-    ![Microsoft Graph Explorer 대화 상자 2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
+        ![Microsoft Graph Explorer 대화 상자 2](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의하면 Microsoft Graph Explorer에 다시 로그인됩니다.
+    1. 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의하면 Microsoft Graph Explorer에 다시 로그인됩니다.
 
-    e. 버전 드롭다운을 **베타** 로 변경합니다. 테넌트로부터 모든 서비스 사용자를 가져오려면 다음 쿼리를 사용합니다.
+    1. 버전 드롭다운을 **베타** 로 변경합니다. 테넌트로부터 모든 서비스 사용자를 가져오려면 `https://graph.microsoft.com/beta/servicePrincipals` 쿼리를 사용합니다. 여러 디렉터리를 사용하는 경우 다음 패턴을 사용할 수 있습니다. 여기서는 주 도메인이 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`에 있습니다.
 
-    `https://graph.microsoft.com/beta/servicePrincipals`
+        ![Microsoft Graph Explorer 대화 상자 3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
 
-    여러 디렉터리를 사용하는 경우 다음 패턴을 사용할 수 있습니다. 여기서는 주 도메인이 `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`에 있습니다.
+    1. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **서비스 사용자 개체 ID** 를 사용하여 다음 쿼리를 통해 해당 서비스 사용자로 이동할 수 있습니다.
 
-    ![Microsoft Graph Explorer 대화 상자 3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-  
-    f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **서비스 사용자 개체 ID** 를 사용하여 다음 쿼리를 통해 해당 서비스 사용자로 이동할 수 있습니다.
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+        ![Microsoft Graph Explorer 대화 상자 4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
-    ![Microsoft Graph Explorer 대화 상자 4](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
+    1. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
 
-    g. 서비스 사용자 개체에서 appRoles 속성을 추출합니다.
+        ![Microsoft Graph Explorer 대화 상자 5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
 
-    ![Microsoft Graph Explorer 대화 상자 5](./media/aws-multi-accounts-tutorial/graph-explorer-new3.png)
+    1. 이제 애플리케이션에 대한 새 역할을 생성해야 합니다. 
 
-    h. 이제 애플리케이션에 대한 새 역할을 생성해야 합니다. 
-
-    i. 다음 JSON은 appRoles 개체의 예입니다. 애플리케이션에 역할을 추가할 유사한 개체를 만듭니다.
+    1. 다음 JSON은 appRoles 개체의 예입니다. 애플리케이션에 역할을 추가할 유사한 개체를 만듭니다.
 
     ```
     {
@@ -329,9 +325,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     > [!Note]
     > 패치 작업에 대한 **msiam_access** 다음에만 새 역할을 추가할 수 있습니다. 또한 조직 요구에 따라 원하는 만큼의 역할을 추가할 수 있습니다. Azure AD는 SAML 응답의 클레임 값으로 이 역할의 **값** 을 보냅니다.
 
-    j. Microsoft Graph Explorer로 돌아가 메서드를 **GET** 에서 **PATCH** 로 변경합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행** 을 클릭하여 패치 작업을 실행합니다. Amazon Web Services 애플리케이션에 대한 역할이 만들어졌음을 확인하는 성공 메시지가 표시됩니다.
+    1. Microsoft Graph Explorer로 돌아가 메서드를 **GET** 에서 **PATCH** 로 변경합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행** 을 클릭하여 패치 작업을 실행합니다. Amazon Web Services 애플리케이션에 대한 역할이 만들어졌음을 확인하는 성공 메시지가 표시됩니다.
 
-    ![Microsoft Graph Explorer 대화 상자 6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+        ![Microsoft Graph Explorer 대화 상자 6](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 1. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자/그룹을 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 Amazon Web Services 애플리케이션으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다.
 
