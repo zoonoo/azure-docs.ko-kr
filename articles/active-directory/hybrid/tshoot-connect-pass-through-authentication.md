@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99da9b787bfe06bece8b8dafdafc257336dddf63
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 251f9a2b075189f19b9e943ff660baaba93ec33b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96176191"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652044"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "96176191"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|오류|Description|해결 방법
+|Error|Description|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "96176191"
 
 1. 테스트 계정을 만듭니다.  
 2. 에이전트 컴퓨터에서 PowerShell 모듈을 가져옵니다.
- 
+
  ```powershell
  Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
  ```
@@ -83,7 +83,7 @@ ms.locfileid: "96176191"
 
 ![Azure Active Directory 관리 센터 - 로그인 보고서](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-**Azure Active Directory**  ->  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 Azure Active Directory **로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
+  ->  [Azure Active Directory 관리 센터](https://aad.portal.azure.com/) 에서 Azure Active Directory **로그인** 으로 이동 하 고 특정 사용자의 로그인 활동을 클릭 합니다. **로그인 오류 코드** 필드를 찾습니다. 다음 표를 사용하여 해당 필드의 값을 실패 이유 및 해결에 매핑합니다.
 
 |로그인 오류 코드|로그인 실패 이유|해결 방법
 | --- | --- | ---
@@ -92,7 +92,7 @@ ms.locfileid: "96176191"
 | 80002 | 인증 에이전트의 암호 유효성 검사 요청 시간이 초과되었습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
 | 80003 | 인증 에이전트에서 받은 응답이 잘못되었습니다. | 여러 사용자 간에 일관되게 재현될 수 있는 문제이면 Active Directory 구성을 확인합니다.
 | 80004 | 로그인 요청에 잘못된 UPN(사용자 계정 이름)이 사용되었습니다. | 사용자에게 올바른 사용자 이름으로 로그인하도록 요청합니다.
-| 80005 | 인증 에이전트: 오류가 발생했습니다. | 일시적인 오류입니다. 나중에 다시 시도하세요.
+| 80005 | 인증 에이전트: 오류가 발생했습니다. | 일시적인 오류입니다. 나중에 다시 시도하십시오.
 | 80007 | 인증 에이전트에서 Active Directory에 연결할 수 없습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
 | 80010 | 인증 에이전트에서 암호를 해독할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다. 
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.

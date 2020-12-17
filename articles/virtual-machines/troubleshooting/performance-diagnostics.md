@@ -1,7 +1,7 @@
 ---
 title: Azure 가상 머신의 성능 진단 | Microsoft Docs
 description: Windows용 Azure Performance Diagnostics를 소개합니다.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: fb0928c75b8fee567e9d0f03489794bd9f65e91e
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109439"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655393"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 가상 머신의 성능 진단
 
@@ -33,7 +33,7 @@ ms.locfileid: "97109439"
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2019
+* 시작
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
@@ -191,7 +191,7 @@ Microsoft와 진단 보고서를 공유하는 방법은 여러 가지가 있습�
 Microsoft에서 지원 티켓을 여는 경우 성능 진단 보고서를 공유하는 것이 중요합니다. 진단을 실행하는 동안(&quot;**Microsoft와 진단 정보 공유에 동의합니다**&quot; 확인란을 선택하여) Microsoft와 이 정보를 공유하려는 경우 Microsoft는 실행일로부터 최대 30일 동안 출력 Zip 파일에 대한 SAS 링크를 사용하여 스토리지에서 보고서에 액세스할 수 있습니다. 지원 엔지니어에게는 최신 보고서만 제공됩니다.
 
 **옵션 2:** 진단 보고서 압축 파일에 대한 공유 액세스 서명 생성  
-공유 액세스 서명을 사용하여 보고서 압축 파일에 대한 링크를 공유할 수 있습니다. 이렇게 하려면 다음 단계를 수행하세요.
+공유 액세스 서명을 사용하여 보고서 압축 파일에 대한 링크를 공유할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. Azure Portal에서 진단 데이터 저장되는 스토리지 계정으로 이동합니다.
 1. **Blob 서비스** 섹션에서 **Blob** 을 선택합니다.

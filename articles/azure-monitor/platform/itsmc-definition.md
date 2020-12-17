@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 568243c6fecf26510f6e9988907d1ccad103cdc2
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: c6bac44e6f7212344463665840f180732970c3d4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618914"
+ms.locfileid: "97657161"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -259,4 +259,6 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="next-steps"></a>다음 단계
 
-[IT 서비스 관리 커넥터에 ITSM 제품/서비스를 추가 합니다.](./itsmc-connections.md)
+[ITSM 커넥터 개요](./itsmc-overview.md) 
+ [IT 서비스 관리 커넥터에 ITSM 제품/서비스를 추가 합니다](./itsmc-connections.md) 
+ . [ITSM 커넥터 문제 해결](./itsmc-resync-servicenow.md)

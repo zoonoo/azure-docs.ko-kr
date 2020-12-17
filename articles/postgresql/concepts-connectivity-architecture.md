@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: dd125860aab8e64d316a91ec8876a3678c646d52
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591472"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657195"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
 이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "97591472"
 | 브라질 남부 |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | 캐나다 중부 |40.85.224.249  | | |
 | 캐나다 동부 | 40.86.226.166    | | |
-| 미국 중부 | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| 미국 중부 | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | 중국 동부 | 139.219.130.35    | | |
 | 중국 동부 2 | 40.73.82.1  | | |
 | 중국 북부 | 139.219.15.17    | | |

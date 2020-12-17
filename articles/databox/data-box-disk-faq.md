@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: acaa0fdb1fa0e9a338f4e249622cad0115c6b58e
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516441"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654628"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -100,13 +100,11 @@ A. 주문 처리의 각 단계에 대 한 다음과 같은 예상 지연 시간�
 **Data Box Disk 주문의 예상 지연 시간:**
 
 1. Data Box Disk 주문: 포털에서 몇 분
-2. 디스크 할당 및 준비: 1-2 영업일
+2. 디스크 할당 및 준비: 재고 가용성 및 처리할 보류 중인 주문 수에 따라 영업일 기준으로 최대 5 일
 3. 발송: 영업일 기준 2-3일
 4. 고객 사이트의 데이터 복사: 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 5. 반품 배송: 영업일 기준 2-3일
-6. 데이터 센터에서 디스크 처리: 1-2 영업일
-7. Azure에 데이터 업로드: 처리가 완료 되 고 디스크가 연결 되는 즉시 시작 됩니다. 업로드 시간은 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
-
+6. 데이터 센터에서 처리 하 고 Azure에 업로드: 운영 처리가 완료 되 고 디스크가 연결 되는 즉시 데이터 센터에서 데이터 업로드가 시작 됩니다. 업로드 시간은 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 
 ## <a name="configure-and-connect"></a>구성 및 연결
  

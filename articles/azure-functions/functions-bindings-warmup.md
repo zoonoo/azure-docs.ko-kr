@@ -10,16 +10,19 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 6a909b246e7cb3695533a75294c523d7c9aeaeda
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7cefe75eefb746c150b051a7bd1f4513c103d205
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832945"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655861"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
-이 문서에서는 Azure Functions에서 준비 트리거를 사용 하는 방법을 설명 합니다. 워밍업 트리거는 [프리미엄 계획](functions-premium-plan.md)에서 실행 되는 함수 앱에 대해서만 지원 됩니다. 준비 트리거는 실행 중인 함수 앱의 크기를 조정 하기 위해 인스턴스를 추가할 때 호출 됩니다. 준비 트리거를 사용 하 여 [전처리 프로세스](./functions-premium-plan.md#pre-warmed-instances) 중에 사용자 지정 종속성을 미리 로드 하 여 함수가 즉시 요청 처리를 시작할 수 있도록 할 수 있습니다. 
+이 문서에서는 Azure Functions에서 준비 트리거를 사용 하는 방법을 설명 합니다. 준비 트리거는 실행 중인 함수 앱의 크기를 조정 하기 위해 인스턴스를 추가할 때 호출 됩니다. 준비 트리거를 사용 하 여 [전처리 프로세스](./functions-premium-plan.md#pre-warmed-instances) 중에 사용자 지정 종속성을 미리 로드 하 여 함수가 즉시 요청 처리를 시작할 수 있도록 할 수 있습니다. 
+
+> [!NOTE]
+> 소비 계획에서 실행 되는 함수 앱에는 워밍업 트리거가 지원 되지 않습니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

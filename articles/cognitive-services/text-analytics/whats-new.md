@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: c304c2aad3ba40d7b3a044f0e3222e31bb013648
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503984"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652849"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -160,8 +160,6 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * `confidenceScore` 에는 두 개의 소수점 자릿수가 있습니다. 
 * `type`는 `category`로 이름이 변경되었습니다.
 * `subtype`는 `subcategory`로 이름이 변경되었습니다.
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 > [!div class="nextstepaction"]
 > [텍스트 분석 API v 3에 대 한 자세한 정보](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)

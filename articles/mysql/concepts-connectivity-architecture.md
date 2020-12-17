@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 03b7f7cd0ebff61047175c8667130a31866b7cbe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2a557bb436b3bc10cf83beb450761465b43f621f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586009"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655359"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MySQL 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MySQL 연결 아키텍처에 대해 설명 합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "97586009"
 | 브라질 남부 |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | 캐나다 중부 |40.85.224.249  | | |
 | 캐나다 동부 | 40.86.226.166    | | |
-| 미국 중부 | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| 미국 중부 | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | 중국 동부 | 139.219.130.35    | | |
 | 중국 동부 2 | 40.73.82.1  | | |
 | 중국 북부 | 139.219.15.17    | | |

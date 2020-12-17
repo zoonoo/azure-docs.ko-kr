@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 81764294cc29ad74d5a77f2055f10498d69b59e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343116"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652928"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>삭제 된 Azure Database for PostgreSQL 서버 복원
 
@@ -39,23 +39,26 @@ ms.locfileid: "93343116"
 
  4. PostgreSQL [서버 REST API 만들기 페이지로](/rest/api/PostgreSQL/servers/create) 이동 하 고 녹색으로 강조 표시 된 **시도** 를 선택 합니다. Azure 계정으로 로그인합니다.
 
- 5. 이전 3 단계에서 캡처된 resourceId 특성 JSON 값에 따라 **resourceGroupName** , **serverName** (deleted Server name), **subscriptionId** 속성을 제공 합니다. 다음 그림에 표시 된 것 처럼, api-version 속성은 미리 채워져 있으며 그대로 유지 될 수 있습니다.
+ 5. 이전 3 단계에서 캡처된 resourceId 특성 JSON 값에 따라 **resourceGroupName**, **serverName** (deleted Server name), **subscriptionId** 속성을 제공 합니다. 다음 그림에 표시 된 것 처럼, api-version 속성은 미리 채워져 있으며 그대로 유지 될 수 있습니다.
 
     ![REST API를 사용 하 여 서버 만들기](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
  6. 요청 본문 섹션에서 아래를 스크롤하고 "삭제 된 서버 위치", "submissionTimestamp" 및 "resourceId"를 대체 합니다. "RestorePointInTime"의 경우 "submissionTimestamp" 값을 **15 분** 으로 지정 하 여 명령이 오류를 출력 하지 않도록 합니다.
+    
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
-            }
-        }
+    {
+      "location": "Dropped Server Location",  
+      "properties": 
+      {
+        "restorePointInTime": "submissionTimestamp - 15 minutes",
+        "createMode": "PointInTimeRestore",
+        "sourceServerId": "resourceId"
+      }
+    }
     ```
+
     예를 들어 현재 시간이 2020-11-02T23:59:59.0000000 Z 인 경우 15 분 이전 복원 시점 (2020-11-02T23:44:59.0000000 Z)의 이전 복원 시점을 권장 합니다.
+
     > [!Important]
     > 서버를 삭제 한 후 5 일의 시간 제한이 있습니다. 5 일 후 백업 파일을 찾을 수 없으므로 오류가 예상 됩니다.
     

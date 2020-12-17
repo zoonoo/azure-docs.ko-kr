@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 935ba888352d2454a609a40866ef10ccf13a2dac
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605465"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653574"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -29,7 +29,7 @@ Azure Data CLI ( `azdata` ) 버전 번호: 20.2.5. 에서 다운로드 [https://
 및 명령과 함께 Azure Data CLI ()를 사용 하 여 SQL Managed Instance 및 PostgreSQL Hyperscale의 끝점을 확인 `azdata` `azdata arc sql endpoint list` `azdata arc postgres endpoint list` 합니다.
 
 Azure Data Studio를 사용 하 여 SQL Managed Instance 리소스 (CPU 코어 및 메모리) 요청 및 제한을 편집 합니다.
-     
+
 이제 Azure Arc enabled PostgreSQL Hyperscale은 버전 11 및 12 PostgreSQL 모두에 대 한 전체 백업 복원과 더불어 지정 시간 복원을 지원 합니다. 지정 시간 복원 기능을 사용 하 여 복원할 특정 날짜와 시간을 지정할 수 있습니다.
 
 Pod for Azure Arc enabled PostgreSQL Hyperscale의 명명 규칙이 변경 되었습니다. 이제 ServergroupName {r, s}-_n_ 형식으로 되어 있습니다. 예를 들어 세 개의 노드가 있는 서버 그룹 1 개 및 두 개의 작업자 노드는 다음과 같이 표시 됩니다.
@@ -92,7 +92,7 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 
 Azure Data CLI ( `azdata` ) 버전 번호: 20.2.3. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다.
 
-### <a name="breaking-changes"></a>호환성이 손상되는 변경
+### <a name="breaking-changes"></a>주요 변경 내용
 
 이 릴리스에는 다음과 같은 주요 변경 사항이 도입 되었습니다. 
 
@@ -127,7 +127,7 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 자세한 지침은 [Azure Arc에서 사용할 수 있는 데이터 서비스는 무엇 인가요?](overview.md)
 
 ## <a name="next-steps"></a>다음 단계
-  
+
 > **작업을 시도해보시겠습니까?**  
 > AKS, EKS (AWS 탄력적 Kubernetes Service), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) 를 빠르게 시작 하세요.
 

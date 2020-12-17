@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 56464268b95181af0379a1895d392cc3cc26624c
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980901"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656957"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 텍스트 분석 API 버전 2.1을 사용 하는 경우이 문서를 참조 하 여 버전 3.x를 사용 하도록 응용 프로그램을 업그레이드할 수 있습니다. 버전 3.0은 일반적으로 사용할 수 있으며 확장 [된 명명 된 엔터티 인식 (NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) 및 [모델 버전 관리](concepts/model-versioning.md)와 같은 새로운 기능을 소개 합니다. 또한 평가판 [마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)과 같은 기능을 추가 하는 v 3.1 (v 3.1-preview. x)의 미리 보기 버전을 사용할 수 있습니다. V2에서 사용 된 모델은 향후 업데이트를 받지 않습니다. 
 
@@ -86,7 +84,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 #### <a name="rest-api"></a>REST API
 
-응용 프로그램에서 REST API 사용 하는 경우 언어 검색을 위해 해당 요청 끝점을 v3 끝점으로 업데이트 합니다. 예를 들면와 같습니다 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . `ConfidenceScore`API의 응답 대신을 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다 `score` . [API's response](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results) 
+응용 프로그램에서 REST API 사용 하는 경우 언어 검색을 위해 해당 요청 끝점을 v3 끝점으로 업데이트 합니다. 예를 들면와 같습니다 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . `ConfidenceScore`API의 응답 대신을 사용 하도록 응용 프로그램을 업데이트 해야 할 수도 있습니다 `score` . [](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results) 
 
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43abdd1db2e8e24033332f99c583e30efbf64a00
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957404"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655988"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Windows server 장애 조치 (failover) 클러스터링 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -236,9 +236,9 @@ SAP ASCS, SAP SCS 및 새 SAP ERS2 가상 호스트 이름 및 가상 IP 주소�
 
 4. 클러스터에 디스크를 등록 합니다.  
    ```powershell
-    # Add the disk to cluster 
+     # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
-    # Example output     
+    # Example output 
     # Name           State  OwnerGroup        ResourceType 
     # ----           -----  ----------        ------------ 
     # Cluster Disk 2 Online Available Storage Physical Disk
@@ -346,7 +346,7 @@ SAP에 설명 된 설치 절차를 따릅니다. 설치 시작 옵션 "첫 번�
     
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
-    # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
+    # To activate the changes you need to manually restart 'SAP AB1' cluster group.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
     
     .EXAMPLE 
@@ -362,7 +362,7 @@ SAP에 설명 된 설치 절차를 따릅니다. 설치 시작 옵션 "첫 번�
             [ValidateNotNullOrEmpty()]  
             [ValidateLength(3,3)]      
             [string]$SAPSID,
-                  
+
             [Parameter(Mandatory=$True)]
             [ValidateNotNullOrEmpty()]        
             [int] $ProbePort,

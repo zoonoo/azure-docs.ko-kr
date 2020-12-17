@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: eac7999db61bd883dd1148e8b866b811a4f3c851
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ce04053d7b624bddf8c0d3a6476f26c3462af2c2
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222870"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652027"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 
@@ -55,11 +55,11 @@ JSON 템플릿은 다음을 묻는 메시지를 표시하도록 구성됩니다.
 
 템플릿의 다음 매개 변수는 Log Analytics 작업 영역의 기본값으로 설정됩니다.
 
-* *sku*는 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값입니다.
-* *dataRetention*은 기본값이 30일입니다.
+* *sku* 는 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값입니다.
+* *dataRetention* 은 기본값이 30일입니다.
 
 >[!WARNING]
->2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성하려면 유효한 유일한 Log Analytics 가격 책정 계층은 *PerGB2018*입니다.
+>2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성하려면 유효한 유일한 Log Analytics 가격 책정 계층은 *PerGB2018* 입니다.
 >
 
 JSON 템플릿은 환경에서 표준 구성으로 사용될 수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [ARM 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
@@ -303,7 +303,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
 2. 요구 사항을 충족하도록 템플릿을 편집합니다. 매개 변수를 인라인 값으로 전달하는 대신 [Resource Manager 매개 변수 파일](../../azure-resource-manager/templates/parameter-files.md)을 만드는 것이 좋습니다.
 
-3. 이 파일을 로컬 폴더에 **deployUMSolutiontemplate.json**으로 저장합니다.
+3. 이 파일을 로컬 폴더에 **deployUMSolutiontemplate.json** 으로 저장합니다.
 
 4. 이제 이 템플릿을 배포할 수 있습니다. PowerShell 또는 Azure CLI 중 하나를 사용할 수 있습니다. 작업 영역 및 Automation 계정 이름을 묻는 메시지가 표시되면 모든 Azure 구독에서 전역적으로 고유한 이름을 입력합니다.
 
@@ -329,15 +329,15 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
 2. Azure Portal에서 사용자가 만든 Automation 계정을 엽니다.
 
-3. 왼쪽 창에서 **Runbook**을 선택합니다. **Runbook** 페이지에서 Automation 계정을 사용하여 만든 세 가지 자습서 Runbook이 나열됩니다.
+3. 왼쪽 창에서 **Runbook** 을 선택합니다. **Runbook** 페이지에서 Automation 계정을 사용하여 만든 세 가지 자습서 Runbook이 나열됩니다.
 
     ![Automation 계정을 사용하여 만든 자습서 Runbook](../media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
 
-4. 왼쪽 창에서 **연결된 작업 영역**을 선택합니다. **연결된 작업 영역** 페이지에서 이전에 Automation 계정에 연결된 Log Analytics 작업 영역을 표시합니다.
+4. 왼쪽 창에서 **연결된 작업 영역** 을 선택합니다. **연결된 작업 영역** 페이지에서 이전에 Automation 계정에 연결된 Log Analytics 작업 영역을 표시합니다.
 
     ![Log Analytics 작업 영역에 연결된 Automation 계정](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-5. 왼쪽 창에서 **업데이트 관리**를 선택 합니다. **업데이트 관리** 페이지에는 사용 하도록 설정 된 결과로 정보 없이 평가 페이지가 표시 되 고 컴퓨터가 관리를 위해 구성 되지 않습니다.
+5. 왼쪽 창에서 **업데이트 관리** 를 선택 합니다. **업데이트 관리** 페이지에는 사용 하도록 설정 된 결과로 정보 없이 평가 페이지가 표시 되 고 컴퓨터가 관리를 위해 구성 되지 않습니다.
 
     ![업데이트 관리 기능 평가 보기](./media/enable-from-template/update-management-assessment-view.png)
 

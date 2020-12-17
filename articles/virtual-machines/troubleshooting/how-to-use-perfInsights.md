@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure에서 PerfInsights를 사용하는 방법 | Microsoft Docs
 description: PerfInsights를 사용하여 Windows VM 성능 문제를 해결하는 방법을 설명합니다.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9e298bf39446024f384b9af142fe3000e936bb6d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002666"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656855"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Azure에서 PerfInsights를 사용 하는 방법
 
@@ -118,12 +118,12 @@ Windows VM, 디스크 또는 스토리지 풀 구성, 성능 카운터, 로그 �
 | SQL Server 구성          | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 성능 진단 추적 *  | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 성능 카운터 추적 **      |                            |                                    | 예                      |                      | 예                  |
-| SMB 카운터 추적 **              |                            |                                    |                          | Yes                  |                      |
+| SMB 카운터 추적 **              |                            |                                    |                          | 예                  |                      |
 | SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예                  |
-| XPerf 추적                       |                            |                                    |                          |                      | Yes                  |
-| StorPort 추적                    |                            |                                    |                          |                      | Yes                  |
+| XPerf 추적                       |                            |                                    |                          |                      | 예                  |
+| StorPort 추적                    |                            |                                    |                          |                      | 예                  |
 | 네트워크 추적                     |                            |                                    |                          | 예                  | 예                  |
-| Diskspd 벤치 마크 추적 * * _       |                            | Yes                                |                          |                      |                      |
+| Diskspd 벤치 마크 추적 * * _       |                            | 예                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-_"></a>성능 진단 추적 (_)

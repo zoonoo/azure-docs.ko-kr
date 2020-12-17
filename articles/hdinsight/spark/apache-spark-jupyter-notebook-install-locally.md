@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: 16cb8a9c2a951c9f60640248ef74757d1e5ee200
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: de11e6f9fd9acc81f7be6d23bb1019f88f9e1322
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518926"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657212"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter Notebook을 설치 하 고 HDInsight의 Apache Spark에 연결
 
@@ -42,12 +42,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
 ## <a name="install-spark-magic"></a>Spark magic 설치
 
-1. 아래 명령 중 하나를 입력 하 여 Spark magic을 설치 합니다. 또한 [sparkmagic 설명서](https://github.com/jupyter-incubator/sparkmagic#installation)를 참조 하세요.
-
-    |클러스터 버전 | Install 명령 |
-    |---|---|
-    |v 3.6 및 v 3.5 |`pip install sparkmagic==0.13.1`|
-    |v. 3.4|`pip install sparkmagic==0.2.3`|
+1. 명령을 입력 `pip install sparkmagic==0.13.1` 하 여 HDInsight 클러스터용 Spark magic 버전 3.6 및 4.0를 설치 합니다. 또한 [sparkmagic 설명서](https://github.com/jupyter-incubator/sparkmagic#installation)를 참조 하세요.
 
 1. `ipywidgets`다음 명령을 실행 하 여를 제대로 설치 했는지 확인 합니다.
 
