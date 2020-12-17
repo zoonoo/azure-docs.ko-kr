@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba444a497fa4fccab6b8dec1fadb3383420e4d49
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 558e03e698d184aa9b5914f7d494ea61b5a6b18e
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452975"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616935"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "96452975"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -86,7 +86,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 다음은 그 예입니다. 
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 예:
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -171,7 +171,7 @@ foreach (string prop in twin.Contents.Keys)
 디지털 쌍의 정의 된 속성은 디지털 쌍의 최상위 속성으로 반환 됩니다. DTDL 정의의 일부가 아닌 메타 데이터 또는 시스템 정보는 접두사와 함께 반환 됩니다 `$` . 메타 데이터 속성은 다음과 같습니다.
 * 이 Azure Digital Twins 인스턴스의 디지털 쌍 ID `$dtId` 입니다.
 * `$etag`-웹 서버에서 할당 한 표준 HTTP 필드입니다.
-* 섹션의 기타 속성 `$metadata` 여기에는 다음이 포함됩니다.
+* 섹션의 기타 속성 `$metadata` 여기에는 다음이 해당합니다.
     - 디지털 쌍 모델의 DTMI입니다.
     - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.
     - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타 데이터. 
@@ -218,7 +218,7 @@ Patch 호출은 모든 속성을 원하는 대로 단일 쌍으로 업데이트�
   }
 ]
 ```
-SDK에서를 사용 하 여 패치를 만들 수 있습니다 `JsonPatchDocument` . [SDK](how-to-use-apis-sdks.md) 다음은 예제입니다.
+SDK에서를 사용 하 여 패치를 만들 수 있습니다 `JsonPatchDocument` . [](how-to-use-apis-sdks.md) 다음은 예제입니다.
 
 ```csharp
 var updateTwinData = new JsonPatchDocument();
@@ -271,12 +271,12 @@ await client.UpdateDigitalTwinAsync(twin_Id, updateTwinData);
 [
   {
     "op": "replace",
-    "path": "$metadata.$model",
-    "value": "dtmi:example:foo_new"
+    "path": "/$metadata/$model",
+    "value": "dtmi:example:foo_new;1"
   },
   {
     "op": "add",
-    "path": "temperature",
+    "path": "/temperature",
     "value": 60
   }
 ]

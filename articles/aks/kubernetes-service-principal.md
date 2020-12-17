@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 Azure Ac
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: e95eae3ab8d992bc169e54700e7e31715e72102e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607826"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614798"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -100,18 +100,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="networking"></a>네트워킹
 
-가상 네트워크와 서브넷 또는 공용 IP 주소가 다른 리소스 그룹에 있는 고급 네트워킹을 사용할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
-
-- [사용자 지정 역할][rbac-custom-role]을 만들고 다음 역할 권한을 정의합니다.
-  - *Microsoft.Network/virtualNetworks/subnets/join/action*
-  - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/publicIPAddresses/join/action*
-  - *Microsoft.Network/publicIPAddresses/read*
-  - *Microsoft.Network/publicIPAddresses/write*
-  - [Kubenet 클러스터에서 사용자 지정 경로 테이블을](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) 사용 하는 경우 다음과 같은 추가 권한을 추가 합니다.
-    - *Microsoft.Network/routeTables/write*
-    - *Microsoft. Network/routeTables/read*
-- 또는 가상 네트워크 내에서 서브넷에 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당합니다.
+가상 네트워크와 서브넷 또는 공용 IP 주소가 다른 리소스 그룹에 있는 고급 네트워킹을 사용할 수 있습니다. 가상 네트워크 내의 서브넷에서 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당 합니다. 또는 해당 리소스 그룹의 네트워크 리소스에 액세스할 수 있는 권한이 있는 [사용자 지정 역할][rbac-custom-role] 을 만들 수 있습니다. 자세한 내용은 [AKS service 사용 권한][aks-permissions] 을 참조 하세요.
 
 ### <a name="storage"></a>스토리지
 
@@ -188,3 +177,4 @@ Azure Active Directory 서비스 주체에 대 한 자세한 내용은 [응용 �
 [aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+[aks-permissions]: concepts-identity.md#aks-service-permissions

@@ -6,35 +6,78 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 983b1a5e024a44733fab418a67375f232e66cfe4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3c291d9a9d48b6f75148b673848b8451521bab91
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457167"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615804"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
 여러 가지 방법으로 인증 하 고, 액세스/권한 부여 하 고, Kubernetes 클러스터를 보호할 수 있습니다. Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 및 서비스 계정에 필요한 리소스에만 액세스 권한을 부여할 수 있습니다. AKS (Azure Kubernetes Service)를 사용 하 여 Azure Active Directory 및 Azure RBAC를 사용 하 여 보안 및 사용 권한 구조를 추가로 향상 시킬 수 있습니다. 이러한 접근 방식은 클러스터 액세스를 보호 하 고 개발자 및 운영자에 게 필요한 최소 권한만 제공 하는 데 도움이 됩니다.
 
-이 문서에서는 AKS에서 권한을 인증하고 할당하는 데 도움이 되는 핵심 개념을 소개합니다.
+이 문서에서는 AKS에서 권한을 인증 하 고 할당 하는 데 도움이 되는 핵심 개념을 소개 합니다.
 
-- [Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)](#kubernetes-role-based-access-control-kubernetes-rbac)
-  - [Roles 및 ClusterRoles](#roles-and-clusterroles)
-  - [RoleBindings 및 ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
-  - [Kubernetes 서비스 계정](#kubernetes-service-accounts)
-- [Azure Active Directory 통합](#azure-active-directory-integration)
-- [Azure RBAC](#azure-role-based-access-control-azure-rbac)
-  - [Azure RBAC를 사용 하 여 AKS 리소스에 대 한 액세스 권한 부여](#azure-rbac-to-authorize-access-to-the-aks-resource)
-  - [Kubernetes 권한 부여에 대 한 Azure RBAC (미리 보기)](#azure-rbac-for-kubernetes-authorization-preview)
+## <a name="aks-service-permissions"></a>AKS 서비스 사용 권한
 
+클러스터를 만들 때 AKS는 클러스터를 만드는 사용자를 대신 하 여 Vm 및 Nic와 같은 클러스터를 만들고 실행 하는 데 필요한 리소스를 만들거나 수정 합니다. 이 id는 클러스터를 만드는 동안 만들어지는 클러스터의 id 사용 권한과는 다릅니다.
+
+### <a name="identity-creating-and-operating-the-cluster-permissions"></a>클러스터 권한 만들기 및 운영 id
+
+클러스터를 만들고 운영 하는 id에는 다음 사용 권한이 필요 합니다.
+
+| 사용 권한 | 이유 |
+|---|---|
+| Microsoft. Compute/Disk를 설정/읽기 | 디스크 암호화 집합 ID를 읽는 데 필요 합니다. |
+| Microsoft. Compute/proximityPlacementGroups/write | 근접 배치 그룹을 업데이트 하는 데 필요 합니다. |
+| Microsoft.Network/applicationGateways/read <br/> Microsoft.Network/applicationGateways/write <br/> Microsoft.Network/virtualNetworks/subnets/join/action | 응용 프로그램 게이트웨이를 구성 하 고 서브넷에 가입 하는 데 필요 합니다. |
+| Microsoft.Network/virtualNetworks/subnets/join/action | 사용자 지정 VNET을 사용 하는 경우 서브넷에 대 한 네트워크 보안 그룹을 구성 하는 데 필요 합니다.|
+| Microsoft.Network/publicIPAddresses/join/action <br/> Microsoft.Network/publicIPPrefixes/join/action | 표준 Load Balancer에서 아웃 바운드 공용 Ip를 구성 하는 데 필요 합니다. |
+| OperationalInsights/작업 영역/sharedkeys/읽기 <br/> Microsoft.OperationalInsights/workspaces/read <br/> Microsoft.OperationsManagement/solutions/write <br/> Microsoft.OperationsManagement/solutions/read <br/> Microsoft.ManagedIdentity/userAssignedIdentities/assign/action | Log Analytics 작업 영역을 만들고 업데이트 하 고 컨테이너에 대 한 Azure 모니터링을 수행 하는 데 필요 합니다. |
+
+### <a name="aks-cluster-identity-permissions"></a>AKS 클러스터 id 권한
+
+클러스터를 만들 때 AKS 클러스터와 연결 된 AKS 클러스터 id에서 사용 되는 사용 권한은 다음과 같습니다. 각 사용 권한은 아래와 같은 이유로 사용 됩니다.
+
+| 사용 권한 | 이유 |
+|---|---|
+| Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | LoadBalancer 서비스에 대 한 부하 분산 장치를 구성 하는 데 필요 합니다. |
+| Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | LoadBalancer 서비스의 공용 Ip를 찾고 구성 하는 데 필요 합니다. |
+| Microsoft.Network/publicIPAddresses/join/action | LoadBalancer 서비스에 대 한 공용 Ip를 구성 하는 데 필요 합니다. |
+| Microsoft.Network/networkSecurityGroups/read <br/> Microsoft.Network/networkSecurityGroups/write | LoadBalancer 서비스에 대 한 보안 규칙을 만들거나 삭제 하는 데 필요 합니다. |
+| Microsoft.Compute/disks/delete <br/> Microsoft.Compute/disks/read <br/> Microsoft.Compute/disks/write <br/> Microsoft. Compute/위치/a p i 작업/읽기 | AzureDisks를 구성 하는 데 필요 합니다. |
+| Microsoft.Storage/storageAccounts/delete <br/> Microsoft.Storage/storageAccounts/listKeys/action <br/> Microsoft.Storage/storageAccounts/read <br/> Microsoft.Storage/storageAccounts/write <br/> Microsoft.Storage/operations/read | AzureFile 또는 Azurefile에 대 한 저장소 계정을 구성 하는 데 필요 합니다. |
+| Microsoft.Network/routeTables/read <br/> Microsoft.Network/routeTables/routes/delete <br/> Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write <br/> Microsoft.Network/routeTables/write | 노드에 대 한 경로 테이블 및 경로를 구성 하는 데 필요 합니다. |
+| Microsoft.Compute/virtualMachines/read | VM에서 영역, 장애 도메인, 크기 및 데이터 디스크와 같은 가상 컴퓨터에 대 한 정보를 찾는 데 필요 합니다. |
+| Microsoft.Compute/virtualMachines/write | AzureDisks를 VMAS의 가상 머신에 연결 하는 데 필요 합니다. |
+| Microsoft.Compute/virtualMachineScaleSets/Read <br/> Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read <br/> Microsoft. Compute/virtualMachineScaleSets/virtualmachines/instanceView/read | 영역, 장애 도메인, 크기 및 데이터 디스크와 같은 가상 컴퓨터 확장 집합의 가상 컴퓨터에 대 한 정보를 찾는 데 필요 합니다. |
+| Microsoft.Network/networkInterfaces/write | VM의 가상 머신을 부하 분산 장치 백 엔드 주소 풀에 추가 하는 데 필요 합니다. |
+| Microsoft.Compute/virtualMachineScaleSets/Write | 가상 머신 확장 집합에서 부하 분산 장치 백 엔드 주소 풀에 가상 머신 확장 집합을 추가 하 고 노드를 확장 하는 데 필요 합니다. |
+| VirtualMachineScaleSets/virtualmachines/write | AzureDisks를 연결 하 고 가상 머신 확장 집합의 가상 머신을 부하 분산 장치에 추가 하는 데 필요 합니다. |
+| Microsoft.Network/networkInterfaces/read | VM의 가상 컴퓨터에 대 한 내부 Ip 및 부하 분산 장치 백 엔드 주소 풀을로 검색 하는 데 필요 합니다. |
+| Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read | 가상 컴퓨터 확장 집합의 가상 컴퓨터에 대 한 내부 Ip 및 부하 분산 장치 백 엔드 주소 풀을 검색 하는 데 필요 합니다. |
+| Microsoft. Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipconfigurations/publicipaddresses/read | 가상 컴퓨터 확장 집합의 가상 컴퓨터에 대 한 공용 Ip를 찾는 데 필요 합니다. |
+| Microsoft.Network/virtualNetworks/read <br/> Microsoft.Network/virtualNetworks/subnets/read | 다른 리소스 그룹의 내부 부하 분산 장치에 대 한 서브넷이 있는지 확인 하는 데 필요 합니다. |
+| Microsoft.Compute/snapshots/delete <br/> Microsoft.Compute/snapshots/read <br/> Microsoft.Compute/snapshots/write | AzureDisk의 스냅숏을 구성 하는 데 필요 합니다. |
+| Microsoft.Compute/locations/vmSizes/read <br/> Microsoft.Compute/locations/operations/read | AzureDisk 볼륨 제한을 찾기 위한 가상 머신 크기를 찾는 데 필요 합니다. |
+
+### <a name="additional-cluster-identity-permissions"></a>추가 클러스터 id 권한
+
+특정 특성을 사용 하 여 클러스터를 만들 때 클러스터 id에는 다음과 같은 추가 권한이 필요 합니다. 이러한 사용 권한은 자동으로 할당 되지 않으므로 이러한 사용 권한을 만든 후에 클러스터 id에 추가 해야 합니다.
+
+| 사용 권한 | 이유 |
+|---|---|
+| Microsoft.Network/networkSecurityGroups/write <br/> Microsoft.Network/networkSecurityGroups/read | 다른 리소스 그룹에서 네트워크 보안 그룹을 사용 하는 경우 필요 합니다. LoadBalancer 서비스에 대 한 보안 규칙을 구성 하는 데 필요 합니다. |
+| Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | 사용자 지정 VNET과 같은 다른 리소스 그룹의 서브넷을 사용 하는 경우 필요 합니다. |
+| Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | 사용자 지정 경로 테이블이 있는 사용자 지정 VNET과 같은 다른 리소스 그룹의 경로 테이블과 연결 된 서브넷을 사용 하는 경우 필요 합니다. 다른 리소스 그룹의 서브넷에 대 한 서브넷이 이미 있는지 확인 하는 데 필요 합니다. |
+| Microsoft.Network/virtualNetworks/subnets/read | 다른 리소스 그룹에서 내부 부하 분산 장치를 사용 하는 경우 필요 합니다. 리소스 그룹에 내부 부하 분산 장치에 대 한 서브넷이 이미 있는지 확인 하는 데 필요 합니다. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)
 
 사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하기 위해 Kubernetes는 Kubernetes (역할 기반 access control)를 사용 합니다. 이 제어 메커니즘을 통해 리소스 만들기 또는 수정, 실행 중인 애플리케이션 워크로드에서 로그 보기 등의 작업을 수행할 수 있는 권한을 사용자 또는 사용자 그룹에 할당할 수 있습니다. 이러한 권한은 단일 네임스페이스로 범위가 지정되거나 전체 AKS 클러스터에서 부여할 수 있습니다. Kubernetes RBAC를 사용하여 권한을 정의하는 *역할* 을 만든 다음, *역할 바인딩* 을 통해 해당 역할을 사용자에게 할당합니다.
 
 자세한 내용은 [KUBERNETES RBAC 권한 부여 사용][kubernetes-rbac]을 참조 하세요.
-
 
 ### <a name="roles-and-clusterroles"></a>Roles 및 ClusterRoles
 
@@ -84,11 +127,11 @@ OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다.
 1. Azure AD 클라이언트 응용 프로그램은 kubectl에서 [OAuth 2.0 장치 권한 부여 흐름](../active-directory/develop/v2-oauth2-device-code.md)을 사용 하 여 사용자를 로그인 하는 데 사용 됩니다.
 2. Azure AD는 access_token, id_token 및 refresh_token를 제공 합니다.
 3. 사용자가 kubeconfig의 access_token를 사용 하 여 kubectl에 대 한 요청을 만듭니다.
-4. Kubectl는 APIServer에 access_token를 보냅니다.
+4. Kubectl는 API 서버에 access_token를 보냅니다.
 5. API 서버는 유효성 검사를 수행 하기 위해 Auth WebHook 서버를 사용 하 여 구성 됩니다.
 6. 인증 webhook 서버는 Azure AD 공개 서명 키를 확인 하 여 JSON Web Token 서명이 유효한 지 확인 합니다.
 7. 서버 응용 프로그램은 사용자 제공 자격 증명을 사용 하 여 MS Graph API에서 로그인 한 사용자의 그룹 멤버 자격을 쿼리 합니다.
-8. 응답은 액세스 토큰의 UPN (사용자 계정 이름) 클레임 및 개체 ID를 기반으로 하는 사용자의 그룹 멤버 자격과 같은 사용자 정보를 사용 하 여 APIServer에 전송 됩니다.
+8. 응답은 액세스 토큰의 UPN (사용자 계정 이름) 클레임 및 개체 ID를 기반으로 하는 사용자의 그룹 멤버 자격과 같은 사용자 정보를 사용 하 여 API 서버에 전송 됩니다.
 9. API는 Kubernetes Role/RoleBinding에 따라 권한 부여 결정을 수행 합니다.
 10. 권한이 부여 되 면 API 서버는 kubectl에 대 한 응답을 반환 합니다.
 11. Kubectl 사용자에 게 피드백을 제공 합니다.
@@ -136,7 +179,7 @@ Azure RBAC 통합을 사용 하면 AKS는 Kubernetes 권한 부여 webhook 서�
 
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Kubernetes 기본 제공 역할과](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 비슷하지만 crds 지원과 같은 몇 가지 차이점이 있습니다. 각 기본 제공 역할에서 허용 하는 작업의 전체 목록을 보려면 [여기](../role-based-access-control/built-in-roles.md)를 참조 하세요.
 
-| 역할                                | 설명  |
+| 역할                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 암호의 내용을 읽으면 네임 스페이스의 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이 `Secrets` `ServiceAccount` 는 네임 스페이스에서 API 액세스를 허용 합니다 `ServiceAccount` (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
@@ -154,7 +197,7 @@ AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Ku
 
 두 번째 열에서 참조 되는 역할 부여는 Azure Portal의 **Access Control** 탭에 표시 되는 Azure RBAC 역할 권한입니다. 클러스터 관리자 Azure AD 그룹이 포털의 **구성** 탭 (또는 Azure CLI의 매개 변수 이름)에 표시 됩니다 `--aad-admin-group-object-ids` .
 
-| 설명        | 역할 부여 필요| 클러스터 관리 Azure AD 그룹 | 사용 시기 |
+| Description        | 역할 부여 필요| 클러스터 관리 Azure AD 그룹 | 사용 시기 |
 | -------------------|------------|----------------------------|-------------|
 | 클라이언트 인증서를 사용 하는 레거시 관리자 로그인| **Azure Kubernetes Admin 역할**. 이 역할을 `az aks get-credentials` 사용 하면 `--admin` [레거시 (비 Azure AD) 클러스터 관리자 인증서](control-kubeconfig-access.md) 를 사용자에 게 다운로드 하는 플래그와 함께을 사용할 수 있습니다 `.kube/config` . "Azure Kubernetes Admin Role"의 유일한 용도입니다.|해당 없음|클러스터에 대 한 액세스 권한이 있는 유효한 Azure AD 그룹에 대 한 액세스 권한이 없는 사용자가 영구적으로 차단 하는 경우| 
 | 수동 (클러스터) RoleBindings를 사용 하는 Azure AD| **Azure Kubernetes 사용자 역할**. "User" 역할 `az aks get-credentials` 을 사용 하면 플래그 없이를 사용할 수 있습니다 `--admin` . "Azure Kubernetes 사용자 역할"의 유일한 용도입니다. Azure AD를 사용 하는 클러스터에 대 한 결과는에 [빈 항목](control-kubeconfig-access.md) 을 다운로드 하는 것입니다 .이 항목은 `.kube/config` 에서 처음 사용 하는 경우 브라우저 기반 인증을 트리거합니다 `kubectl` .| 사용자가 이러한 그룹에 없습니다. 사용자가 클러스터 관리자 그룹에 있지 않기 때문에 해당 권한은 클러스터 관리자가 설정한 RoleBindings 또는 ClusterRoleBindings에 의해 완전히 제어 됩니다. (Cluster) RoleBindings는 [AZURE ad 사용자 또는 AZURE ad 그룹](azure-ad-rbac.md) 을로 추천 `subjects` 합니다. 이러한 바인딩을 설정 하지 않으면 사용자가 아무 명령도 excute 수 없습니다 `kubectl` .|세부적인 액세스 제어를 원하는 경우 Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하지 않습니다. 바인딩을 설정 하는 사용자는이 표에 나열 된 다른 방법 중 하나를 사용 하 여 로그인 해야 합니다.|
@@ -192,3 +235,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
+[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

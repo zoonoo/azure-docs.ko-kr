@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 724809dbce3ca1b5a36f4da0ba5c03d0f78897f5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577699"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614645"
 ---
 # <a name="viewing-multiple-resources-in-metrics-explorer"></a>메트릭 탐색기에서 여러 리소스 보기
 
@@ -71,7 +71,7 @@ ms.locfileid: "97577699"
 
 ![분할을 사용 하 여 VM 당 CPU 백분율을 확인 하는 방법을 보여 주는 스크린샷](./media/metrics-charts/026.png)
 
-분할 외에도 필터링 기능을 사용 하 여 보려는 리소스 그룹만 표시할 수 있습니다.  예를 들어 특정 리소스 그룹의 Vm에 대 한 CPU 비율을 확인 하려는 경우 "필터 추가" 도구를 사용 하 여 리소스 그룹별로 필터링 할 수 있습니다. 이 예제에서는 TailspinToysDemo에서 리소스와 연결 된 메트릭을 제거 하는 명인를 기준으로 필터링 합니다. 
+분할 외에도 필터링 기능을 사용 하 여 보려는 리소스 그룹만 표시할 수 있습니다.  예를 들어 특정 리소스 그룹의 Vm에 대 한 CPU 비율을 확인 하려는 경우 "필터 추가" 도구를 사용 하 여 리소스 그룹별로 필터링 할 수 있습니다. 이 예제에서는 명인에서 리소스와 연결 된 메트릭을 제거 하는 TailspinToysDemo를 기준으로 필터링 합니다. 
 
 ![리소스 그룹별로 필터링 하는 방법을 보여 주는 스크린샷](./media/metrics-charts/027.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "97577699"
 > [!WARNING] 
 > 여러 리소스, 리소스 그룹 또는 구독에 대 한 메트릭을 시각화 하려면 구독 수준에서의 모니터링 판독기 권한이 있어야 합니다. 이 작업을 수행 하려면 [이 문서의](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)지침을 따르세요. 
 
-다중 리소스 차트를 고정 하려면 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules)의 지침을 따르세요. 
+다중 리소스 차트를 고정 하려면 [여기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards)의 지침을 따르세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

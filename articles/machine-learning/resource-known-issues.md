@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0a14d57db932ef6cfb17df84b3204d3dec9e4d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094440"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617003"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -135,7 +135,7 @@ ms.locfileid: "97094440"
     
 * **패키지를 설치할 때 Databricks 오류 발생**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -429,11 +429,21 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   2. 을 입력 `pip freeze` 하 고 검색 `tensorflow` 하는 경우 나열 된 버전 < 1.13 이어야 합니다.
   3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall tensorflow` 명령 셸에서 y를 입력 하 여 확인 합니다.
 
+## <a name="model-explanations"></a>모델 설명
+
+* **스파스 데이터는 지원 되지 않습니다**. 모델 설명 대시보드는 많은 기능을 사용 하 여 상당히 중단/속도를 저하 하므로 현재 스파스 데이터 형식을 지원 하지 않습니다. 또한 일반적인 메모리 문제는 대량 데이터 집합 및 많은 기능에 발생 합니다. 
+
+* **모델 설명에서 지원 되지 않는 예측 모델**: Interpretability, 최상의 모델 설명은 TCNForecaster, AutoArima, ExponentialSmoothing, Average, Naive, 계절 평균 및 계절 Naive 알고리즘을 권장 하는 자동 ml 예측 실험에 사용할 수 없습니다. AutoML 예측에는 설명을 지 원하는 회귀 모델이 있습니다. 그러나 설명 dashbord에서 "개별 기능 중요도" 탭은 데이터 파이프라인의 복잡성 때문에 예측이 지원 되지 않습니다.
+
+* **데이터 인덱스에 대 한 로컬 설명**: 대시보드가 데이터를 임의로 downsamples datapoints이 데이터 집합이 5000 보다 큰 경우 설명 대시보드가 원래 유효성 검사 데이터 집합의 행 식별자에 대 한 로컬 중요도 값 관련을 지원 하지 않습니다. 그러나 대시보드는 개별 기능 중요도 탭에서 대시보드로 전달 되는 각 데이터 집합에 대 한 원시 데이터 집합 기능 값을 보여 줍니다. 사용자는 원시 데이터 집합 기능 값과 일치 하 여 로컬 importances를 원래 데이터 집합에 다시 매핑할 수 있습니다. 유효성 검사 데이터 집합 크기가 5000 샘플 보다 작은 경우 `index` AzureML 스튜디오의 기능은 유효성 검사 데이터 집합의 인덱스에 해당 합니다.
+
+* **AML studio에서 지원 되지 않는 것이 무엇 인지** 확인 합니다. perturbed 기능에 대 한 예측 및 확률을 다시 계산 하기 위해 업로드 된 설명에 활성 계산이 필요 하므로 설명 탭의 What-If 및 개별 조건부 예상 (ice) 플롯은 AzureML 스튜디오에서 지원 되지 않습니다. 현재는 SDK를 사용 하 여 위젯에 실행 될 때 Jupyter 노트북에서 지원 됩니다.
+
 ## <a name="deploy--serve-models"></a>모델 배포 및 제공
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|오류  | 해결 방법  |
+|Error  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

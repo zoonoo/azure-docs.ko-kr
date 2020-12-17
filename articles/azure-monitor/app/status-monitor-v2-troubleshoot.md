@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: df8ebd97ed9e34e0fce85a50297c595732057115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 472a7f128ea19cdcc9df5a03d171f345c7d601de
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761467"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616833"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
@@ -51,6 +51,11 @@ ms.locfileid: "91761467"
     0x0000000009b90000  0x4f000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
     0x0000000004d20000  0xb2000   C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.Extensions.Base_x64.dll
     ```
+
+### <a name="powershell-versions"></a>PowerShell 버전
+이 제품은 PowerShell v 5.1을 사용 하 여 작성 및 테스트 되었습니다.
+이 모듈은 PowerShell 버전 6 또는 7과 호환 되지 않습니다.
+PowerShell v 5.1은 최신 버전과 함께 사용 하는 것이 좋습니다. 자세한 내용은 powershell [5.1과 함께 powershell 7 사용](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51)을 참조 하세요.
 
 ### <a name="conflict-with-iis-shared-configuration"></a>IIS 공유 구성과 충돌 합니다.
 
@@ -128,25 +133,25 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>PerfView를 사용 하 여 ETW 로그 수집
 
-#### <a name="setup"></a>설정
+#### <a name="setup"></a>설치 프로그램
 
 1. [GitHub](https://github.com/Microsoft/perfview/releases)에서 PerfView.exe 및 PerfView64.exe를 다운로드 합니다.
 2. PerfView64.exe를 시작 합니다.
-3. **고급 옵션**을 확장합니다.
+3. **고급 옵션** 을 확장합니다.
 4. 다음 확인란의 선택을 취소 합니다.
     - **우편번호**
     - **병합**
     - **.NET 기호 컬렉션**
-5. 다음과 같은 **추가 공급자**를 설정 합니다. `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. 다음과 같은 **추가 공급자** 를 설정 합니다. `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
 #### <a name="collecting-logs"></a>로그 수집
 
 1. 관리자 권한이 있는 명령 콘솔에서 명령을 실행 하 여 `iisreset /stop` IIS 및 모든 웹 앱을 해제 합니다.
-2. PerfView에서 **컬렉션 시작**을 선택 합니다.
+2. PerfView에서 **컬렉션 시작** 을 선택 합니다.
 3. 관리자 권한이 있는 명령 콘솔에서 명령을 실행 하 여 `iisreset /start` IIS를 시작 합니다.
 4. 앱으로 이동 해 보세요.
-5. 앱이 로드 된 후 PerfView로 돌아가서 **수집 중지**를 선택 합니다.
+5. 앱이 로드 된 후 PerfView로 돌아가서 **수집 중지** 를 선택 합니다.
 
 
 

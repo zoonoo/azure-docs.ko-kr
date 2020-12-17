@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7c0623d58bf88b8bcc5f19665a081ce012b560b6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443146"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614877"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
@@ -49,7 +49,7 @@ ms.locfileid: "94443146"
 - [디먼 응용](scenario-daemon-overview.md)프로그램에서 사용 되는 클라이언트 자격 증명 흐름을 사용 하 여 비밀 클라이언트 응용 프로그램에서 [장치 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication)및 [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password) 를 구분 하려면, 리디렉션 URI가 필요 하지 않은 경우 공용 클라이언트 응용 프로그램으로 구성 해야 합니다. 이 구성을 설정하려면
 
     1. [Azure Portal](https://portal.azure.com)에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
-    1. **고급 설정** 에서  >  **기본 클라이언트 유형**  >  **응용 프로그램을 공용 클라이언트로 처리** 에서 **예** 를 선택 합니다.
+    1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.openlocfilehash: cf6973242e81cef53625a3b1eda4f2d92e1d5ffd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d78f2c8da338a92ef88734371647a48ddb190c3
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998637"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591228"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>자습서: ADP와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -155,11 +155,11 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     ![Single Sign-On 연결 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
-    a.  **사용자가 로그인할 수 있습니까** 필드 값을 **예** 로 설정합니다.
+    1. **사용자가 로그인할 수 있습니까** 필드 값을 **예** 로 설정합니다.
 
-    b.  **사용자 할당 필요** 필드 값을 **예** 로 설정합니다.
+    1. **사용자 할당 필요** 필드 값을 **예** 로 설정합니다.
 
-    다.  **사용자가 볼 수 있습니까** 필드 값을 **예** 로 설정합니다.
+    1. **사용자가 볼 수 있습니까** 필드 값을 **예** 로 설정합니다.
 
 1. [Azure Portal](https://portal.azure.com/)의 **ADP** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 
@@ -171,39 +171,39 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
     ![Single Sign-On 속성](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
 
-    a. 위의 **속성 탭**(기본 ADP 앱)에서 복사한 **사용자 액세스 URL** 을 붙여넣습니다.
-                                                             
-    b. 다음은 다른 **릴레이 상태 URL** 을 지원하는 다섯 개의 앱입니다. 특정 애플리케이션에 대한 적절한 **릴레이 상태 URL** 값을 **사용자 액세스 URL** 에 수동으로 추가해야 합니다.
-    
-    * **ADP Workforce Now**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
+    1. 위의 **속성 탭**(기본 ADP 앱)에서 복사한 **사용자 액세스 URL** 을 붙여넣습니다.
 
-    * **ADP Workforce Now Enhanced Time**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
-    
-    * **ADP Vantage HCM**
-        
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+    1. 다음은 다른 **릴레이 상태 URL** 을 지원하는 다섯 개의 앱입니다. 특정 애플리케이션에 대한 적절한 **릴레이 상태 URL** 값을 **사용자 액세스 URL** 에 수동으로 추가해야 합니다.
 
-    * **ADP Enterprise HR**
+        * **ADP Workforce Now**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
-    * **MyADP**
+        * **ADP Workforce Now Enhanced Time**
 
-        `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
 
-9. **저장** 합니다.
+        * **ADP Vantage HCM**
 
-10. ADP 담당자로부터 확인을 받는 즉시 한 명 또는 두 명의 사용자로 테스트를 시작합니다.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
-    a. ADP 서비스 앱에 적은 수의 사용자를 할당하여 페더레이션 액세스를 테스트합니다.
+        * **ADP Enterprise HR**
 
-    b. 사용자가 갤러리에서 ADP 서비스 앱에 액세스하고 해당 ADP 서비스에 액세스할 수 있는 경우 테스트는 성공합니다.
- 
-11. 성공적인 테스트의 확인 후 페더레이션된 ADP 서비스를 개별 사용자 또는 사용자 그룹에 할당하고(자습서의 뒷부분에서 설명됨) 직원에게 롤아웃합니다.
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+
+        * **MyADP**
+
+            `<User access URL>&relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+
+1. 변경 내용을 **저장** 합니다.
+
+1. ADP 담당자로부터 확인을 받는 즉시 한 명 또는 두 명의 사용자로 테스트를 시작합니다.
+
+    1. ADP 서비스 앱에 적은 수의 사용자를 할당하여 페더레이션 액세스를 테스트합니다.
+
+    1. 사용자가 갤러리에서 ADP 서비스 앱에 액세스하고 해당 ADP 서비스에 액세스할 수 있는 경우 테스트는 성공합니다.
+
+1. 성공적인 테스트의 확인 후 페더레이션된 ADP 서비스를 개별 사용자 또는 사용자 그룹에 할당하고(자습서의 뒷부분에서 설명됨) 직원에게 롤아웃합니다.
 
 ### <a name="create-adp-test-user"></a>ADP 테스트 사용자 만들기
 
@@ -217,10 +217,8 @@ ADP 담당자로부터 확인을 받는 즉시 ADP 서비스를 구성하고 특
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Azure AD로 ADP 사용해 보기](https://aad.portal.azure.com)

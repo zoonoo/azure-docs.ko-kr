@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029407"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615770"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -110,6 +110,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
    - 디바이스 플랫폼 조건에서는 iOS 및 Android만 지원됩니다.
    - 장치를 등록 하려면 broker 앱이 필요 합니다. Broker 앱은 iOS의 Microsoft Authenticator 또는 Android 장치용 Microsoft Authenticator 또는 Microsoft 회사 포털 일 수 있습니다.
 - 조건부 액세스는 InPrivate 모드에서 승인 된 클라이언트 앱으로 Microsoft Edge를 고려할 수 없습니다.
+- Azure AD 응용 프로그램 프록시를 사용 하 여 온-프레미스 Power BI Report Server에 연결 하는 Power BI 모바일 앱을 승인 된 클라이언트 앱으로 사용 하는 Microsoft Power BI 앱을 요구 하는 조건부 액세스 정책은 지원 되지 않습니다.
 
 구성 예제는 [방법: 조건부 액세스를 사용 하는 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱 필요](app-based-conditional-access.md) 문서를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387584"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615851"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -50,6 +50,7 @@ ms.locfileid: "97387584"
 ## <a name="associate-the-security-group-with-the-tenant"></a>보안 그룹을 테 넌 트와 연결
 
 1. [Power BI 관리 포털](https://app.powerbi.com/admin-portal/tenantSettings)에 로그인 합니다.
+1. **테 넌 트 설정** 페이지를 선택 합니다.
 
     > [!Important]
     > 테 넌 트 설정 페이지를 보려면 Power BI 관리자 여야 합니다.

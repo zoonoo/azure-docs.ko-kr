@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a1f4759bc40c4074f0dd618be8ac66ad088e848c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587760"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616612"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -109,7 +109,7 @@ VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두�
 - 완료 된 백분율-VM에 대해 완료 된 초기 복제의 비율을 나타냅니다.
 - 전송 된 총 데이터-VM에서 Azure로 전송 되는 데이터의 양
 
-:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="복제 상태" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+    :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="복제 상태" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
 
 - 동기화 진행률 (디스크 수준에서 세부 정보를 추적 하려면)
     - 복제 상태

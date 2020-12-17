@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443095"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614900"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 Api를 호출 하는 모바일 앱 등록
 
@@ -72,16 +72,21 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 리디렉션 URI를 수동으로 구성 하려는 경우 응용 프로그램 매니페스트를 통해 수행할 수 있습니다. 다음은 매니페스트에 대해 권장 되는 형식입니다.
 
-- **iOS** : `msauth.<BUNDLE_ID>://auth`
+- **iOS**: `msauth.<BUNDLE_ID>://auth`
   - 예를 들어 다음과 같이 입력합니다. `msauth.com.yourcompany.appName://auth`
-- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - KeyTool 명령을 통해 릴리스 키 또는 디버그 키를 사용 하 여 Android 서명 해시를 생성할 수 있습니다.
 
 ### <a name="username-password-authentication"></a>사용자 이름-암호 인증
 
 앱에서 사용자 이름-암호 인증만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이 흐름은 Microsoft id 플랫폼 버전 2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
 
-그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 해야 합니다. 이렇게 하려면 응용 프로그램의 **인증** 섹션을 시작 합니다. **고급 설정** 하위 섹션의 **기본 클라이언트 유형** 단락에서 질문 **응용 프로그램을 공용 클라이언트로 간주** 하려면 **예** 를 선택 합니다.
+그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 해야 합니다. 이를 수행하려면:
+
+1. [Azure Portal](https://portal.azure.com)에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
+1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Azure Portal의 인증 창에서 공용 클라이언트 설정 사용":::
 
 ## <a name="api-permissions"></a>API 사용 권한
 

@@ -3,17 +3,17 @@ title: '자습서: Azure IoT Central을 사용하여 용수 품질 모니터링 
 description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 용수 품질 모니터링 애플리케이션을 만드는 방법을 알아봅니다.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 07f0e66888eaa909dfce14924e9186bcb9b876b4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6e8f9b8b33d391c4e13c6076a8589d336455d8c0
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014495"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590225"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 용수 품질 모니터링 애플리케이션 만들기
 

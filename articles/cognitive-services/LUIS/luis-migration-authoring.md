@@ -3,18 +3,20 @@ title: Azure 리소스 제작 키로 마이그레이션
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 전자 메일 계정에서 Azure 리소스로 Language Understanding (LUIS) 제작 인증을 마이그레이션하는 방법을 설명 합니다.
 services: cognitive-services
+author: aahill
+ms.author: aahi
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/07/2020
-ms.openlocfilehash: 243c9834aa256e26d620c00ac0fa7a262919aabd
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.date: 12/14/2020
+ms.openlocfilehash: 086bc17938064571e8759ecda633fb5f87d1060f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762684"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616816"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -26,41 +28,22 @@ LUIS (Language Understanding) 제작 인증을 전자 메일 계정에서 Azure 
 
 ## <a name="what-is-migration"></a>마이그레이션 이란?
 
-마이그레이션은 전자 메일 계정에서 Azure 리소스로의 제작 인증을 변경 하는 프로세스입니다. 마이그레이션한 후 계정이 Azure 구독 및 Azure 제작 리소스에 연결 됩니다. *모든 LUIS 사용자 (앱 소유자 및 협력자)는 결국 마이그레이션해야 합니다.*
+마이그레이션은 전자 메일 계정에서 Azure 리소스로의 제작 인증을 변경 하는 프로세스입니다. 마이그레이션한 후 계정이 Azure 구독 및 Azure 제작 리소스에 연결 됩니다.
 
-마이그레이션은 [LUIS 포털](https://www.luis.ai)에서 수행 해야 합니다. 예를 들어 LUIS CLI를 사용 하 여 제작 키를 만드는 경우 LUIS 포털에서 마이그레이션 프로세스를 완료 해야 합니다. 마이그레이션 후에도 응용 프로그램에 공동 작성자가 있을 수 있지만 응용 프로그램 수준 대신 Azure 리소스 수준에 추가 됩니다.
-
-> [!Note]
-> 마이그레이션하기 전에 작성를 LUIS app 수준에서 _협력자_ 라고 합니다. 마이그레이션 후 azure 리소스 수준에서 동일한 기능에 대해 _참가자_ 의 azure 역할을 사용 합니다.
-
-## <a name="notes-before-you-migrate"></a>마이그레이션하기 전 참고 사항
-
-* 마이그레이션은 되돌릴 수 없습니다.
-* 둘 이상의 [LUIS 지역 포털](./luis-reference-regions.md#luis-authoring-regions)에 로그인 한 경우 한 번에 여러 지역으로 마이그레이션해야 한다는 메시지가 표시 됩니다.
-* 응용 프로그램의 소유자 인 경우 응용 프로그램은 자동으로 마이그레이션됩니다.
-* 소유자는 마이그레이션할 앱의 하위 집합을 선택할 수 없으며 프로세스를 되돌릴 수 없습니다.
-* 소유자가 마이그레이션한 후에는 협력자의 계정에서 응용 프로그램이 사라집니다.
-* 소유자는 사용자에 게 마이그레이션을 알리기 위해 협력자에 게 전자 메일을 보낼지 묻는 메시지를 표시 합니다.
-* 응용 프로그램의 협력자 인 경우 응용 프로그램은 사용자와 함께 마이그레이션하지 않습니다. 그러나 공동 작업자에 게 필요한 앱을 내보내도록 요청 하는 메시지가 표시 됩니다.
-* 담당자가 공동 작업자의 마이그레이션 여부를 알 수 있는 방법은 없습니다.
-* 마이그레이션은 자동으로 협력자를 Azure authoring resource로 이동 하거나 추가 하지 않습니다. 앱 소유자는 마이그레이션 후이 단계를 완료 해야 하는 소유자입니다. 이 단계에서는 [Azure 제작 리소스에 대 한 권한이](./luis-how-to-collaborate.md)필요 합니다.
-* Azure 리소스에 협력자를 할당 한 후에는 응용 프로그램에 액세스 하기 전에 마이그레이션해야 합니다. 그렇지 않으면 응용 프로그램을 작성 하기 위한 액세스 권한이 없습니다.
-* 마이그레이션된 사용자는 응용 프로그램의 협력자로 추가할 수 없습니다.
-
+마이그레이션은 [LUIS 포털](https://www.luis.ai)에서 수행 해야 합니다. 예를 들어 LUIS CLI를 사용 하 여 제작 키를 만드는 경우 LUIS 포털에서 마이그레이션 프로세스를 완료 해야 합니다. 마이그레이션 후에도 응용 프로그램에 공동 작성자가 있을 수 있지만 응용 프로그램 수준 대신 Azure 리소스 수준에 추가 됩니다. 계정을 마이그레이션하는 것은 취소할 수 없습니다.
 
 > [!Note]
-> 예측 런타임 리소스를 만들어야 하는 경우에 [는 별도의 프로세스](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 를 수행 해야 합니다.
+> * 예측 런타임 리소스를 만들어야 하는 경우에 [는 별도의 프로세스](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) 를 수행 해야 합니다.
+> * 응용 프로그램 및 기여자의 영향을 받는 방법에 대 한 자세한 내용은 아래의 [마이그레이션 참고 사항](#migration-notes) 섹션을 참조 하세요. 
+> * F0 계층에 표시 된 대로 LUIS 앱을 제작 하는 것은 무료입니다. [가격 책정 계층에](luis-limits.md#key-limits)대해 자세히 알아보세요.
 
 ## <a name="migration-prerequisites"></a>마이그레이션 필수 조건
 
-* 유효한 Azure 구독과 연결 해야 합니다. 테 넌 트 관리자에 게 구독에 대 한 추가를 요청 하거나 [무료로 등록할](https://azure.microsoft.com/free/cognitive-services)수 있습니다.
-* LUIS 포털에서 또는 [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)에서 LUIS Azure 제작 리소스를 만들어야 합니다. LUIS 포털에서 제작 리소스를 만드는 작업은 다음 섹션에서 설명 하는 마이그레이션 프로세스의 일부입니다.
-* 응용 프로그램의 협력자 인 경우 응용 프로그램은 자동으로 마이그레이션되지 않습니다. 마이그레이션 흐름을 진행 하는 동안 이러한 앱을 내보내야 한다는 메시지가 표시 됩니다. 또한 [내보내기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)를 사용할 수 있습니다. 마이그레이션 후 앱을 다시 LUIS으로 가져올 수 있습니다. 가져오기 프로세스에서는 사용자가 소유자 인 새 앱 ID를 사용 하 여 새 앱을 만듭니다.
+* 유효한 Azure 구독. 테 넌 트 관리자에 게 구독에 대 한 추가를 요청 하거나 [무료로 등록할](https://azure.microsoft.com/free/cognitive-services)수 있습니다.
+* LUIS 포털 또는 [Azure Portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)에서 LUIS Azure authoring resource. 
+    * LUIS 포털에서 제작 리소스를 만드는 작업은 다음 섹션에서 설명 하는 마이그레이션 프로세스의 일부입니다.
+* 응용 프로그램의 협력자 인 경우 응용 프로그램은 자동으로 마이그레이션되지 않습니다. 마이그레이션 흐름을 진행 하는 동안 이러한 앱을 내보내야 한다는 메시지가 표시 됩니다. 또한 [내보내기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)를 사용할 수 있습니다. 마이그레이션 후 앱을 다시 LUIS으로 가져올 수 있습니다. 가져오기 프로세스에서는 사용자가 소유자 인 새 앱 ID를 사용 하 여 새 앱을 만듭니다.        
 * 응용 프로그램의 소유자 인 경우 자동으로 마이그레이션될 앱을 내보낼 필요가 없습니다. 각 응용 프로그램에 대 한 모든 협력자의 목록이 포함 된 전자 메일 템플릿이 제공 되므로 마이그레이션 프로세스에 대 한 알림이 제공 될 수 있습니다.
-
-> [!Note]
-> F0 계층에 표시 된 대로 LUIS 앱을 제작 하는 것은 무료입니다. [가격 책정 계층에](luis-limits.md#key-limits)대해 자세히 알아보세요.
-
 
 ## <a name="migration-steps"></a>마이그레이션 단계
 
@@ -117,6 +100,15 @@ LUIS (Language Understanding) 제작 인증을 전자 메일 계정에서 Azure 
 
 6. 모든 지역에서 성공적으로 마이그레이션한 후 마침을 클릭 합니다. 이제 응용 프로그램에 액세스할 수 있습니다. 포털 내 모든 지역에서 모든 응용 프로그램을 계속 작성 하 고 유지 관리할 수 있습니다.
 
+## <a name="migration-notes"></a>마이그레이션 정보
+
+* 마이그레이션하기 전에 작성를 LUIS app 수준에서 _협력자_ 라고 합니다. 마이그레이션 후 azure 리소스 수준에서 동일한 기능에 대해 _참가자_ 의 azure 역할을 사용 합니다.
+* 둘 이상의 [LUIS 지역 포털](./luis-reference-regions.md#luis-authoring-regions)에 로그인 한 경우 한 번에 여러 지역으로 마이그레이션해야 한다는 메시지가 표시 됩니다.
+* 응용 프로그램의 소유자 인 경우 응용 프로그램은 자동으로 마이그레이션됩니다. 응용 프로그램의 협력자 인 경우 응용 프로그램은 사용자와 함께 마이그레이션하지 않습니다. 그러나 공동 작업자에 게 필요한 앱을 내보내도록 요청 하는 메시지가 표시 됩니다.
+* 응용 프로그램 소유자는 마이그레이션할 앱의 하위 집합을 선택할 수 없으며, 공동 작업자의 마이그레이션 여부는 소유자가 알 수 없습니다.
+* 마이그레이션은 자동으로 협력자를 Azure authoring resource로 이동 하거나 추가 하지 않습니다. 앱 소유자는 마이그레이션 후이 단계를 완료 해야 하는 소유자입니다. 이 단계에서는 [Azure 제작 리소스에 대 한 권한이](./luis-how-to-collaborate.md)필요 합니다.
+* 참가자를 Azure 리소스에 할당 한 후에는 응용 프로그램에 액세스 하기 전에 마이그레이션해야 합니다. 그렇지 않으면 응용 프로그램을 작성 하기 위한 액세스 권한이 없습니다.
+
 
 ## <a name="using-apps-after-migration"></a>마이그레이션 후 앱 사용
 
@@ -139,7 +131,6 @@ Azure Portal, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에�
 
 > [!Note]
 > LUIS 앱의 소유자가 Azure 리소스에서 협력자로 협력자를 마이그레이션하고 추가 하는 경우에도 해당 협력자는 마이그레이션하지 않는 한 여전히 앱에 액세스할 수 없습니다.
-
 
 ## <a name="troubleshooting-the-migration-process"></a>마이그레이션 프로세스 문제 해결
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1376dcb76c22bcd70937f533d337ee9679e9dc59
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 832c08123904b9fb889231faa86c1308704a2581
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455854"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>자습서: LoginRadius와 Azure Active Directory 통합
 
@@ -151,7 +151,7 @@ LoginRadius에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
        - SP에 대한 인증서 키를 가져오는 명령: `openssl genrsa -out lr.hub.loginradius.com.key 2048`
 
        - SP에 대한 인증서를 가져오는 명령: `openssl req -new -x509 -key lr.hub.loginradius.com.key -out lr.hub.loginradius.com.cert -days 3650 -subj /CN=lr.hub.loginradius.com`
-     
+
        > [!NOTE]
        > 헤더와 바닥글로 인증서 및 인증서 키 값을 입력해야 합니다.
        > - 인증서 값 예제 형식: `-----BEGIN CERTIFICATE-----<certifciate value>-----END CERTIFICATE-----`

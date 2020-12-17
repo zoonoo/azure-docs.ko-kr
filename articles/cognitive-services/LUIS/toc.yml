@@ -195,8 +195,6 @@
           href: luis-how-to-azure-subscription.md
         - name: 앱 및 버전 설정
           href: how-to-application-settings-portal.md
-        - name: 작성 리소스로 마이그레이션
-          href: luis-migration-authoring.md
         - name: 작성자 및 협력자
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md

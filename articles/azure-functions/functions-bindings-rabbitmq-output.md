@@ -4,15 +4,15 @@ description: Azure Functions에서 RabbitMQ 메시지를 보내는 방법에 대
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 212bfcee09cd63b6ff09faaba4d99e4b4c583fe8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505775"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616663"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 출력 바인딩
 
@@ -193,8 +193,6 @@ module.exports = function (context, input) {
 }
 ```
 
-Py에서는 값을 메서드에 전달 하 여 큐에 메시지를 작성할 수 있습니다 *_\__ \_*. `set`
-
 ```python
 import azure.functions as func
 
@@ -271,11 +269,13 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | "out"으로 설정해야 합니다. |
 |**name** | 해당 없음 | 함수 코드에서 큐를 나타내는 변수의 이름입니다. |
 |**queueName**|**QueueName**| 메시지를 보낼 큐의 이름입니다. |
-|**n**|**HostName**|(ConnectStringSetting을 사용 하는 경우 선택 사항) <br>큐의 호스트 이름 (예: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(ConnectionStringSetting를 사용 하는 경우 선택 사항) <br>큐에 액세스 하는 이름 |
-|**passwordSetting**|**PasswordSetting**|(ConnectionStringSetting를 사용 하는 경우 선택 사항) <br>큐에 액세스 하기 위한 암호|
+|**n**|**HostName**|(ConnectStringSetting을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
+|**userName**|**UserName**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 데 사용할 사용자 이름이 포함 된 앱 설정의 이름입니다. 예: UserNameSetting: "< UserNameFromSettings >"|
+|**password**|**암호**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하기 위한 암호를 포함 하는 앱 설정의 이름입니다. 예: UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|RabbitMQ message queue 연결 문자열이 포함 된 앱 설정의 이름입니다. local.settings.js에서 앱 설정을 통해서가 아니라 직접 연결 문자열을 지정 하는 경우에는 트리거가 작동 하지 않습니다. (예: *function.json*: connectionStringSetting: "rabbitMQConnection" <br> *local.settings.js*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**포트**|사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
+|**port**|**포트**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>사용
 
@@ -297,7 +297,7 @@ C # 함수를 사용 하는 경우:
 
 * `byte[]` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
 * `string` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
-* `POCO` -매개 변수 값이 c # 개체로 형식이 지정 되지 않은 경우 오류가 수신 됩니다.
+* `POCO` -매개 변수 값이 c # 개체로 형식이 지정 되지 않은 경우 오류가 수신 됩니다. 전체 예제는 c # 스크립트 [예제](#example)를 참조 하세요.
 
 C # 스크립트 함수를 사용 하는 경우:
 
@@ -305,11 +305,11 @@ C # 스크립트 함수를 사용 하는 경우:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-RabbitMQ 메시지는 문자열을 통해 전송 됩니다.
+큐 메시지는 컨텍스트별를 통해 사용할 수 있습니다.<NAME> 여기서는 <NAME> function.js에 정의 된 이름과 일치 합니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-RabbitMQ 메시지는 문자열을 통해 전송 됩니다.
+Python [예](#example)를 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 

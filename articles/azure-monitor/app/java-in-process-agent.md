@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 2011d013cce43eaf471d61936d5c34c318360381
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371886"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616646"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -139,7 +139,7 @@ Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 �
 
 ### <a name="supported-custom-telemetry"></a>지원 되는 사용자 지정 원격 분석
 
-다음 표에서는 Java 3.0 에이전트를 보완 하기 위해 사용할 수 있는 현재 지원 되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크를 통해 사용 하도록 설정할 수 있으며, 사용자 지정 원격 분석의 모든 유형은 [Java 2.X SDK Application Insights](#send-custom-telemetry-using-application-insights-java-2x-sdk)을 통해 지원 됩니다.
+다음 표에서는 Java 3.0 에이전트를 보완 하기 위해 사용할 수 있는 현재 지원 되는 사용자 지정 원격 분석 유형을 나타냅니다. 요약 하자면, 사용자 지정 메트릭은 마이크로 측정기를 통해 지원 되 고, 사용자 지정 예외 및 추적은 로깅 프레임 워크를 통해 사용 하도록 설정할 수 있으며, 사용자 지정 원격 분석의 모든 유형은 [Java 2.X SDK Application Insights](#send-custom-telemetry-using-the-2x-sdk)을 통해 지원 됩니다.
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
@@ -188,7 +188,7 @@ Log4j, Logback 및 java는 자동으로 계측 되며 이러한 로깅 프레임
 
 로그에 사용자 지정 차원을 연결 하려면 [Log4j 1.2 mdc](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 Mdc](https://logging.apache.org/log4j/2.x/manual/thread-context.html)또는 [logback MDC](http://logback.qos.ch/manual/mdc.html)Application Insights를 사용 하면 됩니다. 그러면 Java 3.0에서 이러한 mdc 속성을 추적 및 예외 원격 분석에서 사용자 지정 차원으로 자동으로 캡처합니다.
 
-### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Application Insights Java 2.x SDK를 사용 하 여 사용자 지정 원격 분석 보내기
+### <a name="send-custom-telemetry-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 사용자 지정 원격 분석 보내기
 
 `applicationinsights-core-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
 
@@ -251,3 +251,80 @@ try {
     telemetryClient.trackException(e);
 }
 ```
+
+### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 사용자 지정 차원 추가
+
+> [!NOTE]
+> 이 기능은 3.0.1-BETA 이상에만 해당 됩니다.
+
+`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+코드에 사용자 지정 차원을 추가 합니다.
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getProperties().put("mydimension", "myvalue");
+```
+
+### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 user_Id 요청 원격 분석 설정
+
+> [!NOTE]
+> 이 기능은 3.0.1-BETA 이상에만 해당 됩니다.
+
+`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+코드에서를 설정 합니다 `user_Id` .
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>2.x SDK를 사용 하 여 요청 원격 분석 이름을 재정의 합니다.
+
+> [!NOTE]
+> 이 기능은 3.0.1-BETA 이상에만 해당 됩니다.
+
+`applicationinsights-web-2.6.2.jar`응용 프로그램에를 추가 합니다. (모든 2.x 버전은 Application Insights Java 3.0에서 지원 되지만, 원하는 경우 최신 버전을 사용 하는 것이 좋습니다.)
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+코드에 이름을 설정 합니다.
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.setName("myname");
+```
+
+> [!NOTE]
+> 위에서 설명한 것 외에도 검색 된에 대 한 다른 모든 작업 `RequestTelemetry` `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` 은 신속 하 게 실패 하 고 3.0 에이전트에서 정의 되지 않은 동작을 알 수 있도록 예외를 throw 합니다.
+>
+> 의 다른 메서드에 대 한 interop가 필요한 경우 `RequestTelemetry` 문제를 열어 알려주세요 https://github.com/microsoft/ApplicationInsights-Java/issues .

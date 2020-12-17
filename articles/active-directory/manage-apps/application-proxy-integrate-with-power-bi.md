@@ -16,18 +16,18 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3188571e9188add7bc8f4f4d07ea5a562a79b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 8d4515d6140123e8e8784fc2d828242d49c59fc4
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658114"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616901"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 Power BI Mobile에 대한 원격 액세스 설정
 
 이 문서에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI mobile 앱이 Power BI Report Server (PBIRS) 및 SQL Server Reporting Services (SSRS) 2016 이상에 연결 하도록 설정 하는 방법을 설명 합니다. 이러한 통합을 통해 회사 네트워크를 벗어난 사용자는 Power BI 모바일 앱에서 해당 Power BI 보고서에 액세스 하 고 Azure AD 인증으로 보호할 수 있습니다. 이 보호에는 조건부 액세스 및 multi-factor authentication과 같은 [보안 이점이](application-proxy-security.md#security-benefits) 포함 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 이미 보고서 서비스를 배포 하 고 [응용 프로그램 프록시를 사용 하도록 설정](application-proxy-add-on-premises-application.md)했다고 가정 합니다.
 
@@ -95,7 +95,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
    b. **Single Sign-On 모드** 로 **Windows 통합 인증** 을 선택합니다.
 
-   다. **내부 애플리케이션 SPN** 을 이전에 설정한 값으로 설정합니다.
+   c. **내부 애플리케이션 SPN** 을 이전에 설정한 값으로 설정합니다.
 
    d. 커넥터에 대한 **위임된 로그인 ID** 를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 ID로 작업](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)을 참조하세요.
 
@@ -153,6 +153,8 @@ Microsoft Intune를 사용 하 여 회사의 직원이 사용 하는 클라이�
 ## <a name="troubleshooting"></a>문제 해결
 
 몇 분 넘게 보고서를 로드 한 후 응용 프로그램에서 오류 페이지를 반환 하는 경우 제한 시간 설정을 변경 해야 할 수 있습니다. 기본적으로 응용 프로그램 프록시는 요청에 응답 하는 데 최대 85 초를 소요 하는 응용 프로그램을 지원 합니다. 이 설정을 180 초로 늘리려면 응용 프로그램의 앱 프록시 설정 페이지에서 백 엔드 시간 제한을 **길게** 선택 합니다. 빠르고 신뢰할 수 있는 보고서를 만드는 방법에 대 한 팁은 [Power BI 보고서 모범 사례](/power-bi/power-bi-reports-performance)를 참조 하세요.
+
+Azure AD 응용 프로그램 프록시를 사용 하 여 온-프레미스 Power BI Report Server에 연결 하는 Power BI 모바일 앱을 승인 된 클라이언트 앱으로 사용 하는 Microsoft Power BI 앱을 요구 하는 조건부 액세스 정책은 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

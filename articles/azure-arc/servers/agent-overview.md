@@ -3,12 +3,12 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563027"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616164"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -49,7 +49,7 @@ Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 �
 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다.
 
-- Windows Server 2012 R2 이상(Windows Server Core 포함)
+- Windows Server 2008 R2, Windows Server 2012 R2 이상 (Server Core 포함)
 - Ubuntu 16.04 및 18.04 LTS (x64)
 - CentOS Linux 7(x64)
 - SLES(SUSE Linux Enterprise Server) 15(x64)
@@ -95,7 +95,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure Resource Manager|
+|`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 9a62576b65be04414580b42377398e27c4aa389c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 3cca568245dfce01fb96d7a46590cb72349213ac
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353564"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591942"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-web-cargo-air"></a>자습서: Web Cargo Air와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -88,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾고, **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-    ![The Certificate download link](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
 1. **Web Cargo Air 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 

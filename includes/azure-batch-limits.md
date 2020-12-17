@@ -5,15 +5,15 @@ services: batch
 author: JnHs
 ms.service: batch
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 12/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 54a789aba793d9a6b44d5fe9a1e0f42023002b5a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a94b122f1cdd598eeac553c8cc784d2a0a5369f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027494"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614519"
 ---
 | **리소스** | **기본 제한** | **최대 한도** |
 | --- | --- | --- |
@@ -24,9 +24,6 @@ ms.locfileid: "96027494"
 | Batch 계정당 풀 | 20-100 | 500<sup>1</sup> |
 
 <sup>1</sup> 이 한도를 초과하여 늘리려면 Azure 지원에 문의합니다.
-
-> [!IMPORTANT]
-> 전용 할당량을 요청하고 관리하는 방법을 변경하는 중입니다.  총 전용 vCPU 수는 현재 강제 적용된 값이며, VM 시리즈당 전용 할당량을 곧 적용할 예정입니다. 낮은 우선 순위 할당량은 총 한도에 따라 계속 적용되며, VM 시리즈에 의해 적용되지 않습니다.
 
 > [!NOTE]
 > 기본 제한은 Batch 계정을 만드는 데 사용되는 구독 유형에 따라 달라집니다. 표시된 코어 할당량은 Batch 서비스 모드의 Batch 계정에 대한 할당량입니다. [배치 계정에서 할당량을 봅니다](../articles/batch/batch-quota-limit.md#view-batch-quotas).

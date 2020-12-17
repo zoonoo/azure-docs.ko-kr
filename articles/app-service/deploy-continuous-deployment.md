@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 799699662b738804790e3fe18ce9bd579027808d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004354"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616318"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 
@@ -92,11 +92,11 @@ Bitbucket 또는 GitHub의 경우 리포지토리에 연결할 Azure App Service
 
 계정에 필요한 권한이 있는 경우 GitHub 또는 Azure Repos에서 지속적으로 배포 하도록 Azure Pipelines를 설정할 수 있습니다. Azure Pipelines를 통해 배포 하는 방법에 대 한 자세한 내용은 [Azure 앱 서비스에 웹 앱 배포](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)를 참조 하세요.
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>필수 구성 요소
 
 Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azure DevOps 조직에 다음 권한이 있어야 합니다. Azure App Service 
 
-- Azure 계정에는 Azure Active Directory에 대 한 쓰기 권한이 있어야 하 고 서비스를 만들 수 있습니다. 
+- Azure 계정에 Azure Active Directory에 쓰고 앱 등록을 만들 수 있는 권한이 있어야 합니다. 
   
 - Azure 계정에는 Azure 구독에 **소유자** 역할이 있어야 합니다.
 
@@ -174,7 +174,7 @@ Azure Pipelines를 사용 하 여 지속적인 업데이트를 만들려면 Azur
 
 Windows 앱의 경우 포털이 직접 지원 하지 않는 클라우드 Git 또는 Mercurial 리포지토리에서 (예: [Gitlab](https://gitlab.com/)) 연속 배포를 수동으로 구성할 수 있습니다. 이렇게 하려면 **Deployment Center** 페이지에서 외부 상자를 선택 합니다. 자세한 내용은 [수동 단계를 사용 하 여 연속 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)을 참조 하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [연속 배포에 대 한 일반적인 문제 조사](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Azure PowerShell 사용](/powershell/azure/)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a0ef8d9f28f90db77686c3139c8b45eccfb669aa
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9b097b561ef6b91ae648a950247d1a88b99e7e64
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938820"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614815"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -35,7 +35,7 @@ ms.locfileid: "96938820"
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview).
 - Service Manager 웹 애플리케이션(웹앱)이 배포 및 구성되어 있습니다. 웹앱에 대한 정보는 [여기](#create-and-deploy-service-manager-web-app-service)를 참조하세요.
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
 - 지원되는 Service Manager 버전:  2012 R2 또는 2016.
@@ -45,7 +45,7 @@ ms.locfileid: "96938820"
 > [!NOTE]
 > 
 > - ITSM 커넥터는 클라우드 기반 ServiceNow 인스턴스에만 연결할 수 있습니다. 온-프레미스 ServiceNow 인스턴스는 현재 지원되지 않습니다.
-> - 작업의 일부로 사용자 지정 [템플릿을](./itsmc-overview.md#template-definitions) 사용 하려면 scsm 템플릿의 "ProjectionType" 매개 변수를 "IncidentManagement"에 매핑해야 합니다. ProjectionType "를
+> - 작업의 일부로 사용자 지정 [템플릿을](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview) 사용 하려면 scsm 템플릿의 "ProjectionType" 매개 변수를 "IncidentManagement"에 매핑해야 합니다. ProjectionType "를
 
 ### <a name="connection-procedure"></a>연결 절차
 
@@ -85,7 +85,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Service Manager 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Service Manager 웹앱 서비스 만들기 및 배포
 
@@ -184,7 +184,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 다음 필수 조건이 충족되는지 확인합니다.
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
 - ServiceNow 지원 버전: 올랜도, 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
 - 현재 Azure Monitor에서 전송 되는 경고는 ServiceNow에서 이벤트, 인시던트 또는 경고 요소 중 하나를 만들 수 있습니다.
 > [!NOTE]
@@ -257,7 +257,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 ServiceNow 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
 
 
 > [!NOTE]
@@ -316,7 +316,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 필수 조건이 충족되는지 확인합니다.
 
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
 - Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../../app-service/configure-authentication-provider-aad.md)을 참조하세요.
 
 - 사용자 역할:  관리자.
@@ -358,7 +358,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Provance 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell을 Azure의 IT 서비스 관리 커넥터에 연결
 
@@ -372,7 +372,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 필수 조건이 충족되는지 확인합니다.
 
-- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#add-it-service-management-connector).
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector).
 - 클라이언트 ID가 생성되었습니다. 추가 정보: [Cherwell용 클라이언트 ID 생성](#generate-client-id-for-cherwell).
 - 사용자 역할:  관리자.
 
@@ -414,7 +414,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Cherwell 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)
 
 ### <a name="generate-client-id-for-cherwell"></a>Cherwell용 클라이언트 ID 생성
 
@@ -428,4 +428,4 @@ Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합
 
 
 ## <a name="next-steps"></a>다음 단계
- - [Azure 경고에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Azure 경고에서 ITSM 작업 항목 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts)

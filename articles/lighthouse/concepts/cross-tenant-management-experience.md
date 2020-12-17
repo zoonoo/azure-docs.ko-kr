@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510654"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616578"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -77,6 +77,11 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 [Azure Cost Management + 청구](../../cost-management-billing/index.yml):
 
 - 관리 테 넌 트에서 CSP 파트너는 Azure 요금제를 사용 하는 고객에 대 한 사전 세금 소비 비용 (구매를 포함 하지 않음)을 보고, 관리 하 고, 분석할 수 있습니다. 비용은 고객의 구독에 대 한 파트너의 azure RBAC (역할 기반 액세스 제어) 액세스 및 소매 요금에 따라 결정 됩니다.
+
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- 고객 테 넌 트에서 키 자격 증명 모음 만들기
+- 관리 id를 사용 하 여 고객 테 넌 트에 키 자격 증명 모음 만들기
 
 [AKS(Azure Kubernetes Service)](../../aks/index.yml):
 

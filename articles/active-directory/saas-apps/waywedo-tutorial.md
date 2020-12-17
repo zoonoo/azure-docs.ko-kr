@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-ms.openlocfilehash: fd9a04c2324af2ec36d8fa1d43a079e9f2c32dd8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520305"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608938"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>자습서: Way We Do와 Azure Active Directory 통합
 
@@ -117,36 +117,36 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Way We Do 저장](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. **Single Sign-On 사용** 토글을 **예** 로 클릭하여 Single Sign-On을 사용하도록 설정합니다.
+    1. **Single Sign-On 사용** 토글을 **예** 로 클릭하여 Single Sign-On을 사용하도록 설정합니다.
 
-    b. **Single Sign-On 이름** 텍스트 상자에 이름을 입력합니다.
+    1. **Single Sign-On 이름** 텍스트 상자에 이름을 입력합니다.
 
-    다. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
 
-    e. **인증서** 옆에 있는 **선택** 단추를 클릭하여 인증서를 업로드합니다.
+    1. **인증서** 옆에 있는 **선택** 단추를 클릭하여 인증서를 업로드합니다.
 
-    f. **선택적 설정** -
-    
-    * 암호 사용 - 이 옵션을 사용하지 않도록 설정하면 사용자가 Single Sign-On만을 사용할 수 있도록 Way We Do에 대한 일반 암호가 작동합니다.
+    1. **선택적 설정** -
 
-    * 자동 프로비전 사용 - 이 옵션을 사용하도록 설정하면 로그온에 사용된 이메일 주소가 Way We Do의 사용자 목록과 자동으로 비교됩니다. 이메일 주소가 Way We Do에 활성 사용자와 일치하지 않으면 로그인하는 사용자에 대한 새 사용자 계정을 자동으로 추가하여 누락된 정보를 요청합니다.
+        * 암호 사용 - 이 옵션을 사용하지 않도록 설정하면 사용자가 Single Sign-On만을 사용할 수 있도록 Way We Do에 대한 일반 암호가 작동합니다.
 
-      > [!NOTE]
-      > Single Sign-On을 통해 추가된 사용자는 일반 사용자로 추가되고 시스템에서 역할이 할당되지 않습니다. 관리자는 편집자 또는 관리자 권한으로 해당 보안 역할에 들어가서 수정할 수 있고 하나 또는 여러 개의 조직 자트 역할을 할당할 수도 있습니다.
+        * 자동 프로비전 사용 - 이 옵션을 사용하도록 설정하면 로그온에 사용된 이메일 주소가 Way We Do의 사용자 목록과 자동으로 비교됩니다. 이메일 주소가 Way We Do에 활성 사용자와 일치하지 않으면 로그인하는 사용자에 대한 새 사용자 계정을 자동으로 추가하여 누락된 정보를 요청합니다.
 
-    g. **저장** 을 클릭하여 설정을 유지합니다.
+          > [!NOTE]
+          > Single Sign-On을 통해 추가된 사용자는 일반 사용자로 추가되고 시스템에서 역할이 할당되지 않습니다. 관리자는 편집자 또는 관리자 권한으로 해당 보안 역할에 들어가서 수정할 수 있고 하나 또는 여러 개의 조직 자트 역할을 할당할 수도 있습니다.
+
+    1. **저장** 을 클릭하여 설정을 유지합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
