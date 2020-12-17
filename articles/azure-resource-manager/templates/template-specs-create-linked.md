@@ -27,7 +27,7 @@ ms.locfileid: "96518892"
 
 템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 부모 템플릿의 경로에 따라 연결 된 템플릿의 상대 경로를 지정 합니다.
 
-연결 된 템플릿은 **에서linkedTemplate.js** 이라고 하며 주 템플릿이 저장 된 경로에서 **아티팩트** 라는 하위 폴더에 저장 됩니다.  RelativePath에 대해 다음 값 중 하나를 사용할 수 있습니다.
+연결 된 템플릿은 **에서linkedTemplate.json** 이라고 하며 주 템플릿이 저장 된 경로에서 **아티팩트** 라는 하위 폴더에 저장 됩니다.  RelativePath에 대해 다음 값 중 하나를 사용할 수 있습니다.
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
