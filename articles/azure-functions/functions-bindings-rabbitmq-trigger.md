@@ -4,15 +4,15 @@ description: RabbitMQ 메시지를 만들 때 Azure 함수를 실행 하는 방�
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: e7095c08c385457bddf6d70d345c4f47073b4adb
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505774"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617224"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 트리거
 
@@ -133,14 +133,12 @@ RabbitMQ 바인딩은 *형식이* 로 설정 된 *function.js* 에서 정의 됩
             "name": "myQueueItem",
             "type": "rabbitMQTrigger",
             "direction": "in",
-            "queueName": "",
-            "connectionStringSetting": ""
+            "queueName": "queue",
+            "connectionStringSetting": "rabbitMQConnection"
         }
     ]
 }
 ```
-
-*_\__ \_ Py* 의 코드는 매개 변수를로 선언 합니다 `func.RabbitMQMessage` .이를 통해 함수에서 메시지를 읽을 수 있습니다.
 
 ```python
 import logging
@@ -214,11 +212,11 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | "in"으로 설정해야 합니다.|
 |**name** | 해당 없음 | 함수 코드에서 큐를 나타내는 변수의 이름입니다. |
 |**queueName**|**QueueName**| 메시지를 받을 큐의 이름입니다. |
-|**n**|**HostName**|(ConnectStringSetting을 사용 하는 경우 선택 사항) <br>큐의 호스트 이름 (예: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(ConnectionStringSetting를 사용 하는 경우 선택 사항) <br>큐에 액세스 하는 이름 |
-|**passwordSetting**|**PasswordSetting**|(ConnectionStringSetting를 사용 하는 경우 선택 사항) <br>큐에 액세스 하기 위한 암호|
+|**n**|**HostName**|(ConnectStringSetting을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
+|**userNameSetting**|**UserNameSetting**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 데 사용할 사용자 이름이 포함 된 앱 설정의 이름입니다. 예: UserNameSetting: "% < UserNameFromSettings >%"|
+|**passwordSetting**|**PasswordSetting**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하기 위한 암호를 포함 하는 앱 설정의 이름입니다. 예: PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|RabbitMQ message queue 연결 문자열이 포함 된 앱 설정의 이름입니다. local.settings.js에서 앱 설정을 통해서가 아니라 직접 연결 문자열을 지정 하는 경우에는 트리거가 작동 하지 않습니다. (예: *function.json*: connectionStringSetting: "rabbitMQConnection" <br> *local.settings.js*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**포트**|사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
+|**port**|**포트**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -226,31 +224,29 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-메시지에 사용할 수 있는 매개 변수 유형은 다음과 같습니다.
+기본 메시지 유형은 [RabbitMQ event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)이며 `Body` RabbitMQ 이벤트의 속성은 아래 나열 된 유형으로 읽을 수 있습니다.
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) -RabbitMQ 메시지의 기본 형식입니다.
-  * `byte[]`-RabbitMQ 이벤트의 ' Body ' 속성을 통해
-* `string` -메시지는 텍스트입니다.
 * `An object serializable as JSON` -메시지가 유효한 JSON 문자열로 전달 됩니다.
+* `string`
+* `byte[]`
 * `POCO` -메시지의 형식이 c # 개체로 지정 됩니다. 전체 예제는 c # [예제](#example)를 참조 하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-메시지에 사용할 수 있는 매개 변수 유형은 다음과 같습니다.
+기본 메시지 유형은 [RabbitMQ event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)이며 `Body` RabbitMQ 이벤트의 속성은 아래 나열 된 유형으로 읽을 수 있습니다.
 
-* [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html) -RabbitMQ 메시지의 기본 형식입니다.
-  * `byte[]`-RabbitMQ 이벤트의 ' Body ' 속성을 통해
-* `string` -메시지는 텍스트입니다.
 * `An object serializable as JSON` -메시지가 유효한 JSON 문자열로 전달 됩니다.
-* `POCO` -메시지의 형식이 c # 개체로 지정 됩니다.
+* `string`
+* `byte[]`
+* `POCO` -메시지의 형식이 c # 개체로 지정 됩니다. 전체 예제는 c # 스크립트 [예제](#example)를 참조 하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-RabbitMQ 메시지는 문자열 또는 JSON 개체로 함수에 전달 됩니다.
+큐 메시지는 컨텍스트별를 통해 사용할 수 있습니다.<NAME> 여기서는 <NAME> function.js에 정의 된 이름과 일치 합니다. 페이로드가 JSON 인 경우 값은 개체로 deserialize 됩니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-RabbitMQ 메시지는 문자열 또는 JSON 개체로 함수에 전달 됩니다.
+Python [예](#example)를 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -284,14 +280,14 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 |prefetchCount|30|메시지 수신자가 동시에 요청 하 고 캐시 하는 메시지 수를 가져오거나 설정 합니다.|
 |queueName|해당 없음| 메시지를 받을 큐의 이름입니다. |
 |connectionString|해당 없음|RabbitMQ message queue 연결 문자열이 포함 된 앱 설정의 이름입니다. local.settings.js에서 앱 설정을 통해서가 아니라 직접 연결 문자열을 지정 하는 경우에는 트리거가 작동 하지 않습니다.|
-|포트|0|크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
+|포트|0|(connectionString을 사용 하는 경우 무시 됨) 크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
 
 ## <a name="local-testing"></a>로컬 테스트
 
 > [!NOTE]
 > ConnectionString이 "hostName", "userName" 및 "password" 보다 우선적으로 적용 됩니다. 모두 설정 되어 있으면 connectionString은 다른 두 개를 재정의 합니다.
 
-연결 문자열 없이 로컬로 테스트 하는 경우 *에는host.js* 의 "rabbitMQ" 섹션에 해당 하는 경우 "hostName" 설정과 "username" 및 "password"를 설정 해야 합니다.
+연결 문자열 없이 로컬로 테스트 하는 경우 *에는host.js* 의 "rabbitMQ" 섹션에 해당 하는 경우 "hostName" 설정과 "userName" 및 "password"를 설정 해야 합니다.
 
 ```json
 {
@@ -300,8 +296,8 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
         "rabbitMQ": {
             ...
             "hostName": "localhost",
-            "username": "<your username>",
-            "password": "<your password>"
+            "username": "userNameSetting",
+            "password": "passwordSetting"
         }
     }
 }
@@ -309,9 +305,9 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|hostName|해당 없음|(ConnectStringSetting을 사용 하는 경우 선택 사항) <br>큐의 호스트 이름 (예: 10.26.45.210)|
-|userName|해당 없음|(ConnectionStringSetting를 사용 하는 경우 선택 사항) <br>큐에 액세스 하는 이름 |
-|password|해당 없음|(ConnectionStringSetting를 사용 하는 경우 선택 사항) <br>큐에 액세스 하기 위한 암호|
+|hostName|해당 없음|(ConnectStringSetting을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
+|userName|해당 없음|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 이름 |
+|password|해당 없음|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하기 위한 암호|
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>RabbitMQ 끝점 모니터링
 특정 RabbitMQ 끝점에 대 한 큐 및 교환을 모니터링 하려면:

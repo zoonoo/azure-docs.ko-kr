@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595487"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617377"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC에 대 한 모범 사례
 
@@ -24,7 +24,7 @@ ms.locfileid: "91595487"
 
 Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신, 특정 범위에서 특정 작업만 허용할 수 있습니다.
 
-액세스 제어 전략을 계획할 때 작업을 완료하는 데 필요한 최소한의 권한만 사용자에게 부여하는 것이 가장 좋습니다. 처음에는 더 넓은 범위에서 더 넓은 역할을 할당하는 것이 더 편리하게 보이겠지만, 이렇게 하지 마세요. 역할 및 범위를 제한 하 여 보안 주체의 보안이 손상 되는 경우 어떤 리소스를 위험으로 제한할 수 있습니다.
+액세스 제어 전략을 계획할 때 작업을 완료하는 데 필요한 최소한의 권한만 사용자에게 부여하는 것이 가장 좋습니다. 처음에는 더 넓은 범위에서 더 넓은 역할을 할당하는 것이 더 편리하게 보이겠지만, 이렇게 하지 마세요. 사용자 지정 역할을 만들 때 사용자에 게 필요한 권한만 포함 합니다. 역할 및 범위를 제한 하 여 보안 주체의 보안이 손상 되는 경우 위험에 노출 되는 리소스를 제한 합니다.
 
 다음 다이어그램에서는 Azure RBAC 사용에 대 한 제안 된 패턴을 보여 줍니다.
 

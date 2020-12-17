@@ -27,6 +27,8 @@
   items:
     - name: 보안
       items:
+        - name: 보안 개요
+          href: security.md
         - name: 보안 기준
           href: security-baseline.md
     - name: Azure Data Share 용어
@@ -62,8 +64,6 @@
       href: how-to-revoke-share-subscription.md
     - name: 모니터
       href: how-to-monitor.md
-    - name: 보안
-      href: security.md
     - name: 재해 복구
       href: disaster-recovery.md
     - name: 문제 해결

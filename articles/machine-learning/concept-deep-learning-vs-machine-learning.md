@@ -10,12 +10,12 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: f7c4529c68f79c6ad19f22054fd0b7d2ba5116db
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562840"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617122"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Azure Machine Learning의 심층 학습 및 기계 학습
 
@@ -57,9 +57,9 @@ ms.locfileid: "97562840"
 |  **실행 시간** | 몇 초에서 몇 시간까지 학습 하는 데 비교적 적은 시간이 소요 됩니다. | 는 심층 학습 알고리즘에 많은 계층이 포함 되어 있기 때문에 일반적으로 학습 하는 데 시간이 오래 걸립니다. |
 |  **출력** | 출력은 일반적으로 점수 또는 분류와 같은 숫자 값입니다. | 출력에는 텍스트, 점수 또는 사운드와 같은 여러 형식이 있을 수 있습니다. |
 
-## <a name="transfer-learning"></a>전이 학습
+## <a name="transfer-learning"></a>이전 학습
 
-심층 학습 모델을 학습 하려면 많은 양의 학습 데이터, GPU (TPU) 및 학습 시간이 더 오래 걸립니다. 이러한 사용자에 게 제공 되는 것이 없는 시나리오에서 전송 학습 이라는 기법을 사용 하 여 학습 프로세스의 바로 가기를 만들 수 있습니다.
+심층 학습 모델을 학습 하려면 많은 양의 학습 데이터, GPU (TPU) 및 학습 시간이 더 오래 걸립니다. 이러한 사용자에 게 제공 되는 것이 없는 시나리오에서 *전송 학습* 이라는 기법을 사용 하 여 학습 프로세스의 바로 가기를 만들 수 있습니다.
 
 이전 학습은 한 가지 문제를 해결 하기 위해 얻은 정보를 다른 문제에 적용 하는 기술입니다.
 

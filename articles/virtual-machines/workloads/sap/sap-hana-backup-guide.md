@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: 522af4bf6cc711bbfdfd30d0443ee58dad56b87e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 340ce84ebe662b976f32048a47fd98d793083065
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950026"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617105"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
@@ -103,7 +103,7 @@ SAP HANA의 경우 대부분의 고객은 SAP HANA 다시 실행 로그가 포�
 
 ### <a name="pros-and-cons-of-hana-backup-versus-storage-snapshot"></a>HANA 백업 및 스토리지 스냅샷의 장단점
 
-SAP에서는 HANA 백업과 스토리지 스냅샷을 비교하여 어느 한 쪽을 선택하지 않습니다. 장단점을 나열하여 상황과 사용 가능한 스토리지 기술에 따라 사용할 대상을 결정할 수 있습니다([Backup 및 복구 전략 계획](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)(영문) 참조).
+SAP에서는 HANA 백업과 스토리지 스냅샷을 비교하여 어느 한 쪽을 선택하지 않습니다. 장단점을 나열하여 상황과 사용 가능한 스토리지 기술에 따라 사용할 대상을 결정할 수 있습니다([Backup 및 복구 전략 계획](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/ef085cd5949c40b788bba8fd3c65743e.html)(영문) 참조).
 
 Azure에서 Azure blob snapshot&#39;기능이 여러 디스크 간에 파일 시스템 일관성을 제공 하지 않는다는 사실을 알고 있어야 합니다 ( [PowerShell에서 blob 스냅숏 사용](/archive/blogs/cie/using-blob-snapshots-with-powershell)참조). 
 

@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f536e163e3d19d91c150506ab44fdd9cbc02c693
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 524e3f70f9588cfae2c739722fc1a44e683f9a7f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907511"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617292"
 ---
 # <a name="copy-blobs-between-azure-storage-accounts-by-using-azcopy-v10"></a>AzCopy v10를 사용 하 여 Azure storage 계정 간에 blob 복사
 
@@ -28,6 +28,8 @@ AzCopy를 다운로드 하 고 저장소 서비스에 권한 부여 자격 증�
 ## <a name="guidelines"></a>지침
 
 AzCopy 명령에 다음 지침을 적용 합니다. 
+
+- 클라이언트에는 원본 및 대상 저장소 계정에 대 한 네트워크 액세스 권한이 있어야 합니다. 각 저장소 계정에 대 한 네트워크 설정을 구성 하는 방법을 알아보려면 [Azure Storage 방화벽 및 가상 네트워크 구성](storage-network-security.md?toc=/azure/storage/blobs/toc.json)을 참조 하세요.
 
 - 각 원본 URL에 SAS 토큰을 추가 합니다. 
 
@@ -146,10 +148,10 @@ Azure AD 인증을 사용 하는 경우 보안 주체에 게 [저장소 Blob 데
 
 다음 문서에서 더 많은 예제를 찾아보세요.
 
-- [예: 업로드](storage-use-azcopy-blobs-upload.md)
-- [예: 다운로드](storage-use-azcopy-blobs-download.md)
-- [예: 동기화](storage-use-azcopy-blobs-synchronize.md)
-- [예: Amazon S3 버킷](storage-use-azcopy-s3.md)
+- [예제: 업로드](storage-use-azcopy-blobs-upload.md)
+- [예제: 다운로드](storage-use-azcopy-blobs-download.md)
+- [예제: 동기화](storage-use-azcopy-blobs-synchronize.md)
+- [예제: Amazon S3 버킷](storage-use-azcopy-s3.md)
 - [예: Azure Files](storage-use-azcopy-files.md)
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

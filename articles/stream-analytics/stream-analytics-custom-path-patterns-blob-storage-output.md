@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763a0ac3cba15dcfd66b8fad83230e2b0eb356b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7239c2e3cb42cb17b01904e8fc226ae2408dbb47
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491675"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617428"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -25,7 +25,13 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터 분할에 사용되는 파티션 키 또는 열 이름에는 하이픈, 밑줄 및 공백이 있는 영숫자가 포함될 수 있습니다. 별칭과 함께 사용하지 않는 한 중첩 필드를 파티션 키로 사용하는 것은 불가능합니다. 파티션 키는 NVARCHAR (MAX), BIGINT, FLOAT 또는 BIT (1.2 호환성 수준 이상) 여야 합니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 참조 하세요.
+입력 데이터를 분할 하는 데 사용 되는 파티션 키 또는 열 이름에는 [blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)에 대해 허용 되는 모든 문자가 포함 될 수 있습니다. 별칭과 함께 사용 하지 않는 한 중첩 된 필드를 파티션 키로 사용할 수 없지만 특정 문자를 사용 하 여 파일의 계층 구조를 만들 수는 있습니다. 예를 들어 다음 쿼리를 사용 하 여 다른 두 열의 데이터를 결합 하 여 고유한 파티션 키를 만드는 열을 만들 수 있습니다.
+
+```sql
+SELECT name, id, CONCAT(name, "/", id) AS nameid
+```
+
+파티션 키는 NVARCHAR (MAX), BIGINT, FLOAT 또는 BIT (1.2 호환성 수준 이상) 여야 합니다. DateTime, Array 및 Records 형식은 지원 되지 않지만 문자열로 변환 된 경우에는 파티션 키로 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 참조 하세요.
 
 ### <a name="example"></a>예제
 

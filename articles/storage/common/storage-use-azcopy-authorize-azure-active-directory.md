@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360291"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617411"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>AzCopy 및 Azure Active Directory를 사용 하 여 blob에 대 한 액세스 권한 부여 (Azure AD)
 
@@ -183,9 +183,9 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 > [!NOTE]
 > 이 예제에 나와 있는 것 처럼 프롬프트를 사용 하는 것이 좋습니다. 이렇게 하면 사용자의 암호가 콘솔의 명령 기록에 표시 되지 않습니다. 
 
-## <a name="authorize-without-a-keyring-linux"></a>키를 사용 하지 않고 권한 부여 (Linux)
+## <a name="authorize-without-a-secret-store"></a>비밀 저장소 없이 권한 부여
 
-운영 체제에 인증 *키와 같은* 비밀 저장소가 없는 경우 `azcopy login` 명령이 작동 하지 않습니다. 대신 각 작업을 실행 하기 전에 메모리 내 환경 변수를 설정할 수 있습니다. 이러한 값은 작업이 완료 된 후 메모리에서 사라지지만 azcopy 명령을 실행할 때마다 이러한 변수를 설정 해야 합니다.
+운영 체제 *에 Linux 인증* 키와 같은 비밀 저장소가 없는 경우 `azcopy login` 명령이 작동 하지 않습니다. 대신 각 작업을 실행 하기 전에 메모리 내 환경 변수를 설정할 수 있습니다. 
 
 ### <a name="authorize-a-user-identity"></a>사용자 id 권한 부여
 

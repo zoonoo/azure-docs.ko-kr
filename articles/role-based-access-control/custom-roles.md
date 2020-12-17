@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: rolyon
-ms.openlocfilehash: eddbd9cb695f3ff7eabd9f2549d0a868d8826eb9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 79aaeee942a6d46243ee1c72d5904484b8698ebe
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369126"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617326"
 ---
 # <a name="azure-custom-roles"></a>Azure 사용자 지정 역할
 
@@ -162,9 +162,9 @@ Azure에는 잠재적으로 사용자 지정 역할에 포함할 수 있는 수�
 | `IsCustom`</br>`roleType` | 예 | String | 사용자 지정 역할인지 여부를 나타냅니다. `true` `CustomRole` 사용자 지정 역할에 대해 또는로 설정 합니다. `false` `BuiltInRole` 기본 제공 역할에 대해 또는로 설정 합니다. |
 | `Description`</br>`description` | 예 | String | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
 | `Actions`</br>`actions` | 예 | String[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
-| `NotActions`</br>`notActions` | 아니요 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
-| `DataActions`</br>`dataActions` | 아니요 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 하 여 사용자 지정 역할을 만드는 경우 `DataActions` 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
-| `NotDataActions`</br>`notDataActions` | 아니요 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
+| `NotActions`</br>`notActions` | 예 | String[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
+| `DataActions`</br>`dataActions` | 예 | String[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 를 사용 하 여 사용자 지정 역할을 만드는 경우 `DataActions` 해당 역할은 관리 그룹 범위에서 할당할 수 없습니다. 자세한 내용은 [Dataactions](role-definitions.md#dataactions)를 참조 하세요. |
+| `NotDataActions`</br>`notDataActions` | 예 | String[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Notdataactions](role-definitions.md#notdataactions)를 참조 하세요. |
 | `AssignableScopes`</br>`assignableScopes` | 예 | String[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes)를 참조하세요. |
 
 ## <a name="wildcard-permissions"></a>와일드 카드 사용 권한
@@ -208,6 +208,7 @@ Microsoft.CostManagement/*/query/*
 - 각 디렉터리에는 최대 **5000** 개의 사용자 지정 역할이 있을 수 있습니다.
 - Azure 독일 및 Azure 중국 21Vianet에는 각 디렉터리에 대해 최대 2000 개의 사용자 지정 역할이 있을 수 있습니다.
 - `AssignableScopes`루트 범위 ()로 설정할 수 없습니다 `"/"` .
+- 에서는 와일드 카드 ()를 사용할 수 없습니다 `*` `AssignableScopes` . 이 와일드 카드 제한은 사용자가 역할 정의를 업데이트 하 여 범위에 대 한 액세스 권한을 얻을 수 없도록 하는 데 도움이 됩니다.
 - 사용자 지정 역할에는 하나의 관리 그룹만 정의할 수 있습니다 `AssignableScopes` . `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 - 를 사용 하는 사용자 지정 역할 `DataActions` 은 관리 그룹 범위에서 할당할 수 없습니다.
 - Azure Resource Manager는 관리 그룹이 역할 정의의 할당 가능한 범위에 있는지 확인 하지 않습니다.

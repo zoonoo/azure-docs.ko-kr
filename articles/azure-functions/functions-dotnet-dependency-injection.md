@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f87ed9b7455bed870cf25a6920cc6295811d94c8
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167698"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617071"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -118,15 +118,15 @@ namespace MyNamespace
 
 Azure Functions 앱은 [ASP.NET 종속성 주입](/aspnet/core/fundamentals/dependency-injection#service-lifetimes)과 동일한 서비스 수명을 제공합니다. Functions 앱의 경우 서로 다른 서비스 수명이 다음과 같이 동작합니다.
 
-- **임시**: 임시 서비스는 서비스가 요청될 때마다 생성됩니다.
-- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위 서비스는 1회 실행당 한 번 생성됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
+- **임시**: 임시 서비스는 서비스를 확인할 때마다 생성 됩니다.
+- **범위**: 범위 서비스 수명은 함수 실행 수명과 일치합니다. 범위가 지정 된 서비스는 함수 실행 당 한 번 생성 됩니다. 실행 중에 해당 서비스에 대한 이후 요청은 기존 서비스 인스턴스를 다시 사용합니다.
 - **싱글톤**: 싱글톤 서비스 수명은 호스트 수명과 일치하며 해당 인스턴스에서 함수를 실행할 때 다시 사용됩니다. `DocumentClient` 또는 `HttpClient` 인스턴스 같은 연결 및 클라이언트에는 싱글톤 수명 서비스가 권장됩니다.
 
 GitHub에서 [다양한 서비스 수명 샘플](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes)을 보거나 다운로드하세요.
 
 ## <a name="logging-services"></a>로깅 서비스
 
-사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
+사용자 고유의 로깅 공급자가 필요한 경우에는 사용자 지정 유형을 Microsoft의 인스턴스로 등록 합니다 .이 인스턴스는 Microsoft 확장명이. n a m a [`ILoggerProvider`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) NuGet 패키지를 통해 사용할 수 있습니다. [](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)
 
 Application Insights는 Azure Functions에 의해 자동으로 추가됩니다.
 
@@ -181,6 +181,8 @@ namespace MyNamespace
     }
 }
 ```
+
+로그 수준에 대 한 자세한 내용은 [로그 수준 구성](configure-monitoring.md#configure-log-levels)을 참조 하세요.
 
 ## <a name="function-app-provided-services"></a>함수 앱 제공 서비스
 

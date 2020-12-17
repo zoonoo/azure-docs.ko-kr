@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6d1e9e8eeddaaa2ce8c891888935faad12d40295
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8210428e772241134b57ac4fccb5b1549e04483
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907512"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617275"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10를 사용 하 여 Azure Blob storage와 동기화
 
@@ -26,7 +26,7 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Azure Blob 저장소와 로�
 
 파일 업로드, blob 다운로드, 계정 간에 blob 복사 등의 다른 작업 유형에 대 한 예제를 보려면이 문서의 [다음 단계](#next-steps) 섹션에 제공 된 링크를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조 하 여 AzCopy를 다운로드 하 고, 저장소 서비스에 권한 부여 자격 증명을 제공할 수 있는 방법에 대해 알아보세요.
 
@@ -79,7 +79,7 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Azure Blob 저장소와 로�
 | **구문** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **예제** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
-## <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>다른 파일 공유의 디렉터리를 변경 하 여 디렉터리를 업데이트 합니다.
+## <a name="update-a-directory-with-changes-to-a-directory-in-another-container"></a>다른 컨테이너에 있는 디렉터리에 대 한 변경 내용으로 디렉터리 업데이트
 
 이 명령에 표시 되는 첫 번째 디렉터리는 원본입니다. 두 번째는 대상입니다.
 
@@ -107,10 +107,10 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Azure Blob 저장소와 로�
 
 다음 문서에서 더 많은 예제를 찾아보세요.
 
-- [예: 업로드](storage-use-azcopy-blobs-upload.md)
-- [예: 다운로드](storage-use-azcopy-blobs-download.md)
-- [예: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
-- [예: Amazon S3 버킷](storage-use-azcopy-s3.md)
+- [예제: 업로드](storage-use-azcopy-blobs-upload.md)
+- [예제: 다운로드](storage-use-azcopy-blobs-download.md)
+- [예제: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
+- [예제: Amazon S3 버킷](storage-use-azcopy-s3.md)
 - [예: Azure Files](storage-use-azcopy-files.md)
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 0c8e13449a66c5eba055c64e072db3140b0cdc1c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606881"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617054"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -144,8 +144,8 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural`<sup>새</sup> | 일반 |
 | 아랍어(사우디아라비아) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | 일반 |
 | 아랍어(사우디아라비아) | `ar-SA` | Male | `ar-SA-HamedNeural`<sup>새</sup> | 일반 |
-| 불가리아어 (Bulgary) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
-| 불가리아어 (Bulgary) | `bg-BG` | Male | `bg-BG-BorislavNeural`<sup>새</sup> | 일반 |
+| 불가리아어(불가리아) | `bg-BG` | Female | `bg-BG-KalinaNeural` | 일반 |
+| 불가리아어(불가리아) | `bg-BG` | Male | `bg-BG-BorislavNeural`<sup>새</sup> | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-AlbaNeural` | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Female | `ca-ES-JoanaNeural`<sup>새</sup> | 일반 |
 | 카탈로니아어(스페인) | `ca-ES` | Male | `ca-ES-EnricNeural`<sup>새</sup> | 일반 |
