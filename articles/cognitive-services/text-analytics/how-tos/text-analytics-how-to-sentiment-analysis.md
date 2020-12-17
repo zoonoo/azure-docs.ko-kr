@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/02/2020
+ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 0437704709e863cdbc62321c8a4b79015564e362
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558762"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505225"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
@@ -51,7 +51,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 ## <a name="opinion-mining"></a>오피니언 마이닝
 
-오피니언 마이닝은 버전 3.1-preview.1부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다. 
+오피니언 마이닝은 버전 3.1 미리 보기부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
 
 예를 들어 고객이 호텔에 대한 피드백을 "객실은 훌륭했어요. 그런데 직원이 불친절했어요"라고 남기면 오피니언 마이닝이 텍스트의 양상과 관련 의견 및 감정을 찾습니다. 감정 분석은 부정적인 감정만 보고할 수 있습니다.
 
@@ -74,7 +74,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔** 을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-31-preview2"></a>[버전 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-1)
 
 [감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -91,17 +91,17 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-31-preview2"></a>[버전 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-1)
 
 **감정 분석**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
 
 **오피니언 마이닝**
 
 오피니언 마이닝 결과를 얻으려면 `opinionMining=true` 매개 변수를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
 
 기본적으로 이 매개 변수는 `false`로 설정됩니다. 
 
@@ -144,7 +144,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [오프셋 처리 방법](../concepts/text-offsets.md)을 참조하세요.
 
-#### <a name="version-31-preview2"></a>[버전 3.1-preview.2](#tab/version-3-1)
+#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>감정 분석 및 오피니언 마이닝 예제 응답
 
@@ -302,5 +302,5 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 ## <a name="see-also"></a>참고 항목
 
 * [Text Analytics 개요](../overview.md)
-* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 6874794dcf33d77d0b03f2a5713bdf42a40d6891
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: fe82b03c4a8c71f84de02245b075ff30da31b45b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560913"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031100"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 
@@ -54,26 +54,24 @@ ms.locfileid: "94560913"
 
 ### <a name="register-the-todolistservice-app"></a>TodoListService 앱 등록
 
-1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 포털로 이동합니다.
-1. **새 등록** 을 선택합니다.
-1. **애플리케이션 등록** 페이지가 열리면 애플리케이션의 등록 정보를 입력합니다.
-
-    1. **이름** 섹션에서 앱 사용자에게 표시될 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **AppModelv2-NativeClient-DotNet-TodoListService** 를 입력합니다.
-    1. **지원되는 계정 유형** 에는 **모든 조직 디렉터리의 계정** 을 선택합니다.
-    1. **등록** 을 선택하여 애플리케이션을 만듭니다.
-
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `AppModelv2-NativeClient-DotNet-TodoListService`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 에는 **모든 조직 디렉터리의 계정** 을 선택합니다.
+1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾은 후 나중에 사용할 수 있도록 기록합니다. 이 프로젝트의 Visual Studio 구성 파일(즉, *TodoListService\Web.config* 파일의 `ClientId`)을 구성하는 데 필요합니다.
+1. **관리** 에서 **API 표시** > **범위 추가** 를 선택합니다. **저장 및 계속** 을 선택하여 제안된 애플리케이션 ID URI(`api://{clientId}`)를 수락한 후, 다음 정보를 입력합니다.
 
-1. **API 표시** 섹션에서 **범위 추가** 를 선택하고 **저장 및 계속** 을 선택하여 제안된 애플리케이션 ID URI(`api://{clientId}`)를 수락한 후, 다음 정보를 입력합니다.
-
-    1. **범위 이름** 으로 **access_as_user** 를 입력합니다.
+    1. **범위 이름** 으로 `access_as_user`를 입력합니다.
     1. **동의할 수 있는 사람** 에 대해 **관리자 및 사용자** 옵션을 선택했는지 확인합니다.
-    1. **관리자 동의 표시 이름** 상자에 **Access TodoListService as a user** 를 입력합니다.
-    1. **관리자 동의 설명** 상자에 **Accesses the TodoListService web API as a user** 를 입력합니다.
-    1. **사용자 동의 표시 이름** 상자에 **Access TodoListService as a user** 를 입력합니다.
-    1. **사용자 동의 설명** 상자에 **Accesses the TodoListService web API as a user** 를 입력합니다.
+    1. **관리자 동의 표시 이름** 상자에 `Access TodoListService as a user`를 입력합니다.
+    1. **관리자 동의 설명** 상자에 `Accesses the TodoListService web API as a user`를 입력합니다.
+    1. **사용자 동의 표시 이름** 상자에 `Access TodoListService as a user`를 입력합니다.
+    1. **사용자 동의 설명** 상자에 `Accesses the TodoListService web API as a user`를 입력합니다.
     1. **상태** 는 **사용** 으로 유지합니다.
-    1. **범위 추가** 를 선택합니다.
+1. **범위 추가** 를 선택합니다.
 
 ### <a name="configure-the-service-project"></a>서비스 프로젝트 구성
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546910"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507577"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Speech CLI의 기본 사항 알아보기
 
@@ -87,7 +87,7 @@ spx translate --microphone --source en-US --target ru-RU --output file C:\some\f
 
 ### <a name="configuration-files-in-the-datastore"></a>데이터 저장소의 구성 파일
 
-Speech CLI의 동작은 @ 기호를 사용하여 Speech CLI 호출 내에서 참조할 수 있는 구성 파일의 설정에 의존할 수 있습니다.
+Speech CLI의 동작은 \@ 기호를 사용하여 Speech CLI 호출 내에서 참조할 수 있는 구성 파일의 설정에 의존할 수 있습니다.
 Speech CLI는 현재 작업 디렉터리에서 만든 새 `./spx/data` 하위 디렉터리에 새 설정을 저장합니다.
 구성 값을 검색할 때 Speech CLI는 현재 작업 디렉터리, `./spx/data`의 데이터 저장소, `spx` 이진의 마지막 읽기 전용 데이터 저장소를 포함한 다른 데이터 저장소에 차례로 표시됩니다.
 이전에는 데이터 저장소를 사용하여 `@key` 및 `@region` 값을 저장했으므로 각 명령줄 호출에서 지정할 필요가 없었습니다.

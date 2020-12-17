@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: a9d20732c3ae08718c400faff44137000e98fffd
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616113"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629432"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -58,7 +58,7 @@ Azure Machine Learning 확장을 사용 하 여 클라우드로 전송 하기 �
     1. 실행 하려는 스크립트의 이름을 제공 합니다. 경로는 VS Code에서 열린 디렉터리를 기준으로 합니다.
     1. Azure Machine Learning 데이터 집합을 사용할지 여부를 선택 합니다. 확장을 사용 하 여 [Azure Machine Learning 데이터 집합](how-to-manage-resources-vscode.md#create-dataset) 을 만들 수 있습니다.
     1. Debugpy는 실험을 실행 하는 컨테이너에 디버거를 연결 하는 데 필요 합니다. Debugpy을 종속성으로 추가 하려면 **Debugpy 추가** 를 선택 합니다. 그렇지 않으면 **건너뛰기** 를 선택 합니다. Debugpy을 종속성으로 추가 하지 않으면 디버거를 연결 하지 않고 실험을 실행 합니다.
-    1. 실행 구성 설정이 포함 된 구성 파일이 편집기에서 열립니다. 설정에 만족 하는 경우 **실험 제출** 을 선택 합니다. 또는 메뉴 모음에서 명령 팔레트 ( **보기 > 명령 팔레트** )를 열고 `Azure ML: Submit experiment` 텍스트 상자에 명령을 입력 합니다.
+    1. 실행 구성 설정이 포함 된 구성 파일이 편집기에서 열립니다. 설정에 만족 하는 경우 **실험 제출** 을 선택 합니다. 또는 메뉴 모음에서 명령 팔레트 (**보기 > 명령 팔레트**)를 열고 `Azure ML: Submit experiment` 텍스트 상자에 명령을 입력 합니다.
 1. 실험을 제출 하면 스크립트 및 실행 구성에 지정 된 구성을 포함 하는 Docker 이미지가 만들어집니다.
 
     Docker 이미지 빌드 프로세스가 시작 되 면 `60_control_log.txt` VS Code의 출력 콘솔에 대 한 파일 스트림의 내용이 출력 됩니다.
@@ -355,9 +355,9 @@ ip_address: 10.3.0.5
 
 1. Docker 이미지와 통신하도록 VS Code를 구성하려면 새 디버그 구성을 만듭니다.
 
-    1. VS Code에서 __디버그__ 메뉴를 선택한 다음, __구성 열기__ 를 선택합니다. __launch.json__ 이라는 파일이 열립니다.
+    1. VS Code에서 확장 __실행__ 의 __디버그__ 메뉴를 선택 하 고 __구성 열기__ 를 선택 합니다. __launch.json__ 이라는 파일이 열립니다.
 
-    1. __launch.json__ 파일에서 `"configurations": [`가 포함된 줄을 찾고, 다음 텍스트를 이 줄 뒤에 삽입합니다.
+    1. __launch.js__ 파일에서 __"구성"__ 항목 (포함 하는 줄)을 찾아 `"configurations": [` 다음 텍스트를 삽입 합니다. 
 
         ```json
         {
@@ -376,11 +376,44 @@ ip_address: 10.3.0.5
             ]
         }
         ```
+        삽입 후 파일 __의launch.js__ 은 다음과 유사 해야 합니다.
+        ```json
+        {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal"
+            },
+            {
+                "name": "Azure Machine Learning Deployment: Docker Debug",
+                "type": "python",
+                "request": "attach",
+                "connect": {
+                    "port": 5678,
+                    "host": "0.0.0.0"
+                    },
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/var/azureml-app"
+                    }
+                ]
+            }
+            ]
+        }
+        ```
 
         > [!IMPORTANT]
-        > 이미 다른 항목이 구성 섹션에 있으면 삽입한 코드 뒤에 쉼표(,)를 추가합니다.
+        > 구성 섹션에 다른 항목이 이미 있는 경우 삽입 한 코드 뒤에 쉼표 ( __,__ )를 추가 합니다.
 
-        이 섹션에서는 5678 포트를 사용하여 Docker 컨테이너에 연결됩니다.
+        이 섹션은 포트 __5678__ 을 사용 하 여 Docker 컨테이너에 연결 합니다.
 
     1. __launch.json__ 파일을 저장합니다.
 
@@ -433,13 +466,13 @@ ip_address: 10.3.0.5
     package.pull()
     ```
 
-    이미지가 만들어지고 다운로드되면 이미지 경로(리포지토리, 이름 및 태그 포함, 이 경우 digest이기도 함)가 다음과 비슷한 메시지에 표시됩니다.
+    이미지를 만들고 다운로드 한 후에는 (이 프로세스는 10 분 넘게 걸릴 수 있으므로 patiently 대기) 이미지 경로 (이 경우에는 저장소, 이름 및 태그,이 경우에는 다이제스트 이기도 함)가 다음과 유사한 메시지에 표시 됩니다.
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. 이미지 작업을 더 쉽게 수행하려면 다음 명령을 사용하여 태그를 추가합니다. `myimagepath`를 이전 단계의 위치 값으로 바꿉니다.
+1. 이미지를 로컬로 사용할 수 있도록 하기 위해 다음 명령을 사용 하 여이 이미지에 대 한 태그를 추가할 수 있습니다. `myimagepath`다음 명령에서을 이전 단계의 위치 값으로 바꿉니다.
 
     ```bash
     docker tag myimagepath debug:1
@@ -457,22 +490,37 @@ ip_address: 10.3.0.5
 1. 이미지를 사용하여 Docker 컨테이너를 시작하려면 다음 명령을 사용합니다.
 
     ```bash
-    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_path_to_score.py>:/var/azureml-apps/score.py debug:1 /bin/bash
+    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_local_path_to_score.py>:/var/azureml-app/score.py debug:1 /bin/bash
     ```
 
-    이 `score.py` 는 컨테이너의에 로컬로 연결 합니다. 따라서 편집기에서 변경한 내용은 컨테이너에 자동으로 반영 됩니다.
+    이 `score.py` 는 컨테이너의에 로컬로 연결 합니다. 따라서 편집기에서 변경한 내용이 컨테이너에 자동으로 반영 됩니다.
 
-1. 컨테이너 내에서 셸에서 다음 명령을 실행 합니다.
+2. 더 나은 환경을 위해 새 VS code 인터페이스를 사용 하 여 컨테이너로 이동할 수 있습니다. `Docker`VS Code 쪽 모음에서 확장을 선택 하 여이 설명서에서 만든 로컬 컨테이너를 찾습니다 `debug:1` . 이 컨테이너를 마우스 오른쪽 단추로 클릭 하 고를 선택 하면 `"Attach Visual Studio Code"` 새 VS Code 인터페이스가 자동으로 열리고이 인터페이스는 생성 된 컨테이너의 내부를 표시 합니다.
+
+    ![컨테이너 VS Code 인터페이스](./media/how-to-troubleshoot-deployment/container-interface.png)
+
+3. 컨테이너 내에서 셸에서 다음 명령을 실행 합니다.
 
     ```bash
     runsvdir /var/runit
     ```
+    그런 다음 컨테이너 내의 셸에서 다음 출력을 볼 수 있습니다.
 
-1. 컨테이너 내부에서 debugpy에 VS Code을 연결 하려면 VS Code를 열고 F5 키를 사용 하거나 __디버그__ 를 선택 합니다. 메시지가 표시 되 면 __Azure Machine Learning 배포: Docker 디버그__ 구성을 선택 합니다. 디버그 드롭다운 메뉴의 __Azure Machine Learning 배포: Docker 디버그__ 항목에서 디버그 아이콘을 선택 하 고 녹색 화살표를 사용 하 여 디버거를 연결할 수도 있습니다.
+    ![컨테이너 실행 콘솔 출력](./media/how-to-troubleshoot-deployment/container-run.png)
+
+4. 컨테이너 내부에서 debugpy에 VS Code을 연결 하려면 VS Code를 열고 F5 키를 사용 하거나 __디버그__ 를 선택 합니다. 메시지가 표시 되 면 __Azure Machine Learning 배포: Docker 디버그__ 구성을 선택 합니다. 또한 디버그 드롭다운 메뉴의 __Azure Machine Learning 배포: Docker 디버그__ 항목에서 __실행__ 확장 아이콘을 선택 하 고 녹색 화살표를 사용 하 여 디버거를 연결할 수 있습니다.
 
     ![디버그 아이콘, 디버깅 시작 단추 및 구성 선택기](./media/how-to-troubleshoot-deployment/start-debugging.png)
+    
+    녹색 화살표를 클릭 하 고 디버거를 연결 하면 컨테이너 VS Code 인터페이스에서 다음과 같은 몇 가지 새로운 정보를 볼 수 있습니다.
+    
+    ![컨테이너 디버거 연결 된 정보](./media/how-to-troubleshoot-deployment/debugger-attached.png)
+    
+    또한 기본 VS Code 인터페이스에서 볼 수 있는 항목은 다음과 같습니다.
 
-이 시점에서 VS Code는 Docker 컨테이너 내부의 debugpy에 연결 하 고 이전에 설정한 중단점에서 중지 합니다. 이제 실행되는 코드를 단계별로 실행하고 변수를 보는 등의 작업을 수행할 수 있습니다.
+    ![Score.py의 VS Code 중단점](./media/how-to-troubleshoot-deployment/local-debugger.png)
+
+이제 컨테이너에 연결 된 로컬이를 `score.py` 설정한 중단점에서 이미 중지 되었습니다. 이 시점에서 VS Code는 Docker 컨테이너 내부의 debugpy에 연결 하 고 이전에 설정한 중단점에서 Docker 컨테이너를 중지 합니다. 이제 실행되는 코드를 단계별로 실행하고 변수를 보는 등의 작업을 수행할 수 있습니다.
 
 VS Code를 사용하여 Python을 디버그하는 방법에 대한 자세한 내용은 [Python 코드 디버그](https://code.visualstudio.com/docs/python/debugging)를 참조하세요.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401562"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631604"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ ms.locfileid: "97401562"
 | **AzureActiveDirectory** | Azure Active Directory. | 아웃바운드 | 예 | 예 |
 | **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 전용 배포에 대한 관리 트래픽 | 모두 | 예 | 예 |
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 예 |
+| **AzureArcInfrastructure** | Azure Arc 사용 서버, Azure Arc enabled Kubernetes 및 게스트 구성 트래픽<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**,**AzureTrafficManager** 및 **AzureResourceManager** 태그에 종속 됩니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다*.| 아웃바운드 | 예 | 예 |
 | **AzureBackup** |Azure Backup<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
 | **AzureCloud** | 모든 [데이터 센터 퍼블릭 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | 예 | 예 |

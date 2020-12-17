@@ -192,7 +192,7 @@ python manage.py createsuperuser
 # Run the dev server
 python manage.py runserver
 ```
-웹앱이 완전히 로드되면 Django 개발 서버에서 "http://127.0.0.1:8000/ 에서 개발 서버를 시작하고 있습니다. CTRL-BREAK를 사용하여 서버를 종료하세요."라는 메시지에서 로컬 앱 URL을 제공합니다.
+웹앱이 완전히 로드되면 Django 개발 서버에서 http://127.0.0.1:8000/ 에서 개발 서버를 시작하고 있습니다. CTRL-BREAK를 사용하여 서버를 종료하세요."라는 메시지에서 로컬 앱 URL을 제공합니다.
 
 :::image type="content" source="./media/tutorial-django-app-service-postgres/django-dev-server-output.png" alt-text="Django 개발 서버 출력 예제":::
 

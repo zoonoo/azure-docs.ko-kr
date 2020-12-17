@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 3fb4085ba275bda1fe784f368eb5d92ac0c668f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448516"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937069"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>GPU가 있는 Azure Stack Edge Pro란?
 
@@ -51,7 +51,7 @@ Azure Stack Edge Pro의 기능은 다음과 같습니다.
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
 |암호화    | *https* 를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.|
 |대역폭 제한| 사용량이 많은 시간 동안 대역폭 사용을 제한하는 데 사용됩니다.|
-<!--|ExpressRoute | ExpressRoute를 통해 보안이 강화되었습니다. 로컬 디바이스에서 클라우드 스토리지 엔드포인트로의 트래픽이 ExpressRoute를 통해 이동하는 피어링 구성을 사용합니다. 자세한 내용은 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
+<!--|ExpressRoute | ExpressRoute를 통해 보안이 강화되었습니다. 로컬 디바이스에서 클라우드 스토리지 엔드포인트로의 트래픽이 ExpressRoute를 통해 이동하는 피어링 구성을 사용합니다. 자세한 내용은 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요.|-->
 
 ## <a name="components"></a>구성 요소
 

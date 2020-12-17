@@ -242,7 +242,7 @@ echo "Press [ENTER] to continue ..."
 ARM 템플릿을 만드는 과정을 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> 첫 번째 ARM 템플릿 만들기 및 배포[
+> [첫 번째 ARM 템플릿 만들기 및 배포](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 MySQL을 사용하여 App Service를 통해 앱을 빌드하는 단계별 자습서는 다음을 참조하세요.
 

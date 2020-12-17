@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346141"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387788"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
@@ -48,7 +48,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
     |--|--|
     |**URL, .pdf 또는 .docx 파일에서 다중 턴 추출을 사용하도록 설정합니다.**|선택|
     |**다중 턴 기본 텍스트**| 옵션 선택|
-    |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ URL 추가**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**잡담**|**Professional** 선택|
 
 7. **5단계** 에서는 **KB 만들기** 를 선택합니다.
@@ -83,7 +83,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
     |--|--|
     |**URL, .pdf 또는 .docx 파일에서 다중 턴 추출을 사용하도록 설정합니다.**|선택|
     |**다중 턴 기본 텍스트**| 옵션 선택|
-    |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ 파일 추가**| 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf '에서 Surface 노트북을 다운로드합니다. 
     |**잡담**|**Professional** 선택|
 
 8. **5단계** 에서는 **KB 만들기** 를 선택합니다.
@@ -122,9 +122,9 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 1. QnA Maker 포털의 오른쪽 위에서 **테스트** 를 선택하여 변경 내용이 적용되었는지 테스트합니다.
 2. 텍스트 상자에 예제 사용자 쿼리를 입력합니다.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="텍스트 상자에 예제 사용자 쿼리를 입력합니다.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="텍스트 상자에 예제 사용자 쿼리를 입력합니다.":::
 
 3. **검사** 를 선택하여 응답을 더 자세히 살펴봅니다. 테스트 창은 기술 자료를 게시하기 전에 기술 자료의 변경 내용을 테스트하는 데 사용됩니다.
 
