@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 72c31d0eebc19a926805976ed637168a00fa9495
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ebf094ddfec19dac98238adf7d55af785b3df122
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617190"
+ms.locfileid: "97629632"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 바인딩
 
 > [!NOTE]
-> RabbitMQ 바인딩은 **Windows 프리미엄** 계획 에서만 완전히 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
+> RabbitMQ 바인딩은 **Windows Premium 및 전용** 계획 에서만 완벽 하 게 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [RabbitMQ](https://www.rabbitmq.com/) 와 통합 됩니다. Azure Functions RabbitMQ 바인딩 확장을 사용 하면 함수를 사용 하 여 RabbitMQ API를 사용 하 여 메시지를 보내고 받을 수 있습니다.
 

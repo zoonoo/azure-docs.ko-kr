@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8ea4b0c7c8df1ff7fe0e3ecb253b23d188681e80
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616663"
+ms.locfileid: "97629683"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 출력 바인딩
 
 > [!NOTE]
-> RabbitMQ 바인딩은 **Windows 프리미엄** 계획 에서만 완전히 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
+> RabbitMQ 바인딩은 **Windows Premium 및 전용** 계획 에서만 완벽 하 게 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
 
 RabbitMQ 출력 바인딩을 사용 하 여 RabbitMQ 큐로 메시지를 보냅니다.
 

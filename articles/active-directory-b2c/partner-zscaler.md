@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: ff51c2a71dfcaec580733a92e265628ac816e229
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 223f8acd6aad7aaf4c37e0b2eae2df882ed2ad1d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97096059"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629377"
 ---
 # <a name="tutorial-to-configure-zscaler-private-access-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위해 Azure Active Directory B2C를 사용 하 여 Zscaler Private 액세스를 구성 하는 자습서
 
@@ -46,7 +46,7 @@ ZPA 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Zscaler 아키텍처 다이어그램을 보여 주는 이미지](media/partner-zscaler/zscaler-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 ZPA 사용자 포털 또는 ZPA 브라우저 액세스 응용 프로그램에 도착 합니다.
 | 2. | 사용자가 웹 응용 프로그램에 액세스할 수 있도록 허용할지 여부를 결정 하려면 ZPA에 사용자 컨텍스트 정보가 필요 합니다. 사용자를 인증 하기 위해 ZPA는 Azure AD B2C 로그인 페이지에 대 한 SAML 리디렉션을 수행 합니다.  
@@ -125,7 +125,7 @@ IdP 구성의 나머지 부분은 Azure AD B2C 구성 후 다시 시작 됩니�
 
 여기서 `<tenant-name>` 는 Azure AD B2C 테 넌 트의 이름이 고 `<policy-name>` 은 마지막 단계에서 만든 사용자 지정 SAML 정책의 이름입니다.
 
-예를 들어 https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata
+예: " https://safemarch.b2clogin.com/safemarch.onmicrosoft.com/B2C_1A_signup_signin_saml//Samlp/metadata "
 
 웹 브라우저를 열고 SAML 메타 데이터 URL로 이동 합니다. 페이지가 로드 되 면 페이지에서 아무 곳 이나 마우스 오른쪽 단추로 클릭 합니다. 다른 **이름으로 페이지 저장** 을 선택 하 고 파일을 컴퓨터에 저장 합니다. 다음 부분에서이를 사용 합니다.
 

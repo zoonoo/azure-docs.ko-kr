@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95253561"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629666"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -63,7 +63,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 2. 기능 등록의 상태를 확인 합니다. 
 
     > [!NOTE]
-    > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+    >  `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
@@ -269,3 +269,4 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 * [스냅샷 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
+* [Azure 애플리케이션 일치 스냅숏 도구 란?](azacsnap-introduction.md)

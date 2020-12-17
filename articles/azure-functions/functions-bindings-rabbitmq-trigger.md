@@ -4,20 +4,20 @@ description: RabbitMQ 메시지를 만들 때 Azure 함수를 실행 하는 방�
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 26dee5200a60f4900ed20c2fd49a874552272776
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617224"
+ms.locfileid: "97630737"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 트리거
 
 > [!NOTE]
-> RabbitMQ 바인딩은 **Windows 프리미엄** 계획 에서만 완전히 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
+> RabbitMQ 바인딩은 **Windows Premium 및 전용** 계획 에서만 완벽 하 게 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
 
 RabbitMQ 트리거를 사용 하 여 RabbitMQ 큐의 메시지에 응답 합니다.
 
@@ -275,7 +275,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |prefetchCount|30|메시지 수신자가 동시에 요청 하 고 캐시 하는 메시지 수를 가져오거나 설정 합니다.|
 |queueName|해당 없음| 메시지를 받을 큐의 이름입니다. |
@@ -303,7 +303,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |hostName|해당 없음|(ConnectStringSetting을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
 |userName|해당 없음|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 이름 |

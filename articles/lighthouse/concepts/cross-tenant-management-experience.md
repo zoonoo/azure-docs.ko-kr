@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616578"
+ms.locfileid: "97630091"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -99,7 +99,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
 - Log analytics: 여러 테 넌 트의 원격 작업 영역에서 데이터 쿼리
 - 웹 후크를 통해 테 넌 트 관리에서 Azure Automation runbook 또는 Azure Functions와 같이 자동화를 트리거하는 고객 테 넌 트에 경고를 만듭니다.
-- 고객 테 넌 트에서 진단 설정을 만들어 리소스 로그를 관리 테 넌 트의 작업 영역으로 보냅니다.
+- 고객 테 넌 트에서 [진단 설정을](../..//azure-monitor/platform/diagnostic-settings.md) 만들어 리소스 로그를 관리 테 넌 트의 작업 영역으로 보냅니다.
 - SAP 워크 로드의 경우 [고객 테 넌 트 전체에서 집계 된 뷰로 Sap 솔루션 메트릭 모니터링](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure 네트워킹](../../networking/networking-overview.md):

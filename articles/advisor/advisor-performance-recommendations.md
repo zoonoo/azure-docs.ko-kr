@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 59de7ee14a3af2f8740d63a3cae19571469afd7f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183348"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630346"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -175,6 +175,11 @@ VM이 WVD(Windows Virtual Desktop)를 사용하여 사용자가 연결하는 위
 이 구독에서 오래된 버전의 몰입형 리더 SDK를 사용하는 리소스를 확인했습니다. 최신 버전의 몰입형 리더 SDK를 사용하면 통합 환경을 사용자 지정하고 향상시킬 수 있는 확장된 기능 집합, 업데이트된 보안, 성능이 제공됩니다.
 [몰입 형 판독기 SDK](../cognitive-services/immersive-reader/index.yml)에 대해 자세히 알아보세요.
 
+## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>최대 세션 제한을 변경 하 여 VM 성능 향상
+
+Advisor는 처음에 부하 분산 알고리즘으로 설정 된 호스트 풀이 있음을 감지 하 고 해당 호스트 풀의 최대 세션 제한은 99999 보다 크거나 같습니다. 깊이를 우선한 부하 분산은 최대 세션 제한을 사용하여 단일 세션 호스트에서 동시 세션을 가질 수 있는 최대 사용자 수를 결정합니다. 최대 세션 제한 수가 너무 높으면 모든 사용자 세션이 동일한 세션 호스트로 전달 되 고 성능 및 안정성 문제가 발생 합니다. 따라서 호스트 풀에서 깊이 우선 부하 분산을 설정 하는 경우 Vm의 배포 및 용량 구성에 따라 적절 한 최대 세션 제한을 설정 해야 합니다. 
+
+Windows 가상 데스크톱의 부하 분산에 대해 자세히 알아보려면 [Windows 가상 데스크톱 부하 분산 방법 구성](/virtual-desktop/troubleshoot-set-up-overview.md)을 참조 하세요.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor의 성능 권장 사항에 액세스 하는 방법
 

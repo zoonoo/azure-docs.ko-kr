@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007174"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629037"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -226,12 +226,15 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | CRM 온라인\*\*\*\* |12076:5040 |
 | Azure 글로벌 서비스\* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
-| Azure Resource Manager |12076:5070 |
+| Azure 리소스 관리자 |12076:5070 |
 | 기타 Office 365 Online services * * | 12076분 5100초 |
 
 \* Azure 글로벌 서비스에는 지금은 Azure DevOps만 포함 됩니다.
-\*\*Microsoft에서 필요한 권한 부여는 [Microsoft 피어 링에 대 한 경로 필터 구성](how-to-routefilter-portal.md) 을 참조 하세요.\
+
+\*\*Microsoft에서 필요한 권한 부여는 [Microsoft 피어 링에 대 한 경로 필터 구성](how-to-routefilter-portal.md) 을 참조 하세요.
+
 \*\*\* 이 커뮤니티는 또한 Microsoft 팀 서비스에 필요한 경로도 게시 합니다.
+
 \*\*\*\* CRM Online은 Dynamics v 8.2를 지원 합니다. 상위 버전의 경우 Dynamics 배포를 위한 지역 커뮤니티를 선택 합니다.
 
 > [!NOTE]

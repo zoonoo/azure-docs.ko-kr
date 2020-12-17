@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 324a2acbf069e8e23246b99a7d79a3195f737a56
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 836cf4600e353da61673ec8ee5df8f30fb4b9562
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492304"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629853"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 Azure 보안 기준
 
@@ -582,7 +582,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Citus (Azure Database for PostgreSQL-hyperscale)는 현재 관리 되는 id를 직접 지원 하지 않습니다. Azure Database for PostgreSQL 서버를 만드는 동안 관리자 사용자에 대 한 자격 증명을 제공 해야 합니다. Azure Portal 인터페이스에서 추가 사용자 역할을 만들 수 있습니다.
 
-- [Azure Database for PostgreSQL 만들기 – 하이퍼스케일(Citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Azure Database for PostgreSQL 만들기 – 하이퍼스케일(Citus)](./quickstart-create-hyperscale-portal.md#create-a-hyperscale-citus-server-group)
 
 - [추가 사용자 역할 만들기](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 

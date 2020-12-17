@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 0ca4e7a83e18ac72e25131d320737ce9578b1cf3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184753"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629717"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -26,6 +26,7 @@ Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-o
 - Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업을 수행 하는 데 Azure Active Directory 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다.
 - 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 네트워크 정책을 사용 하지 않도록 설정 해야 합니다.
 - 1 2020 년 5 월 이전에 등록 한 경우 구독에 Recovery Services 리소스 공급자를 다시 등록 해야 합니다. 공급자를 다시 등록 하려면 Azure Portal의 구독으로 이동 하 여 왼쪽 탐색 모음에서 **리소스 공급자** 로 이동 하 고, **Microsoft recoveryservices** 를 선택 하 고, **다시 등록** 을 선택 합니다.
+- 자격 증명 모음에서 전용 끝점을 사용 하는 경우 SQL 및 SAP HANA 데이터베이스 백업에 대 한 [지역 간 복원이](backup-create-rs-vault.md#set-cross-region-restore) 지원 되지 않습니다.
 
 ## <a name="recommended-and-supported-scenarios"></a>권장 및 지원 되는 시나리오
 

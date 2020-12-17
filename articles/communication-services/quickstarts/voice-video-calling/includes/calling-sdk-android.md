@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915322"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97628720"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -78,6 +78,19 @@ android.content.Context appContext = this.getApplicationContext(); // From withi
 CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential).get();
 DeviceManage deviceManager = await callClient.getDeviceManager().get();
 ```
+호출자에 대 한 표시 이름을 설정 하려면이 대체 방법을 사용 합니다.
+
+```java
+String userToken = '<user token>';
+CallClient callClient = new CallClient();
+CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
+CallAgentOptions callAgentOptions = new CallAgentOptions();
+callAgentOptions.setDisplayName("Alice Bob");
+CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
+DeviceManage deviceManager = await callClient.getDeviceManager().get();
+```
+
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>나가는 호출을 수행 하 고 그룹 호출을 조인 합니다.
 
@@ -146,12 +159,55 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
+### <a name="accept-a-call"></a>통화 수락
+호출을 수락 하려면 호출 개체에서 ' accept ' 메서드를 호출 합니다.
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+incomingCall.accept(context).get();
+```
+
+비디오 카메라를 사용 하 여 통화를 수락 하려면:
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
+acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredCamera, appContext)));
+incomingCall.accept(context, acceptCallOptions).get();
+```
+
+들어오는 호출은 `CallsUpdated` 개체의 이벤트를 구독 하 `callAgent` 고 추가 된 호출을 반복 하 여 가져올 수 있습니다.
+
+```java
+// Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
+public Call retrieveIncomingCall() {
+    Call incomingCall;
+    callAgent.addOnCallsUpdatedListener(new CallsUpdatedListener() {
+        void onCallsUpdated(CallsUpdatedEvent callsUpdatedEvent) {
+            // Look for incoming call
+            List<Call> calls = callsUpdatedEvent.getAddedCalls();
+            for (Call call : calls) {
+                if (call.getState() == CallState.Incoming) {
+                    incomingCall = call;
+                    break;
+                }
+            }
+        }
+    });
+    return incomingCall;
+}
+```
+
+
 ## <a name="push-notifications"></a>푸시 알림
 
 ### <a name="overview"></a>개요
 모바일 푸시 알림은 모바일 장치에 표시 되는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하겠습니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](../../../concepts/notifications.md) 을 참조 하세요.
 또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.

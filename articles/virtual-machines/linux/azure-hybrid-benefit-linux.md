@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1bc108f76ac35b13474de18d473f5728dbad9d23
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560019"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631368"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Linux 가상 머신에 Azure 하이브리드 혜택 적용 되는 방법
 
-Azure 하이브리드 혜택는 클라우드에서 Red Hat Enterprise Linux (RHEL) 및 SUSE Linux Enterprise Server (Vm) Vm (가상 머신)을 실행 하는 비용을 크게 줄일 수 있는 라이선스 혜택입니다. 이 혜택을 통해 RHEL 또는 SLES 구독이 소프트웨어 요금을 포함 하기 때문에 VM의 인프라 비용에 대해서만 비용을 지불 합니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
+Azure 하이브리드 혜택는 클라우드에서 Red Hat Enterprise Linux (RHEL) 및 SUSE Linux Enterprise Server (Vm) Vm (가상 머신)을 실행 하는 비용을 크게 줄일 수 있는 라이선스 혜택입니다. 이 혜택을 통해 RHEL 또는 SLES 구독이 소프트웨어 요금을 포함 하기 때문에 VM의 인프라 비용에 대해서만 비용을 지불 합니다. 이 혜택은 모든 RHEL 및 SLES Marketplace PAYG (종 량 제) 이미지에 사용할 수 있습니다.
 
 Linux Vm에 대 한 Azure 하이브리드 혜택는 이제 공개적으로 사용할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure 하이브리드 혜택은 Azure Marketplace의 모든 RHEL 및 SLES PAYG �
 
 Linux Vm을 사용 하 여 혜택을 이미 사용 하 고 있는 경우 예약 된 인스턴스, Azure 전용 호스트 인스턴스 및 SQL 하이브리드 혜택을 Azure 하이브리드 혜택 자격이 없습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 ### <a name="red-hat-customers"></a>Red Hat 고객
 
@@ -53,7 +53,7 @@ Red Hat의 혜택 사용을 시작 하려면 다음을 수행 합니다.
 1. [Red Hat Cloud Access customer 인터페이스](https://access.redhat.com/management/cloud)를 사용 하 여 Azure에서 사용 하기에 적합 한 RHEL 구독을 하나 이상 사용 하도록 설정 합니다.
 
    Red Hat Cloud Access 사용 프로세스 중에 제공 하는 Azure 구독은 Azure 하이브리드 혜택 기능을 사용 하도록 허용 됩니다.
-1. 기존 RHEL PAYG Vm 및 Azure Marketplace PAYG 이미지에서 배포 하는 모든 새 RHEL Vm에 Azure 하이브리드 혜택을 적용 합니다.
+1. 기존 RHEL PAYG Vm 및 Azure Marketplace PAYG 이미지에서 배포 하는 모든 새 RHEL Vm에 Azure 하이브리드 혜택을 적용 합니다. Azure Portal 또는 Azure CLI를 사용 하 여 혜택을 사용 하도록 설정할 수 있습니다.
 1. RHEL Vm에 대 한 업데이트 원본을 구성 하는 데 권장 되는 [다음 단계](https://access.redhat.com/articles/5419341) 와 RHEL 구독 준수 지침을 따릅니다.
 
 
@@ -62,8 +62,33 @@ Red Hat의 혜택 사용을 시작 하려면 다음을 수행 합니다.
 SUSE에 대 한 혜택 사용을 시작 하려면 다음을 수행 합니다.
 
 1. SUSE 공용 클라우드 프로그램에 등록 합니다.
-1. Azure CLI를 통해 기존 Vm에 혜택을 적용 합니다.
+1. Azure Portal 또는 Azure CLI를 통해 새로 만들었거나 기존 Vm에 혜택을 적용 합니다.
 1. 별도의 업데이트 원본으로 혜택을 받는 Vm을 등록 합니다.
+
+## <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Azure Portal 혜택 사용 및 사용 안 함
+
+왼쪽의 **구성** 옵션을 방문 하 고 해당 단계를 수행 하 여 기존 vm에 대 한 혜택을 사용 하도록 설정할 수 있습니다. VM 만들기 환경에서 새 Vm에 대 한 혜택을 사용 하도록 설정할 수 있습니다.
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>예를 Azure Portal 하 여 기존 VM에 대 한 혜택을 사용 하도록 설정 합니다.
+1. [Microsoft Azure portal](https://portal.azure.com/) 방문
+1. 포털에서 ' 가상 머신 만들기 ' 페이지로 이동 합니다.
+ ![VM을 만드는 동안 AHB](./media/azure-hybrid-benefit/create-vm-ahb.png)
+1. AHB 변환을 사용 하도록 설정 하 고 클라우드 액세스 라이선스를 사용 하려면이 확인란을 클릭 합니다.
+ ![VM을 만드는 동안 AHB 확인란](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
+1. 다음 명령 집합에 따라 가상 머신 만들기
+1. **구성** 블레이드를 확인 하면 사용 옵션이 표시 됩니다. 
+![만든 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>VM을 만드는 동안 혜택을 사용 하도록 설정 하는 예제를 Azure Portal 합니다.
+1. [Microsoft Azure portal](https://portal.azure.com/) 방문
+1. 변환을 적용 하려는 가상 컴퓨터 페이지를 엽니다.
+1. 왼쪽의 **구성** 옵션으로 이동 합니다. 라이선스 섹션이 표시 됩니다. AHB 변환을 사용 하도록 설정 하려면 ' 예 ' 라디오 단추를 선택 하 고 확인 확인란을 선택 합니다.
+![만든 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+
+>[!NOTE]
+> RHEL 또는 SLES PAYG Marketplace 이미지의 **사용자 지정 스냅숏** 또는 **SIG (공유 이미지)** 를 만든 경우 Azure 하이브리드 혜택를 사용 하도록 설정 하는 데 Azure CLI만 사용할 수 있습니다. 이는 알려진 제한 사항입니다. 현재 Azure Portal 에서도이 기능을 제공할 타임 라인이 없습니다.
+
 
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI 혜택 사용 및 사용 안 함
@@ -184,7 +209,7 @@ A: 아니요, 할 수 없습니다. 예약 인스턴스는 현재 RHEL 및 SLES�
 
 *Q: RHEL 이미지에 대해 SQL Server 배포 된 가상 머신에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
-A: 아니요, 할 수 없습니다. 이러한 지원에 대 한 계획은 없습니다.
+A: 아니요, 할 수 없습니다. 이러한 가상 컴퓨터를 지 원하는 계획은 없습니다.
  
 
 ## <a name="common-problems"></a>일반적인 문제

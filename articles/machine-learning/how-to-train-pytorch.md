@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ed368615395614bc0d3e9a6f06727da8c64d8486
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: eec53570c542ceb60c937072135fcb70b59e80a6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559644"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631043"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 PyTorch 모델 학습
 
@@ -199,7 +199,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 ScriptRunConfig를 사용 하 여 작업을 구성 하는 방법에 대 한 자세한 내용은 [학습 실행 구성 및 제출](how-to-set-up-training-targets.md)을 참조 하세요.
 
 > [!WARNING]
-> 이전에 PyTorch 평가기를 사용 하 여 PyTorch 교육 작업을 구성한 경우 Azure ML SDK의 이후 릴리스에서는 추정가 더 이상 사용 되지 않습니다. Azure ML SDK >= 1.15.0를 사용 하는 경우 ScriptRunConfig는 DL 프레임 워크를 사용 하 여 학습 작업을 구성 하는 데 권장 되는 방법입니다.
+> 이전에 PyTorch 평가기를 사용 하 여 PyTorch 교육 작업을 구성한 경우 1.19.0 SDK 릴리스를 통해 추정가 사용 되지 않도록 설정 되어 있는지 확인 하세요. Azure ML SDK >= 1.15.0를 사용 하 여 심층 학습 프레임 워크를 사용 하는 것을 포함 하 여 학습 작업을 구성 하는 데 ScriptRunConfig가 권장 됩니다. 일반적인 마이그레이션 질문은 [평가기 To ScriptRunConfig 마이그레이션 가이드](how-to-migrate-from-estimators-to-scriptrunconfig.md)를 참조 하세요.
 
 ## <a name="submit-your-run"></a>실행 제출
 

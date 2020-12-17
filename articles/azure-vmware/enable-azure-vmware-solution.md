@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 description: 지원 요청을 제출 하 여 Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6d614dffc4ab3127e1e6740b1a8773e5fd7c23ff
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346540"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630890"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법
 지원 요청을 제출 하 여 [Azure VMware 솔루션](introduction.md) 리소스를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
@@ -61,7 +61,7 @@ Azure VMware 솔루션 리소스를 만들기 전에 호스트를 할당 하기 
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>CSP 고객을 위해 Azure VMware 솔루션 사용 
 
-Csp는 [Microsoft 파트너 센터](https://partner.microsoft.com) 를 사용 하 여 고객에 대해 Azure VMware 솔루션을 사용 하도록 설정 해야 합니다. 이 문서에서는 파트너에 대 한 구매 절차를 보여 주기 위해 [CSP Azure 요금제](/partner-center/azure-plan-lp.md) 를 예로 사용 합니다.
+Csp는 [Microsoft 파트너 센터](https://partner.microsoft.com) 를 사용 하 여 고객에 대해 Azure VMware 솔루션을 사용 하도록 설정 해야 합니다. 이 문서에서는 파트너에 대 한 구매 절차를 보여 주기 위해 [CSP Azure 요금제](/partner-center/azure-plan-lp) 를 예로 사용 합니다.
 
    >[!IMPORTANT] 
    >Azure VMware 솔루션 서비스는 다중 테 넌 트를 제공 하지 않습니다. 이를 필요로 하는 호스팅 파트너는 지원 되지 않습니다. 
@@ -76,9 +76,9 @@ Csp는 [Microsoft 파트너 센터](https://partner.microsoft.com) 를 사용 �
 
 1. **Azure 계획** 을 선택한 다음 **카트에 추가를** 선택 합니다. 
 
-1. 고객에 대 한 Azure 계획 구독의 일반적인 설정을 검토 하 고 완료 합니다. 자세한 내용은 [Microsoft 파트너 센터 설명서](/partner-center/azure-plan-manage.md)를 참조 하세요.
+1. 고객에 대 한 Azure 계획 구독의 일반적인 설정을 검토 하 고 완료 합니다. 자세한 내용은 [Microsoft 파트너 센터 설명서](/partner-center/azure-plan-manage)를 참조 하세요.
 
-Azure 계획을 구성 하 고 필요한 [AZURE RBAC 권한이](/partner-center/azure-plan-manage.md) 구독에 대해 설정 된 후에 azure 계획 구독에 대 한 할당량을 사용 하도록 설정 하는 Microsoft에 참여 합니다. (Aobo) 프로시저를 **대신** 하 여 관리자를 사용 하 여 [Microsoft 파트너 센터](https://partner.microsoft.com) 에서 Azure Portal에 액세스 합니다.
+Azure 계획을 구성 하 고 필요한 [AZURE RBAC 권한이](/partner-center/azure-plan-manage) 구독에 대해 설정 된 후에 azure 계획 구독에 대 한 할당량을 사용 하도록 설정 하는 Microsoft에 참여 합니다. (Aobo) 프로시저를 **대신** 하 여 관리자를 사용 하 여 [Microsoft 파트너 센터](https://partner.microsoft.com) 에서 Azure Portal에 액세스 합니다.
 
 1. [파트너 센터](https://partner.microsoft.com)에 로그인합니다.
 

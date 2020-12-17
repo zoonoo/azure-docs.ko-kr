@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 12/07/2020
-ms.openlocfilehash: d07f01a17c2d784eed61ad7e7ef47c8f7eb5ac30
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 9069a53166b30e206559f0c68c4bcef2ec136ac5
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862193"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631502"
 ---
 # <a name="cognitive-services-docs-whats-new-for-november-1-2020---november-30-2020"></a>Cognitive Services docs: 11 월 1 일, 2020-11 월 30 2020 일의 새로운 기능
 
@@ -33,35 +33,35 @@ ms.locfileid: "96862193"
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보](/azure/cognitive-services/containers/container-image-tags)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="new-articles"></a>새 문서
 
-- [양식 인식기 미리 빌드된 송장 모델](/azure/cognitive-services/form-recognizer/concept-invoices.md)
-- [폼 인식기 레이아웃 서비스](/azure/cognitive-services/form-recognizer/concept-layout.md)
-- [빠른 시작: Python과 Form Recognizer REST API를 사용하여 청구서 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices.md)
+- [양식 인식기 미리 빌드된 송장 모델](/azure/cognitive-services/form-recognizer/concept-invoices)
+- [폼 인식기 레이아웃 서비스](/azure/cognitive-services/form-recognizer/concept-layout)
+- [빠른 시작: Python과 Form Recognizer REST API를 사용하여 청구서 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-invoices)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [수신 개념](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [Form Recognizer란?](/azure/cognitive-services/form-recognizer/overview.md)
-- [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
-- [빠른 시작: Python과 함께 Form Recognizer REST API를 사용하여 명함 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards.md)
-- [Form Recognizer의 새로운 기능](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [수신 개념](/azure/cognitive-services/form-recognizer/concept-receipts)
+- [Form Recognizer란?](/azure/cognitive-services/form-recognizer/overview)
+- [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
+- [빠른 시작: Python과 함께 Form Recognizer REST API를 사용하여 명함 데이터 추출](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [Form Recognizer의 새로운 기능](/azure/cognitive-services/form-recognizer/whats-new)
 
 ## <a name="metrics-advisor"></a>Metrics Advisor
 
 ### <a name="new-articles"></a>새 문서
 
-- [Metrics Advisor: 문서에 있는 새로운 기능](/azure/cognitive-services/metrics-advisor/whats-new.md)
+- [Metrics Advisor: 문서에 있는 새로운 기능](/azure/cognitive-services/metrics-advisor/whats-new)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [변칙 피드백 제공](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback.md)
-- [메트릭 관리자에 게 질문과 대답](/azure/cognitive-services/metrics-advisor/faq.md)
-- [빠른 시작: 클라이언트 라이브러리 또는 REST API를 사용하여 솔루션 사용자 지정](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md)
+- [변칙 피드백 제공](/azure/cognitive-services/metrics-advisor/how-tos/anomaly-feedback)
+- [메트릭 관리자에 게 질문과 대답](/azure/cognitive-services/metrics-advisor/faq)
+- [빠른 시작: 클라이언트 라이브러리 또는 REST API를 사용하여 솔루션 사용자 지정](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library)
 
 ## <a name="qna-maker"></a>QnA Maker 
 
@@ -71,16 +71,16 @@ ms.locfileid: "96862193"
 * [새 QnA Maker 관리 서비스 만들기](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure?tabs=v2)
 * [기존 기술 자료를 관리 QnA Maker로 마이그레이션](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/migrate-knowledge-base)
 
-## <a name="text-analytics"></a>텍스트 분석
+## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Text Analytics API에 대한 데이터 및 속도 제한](/azure/cognitive-services/text-analytics/concepts/data-limits.md)
-- [방법: 상태에 대 한 Text Analytics 사용 (미리 보기)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health.md)
-- [텍스트 분석 REST API를 호출하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [방법: 감정 분석 및 오피니언 마이닝](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
-- [Text Analytics API의 새로운 기능](/azure/cognitive-services/text-analytics/whats-new.md)
-- [예제: Text Analytics를 사용하여 언어 감지](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection.md)
+- [Text Analytics API에 대한 데이터 및 속도 제한](/azure/cognitive-services/text-analytics/concepts/data-limits)
+- [방법: 상태에 대 한 Text Analytics 사용 (미리 보기)](/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health)
+- [텍스트 분석 REST API를 호출하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [방법: 감정 분석 및 오피니언 마이닝](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis)
+- [Text Analytics API의 새로운 기능](/azure/cognitive-services/text-analytics/whats-new)
+- [예제: Text Analytics를 사용하여 언어 감지](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

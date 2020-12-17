@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 470dc146d1658b97a707be8cb7ad868d943a8e60
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170902"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629394"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>암호 없는 인증을 위해 Azure Active Directory B2C를 구성 하는 자습서
 
 이 샘플 자습서에서는 암호 없는 인증을 사용 하기 위해  [네비스](https://www.nevis.net/solution/authentication-cloud) 와 Azure AD B2C를 확장 하는 방법을 알아봅니다. 네비스는 강력한 고객 인증을 제공 하 고 PSD2 (결제 서비스 지시어 2) 트랜잭션 요구 사항을 준수 하기 위해 네비스 Access 앱과의 모바일 우선, 완전 한 브랜드 최종 사용자 환경을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "96170902"
 
 ![Azure AD B2C 및 네비스를 사용 하는 상위 수준의 암호 로그인 흐름](./media/partner-nevis/nevis-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 하 고 Azure AD B2C 로그인 정책을 통해 응용 프로그램에 로그인 하거나 로그인을 시도 합니다.
 | 2. | 등록 하는 동안 네비스 Access 앱은 QR 코드를 사용 하 여 사용자 장치에 등록 됩니다. 사용자 장치에 개인 키가 생성 되 고 사용자 요청에 서명 하는 데 사용 됩니다.
@@ -118,11 +118,11 @@ ms.locfileid: "96170902"
 
       b. 이름을 **AuthCloudAccessToken** 로 설정 합니다.
 
-      다. 이전에 저장 된 **네비스 액세스 토큰** 을 비밀 필드에 붙여넣습니다.
+      c. 이전에 저장 된 **네비스 액세스 토큰** 을 비밀 필드에 붙여넣습니다.
 
       d. 키 사용에 대해 **암호화** 를 선택 합니다.
 
-      e. **만들기**
+      e. **만들기** 를 선택합니다.
 
 ### <a name="configure-and-upload-the-nevishtml-to-azure-blob-storage"></a>nevis.html을 구성 하 고 Azure blob storage에 업로드 합니다.
 
@@ -134,9 +134,9 @@ ms.locfileid: "96170902"
 
 4. 변경 내용을 파일에 **저장** 합니다.
 
-5. [지침](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#2-create-an-azure-blob-storage-account) 에 따라 **nevis.html** 파일을 Azure blob 저장소에 업로드 합니다.
+5. [지침](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) 에 따라 **nevis.html** 파일을 Azure blob 저장소에 업로드 합니다.
 
-6. [지침](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors) 에 따라이 파일에 대 한 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 합니다.
+6. [지침](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) 에 따라이 파일에 대 한 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 합니다.
 
 7. 업로드가 완료 되 고 CORS가 사용 하도록 설정 되 면 목록에서 **nevis.html** 파일을 선택 합니다.
 

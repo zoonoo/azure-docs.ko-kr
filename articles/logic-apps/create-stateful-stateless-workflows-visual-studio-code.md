@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: cf8b6670817132c8c0c0a09194b9aca4bbc8073c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923406"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632063"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -226,7 +226,7 @@ Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하 �
 
    !["새 프로젝트 만들기"가 선택 된 Azure 창 도구 모음을 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
-1. Windows Defender 방화벽에서 Azure Functions Core Tools Visual Studio Code 된에 대 한 네트워크 액세스 권한을 부여 하 라는 메시지가 표시 되 면 `Code.exe` `func.exe` **홈 또는 회사 네트워크에서 액세스 허용과 같은 개인 네트워크를** 선택 **>** **Allow access** 합니다.
+1. Windows Defender 방화벽에서 Azure Functions Core Tools Visual Studio Code 된에 대 한 네트워크 액세스 권한을 부여 하 라는 메시지가 표시 되 면 `Code.exe` `func.exe` **홈 또는 회사 네트워크에서 액세스 허용과 같은 개인 네트워크를** 선택 **>** 합니다.
 
 1. 프로젝트 폴더를 만든 위치로 이동 하 여 해당 폴더를 선택 하 고 계속 합니다.
 
@@ -598,7 +598,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -606,7 +606,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
    | **실행 중** | 실행이 트리거 되었지만 진행 중이지만, [작업 제한](logic-apps-limits-and-config.md) 또는 [현재 요금제](https://azure.microsoft.com/pricing/details/logic-apps/)로 인해 제한 된 실행에 대해서도이 상태가 표시 될 수 있습니다. <p><p>**팁**: [진단 로깅을](monitor-logic-apps-log-analytics.md)설정 하는 경우 발생 하는 스로틀 이벤트에 대 한 정보를 얻을 수 있습니다. |
    | **성공함** | 실행이 성공 했습니다. 작업이 실패 하면 워크플로의 후속 작업에서 해당 실패를 처리 합니다. |
    | **시간 초과됨** | 현재 기간이 실행 [ **기록 보존 기간 (일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 실행 기간 제한을 초과 하 여 실행 시간이 초과 되었습니다. 실행의 기간은 시작 시간에서 실행의 시작 시간 및 실행 기간 제한을 사용 하 여 계산 됩니다. <p><p>**참고**: 실행 기간이 현재 *실행 기록 보존* 한도를 초과 하는 경우에도 실행 기록 보존 기간 ( [ **일)** 설정](logic-apps-limits-and-config.md#run-duration-retention-limits)에 의해 제어 되는 경우 매일 정리 작업을 통해 실행 기록에서 실행이 지워집니다. 실행 제한 시간이 초과 되거나 완료 되는지 여부는 항상 실행의 시작 시간 및 *현재* 보존 제한을 사용 하 여 계산 됩니다. 따라서 진행 중인 실행에 대 한 기간 제한을 줄이면 실행 제한 시간이 초과 됩니다. 그러나 실행 기간이 보존 한도를 초과 했는지 여부에 따라 실행 기록에서 실행이 유지 되거나 지워집니다. |
-   | **대기** | 예를 들어 아직 실행 중인 이전 워크플로 인스턴스로 인해 실행이 시작 되지 않았거나 일시 중지 되었습니다. |
+   | **대기 중** | 예를 들어 아직 실행 중인 이전 워크플로 인스턴스로 인해 실행이 시작 되지 않았거나 일시 중지 되었습니다. |
    |||
 
 1. 특정 실행의 각 단계에 대 한 상태와 단계의 입력 및 출력을 검토 하려면 해당 실행에 대 한 줄임표 (**...**) 단추를 선택 하 고 **실행 표시** 를 선택 합니다.
@@ -632,7 +632,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
    | 성공 | !["성공" 작업 상태 아이콘][succeeded-icon] | 작업이 성공 했습니다. |
    | 다시 시도 성공 | !["재시도 성공" 작업 상태 아이콘][succeeded-with-retries-icon] | 하나 이상의 재시도 후에만 작업이 성공 했습니다. 다시 시도 기록을 검토 하려면 실행 기록 세부 정보 보기에서 해당 작업을 선택 하 여 입력 및 출력을 볼 수 있습니다. |
    | 시간 초과됨 | !["시간이 초과 되었습니다." 작업 상태 아이콘][timed-out-icon] | 해당 작업의 설정에 지정 된 제한 시간 제한으로 인해 작업이 중지 되었습니다. |
-   | 대기 | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
+   | 대기 중 | !["대기 중" 작업 상태 아이콘][waiting-icon] | 호출자의 인바운드 요청을 기다리는 webhook 작업에 적용 됩니다. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
@@ -769,7 +769,7 @@ Visual Studio Code에서 새 **논리 앱 (미리 보기)** 리소스 형식을 
 
       1. 기존 Application Insights 리소스를 선택 하거나 **새 Application Insights 리소스를 만듭니다**.
 
-      1. [Azure Portal](htpps://portal.azure.com)에서 Application Insights 리소스로 이동 합니다.
+      1. [Azure Portal](https://portal.azure.com)에서 Application Insights 리소스로 이동 합니다.
 
       1. 리소스 메뉴에서 **개요** 를 선택 합니다. **계측 키** 값을 찾아 복사 합니다.
 
@@ -817,7 +817,7 @@ Visual Studio Code에서 새 **논리 앱 (미리 보기)** 리소스 형식을 
          |----------------|------------|
          | 위험 | 논리 앱에서 복구할 수 없는 오류를 설명 하는 로그입니다. |
          | 디버그 | 인바운드 및 아웃 바운드 HTTP 호출과 같은 개발 중에 조사에 사용할 수 있는 로그입니다. |
-         | 오류 | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
+         | Error | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
          | 정보 | 논리 앱 또는 워크플로의 일반 활동을 추적 하는 로그입니다. 예를 들면 다음과 같습니다. <p><p>-트리거, 동작 또는 실행이 시작 되 고 끝나는 경우 <br>-논리 앱이 시작 되거나 종료 되는 경우 |
          | 추적 | 저장소 요청 또는 디스패처 활동과 같은 가장 자세한 메시지와 워크플로 실행 작업과 관련 된 모든 메시지를 포함 하는 로그입니다. |
          | 경고 | 논리 앱에서 비정상 상태를 강조 표시 하지만 실행을 방해 하지 않는 로그입니다. |

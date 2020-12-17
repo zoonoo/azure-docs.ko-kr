@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: ae498b39a421db19f0d4e0a8daca58730321b58c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: fdb7b1964bf4b8e2dbf6afd541e4415c0345347c
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546814"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631468"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -59,9 +59,9 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Juniper |SSG |ScreenOS 6.2 |지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
 | Juniper |MX |JunOS 12.x|지원됨 |[구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
 | Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |지원됨 |
-| 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |N/A |[구성 가이드](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |호환되지 않음 |
+| 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[구성 가이드](https://open-systems.com/wp-content/uploads/2019/12/OpenSystems-AzureVPNSetup-Installation-Guide.pdf) |호환되지 않음 |
 | Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |지원됨 |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
-| Sentrium (개발자) | VyOS | VyOS 1.2.2 | (테스트 되지 않음) | [구성 가이드 ](https://vyos.readthedocs.io/en/latest/appendix/examples/azure-vpn-bgp.html)|
+| Sentrium (개발자) | VyOS | VyOS 1.2.2 | (테스트 되지 않음) | [구성 가이드 ](https://docs.vyos.io/en/latest/configexamples/azure-vpn-bgp.html)|
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |호환되지 않음 |[구성 가이드](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG 차세대 방화벽 | XG v17 | (테스트 되지 않음) | [구성 가이드](https://community.sophos.com/kb/127546)<br><br>[구성 가이드 - 다중 SA](https://community.sophos.com/kb/en-us/133154) |
@@ -142,7 +142,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | 암호화 및 해싱 알고리즘 |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | SA 수명(시간)            |3,600초  |27,000초                               |
 | SA 수명(바이트)           |102,400,000 KB |102,400,000 KB                               |
-| PFS(Perfect Forward Secrecy) |아니요             |[RouteBased QM SA 제품](#RouteBasedOffers) |
+| PFS(Perfect Forward Secrecy) |예             |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | 작동하지 않는 피어 검색(DPD)     |지원되지 않음  |지원됨                                    |
 
 

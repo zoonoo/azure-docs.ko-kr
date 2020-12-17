@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008047"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632039"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 디지털 프로세스 자동화에 대해 Bizagi Studio 구성
 
@@ -105,7 +105,7 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
 5. **관리자 자격 증명** 섹션에서 디지털 프로세스 자동화를 위해 Bizagi Studio 용 테 넌 트 URL 및 비밀 토큰을 입력 합니다. 
 
       * **테 넌 트 URL:** 다음 구조를 사용 하 여 Bizagi SCIM 끝점을 입력  `<Your_Bizagi_Project>/scim/v2/` 합니다.
-         예를 들어 `https://my-company.bizagi.com/scim/v2/`을 참조하십시오.
+         예: `https://my-company.bizagi.com/scim/v2/`.
 
       * **비밀 토큰:** 이 값은이 문서의 앞부분에 설명 된 단계에서 검색 됩니다.
 
@@ -132,7 +132,14 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
    |name.familyName|String|
    |name.formatted|String|
    |phoneNumbers[type eq "mobile"].value|String|
+
+   **Bizagi에 대 한 특성 목록 편집 > 고급 옵션 표시** 로 이동 하 여 사용자 지정 확장 특성을 추가할 수 있습니다. 사용자 지정 확장 특성에는 urn: **ietf: params: scim: 스키마: extension: bizagi: 2.0: UserProperties:** 접두사가와 야 합니다. 예를 들어 사용자 지정 확장 특성이 **IdentificationNumber** 인 경우 특성은 **urn: ietf: params: scim: 스키마: extension: bizagi: 2.0: UserProperties: IdentificationNumber** 로 추가 해야 합니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다.
    
+    ![특성 목록을 편집 합니다.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   사용자 지정 특성을 추가 하는 방법에 대 한 자세한 내용은 [응용 프로그램 특성 사용자 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)에서 찾을 수 있습니다.
+
+
 10. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)를 참조 하세요.
 
 11. Bizagi Studio for Digital Process Automation에 대해 Azure AD 프로 비전 서비스를 사용 하도록 설정 하려면 **설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.

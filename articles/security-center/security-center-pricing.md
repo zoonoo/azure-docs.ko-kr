@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 0b6a9d081d2b81124b0cae15e81e4b233f7824bb
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387473"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629343"
 ---
 # <a name="pricing-of-azure-security-center"></a>Azure Security Center 가격 책정
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 워크로드에 대한 가시성과 제어, 위협에 대한 노출을 줄이는 적극적인 방어 및 빠르게 진화하는 사이버 위험에 보조를 맞추는 데 도움이 되는 인텔리전트 탐지를 제공합니다.
@@ -103,7 +103,7 @@ Security Center에는 다음 두 가지 제품이 있습니다.
 |REST API|[가격 책정 API](/rest/api/securitycenter/pricings)|
 |Azure CLI|[az security pricing](/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[가격 책정 번들](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
+|Azure Policy|[가격 책정 번들](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
 |||
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>내 구독의 서버 하위 집합에서 서버에 대해 Azure Defender를 사용하도록 설정할 수 있나요?

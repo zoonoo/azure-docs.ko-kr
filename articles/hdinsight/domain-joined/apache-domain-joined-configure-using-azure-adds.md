@@ -1,5 +1,5 @@
 ---
-title: Active Directory 통합을 위한 클러스터 구성
+title: Azure Active Directory 통합을 위한 클러스터 구성
 titleSuffix: Azure HDInsight
 description: Azure Active Directory Domain Services 및 Enterprise Security Package 기능을 사용 하 여 Active Directory와 통합 된 HDInsight 클러스터를 설정 하 고 구성 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seodec18,seoapr2020, contperf-fy21q2
 ms.date: 10/30/2020
-ms.openlocfilehash: 248d909e633607271aec7c2c9b8a373f111f7d98
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c5c5db892f417f2e2ef3fde3535d806d39342327
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031485"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631553"
 ---
-# <a name="configure-hdinsight-clusters-for-active-directory-integration-with-enterprise-security-package"></a>Enterprise Security Package와 Active Directory 통합을 위해 HDInsight 클러스터 구성
+# <a name="configure-hdinsight-clusters-for-azure-active-directory-integration-with-enterprise-security-package"></a>Enterprise Security Package와 Azure Active Directory 통합을 위해 HDInsight 클러스터 구성
 
-이 문서에서는 ESP (Enterprise Security Package), Azure Active Directory Domain Services (Azure AD DS) 및 기존 온-프레미스 Active Directory의 기능을 사용 하 여 Active Directory와 통합 된 HDInsight 클러스터를 만들고 구성 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Active Directory와 통합 된 HDInsight 클러스터를 만들고 구성 하는 프로세스에 대 한 요약 및 개요를 제공 합니다. 이 통합은 Enterprise Security Package (ESP), Azure Active Directory Domain Services (Azure AD DS) 및 기존 온-프레미스 Active Directory 이라는 HDInsight 기능을 사용 합니다.
 
-Azure에서 도메인을 설정 및 구성 하 고 ESP를 사용 하는 클러스터를 설정 하는 방법에 대 한 자습서는 [Azure HDInsight에서 Enterprise Security Package 클러스터 만들기 및 구성](apache-domain-joined-create-configure-enterprise-security-cluster.md)을 참조 하세요.
+Azure에서 도메인을 설정 및 구성 하 고 ESP 사용 클러스터를 만든 다음 온-프레미스 사용자를 동기화 하는 방법에 대 한 단계별 자습서는 [Azure HDInsight에서 Enterprise Security Package 클러스터 만들기 및 구성](apache-domain-joined-create-configure-enterprise-security-cluster.md)을 참조 하세요.
 
 ## <a name="background"></a>배경
 
@@ -33,12 +33,13 @@ Enterprise Security Package (ESP)는 Azure HDInsight에 대 한 Active Directory
 
 ESP 사용 HDInsight 클러스터를 만들려면 몇 가지 필수 구성 요소를 완료 해야 합니다.
 
+- 기존 온-프레미스 Active Directory 및 Azure Active Directory.
 - Azure AD DS를 사용 하도록 설정 합니다.
 - 동기화가 완료 되었는지 확인 하려면 Azure AD DS 상태를 확인 하세요.
 - 관리 id를 만들고 권한을 부여 합니다.
 - DNS 및 관련 문제에 대 한 네트워킹 설치를 완료 합니다.
 
-이러한 각 항목에 대해서는 아래에서 자세히 설명 합니다.
+이러한 각 항목에 대해서는 아래에서 자세히 설명 합니다. 이러한 단계를 모두 완료 하는 연습은 [Azure HDInsight에서 Enterprise Security Package 클러스터 만들기 및 구성](apache-domain-joined-create-configure-enterprise-security-cluster.md)을 참조 하세요.
 
 ### <a name="enable-azure-ad-ds"></a>Azure AD DS 사용
 
