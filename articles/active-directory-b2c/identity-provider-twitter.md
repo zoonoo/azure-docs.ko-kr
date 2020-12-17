@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e1161a8a4625c855198ea04f336d54c80271a3ef
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7779730b98630d08af046e7cb402caca1d0c2fe6
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584683"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653659"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인
 
@@ -29,21 +29,9 @@ ms.locfileid: "97584683"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-::: zone pivot="b2c-user-flow"
-
-* 사용자가 애플리케이션에 가입하고 로그인할 수 있는 [사용자 흐름을 만듭니다](tutorial-create-user-flows.md).
-* 아직 수행하지 않았다면 [Azure Active Directory B2C 테넌트에 Web API 애플리케이션을 추가](add-web-api-application.md)합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
-* 아직 수행하지 않았다면 [Azure Active Directory B2C 테넌트에 Web API 애플리케이션을 추가](add-web-api-application.md)합니다.
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 

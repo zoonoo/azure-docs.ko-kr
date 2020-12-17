@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cac0d8cb8a910b735454c9270060364cab2db5fb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1627db2f1f19c393d4f40892ca65141f26424ac9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187241"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656940"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -26,7 +26,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 
 제어 평면 Api는 전체 인스턴스를 만들거나 삭제 하는 것과 같은 작업을 수행 하기 위해 Azure Digital Twins 인스턴스 전체를 관리 하는 데 사용 되는 [ARM](../azure-resource-manager/management/overview.md) api입니다. 또한 끝점을 만들고 삭제 하는 데 사용 합니다.
 
-최신 제어 평면 API 버전은 _**2020-10-31**_ 입니다.
+최신 제어 평면 API 버전은 _**2020-12-01**_ 입니다.
 
 제어 평면 Api를 사용 하려면 다음을 수행 합니다.
 * [제어 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)에서 최신 Swagger를 참조 하 여 api를 직접 호출할 수 있습니다. 또한이 리포지토리에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3f28c50be73b2b87ed8b25429cfa2dee9a663f1b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5e1f8a099256040e14db1cdab288551a228512cd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452163"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655376"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -146,7 +146,7 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 
 개인 끝점에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 Key Vault](./private-link-service.md) 을 참조 하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 이 예제에서는 TLS/SSL에 인증서를 사용 하는 응용 프로그램을 개발 하 고, Azure Storage 데이터를 저장 하 고, Azure Storage 데이터를 암호화 하기 위한 RSA 2048 비트 키를 개발 합니다. 애플리케이션은 Azure VM(Virtual Machine)(또는 가상 머신 확장 집합)에서 실행됩니다. Key Vault를 사용하여 애플리케이션 비밀을 저장할 수 있습니다. 애플리케이션이 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 
@@ -186,8 +186,8 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 | --- | --- | --- | --- |
 | 보안 팀 | [키 자격 증명 모음 기여자](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | 인증서: 모든 작업 <br> 키: 모든 작업 <br> 비밀: 모든 작업 | [Key Vault 관리자 (미리 보기)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**: 이 권한이 있으면 배포된 VM이 Key Vault에서 비밀을 가져올 수 있습니다. | None | None |
-| 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | [Key Vault 판독기 (미리 보기)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Azure Storage 계정 | 없음 | 키: get, list, wrapKey, unwrapKey <br> | [암호화 서비스 암호화 Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
+| 감사자 | None | 인증서: 목록 <br> 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**: 이 권한이 있으면 감사자는 로그에서 내보내지 않은 키 및 비밀의 특성(태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. | [Key Vault 판독기 (미리 보기)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
+| Azure Storage 계정 | 없음 | 키: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service 암호화 사용자](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
 | 애플리케이션 | None | 비밀: get, list <br> 인증서: get, list | [Key Vault 판독기 (미리 보기)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault 비밀 사용자 (미리 보기)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. Vm (또는 Azure App Service의 Web Apps 기능)을 배포 하려면 개발자와 운영자에 게 배포 액세스 권한이 있어야 합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509991"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653727"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -52,7 +52,7 @@ Azure AD 사용 약관에는 다음과 같은 기능이 있습니다.
 - 준수 및 감사에 대 한 사용 약관 작업 로그를 표시 합니다.
 - [Microsoft Graph api](/graph/api/resources/agreement?view=graph-rest-beta) (현재 미리 보기 상태)를 사용 하 여 사용 약관을 만들고 관리 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 사용 약관을 사용 하 고 구성 하려면 다음이 있어야 합니다.
 
@@ -117,7 +117,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
    ![정책 템플릿을 선택 하는 조건부 액세스 드롭다운 목록](./media/terms-of-use/conditional-access-templates.png)
 
-   | 템플릿 | 설명 |
+   | 템플릿 | Description |
    | --- | --- |
    | **모든 게스트에 대한 클라우드 앱 액세스** | 모든 게스트 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이를 만든 후에는 로그 아웃 하 고 로그인 해야 할 수 있습니다. |
    | **모든 사용자에 대한 클라우드 앱 액세스** | 모든 사용자 및 모든 클라우드 앱에 대 한 조건부 액세스 정책이 생성 됩니다. 이 정책은 Azure Portal에 영향을 줍니다. 이를 만든 후에는 로그 아웃 하 고 로그인 해야 합니다. |
@@ -238,8 +238,8 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 2.  편집 하려는 사용 약관을 선택 합니다.
 3.  **사용 약관 편집** 을 클릭합니다.
 4.  새 버전을 업데이트 하려는 언어에 대해 작업 열에서 **업데이트** 를 클릭 합니다.
- 
-     ![이름 및 확장 옵션을 보여 주는 사용 약관 패널 편집](./media/terms-of-use/edit-terms-use.png)
+
+    ![이름 및 확장 옵션을 보여 주는 사용 약관 패널 편집](./media/terms-of-use/edit-terms-use.png)
 
 5.  오른쪽 창에서 새 버전에 대 한 pdf를 업로드 합니다.
 6.  또한 사용자가 다음 번에 로그인 할 때이 새 버전에 동의 하도록 요구 하려는 경우에는이 옵션을 다시 **수락 해야** 합니다. 사용자가 다음에 다시 동의 해야 하는 경우 사용자가 조건부 액세스 정책에 정의 된 리소스에 액세스 하려고 할 때이 새 버전을 수락 하 라는 메시지가 표시 됩니다. 사용자가 다시 동의 하지 않아도 되는 경우 이전 동의가 최신 상태를 유지 하 고, 이전에 동의한 동의가 만료 된 새 사용자만 새 버전을 보게 됩니다.

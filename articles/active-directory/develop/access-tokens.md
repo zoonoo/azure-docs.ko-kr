@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 909c8910a86734b0a34787f75c233975cd3503c3
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518246"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653285"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -37,7 +37,7 @@ API에서 액세스 토큰 내의 클레임을 확인 하 고 사용 하는 방�
 
 ### <a name="v10-and-v20"></a>v1.0 및 v2.0 
 
-Microsoft id 플랫폼에서 사용할 수 있는 액세스 토큰에는 두 가지 버전이 있습니다. v 1.0 및 v2.0  이러한 버전은 토큰에 있는 클레임을 관리 하 여 web API가 토큰의 모양을 제어할 수 있도록 합니다. Web Api는 Azure AD 전용 앱을 위한 등록-v 1.0 및 소비자 계정을 지 원하는 앱의 경우이 중 하나를 기본값으로 선택 합니다.  응용 프로그램은 응용 프로그램 매니페스트에서 설정을 사용 하는 응용 프로그램에 의해 제어 됩니다 `accessTokenAcceptedVersion` . 여기서 및는 [app manifest](reference-app-manifest.md#manifest-reference) `null` `1` v 1.0 토큰을 생성 하 고 v2.0 토큰을 `2` 생성 합니다.
+Microsoft id 플랫폼에서 사용할 수 있는 액세스 토큰에는 두 가지 버전이 있습니다. v 1.0 및 v2.0  이러한 버전은 토큰에 있는 클레임을 관리 하 여 web API가 토큰의 모양을 제어할 수 있도록 합니다. Web Api는 Azure AD 전용 앱을 위한 등록-v 1.0 및 소비자 계정을 지 원하는 앱의 경우이 중 하나를 기본값으로 선택 합니다.  응용 프로그램은 응용 프로그램 매니페스트에서 설정을 사용 하는 응용 프로그램에 의해 제어 됩니다 `accessTokenAcceptedVersion` . 여기서 및는 [](reference-app-manifest.md#manifest-reference) `null` `1` v 1.0 토큰을 생성 하 고 v2.0 토큰을 `2` 생성 합니다.
 
 ### <a name="what-app-is-a-token-for"></a>"For" 토큰은 어떤 앱 입니까?
 
@@ -140,8 +140,8 @@ JWT(JSON Web Token)는 세 부분으로 분할됩니다.
        }
      }
   ...
- }
- ```
+}
+```
 
 [앱 생성 스크립트](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-2-Groups/AppCreationScripts) 폴더에 제공되는 `BulkCreateGroups.ps1`을 사용하여 초과분 시나리오를 테스트할 수 있습니다.
 
@@ -186,7 +186,7 @@ Microsoft ID는 여러 방법으로 인증할 수 있으며 사용자 애플리�
 
 위의 시나리오 중 하나라도 적용 되지 않으면 응용 프로그램은 토큰의 유효성을 검사 하지 않고 토큰의 유효성을 기반으로 결정을 내릴 때 보안 및 안정성 위험을 초래할 수 있습니다.  네이티브 앱 또는 SPAs와 같은 공용 클라이언트는 토큰의 유효성을 검사 하지 않습니다. 앱은 IDP와 직접 통신 하므로 SSL 보호를 통해 토큰이 유효한 지 확인 합니다.
 
- Api 및 web apps는 해당 응용 프로그램과 일치 하는 클레임이 있는 토큰만 유효성을 검사 해야 합니다. `aud` 다른 리소스에는 사용자 지정 토큰 유효성 검사 규칙이 있을 수 있습니다. 예를 들어 Microsoft Graph 토큰은 소유 형식으로 인해 이러한 규칙에 따라 유효성을 검사 하지 않습니다. 다른 리소스에 대 한 토큰의 유효성을 검사 하 고 허용 하는 것은 [혼동 deputy](https://cwe.mitre.org/data/definitions/441.html) 문제의 예입니다.
+Api 및 web apps는 해당 응용 프로그램과 일치 하는 클레임이 있는 토큰만 유효성을 검사 해야 합니다. `aud` 다른 리소스에는 사용자 지정 토큰 유효성 검사 규칙이 있을 수 있습니다. 예를 들어 Microsoft Graph 토큰은 소유 형식으로 인해 이러한 규칙에 따라 유효성을 검사 하지 않습니다. 다른 리소스에 대 한 토큰의 유효성을 검사 하 고 허용 하는 것은 [혼동 deputy](https://cwe.mitre.org/data/definitions/441.html) 문제의 예입니다.
 
 응용 프로그램에서 위의에 따라 id_token 또는 access_token의 유효성을 검사 해야 하는 경우 앱은 먼저 Openid connect 검색 문서의 값에 대해 토큰의 시그니처와 발급자의 유효성을 검사 해야 합니다. 예를 들어 문서의 테넌트 독립적 버전은 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)에 위치합니다.
 
@@ -288,7 +288,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 - Windows Hello에서 얼굴 사용
 - FIDO2 키
-- sms
+- SMS
 - 음성
 - PIN
 

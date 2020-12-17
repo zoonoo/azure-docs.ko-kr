@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370426"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652248"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -26,7 +26,7 @@ ms.locfileid: "92370426"
 
 Azure VM에 대한 재해 복구에 관련된 구성 요소는 다음 표에 요약되어 있습니다.
 
-**구성 요소** | **Requirements**
+**구성 요소** | **요구 사항**
 --- | ---
 **원본 지역의 VM** | [지원되는 원본 지역](azure-to-azure-support-matrix.md#region-support)에서 하나 이상의 Azure VM입니다.<br/><br/> VM은 [지원되는 운영 체제](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)에서 실행될 수 있습니다.
 **원본 VM 스토리지** | Azure VM은 관리될 수 있습니다. 또는 스토리지 계정에 분산된 관리되지 않는 디스크를 가집니다.<br/><br/>지원되는 Azure 스토리지에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#replicated-machines---storage).
@@ -90,7 +90,7 @@ Site Recovery는 다음과 같이 스냅샷을 생성합니다.
 1. Site Recovery는 빈도를 지정하는 경우 기본적으로 데이터의 크래시 일관성이 있는 스냅샷 및 앱 일치 스냅샷을 생성합니다.
 2. 복구 지점은 스냅샷에서 생성되고, 복제 정책에서 보존 설정에 따라 저장됩니다.
 
-### <a name="consistency"></a>Consistency
+### <a name="consistency"></a>일관성
 
 다음 표에서는 여러 유형의 일관성에 대해 설명합니다.
 
@@ -130,7 +130,7 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 
 | **이름**                  | **상업용**                               | **정부**                                 | **설명** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
+| 스토리지                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net` | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
 | 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |

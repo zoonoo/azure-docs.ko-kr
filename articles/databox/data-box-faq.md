@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 18a1fc7f42884dcc194256e1f51ddecb62d2708c
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516395"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655478"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -97,11 +97,11 @@ A. 주문 처리의 각 단계에 대 한 다음과 같은 예상 지연 시간�
 **Data Box 주문의 예상 지연 시간:**
 
 1. Data Box 주문: 포털에서 몇 분
-2. 디바이스 할당 및 준비: 영업일 기준 1-2일
+2. 장치 할당 및 준비: 1-2 영업일, 재고 가용성 및 기타 주문 보류 중인 주문에 적용 됩니다.
 3. 발송: 영업일 기준 2-3일
 4. 고객 사이트의 데이터 복사: 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 5. 반품 배송: 영업일 기준 2-3일
-6. 데이터 센터에서 장치 처리: 1-2 영업일
+6. 데이터 센터에서 장치 처리: 1-2 영업일, 처리 보류 중인 다른 주문의 영향
 7. Azure에 데이터 업로드: 처리가 완료 되 고 장치가 연결 되는 즉시 시작 됩니다. 업로드 시간은 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 이유

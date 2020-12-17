@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: f4784cc2e1b0276caf8326df8fad93b12f0d551d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61f5a470046ba3ddca157e83737a29ed936a0c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490077"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656328"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services를 사용 하 여 비디오 및 오디오 파일 분석
 
@@ -88,11 +88,11 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |Name|Description|
 |---|---|
 |id|줄 ID입니다.|
-|text|자체 대본입니다.|
+|텍스트|자체 대본입니다.|
 |language|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예:
+예제:
 
 ```json
 "transcript": [
@@ -126,7 +126,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |Name|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
-|text|OCR 텍스트입니다.|
+|텍스트|OCR 텍스트입니다.|
 |신뢰도|인식 신뢰도입니다.|
 |language|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
@@ -257,7 +257,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
       ],
       "instances": [
         {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "thumbnailId": "00000000-0000-0000-0000-000000000000",
           "start": "00: 00: 05.2670000",
           "end": "00: 00: 10.3000000"
         }
@@ -268,7 +268,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="statistics"></a>통계
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |WordCount|화자별 단어 수입니다.|
@@ -377,7 +377,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |Name|Description|
 |---|---|
 |id|키워드 ID입니다.|
-|text|키워드 텍스트입니다.|
+|텍스트|키워드 텍스트입니다.|
 |신뢰도|키워드의 인식 신뢰도입니다.|
 |language|키워드 언어(번역된 경우)입니다.|
 |인스턴스|키워드가 표시되는 시간 범위 목록(키워드가 여러 번 나타날 수 있음)입니다.|

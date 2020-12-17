@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bec9635af696d0ce1cf9d7dcad8c26a1ef23ad
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020595"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652367"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법
 ## <a name="overview"></a>개요
@@ -50,22 +50,22 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 애플리케이션에서 SendGrid NuGet 패키지를 설치하려면 다음을 수행합니다.
 
-1. **새 프로젝트**를 클릭하고 **템플릿**을 선택합니다.
+1. **새 프로젝트** 를 클릭하고 **템플릿** 을 선택합니다.
 
    ![새 프로젝트 만들기][create-new-project]
-2. **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+2. **솔루션 탐색기** 에서 **참조** 를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리** 를 클릭합니다.
 
    ![SendGrid NuGet 패키지][SendGrid-NuGet-package]
-3. **SendGrid**를 검색하고 결과 목록에서 **SendGrid** 항목을 선택합니다.
+3. **SendGrid** 를 검색하고 결과 목록에서 **SendGrid** 항목을 선택합니다.
 4. 이 문서에서 설명하는 개체 모델 및 API를 사용하려면 버전 드롭다운에서 안정적인 최신 버전의 Nuget 패키지를 선택합니다.
 
    ![SendGrid 패키지][sendgrid-package]
 5. **설치** 를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
 
-SendGrid의 .NET 클래스 라이브러리는 **SendGrid**라고 합니다. 다음 네임스페이스가 포함되어 있습니다.
+SendGrid의 .NET 클래스 라이브러리는 **SendGrid** 라고 합니다. 다음 네임스페이스가 포함되어 있습니다.
 
 * SendGrid의 API와 통신 하기 위한 **SendGrid** 입니다.
-* **SendGrid.Helpers.Mail**은 도우미 메서드가 전자 메일을 보내는 방법을 지정하는 SendGridMessage 개체를 쉽게 만들 수 있습니다.
+* **SendGrid.Helpers.Mail** 은 도우미 메서드가 전자 메일을 보내는 방법을 지정하는 SendGridMessage 개체를 쉽게 만들 수 있습니다.
 
 프로그래밍 방식으로 SendGrid 전자 메일 서비스에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
 
@@ -107,7 +107,7 @@ msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 
 응용 프로그램 설정을 클릭 하 고 앱 설정 아래에 키/값 쌍을 추가 하 여 Azure Portal 통해 이러한 자격 증명을 저장할 수 있습니다.
 
- ![Azure 앱 설정][azure_app_settings]
+![Azure 앱 설정][azure_app_settings]
 
 그러면 다음과 같이 자격 증명에 액세스할 수 있습니다.
 
@@ -159,17 +159,17 @@ namespace Example
 
 `appsettings.json` 파일의 내용은 다음과 같아야 합니다.
 
-```csharp
+```json
 {
-   "Logging": {
-   "IncludeScopes": false,
-   "LogLevel": {
-   "Default": "Debug",
-   "System": "Information",
-   "Microsoft": "Information"
-     }
-   },
- "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 
@@ -208,8 +208,8 @@ namespace SendgridMailApp.Controllers
        public NotificationController(IConfiguration configuration)
        {
          _configuration = configuration;
-       }      
-    
+       }
+
        [Route("SendNotification")]
        public async Task PostMessage()
        {
@@ -222,7 +222,7 @@ namespace SendgridMailApp.Controllers
               new EmailAddress("test3@example.com", "Example User 3"),
               new EmailAddress("test4@example.com","Example User 4")
           };
-        
+
           var subject = "Hello world email from Sendgrid ";
           var htmlContent = "<strong>Hello world with HTML content</strong>";
           var displayRecipients = false; // set this to true if you want recipients to see each others mail id 

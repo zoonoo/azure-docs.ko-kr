@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 34dddd8e5f3fb418fc7155630bf82a922e418402
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546724"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657093"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>삭제 된 Azure Database for MySQL 서버 복원
 
@@ -45,15 +45,15 @@ ms.locfileid: "92546724"
  6. 요청 본문 섹션에서 아래를 스크롤하고 "삭제 된 서버 위치", "submissionTimestamp" 및 "resourceId"를 대체 합니다. "RestorePointInTime"의 경우 "submissionTimestamp" 값을 **15 분** 으로 지정 하 여 명령이 오류를 출력 하지 않도록 합니다.
  
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
+    {
+        "location": "Dropped Server Location",  
+        "properties": 
+            {
+                "restorePointInTime": "submissionTimestamp - 15 minutes",
+                "createMode": "PointInTimeRestore",
+                "sourceServerId": "resourceId"
             }
-        }
+    }
     ```
 
 7. 201 또는 202 응답 코드가 표시 되 면 복원 요청이 성공적으로 전송 된 것입니다. 

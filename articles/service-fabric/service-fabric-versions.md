@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 46b1a7845a0da1ede30ed450f1e673f40e450105
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4407ddb80b00c847e14643be816bc681718dcb8b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905386"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652214"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -67,7 +67,7 @@ ms.locfileid: "96905386"
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
+| 시작 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 | Linux Ubuntu 18.04 | 7.1 |
 
@@ -85,7 +85,7 @@ ms.locfileid: "96905386"
 | 5.5 CU1 | 5.5.216.0    | 해당 없음 |
 | 5.5 CU2 | 5.5.219.0    | 해당 없음 |
 | 5.5 CU3 | 5.5.227.0    | 해당 없음 |
-| 5.5 CU4 | 5.5.232.0    | 해당 없음 |
+| 5.5 CU4 | 5.5.232.0 | 해당 없음 |
 | 5.6 RTO | 5.6.204.9494 | 해당 없음 |
 | 5.6 CU2 | 5.6.210.9494 | 해당 없음 |
 | 5.6 CU3 | 5.6.220.9494 | 해당 없음 |

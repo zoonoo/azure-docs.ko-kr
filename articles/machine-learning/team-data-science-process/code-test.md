@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce37ee51e549a2bd6f2747f28af8c038c39d8f1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020605"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656838"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 세트를 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
@@ -154,7 +154,7 @@ ms.locfileid: "96020605"
 * [UCI 소득 예측 리포지토리](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 참조하여 데이터 과학 시나리오에 대한 단위 테스트의 구체적인 예를 확인하세요.
 * 앞서 나온 사용자의 데이터 과학 프로젝트에서 UCI 소득 예측 시나리오의 개요 및 예제를 따릅니다.
 
-## <a name="references"></a>참조
+## <a name="references"></a>참고자료
 * [Team Data Science Process](./index.yml)
 * [Visual Studio 테스트 도구](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Azure DevOps 테스트 리소스](https://www.visualstudio.com/team-services/)

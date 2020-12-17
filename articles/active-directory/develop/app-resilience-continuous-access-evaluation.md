@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/06/2020
 ms.author: nichola
 ms.reviewer: ''
-ms.openlocfilehash: 86c379316737b7718b62165a6feb93ca3a0e9954
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f6ce792b3db0100d7356884bbc6ee2696580df10
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484042"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652061"
 ---
 # <a name="how-to-use-continuous-access-evaluation-enabled-apis-in-your-applications"></a>응용 프로그램에서 지속적인 액세스 평가를 사용 하도록 설정 된 Api를 사용 하는 방법
 
@@ -35,14 +35,14 @@ CAE ( [연속 액세스 평가](../conditional-access/concept-continuous-access-
 
 첫 번째 단계는 CAE로 인해 호출을 거부 하는 리소스 API의 응답을 처리 하는 코드를 추가 하는 것입니다. CAE를 사용 하는 경우 Api는 액세스 토큰이 해지 되었거나 API에서 사용 되는 IP 주소 변경을 감지한 경우 401 상태 및 WWW-Authenticate 헤더를 반환 합니다. WWW-Authenticate 헤더는 응용 프로그램이 새 액세스 토큰을 획득 하는 데 사용할 수 있는 클레임 챌린지를 포함 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 HTTP 401; Unauthorized
 WWW-Authenticate=Bearer
- authorization_uri="https://login.windows.net/common/oauth2/authorize",
- error="insufficient_claims",
- claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
+  authorization_uri="https://login.windows.net/common/oauth2/authorize",
+  error="insufficient_claims",
+  claims="eyJhY2Nlc3NfdG9rZW4iOnsibmJmIjp7ImVzc2VudGlhbCI6dHJ1ZSwgInZhbHVlIjoiMTYwNDEwNjY1MSJ9fX0="
 ```
 
 앱에서 다음을 확인 합니다.

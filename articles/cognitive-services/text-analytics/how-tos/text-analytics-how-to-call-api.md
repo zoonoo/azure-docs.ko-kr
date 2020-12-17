@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562568"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654832"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -52,8 +52,8 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 | 기능 | 동기 | 비동기 |
 |--|--|--|
 | 언어 검색 | ✔ |  |
-| 감정 분석 | ✔ |  |
-| 오피니언 마이닝 | ✔ |  |
+| 정서 분석 | ✔ |  |
+| 의견 마이닝 | ✔ |  |
 | 핵심 문구 추출 | ✔ | ✔* |
 | 명명 된 엔터티 인식 (PII 및 no 포함) | ✔ | ✔* |
 | 상태 (컨테이너)에 대 한 Text Analytics | ✔ |  |
@@ -63,9 +63,6 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 
 <a name="json-schema"></a>
 
@@ -116,7 +113,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 
 | 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
-|`displayName` | String | 선택 사항 | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
+|`displayName` | String | 옵션 | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
 |`analysisInput` | 아래 필드가 포함 됩니다. `documents` | 필수 | 보내려는 문서에 대 한 정보를 포함 합니다. |
 |`documents` | `id`아래와 필드를 포함 합니다. `text` | 필수 | 전송 중인 각 문서와 문서의 원시 텍스트에 대 한 정보를 포함 합니다. |
 |`id` | String | 필수 | 제공 하는 Id는 출력을 구조화 하는 데 사용 됩니다. |
@@ -125,7 +122,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 |`parameters` | `model-version`아래와 필드를 포함 합니다. `stringIndexType` | 필수 | 이 필드는 사용자가 선택한 위의 기능 작업 내에 포함 되어 있습니다. 여기에는 사용 하려는 모델 버전과 인덱스 형식에 대 한 정보가 포함 됩니다. |
 |`model-version` | String | 필수 | 사용 하려는 모델의 버전을 지정 합니다.  |
 |`stringIndexType` | String | 필수 | 프로그래밍 환경에 맞는 텍스트 디코더를 지정 합니다.  지원 되는 형식은 `textElement_v8` (기본값), `unicodeCodePoint` , `utf16CodeUnit` 입니다. 자세한 내용은 [텍스트 오프셋 문서](../concepts/text-offsets.md#offsets-in-api-version-31-preview) 를 참조 하세요.  |
-|`domain` | String | 선택 사항 | 는 작업에 매개 변수로만 적용 `entityRecognitionPiiTasks` 되며 또는로 설정할 수 있습니다 `pii` `phi` . `pii`지정 되지 않은 경우 기본적으로로 설정 됩니다.  |
+|`domain` | String | 옵션 | 는 작업에 매개 변수로만 적용 `entityRecognitionPiiTasks` 되며 또는로 설정할 수 있습니다 `pii` `phi` . `pii`지정 되지 않은 경우 기본적으로로 설정 됩니다.  |
 
 ```json
 {
@@ -211,7 +208,7 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
 | 언어 검색 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| 감정 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
+| 정서 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
 | 오피니언 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
 | 핵심 문구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | 명명 된 엔터티 인식-일반 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
