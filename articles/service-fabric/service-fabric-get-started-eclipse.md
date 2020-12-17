@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
-ms.openlocfilehash: c94f43b74edf5da18acd7e67417f3b7e10a07d5d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590871"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656923"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 애플리케이션을 만들며 Service Fabric 애플리케이션을 Eclipse의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다. 
@@ -53,7 +53,6 @@ Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치�
 
 > [!NOTE]
 >Eclipse가 Mac에서 예상대로 작동하지 않는 경우 또는 슈퍼 사용자로 실행해야 하는 경우 **ECLIPSE_INSTALLATION_PATH** 폴더로 이동하고 **Eclipse.app/Contents/MacOS** 하위 폴더를 탐색합니다. `./eclipse`를 실행하여 Eclipse를 시작합니다.
-
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse에서 Service Fabric 애플리케이션 만들기
 
@@ -156,7 +155,6 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 
 4. 콘솔 창에서 게시 작업의 진행률을 확인할 수 있습니다.
 5. 애플리케이션이 실행되고 있는지 확인하려면 브라우저 창의 Azure 클러스터에서 Service Fabric Explorer를 엽니다. 위의 예에서는 `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`입니다. **애플리케이션** 노드를 확장하고 애플리케이션이 실행 중인지 확인합니다. 
-
 
 보안 Linux 클러스터에서, 애플리케이션에 Reliable Services 서비스가 포함되는 경우 서비스에서 Service Fabric 런타임 API를 호출하는 데 사용할 수 있는 인증서도 구성해야 합니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.
 

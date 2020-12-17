@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8634cb009d801c7edbb14682bf9d83c25ba111a5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b9311329ea4115d49f36dd7d39782bbd748a356b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351438"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106107"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -87,15 +87,15 @@ ms.locfileid: "96351438"
     let json = JSON.stringify(JSON.parse(body), null, '  ');
     console.log (json);
     });
-        ```
+    ```
 
-## Send a request
+## <a name="send-a-request"></a>요청 보내기
 
-1. Create a function called `Search()` to send a search request. In it, perform the following steps:
+1. `Search()`라는 함수를 만들어 검색 요청을 보냅니다. 그 과정에서 다음 단계를 수행합니다.
 
-2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+2. 이 함수 내에서 요청 매개 변수를 포함하는 JSON 개체를 만듭니다. 메서드에 `Get`을 사용하고 호스트 및 경로 정보를 추가합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가합니다. 
 
-3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
+3. `https.request()`를 사용하여 이전에 만든 응답 처리기와 검색 매개 변수가 포함된 요청을 보냅니다.
     
    ```javascript
    let Search = function () {

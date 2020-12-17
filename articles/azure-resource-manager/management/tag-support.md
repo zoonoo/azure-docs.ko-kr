@@ -3,12 +3,12 @@ title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005727"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656974"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/group-filter.md) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -242,7 +242,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftagfoodplatform"></a>AgFoodPlatform
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | farmBeats | 예 | 예 |
 
@@ -333,7 +333,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftautomanage"></a>Microsoft Automanage
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 계정 | 예 | 예 |
 > | configurationprofil | 예 | 예 |
@@ -379,7 +379,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | environments | 예 | 예 |
 > | 환경/계정 | 예 | 예 |
@@ -429,7 +429,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftbaremetalinfrastructure"></a>BareMetalInfrastructure
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | bareMetalInstances | 예 | 예 |
 
@@ -747,7 +747,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftcodespaces"></a>Microsoft Codespaces
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 플랜 | 예 | 예 |
 > | registeredSubscriptions | 예 | 예 |
@@ -819,7 +819,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftconnectedcache"></a>ConnectedCache
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | CacheNodes | 예 | 예 |
 
@@ -960,7 +960,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftd365customerinsights"></a>D365CustomerInsights
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 인스턴스 | 예 | 예 |
 
@@ -1166,7 +1166,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftdeviceupdate"></a>Microsoft DeviceUpdate
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 계정 | 예 | 예 |
 > | 계정/인스턴스 | 예 | 예 |
@@ -1228,7 +1228,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | lcsprojects | 예 | 예 |
 > | lcsprojects/clouddeployments | 예 | 예 |
@@ -1302,7 +1302,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | enroll | 예 | 예 |
 > | galleryitems | 예 | 예 |
@@ -1393,7 +1393,7 @@ ms.locfileid: "96005727"
 ## <a name="microsofthybridnetwork"></a>HybridNetwork
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 디바이스 | 예 | 예 |
 > | networkFunctions | 예 | 예 |
@@ -1423,7 +1423,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | actionGroups | 예 | 예 |
 > | activityLogAlerts | 예 | 예 |
@@ -1450,7 +1450,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | 예 | 예 |
 > | diagnosticSettingsCategories | 예 | 예 |
@@ -1764,9 +1764,9 @@ ms.locfileid: "96005727"
 > | expressRoutePorts | 예 | 예 |
 > | expressRouteServiceProviders | 예 | 예 |
 > | firewallPolicies | 예 | 예 |
-> | frontdoors | 예, 제한 ( [아래 참고](#frontdoor)참조) | Yes |
-> | frontdoorWebApplicationFirewallManagedRuleSets | 예, 제한 ( [아래 참고](#frontdoor)참조) | No |
-> | frontdoorWebApplicationFirewallPolicies | 예, 제한 ( [아래 참고](#frontdoor)참조) | Yes |
+> | frontdoors | 예, 제한 ( [아래 참고](#frontdoor)참조) | 예 |
+> | frontdoorWebApplicationFirewallManagedRuleSets | 예, 제한 ( [아래 참고](#frontdoor)참조) | 예 |
+> | frontdoorWebApplicationFirewallPolicies | 예, 제한 ( [아래 참고](#frontdoor)참조) | 예 |
 > | getDnsResourceReference | 예 | 예 |
 > | internalNotify | 예 | 예 |
 > | ipGroups | 예 | 예 |
@@ -1825,7 +1825,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftnotebooks"></a>Microsoft. 전자 필기장
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | NotebookProxies | 예 | 예 |
 
@@ -2042,7 +2042,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftscvmm"></a>Microsoft ScVmm
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 클라우드 | 예 | 예 |
 > | VirtualMachines | 예 | 예 |
@@ -2118,7 +2118,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | 예 | 예 |
 > | diagnosticSettingsCategories | 예 | 예 |
@@ -2222,7 +2222,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftsingularity"></a>특이성
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 계정 | 예 | 예 |
 > | 계정/accountQuotaPolicies | 예 | 예 |
@@ -2250,10 +2250,10 @@ ms.locfileid: "96005727"
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | 예 | 예 |
-> | managedInstances/데이터베이스 | 예 ( [아래 참고](#sqlnote)참조) | Yes |
+> | managedInstances/데이터베이스 | 예 | 예 |
 > | managedInstances/databases/backupShortTermRetentionPolicies | 예 | 예 |
 > | managedInstances/데이터베이스/스키마/테이블/열/sensitivityLabels | 예 | 예 |
 > | managedInstances/databases/vulnerabilityAssessments | 예 | 예 |
@@ -2265,7 +2265,7 @@ ms.locfileid: "96005727"
 > | servers | 예 | 예 |
 > | servers / administrators | 예 | 예 |
 > | servers/communicationLinks | 예 | 예 |
-> | servers / databases | 예 ( [아래 참고](#sqlnote)참조) | Yes |
+> | servers / databases | 예 ( [아래 참고](#sqlnote)참조) | 예 |
 > | 서버/서버 보호기 | 예 | 예 |
 > | servers / firewallRules | 예 | 예 |
 > | servers / keys | 예 | 예 |
@@ -2315,7 +2315,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftstoragereplication"></a>StorageReplication
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | replicationGroups | 예 | 예 |
 
@@ -2369,7 +2369,7 @@ ms.locfileid: "96005727"
 > | ------------- | ----------- | ----------- |
 > | clusters | 예 | 예 |
 > | 클러스터/privateEndpoints | 예 | 예 |
-> | streamingjobs | 예(아래 참고를 참조) | Yes |
+> | streamingjobs | 예(아래 참고를 참조) | 예 |
 
 > [!NOTE]
 > streamingjobs를 실행 중일 때 태그를 추가할 수 없습니다. 태그를 추가하려면 리소스를 중지합니다.
@@ -2526,7 +2526,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | 예 | 예 |
 > | diagnosticSettingsCategories | 예 | 예 |
@@ -2548,7 +2548,7 @@ ms.locfileid: "96005727"
 ## <a name="microsoftworkloadbuilder"></a>WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | 비용 보고서의 태그 |
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | 작업 | 예 | 예 |
 > | 워크 로드/인스턴스 | 예 | 예 |

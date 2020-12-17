@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562534"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656294"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -34,8 +34,6 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 주소, 여권 번호 등의 개별 사람과 연결 된 텍스트에서 중요 한 엔터티를 식별 하 고 교정 할 수 있습니다.
 
 ## <a name="named-entity-recognition-features-and-versions"></a>명명 된 엔터티 인식 기능 및 버전
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | 기능                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
 |-----------------------------------------------------------------|--------|----------|
@@ -74,7 +72,7 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 
 ### <a name="request-endpoints"></a>요청 엔드포인트
 
-#### <a name="version-31-preview3"></a>[버전 3.1-preview. 3](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-preview)
 
 명명 된 엔터티 인식은 `v3.1-preview.3` NER, PII 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
