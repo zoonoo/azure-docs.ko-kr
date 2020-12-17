@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fa424f7e1f5e1f885dd433b8abc8aae1dc1bc206
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921037"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006201"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -72,7 +72,7 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
     ![포털 구성 3](media/lab-data-flow-data-share/configure3.png)
 1. 구성할 첫 번째 연결된 서비스는 Azure SQL DB입니다. 검색 창을 사용하여 데이터 저장소 목록을 필터링할 수 있습니다. **Azure SQL Database** 타일을 클릭하고 [계속]을 클릭합니다.
 
-    ![포털 구성 4](media/lab-data-flow-data-share/configure4.png)
+    ![포털 구성 4](media/lab-data-flow-data-share/configure-4.png)
 1. SQL DB 구성 창에서 연결된 서비스 이름으로 'SQLDB'를 입력합니다. 데이터 팩터리에서 데이터베이스에 연결할 수 있도록 자격 증명을 입력합니다. SQL 인증을 사용하는 경우 서비스 이름, 데이터베이스, 사용자 이름 및 암호를 입력합니다. **연결 테스트** 를 클릭하여 연결 정보가 올바른지 확인할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
     ![포털 구성 5](media/lab-data-flow-data-share/configure5.png)
@@ -81,10 +81,10 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
 1. 동일한 프로세스를 반복하여 Azure Synapse Analytics 연결된 서비스를 추가합니다. 연결 탭에서 **새로 만들기** 를 클릭합니다. **Azure Synapse Analytics** 타일을 선택하고 [계속]을 클릭합니다.
 
-    ![포털 구성 6](media/lab-data-flow-data-share/configure6.png)
+    ![포털 구성 6](media/lab-data-flow-data-share/configure-6.png)
 1. 연결된 서비스 구성 창에서 연결된 서비스 이름으로 'SQLDW'를 입력합니다. 데이터 팩터리에서 데이터베이스에 연결할 수 있도록 자격 증명을 입력합니다. SQL 인증을 사용하는 경우 서비스 이름, 데이터베이스, 사용자 이름 및 암호를 입력합니다. **연결 테스트** 를 클릭하여 연결 정보가 올바른지 확인할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
-    ![포털 구성 7](media/lab-data-flow-data-share/configure7.png)
+    ![포털 구성 7](media/lab-data-flow-data-share/configure-7.png)
 
 ### <a name="create-an-azure-data-lake-storage-gen2-linked-service"></a>Azure Data Lake Storage Gen2 연결된 서비스 만들기
 
@@ -128,7 +128,7 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
     ![포털 복사 4](media/lab-data-flow-data-share/copy4.png)
 1. **Azure SQL Database** 를 검색하고 [계속]을 클릭합니다.
 
-    ![포털 복사 5](media/lab-data-flow-data-share/copy5.png)
+    ![포털 복사 5](media/lab-data-flow-data-share/copy-5.png)
 1. 'TripData' 데이터 세트를 호출합니다. 연결된 서비스로 'SQLDB'를 선택합니다. 테이블 이름 드롭다운에서 테이블 이름 'dbo.TripData'를 선택합니다. **연결/저장소에서** 스키마를 가져옵니다. 작업이 완료되면 [확인]을 클릭합니다.
 
     ![포털 복사 6](media/lab-data-flow-data-share/copy6.png)
@@ -211,7 +211,7 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
     ![포털 데이터 흐름 9](media/lab-data-flow-data-share/dataflow9.png)
 1. **Azure SQL Database** 타일을 선택하고 [계속]을 클릭합니다. *참고: 데이터 팩터리의 여러 커넥터가 매핑 데이터 흐름에서 지원되지 않습니다. 이러한 원본 중 하나의 데이터를 변환하려면 복사 작업을 사용하여 지원되는 원본에 데이터를 수집하세요.*
 
-    ![포털 데이터 흐름 10](media/lab-data-flow-data-share/dataflow10.png)
+    ![포털 데이터 흐름 10](media/lab-data-flow-data-share/dataflow-10.png)
 1. 'TripFares' 데이터 세트를 호출합니다. 연결된 서비스로 'SQLDB'를 선택합니다. 테이블 이름 드롭다운에서 테이블 이름 'dbo.TripFares'를 선택합니다. **연결/저장소에서** 스키마를 가져옵니다. 작업이 완료되면 [확인]을 클릭합니다.
 
     ![포털 데이터 흐름 11](media/lab-data-flow-data-share/dataflow11.png)
@@ -276,7 +276,7 @@ Azure Data Factory에서 파이프라인은 함께 하나의 작업을 수행하
 
 1. **Azure Synapse Analytics** 타일을 선택하고 [계속]을 클릭합니다.
 
-    ![포털 싱크 3](media/lab-data-flow-data-share/sink3.png)
+    ![포털 싱크 3](media/lab-data-flow-data-share/sink-3.png)
 1. 'AggregatedTaxiData' 데이터 세트를 호출합니다. 연결된 서비스로 'SQLDW'를 선택합니다. **새 테이블 만들기** 를 선택하고 새 테이블의 이름을 dbo.AggregateTaxiData로 지정합니다. 작업이 완료되면 [확인]을 클릭합니다.
 
     ![포털 싱크 4](media/lab-data-flow-data-share/sink4.png)

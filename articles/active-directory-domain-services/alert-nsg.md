@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620259"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615650"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 네트워크 구성 경고
 
@@ -40,12 +40,12 @@ ms.locfileid: "96620259"
 
 | 우선순위 | Name | 포트 | 프로토콜 | 원본 | 대상 | 작업 |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | 모두 | Allow |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | 모두 | Allow |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | 모두 | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | 모두 | 거부<sup>1</sup> |
 | 65000    | AllVnetInBound | 모두 | 모두 | VirtualNetwork | VirtualNetwork | 허용 |
 | 65001    | AllowAzureLoadBalancerInBound | 모두 | 모두 | AzureLoadBalancer | 모두 | Allow |
 | 65500    | DenyAllInBound | 모두 | 모두 | 모두 | 모두 | 거부 |
+<sup>1</sup> 디버깅의 경우 선택 사항입니다. 고급 문제 해결에 필요한 경우 허용 합니다.
 
 > [!NOTE]
 > [보안 LDAP를 구성][configure-ldaps]하는 경우 인바운드 트래픽을 허용 하는 추가 규칙도 있을 수 있습니다. 이 추가 규칙은 올바른 LDAPS 통신에 필요 합니다.

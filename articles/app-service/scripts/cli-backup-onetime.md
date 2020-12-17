@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 2b8ab701140e3e797fcd7f2e6736d6058aa54886
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: cca0f927c6824642f11254743f3bdf275ca7e5d9
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834951"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006857"
 ---
 # <a name="back-up-an-app-using-cli"></a>CLI를 사용하여 앱 백업
 
@@ -38,14 +38,14 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | 스토리지 계정을 만듭니다. |
-| [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Azure Storage 컨테이너를 만듭니다. |
-| [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다.  |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 앱을 만듭니다. |
-| [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | App Service 앱에 대한 백업을 만듭니다. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | App Service 앱에 대한 백업 목록을 가져옵니다. |
+| [`az group create`](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az storage account create`](/cli/azure/storage/account#az-storage-account-create) | 스토리지 계정을 만듭니다. |
+| [`az storage container create`](/cli/azure/storage/container#az-storage-container-create) | Azure Storage 컨테이너를 만듭니다. |
+| [`az storage container generate-sas`](/cli/azure/storage/container#az-storage-container-generate-sas) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다.  |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | App Service 앱을 만듭니다. |
+| [`az webapp config backup create`](/cli/azure/webapp/config/backup#az-webapp-config-backup-create) | App Service 앱에 대한 백업을 만듭니다. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup#az-webapp-config-backup-list) | App Service 앱에 대한 백업 목록을 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

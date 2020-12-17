@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 995ca98a21e5ec392182bb48932765cca35acf3a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9881a5f37c32849fc4f10acda8346510977e6b7b
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562460"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005789"
 ---
 # <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Azure CLI를 사용하여 웹 서버 로그를 통해 App Service 앱 모니터링
 
@@ -38,11 +38,11 @@ ms.locfileid: "94562460"
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 앱을 만듭니다. |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | App Service 앱에서 유지하는 로그를 구성합니다. |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | App Service 앱의 로그를 로컬 머신에 다운로드합니다. |
+| [`az group create`](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | App Service 앱을 만듭니다. |
+| [`az webapp log config`](/cli/azure/webapp/log#az-webapp-log-config) | App Service 앱에서 유지하는 로그를 구성합니다. |
+| [`az webapp log download`](/cli/azure/webapp/log#az-webapp-log-download) | App Service 앱의 로그를 로컬 머신에 다운로드합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

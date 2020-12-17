@@ -10,13 +10,13 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
-ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 49dfed7faac1e55a40bc7b7ddd5e9555519350a2
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984433"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617309"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
 
-## <a name="using-powershell"></a>PowerShell 사용
+## <a name="using-powershell"></a>PowerShell 사용하기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -203,6 +203,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## <a name="limitations"></a>제한 사항
 - LTR 백업에서 복원 하는 경우에는 읽기 크기 조정 속성이 비활성화 됩니다. 복원 된 데이터베이스의 크기를 설정 하려면 데이터베이스를 만든 후 데이터베이스를 업데이트 합니다.
+- 데이터베이스가 탄력적 풀에 있을 때 생성 된 LTR 백업에서 복원 하는 경우 대상 서비스 수준 목표를 지정 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

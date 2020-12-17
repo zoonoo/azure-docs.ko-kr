@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579150"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617241"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure Data Share의 일반적인 문제 해결 
 
@@ -67,6 +67,10 @@ SQL 기반 공유에는 추가 권한이 필요 합니다. 자세한 필수 구�
 * 원본 또는 대상 데이터 저장소에 대 한 데이터 공유 연결이 방화벽에 의해 차단 되었습니다.
 * 공유 데이터 집합 또는 원본 또는 대상 데이터 저장소가 삭제 됩니다.
 
+저장소 계정의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다.
+
+* 스냅숏이 진행 되는 동안 파일을 원본에서 업데이트 하는 중입니다. 이로 인해 대상에 0 바이트 파일이 생성 될 수 있습니다. 원본에서 업데이트를 완료 한 후 후속 스냅숏이 성공 합니다.
+
 SQL 원본의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다. 
 
 * 데이터 공유 권한을 부여 하기 위한 원본 또는 대상 SQL 스크립트가 실행 되지 않습니다. 또는 Azure SQL Database 또는 Azure Synapse Analytics (이전의 Azure SQL DW)의 경우 Azure Active Directory 인증 대신 SQL 인증을 사용 하 여 실행 됩니다.  
@@ -75,6 +79,9 @@ SQL 원본의 경우 스냅숏 오류의 추가 원인은 다음과 같습니다
 * 원본 또는 대상 SQL 데이터 저장소가 다른 프로세스에 의해 잠겨 있습니다. Azure 데이터 공유는 원본 및 대상 SQL 데이터 저장소에 잠금을 적용 하지 않습니다. 그러나 원본 및 대상 SQL 데이터 저장소에 대 한 기존 잠금을 설정 하면 스냅숏 오류가 발생 합니다.
 * 대상 SQL 테이블은 foreign key 제약 조건에 의해 참조 됩니다. 스냅숏을 만들 때 동일한 이름의 대상 테이블이 있으면 Azure 데이터 공유는 테이블을 삭제 하 고 새 테이블을 만듭니다. Foreign key 제약 조건에서 대상 SQL 테이블을 참조 하는 경우에는 테이블을 삭제할 수 없습니다.
 * 대상 CSV 파일이 생성 되었지만 Excel에서 데이터를 읽을 수 없습니다. 원본 SQL 테이블에 영어가 아닌 문자가 포함 된 데이터가 포함 되어 있는 경우이 오류가 발생할 수 있습니다. Excel에서 ' 데이터 가져오기 ' 탭을 선택 하 고 CSV 파일을 선택 하 고 파일 원본으로 65001: 유니코드 (UTF-8)를 선택한 다음 데이터를 로드 합니다.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>스냅숏 일정 업데이트 후 스냅숏 문제
+데이터 공급자가 전송 된 공유에 대 한 스냅숏 일정을 업데이트 한 후 데이터 소비자는 이전 스냅숏 일정을 사용 하지 않도록 설정 하 고 수신 된 공유에 대해 업데이트 된 스냅숏 일정을 다시 사용 하도록 설정 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

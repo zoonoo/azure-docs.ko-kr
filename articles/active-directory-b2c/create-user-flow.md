@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbb55d71c2ed56bac14380960f9a0777be549566
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754457"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109015"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -91,4 +91,4 @@ Azure AD B2C(Azure Active Directory B2C) 테넌트에서 다양한 유형의 [�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD B2C 사용자 흐름에 조건부 액세스 추가](conditional-access-user-flow.md)
-- [Azure AD B2C 사용자 흐름에서 사용자 인터페이스 사용자 지정](customize-ui-overview.md)
+- [Azure AD B2C 사용자 흐름에서 사용자 인터페이스 사용자 지정](customize-ui-with-html.md)

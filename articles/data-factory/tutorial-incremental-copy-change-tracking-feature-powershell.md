@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3bd18f697c25f7e81f227e7e1456ba0b3d2150c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85fabb540180adb1848285f4c40f944225db2760
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541750"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508580"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>PowerShell을 사용하는 변경 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 
@@ -52,7 +52,7 @@ ms.locfileid: "91541750"
     3. 데이터베이스의 전체 데이터를 Azure Blob 스토리지로 로드합니다.
 2. **일정에 따라 델타 데이터 증분 로드**(데이터의 초기 로드 후 주기적으로 실행):
     1. SYS_CHANGE_VERSION의 이전 값과 새 값을 가져옵니다.
-    2. **sys.change_tracking_tables**의 변경된 행(두 SYS_CHANGE_VERSION 값 사이)의 기본 키를 **원본 테이블**의 데이터와 조인하여 델타 데이터를 로드한 다음 델타 데이터를 대상으로 이동합니다.
+    2. **sys.change_tracking_tables** 의 변경된 행(두 SYS_CHANGE_VERSION 값 사이)의 기본 키를 **원본 테이블** 의 데이터와 조인하여 델타 데이터를 로드한 다음 델타 데이터를 대상으로 이동합니다.
     3. 다음 번 델타 로드를 위해 the SYS_CHANGE_VERSION을 업데이트합니다.
 
 ## <a name="high-level-solution"></a>대략적인 솔루션
@@ -62,7 +62,7 @@ ms.locfileid: "91541750"
 
     ![데이터 전체 로드](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
 1.  **증분 로드:** 다음 작업이 있는 파이프라인을 만들어서 주기적으로 실행합니다.
-    1. Azure SQL Database의 이전 및 새 SYS_CHANGE_VERSION을 가져오도록 **두 가지 조회 작업**을 만들어서 복사 작업에 전달합니다.
+    1. Azure SQL Database의 이전 및 새 SYS_CHANGE_VERSION을 가져오도록 **두 가지 조회 작업** 을 만들어서 복사 작업에 전달합니다.
     2. 두 가지 SYS_CHANGE_VERSION 값 사이에 삽입된/업데이트된/삭제된 데이터를 Azure SQL Database에서 Azure Blob Storage로 복사하도록 **복사 작업을 하나** 만듭니다.
     3. 다음 번 파이프라인 실행을 위해 SYS_CHANGE_VERSION 값을 업데이트하도록 **저장 프로시저 작업을 하나** 만듭니다.
 
@@ -75,12 +75,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 * **Azure SQL Database**. 데이터베이스를 **원본** 데이터 저장소로 사용합니다. Azure SQL Database에 데이터베이스가 없는 경우 데이터베이스를 만드는 단계는 [Azure SQL Database에서 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서를 참조하세요.
-* **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **adftutorial**이라는 컨테이너를 만듭니다. 
+* **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **adftutorial** 이라는 컨테이너를 만듭니다. 
 
 ### <a name="create-a-data-source-table-in-your-database"></a>데이터베이스에 데이터 원본 테이블 만들기
 
-1. **SQL Server Management Studio**를 시작하고 SQL Database에 연결합니다.
-2. **서버 탐색기**에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
+1. **SQL Server Management Studio** 를 시작하고 SQL Database에 연결합니다.
+2. **서버 탐색기** 에서 **데이터베이스** 를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
 3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 데이터 원본 저장소로 `data_source_table`이라는 테이블을 만듭니다.  
 
     ```sql
@@ -143,8 +143,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     BEGIN
 
-        UPDATE table_store_ChangeTracking_version
-        SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
+    UPDATE table_store_ChangeTracking_version
+    SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
 
     END    
@@ -193,8 +193,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
-* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자** 이어야 합니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -203,7 +203,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스를 만듭니다.
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
 
-1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 만듭니다. (이 폴더가 아직 없으면 만듭니다.) 파일을 저장하기 전에 `<accountName>`과 `<accountKey>`를 Azure Storage 계정의 이름과 키로 바꿉니다.
+1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json** 이라는 JSON 파일을 만듭니다. (이 폴더가 아직 없으면 만듭니다.) 파일을 저장하기 전에 `<accountName>`과 `<accountKey>`를 Azure Storage 계정의 이름과 키로 바꿉니다.
 
     ```json
     {
@@ -216,7 +216,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         }
     }
     ```
-2. **Azure PowerShell**에서 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더로 전환합니다.
+2. **Azure PowerShell** 에서 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더로 전환합니다.
 3. **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 연결된 서비스를 만듭니다. **AzureStorageLinkedService** 연결된 서비스를 만듭니다. 다음 예제에서는 **ResourceGroupName** 및 **DataFactoryName** 매개 변수에 대한 값을 전달합니다.
 
     ```powershell
@@ -225,7 +225,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -235,7 +235,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-azure-sql-database-linked-service"></a>Azure SQL Database 연결 서비스를 만듭니다.
 이 단계에서는 데이터베이스를 데이터 팩터리에 연결합니다.
 
-1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; 및 &lt;password&gt;** 를 서버 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다.
+1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json** 이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; 및 &lt;password&gt;** 를 서버 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다.
 
     ```json
     {
@@ -248,7 +248,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         }
     }
     ```
-2. **Azure PowerShell**에서 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSQLDatabaseLinkedService** 연결된 서비스를 만듭니다.
+2. **Azure PowerShell** 에서 **Set-AzDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSQLDatabaseLinkedService** 연결된 서비스를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -256,7 +256,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     샘플 출력은 다음과 같습니다.
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -424,7 +424,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    샘플 출력은 다음과 같습니다.
 
-   ```json
+   ```console
     PipelineName      : FullCopyPipeline
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -442,22 +442,22 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 ### <a name="monitor-the-full-copy-pipeline"></a>전체 복사 파이프라인 모니터링
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **모든 서비스**를 클릭하고 `data factories` 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다.
+2. **모든 서비스** 를 클릭하고 `data factories` 키워드를 사용하여 검색하고 **데이터 팩터리** 를 선택합니다.
 
     ![데이터 팩터리 메뉴](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
-3. 데이터 팩터리 목록에서 **데이터 팩터리**를 검색하고 선택하여 데이터 팩터리 페이지를 시작합니다.
+3. 데이터 팩터리 목록에서 **데이터 팩터리** 를 검색하고 선택하여 데이터 팩터리 페이지를 시작합니다.
 
     ![데이터 팩터리 검색](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. 데이터 팩터리 페이지에서 **모니터링 및 관리** 타일을 클릭합니다.
 
     ![타일 모니터링 및 관리](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. **데이터 통합 애플리케이션**이 별도의 탭에서 시작됩니다. 모든 **파이프라인 실행**과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. **매개 변수** 열의 링크를 클릭하면 파이프라인에 전달된 매개 변수를 확인할 수 있습니다. 오류가 있으면 **오류** 열에 링크가 표시됩니다. **작업** 열의 링크를 클릭합니다.
+5. **데이터 통합 애플리케이션** 이 별도의 탭에서 시작됩니다. 모든 **파이프라인 실행** 과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공** 입니다. **매개 변수** 열의 링크를 클릭하면 파이프라인에 전달된 매개 변수를 확인할 수 있습니다. 오류가 있으면 **오류** 열에 링크가 표시됩니다. **작업** 열의 링크를 클릭합니다.
 
     ![스크린샷은 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
-6. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행**을 보여주는 다음 페이지가 표시됩니다.
+6. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행** 을 보여주는 다음 페이지가 표시됩니다.
 
     ![스크린샷은 파이프라인 링크가 호출된 데이터 팩터리에 대한 활동 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
-7. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인**을 클릭합니다.
+7. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인** 을 클릭합니다.
 
 
 ### <a name="review-the-results"></a>결과 검토
@@ -492,119 +492,116 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ```
 
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>델타 복사를 위한 파이프라인 만들기
-이 단계에서는 다음 작업이 있는 파이프라인을 만들어서 주기적으로 실행합니다. **조회 작업**은 Azure SQL Database에서 SYS_CHANGE_VERSION의 기존 및 새 값을 가져와서 만들어서 복사 작업에 전달합니다. **복사 작업**은 두 가지 SYS_CHANGE_VERSION 값 사이에 삽입된/업데이트된/삭제된 데이터를 Azure SQL Database에서 Azure Blob Storage로 복사합니다. **저장 프로시저 작업**은 다음 번 파이프라인 실행을 위해 SYS_CHANGE_VERSION 값을 업데이트합니다.
+이 단계에서는 다음 작업이 있는 파이프라인을 만들어서 주기적으로 실행합니다. **조회 작업** 은 Azure SQL Database에서 SYS_CHANGE_VERSION의 기존 및 새 값을 가져와서 만들어서 복사 작업에 전달합니다. **복사 작업** 은 두 가지 SYS_CHANGE_VERSION 값 사이에 삽입된/업데이트된/삭제된 데이터를 Azure SQL Database에서 Azure Blob Storage로 복사합니다. **저장 프로시저 작업** 은 다음 번 파이프라인 실행을 위해 SYS_CHANGE_VERSION 값을 업데이트합니다.
 
 1. JSON 파일 만들기: 동일한 폴더에 다음 내용이 포함된 IncrementalCopyPipeline.json을 만듭니다.
 
     ```json
     {
-            "name": "IncrementalCopyPipeline",
-            "properties": {
-                "activities": [
+        "name": "IncrementalCopyPipeline",
+        "properties": {
+            "activities": [
                 {
-                        "name": "LookupLastChangeTrackingVersionActivity",
-                        "type": "Lookup",
-                        "typeProperties": {
+                    "name": "LookupLastChangeTrackingVersionActivity",
+                    "type": "Lookup",
+                    "typeProperties": {
                         "source": {
                             "type": "SqlSource",
                             "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
-                            },
-
-                            "dataset": {
+                        },
+                        "dataset": {
                             "referenceName": "ChangeTrackingDataset",
                             "type": "DatasetReference"
-                            }
                         }
-                    },
-                    {
-                        "name": "LookupCurrentChangeTrackingVersionActivity",
-                        "type": "Lookup",
-                        "typeProperties": {
-                            "source": {
-                                "type": "SqlSource",
-                                "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
+                    }
+                },
+                {
+                    "name": "LookupCurrentChangeTrackingVersionActivity",
+                    "type": "Lookup",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
                         },
-
-                            "dataset": {
+                        "dataset": {
                             "referenceName": "SourceDataset",
                             "type": "DatasetReference"
-                            }
                         }
-                    },
-
-                    {
-                        "name": "IncrementalCopyActivity",
-                        "type": "Copy",
-                        "typeProperties": {
-                            "source": {
-                                "type": "SqlSource",
-                                "sqlReaderQuery": "select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}"
-                            },
-                            "sink": {
-                                "type": "BlobSink"
-                            }
-                        },
-                        "dependsOn": [
-                            {
-                                "activity": "LookupLastChangeTrackingVersionActivity",
-                                "dependencyConditions": [
-                                    "Succeeded"
-                                ]
-                            },
-                            {
-                                "activity": "LookupCurrentChangeTrackingVersionActivity",
-                                "dependencyConditions": [
-                                    "Succeeded"
-                                ]
-                        }
-                        ],
-
-                        "inputs": [
-                            {
-                            "referenceName": "SourceDataset",
-                                "type": "DatasetReference"
-                        }
-                        ],
-                        "outputs": [
-                            {
-                                "referenceName": "SinkDataset",
-                                "type": "DatasetReference"
-                            }
-                        ]
-                    },
-
-                {
-                        "name": "StoredProceduretoUpdateChangeTrackingActivity",
-                        "type": "SqlServerStoredProcedure",
-                        "typeProperties": {
-
-                            "storedProcedureName": "Update_ChangeTracking_Version",
-                            "storedProcedureParameters": {
-                            "CurrentTrackingVersion": {"value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}", "type": "INT64" },
-                                "TableName":  { "value":"@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}", "type":"String"}
-                            }
-                    },
-
-                        "linkedServiceName": {
-                        "referenceName": "AzureSQLDatabaseLinkedService",
-                            "type": "LinkedServiceReference"
-                        },
-
-                        "dependsOn": [
-                        {
-                                "activity": "IncrementalCopyActivity",
-                            "dependencyConditions": [
-                                    "Succeeded"
-                                ]
-                            }
-                        ]
                     }
-                ]
-
-            }
+                },
+                {
+                    "name": "IncrementalCopyActivity",
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}"
+                        },
+                        "sink": {
+                            "type": "BlobSink"
+                        }
+                    },
+                    "dependsOn": [
+                        {
+                            "activity": "LookupLastChangeTrackingVersionActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        },
+                        {
+                            "activity": "LookupCurrentChangeTrackingVersionActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ],
+                    "inputs": [
+                        {
+                            "referenceName": "SourceDataset",
+                            "type": "DatasetReference"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "referenceName": "SinkDataset",
+                            "type": "DatasetReference"
+                        }
+                    ]
+                },
+                {
+                    "name": "StoredProceduretoUpdateChangeTrackingActivity",
+                    "type": "SqlServerStoredProcedure",
+                    "typeProperties": {
+                        "storedProcedureName": "Update_ChangeTracking_Version",
+                        "storedProcedureParameters": {
+                            "CurrentTrackingVersion": {
+                                "value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}",
+                                "type": "INT64"
+                            },
+                            "TableName": {
+                                "value": "@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}",
+                                "type": "String"
+                            }
+                        }
+                    },
+                    "linkedServiceName": {
+                        "referenceName": "AzureSQLDatabaseLinkedService",
+                        "type": "LinkedServiceReference"
+                    },
+                    "dependsOn": [
+                        {
+                            "activity": "IncrementalCopyActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
     }
-
     ```
+
 2. Set-AzDataFactoryV2Pipeline cmdlet을 실행하여 파이프라인을 만듭니다. FullCopyPipeline 파이프라인을 만듭니다.
 
    ```powershell
@@ -613,7 +610,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 
    샘플 출력은 다음과 같습니다.
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADFTutorialResourceGroup
     DataFactoryName   : IncCopyChgTrackingDF
@@ -630,13 +627,13 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
-1. **데이터 통합 애플리케이션**에서 **파이프라인 실행** 보기를 새로 고칩니다. 목록에 IncrementalCopyPipeline이 표시되는지 확인합니다. **작업** 열의 링크를 클릭합니다.  
+1. **데이터 통합 애플리케이션** 에서 **파이프라인 실행** 보기를 새로 고칩니다. 목록에 IncrementalCopyPipeline이 표시되는지 확인합니다. **작업** 열의 링크를 클릭합니다.  
 
     ![스크린샷은 파이프라인을 포함한 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
-2. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행**을 보여주는 다음 페이지가 표시됩니다.
+2. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행** 을 보여주는 다음 페이지가 표시됩니다.
 
     ![스크린샷은 성공으로 표시된 여러 개의 데이터 팩터리에 대한 파이프라인 실행을 보여줍니다.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
-3. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인**을 클릭합니다.
+3. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인** 을 클릭합니다.
 
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 두 번째 파일이 표시됩니다.
@@ -655,8 +652,8 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ==================================================================
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
-1        update  10     2                     U
-6        new     50     1                     I
+1        update  10            2                                 U
+6        new     50            1                                 I
 ```
 
 

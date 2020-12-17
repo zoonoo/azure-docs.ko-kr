@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0cd9f0d6cf9529439f7b5ce46b1a5807d0a68a7c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 11a45adfda306b2ab843725b6aaa28a5e6c026a6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111388"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614254"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호에 복잡성 요구 사항 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "97111388"
 
 Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용자가 제공하는 암호에 복잡성 요구 사항을 변경하도록 지원합니다. 기본적으로 Azure AD B2C는 **강력한** 암호를 사용합니다. 또한 Azure AD B2C는 고객이 사용할 수는 암호의 복잡성을 제어하는 구성 옵션을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -218,7 +218,7 @@ Azure AD B2C(Azure Active Directory B2C)는 계정을 만들 때 최종 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경을 구성](custom-policy-password-change.md)하는 방법을 알아봅니다.
+- [Azure Active Directory B2C에서 암호 변경을 구성](add-password-change-policy.md)하는 방법에 대해 알아봅니다.
 - IEF 참조의 [조건자](predicates.md) 및 [PredicateValidations](predicates.md#predicatevalidations) 요소에 대해 자세히 알아보세요.
 
 

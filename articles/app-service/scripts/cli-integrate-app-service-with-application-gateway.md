@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3133d5f17643eeb1a0e9f77f7d0af6532c30592d
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3820e7bf00f99a846dd2be0edeaf4248e0dfd8ad
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561434"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97006087"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>CLI를 사용하여 Application Gateway와 App Service 통합
 
@@ -45,16 +45,16 @@ ms.locfileid: "94561434"
 
 | 명령 | 메모 |
 |---|---|
-| [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [`az network vnet create`](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create) | 가상 네트워크를 만듭니다. |
-| [`az network public-ip create`](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) | 공용 IP 주소를 만듭니다. |
-| [`az network public-ip show`](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show) | 공용 IP 주소의 세부 정보를 표시합니다. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service 웹앱을 만듭니다. |
-| [`az webapp show`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-show) | App Service 웹앱의 세부 정보를 표시합니다. |
-| [`az webapp config access-restriction add`](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest#az-webapp-config-access-restriction-add) | 액세스 제한을 App Service 웹앱에 추가합니다. |
-| [`az network application-gateway create`](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-create) | Application Gateway를 만듭니다. |
-| [`az network application-gateway http-settings update`](/cli/azure/network/application-gateway/http-settings?view=azure-cli-latest#az-network-application-gateway-http-settings-update) | Application Gateway HTTP 설정을 업데이트합니다. |
+| [`az group create`](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [`az network vnet create`](/cli/azure/network/vnet#az-network-vnet-create) | 가상 네트워크를 만듭니다. |
+| [`az network public-ip create`](/cli/azure/network/public-ip#az-network-public-ip-create) | 공용 IP 주소를 만듭니다. |
+| [`az network public-ip show`](/cli/azure/network/public-ip#az-network-public-ip-show) | 공용 IP 주소의 세부 정보를 표시합니다. |
+| [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) | App Service 계획을 만듭니다. |
+| [`az webapp create`](/cli/azure/webapp#az-webapp-create) | App Service 웹앱을 만듭니다. |
+| [`az webapp show`](/cli/azure/webapp#az-webapp-show) | App Service 웹앱의 세부 정보를 표시합니다. |
+| [`az webapp config access-restriction add`](/cli/azure/webapp/config/access-restriction#az-webapp-config-access-restriction-add) | 액세스 제한을 App Service 웹앱에 추가합니다. |
+| [`az network application-gateway create`](/cli/azure/network/application-gateway#az-network-application-gateway-create) | Application Gateway를 만듭니다. |
+| [`az network application-gateway http-settings update`](/cli/azure/network/application-gateway/http-settings#az-network-application-gateway-http-settings-update) | Application Gateway HTTP 설정을 업데이트합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

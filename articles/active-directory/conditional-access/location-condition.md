@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b647b5ee9dbd7a0447bbb69a47db76685daa1102
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030198"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615714"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>조건부 액세스 정책에서 위치 조건 사용 
 
@@ -195,6 +195,9 @@ Azure AD로 프록시를 가져오는 대부분의 IPv6 트래픽은 Microsoft E
 ### <a name="api-support-and-powershell"></a>API 지원 및 PowerShell
 
 명명 된 위치에 대 한 Graph API 미리 보기 버전을 사용할 수 있습니다. 자세한 내용은 [Namedlocation API](/graph/api/resources/namedlocation?view=graph-rest-beta)를 참조 하세요.
+
+> [!NOTE]
+> PowerShell을 사용 하 여 만든 명명 된 위치는 명명 된 위치 (미리 보기)에만 표시 됩니다. 이전 보기에서는 명명 된 위치를 볼 수 없습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
