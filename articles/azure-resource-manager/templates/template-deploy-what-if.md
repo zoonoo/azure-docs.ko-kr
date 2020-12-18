@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: tomfitz
-ms.openlocfilehash: a1ce7f8f718b364dc4b47593cf9ea37e8baf1e72
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563095"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673973"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>ARM 템플릿 배포 가상 작업
 
@@ -396,6 +396,7 @@ Azure Sdk를 통해 가상 작업을 사용할 수 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - 가상 작업에서 잘못 된 결과가 표시 되는 경우에서 문제를 보고 하세요 [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
+- 무엇을 사용 하는지 설명 하는 Microsoft Learn 모듈의 경우 [변경 내용 미리 보기 및 가상 및 ARM 템플릿 테스트 도구 키트를 사용 하 여 Azure 리소스 유효성 검사](/learn/modules/arm-template-test/)를 참조 하세요.
 - Azure PowerShell를 사용 하 여 템플릿을 배포 하려면 [ARM 템플릿과 Azure PowerShell를 사용 하 여 리소스 배포](deploy-powershell.md)를 참조 하세요.
 - Azure CLI를 사용 하 여 템플릿을 배포 하려면 [ARM 템플릿과 Azure CLI를 사용 하 여 리소스 배포](deploy-cli.md)를 참조 하세요.
 - REST를 사용 하 여 템플릿을 배포 하려면 [ARM 템플릿을 사용 하 여 리소스 배포 및 리소스 관리자 REST API](deploy-rest.md)를 참조 하세요.

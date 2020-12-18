@@ -1,6 +1,6 @@
 ---
 title: 가격 책정 & 청구 모델
-description: 가격 책정 및 청구 모델의 작동 방식에 대 한 개요 Azure Logic Apps
+description: 가격 책정 및 대금 청구를 Azure Logic Apps 하는 방법에 대 한 개요
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 520b4a0e87f27a90a604947ae0b558066b4ab82f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9243d089b4a000066ec03dbeeccd046db374f558
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937596"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673113"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -65,11 +65,11 @@ ISE에서 만들고 실행 하는 논리 앱의 경우 다음과 같은 기능�
 
   * **개발자** ISE SKU: 단일 [무료 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정
 
-  SKU와 관계 없이 각 ISE에는 [제한 된 수의 통합 계정이](logic-apps-limits-and-config.md#integration-account-limits)있을 수 있습니다. 추가 비용으로이 제한을 높일 수 있습니다.
+  추가 비용을 위해 [총 제한까지](logic-apps-limits-and-config.md#integration-account-limits)ISE에 대 한 더 많은 통합 계정을 만들 수 있습니다. 
 
-  * **프리미엄** ISE SKU: 최대 4 개의 표준 계정이 있습니다. 무료 또는 기본 계정이 없습니다.
+  * **프리미엄** ISE SKU: 최대 19 개 이상의 표준 계정. 체험 또는 기본 계정은 허용되지 않습니다.
 
-  * **개발자** ISE SKU: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정 중 하나입니다. 기본 계정이 없습니다.
+  * **개발자** ISE SKU: 무료 계정이 이미 있는 경우 최대 19 개의 표준 계정, 무료 계정이 없는 경우 20 개의 총 표준 계정 기본 계정은 허용되지 않습니다.
 
   통합 계정 제한에 대 한 자세한 내용은 [Azure Logic Apps에 대 한 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요. [통합 계정 계층 및 해당 가격 책정 모델](#integration-accounts) 에 대 한 자세한 내용은이 항목의 뒷부분에서 확인할 수 있습니다.
 
@@ -95,7 +95,7 @@ Azure Logic Apps 커넥터를 사용 하면 [트리거](#triggers), [작업](#ac
 
 <a name="actions"></a>
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>Actions
 
 기본 작업으로 "기본 제공" 작업 (예: HTTP)을 Azure Logic Apps 합니다. 예를 들어 기본 제공 작업에는 HTTP 호출, Azure Functions 또는 API Management의 호출 및 조건, 루프, switch 문 등의 제어 흐름 단계가 포함 됩니다. 각 작업에는 고유한 작업 유형이 있습니다. 예를 들어 [커넥터](/connectors) 를 호출 하는 작업에는 "ApiConnection" 형식이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류 되며 해당 [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)에 따라 측정 됩니다. *미리 보기* 의 엔터프라이즈 커넥터는 표준 커넥터로 요금이 청구 됩니다.
 
@@ -118,7 +118,7 @@ Azure Logic Apps 성공 및 실패 한 모든 작업을 실행으로 측정 합�
 
 Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다. 기본 및 표준 계층은 Logic Apps SLA (서비스 수준 계약)에서 지원 되지만 무료 계층은 SLA에서 지원 되지 않으며 지역 가용성, 처리량 및 사용에 대 한 제한이 있습니다. 무료 계층 통합 계정을 제외 하 고 각 Azure 지역에 둘 이상의 통합 계정을 사용할 수 있습니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
 
-[SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 관계 없이 [ise ( *통합 서비스 환경* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)가 있는 경우 ise에는 제한 된 수의 [통합 계정이](logic-apps-limits-and-config.md#integration-account-limits)포함 될 수 있지만 [추가 비용으로이 제한을 높일](#fixed-pricing)수 있습니다. ISE에 대 한 고정 가격 책정 모델이 작동 하는 방법을 알아보려면이 항목의 이전 [고정 가격 책정 모델](#fixed-pricing) 섹션을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
+[Ise ( *통합 서비스 환경*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))가 있는 경우 포함 된 계정 유형이 [ise SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 달라 지지만 ise는 추가 비용 없이 단일 통합 계정을 사용할 수 있습니다. [추가 비용](#fixed-pricing)을 위해 [통합 계정에 대 한 총 제한](logic-apps-limits-and-config.md#integration-account-limits)까지 ISE에 대 한 더 많은 통합 계정을 만들 수 있습니다. ISE에 대 한 고정 가격 책정 모델이 작동 하는 방법을 알아보려면이 항목의 이전 [고정 가격 책정 모델](#fixed-pricing) 섹션을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 
 무료, 기본 또는 표준 통합 계정 중에서 선택 하려면 다음과 같은 사용 사례 설명을 검토 합니다.
 

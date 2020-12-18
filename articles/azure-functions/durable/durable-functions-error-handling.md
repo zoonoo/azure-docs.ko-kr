@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 오류를 처리�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 6650322834d491d78470e2d8dbd24e2c6750ae39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081698"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673650"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
@@ -196,11 +196,15 @@ main = df.Orchestrator.create(orchestrator_function)
 * **백오프 계수**: 백오프의 증가율을 결정하는 데 사용되는 계수입니다. 기본값은 1입니다.
 * **최대 다시 시도 간격**: 다시 시도 간에 기다리는 최대 시간입니다.
 * **다시 시도 시간 제한**: 다시 시도하는 데 소요되는 최대 시간입니다. 기본 동작은 무기한으로 다시 시도하는 것입니다.
-* **핸들**: 사용자 정의 콜백을 지정 하 여 함수를 다시 시도해 야 하는지 여부를 결정할 수 있습니다.
+* **핸들**: 사용자 정의 콜백을 지정 하 여 함수를 다시 시도해 야 하는지 여부를 결정할 수 있습니다. 
+
+> [!NOTE]
+> 사용자 정의 콜백은 현재 JavaScript ()의 Durable Functions에서 지원 되지 않습니다 `context.df.RetryOptions` .
+
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 
-완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재이 작업을 수행 하는 적절 한 방법은 다음 예제와 같이 (.net), (javascript) 또는 ( [durable timer](durable-functions-timers.md) `context.CreateTimer` `context.df.createTimer` `context.create_timer` python)과 함께 ( `Task.WhenAny` .net), `context.df.Task.any` (javascript) 또는 (python `context.task_any` )를 사용 하 여 내구성이 있는 타이머를 만드는 것입니다.
+완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재이 작업을 수행 하는 적절 한 방법은 다음 예제와 같이 (.net), (javascript) 또는 ( [](durable-functions-timers.md) `context.CreateTimer` `context.df.createTimer` `context.create_timer` python)과 함께 ( `Task.WhenAny` .net), `context.df.Task.any` (javascript) 또는 (python `context.task_any` )를 사용 하 여 내구성이 있는 타이머를 만드는 것입니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

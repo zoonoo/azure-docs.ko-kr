@@ -2,13 +2,13 @@
 title: 템플릿을 사용한 조건부 배포
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 0a31bd1fbf755046f331542b4d5952b27a793360
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905998"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672851"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>ARM 템플릿의 조건부 배포
 
@@ -90,5 +90,6 @@ ms.locfileid: "96905998"
 
 ## <a name="next-steps"></a>다음 단계
 
+* 조건부 배포를 다루는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.
 * 템플릿을 만드는 방법에 대 한 권장 사항은 [ARM 템플릿 모범 사례](template-best-practices.md)를 참조 하세요.
 * 리소스의 여러 인스턴스를 만들려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.

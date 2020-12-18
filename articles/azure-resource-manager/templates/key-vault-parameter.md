@@ -2,13 +2,13 @@
 title: 템플릿이 있는 Key Vault 암호
 description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 8983d51d90e07e21ac4c9489c7ed553530278d3c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84677868"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672708"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
@@ -377,3 +377,4 @@ New-AzResourceGroupDeployment `
 
 - Key Vault에 대한 일반적 내용은 [Azure Key Vault란?](../../key-vault/general/overview.md)을 참조하세요.
 - 키 비밀을 참조하는 전체 예제는 [키 자격 증명 모음 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
+- 키 자격 증명 모음에서 보안 값을 전달 하는 방법에 대해 설명 하는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.

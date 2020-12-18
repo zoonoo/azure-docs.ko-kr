@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2fa8794066739302d2f32acb13c936c524dc89a8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e74a58a14bdcc2a6fe1e9f86305aae415c6abf7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422351"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674517"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Azure CLI에서 읽기 복제본을 만들고 관리 REST API
 
@@ -34,7 +34,7 @@ ms.locfileid: "93422351"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 주 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md) 입니다.
@@ -189,7 +189,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 주 서버 및 읽기 복제본에 대 한 복제를 중지 한 후에는 실행 취소할 수 없습니다. 읽기 복제본은 읽기 및 쓰기를 둘 다 지원하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
 
 ```http
-PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}?api-version=2017-12-01
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{replicaServerName}?api-version=2017-12-01
 ```
 
 ```json

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1658e6adf0c9de0cbd7412b963fb9a134f633430
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3754a56d1520118937a9d4aad406ae657b4dd23b
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179702"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673667"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Clarizen One 구성
 
@@ -78,19 +78,19 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 을 선택합니다.
 
-    ![엔터프라이즈 애플리케이션 창을 보여 주는 스크린샷](common/enterprise-applications.png)
+      ![엔터프라이즈 애플리케이션 창을 보여 주는 스크린샷](common/enterprise-applications.png)
 
 1. 애플리케이션 목록에서 **Clarizen One** 을 선택합니다.
 
-    ![애플리케이션 목록에서 Clarizen One 링크를 보여 주는 스크린샷](common/all-applications.png)
+      ![애플리케이션 목록에서 Clarizen One 링크를 보여 주는 스크린샷](common/all-applications.png)
 
 1. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭을 보여 주는 스크린샷](common/provisioning.png)
+      ![프로비저닝 탭을 보여 주는 스크린샷](common/provisioning.png)
 
 1. **프로비전 모드** 를 **자동** 으로 설정합니다.
 
-    ![프로비저닝 탭의 자동 옵션을 보여 주는 스크린샷](common/provisioning-automatic.png)
+      ![프로비저닝 탭의 자동 옵션을 보여 주는 스크린샷](common/provisioning-automatic.png)
 
 1. **관리자 자격 증명** 섹션 아래에서 Clarizen One **테넌트 URL** 및 **비밀 토큰** 을 입력합니다. **연결 테스트** 를 선택하여 Azure AD에서 Clarizen One에 연결할 수 있는지 확인합니다. 연결이 실패하면 Clarizen One 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
@@ -162,15 +162,15 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 1. Azure AD 프로비저닝 서비스를 Clarizen One에 사용하도록 설정하려면 **설정** 섹션에서 **프로비저닝 상태** 를 **켜기** 로 변경합니다.
 
-    ![켜기로 전환된 프로비저닝 상태를 보여 주는 스크린샷](common/provisioning-toggle-on.png)
+      ![켜기로 전환된 프로비저닝 상태를 보여 주는 스크린샷](common/provisioning-toggle-on.png)
 
 1. **설정** 의 **범위** 섹션에서 원하는 값을 선택하여 Clarizen One에 프로비저닝하려는 사용자 또는 그룹을 정의합니다.
 
-    ![프로비저닝 범위를 보여 주는 스크린샷](common/provisioning-scope.png)
+      ![프로비저닝 범위를 보여 주는 스크린샷](common/provisioning-scope.png)
 
 1. 프로비저닝할 준비가 되면 **저장** 을 선택합니다.
 
-    ![프로비저닝 구성 저장을 보여 주는 스크린샷](common/provisioning-configuration-save.png)
+      ![프로비저닝 구성 저장을 보여 주는 스크린샷](common/provisioning-configuration-save.png)
 
 이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다.
 
