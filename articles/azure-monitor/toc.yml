@@ -546,10 +546,10 @@
           items:
             - name: IT Service Management Connector
               href: platform/itsmc-overview.md
-            - name: IT Service Management Connector 정의
-              href: platform/itsmc-definition.md
             - name: IT Service Management 연결
               href: platform/itsmc-connections.md
+            - name: IT Service Management Connector 정의
+              href: platform/itsmc-definition.md
             - name: Service Manager 웹앱 만들기
               href: platform/itsmc-service-manager-script.md
             - name: ITSM 커넥터의 문제 해결
@@ -1201,7 +1201,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:
