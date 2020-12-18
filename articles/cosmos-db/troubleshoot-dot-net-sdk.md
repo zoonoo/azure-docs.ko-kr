@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545930"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683104"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,9 +54,16 @@ ms.locfileid: "96545930"
 ### <a name="check-the-portal-metrics"></a>포털 메트릭 확인
 [포털 메트릭을](./monitor-cosmos-db.md) 확인 하면 클라이언트 쪽 문제 인지 또는 서비스에 문제가 있는지 확인 하는 데 도움이 됩니다. 예를 들어, 메트릭에 처리율이 제한 된 요청 (HTTP 상태 코드 429)이 포함 된 경우 요청을 제한 하는 것을 의미 하는 요청 [빈도 너무 큼](troubleshoot-request-rate-too-large.md) 섹션을 확인 합니다. 
 
+## <a name="retry-logic"></a>다시 시도 논리 <a id="retry-logics"></a>
+SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한 작업을 다시 시도 합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
+
+1. 읽기 및 쿼리 IO 오류는 SDK에서 최종 사용자에 게 표시 하지 않고 다시 시도 됩니다.
+2. 쓰기 (Create, Upsert, Replace, Delete)는 "not" idempotent 이므로 SDK는 항상 실패 한 쓰기 작업을 무조건 다시 시도할 수 없습니다. 사용자의 응용 프로그램 논리에서 오류를 처리 하 고 다시 시도 해야 합니다.
+3. [Sdk 가용성 문제](troubleshoot-sdk-availability.md) 는 다중 지역 Cosmos DB 계정의 재시도에 대해 설명 합니다.
+
 ## <a name="common-error-status-codes"></a>일반적인 오류 상태 코드 <a id="error-codes"></a>
 
-| 상태 코드 | 설명 | 
+| 상태 코드 | Description | 
 |----------|-------------|
 | 400 | 잘못 된 요청 (오류 메시지에 따라 다름)| 
 | 401 | [권한 없음](troubleshoot-unauthorized.md) | 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 27af0ffdeb254dbb671a0618d0e9973336a7f529
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559017"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683536"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -68,7 +68,7 @@ ms.locfileid: "96559017"
 
 ---
 
-지원 되는 엔터티의 전체 목록에 대해서는 Text Analytics에서 반환 된 [엔터티 범주](../named-entity-types.md?tabs=health) 를 참조 하세요.
+지원 되는 엔터티의 전체 목록에 대해서는 Text Analytics에서 반환 된 [엔터티 범주](../named-entity-types.md?tabs=health) 를 참조 하세요. 신뢰 점수에 대 한 자세한 내용은 [Text Analytics 투명도 메모](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context)를 참조 하세요. 
 
 ### <a name="supported-languages-and-regions"></a>지원 되는 언어 및 지역
 

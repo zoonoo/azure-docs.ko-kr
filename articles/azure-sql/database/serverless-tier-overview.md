@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902513"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97687394"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 - **최소 vcores** 및 **최대 vcores** 는 데이터베이스에 사용할 수 있는 계산 용량의 범위를 정의 하는 구성 가능한 매개 변수입니다. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
 - **Autopause delay** 는 데이터베이스를 자동으로 일시 중지 하기 전에 비활성 상태로 유지 해야 하는 기간을 정의 하는 구성 가능한 매개 변수입니다. 데이터베이스는 다음 로그인 또는 다른 작업이 발생할 때 자동으로 다시 시작 됩니다.  또는 autopausing를 사용 하지 않도록 설정할 수 있습니다.
 
-### <a name="cost"></a>비용
+### <a name="cost"></a>Cost
 
 - 서버를 사용 하지 않는 데이터베이스에 대 한 비용은 계산 비용 및 저장소 비용의 합계입니다.
 - 계산 사용법이 구성 된 최소 및 최대 한도 사이에 있는 경우 계산 비용은 vCore 및 사용 되는 메모리를 기반으로 합니다.
@@ -69,7 +69,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 | 시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
 | **성능 관리 작업** |더 낮음|더 높음|
 |**컴퓨팅 크기 조정**|자동|수동|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
@@ -138,7 +138,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |투명한 데이터 암호화|투명 한 데이터 암호화 상태 보기|
 |취약점 평가|임시 검색 및 정기적 검색 사용 (사용 하도록 설정 된 경우)|
 |쿼리(성능) 데이터 저장소|쿼리 저장소 설정 수정 또는 보기|
-|성능 추천 사항|성능 권장 사항 보기 또는 적용|
+|성능 권장 사항|성능 권장 사항 보기 또는 적용|
 |자동 튜닝|자동 인덱싱과 같은 자동 실행 추천 사항의 적용 및 확인|
 |데이터베이스 복사|복사본으로 데이터베이스를 만듭니다.<br>BACPAC 파일로 내보냅니다.|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
@@ -196,7 +196,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 

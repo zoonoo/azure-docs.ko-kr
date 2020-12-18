@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656294"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683359"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
@@ -52,7 +52,7 @@ PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 
 * `domain=phi`기밀 상태 정보를 검색 하는 선택적 매개 변수 ( `PHI` )입니다.
 * 끝점을 사용 하는 [비동기 작업](text-analytics-how-to-call-api.md) `/analyze` 입니다.
 
-자세한 내용은 아래의 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요. 
+자세한 내용은 아래의 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요. 신뢰 점수에 대 한 자세한 내용은 [Text Analytics 투명도 메모](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context)를 참조 하세요. 
 
 ## <a name="sending-a-rest-api-request"></a>REST API 요청 보내기
 

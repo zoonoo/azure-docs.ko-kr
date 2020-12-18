@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec0d6d618edad87b76861ea834adb2f29531e6f5
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 62793e0551c914b77310a0e9b72fea31ec621848
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929670"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683380"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포 하 고 결과를 검토 하는 방법
 
@@ -117,7 +117,7 @@ ms.locfileid: "96929670"
 
 REST API를 사용하여 업데이트 배포를 만드는 방법은 [소프트웨어 업데이트 구성 - 만들기](/rest/api/automation/softwareupdateconfigurations/create)를 참조하세요.
 
-샘플 Runbook을 사용하여 주간 업데이트 배포를 만들 수 있습니다. 이 Runbook에 대한 자세한 내용은 [리소스 그룹에 있는 하나 이상의 VM에 대한 주간 업데이트 배포 만들기](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1)를 참조하세요.
+샘플 Runbook을 사용하여 주간 업데이트 배포를 만들 수 있습니다. 이 Runbook에 대한 자세한 내용은 [리소스 그룹에 있는 하나 이상의 VM에 대한 주간 업데이트 배포 만들기](https://github.com/azureautomation/create-a-weekly-update-deployment-for-one-or-more-vms-in-a-resource-group)를 참조하세요.
 
 ## <a name="check-deployment-status"></a>배포 상태 확인
 

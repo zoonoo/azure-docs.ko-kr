@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 6259de345b534bfb51ef6ba1a9c3895800546caf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605499"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683199"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>상태 비저장 전용 노드 유형 (미리 보기)을 사용 하 여 Azure Service Fabric 클러스터 배포
 Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노드에 배치 될 수 있다는 가정 하에 제공 됩니다. 상태 비저장 노드 형식은 노드 형식에 대 한 이러한 가정을 완화 하므로 더 빠른 규모 확장 작업과 같은 다른 기능을 사용할 수 있도록 하 고, 단일 가상 머신 확장 집합에서 100 개 보다 많은 노드를 확장 하 여 청동 내구성에서 자동 OS 업그레이드를 지원 합니다.
@@ -44,7 +44,7 @@ Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노�
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -71,9 +71,9 @@ Service Fabric 노드 형식은 특정 시점에 상태 저장 서비스가 노�
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>상태 비저장 노드 형식에 대 한 가상 머신 확장 집합을 구성 하는 중
 상태 비저장 노드 형식을 사용 하려면 다음과 같은 방법으로 기본 가상 머신 확장 집합 리소스를 구성 해야 합니다.
 
-* 100 개 이상의 Vm으로 크기를 조정 하는 요구 사항에 따라 true/false로 설정 해야 하는  **Singleplacementgroup** 속성 값입니다.
-* 롤링으로 설정 해야 하는 확장 집합의 **Upgrademode** 입니다.
-* 롤링 업그레이드 모드를 사용 하려면 응용 프로그램 상태 확장 또는 상태 프로브를 구성 해야 합니다. 아래 제안 된 대로 상태 비저장 노드 형식에 대 한 기본 구성을 사용 하 여 상태 프로브를 구성 합니다. 응용 프로그램이 nodetype에 배포 되 면 상태 프로브/상태 확장 포트를 변경 하 여 응용 프로그램 상태를 모니터링할 수 있습니다.
+* 100 개 이상의 Vm으로 크기를 조정 해야 하는 경우 **false** 로 설정 해야 하는 **Singleplacementgroup** 속성 값입니다.
+* **모드** 를 **롤링** 으로 설정 해야 하는 확장 집합의 **upgradepolicy** 입니다.
+* 롤링 업그레이드 모드를 사용 하려면 응용 프로그램 상태 확장 또는 상태 프로브를 구성 해야 합니다. 아래 제안 된 대로 상태 비저장 노드 형식에 대 한 기본 구성을 사용 하 여 상태 프로브를 구성 합니다. 응용 프로그램이 노드 형식에 배포 되 면 상태 프로브/상태 확장 포트를 변경 하 여 응용 프로그램 상태를 모니터링할 수 있습니다.
 
 ```json
 {

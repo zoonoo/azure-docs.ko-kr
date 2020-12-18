@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 78e705812609fc6feef3d162b7716871f579a5cd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bb1c29f292cc099eaa7a84094f6f4a2674ae02aa
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675862"
+ms.locfileid: "97682733"
 ---
 # <a name="partner-solutions"></a>파트너 솔루션
 
@@ -23,4 +23,4 @@ Azure Cognitive Search를 포함 하는 종단 간 솔루션을 구축 하는 Mi
 |---------|-------------|----------------------|
 | ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "Company logo") | [**Orangenxt**](https://orangenxt.com/) 는 특정 사용 사례에 대해 개발 된 사용자 지정 논리를 포함 하는 데이터 통합, 데이터 모델링 및 빌드 기술력과에 대 한 전문 지식을 제공 합니다.<br/><br/>[**DigitalNXT search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) 는 Azure Cognitive Search 파이프라인에서 AI, OCR (광학 문자 인식) 및 자연어 처리를 결합 하 여 여러 구조화 된 데이터 소스와 비구조적 데이터 소스에서 검색 결과를 추출 하는 데 도움이 되는 OrangeNXT 솔루션입니다. **DigitalNXT Search** 는 선택한 데이터를 해석 하 고 상관 관계를 지정 하는 고급 사용자 지정 인식 기술입니다.<br/><br/>| [제품 페이지](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 
-[ **DigitalNXT** 사례 연구](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) 를 검토 하 여 특정 솔루션에 대해 자세히 살펴봅니다.
+<!-- Review [**digitalNXT** case studies](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) for a closer look at specific solutions. -->
