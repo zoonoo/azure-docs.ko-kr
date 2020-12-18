@@ -193,7 +193,7 @@ Azure AD와의 호환성을 보장하기 위해 SCIM 엔드포인트를 구현�
 이 섹션에서는 Azure AD SCIM 클라이언트에서 내보낸 예제 SCIM 요청 및 예상 응답 예제를 제공합니다. 최상의 결과를 위해서는 요청을 이 형식으로 처리하고 예상되는 응답을 내보내는 앱을 코딩해야 합니다.
 
 > [!IMPORTANT]
-> Azure AD 사용자 프로비저닝 서비스에서 아래에 설명된 작업을 내보내는 방법과 시기를 알아보려면 [프로비저닝 주기 섹션을 참조하세요. [프로비저닝 작동 방식](how-provisioning-works.md)의 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental)
+> Azure AD 사용자 프로비저닝 서비스에서 아래에 설명된 작업을 내보내는 방법과 시기를 알아보려면 [프로비저닝 작동 방식](how-provisioning-works.md)의 [프로비저닝 주기: 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 섹션을 참조하세요.
 
 [사용자 작업](#user-operations)
   - [사용자 만들기](#create-user)([요청](#request) / [응답](#response))

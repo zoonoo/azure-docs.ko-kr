@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b15ee7091a68f7fcc79c71877c4af28b511b84de
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896381"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680138"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -24,16 +24,16 @@ ms.locfileid: "92896381"
 
 다음과 같은 다양 한 시나리오에서 열 지도를 사용할 수 있습니다.
 
-- **온도 데이터** : 두 데이터 요소 사이의 온도에 대 한 근사치을 제공 합니다.
-- **노이즈 센서에 대 한 데이터** : 센서가 있는 노이즈의 강도 뿐만 아니라 거리를 통한 분산에 대 한 통찰력을 제공할 수도 있습니다. 한 사이트의 노이즈 수준이 높지 않을 수 있습니다. 여러 센서의 노이즈 범위 영역이 겹치면 겹치는 영역에서 더 높은 의미의 소음을 겪을 수 있습니다. 따라서 겹쳐진 영역은 열 지도에 표시 됩니다.
-- **GPS 추적** : 속도를 가중치 높이 맵으로 포함 합니다. 여기서 각 데이터 요소의 강도는 속도를 기반으로 합니다. 예를 들어이 기능을 통해 차량의 속도를 빠르게 확인할 수 있습니다.
+- **온도 데이터**: 두 데이터 요소 사이의 온도에 대 한 근사치을 제공 합니다.
+- **노이즈 센서에 대 한 데이터**: 센서가 있는 노이즈의 강도 뿐만 아니라 거리를 통한 분산에 대 한 통찰력을 제공할 수도 있습니다. 한 사이트의 노이즈 수준이 높지 않을 수 있습니다. 여러 센서의 노이즈 범위 영역이 겹치면 겹치는 영역에서 더 높은 의미의 소음을 겪을 수 있습니다. 따라서 겹쳐진 영역은 열 지도에 표시 됩니다.
+- **GPS 추적**: 속도를 가중치 높이 맵으로 포함 합니다. 여기서 각 데이터 요소의 강도는 속도를 기반으로 합니다. 예를 들어이 기능을 통해 차량의 속도를 빠르게 확인할 수 있습니다.
 
 > [!TIP]
 > 열 지도 계층은 기본적으로 데이터 원본에 있는 모든 기 하 도형의 좌표를 렌더링 합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 속성을로 설정 `['==', ['geometry-type'], 'Point']` 합니다. MultiPoint 기능도 포함 하려면 `filter` 계층의 속성을로 설정 `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 합니다.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Heat-Maps-and-Image-Overlays-in-Azure-Maps/player?format=ny]
 
 ## <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -103,7 +103,7 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="일관 된 확대/열 지도" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>열 지도</a> 를 볼 수 <a href='https://codepen.io/azuremaps'>@azuremaps</a> 있습니다. <a href='https://codepen.io'>CodePen</a>
+CodePen의 Azure Maps ()를 기준으로 펜 일치 확대/ <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>열 지도</a> 를 볼 수 <a href='https://codepen.io/azuremaps'>@azuremaps</a> 있습니다. <a href='https://codepen.io'></a>
 </iframe>
 
 > [!TIP]

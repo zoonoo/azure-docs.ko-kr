@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511919"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679195"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -156,7 +156,7 @@ Python 스크립트 실행 모듈에는 시작 지점으로 사용할 수 있는
     1. 스크립트 및 기타 사용자 지정 리소스를 zip 파일에 번들로 묶습니다.
     1. **파일 데이터 집합** 으로 zip 파일을 스튜디오에 업로드 합니다. 
     1. 디자이너 제작 페이지의 왼쪽 모듈 창에 *있는 데이터 집합 목록에서* 데이터 집합 모듈을 끌어 옵니다. 
-    1. **R 스크립트 실행** 모듈의 **스크립트 번들** 포트에 데이터 집합 모듈을 연결 합니다.
+    1. 데이터 집합 모듈을 **Python 스크립트 실행** 모듈의 **스크립트 번들** 포트에 연결 합니다.
     
     업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 됩니다.
  

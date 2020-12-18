@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 25829b45c06aa9e451c305eb319f650ed5b8e16a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: b3f84d48cd65c37495f00a17b586ff4a6954795d
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347305"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680861"
 ---
 # <a name="copy-data-from-ftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 FTP 서버에서 데이터 복사
 
@@ -188,6 +188,8 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 데이터 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대한 동시 연결 수를 제한하려는 경우에만 지정합니다. | 예 |
 
+데이터를 FTP로 복사 하는 경우 현재 ADF는 파일 길이를 먼저 가져온 다음 여러 부분으로 나누어 파일을 병렬로 읽습니다. FTP 서버가 파일 길이 가져오기 또는 특정 오프셋에서 읽기를 지원 하지 않는 경우 오류가 발생할 수 있습니다.
+
 **예:**
 
 ```json
@@ -269,7 +271,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **FileShare** |예 |
 | folderPath | 파일의 경로입니다. 와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -314,7 +316,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **FileSystemSource** |예 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false** 입니다. | 예 |

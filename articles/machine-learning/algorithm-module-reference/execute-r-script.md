@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 12/02/2020
-ms.openlocfilehash: 57b4b6f3f49e9b82ada4b37c8e2de0697781e063
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 12/17/2020
+ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510593"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679106"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -50,6 +50,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 > [!NOTE]
 > 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다 (예:) `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
+
+> [!WARNING]
+> Excute R 스크립트 모듈은 `qdap` c + +를 필요로 하는 JAVA 및 패키지를 필요로 하는 패키지와 같이 네이티브 컴파일이 필요한 패키지를 설치 하는 것을 지원 하지 않습니다 `drc` . 이 모듈은 비관리자 권한이 있는 사전 설치 된 환경에서 실행 되기 때문입니다.
 
 이 샘플은 동물원을 설치 하는 방법을 보여 줍니다.
 ```R

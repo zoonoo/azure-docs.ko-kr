@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 848db19fe855e3ce171fe54c7962309fab977ed5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: dc89631208c6a72c4b48d49260f584149d6c4260
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446344"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679941"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Azure Storage 탐색기 지원 수명 주기 및 정책
 
@@ -41,6 +41,7 @@ Storage 탐색기은 [최신 수명 주기 정책](https://support.microsoft.com
 
 | Storage 탐색기 버전  | 릴리스 날짜       | 지원 종료 날짜 |
 |:-------------------------:|:------------------:|:-------------------:|
+| v 1.17.0                   | 2020 년 12 월 15 일  | 2021 년 12 월 15 일   |
 | v 1.16.0                   | 2020년 11월 10일  | 2021 년 11 월 10 일   |
 | v 1.15.1                   | 2020 년 9 월 2 일  | 2021 년 9 월 2 일   |
 | v 1.15.0                   | 2020 년 8 월 27 일    | 2021 년 8 월 27 일     |

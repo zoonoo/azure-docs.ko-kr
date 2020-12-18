@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591902"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680305"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -28,7 +28,7 @@ ms.locfileid: "97591902"
 
 Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트)는 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. Azure Data Factory는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 활용하여 다양한 ADF 엔터티(파이프라인, 데이터 세트, 데이터 흐름 등)의 구성을 저장합니다. Data Factory를 다른 환경으로 승격시키는 두 가지 제안된 방법이 있습니다.
 
--    Data Factory와 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)의 통합을 사용한 자동화된 배포
+-    Data Factory와 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)의 통합을 사용한 자동화된 배포
 -    Azure Resource Manager와 Data Factory UX의 통합을 사용하여 Resource Manager 템플릿을 수동으로 업로드합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -115,7 +115,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
 
 1.  릴리스 파이프라인을 저장합니다.
 
-1. 릴리스를 트리거하려면 **릴리스 만들기** 를 선택합니다. 릴리스 만들기를 자동화하려면 [Azure DevOps 릴리스 트리거](/azure/devops/pipelines/release/triggers?view=azure-devops)를 참조하세요.
+1. 릴리스를 트리거하려면 **릴리스 만들기** 를 선택합니다. 릴리스 만들기를 자동화하려면 [Azure DevOps 릴리스 트리거](/azure/devops/pipelines/release/triggers)를 참조하세요.
 
    ![릴리스 만들기 선택](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 
 * 자동화 CI/CD를 사용하고 Resource Manager 배포 중에 일부 속성을 변경하려고 하지만 속성은 기본적으로 매개 변수화되지 않습니다.
 * 팩터리가 너무 커서 허용되는 최대 매개 변수(256)를 초과했기 때문에 기본 Resource Manager 템플릿이 유효하지 않습니다.
+
+    사용자 지정 매개 변수 256 제한을 처리 하려면 3 가지 옵션을 사용할 수 있습니다.    
+  
+    * 사용자 지정 매개 변수 파일을 사용 하 고 매개 변수화가 필요 하지 않은 속성 (예: 기본값을 유지할 수 있는 속성)을 제거 합니다. 따라서 매개 변수 개수를 줄일 수 있습니다.
+    * 데이터 흐름의 논리를 리팩터링 하 여 매개 변수를 줄입니다. 예를 들어 파이프라인 매개 변수는 모두 동일한 값을 가지 며, 대신 전역 매개 변수를 사용할 수 있습니다.
+    * 하나의 데이터 팩터리를 여러 데이터 흐름으로 분할 합니다.
 
 기본 매개 변수화 템플릿을 재정의 하려면 관리 허브로 이동 하 여 소스 제어 섹션에서 **매개 변수화 템플릿** 을 선택 합니다. **템플릿 편집** 을 선택 하 여 매개 변수화 템플릿 코드 편집기를 엽니다. 
 
@@ -639,7 +645,7 @@ Git가 구성되지 않은 경우 **ARM 템플릿** 목록에서 **ARM 템플릿
 
 ## <a name="exposure-control-and-feature-flags"></a>노출 컨트롤 및 기능 플래그
 
-팀에서 작업 하는 경우 변경 내용을 병합할 수 있지만 PROD 및 QA와 같은 높은 환경에서 실행 하지 않으려는 경우가 있습니다. 이 시나리오를 처리 하기 위해 ADF 팀은 [기능 플래그를 사용 하는 DevOps 개념](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops)을 권장 합니다. ADF에서 [전역 매개 변수](author-global-parameters.md) 및 [if 조건 작업](control-flow-if-condition-activity.md) 을 결합 하 여 이러한 환경 플래그에 따라 논리 집합을 숨길 수 있습니다.
+팀에서 작업 하는 경우 변경 내용을 병합할 수 있지만 PROD 및 QA와 같은 높은 환경에서 실행 하지 않으려는 경우가 있습니다. 이 시나리오를 처리 하기 위해 ADF 팀은 [기능 플래그를 사용 하는 DevOps 개념](/azure/devops/migrate/phase-features-with-feature-flags)을 권장 합니다. ADF에서 [전역 매개 변수](author-global-parameters.md) 및 [if 조건 작업](control-flow-if-condition-activity.md) 을 결합 하 여 이러한 환경 플래그에 따라 논리 집합을 숨길 수 있습니다.
 
 기능 플래그를 설정 하는 방법을 알아보려면 아래 비디오 자습서를 참조 하세요.
 

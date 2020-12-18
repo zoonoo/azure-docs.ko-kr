@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: f43f516b0999c4d5b775fc9b78dea9b05e228f0d
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6670d6dc676ebefa149815253d5ce65c8a9b1abe
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346251"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680941"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 HDFS 서버에서 데이터 복사
 
@@ -42,7 +42,7 @@ HDFS 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 - *Webhdfs* 프로토콜 또는 *기본 제공 distcp* 지원을 사용 하 여 파일을 복사 합니다.
 - 파일을 있는 그대로 복사 하거나 [지원 되는 파일 형식 및 압축 코덱을](supported-file-formats-and-compression-codecs.md)사용 하 여 파일을 구문 분석 하거나 생성 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -59,7 +59,7 @@ HDFS 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
 HDFS 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | *유형* 속성은 *Hdfs* 로 설정 되어야 합니다. | 예 |
 | url |HDFS에 대 한 URL입니다. |예 |
@@ -120,7 +120,7 @@ HDFS 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니�
 
 다음은 `location` 형식 기반 데이터 집합의 설정에서 HDFS에 대해 지원 되는 속성입니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 집합의 아래에 있는 *type* 속성은 `location` *HdfsLocation* 로 설정 해야 합니다. | 예      |
 | folderPath | 폴더에 대 한 경로입니다. 와일드 카드를 사용 하 여 폴더를 필터링 하려면이 설정을 건너뛰고 활동 원본 설정에서 경로를 지정 합니다. | 예       |
@@ -162,9 +162,9 @@ HDFS 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니�
 
 다음은 `storeSettings` 형식 기반 복사 원본의 설정에서 HDFS에 대해 지원 되는 속성입니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | 아래의 *type* 속성은 `storeSettings` **HdfsReadSettings** 로 설정 해야 합니다. | 예                                           |
+| type                     | 아래의 *type* 속성은 `storeSettings` **HdfsReadSettings** 로 설정 해야 합니다. | yes                                           |
 | **_복사할 파일 찾기_* _ |  |  |
 | 옵션 1: 정적 경로<br> | 데이터 집합에 지정 된 폴더 또는 파일 경로에서 복사 합니다. 폴더의 모든 파일을 복사하려면 `wildcardFileName`을 `_`로 지정합니다. |  |
 | 옵션 2: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링할 와일드카드 문자가 포함된 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`실제 폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br>더 많은 예제는 [폴더 및 파일 필터 예](#folder-and-file-filter-examples)를 참조 하세요. | 예                                            |
@@ -253,7 +253,7 @@ _ *예:**
 
 복사 작업은 DistCp를 사용 하 여 Azure Blob storage ( [준비 된 복사](copy-activity-performance.md)포함) 또는 azure data lake store에 있는 그대로 파일을 복사 하도록 지원 합니다. 이 경우 DistCp는 자체 호스팅 통합 런타임에서 실행 되는 대신 클러스터의 기능을 활용할 수 있습니다. DistCp를 사용 하면 특히 클러스터가 매우 강력한 경우 더 나은 복사 처리량이 제공 됩니다. 데이터 팩터리의 구성에 따라 복사 작업은 자동으로 DistCp 명령을 생성 하 고,이를 Hadoop 클러스터에 제출 하 고, 복사 상태를 모니터링 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 DistCp를 사용 하 여 HDFS에서 Azure Blob storage (준비 된 복사 포함) 또는 Azure data lake store로 파일을 복사 하려면 Hadoop 클러스터가 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -284,7 +284,7 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 1. Webhdfs에 대 한 HTTP 보안 주체 및 keytab를 만듭니다.
 
     > [!IMPORTANT]
-    > HTTP Kerberos 보안 주체는 Kerberos HTTP SPNEGO 사양에 따라 "**http/**"로 시작 해야 합니다.
+    > HTTP Kerberos 보안 주체는 Kerberos HTTP SPNEGO 사양에 따라 "**http/**"로 시작 해야 합니다. [여기](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#HDFS_Configuration_Options)에서 자세히 알아보세요.
 
     ```bash
     Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
@@ -435,7 +435,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     b. **그룹 정책 관리 편집기** 창에서 **컴퓨터 구성**  >  **정책**  >  **Windows 설정**  >  **보안 설정**  >  **로컬 정책**  >  **보안 옵션** 을 선택 하 고 **네트워크 보안 구성: Kerberos에 허용 된 암호화 유형 구성** 을 선택 합니다.
 
-    c. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택 합니다. 모든 옵션을 선택할 수 있습니다.
+    다. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택 합니다. 모든 옵션을 선택할 수 있습니다.
 
     !["네트워크 보안: Kerberos에 허용 된 암호화 유형 구성" 창 스크린샷](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
@@ -451,7 +451,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     b. **보기** > **고급 기능** 을 선택하여 고급 기능을 구성합니다.
 
-    c. **고급 기능** 창에서 매핑을 만들 계정을 마우스 오른쪽 단추로 클릭 하 고 **이름 매핑** 창에서 **Kerberos 이름** 탭을 선택 합니다.
+    다. **고급 기능** 창에서 매핑을 만들 계정을 마우스 오른쪽 단추로 클릭 하 고 **이름 매핑** 창에서 **Kerberos 이름** 탭을 선택 합니다.
 
     d. 영역에서 보안 주체를 추가합니다.
 
@@ -485,7 +485,7 @@ Delete 작업 속성에 대 한 자세한 내용은 [Azure Data Factory에서 �
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 *type* 속성은 파일 *공유* 로 설정 해야 합니다. |예 |
 | folderPath | 폴더에 대 한 경로입니다. 와일드 카드 필터를 사용할 수 있습니다. 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 (0 개 이상의 문자 `?` 일치)입니다. `^` 실제 파일 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -530,7 +530,7 @@ Delete 작업 속성에 대 한 자세한 내용은 [Azure Data Factory에서 �
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 *type* 속성은 *HdfsSource* 로 설정 해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. Recursive를 *true* 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용되는 값은 *true*(기본값) 및 *false* 입니다. | 예 |

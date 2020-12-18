@@ -6,22 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855008"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678926"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
 
 이 문서에서는 Data Box 및 Data Box Heavy 장치에서 수행 되는 구성 및 관리 작업에 대해 설명 합니다. Azure Portal UI와 장치의 로컬 웹 UI를 통해 Data Box 및 Data Box Heavy 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용 하 여 수행 되는 작업에 대해 집중적으로 설명 합니다.
 
 Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성에 사용 됩니다. 로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작 하 고, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고, 장치에서 로컬 데이터를 지우고, Microsoft 지원에 대 한 지원 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 장치에서는 장치의 각 노드에 해당 하는 두 개의 개별 로컬 웹 Ui에 액세스할 수 있습니다.
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>지원 패키지 생성
 

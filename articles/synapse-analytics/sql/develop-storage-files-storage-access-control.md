@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446620"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400678"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
 서버리스 SQL 풀 쿼리는 Azure Storage에서 직접 파일을 읽습니다. Azure Storage의 파일에 액세스할 수 있는 권한은 두 가지 수준으로 제어됩니다.
 - **스토리지 수준** - 사용자에게 기본 스토리지 파일에 액세스할 수 있는 권한이 있어야 합니다. 스토리지 관리자가 Azure AD 보안 주체에게 파일 읽기/쓰기를 허용하거나 스토리지에 액세스하는 데 사용할 SAS 키를 생성해야 합니다.
-- **SQL 서비스 수준** - 사용자에게 [외부 테이블](develop-tables-external-tables.md)의 데이터를 읽을 수 있는 `SELECT` 권한이나 `OPENROWSET`를 실행할 수 있는 `ADMINISTER BULK ADMIN` 권한이 있고 스토리지에 액세스하는 데 사용할 자격 증명을 사용할 권한도 있어야 합니다.
+- **SQL 서비스 수준** - 사용자는 [외부 테이블](develop-tables-external-tables.md)을 사용하여 데이터를 읽거나 `OPENROWSET` 함수를 실행할 수 있는 권한을 부여해야 합니다. [이 섹션에서 필요한 권한](develop-storage-files-overview.md#permissions)에 대해 자세히 알아보세요.
 
 이 문서에서는 사용할 수 있는 자격 증명의 유형과 SQL 및 Azure AD 사용자에 대한 자격 증명 조회가 적용되는 방법에 대해 설명합니다.
 
@@ -84,7 +84,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 | 권한 부여 유형  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨\*      | 지원되지 않음   | 지원됨\*     |
-| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원됨        | 지원 여부     |
+| [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원 여부        | 지원 여부     |
 | [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부\*      | 지원 여부\*        | 지원 여부\*     |
 
 \* SAS 토큰 및 Azure AD ID를 사용하여 방화벽으로 보호되지 않는 스토리지에 액세스할 수 있습니다.

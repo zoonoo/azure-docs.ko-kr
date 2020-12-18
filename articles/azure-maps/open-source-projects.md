@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 138160eb1515d1443302dbc23bbafa482e2eb905
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 0f0d94dbc7b2c720faa1da41a88e3c3313dac377
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904553"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680753"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
@@ -38,13 +38,20 @@ ms.locfileid: "96904553"
 | 프로젝트 이름 | Description |
 |-|-|
 | [Azure Maps 애니메이션 모듈](https://github.com/Azure-Samples/azure-maps-animations) | Azure Maps 웹 SDK와 함께 사용 하기 위한 풍부한 애니메이션 라이브러리입니다. |
+| [데이터를 View 컨트롤 모듈로 가져오기 Azure Maps](https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control) | 지도에 로드 된 데이터를 보기 쉽게 가져올 수 있도록 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
 | [지리적 위치 제어 모듈 Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | 브라우저의 지리적 위치 API를 사용 하 여 맵에서 사용자를 찾는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
 | [Azure Maps Gridded 데이터 원본 모듈](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | 데이터 요소를 표 영역 셀로 클러스터링 하는 데이터 원본을 제공 하는 Azure Maps 웹 SDK 용 모듈입니다. 이 작업은 조각 맞춤, 데이터 바인딩, 16 진 bin 등의 여러 이름으로도 알려져 있습니다.  |
 | [Azure Maps 전체 화면 컨트롤 모듈](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | 지도를 전체 화면 모드로 표시 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
+| [HTML 표식 계층 모듈 Azure Maps](https://github.com/Azure-Samples/azure-maps-html-marker-layer) | 데이터 원본의 지점 데이터를 맵의 HTML 요소로 렌더링 하는 계층을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
+| [Azure Maps 이미지 내보내기 모듈](https://github.com/Azure-Samples/azure-maps-image-exporter) | 지도의 스크린샷을 생성 하는 Azure Maps 웹 SDK 용 모듈입니다. |
+| [Azure Maps 개요 맵 모듈](https://github.com/Azure-Samples/azure-maps-overview-map) | 기본 지도가 포커스가 있는 영역의 개요 맵을 표시 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
+| [Azure Maps Scale Bar 컨트롤 모듈](https://github.com/Azure-Samples/azure-maps-scale-bar-control) | 지도 중심의 픽셀 해상도를 기준으로 눈금 막대를 표시 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
 | [Azure Maps Selection 컨트롤 모듈](https://github.com/Azure-Samples/azure-maps-selection-control) | 그리기 도구를 사용 하거나 경로 범위 다각형을 요청 하 여 데이터 소스에서 데이터를 선택 하는 컨트롤을 제공 하는 Azure Maps 웹 SDK 모듈입니다. |
+| [Azure Maps Services UI 모듈](https://github.com/Azure-Samples/azure-maps-services-ui) | Azure Maps REST 서비스를 래핑하는 웹 UI 컨트롤의 집합입니다. |
+| [Azure Maps 스파이더 클러스터 모듈](https://github.com/Azure-Samples/azure-maps-spider-clusters) | 클러스터를 나선형 스파이더 레이아웃으로 확장 하는 시각화를 맵에 추가 하는 Azure Maps 웹 SDK 용 모듈입니다. |
+| [Azure Maps Spyglass 제어 모듈](https://github.com/Azure-Samples/azure-maps-spyglass-control) | 맵의 spyglass 내부에 데이터 집합을 표시 하는 창을 제공 하는 Azure Maps 웹 SDK 모듈입니다.  |
 | [Azure Maps 살짝 밀기 맵 모듈](https://github.com/Azure-Samples/azure-maps-swipe-map) | 두 개의 겹치는 데이터 집합을 비교 하는 데 이상적인 두 개의 겹치는 맵 간에 살짝 밀기 할 수 있는 Azure Maps 웹 SDK 용 모듈입니다. |
 | [Azure Maps 동기화 맵 모듈](https://github.com/Azure-Samples/azure-maps-sync-maps) | 두 개 이상의 지도의 카메라를 동기화 하는 Azure Maps 웹 SDK 모듈입니다. |
-| [Azure Maps Services UI 모듈](https://github.com/Azure-Samples/azure-maps-services-ui) | Azure Maps REST 서비스를 래핑하는 웹 UI 컨트롤의 집합입니다. |
 
 **샘플**
 
@@ -53,6 +60,7 @@ ms.locfileid: "96904553"
 | [Azure Maps 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 웹 기반 앱에서 Azure Maps를 사용 하기 위한 코드 샘플 모음입니다. |
 | [Azure Maps .Gov 클라우드 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Azure Government 클라우드를 통해 Azure Maps를 사용 하는 코드 샘플 모음입니다. |
 | [Azure Maps & Azure Active Directory 샘플](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Azure Maps에서 Azure Active Directory를 사용 하는 방법을 보여 주는 샘플 모음입니다. | 
+| [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Azure Maps Creator를 사용 하 여 Azure Maps 위에 IoT 데이터의 라이브 실내 지도 시각화를 제공 하는 샘플 응용 프로그램 |
 | [Azure Maps Jupyter Notebook 샘플](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Azure Maps REST 서비스를 사용 하는 python 샘플 모음입니다. |
 | [Azure Maps .NET UWP IoT 원격 제어](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Azure Maps 및 IoT hub 서비스를 사용 하 여 원격으로 제어 되는 맵을 빌드하는 방법을 보여 주는 샘플 응용 프로그램입니다. |
 | [Azure Maps를 사용하여 IoT 공간 분석 구현](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | 공간과 시간에서 발생하는 관련 이벤트를 추적하고 캡처하는 것은 일반적인 IoT 시나리오입니다. |

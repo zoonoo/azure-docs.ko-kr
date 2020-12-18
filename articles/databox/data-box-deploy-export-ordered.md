@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96003175"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680791"
 ---
-# <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>자습서: Azure Data Box (미리 보기)에 대 한 내보내기 순서 만들기
+# <a name="tutorial-create-export-order-for-azure-data-box"></a>자습서: Azure Data Box 내보내기 순서 만들기
 
 Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 있도록 하는 하이브리드 솔루션입니다. 이 자습서에서는 Azure Data Box에 대 한 내보내기 주문을 만드는 방법을 설명 합니다. 내보내기 순서를 만드는 주된 이유는 재해 복구를 위한 것입니다. 온-프레미스 저장소가 손상 되 고 백업을 복원 해야 하는 경우가 여기에 해당 합니다.
 
@@ -27,8 +27,6 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 > * 내보내기에 대 한 Data Box 주문
 > * 내보내기 순서 추적
 > * 내보내기 순서를 취소 합니다.
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +68,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |전송 형식     | **Azure로 내보내기를** 선택 합니다.        |
     |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
-    |리소스 그룹     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |Resource group     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |원본 Azure 지역    |    현재 데이터가 있는 Azure 지역을 선택 합니다.         |
     |대상 국가     |     장치를 배송 하려는 국가를 선택 합니다.        |
 
@@ -125,49 +123,49 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
     ![Data Box 가져오기 주문 마법사의 보안 화면](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
 
-10. 자신의 고객이 관리 하는 키를 사용 하 여 새 리소스에 대 한 잠금 해제 암호를 보호 하려는 경우 **암호화 유형** 을 확장 합니다.
+10. 사용자 고유의 고객 관리형 키를 사용하여 새 리소스에 대한 잠금 해제 암호를 보호하려면 **암호화 유형** 을 펼칩니다.
 
-    Azure Data Box에 대 한 고객 관리 키를 구성 하는 것은 선택 사항입니다. 기본적으로 Data Box는 Microsoft 관리 키를 사용 하 여 잠금 해제 암호를 보호 합니다.
+    Azure Data Box에 대한 고객 관리형 키 구성은 선택 사항입니다. 기본적으로 Data Box는 Microsoft 관리형 키를 사용하여 잠금 해제 암호를 보호합니다.
 
-    고객 관리 키는 장치의 데이터가 암호화 되는 방식에 영향을 주지 않습니다. 키는 장치 잠금 해제 암호를 암호화 하는 데만 사용 됩니다.
+    고객 관리형 키는 디바이스의 데이터가 암호화되는 방식에 영향을 주지 않습니다. 키는 디바이스 잠금 해제 암호를 암호화하는 데만 사용됩니다.
 
     고객 관리 키를 사용 하지 않으려면 16 단계로 건너뜁니다.
 
     ![암호화 유형 설정을 보여 주는 보안 화면](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
-11. 핵심 형식으로 **Customer 관리 키** 를 선택 합니다. **키 자격 증명 모음 및 키 선택** 을 선택 합니다.
+11. 키 유형으로 **고객 관리형 키** 를 선택합니다. 그런 다음, **Key Vault 및 키 선택** 을 선택합니다.
    
-    ![보안 화면, 고객이 관리 하는 키에 대 한 설정](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
+    ![보안 화면, 고객 관리형 키 설정](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
 
 12. **Azure Key Vault에서 키 선택** 화면에 구독이 자동으로 채워집니다.
 
     - **키 자격 증명 모음** 의 드롭다운 목록에서 기존 키 자격 증명 모음을 선택할 수 있습니다.
 
-      ![Azure Key Vault 화면에서 키 선택](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+      ![Azure Key Vault에서 키 선택 화면](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
 
-    - **새로 만들기** 를 선택하여 새로운 키 자격 증명 모음을 만들 수도 있습니다. **키 자격 증명 모음 만들기** 화면에서 리소스 그룹 및 주요 자격 증명 모음 이름을 입력 합니다. **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 했는지 확인 합니다. 다른 모든 기본값을 적용 하 고 **검토 + 만들기** 를 선택 합니다.
+    - **새로 만들기** 를 선택하여 새로운 키 자격 증명 모음을 만들 수도 있습니다. **키 자격 증명 모음 만들기** 화면에서 리소스 그룹 및 키 자격 증명 모음 이름을 입력합니다. **일시 삭제** 및 **보호 제거** 를 사용하도록 설정되어 있는지 확인합니다. 다른 모든 기본값을 적용하고, **검토 + 만들기** 를 선택합니다.
 
       ![새 Azure Key Vault 설정 만들기](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
 
-      주요 자격 증명 모음에 대 한 정보를 검토 하 고 **만들기** 를 선택 합니다. 키 자격 증명 모음 만들기가 완료 될 때까지 몇 분 정도 기다립니다.
+      키 자격 증명 모음에 대한 정보를 검토하고, **만들기** 를 선택합니다. 키 자격 증명 모음 만들기가 완료될 때까지 몇 분 정도 기다립니다.
 
       ![새 Azure Key Vault 검토 화면](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
 
 13. **Azure Key Vault에서 키 선택** 화면의 키 자격 증명 모음에서 기존 키를 선택할 수 있습니다.
 
-    ![Azure Key Vault에서 기존 키를 선택 합니다.](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+    ![Azure Key Vault에서 기존 키 선택](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
 
-    새 키를 만들려면 **새로 만들기** 를 선택 합니다. RSA 키를 사용 해야 합니다. 크기는 2048 이상일 수 있습니다. 새 키의 이름을 입력 하 고 다른 기본값을 적용 한 다음 **만들기** 를 선택 합니다.
+    새 키를 만들려면 **새로 만들기** 를 선택합니다. RSA 키를 사용해야 합니다. 크기는 2048 이상일 수 있습니다. 새 키에 대한 이름을 입력하고, 다른 기본값을 적용한 다음, **만들기** 를 선택합니다.
 
-      ![새 키 옵션 만들기](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+      ![새 키 만들기 옵션](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
 
-      키 자격 증명 모음에 키가 생성 되 면 알림이 표시 됩니다.
+      키가 키 자격 증명 모음에 만들어지면 알림이 표시됩니다.
 
-14. 사용할 키의 **버전** 을 선택한 다음 **선택** 을 선택 합니다.
+14. 사용할 키의 **버전** 을 선택한 다음, **선택** 을 선택합니다.
 
       ![키 자격 증명 모음에 새로 생성된 키](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
 
-    새 키 버전을 만들려는 경우 **새로 만들기** 를 선택 합니다.
+    새 키 버전을 만들려면 **새로 만들기** 를 선택합니다.
 
     ![새 키 버전을 만들기 위한 대화 상자 열기](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
 
@@ -175,23 +173,23 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
     ![새로운 키 버전 만들기](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
-    **보안** 화면의 **암호화 유형** 설정에 주요 자격 증명 모음 및 키가 표시 됩니다.
+    **보안** 화면의 **암호화 유형** 설정에 키 자격 증명 모음 및 키가 표시됩니다.
 
-    ![고객 관리 키에 대 한 키 및 키 자격 증명 모음](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+    ![고객 관리형 키에 대한 키 및 키 자격 증명 모음](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
 
-15. 이 리소스에 대 한 액세스를 관리 하는 데 사용할 사용자 id를 선택 합니다. **사용자 Id 선택을** 선택 합니다. 오른쪽 패널에서 사용할 구독 및 관리 id를 선택 합니다. 그런 다음, **선택** 을 선택합니다.
+15. 이 리소스에 대한 액세스를 관리하는 데 사용할 사용자 ID를 선택합니다. **사용자 ID 선택** 을 선택합니다. 오른쪽 패널에서 사용할 구독 및 관리 ID를 선택합니다. 그런 다음, **선택** 을 선택합니다.
 
-    사용자 할당 관리 id는 여러 리소스를 관리 하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 되는 id 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조 하세요.  
+    사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.  
 
-    관리 id를 새로 만들어야 하는 경우에는 [Azure Portal를 사용 하 여 사용자 할당 관리 id에 대 한 역할 만들기, 나열, 삭제 또는 할당](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따르세요.
+    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따릅니다.
     
-    ![사용자 id 선택](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
+    ![사용자 ID 선택](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
-    사용자 id는 **암호화 유형** 설정에 표시 됩니다.
+    사용자 ID는 **암호화 유형** 설정에 표시됩니다.
 
     **암호화 유형** 설정을 지금 축소할 수 있습니다.
 
-    ![암호화 유형 설정에 표시 되는 선택 된 사용자 id](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+    ![암호화 유형 설정에 표시된 선택한 사용자 ID](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
 
 16. 소프트웨어 기반 이중 암호화를 사용 하도록 설정 하려면 **이중 암호화 (보안 우선 환경)** 를 확장 하 고 **순서에 대해 이중 암호화 사용** 을 선택 합니다. 
 

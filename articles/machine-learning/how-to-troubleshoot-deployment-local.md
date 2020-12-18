@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4f70978e7b7c2315aff4c51d8b019933df78e7e8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 01a5f600acf9542c5adabcdf2523a42ca44233af
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028804"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680495"
 ---
 # <a name="troubleshoot-model-deployment-locally"></a>로컬로 모델 배포 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "97028804"
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
-* 로컬로 디버그하려면 로컬 시스템에서 작동하는 Docker가 설치되어 있어야 합니다.
+* 로컬로 디버깅 하려면 모델을 [Azure Machine Learning 계산 인스턴스에](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-local-container-notebook-vm) 배포 하거나 로컬 시스템에서 작동 하는 Docker 설치를 수행할 수 있습니다.
 
     Docker 설치를 확인하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용합니다. Docker 설치 또는 Docker 오류 문제 해결에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.
 

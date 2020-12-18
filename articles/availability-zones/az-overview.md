@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 32cd6c23e1fe465a801e56fad5dd3461df860503
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 485042c795fd94ef7daa8e00b9869190e9df61c8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182736"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678550"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -92,9 +92,9 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 기본 | 일반 | 특수화 |
 > | --- | --- | --- |
 > | 계정 저장소 | API Management | FHIR용 Azure API |
-> | Application Gateway | App Configuration | Azure Analysis Services |
+> | Application Gateway | 앱 구성 | Azure Analysis Services |
 > | Azure Backup | App Service | Azure Blockchain 서비스 |
-> | Azure Cosmos DB | Automation | Azure Blueprints |
+> | Azure Cosmos DB | 자동화 | Azure Blueprints |
 > | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Azure Database for MariaDB |
 > | Azure ExpressRoute | Azure Bastion | Azure 전용 HSM |
 > | Azure SQL Database | Azure Cache for Redis | Azure Dev Spaces |
@@ -105,11 +105,11 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | Cloud Services: Ev3-Series | Azure Database for PostgreSQL | Azure 스프링 클라우드 서비스 |
 > | Cloud Services: 인스턴스 수준 Ip | Azure Database Migration Service | Azure Time Series Insights |
 > | Cloud Services: 예약된 IP | Azure Databricks | Azure VMware Solution by CloudSimple |
-> | Disk Storage | Azure DDoS Protection | Cloud Services: G 시리즈 |
+> | 디스크 스토리지 | Azure DDoS Protection | Cloud Services: G 시리즈 |
 > | Event Hubs | Azure DevTest Labs | Cloud Services: H 시리즈 |
 > | Key Vault | Azure Firewall | Cognitive Services: Custom Vision |
 > | 부하 분산 장치 | Azure Firewall Manager | Cognitive Services: Speaker Recognition |
-> | Service Bus | Azure 기능 | Data Box Heavy |
+> | Service Bus | Azure Functions | Data Box Heavy |
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory: Data Factory V1 |
 > | Virtual Machines | AKS(Azure Kubernetes Service) | Data Lake Analytics |
@@ -181,6 +181,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 - [Redis 가용성 영역에 대 한 Azure 캐시 시작](https://aka.ms/redis/az/getstarted)
 - [Azure Active Directory Domain Services 인스턴스 만들기](../active-directory-domain-services/tutorial-create-instance.md)
 - [가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기](../aks/availability-zones.md)
+- [Azure Container Registry에서 영역 중복성 사용](../container-registry/zone-redundancy.md)
 
 ## <a name="next-steps"></a>다음 단계
 

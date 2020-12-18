@@ -86,8 +86,8 @@
                 - name: SQL 스크립트
                   href: ./sql/author-sql-script.md
                   displayname: author
-                - name: 매핑 데이터 흐름
-                  href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: 데이터 흐름
+                  href: concepts-data-flow-overview.md
         - name: 유지 관리 일정
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 원본 제어
@@ -660,8 +660,8 @@
           href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: 데이터 흐름
           items:
-            - name: Data Flow 매핑 개요
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: 데이터 흐름 개요
+              href: concepts-data-flow-overview.md
             - name: 디버그 모드
               href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 스키마 드리프트

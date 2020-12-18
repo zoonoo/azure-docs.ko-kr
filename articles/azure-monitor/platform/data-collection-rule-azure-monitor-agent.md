@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: d04fa25b9c953d151fc16d11f304c48b7046ab76
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315705"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680405"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 
@@ -35,6 +35,9 @@ DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 
 Azure Portal를 사용 하 여 데이터 수집 규칙을 만들고 구독의 가상 컴퓨터를 해당 규칙에 연결할 수 있습니다. Azure Monitor 에이전트가 자동으로 설치 되 고 아직 설치 되지 않은 가상 컴퓨터에 대해 관리 id가 만들어집니다.
 
+> [!IMPORTANT]
+> 현재 데이터 수집 규칙에서 사용자 할당 관리 id가 이미 있는 가상 머신에서 관리 id를 만들 경우 사용자 할당 id를 사용할 수 없습니다.
+
 Azure Portal **Azure Monitor** 메뉴의 **설정** 섹션에서 **데이터 수집 규칙** 을 선택 합니다. **추가** 를 클릭 하 여 새 데이터 수집 규칙 및 할당을 추가 합니다.
 
 [![데이터 수집 규칙](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -52,7 +55,7 @@ Azure Portal **Azure Monitor** 메뉴의 **설정** 섹션에서 **데이터 수
 [![데이터 원본 기본](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-다른 로그 및 성능 카운터를 지정 하려면 **사용자 지정** 을 선택 합니다. 그런 다음 수집할 특정 값에 대 한 [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) 를 지정할 수 있습니다. 예제는 [샘플 DCR](data-collection-rule-overview.md#sample-data-collection-rule) 을 참조 하세요.
+[현재 지원 되는 데이터 원본](azure-monitor-agent-overview.md#data-sources-and-destinations) 에서 다른 로그 및 성능 카운터를 지정 하거나 XPath 쿼리를 사용 하 여 이벤트를 필터링 하려면 **사용자 지정** 을 선택 합니다. 그런 다음 수집할 특정 값에 대 한 [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) 를 지정할 수 있습니다. 예제는 [샘플 DCR](data-collection-rule-overview.md#sample-data-collection-rule) 을 참조 하세요.
 
 [![데이터 원본 사용자 지정](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
