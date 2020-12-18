@@ -110,6 +110,8 @@
       items:
         - name: 용량 메트릭
           href: api-management-capacity.md
+        - name: 비용 계획 및 관리
+          href: plan-manage-costs.md
         - name: 업그레이드 및 크기 조정
           href: upgrade-and-scale.md
         - name: 자동 크기 조정 구성
