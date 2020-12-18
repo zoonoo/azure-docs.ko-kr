@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 92329a3fa04d3cc685ba5068e9e5ae9932d1eb4d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178945"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673380"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 CybSafe 구성
 
@@ -54,7 +54,7 @@ ms.locfileid: "96178945"
 3. [설정->Identity Management](https://app.cybsafe.com/settings/identity-management)로 이동 합니다. 
 4. 사용자 프로 비전 섹션에서 **토큰 생성** 을 클릭 합니다. 이 값은 Azure Portal CybSafe 응용 프로그램의 프로 비전 탭에 입력 됩니다.
 
-## <a name="step-3-add-cybsafe-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 CybSafe 추가
+## <a name="step-3-add-cybsafe-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 CybSafe 추가
 
 Azure AD 응용 프로그램 갤러리에서 CybSafe를 추가 하 여 CybSafe에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 CybSafe를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -135,15 +135,15 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 13. CybSafe에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
+      ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
 14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 CybSafe에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
-    ![프로비전 범위](common/provisioning-scope.png)
+      ![프로비전 범위](common/provisioning-scope.png)
 
 15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
-    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
+      ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
 이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
 

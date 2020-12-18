@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace에 관리 서비스 제품 게시
 description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 제품을 게시 하는 방법에 대해 알아봅니다.
-ms.date: 08/18/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a003e671631e9f23654eb524c7c2d937339a9588
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023928"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673157"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 
@@ -18,7 +18,7 @@ ms.locfileid: "96023928"
 
 제품을 만들고 게시 하려면 [파트너 센터에 유효한 계정이](../../marketplace/partner-center-portal/create-account.md) 있어야 합니다. 계정이 아직 없는 경우 [등록 프로세스](https://aka.ms/joinmarketplace) 는 파트너 센터에서 계정을 만들고 상업적 Marketplace 프로그램에 등록 하는 단계를 안내 합니다.
 
-관리 서비스 제공 [인증 요구 사항](/legal/marketplace/certification-policies#7004-business-requirements)에 따라 [실버 또는 골드 클라우드 플랫폼 역량 수준이](/partner-center/learn-about-competencies) 있거나 관리 서비스 제품을 게시 하기 위해 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 여야 합니다.
+관리 서비스 제공 [인증 요구 사항](/legal/marketplace/certification-policies#7004-business-requirements)에 따라 [실버 또는 골드 클라우드 플랫폼 역량 수준이](/partner-center/learn-about-competencies) 있거나 관리 서비스 제품을 게시 하기 위해 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 여야 합니다. 또한 고객이 제품을 배포할 때마다 [CRM 시스템에 레코드를 만들 잠재 고객 대상을 입력](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#customer-leads) 해야 합니다.
 
 MPN(Microsoft 파트너 네트워크) ID는 게시하는 제품에 [자동으로 연결되어](../../cost-management-billing/manage/link-partner-id.md) 고객 계약에 미치는 영향을 추적합니다.
 
@@ -31,10 +31,10 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 |[파트너 센터 계정](../../marketplace/partner-center-portal/create-account.md) 필요   |예         |예        |
 |[실버 또는 골드 클라우드 플랫폼 역량 수준](/partner-center/learn-about-competencies) 또는 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 가 필요 합니다.      |예         |예         |
 |Azure Marketplace를 통해 신규 고객에 게 제공     |예     |예       |
-|특정 고객에 게 제품을 제한할 수 있습니다.     |예 (CSP (클라우드 솔루션 공급자) 프로그램의 대리점을 통해 설정 된 구독과 함께 사용할 수 없는 개인 제공만 해당)         |Yes         |
+|특정 고객에 게 제품을 제한할 수 있습니다.     |예 (CSP (클라우드 솔루션 공급자) 프로그램의 대리점을 통해 설정 된 구독과 함께 사용할 수 없는 개인 제공만 해당)         |예         |
 |Azure Portal에서 고객 동의가 필요 합니다.     |예     |예   |
 |Automation을 사용 하 여 여러 구독, 리소스 그룹 또는 고객을 등록할 수 있습니다. |예     |예    |
-|새로운 기본 제공 역할 및 Azure Lighthouse 기능에 즉시 액세스     |항상 그렇지 않음 (약간의 지연 후 일반적으로 사용 가능)         |Yes         |
+|새로운 기본 제공 역할 및 Azure Lighthouse 기능에 즉시 액세스     |항상 그렇지 않음 (약간의 지연 후 일반적으로 사용 가능)         |예         |
 
 ## <a name="create-your-offer"></a>제품 만들기
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: ee314708f0d564bf1af639a3d864ea19472425cf
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 16002d7acf97832f743410a203e2f76e99646c0c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937630"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673361"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -305,12 +305,12 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 비롯�
 
 * [개발자 및 프리미엄 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)의 모든 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에 포함된 통합 계정을 포함하여 통합 계정 총 1,000개
 
-* [개발자 또는 프리미엄](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)의 각 ISE는 통합 계정의 총 수로 제한 되지만 [추가 비용으로이 제한을 높일 수](logic-apps-pricing.md#fixed-pricing)있습니다.
+* [개발자 또는 프리미엄](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)의 각 ise는 포함 된 계정 유형이 ISE SKU에 따라 달라 지지만 추가 비용 없이 단일 통합 계정을 사용할 수 있습니다. [추가 비용](logic-apps-pricing.md#fixed-pricing)에 대 한 총 제한까지 ISE에 대 한 더 많은 통합 계정을 만들 수 있습니다.
 
   | ISE SKU | 통합 계정 제한 |
   |---------|----------------------------|
-  | **Premium** | 무료 표준 계정 하나를 포함 하 여 총 20- [표준](../logic-apps/logic-apps-pricing.md#integration-accounts) 계정만 제공 합니다. [추가 비용에 더 많은 통합 계정을](logic-apps-pricing.md#fixed-pricing)사용할 수 있습니다. 체험 또는 기본 계정은 허용되지 않습니다. |
-  | **개발자** | 20 개의 전체 [무료](../logic-apps/logic-apps-pricing.md#integration-accounts) (계정 1 개로 제한 됨) 및 [표준](../logic-apps/logic-apps-pricing.md#integration-accounts) 결합 또는 모든 표준 계정. [추가 비용에 더 많은 통합 계정을](logic-apps-pricing.md#fixed-pricing)사용할 수 있습니다. 기본 계정은 허용되지 않습니다. [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)는 실험, 개발 및 테스트 용도에만 사용하고 프로덕션 또는 성능 테스트에는 사용하지 마세요. |
+  | **Premium** | 추가 비용 없이 표준 계정 하나를 포함 하 여 총 20 개의 계정 이 SKU를 사용 하는 경우 [표준](../logic-apps/logic-apps-pricing.md#integration-accounts) 계정만 사용할 수 있습니다. 체험 또는 기본 계정은 허용되지 않습니다. |
+  | **개발자** | 하나의 [무료](../logic-apps/logic-apps-pricing.md#integration-accounts) 계정 (1로 제한 됨)을 포함 하 여 총 20 개의 계정 이 SKU를 사용 하는 경우 다음 두 가지 조합을 사용할 수 있습니다. <p>-무료 계정 및 최대 19 개의 [표준](../logic-apps/logic-apps-pricing.md#integration-accounts) 계정. <br>-무료 계정 및 최대 20 개의 표준 계정이 없습니다. <p>기본 또는 추가 무료 계정은 허용 되지 않습니다. <p><p>**중요**: 실험, 개발 및 테스트를 위해 [개발자 SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 를 사용 하지만 프로덕션 또는 성능 테스트에는 사용 하지 않습니다. |
   |||
 
 ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
@@ -319,8 +319,7 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 
 ### <a name="artifact-limits-per-integration-account"></a>통합 계정당 아티팩트 제한
 
-다음은 각 통합 계정 계층의 아티팩트 수에 대한 제한입니다.
-가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. 통합 계정의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts)을 참조하세요.
+다음은 각 통합 계정 계층의 아티팩트 수에 대한 제한입니다. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. 통합 계정의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts)을 참조하세요.
 
 > [!NOTE]
 > 체험 계층은 예비 시나리오에만 사용하고 프로덕션 시나리오에는 사용하지 마세요. 이 계층에서는 처리량과 사용량을 제한하며 SLA(서비스 수준 계약)가 없습니다.

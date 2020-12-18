@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 86c2d9585abd546acb3efb22256d3f3b70bfb972
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302955"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>자습서: Carlson Wagonlit Travel과 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Carlson Wagonlit Travel의 Azure AD 통합을 구성하려면 갤러리의 Carls
 
 4. 검색 상자에 **Carlson Wagonlit Travel** 을 입력하고 결과 패널에서 **Carlson Wagonlit Travel** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Carlson Wagonlit Travel](common/search-new-app.png)
+    ![결과 목록의 Carlson Wagonlit Travel](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -138,7 +138,7 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b9a79ee32d7a81fee64e40b85272877b7d87589
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450095"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674201"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -32,7 +32,7 @@ ms.locfileid: "96450095"
 
 ### <a name="windows-agents"></a>Windows 에이전트
 
-| | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
+| | Azure Monitor 에이전트(미리 보기) | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (Azure Arc)  | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
 | **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
@@ -42,7 +42,7 @@ ms.locfileid: "96450095"
 
 ### <a name="linux-agents"></a>Linux 에이전트
 
-| | Azure Monitor 에이전트 (미리 보기) | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
+| | Azure Monitor 에이전트(미리 보기) | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
 | **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (원호) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
 | **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
@@ -51,7 +51,7 @@ ms.locfileid: "96450095"
 | **서비스 및**<br>**요소**<br>**되지** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM용 Azure Monitor<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM용 Azure Monitor<br>서비스 맵 |
 
 
-## <a name="azure-monitor-agent-preview"></a>Azure Monitor 에이전트 (미리 보기)
+## <a name="azure-monitor-agent-preview"></a>Azure Monitor 에이전트(미리 보기)
 [Azure Monitor 에이전트](azure-monitor-agent-overview.md) 는 현재 미리 보기로 제공 되며 Windows 및 Linux 가상 컴퓨터에 대 한 Log Analytics 에이전트 및 Telegraf 에이전트를 대체 합니다. Azure Monitor 로그와 Azure Monitor 메트릭 모두에 데이터를 보낼 수 있으며, 각 에이전트에 대 한 데이터 수집 및 대상을 구성 하는 보다 확장성 있는 방법을 제공 하는 [DCR (데이터 수집 규칙)](data-collection-rule-overview.md) 를 사용 합니다.
 
 다음 작업을 수행 해야 하는 경우 Azure Monitor 에이전트를 사용 합니다.
@@ -142,7 +142,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:|
-| Windows Server 2019                                      | X | X | X | X |
+| 시작                                      | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
@@ -169,6 +169,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1 이상                                           |   |   |   | X |
+| Oracle Linux 8                                           |   | X |   |   |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4 이상                                        |   | X |   | X |
@@ -188,7 +189,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 #### <a name="dependency-agent-linux-kernel-support"></a>종속성 에이전트 Linux 커널 지원
 종속성 에이전트는 커널 수준에서 작동 하므로 커널 버전에도 종속 됩니다. 다음 표에는 종속성 에이전트에 대 한 주 및 부 Linux OS 릴리스와 지원 되는 커널 버전이 나와 있습니다.
 
-| 분포 | OS 버전 | 커널 버전 |
+| 배포 | OS 버전 | 커널 버전 |
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |

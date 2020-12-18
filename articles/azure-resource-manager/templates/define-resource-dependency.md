@@ -2,13 +2,13 @@
 title: 리소스의 배포 순서 설정
 description: 리소스가 올바른 순서대로 배포되도록 배포 중 다른 리소스에 종속된 것으로 리소스를 설정하는 방법에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 84cea915565ec6ac9872681e1d4173abacb46ac4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/17/2020
+ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255214"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672817"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에서 리소스를 배포 하는 순서 정의
 
@@ -40,7 +40,7 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 }
 ```
 
-앞의 예에서 종속성은 **storageLoop**라는 복사 루프를 통해 생성되는 리소스에 포함됩니다. 예제는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
+앞의 예에서 종속성은 **storageLoop** 라는 복사 루프를 통해 생성되는 리소스에 포함됩니다. 예제는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
 
 종속성을 정의할 때 모호성을 피하기 위해 리소스 공급자 네임스페이스 및 리소스 형식을 포함할 수 있습니다. 예를 들어 다른 리소스와 동일한 이름을 가질 수 있는 부하 분산 장치 및 가상 네트워크를 명확히 하려면 다음 형식을 사용합니다.
 
@@ -57,7 +57,7 @@ dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 �
 
 resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는 5개 수준 깊이까지만 정의할 있습니다. 자식 리소스와 부모 리소스 사이에는 암시적 배포 종속성이 생성 되지 않는다는 점에 유의 해야 합니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다.
 
-각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다. 자식 리소스 종류의 이름에는 부모 리소스 종류의 이름이 포함됩니다. 예를 들어 **Microsoft.Web/sites/config**와 **Microsoft.Web/sites/extensions**는 둘 다 **Microsoft.Web/sites**의 자식 리소스입니다.
+각 부모 리소스는 특정 리소스 종류만 자식 리소스로 허용합니다. 허용되는 리소스 종류는 부모 리소스의 [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)에서 지정됩니다. 자식 리소스 종류의 이름에는 부모 리소스 종류의 이름이 포함됩니다. 예를 들어 **Microsoft.Web/sites/config** 와 **Microsoft.Web/sites/extensions** 는 둘 다 **Microsoft.Web/sites** 의 자식 리소스입니다.
 
 다음 예에서는 논리 SQL server 및 데이터베이스를 보여 줍니다. 데이터베이스가 서버의 자식인 경우에도 데이터베이스와 서버 간에 명시적 종속성이 정의 되어 있는지 확인 합니다.
 
@@ -150,6 +150,7 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 ## <a name="next-steps"></a>다음 단계
 
 * 자습서를 살펴보려면 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](template-tutorial-create-templates-with-dependent-resources.md)를 참조하세요.
+* 리소스 종속성을 포함 하는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.
 * 종속성을 설정할 때의 권장 사항은 [Azure Resource Manager 템플릿 모범 사례](template-best-practices.md)를 참조하세요.
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
 * Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.

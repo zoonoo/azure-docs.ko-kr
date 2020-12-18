@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f87ed9b7455bed870cf25a6920cc6295811d94c8
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b2bf406dcab626b3ac08caf1a21ffea9332d3ca2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617071"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672647"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -29,6 +29,8 @@ Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](/do
 - [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 패키지 버전 1.0.28 이상
+
+- [따르지만 개발자. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (현재 버전 2.x 및 이전 버전 에서만 지원 됨)
 
 ## <a name="register-services"></a>서비스 등록
 

@@ -4,15 +4,15 @@ description: RabbitMQ 메시지를 만들 때 Azure 함수를 실행 하는 방�
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630737"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673990"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 트리거
 
@@ -32,7 +32,7 @@ RabbitMQ 트리거를 사용 하 여 RabbitMQ 큐의 메시지에 응답 합니�
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -50,7 +50,7 @@ public class TestClass
 
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
     ILogger logger
     )
 {
@@ -74,7 +74,7 @@ Json 개체와 마찬가지로 메시지의 형식이 c # 개체로 올바르게
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -105,7 +105,7 @@ public static void Run(string myQueueItem, ILogger log)
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -134,7 +134,7 @@ RabbitMQ 바인딩은 *형식이* 로 설정 된 *function.js* 에서 정의 됩
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -155,7 +155,7 @@ def main(myQueueItem) -> None:
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -180,7 +180,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-전체 예제는 C# 예제를 참조하세요.
+전체 예제는 c # [예제](#example)를 참조 하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -275,12 +275,12 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |prefetchCount|30|메시지 수신자가 동시에 요청 하 고 캐시 하는 메시지 수를 가져오거나 설정 합니다.|
-|queueName|해당 없음| 메시지를 받을 큐의 이름입니다. |
-|connectionString|해당 없음|RabbitMQ message queue 연결 문자열이 포함 된 앱 설정의 이름입니다. local.settings.js에서 앱 설정을 통해서가 아니라 직접 연결 문자열을 지정 하는 경우에는 트리거가 작동 하지 않습니다.|
-|포트|0|(connectionString을 사용 하는 경우 무시 됨) 크기 조정 된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
+|queueName|해당 없음| 메시지를 받을 큐의 이름입니다.|
+|connectionString|해당 없음|RabbitMQ 메시지 큐 연결 문자열입니다. 연결 문자열은 앱 설정이 아니라 여기에 직접 지정 됩니다.|
+|포트|0|(ConnectionStringSetting를 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
 
 ## <a name="local-testing"></a>로컬 테스트
 
@@ -303,7 +303,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------|
 |hostName|해당 없음|(ConnectStringSetting을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
 |userName|해당 없음|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 이름 |

@@ -1,14 +1,14 @@
 ---
 title: 수정할 수 있는 정책 배포
 description: Azure Lighthouse를 통해 재구성 작업을 사용 하는 정책을 배포 하려면 고객 테 넌 트에서 관리 되는 id를 만들어야 합니다.
-ms.date: 08/12/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010098"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670494"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
@@ -41,7 +41,7 @@ Azure Lighthouse에 고객을 등록 하는 경우 고객 테 넌 트의 위임 
 
 ## <a name="deploy-policies-that-can-be-remediated"></a>수정할 수 있는 정책 배포
 
-위에서 설명한 대로 필요한 권한으로 사용자를 만든 후에는 사용자가 고객 테 넌 트 내에서 재구성 작업을 사용 하는 정책을 배포할 수 있습니다.
+위에서 설명한 대로 필요한 권한을 사용 하 여 사용자를 만든 후에는 해당 사용자가 위임 된 고객 구독 내에서 재구성 작업을 사용 하는 정책을 배포할 수 있습니다.
 
 예를 들어이 [샘플](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring)에 나와 있는 것 처럼 고객 테 넌 트에서 Azure Key Vault 리소스에 대 한 진단을 사용 하도록 설정 하려는 경우를 가정해 보겠습니다. 위에서 설명한 것처럼 적절한 권한이 있는 관리 테넌트의 사용자는 이 시나리오를 활성화하기 위해 [Azure Resource Manager 템플릿](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json)을 배포합니다.
 

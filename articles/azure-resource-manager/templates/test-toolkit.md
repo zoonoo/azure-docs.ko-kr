@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928191"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674015"
 ---
 # <a name="use-arm-template-test-toolkit"></a>ARM 템플릿 테스트 도구 키트 사용
 
@@ -282,4 +282,5 @@ Azure 파이프라인에 테스트 도구 키트를 추가할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-기본 테스트에 대 한 자세한 내용은 [ARM 템플릿 테스트 도구 키트에 대 한 기본 테스트 사례](test-cases.md)를 참조 하세요.
+- 기본 테스트에 대 한 자세한 내용은 [ARM 템플릿 테스트 도구 키트에 대 한 기본 테스트 사례](test-cases.md)를 참조 하세요.
+- 테스트 도구 키트를 사용 하는 Microsoft Learn 모듈은 [변경 내용 미리 보기 및 가상 및 ARM 템플릿 테스트 도구 키트를 사용 하 여 Azure 리소스 유효성 검사](/learn/modules/arm-template-test/)를 참조 하세요.

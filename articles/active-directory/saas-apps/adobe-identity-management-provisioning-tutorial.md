@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: a87a08db672c459138fc1efd865332dc0f19944e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7b4dd01b74f81318338196a40949d339f13d16da
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586662"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673304"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Adobe Identity Management 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "97586662"
 > * Adobe Identity Management에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Adobe Identity Management에 대 한 Single sign-on (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -57,17 +57,17 @@ ms.locfileid: "97586662"
 
 2. **동기화 추가** 를 클릭 합니다.
 
-      ![추가](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+    ![추가](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. **Microsoft Azure에서 사용자 동기화** 를 선택 하 고 **다음** 을 클릭 합니다.
 
-      ![' 사용자 동기화 Microsoft Azure Active Directory '을 보여 주는 스크린샷 선택 됩니다.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+    ![' 사용자 동기화 Microsoft Azure Active Directory '을 보여 주는 스크린샷 선택 됩니다.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. **테 넌 트 URL** 및 **암호 토큰** 을 복사 하 고 저장 합니다. 이러한 값은 Azure Portal에서 Adobe Identity Management 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **암호 토큰** 필드에 입력 됩니다.
 
-      ![동기화](media/adobe-identity-management-provisioning-tutorial/token.png)
+    ![동기화](media/adobe-identity-management-provisioning-tutorial/token.png)
 
-## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Adobe Identity Management 추가
+## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Adobe Identity Management 추가
 
 Azure AD 응용 프로그램 갤러리에서 Adobe Identity Management를 추가 하 여 Adobe Identity Management에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Adobe Identity Management를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -124,7 +124,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |addresses[type eq "work"].country|String|
    |name.givenName|String|
    |name.familyName|String|
-   |urn: ietf: params: scim: 스키마: 확장: Adobe: 2.0: User: emailAliases|문자열|
+   |urn: ietf: params: scim: 스키마: 확장: Adobe: 2.0: User: emailAliases|String|
 
 10. **매핑** 섹션에서 **Adobe Identity Management에 Azure Active Directory 그룹 동기화를** 선택 합니다.
 

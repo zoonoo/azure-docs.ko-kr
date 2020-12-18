@@ -4,15 +4,15 @@ description: Azure Active Directory (Azure AD)를 사용 하 여 AzCopy 작업�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617411"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672494"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>AzCopy 및 Azure Active Directory를 사용 하 여 blob에 대 한 액세스 권한 부여 (Azure AD)
 
@@ -185,7 +185,9 @@ azcopy login --service-principal --certificate-path <path-to-certificate-file> -
 
 ## <a name="authorize-without-a-secret-store"></a>비밀 저장소 없이 권한 부여
 
-운영 체제 *에 Linux 인증* 키와 같은 비밀 저장소가 없는 경우 `azcopy login` 명령이 작동 하지 않습니다. 대신 각 작업을 실행 하기 전에 메모리 내 환경 변수를 설정할 수 있습니다. 
+`azcopy login`이 명령은 OAuth 토큰을 검색 한 다음 해당 토큰을 시스템의 암호 저장소에 배치 합니다. 운영 체제 *에 Linux 인증* 키와 같은 비밀 저장소가 없는 경우 토큰을 저장할 필요가 `azcopy login` 없으므로 명령이 작동 하지 않습니다. 
+
+명령을 사용 하는 대신 `azcopy login` 메모리 내 환경 변수를 설정할 수 있습니다. 그런 다음 AzCopy 명령을 실행 합니다. AzCopy는 작업을 완료 하는 데 필요한 인증 토큰을 검색 합니다. 작업이 완료 된 후에는 토큰이 메모리에서 사라집니다. 
 
 ### <a name="authorize-a-user-identity"></a>사용자 id 권한 부여
 
@@ -248,8 +250,6 @@ export AZCOPY_MSI_RESOURCE_STRING=<resource-id>
 이러한 변수를 설정한 후에는 azcopy 명령을 실행할 수 있습니다 (예: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ### <a name="authorize-a-service-principal"></a>서비스 사용자 권한 부여
-
-스크립트를 실행 하기 전에 AzCopy에 서비스 주체의 자격 증명을 제공할 수 있도록 대화형으로 한 번 이상 로그인 해야 합니다.  이러한 자격 증명은 스크립트가 중요 한 정보를 제공할 필요가 없도록 보안 및 암호화 된 파일에 저장 됩니다.
 
 클라이언트 암호를 사용 하거나 서비스 주체의 앱 등록과 연결 된 인증서의 암호를 사용 하 여 계정에 로그인 할 수 있습니다.
 

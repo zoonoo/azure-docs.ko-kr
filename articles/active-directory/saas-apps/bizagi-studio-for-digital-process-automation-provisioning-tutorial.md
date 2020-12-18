@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632039"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673442"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 디지털 프로세스 자동화에 대해 Bizagi Studio 구성
 
@@ -139,6 +139,8 @@ Azure AD 프로 비전 서비스를 사용 하면 사용자 및 그룹의 특성
 
    사용자 지정 특성을 추가 하는 방법에 대 한 자세한 내용은 [응용 프로그램 특성 사용자 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)에서 찾을 수 있습니다.
 
+> [!NOTE]
+> 기본 형식 속성만 지원 됩니다 (예: 문자열, 정수, 부울, 날짜/시간 등). 패라메트릭 테이블 또는 여러 형식에 연결 된 속성은 아직 지원 되지 않습니다.
 
 10. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)를 참조 하세요.
 

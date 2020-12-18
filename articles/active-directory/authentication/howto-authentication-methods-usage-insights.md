@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 12/17/2020
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8633ae0d23650eb12ee2e1fdcd355864dfd8b6c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bfff8d450a6506cb37730838e4f70609080ca7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743635"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670794"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>인증 방법 사용 & insights (미리 보기)
 
@@ -31,9 +31,9 @@ ms.locfileid: "96743635"
 - 보안 관리자
 - 보고서 구독자
 
-사용 및 정보에 액세스 하는 데 추가 라이선스가 필요 하지 않습니다. Azure AD Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
+ 사용 및 정보에 액세스 하려면 Azure AD Premium P1 또는 P2 라이선스가 필요 합니다. Azure AD Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 인증 방법 사용 및 정보에 액세스 하려면:
 
@@ -65,7 +65,7 @@ ms.locfileid: "96743635"
 
 등록 세부 정보 보고서에는 각 사용자에 대 한 다음 정보가 표시 됩니다.
 
-- 이름
+- Name
 - 사용자 이름
 - 등록 상태 (모두, 등록 됨, 등록 되지 않음)
 - 활성화 상태 (모두, 사용, 사용 안 함)
@@ -80,7 +80,7 @@ ms.locfileid: "96743635"
 
 세부 정보 다시 설정 보고서는 지난 30 일 동안 다음과 같은 등록 및 다시 설정 이벤트를 표시 합니다.
 
-- 이름
+- Name
 - 사용자 이름
 - 기능 (모두, 등록, 다시 설정)
 - 인증 방법 (앱 알림, 앱 코드, 전화 통화, Office 통화, SMS, 전자 메일, 보안 질문)

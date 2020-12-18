@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 399cbef4de91623ada1c38de7c6148d22fde94c7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653727"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672403"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -74,11 +74,11 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 1. Azure에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. [https://aka.ms/catou](https://aka.ms/catou)에서 **사용 약관** 으로 이동합니다.
 
-   ![조건부 액세스-사용 약관 블레이드](./media/terms-of-use/tou-blade.png)
+    ![조건부 액세스-사용 약관 블레이드](./media/terms-of-use/tou-blade.png)
 
 1. **새 사용 약관** 을 클릭합니다.
 
-   ![사용 약관 설정을 지정 하는 새로운 사용 약관 창](./media/terms-of-use/new-tou.png)
+    ![사용 약관 설정을 지정 하는 새로운 사용 약관 창](./media/terms-of-use/new-tou.png)
 
 1. **이름** 상자에 Azure Portal에 사용 되는 사용 약관의 이름을 입력 합니다.
 1. **표시 이름** 상자에 사용자가 로그인할 때 표시되는 제목을 입력합니다.
@@ -88,7 +88,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 1. 최종 사용자가 액세스 하는 모든 장치에서 사용 약관에 동의 하도록 요구 하려면 **모든 장치에서 사용자에 게 동의 해야** 함을 설정 **합니다.** 이 옵션을 사용 하도록 설정 하면 사용자가 추가 응용 프로그램을 설치 해야 할 수 있습니다. 자세한 내용은 [장치 단위 사용 조건](#per-device-terms-of-use)을 참조 하세요.
 1. 일정에 따라 사용 약관 동의을 만료 하려면 **만료 동의** 를 **켜기** 로 설정 합니다. 켜기로 설정되면 두 개의 추가 일정 설정이 표시됩니다.
 
-   ![시작 날짜, 빈도 및 기간을 설정 하는 동의 설정 만료](./media/terms-of-use/expire-consents.png)
+    ![시작 날짜, 빈도 및 기간을 설정 하는 동의 설정 만료](./media/terms-of-use/expire-consents.png)
 
 1. **시작** 날짜 및 **빈도** 설정을 사용 하 여 사용 약관에 대 한 일정을 지정 합니다. 다음 표는 몇 가지 예제 설정의 결과를 보여 줍니다.
 
@@ -115,7 +115,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
 1. **조건부 액세스** 에서 **조건부 액세스 정책 템플릿을** 사용 하 여 적용 목록을 사용 하 여 사용 약관을 적용할 템플릿을 선택 합니다.
 
-   ![정책 템플릿을 선택 하는 조건부 액세스 드롭다운 목록](./media/terms-of-use/conditional-access-templates.png)
+    ![정책 템플릿을 선택 하는 조건부 액세스 드롭다운 목록](./media/terms-of-use/conditional-access-templates.png)
 
    | 템플릿 | Description |
    | --- | --- |
@@ -131,7 +131,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
 1. **만들기** 를 클릭합니다.
 
-   사용자 지정 조건부 액세스 템플릿을 선택한 경우 사용자 지정 조건부 액세스 정책을 만들 수 있는 새 화면이 표시 됩니다.
+    사용자 지정 조건부 액세스 템플릿을 선택한 경우 사용자 지정 조건부 액세스 정책을 만들 수 있는 새 화면이 표시 됩니다.
 
    ![사용자 지정 조건부 액세스 정책 템플릿을 선택한 경우의 새 조건부 액세스 창](./media/terms-of-use/custom-policy.png)
 
@@ -145,15 +145,15 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
 1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관** 으로 이동합니다.
 
-   ![수락 하 고 거부 한 사용자 표시 수를 나열 하는 사용 약관 블레이드](./media/terms-of-use/view-tou.png)
+    ![수락 하 고 거부 한 사용자 표시 수를 나열 하는 사용 약관 블레이드](./media/terms-of-use/view-tou.png)
 
 1. 사용 약관에 대해 **허용** 또는 **거부** 아래에 있는 숫자를 클릭 하 여 사용자의 현재 상태를 확인 합니다.
 
-   ![수락 된 사용자를 나열 하는 사용 약관 동의 창](./media/terms-of-use/accepted-tou.png)
+    ![수락 된 사용자를 나열 하는 사용 약관 동의 창](./media/terms-of-use/accepted-tou.png)
 
 1. 개별 사용자의 기록을 보려면 줄임표(**...**)를 클릭한 후 **기록 보기** 를 클릭합니다.
 
-   ![사용자에 대 한 기록 상황에 맞는 메뉴 보기](./media/terms-of-use/view-history-menu.png)
+    ![사용자에 대 한 기록 상황에 맞는 메뉴 보기](./media/terms-of-use/view-history-menu.png)
 
    [기록 보기] 창에서 모든 승인, 거부 및 만료 기록을 확인합니다.
 
@@ -169,11 +169,11 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 1. 사용 약관을 선택 합니다.
 1. **감사 로그 보기** 를 클릭합니다.
 
-   ![감사 로그 보기 옵션이 강조 표시 된 사용 약관 블레이드](./media/terms-of-use/audit-tou.png)
+    ![감사 로그 보기 옵션이 강조 표시 된 사용 약관 블레이드](./media/terms-of-use/audit-tou.png)
 
 1. Azure AD 감사 로그 화면에서 제공된 목록을 사용하여 특정 감사 로그 정보를 대상으로 하도록 정보를 필터링할 수 있습니다.
 
-   **다운로드** 를 클릭하여 로컬에서 사용하도록 정보를 .csv 파일로 다운로드할 수도 있습니다.
+    **다운로드** 를 클릭하여 로컬에서 사용하도록 정보를 .csv 파일로 다운로드할 수도 있습니다.
 
    ![Azure AD 감사 로그 화면 목록, 대상 정책, 시작 날짜, 작업](./media/terms-of-use/audit-logs-tou.png)
 
@@ -204,11 +204,11 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 1. 오른쪽 위 모서리에서 자신의 이름을 클릭하고 **프로필** 을 선택합니다.
 
-   ![사용자 창이 열려 있는 MyApps 사이트](./media/terms-of-use/tou14.png)
+    ![사용자 창이 열려 있는 MyApps 사이트](./media/terms-of-use/tou14.png)
 
 1. 프로필 페이지에서 **사용 약관 검토** 를 클릭합니다.
 
-   ![사용 약관 검토 링크를 표시 하는 사용자의 프로필 페이지](./media/terms-of-use/tou13a.png)
+    ![사용 약관 검토 링크를 표시 하는 사용자의 프로필 페이지](./media/terms-of-use/tou13a.png)
 
 1. 여기에서 사용자가 동의한 사용 약관을 검토할 수 있습니다.
 
@@ -220,11 +220,11 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 1. 편집 하려는 사용 약관을 선택 합니다.
 1. **사용 약관 편집** 을 클릭합니다.
 1. 사용 약관 편집 창에서 다음을 변경할 수 있습니다.
-     - **이름** – 최종 사용자와 공유 되지 않는 토우토의 내부 이름입니다.
-     - **표시 이름** – 최종 사용자가 토우토 볼 때 볼 수 있는 이름입니다.
-     - **사용자가 사용 약관을 확장 하도록 요구** –이를 **On** 으로 설정 하면 사용 약관에 동의 하기 전에 사용 약관을 확장 하는 데 사용 됩니다.
-     - 모드 **기존 사용 약관 문서를 업데이트할** 수 있습니다.
-     - 기존 토우토 a에 언어를 추가할 수 있습니다.
+    - **이름** – 최종 사용자와 공유 되지 않는 토우토의 내부 이름입니다.
+    - **표시 이름** – 최종 사용자가 토우토 볼 때 볼 수 있는 이름입니다.
+    - **사용자가 사용 약관을 확장 하도록 요구** –이를 **On** 으로 설정 하면 사용 약관에 동의 하기 전에 사용 약관을 확장 하는 데 사용 됩니다.
+    - 모드 **기존 사용 약관 문서를 업데이트할** 수 있습니다.
+    - 기존 토우토 a에 언어를 추가할 수 있습니다.
 
    PDF 문서와 같이 변경 하려는 다른 설정이 있는 경우 사용자가 모든 장치에 동의 해야 함, 동의 만료, 다시 승인 전 기간 또는 조건부 액세스 정책을 사용 하 여 새 사용 약관을 만들어야 합니다.
 
@@ -279,7 +279,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 1. 페이지 맨 아래에서 **언어 추가** 를 클릭 합니다.
 1. [사용 약관 언어 추가] 창에서 지역화된 PDF를 업로드하고 언어를 선택합니다.
 
-   ![사용 약관 선택 하 고 세부 정보 창에서 언어 탭을 표시 합니다.](./media/terms-of-use/select-language.png)
+    ![사용 약관 선택 하 고 세부 정보 창에서 언어 탭을 표시 합니다.](./media/terms-of-use/select-language.png)
 
 1. **언어 추가** 를 클릭합니다.
 1. 페이지 맨 아래에 있는 **저장**
@@ -340,7 +340,7 @@ Chrome을 사용하는 경우 [Windows 10 계정 확장](https://chrome.google.c
 1. **사용 약관 삭제** 를 클릭합니다.
 1. 계속 진행할 것인지 묻는 메시지가 표시되면 **예** 를 클릭합니다.
 
-   ![사용 약관 삭제에 대 한 확인을 요청 하는 메시지](./media/terms-of-use/delete-tou.png)
+    ![사용 약관 삭제에 대 한 확인을 요청 하는 메시지](./media/terms-of-use/delete-tou.png)
 
    사용 약관이 더 이상 표시 되지 않습니다.
 

@@ -2,23 +2,20 @@
 title: 컨테이너의 Azure Monitor 사용 하 여 라이브 데이터 (미리 보기) 보기 | Microsoft Docs
 description: 이 문서에서는 컨테이너에 Azure Monitor kubectl을 사용 하지 않고 Kubernetes 로그, 이벤트 및 pod 메트릭에 대 한 실시간 보기를 설명 합니다.
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346834"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672871"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법
 
 컨테이너의 Azure Monitor에는 AKS (Azure Kubernetes Service) 컨테이너 로그 (stdout/stderror), 이벤트 및 pod 메트릭에 직접 액세스할 수 있게 해 주는 고급 진단 기능인 라이브 데이터 (미리 보기) 기능이 포함 되어 있습니다. , 이벤트 및에 대 한 직접 액세스를 노출 `kubectl logs -c` `kubectl get` `kubectl top pods` 합니다. 콘솔 창에는 실시간 문제 해결에 도움이 되는 컨테이너 엔진에서 생성 한 로그, 이벤트 및 메트릭이 표시 됩니다.
 
 이 문서에서는 자세한 개요를 제공 하 고이 기능을 사용 하는 방법을 이해 하는 데 도움을 줍니다.
-
->[!NOTE]
->[개인 클러스터](https://azure.microsoft.com/updates/aks-private-cluster/) 로 설정 된 AKS 클러스터는이 기능에서 지원 되지 않습니다. 이 기능은 브라우저에서 프록시 서버를 통해 Kubernetes API에 직접 액세스 하는 데 의존 합니다. 이 프록시의 Kubernetes API를 차단 하도록 네트워킹 보안을 사용 하도록 설정 하면이 트래픽이 차단 됩니다.
 
 라이브 데이터 (미리 보기) 기능을 설정 하거나 문제를 해결 하는 방법에 대 한 도움말은 [설치 가이드](container-insights-livedata-setup.md)를 참조 하세요. 이 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다.
 

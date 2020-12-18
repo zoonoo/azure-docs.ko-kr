@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8b90e18865afeb5cb0c171d21c89d7c6e932f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654288"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669230"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정
 
@@ -39,7 +39,9 @@ ms.locfileid: "97654288"
 
 Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하려면 Salesforce **앱 관리자** 에서 응용 프로그램을 만들어야 합니다. 자세한 내용은 [기본 연결 된 앱 설정 구성](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)및 [API 통합에 OAuth 설정 사용](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm) 을 참조 하세요.
 
-1. **설치** 에서 **빠른 찾기** 상자에 **앱** 을 입력 하 고 **앱 관리자** 를 선택 합니다.
+1. [Salesforce에 로그인](https://login.salesforce.com/)합니다.
+1. 메뉴에서 **설정** 을 선택 합니다.
+1.  **앱** 을 확장 하 고 **앱 관리자** 를 선택 합니다.
 1. **새로 연결 된 앱** 을 선택 합니다.
 1. **기본 정보** 아래에서 다음을 입력 합니다.
     1. **연결 된 앱 이름** -연결 된 앱 이름이 앱 관리자 및 앱 시작 관리자 타일에 표시 됩니다. 이름은 조직 내에서 고유 해야 합니다. 

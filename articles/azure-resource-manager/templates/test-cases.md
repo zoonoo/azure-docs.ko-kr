@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600907"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674045"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>ARM 템플릿 테스트 도구 키트에 대 한 기본 테스트 사례
 
@@ -693,4 +693,5 @@ Concat 함수를 사용 하 여 리소스 ID를 만들지 마세요. 다음 예�
 
 ## <a name="next-steps"></a>다음 단계
 
-테스트 도구 키트를 실행 하는 방법에 대 한 자세한 내용은 [ARM 템플릿 테스트 도구 키트 사용](test-toolkit.md)을 참조 하세요.
+- 테스트 도구 키트를 실행 하는 방법에 대 한 자세한 내용은 [ARM 템플릿 테스트 도구 키트 사용](test-toolkit.md)을 참조 하세요.
+- 테스트 도구 키트를 사용 하는 Microsoft Learn 모듈은 [변경 내용 미리 보기 및 가상 및 ARM 템플릿 테스트 도구 키트를 사용 하 여 Azure 리소스 유효성 검사](/learn/modules/arm-template-test/)를 참조 하세요.
