@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: a9af249aac18c847bf353f22b23ee67ab6e264c4
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a8cfdc76694d52acee70cde0e3f1697cd8129d06
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915150"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97691971"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -26,9 +26,9 @@ Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Xcode 내에서 새 프로젝트 만들기 창을 보여주는 스크린샷":::
 
-### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용 하 여 패키지 및 종속성 설치
+### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
-1. 다음과 같이 응용 프로그램에 대 한 Podfile를 만듭니다.
+1. 다음과 같이 애플리케이션에 대한 Podfile을 만듭니다.
 
    ```
    platform :ios, '13.0'
@@ -106,12 +106,16 @@ public func fetchTokenSync(then onCompletion: TokenRefreshOnCompletion) {
 }
 ```
 
-위에서 만든 CommunicationUserCredential 개체를 ACSCallClient에 전달
+위에서 만든 CommunicationUserCredential 개체를 ACSCallClient에 전달 하 고 표시 이름을 설정 합니다.
 
 ```swift
 
 callClient = CallClient()
-callClient?.createCallAgent(with: userCredential!,
+let callAgentOptions:CallAgentOptions = CallAgentOptions()
+options.displayName = "ACS iOS User"
+
+callClient?.createCallAgent(userCredential: userCredential!,
+    options: callAgentOptions,
     completionHandler: { (callAgent, error) in
         if error == nil {
             print("Create agent succeeded")
@@ -174,6 +178,39 @@ let groupCallContext = GroupCallContext()
 groupCallContext?.groupId = UUID(uuidString: "uuid_string")!
 let call = self.callAgent?.join(with: groupCallContext, joinCallOptions: JoinCallOptions())
 
+```
+
+### <a name="accept-an-incoming-call"></a>들어오는 호출 수락
+호출을 수락 하려면 호출 개체에서 ' accept ' 메서드를 호출 합니다.
+CallAgent로 대리자 설정 
+```swift
+final class CallHandler: NSObject, CallAgentDelegate
+{
+    public var incomingCall: Call?
+ 
+    public func onCallsUpdated(_ callAgent: CallAgent!, args: CallsUpdatedEventArgs!) {
+        if let incomingCall = args.addedCalls?.first(where: { $0.isIncoming }) {
+            self.incomingCall = incomingCall
+        }
+    }
+}
+
+let firstCamera: VideoDeviceInfo? = self.deviceManager?.getCameraList()![0]
+let localVideoStream = LocalVideoStream(camera: firstCamera)
+let acceptCallOptions = AcceptCallOptions()
+acceptCallOptions!.videoOptions = VideoOptions(localVideoStream:localVideoStream!)
+if let incomingCall = CallHandler().incomingCall {
+   incomingCall.accept(options: acceptCallOptions,
+                          completionHandler: { (error) in
+                           if error == nil {
+                               print("Incoming call accepted")
+                           } else {
+                               print("Failed to accept incoming call")
+                           }
+                       })
+} else {
+   print("No incoming call found to accept")
+}
 ```
 
 ## <a name="push-notification"></a>푸시 알림
