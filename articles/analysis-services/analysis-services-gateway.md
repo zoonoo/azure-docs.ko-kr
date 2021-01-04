@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 6ca96f76287482a445d8a9a1cdc441333b36efbd
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107609"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739606"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -57,7 +57,7 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
+| *.msftncsi.com |80 |Power BI 서비스에서 게이트웨이에 연결할 수 없는 경우 인터넷 연결을 테스트하는 데 사용합니다. |
 | *.microsoftonline-p.com |443 |구성에 따라 인증에 사용합니다. |
 | dc.services.visualstudio.com    |443 |AppInsights에서 원격 분석을 수집 하는 데 사용 됩니다. |
 

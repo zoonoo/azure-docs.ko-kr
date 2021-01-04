@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 52b46d67d745017237a8c648abed66e2693d9d6a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573020"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739436"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
@@ -155,7 +155,43 @@ Uploaded 9 files
 
 이전과 같이 `06-run-pytorch-data.py`라는 새 Python 제어 스크립트를 만듭니다.
 
-:::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/06-run-pytorch-data.py":::
+```python
+# 06-run-pytorch-data.py
+from azureml.core import Workspace
+from azureml.core import Experiment
+from azureml.core import Environment
+from azureml.core import ScriptRunConfig
+from azureml.core import Dataset
+
+if __name__ == "__main__":
+    ws = Workspace.from_config()
+    datastore = ws.get_default_datastore()
+    dataset = Dataset.File.from_files(path=(datastore, 'datasets/cifar10'))
+
+    experiment = Experiment(workspace=ws, name='day1-experiment-data')
+
+    config = ScriptRunConfig(
+        source_directory='./src',
+        script='train.py',
+        compute_target='cpu-cluster',
+        arguments=[
+            '--data_path', dataset.as_named_input('input').as_mount(),
+            '--learning_rate', 0.003,
+            '--momentum', 0.92],
+    )
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='./.azureml/pytorch-env.yml'
+    )
+    config.run_config.environment = env
+
+    run = experiment.submit(config)
+    aml_url = run.get_portal_url()
+    print("Submitted to compute cluster. Click link below")
+    print("")
+    print(aml_url)
+```
 
 ### <a name="understand-the-code-changes"></a>코드 변경 내용 이해
 

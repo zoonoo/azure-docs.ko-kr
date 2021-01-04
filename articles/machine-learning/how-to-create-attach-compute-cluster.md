@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832690"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739188"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
@@ -211,6 +211,14 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 ### <a name="managed-identity-usage"></a>관리 id 사용
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+## <a name="troubleshooting"></a>문제 해결
+
+GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 만든 일부 사용자가 해당 작업 영역에서 AmlCompute를 만들지 못할 수 있습니다. 서비스에 대 한 지원 요청을 발생 시키거나 포털 또는 SDK를 통해 새 작업 영역을 만들어 즉시 차단을 해제할 수 있습니다.
+
+Azure Machine Learning 계산 클러스터가 노드 상태에 대 한 크기 조정 (0-> 0)에서 멈춘 것 처럼 보이는 경우 Azure 리소스 잠금으로 인해 발생할 수 있습니다.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

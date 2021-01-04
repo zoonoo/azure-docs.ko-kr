@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: a9d20732c3ae08718c400faff44137000e98fffd
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629432"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739997"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -100,7 +100,7 @@ Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 �
 > [!TIP]
 > 가상 네트워크 뒤에 있지 않은 Azure Machine Learning 리소스를 사용할 수 있지만 가상 네트워크를 사용 하는 것이 좋습니다.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
 
@@ -536,4 +536,10 @@ docker stop debug
 
 이제 원격 VS Code 설정 했으므로 계산 인스턴스를 VS Code의 원격 계산으로 사용 하 여 코드를 대화형으로 디버그할 수 있습니다. 
 
-[자습서: 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-train.md)에서는 통합 Notebook으로 컴퓨팅 인스턴스를 사용하는 방법을 보여 줍니다.
+문제 해결에 대해 자세히 알아보세요.
+
+* [로컬 모델 배포](how-to-troubleshoot-deployment-local.md)
+* [원격 모델 배포](how-to-troubleshoot-deployment.md)
+* [기계 학습 파이프라인](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+

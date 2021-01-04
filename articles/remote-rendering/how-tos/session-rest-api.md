@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d957c5d6521010c7393e2297be16cd7bef41c35f
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023757"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724071"
 ---
 # <a name="use-the-session-management-rest-api"></a>세션 관리 REST API 사용
 
-Azure 원격 렌더링 기능을 사용 하려면 *세션*을 만들어야 합니다. 각 세션은 Azure에서 할당 되는 VM (가상 머신)에 해당 하며 클라이언트 장치가 연결 될 때까지 대기 합니다. 장치가 연결 되 면 VM은 요청 된 데이터를 렌더링 하 고 결과를 비디오 스트림으로 사용 합니다. 세션을 만드는 동안 실행 하려는 서버 종류를 선택 하 여 가격 책정을 결정 합니다. 세션이 더 이상 필요 하지 않으면 중지 되어야 합니다. 수동으로 중지 되지 않은 경우 세션의 *임대 시간이* 만료 되 면 자동으로 종료 됩니다.
+Azure 원격 렌더링 기능을 사용 하려면 *세션* 을 만들어야 합니다. 각 세션은 Azure에서 할당 되는 VM (가상 머신)에 해당 하며 클라이언트 장치가 연결 될 때까지 대기 합니다. 장치가 연결 되 면 VM은 요청 된 데이터를 렌더링 하 고 결과를 비디오 스트림으로 사용 합니다. 세션을 만드는 동안 실행 하려는 서버 종류를 선택 하 여 가격 책정을 결정 합니다. 세션이 더 이상 필요 하지 않으면 중지 되어야 합니다. 수동으로 중지 되지 않은 경우 세션의 *임대 시간이* 만료 되 면 자동으로 종료 됩니다.
 
-서비스의 사용을 보여 주는 *RenderingSession.ps1*이라는 *스크립트* 폴더의 [ARR 샘플 리포지토리에서](https://github.com/Azure/azure-remote-rendering) PowerShell 스크립트를 제공 합니다. 스크립트 및 해당 구성은 여기에 설명 되어 있습니다. [예제 PowerShell 스크립트](../samples/powershell-example-scripts.md)
+서비스의 사용을 보여 주는 *RenderingSession.ps1* 이라는 *스크립트* 폴더의 [ARR 샘플 리포지토리에서](https://github.com/Azure/azure-remote-rendering) PowerShell 스크립트를 제공 합니다. 스크립트 및 해당 구성은 여기에 설명 되어 있습니다. [예제 PowerShell 스크립트](../samples/powershell-example-scripts.md)
 
 > [!TIP]
 > 이 페이지에 나열 된 PowerShell 명령은 서로를 보완 하기 위한 것입니다. 동일한 PowerShell 명령 프롬프트 내에서 모든 스크립트를 순서 대로 실행 하는 경우 서로를 기반으로 빌드됩니다.
@@ -25,7 +25,7 @@ Azure 원격 렌더링 기능을 사용 하려면 *세션*을 만들어야 합�
 
 요청을 보낼 기본 Url에 대 한 [사용 가능한 지역 목록을](../reference/regions.md) 참조 하세요.
 
-아래 샘플 스크립트의 경우 *westus2*지역을 선택 합니다.
+아래 샘플 스크립트의 경우 *westus2* 지역을 선택 합니다.
 
 ### <a name="example-script-choose-an-endpoint"></a>예제 스크립트: 끝점 선택
 
@@ -35,13 +35,16 @@ $endPoint = "https://remoterendering.westus2.mixedreality.azure.com"
 
 ## <a name="accounts"></a>계정
 
-원격 렌더링 계정이 없는 경우 [새로 만듭니다](create-an-account.md). 각 리소스는 세션 Api 전체에서 사용 되는 *accountId*로 식별 됩니다.
+원격 렌더링 계정이 없는 경우 [새로 만듭니다](create-an-account.md). 각 리소스는 세션 Api 전체에서 사용 되는 *accountId* 로 식별 됩니다.
 
-### <a name="example-script-set-accountid-and-accountkey"></a>예제 스크립트: accountId 및 accountKey 설정
+### <a name="example-script-set-accountid-accountkey-and-account-domain"></a>예제 스크립트: accountId, accountKey 및 계정 도메인 설정
+
+계정 도메인은 원격 렌더링 계정의 위치입니다. 이 예제에서 계정의 위치는 지역 *a* 입니다.
 
 ```PowerShell
 $accountId = "********-****-****-****-************"
 $accountKey = "*******************************************="
+$accountDomain = "eastus.mixedreality.azure.com"
 ```
 
 ## <a name="common-request-headers"></a>일반 요청 헤더
@@ -52,7 +55,7 @@ $accountKey = "*******************************************="
 
 ```PowerShell
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$webResponse = Invoke-WebRequest -Uri "https://sts.mixedreality.azure.com/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
+$webResponse = Invoke-WebRequest -Uri "https://sts.$accountDomain/accounts/$accountId/token" -Method Get -ContentType "application/json" -Headers @{ Authorization = "Bearer ${accountId}:$accountKey" }
 $response = ConvertFrom-Json -InputObject $webResponse.Content
 $token = $response.AccessToken;
 ```
@@ -69,7 +72,7 @@ $token = $response.AccessToken;
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/create | POST |
 
-**본문 요청:**
+**요청 본문:**
 
 * maxLeaseTime (timespan): 세션을 자동으로 해제 하는 시간 제한 값
 * 모델 (배열): 미리 로드할 자산 컨테이너 Url
@@ -79,7 +82,7 @@ $token = $response.AccessToken;
 
 | 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | 성공 |
+| 202 | -sessionId: GUID | Success |
 
 ### <a name="example-script-create-a-session"></a>예제 스크립트: 세션 만들기
 
@@ -111,7 +114,7 @@ RawContentLength  : 52
 
 ### <a name="example-script-store-sessionid"></a>예제 스크립트: 저장소 sessionId
 
-위의 요청 응답에는 모든 후속 요청에 필요한 **sessionId**가 포함 되어 있습니다.
+위의 요청 응답에는 모든 후속 요청에 필요한 **sessionId** 가 포함 되어 있습니다.
 
 ```PowerShell
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
@@ -135,7 +138,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 |-----------|:-----------|
 | /v1/accounts/*accountID*/sessions/*sessionId* | 패치 |
 
-**본문 요청:**
+**요청 본문:**
 
 * maxLeaseTime (timespan): 세션을 자동으로 해제 하는 시간 제한 값
 
@@ -259,13 +262,13 @@ RawContentLength  : 60
 
 | URI | 방법 |
 |-----------|:-----------|
-| /v1/accounts/*accountId*/sessions/*sessionId* | Delete |
+| /v1/accounts/*accountId*/sessions/*sessionId* | DELETE |
 
 **보낸**
 
 | 상태 코드 | JSON 페이로드 | 주석 |
 |-----------|:-----------|:-----------|
-| 204 | | 성공 |
+| 204 | | Success |
 
 ### <a name="example-script-stop-a-session"></a>예제 스크립트: 세션 중지
 

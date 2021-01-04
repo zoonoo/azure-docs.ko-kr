@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6eae805b6edce4c414d26f1b79d52ac33f8f2d9d
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592469"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709115"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
 활동 로그는 구독 수준의 이벤트에 대한 인사이트를 제공하는 Azure의 [플랫폼 로그](platform-logs-overview.md)입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 위해 활동 로그를 [Azure Monitor 로그](data-platform-logs.md), azure Event Hubs에서 azure로 전달 하거나 보관을 위해 Azure Storage 전송 하는 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대 한 세부 정보를 제공 합니다.
@@ -67,14 +67,14 @@ Log Analytics 작업 영역의 활동 로그 데이터는 [Log Analytics](../log
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 관리 범주에 있는 모든 레코드를 검색 하려면 다음 쿼리를 사용 합니다.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -200,14 +200,14 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | 속성 | 필수 | 설명 |
+    | 속성 | 필수 | Description |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
-    | StorageAccountId |예 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
-    | serviceBusRuleId |예 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
+    | StorageAccountId |아니요 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
+    | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
     | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
     | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
-    | 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_ 및 _동작_ 입니다. |
+    | 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_ 및 _동작_ 입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
 다음은 저장소 계정 및 이벤트 허브 모두에 활동 로그를 기록 하는 로그 프로필을 만드는 샘플 PowerShell 스크립트입니다.
@@ -278,6 +278,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus 상태 | ActivitySubstatusValue |
+| 범주          | CategoryValue          |
 | OperationName     | OperationNameValue     |
 | ResourceProvider  | ResourceProviderValue  |
 

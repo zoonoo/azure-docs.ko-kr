@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 3eaabc6c1e7d34bb5d9433d742581f39bdfbf98e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 315de18539bf083515658b40fa70f3c214d7c909
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669536"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739742"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -44,24 +44,14 @@ ISE는 [샘플 Azure Resource Manager 빠른 시작 템플릿](https://github.co
   > [!IMPORTANT]
   > ISE에서 실행되는 논리 앱, 기본 제공 트리거, 기본 제공 작업 및 커넥터는 사용량 기반 가격 책정 플랜과 다른 가격 책정 플랜을 사용합니다. ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요. 가격 책정 요금은 [Logic Apps 가격 책정](../logic-apps/logic-apps-pricing.md)을 참조하세요.
 
-* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하는 데 필요한 다음과 같은 내부 및 숨겨진 구성 요소에 사용 되는 4 개의 *빈* 서브넷이 있어야 합니다.
+* ISE에서 리소스를 만들고 배포 하는 데 필요한 다음과 같은 내부 및 숨겨진 구성 요소에서 사용 되는 4 개의 *빈* 서브넷이 있는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 입니다.
 
   * Logic Apps 계산
   * 내부 App Service Environment (커넥터)
   * 내부 API Management (커넥터)
   * 캐싱 및 성능에 대 한 내부 Redis
   
-  서브넷을 미리 만들 수도 있고, 나중에 서브넷을 만들 수 있도록 ISE를 만들 때까지 기다릴 수도 있습니다. 그러나 서브넷을 만들기 전에 [서브넷 요구 사항을](#create-subnet)검토 합니다.
-
-  > [!IMPORTANT]
-  >
-  > Azure Logic Apps에서 확인할 수 없기 때문에 가상 네트워크 또는 서브넷에 대해 다음 IP 주소 공간을 사용 하지 마세요.<p>
-  > 
-  > * 0.0.0.0/8
-  > * 100.64.0.0/10
-  > * 127.0.0.0/8
-  > * 168.63.129.16/32
-  > * 169.254.169.254/32
+  서브넷을 미리 만들거나 ISE를 만들 때 동시에 서브넷을 만들 수 있습니다. 그러나 서브넷을 만들기 전에 [서브넷 요구 사항을](#create-subnet)확인 해야 합니다.
 
   * ISE가 제대로 작동하고 액세스 가능한 상태를 유지할 수 있도록 가상 네트워크가 [ISE에 액세스할 수 있는지](#enable-access) 확인해야 합니다.
 
@@ -170,14 +160,14 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 * 서비스 엔드포인트
 
-  방화벽을 통해 이러한 서비스로 트래픽을 보낼 수 없기 때문에 Azure SQL, Storage, Service Bus 및 Event Hubs에 대 한 서비스 끝점을 사용 하도록 설정 해야 합니다.
+  방화벽을 통해 이러한 서비스로 트래픽을 보낼 수 없기 때문에 Azure SQL, Storage, Service Bus, KeyVault 및 Event Hubs에 대 한 서비스 끝점을 사용 하도록 설정 해야 합니다.
 
 *  기타 인바운드 및 아웃 바운드 종속성
 
    방화벽에서 다음 인바운드 및 아웃 바운드 종속성을 허용 *해야 합니다* .
    
    * [Azure App Service 종속성](../app-service/environment/firewall-integration.md#deploying-your-ase-behind-a-firewall)
-   * [Azure Cache Service 종속성](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-vnets)
+   * [Azure Cache Service 종속성](../azure-cache-for-redis/cache-how-to-premium-vnet.md#what-are-some-common-misconfiguration-issues-with-azure-cache-for-redis-and-virtual-networks)
    * [Azure API Management 종속성](../api-management/api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 <a name="create-environment"></a>
@@ -219,7 +209,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    * 는 알파벳 문자 또는 밑줄 (숫자 없음)로 시작 하는 이름을 사용 하 고,,,,, `<` `>` `%` `&` `\\` `?` , `/` 등의 문자는 사용 하지 않습니다.
 
-   * [CIDR(Classless Inter-Domain Routing) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용합니다.
+   * 에서는 [CIDR (클래스 형식 Inter-Domain 라우팅) 형식을](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)사용 합니다.
    
      > [!IMPORTANT]
      >

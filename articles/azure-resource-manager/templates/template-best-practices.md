@@ -1,18 +1,18 @@
 ---
 title: 템플릿 모범 사례
-description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)을 제작 하는 데 권장 되는 방법을 설명 합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c62bde8fc8cfc79330d13b7b2ff4f778dadf1339
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497982"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724989"
 ---
 # <a name="arm-template-best-practices"></a>ARM 템플릿 모범 사례
 
-이 문서에서는 ARM 템플릿을 구성할 때 권장 사례를 사용 하는 방법을 보여 줍니다. 이러한 권장 사항은 ARM 템플릿을 사용 하 여 솔루션을 배포할 때 발생 하는 일반적인 문제를 방지 하는 데 도움이 됩니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 생성할 때 권장 사례를 사용 하는 방법을 보여 줍니다. 이러한 권장 사항은 ARM 템플릿을 사용 하 여 솔루션을 배포할 때 발생 하는 일반적인 문제를 방지 하는 데 도움이 됩니다.
 
 ## <a name="template-limits"></a>템플릿 제한
 
@@ -26,9 +26,9 @@ ms.locfileid: "96497982"
 * 출력 값 64개
 * 템플릿 식의 문자 24,576자
 
-중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)을 참조하세요.
+중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결 된 템플릿 및 중첩 된 템플릿 사용](linked-templates.md)을 참조 하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)을 참조하세요.
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>리소스 그룹
 
 리소스 그룹에 리소스를 배포 하는 경우 리소스 그룹은 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
 
@@ -48,32 +48,32 @@ ms.locfileid: "96497982"
 
 * 쉽게 식별할 수 있도록 지정하려는 리소스 이름에 대해 매개 변수를 사용합니다.
 
-* 매개 변수에 모든 메타데이터의 설명을 제공합니다.
+* 메타 데이터의 모든 매개 변수에 대 한 설명을 제공 합니다.
 
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* 중요하지 않은 매개 변수의 기본값을 정의합니다. 기본값을 지정하여 템플릿을 배포하는 것이 쉽습니다. 템플릿의 사용자에게 적절한 값의 예제가 표시됩니다. 매개 변수의 기본값은 기본 배포 구성에서 모든 사용자에 대해 유효해야 합니다. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
+    ```json
+    "parameters": {
+      "storageAccountType": {
+        "type": "string",
+        "metadata": {
+          "description": "The type of the new storage account created to store the VM disks."
         }
-   }
-   ```
+      }
+    }
+    ```
+
+* 중요하지 않은 매개 변수의 기본값을 정의합니다. 기본값을 지정하여 템플릿을 배포하는 것이 쉽습니다. 템플릿의 사용자에게 적절한 값의 예제가 표시됩니다. 매개 변수의 기본값은 기본 배포 구성에서 모든 사용자에 대해 유효해야 합니다.
+
+    ```json
+    "parameters": {
+      "storageAccountType": {
+        "type": "string",
+        "defaultValue": "Standard_GRS",
+        "metadata": {
+          "description": "The type of the new storage account created to store the VM disks."
+        }
+      }
+    }
+    ```
 
 * 선택적 매개 변수를 지정하려면 기본값으로 빈 문자열을 사용하지 마세요. 대신 리터럴 값 또는 언어 식을 사용하여 값을 생성합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "96497982"
      "metadata": {
        "description": "Name of the storage account"
      }
-   },
+   }
    ```
 
 * `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. 너무 광범위 하 게 사용 하는 경우 `allowedValues` 목록을 최신 상태로 유지 하지 않는 방식으로 유효한 배포를 차단할 수 있습니다.
@@ -95,18 +95,18 @@ ms.locfileid: "96497982"
 
 * 항상 사용자 이름 및 암호(또는 비밀)에 대한 매개 변수를 사용합니다.
 
-* 모든 암호 및 비밀에 대해 `securestring`을 사용합니다. JSON 개체에 중요한 데이터를 전달하는 경우 `secureObject` 유형을 사용합니다. 리소스 배포 후에는 secure string 또는 secure object 형식의 템플릿 매개 변수를 읽을 수 없습니다. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
+* 모든 암호 및 비밀에 대해 `securestring`을 사용합니다. JSON 개체에 중요한 데이터를 전달하는 경우 `secureObject` 유형을 사용합니다. 리소스 배포 후에는 secure string 또는 secure object 형식의 템플릿 매개 변수를 읽을 수 없습니다.
+
+    ```json
+    "parameters": {
+      "secretValue": {
+        "type": "securestring",
+        "metadata": {
+          "description": "The value of the secret to store in the vault."
+        }
+      }
+    }
+    ```
 
 * `secureString` 형식이 필요한 사용자 이름, 암호 또는 모든 값에 대한 기본값을 제공하지 마세요.
 
@@ -114,7 +114,7 @@ ms.locfileid: "96497982"
 
 ### <a name="location-recommendations-for-parameters"></a>매개 변수에 대한 위치 권장 사항
 
-* 매개 변수를 사용하여 리소스에 대한 위치를 지정하고, 기본값을 `resourceGroup().location`으로 설정합니다. 위치 매개 변수를 제공하면 템플릿의 사용자는 배포 권한이 있는 위치를 지정할 수 있습니다.
+* 매개 변수를 사용하여 리소스에 대한 위치를 지정하고, 기본값을 `resourceGroup().location`으로 설정합니다. Location 매개 변수를 제공 하면 템플릿의 사용자가 리소스를 배포할 수 있는 권한이 있는 위치를 지정할 수 있습니다.
 
    ```json
    "parameters": {
@@ -125,7 +125,7 @@ ms.locfileid: "96497982"
          "description": "The location in which the resources should be deployed."
        }
      }
-   },
+   }
    ```
 
 * 위치 매개 변수에 대해 `allowedValues`를 지정하지 마세요. 지정하는 위치는 모든 클라우드에서 사용할 수 없을 수도 있습니다.
@@ -134,7 +134,7 @@ ms.locfileid: "96497982"
 
 * 모든 위치에서 사용할 수 없는 리소스의 경우 별도 매개 변수를 사용하거나 리터럴 위치 값을 지정합니다.
 
-## <a name="variables"></a>변수
+## <a name="variables"></a>variables
 
 다음 정보는 [변수](template-variables.md)로 작업하는 경우 도움이 될 수 있습니다.
 
@@ -142,9 +142,9 @@ ms.locfileid: "96497982"
 
 * 두 번 이상 사용해야 하는 값의 경우 템플릿에서 변수를 사용합니다. 값을 한 번만 사용할 경우에는 하드 코드된 값을 사용해야 템플릿을 더 쉽게 읽을 수 있습니다.
 
-* 복잡한 배열의 템플릿 함수에서 생성하는 값에 대해 변수를 사용합니다. 복잡한 식이 변수에만 표시되는 경우 템플릿을 읽기 쉽습니다.
+* 복잡한 배열의 템플릿 함수에서 생성하는 값에 대해 변수를 사용합니다. 복합 식이 변수에만 표시 되는 경우 템플릿을 더 쉽게 읽을 수 있습니다.
 
-* 템플릿의 **변수** 섹션에서 [reference](template-functions-resource.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
+* 템플릿의 섹션에는 [reference](template-functions-resource.md#reference) 함수를 사용할 수 없습니다 `variables` . `reference`함수는 리소스의 런타임 상태에서 해당 값을 파생 시킵니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. `reference`템플릿의 또는 섹션에서 직접 함수를 필요로 하는 값을 생성 `resources` `outputs` 합니다.
 
 * 고유해야 하는 리소스 이름에 대한 변수를 포함합니다.
 
@@ -166,7 +166,7 @@ API 버전에 대 한 변수를 사용 하지 마세요. 특히 배포 중에 [�
 
 설정할 [종속성](define-resource-dependency.md)을 결정하는 경우 다음 지침을 따르세요.
 
-* **reference** 함수를 사용하고 리소스 이름을 전달하여 속성을 공유해야 하는 리소스 간에 암시적 종속성을 설정합니다. 암시적 종속성을 이미 정의한 경우에는 명시적 `dependsOn` 요소를 추가하지 마세요. 이러한 방법은 불필요한 종속성이 포함될 위험을 줄여줍니다. 암시적 종속성을 설정 하는 예제는 [암시적 종속성](define-resource-dependency.md#reference-and-list-functions)을 참조 하세요.
+* 함수를 사용 하 `reference` 고 리소스 이름을 전달 하 여 속성을 공유 해야 하는 리소스 간의 암시적 종속성을 설정 합니다. 암시적 종속성을 이미 정의한 경우에는 명시적 `dependsOn` 요소를 추가하지 마세요. 이러한 방법은 불필요한 종속성이 포함될 위험을 줄여줍니다. 암시적 종속성을 설정 하는 예제는 [참조 및 목록 함수](define-resource-dependency.md#reference-and-list-functions)를 참조 하세요.
 
 * 자식 리소스가 부모 리소스에 종속되도록 설정합니다.
 
@@ -180,109 +180,108 @@ API 버전에 대 한 변수를 사용 하지 마세요. 특히 배포 중에 [�
 
 다음 정보는 [리소스](template-syntax.md#resources)로 작업하는 경우 도움이 될 수 있습니다.
 
-* 다른 참가자들이 리소스의 용도를 이해하도록 하려면 템플릿에 각 리소스에 대한 **설명** 을 지정합니다.
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2019-06-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
+* 다른 참가자가 리소스의 용도를 이해 하도록 돕기 위해 `comments` 템플릿의 각 리소스에 대해를 지정 합니다.
 
-* 템플릿에서 *공용 엔드포인트*(예: Azure Blob 스토리지 공용 엔드포인트)를 사용하는 경우 네임스페이스를 *하드 코딩하지 마세요*. **reference** 함수를 사용하여 네임스페이스를 동적으로 검색합니다. 이 방법을 사용하면 템플릿의 엔드포인트를 수동으로 변경하지 않고 다른 공용 네임스페이스 환경에 템플릿을 배포할 수 있습니다. 템플릿에서 스토리지 계정에 사용하는 것과 동일한 버전으로 API 버전을 설정합니다.
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   저장소 계정이 작성 중인 동일한 템플릿에 배포 되 고 저장소 계정 이름이 템플릿의 다른 리소스와 공유 되지 않는 경우 리소스를 참조할 때 공급자 네임 스페이스나 apiVersion을 지정할 필요가 없습니다. 다음 예제에서는 간소화된 구문을 보여 줍니다.
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-       }
-   }
-   ```
-     
-   다른 리소스 그룹에서 기존 스토리지 계정을 참조할 수도 있습니다.
+    ```json
+    "resources": [
+      {
+        "name": "[variables('storageAccountName')]",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-06-01",
+        "location": "[resourceGroup().location]",
+        "comments": "This storage account is used to store the VM disks.",
+          ...
+      }
+    ]
+    ```
 
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
+* 템플릿에서 *공용 엔드포인트*(예: Azure Blob 스토리지 공용 엔드포인트)를 사용하는 경우 네임스페이스를 *하드 코딩하지 마세요*. 함수를 사용 `reference` 하 여 네임 스페이스를 동적으로 검색 합니다. 이 방법을 사용하면 템플릿의 엔드포인트를 수동으로 변경하지 않고 다른 공용 네임스페이스 환경에 템플릿을 배포할 수 있습니다. API 버전을 템플릿에서 저장소 계정에 사용 하는 것과 동일한 버전으로 설정 합니다.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      }
+    }
+    ```
+
+   저장소 계정이 작성 중인 동일한 템플릿에 배포 되 고 저장소 계정 이름이 템플릿의 다른 리소스와 공유 되지 않는 경우 리소스를 참조할 때 공급자 네임 스페이스 또는를 지정할 필요가 없습니다 `apiVersion` . 다음 예에서는 간단한 구문을 보여 줍니다.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
+      }
+    }
+    ```
+
+   다른 리소스 그룹에 있는 기존 저장소 계정을 참조할 수도 있습니다.
+
+    ```json
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": "true",
+        "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
+      }
+    }
+    ```
 
 * 애플리케이션에 필요한 경우에만 공용 IP 주소를 가상 머신에 할당합니다. 디버깅, 관리 또는 관리 목적으로 가상 컴퓨터(VM)에 연결하려면 인바운드 NAT 규칙, 가상 네트워크 게이트웨이 또는 Jumpbox를 사용합니다.
-   
+
      가상 머신에 연결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-   
+
    * [Azure에서 N 계층 아키텍처에 대한 VM 실행](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Azure Resource Manager에서 VM에 대한 WinRM 액세스 설정](../../virtual-machines/windows/winrm.md)
    * [Azure Portal을 사용하여 VM에 대한 외부 액세스 허용](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [PowerShell을 사용하여 VM에 대한 외부 액세스 허용](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Azure CLI를 사용하여 Linux VM에 대한 외부 액세스 허용](../../virtual-machines/linux/nsg-quickstart.md)
 
-* 공용 IP 주소에 대한 **domainNameLabel** 속성은 고유해야 합니다. **domainNameLabel** 값은 3~63자 사이여야 하고 `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` 정규식으로 지정된 규칙을 따라야 합니다. **uniqueString** 함수는 13자 길이의 문자열을 생성하고, **dnsPrefixString** 매개 변수는 50자로 제한됩니다.
+* `domainNameLabel`공용 IP 주소에 대 한 속성은 고유 해야 합니다. 값은 3 ~ 007e; `domainNameLabel` 63 자 사이 여야 하 고, 정규식으로 지정 된 규칙을 따라야 `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` 합니다. 함수는 `uniqueString` 13 자 길이의 문자열을 생성 하므로 `dnsPrefixString` 매개 변수는 50 자로 제한 됩니다.
 
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
+    ```json
+    "parameters": {
+      "dnsPrefixString": {
+        "type": "string",
+        "maxLength": 50,
+        "metadata": {
+          "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
+        }
+      }
+    },
+    "variables": {
+      "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
+    }
+    ```
 
-* 사용자 지정 스크립트 확장에 암호를 추가하는 경우 **protectedSettings** 속성에서 **commandToExecute** 속성을 사용합니다.
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
+* 사용자 지정 스크립트 확장에 암호를 추가 하는 경우 속성의 속성을 사용 합니다 `commandToExecute` `protectedSettings` .
+
+    ```json
+    "properties": {
+      "publisher": "Microsoft.Azure.Extensions",
+      "type": "CustomScript",
+      "typeHandlerVersion": "2.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "fileUris": [
+          "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
+        ]
+      },
+      "protectedSettings": {
+        "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
+      }
+    }
+    ```
+
    > [!NOTE]
-   > VM 및 확장에 매개 변수로 전달되는 비밀이 암호화되도록 하려면 관련 확장의 **protectedSettings** 속성을 사용합니다.
-   > 
+   > Vm 및 확장에 매개 변수로 전달 될 때 비밀이 암호화 되도록 하려면 `protectedSettings` 관련 확장의 속성을 사용 합니다.
 
 ## <a name="use-test-toolkit"></a>테스트 도구 키트 사용
 
 ARM 템플릿 테스트 도구 키트는 템플릿에서 권장 사례를 사용 하는지 여부를 확인 하는 스크립트입니다. 템플릿이 권장 사례를 준수 하지 않는 경우 제안 된 변경 내용과 함께 경고 목록을 반환 합니다. 테스트 도구 키트를 통해 템플릿에서 모범 사례를 구현 하는 방법을 배울 수 있습니다.
 
-템플릿을 완료 한 후 테스트 도구 키트를 실행 하 여 it 구현을 개선할 수 있는 방법이 있는지 확인 합니다. 자세한 내용은 [ARM 템플릿 테스트 도구 키트](test-toolkit.md)를 참조 하세요.
+템플릿을 완료 한 후 테스트 도구 키트를 실행 하 여 구현을 향상 시킬 수 있는 방법이 있는지 확인 합니다. 자세한 내용은 [ARM 템플릿 테스트 도구 키트 사용](test-toolkit.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 2197d5be91af4c93e9691e1dc2b953198669deaf
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d8918181024715a57c6029d3ad0a36ea75140fcb
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027410"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739946"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -172,6 +172,38 @@ run.wait_for_completion(show_output=True)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+## <a name="troubleshooting"></a>문제 해결
+
+ * **Moduleerrors (이름이 지정 된 모듈 없음)**: Azure ML에서 실험을 제출 하는 동안 moduleerrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않습니다. 패키지 이름을 제공 하 고 나면 Azure ML은 학습 실행에 사용 되는 환경에 패키지를 설치 합니다.
+
+    추정를 사용 하 여 실험을 제출 하는 경우 `pip_packages` `conda_packages` 패키지를 설치 하려는 원본에 기반 하 여 평가기에서 또는 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. 를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 `conda_dependencies_file` 하거나 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다 `pip_requirements_file` . 평가기에서 사용 하는 기본 이미지를 재정의 하려는 고유한 Azure ML Environment 개체가 있는 경우 `environment` 평가기 생성자의 매개 변수를 통해 해당 환경을 지정할 수 있습니다.
+    
+    Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
+    프레임 워크 관련 종속성은 해당 프레임 워크 설명서에 나와 있습니다.
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [Tensorflow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    
+    > [!Note]
+    > 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
+ 
+* **Nameerror (이름이 정의 되지 않음), attributeerror (개체에 특성이 없음)**:이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서를 사용 `run.get_details()` 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 실행을 다시 전송 하기 전에 학습 스크립트를 확인 하 고 오류를 수정 하세요. 
+
+
+* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
+
+    개별 실험 또는 실행의 영구 삭제는 현재 지원되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
+
+* **메트릭 문서가 너무 큼**: Azure Machine Learning 학습 실행에서 한 번에 기록할 수 있는 메트릭 개체 크기에 대 한 내부 제한이 있습니다. 목록 값 메트릭을 로깅할 때 "메트릭 문서가 너무 큼" 오류가 발생하면 목록을 더 작은 청크로 분할해보세요. 예를 들면 다음과 같습니다.
+
+    ```python
+    run.log_list("my metric name", my_metric[:N])
+    run.log_list("my metric name", my_metric[N:])
+    ```
+
+    내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속된 목록에 연결합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

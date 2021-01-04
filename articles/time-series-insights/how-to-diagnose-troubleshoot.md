@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3d26a0ef86ab96940f3d5bb96d87340b77f1faca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016839"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740541"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 진단 및 문제 해결
 
@@ -124,14 +124,6 @@ Timestamp 속성을 명시적으로 지정 하지 않으면 이벤트의 IoT hub
 환경에 시계열 모델 계층 구조가 정의 되어 있지 않은 경우이 문제가 발생할 수 있습니다. 자세한 내용은 [시계열 모델을 사용](./time-series-insights-overview.md)하는 방법을 참조 하세요.
 
   [![Unparented 인스턴스는 경고를 표시 합니다.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
-
-## <a name="problem-power-bi-connector-shows-unable-to-connect"></a>문제: Power BI 커넥터에서 "연결할 수 없음"이 표시 됩니다.
-
-Power BI Desktop에서 Power BI 커넥터의 최신 버전을 사용 하지 않는 경우이 문제가 발생할 수 있습니다.
-
-[![연결할 수 없음 대화 상자를 보여 주는 스크린샷](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
-
-- Power BI Desktop 버전을 확인 하 고 7 월 2020 버전을 사용 하 고 있는지 확인 합니다. 그렇지 않으면 Power BI Desktop를 업데이트 하 고 커넥터를 다시 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

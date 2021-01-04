@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0793547c4eafcad256664546240a07c1bcb0e628
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656754"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709013"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>NDES (네트워크 장치 등록 서비스) 서버에서 Azure AD 응용 프로그램 프록시와 통합
 
@@ -81,7 +81,7 @@ Azure AD 응용 프로그램 프록시은 Azure를 기반으로 합니다. DDOS 
 
 1. **+ 추가** 를 선택 하 여 응용 프로그램을 저장 합니다.
 
-1. 10 단계에서 복사한 링크를 브라우저에 붙여넣어 Azure AD 응용 프로그램 프록시를 통해 NDES 서버에 액세스할 수 있는지 테스트 합니다. 기본 IIS 시작 페이지가 표시 됩니다.
+1. 15 단계에서 복사한 링크를 브라우저에 붙여넣어 Azure AD 응용 프로그램 프록시를 통해 NDES 서버에 액세스할 수 있는지 테스트 합니다. 기본 IIS 시작 페이지가 표시 됩니다.
 
 1. 최종 테스트로 이전 단계에서 붙여넣은 기존 URL에 *mscep.dll* 경로를 추가 합니다.
 

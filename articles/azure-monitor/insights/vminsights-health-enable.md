@@ -1,60 +1,80 @@
 ---
-title: VM용 Azure Monitor 게스트 상태 (미리 보기) 사용
+title: VM용 Azure Monitor 게스트 상태 사용(미리 보기)
 description: 구독에서 VM용 Azure Monitor 게스트 상태를 사용 하도록 설정 하는 방법 및 Vm을 등록 하는 방법에 대해 설명 합니다.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444770"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740473"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>VM용 Azure Monitor 게스트 상태 (미리 보기) 사용
+# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>VM용 Azure Monitor 게스트 상태 사용(미리 보기)
 VM용 Azure Monitor 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 구독에서이 기능을 사용 하도록 설정 하는 방법과 각 가상 컴퓨터에 대해 게스트 모니터링을 사용 하도록 설정 하는 방법을 설명 합니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 VM용 Azure Monitor 게스트 상태는 공개 미리 보기에서 다음과 같은 제한 사항이 있습니다.
 
 - 현재 Azure virtual machines만 지원 됩니다. 서버에 대 한 Azure Arc는 현재 지원 되지 않습니다.
-- 가상 컴퓨터에서 다음 운영 체제 중 하나를 실행 해야 합니다. 
+
+
+## <a name="supported-operating-systems"></a>지원되는 운영 체제
+가상 컴퓨터에서 다음 운영 체제 중 하나를 실행 해야 합니다. 
+
   - Ubuntu 16.04 LTS, Ubuntu 18.04 LTS
   - Windows Server 2012 이상
-- 가상 머신은 다음 지역 중 하나에 있어야 합니다.
-  - 오스트레일리아 동부
-  - 오스트레일리아 남동부
-  - 인도 중부
-  - 미국 중부
-  - 미국 동부
-  - 미국 동부 2
-  - 미국 동부 2 EUAP
-  - 독일 중서부
-  - 일본 동부
-  - 미국 중북부
-  - 북유럽
-  - 미국 중남부
-  - 동남아시아
-  - 영국 남부
-  - 서유럽
-  - 미국 서부
-  - 미국 서부 2
-- Log Analytics 작업 영역은 다음 지역 중 하나에 있어야 합니다.
-  - 미국 동부
-  - 미국 동부 2 EUAP
-  - 유럽 서부 지역
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="supported-regions"></a>지원되는 지역
+
+가상 머신은 다음 지역 중 하나에 있어야 합니다.
+
+- 오스트레일리아 중부
+- 오스트레일리아 동부
+- 오스트레일리아 남동부
+- 인도 중부
+- 미국 중부
+- 동아시아
+- 미국 동부
+- 미국 동부 2
+- 미국 동부 2 EUAP
+- 독일 중서부
+- 일본 동부
+- 미국 중북부
+- 북유럽
+- 미국 중남부
+- 동남아시아
+- 영국 남부
+- 미국 중서부
+- 서유럽
+- 미국 서부
+- 미국 서부 2
+
+
+Log Analytics 작업 영역은 다음 지역 중 하나에 있어야 합니다.
+
+- 미국 중부
+- 미국 동부
+- 미국 동부 2
+- 미국 동부 2 EUAP
+- 북유럽
+- 동남아시아
+- 영국 남부
+- 유럽 서부 지역
+- 미국 서부 2
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - VM용 Azure Monitor 하려면 가상 컴퓨터를 등록 해야 합니다.
 - 온 보 딩 단계를 실행 하는 사용자에 게는 가상 머신과 데이터 수집 규칙이 있는 구독에 대 한 최소 참가자 수준 액세스 권한이 있어야 합니다.
 - 다음 섹션에 설명 된 대로 필요한 Azure 리소스 공급자를 등록 해야 합니다.
 
-
 ## <a name="register-required-azure-resource-providers"></a>필요한 Azure 리소스 공급자 등록
-다음 Azure 리소스 공급자는 VM용 Azure Monitor 게스트 상태를 사용 하도록 설정 하기 위해 구독에 등록 해야 합니다. 
+다음 Azure 리소스 공급자를 구독에 등록 하 여 게스트 상태를 VM용 Azure Monitor 수 있습니다. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights

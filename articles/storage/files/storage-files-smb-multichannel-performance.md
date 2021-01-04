@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: f85df2e16554b4830d3e5f1bc82c5c8cdf22e28b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586633"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724819"
 ---
 # <a name="smb-multichannel-performance"></a>SMB 다중 채널 성능
 
 Smb 다중 채널 (미리 보기)을 Azure Files SMB 3.x 클라이언트에서 FileStorage 계정의 프리미엄 파일 공유에 대 한 여러 네트워크 연결을 설정할 수 있습니다. SMB 3.0 프로토콜은 Windows Server 2012 및 Windows 8 클라이언트에서 SMB 다중 채널 기능을 도입 했습니다. 이로 인해 SMB 다중 채널을 지 원하는 모든 Azure Files SMB 2.x 클라이언트는 Azure premium 파일 공유 기능을 활용할 수 있습니다. 저장소 계정에서 SMB 다중 채널을 사용 하도록 설정 하는 데에는 추가 비용이 없습니다.
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>혜택
 
 SMB 다중 채널을 사용 하면 클라이언트는 소유 비용을 줄이는 동시에 성능을 향상 시키는 여러 네트워크 연결을 사용할 수 있습니다. Azure Files 여러 Nic에 대 한 대역폭 집계를 통해 성능을 향상 시키고, Nic에 대해 RSS (수신측 배율) 지원을 활용 하 여 IO 부하를 여러 Cpu에 분산 합니다.
 
@@ -40,7 +40,7 @@ SMB 다중 채널에 대 한 자세한 내용은 [Windows 설명서](/azure-stac
 
 [!INCLUDE [storage-files-smb-multi-channel-regions](../../../includes/storage-files-smb-multi-channel-regions.md)]
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 SMB 다중 채널은 기능이 클라이언트 쪽 (클라이언트)과 서비스 측 (Azure storage 계정) 모두에서 사용 하도록 설정 된 경우에만 작동 합니다.
 
@@ -63,7 +63,7 @@ Azure storage 계정에서 SMB 다중 채널을 사용 하도록 설정 해야 �
 1. 관리자 권한으로 PowerShell을 열고 다음 명령을 사용 합니다. `Get-SmbMultichannelConnection |fl`
 1. **Maxchannels** **currentchannels** 속성을 찾습니다.
 
-:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Smbmultichannelconnection 결과의 스크린샷" lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
+:::image type="content" source="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG" alt-text="Get-SMBMultichannelConnection 결과의 스크린샷" lightbox="media/storage-files-smb-multichannel-performance/files-smb-multi-channel-connection.PNG":::
 
 ## <a name="performance-comparison"></a>성능 비교
 
@@ -119,7 +119,7 @@ Azure storage 계정에서 SMB 다중 채널을 사용 하도록 설정 해야 �
 - 네트워크 대기 시간을 줄이기 위해 저장소 계정 및 클라이언트가 동일한 Azure 지역에 공동 배치 확인 합니다.
 - 다중 스레드 응용 프로그램을 사용 하 여 부하를 여러 파일에 분산 합니다.
 - SMB 다중 채널의 성능 이점은 부하를 분산 하는 파일 수를 늘립니다.
-- 프리미엄 공유 성능은 프로 비전 된 공유 크기 (IOPS/송신/수신) 및 단일 파일 제한에 의해 바인딩됩니다. 자세한 내용은 [프리미엄 파일 공유에 대 한 프로 비전 이해](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)를 참조 하세요.
+- 프리미엄 공유 성능은 프로 비전 된 공유 크기 (IOPS/송신/수신) 및 단일 파일 제한에 의해 바인딩됩니다. 자세한 내용은 [프리미엄 파일 공유에 대 한 프로 비전 이해](understanding-billing.md#provisioned-billing)를 참조 하세요.
 - 단일 VM 클라이언트의 최대 성능은 VM 제한에 계속 바인딩되어 있습니다. 예를 들어 [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) 최대 대역폭 16000 MBps (또는 2gbps)를 지원할 수 있습니다. VM에서의 송신 (저장소에 쓰기)은 유료 (저장소에서 읽기)입니다. 파일 공유 성능에는 컴퓨터 네트워크 제한, Cpu, 내부 저장소 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리 및 기타 요인이 적용 됩니다.
 - 초기 테스트는 일반적으로 준비 하 고, 결과를 삭제 하 고, 테스트를 반복 합니다.
 - 단일 클라이언트에 의해 성능이 제한 되 고 워크 로드가 여전히 프로 비전 된 공유 제한을 초과 하는 경우 여러 클라이언트에 부하를 분산 하 여 더 높은 성능을 얻을 수 있습니다.

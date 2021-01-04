@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010931"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740371"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에서 디바이스 등록을 해제하는 방법
 
@@ -26,7 +26,7 @@ IoT 솔루션과 같이 세간의 이목을 끄는 프로필 시스템에서는 
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>개별 등록 항목을 사용 하 여 장치 허용 안 함
 
-개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). (SAS 토큰을 증명 메커니즘으로 사용 하는 장치는 개별 등록을 통해서만 프로 비전 할 수 있습니다.) 개별 등록이 있는 장치를 허용 하지 않으려면 해당 등록 항목을 사용 하지 않도록 설정 하거나 삭제할 수 있습니다. 
+개별 등록는 단일 장치에 적용 되며, x.509 인증서, TPM 인증 키 (실제 또는 가상 TPM) 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다. 개별 등록이 있는 장치를 허용 하지 않으려면 해당 등록 항목을 사용 하지 않도록 설정 하거나 삭제할 수 있습니다. 
 
 등록 항목을 사용 하지 않도록 설정 하 여 일시적으로 장치를 허용 하지 않으려면: 
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92544769"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734626"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -126,7 +126,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 **Azure Ca
 
 <a name="maxmemory-policy-and-maxmemory-reserved"></a>
 #### <a name="memory-policies"></a>메모리 정책
-**고급 설정** 블레이드의 **Maxmemory 정책** , **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 캐시에 대한 메모리 정책을 구성합니다.
+**고급 설정** 블레이드의 **Maxmemory 정책**, **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 캐시에 대한 메모리 정책을 구성합니다.
 
 ![Azure Cache for Redis Maxmemory 정책](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -145,7 +145,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 **Azure Ca
 
 **Maxfragmentationmemory-reserved 설정은-예약** 된 설정은 메모리 조각화를 수용 하기 위해 예약 된 클러스터의 인스턴스당 메모리 양 (MB)을 구성 합니다. 이 값을 설정하면 캐시가 가득 찼거나 거의 가득 찼고 조각화 비율이 높을 때 더욱 일관된 Redis 서버 환경을 갖출 수 있습니다. 이러한 작업을 위해 메모리가 예약된 경우 캐시된 데이터의 스토리지에는 사용할 수 없습니다.
 
-새 메모리 예약 값( **maxmemory-reserved** 또는 **maxfragmentationmemory-reserved** )을 선택할 때 고려해야 할 사항 중 하나는 이러한 변경이 이미 많은 양의 데이터로 실행 중인 캐시에 미칠 수 있는 영향력입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템에서 `used_memory`과 `used_memory_rss` 모두가 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다. `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
+새 메모리 예약 값(**maxmemory-reserved** 또는 **maxfragmentationmemory-reserved**)을 선택할 때 고려해야 할 사항 중 하나는 이러한 변경이 이미 많은 양의 데이터로 실행 중인 캐시에 미칠 수 있는 영향력입니다. 예를 들어 49GB의 데이터가 있는 53GB 캐시가 있는 경우 예약 값을 8GB로 변경하면 시스템에 사용 가능한 최대 메모리가 45GB로 줄어듭니다. 현재 `used_memory` 또는 `used_memory_rss` 값이 새 제한인 45GB보다 높으면 시스템에서 `used_memory`과 `used_memory_rss` 모두가 45GB 미만이 될 때까지 데이터를 제거해야 합니다. 제거는 서버 부하 및 메모리 조각화를 증가시킬 수 있습니다. `used_memory` 및 `used_memory_rss`와 같은 캐시 메트릭에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)을 참조하세요.
 
 > [!IMPORTANT]
 > **maxmemory-reserved** 및 **maxfragmentationmemory-reserved** 설정은 Standard 및 Premium 캐시에만 사용할 수 있습니다.
@@ -258,13 +258,13 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 >
 
-### <a name="firewall"></a>Firewall
+### <a name="firewall"></a>방화벽
 
 방화벽 규칙 구성은 모든 Azure Cache for Redis 계층에서 사용할 수 있습니다.
 
 **방화벽** 을 클릭하여 Cache에 대한 방화벽 규칙을 보고 구성합니다.
 
-![Firewall](./media/cache-configure/redis-firewall-rules.png)
+![방화벽](./media/cache-configure/redis-firewall-rules.png)
 
 시작 및 끝 IP 주소 범위를 사용하여 방화벽 규칙을 지정할 수 있습니다. 방화벽 규칙이 구성되면 지정된 IP 주소 범위의 클라이언트 연결만 캐시에 연결할 수 있습니다. 방화벽 규칙이 저장되면 잠시 지연되었다가 규칙이 적용됩니다. 이러한 지연 시간은 일반적으로 1분 미만입니다.
 
@@ -363,7 +363,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 **리소스 상태** 기능은 리소스를 감시하고 예상대로 실행되는지를 알려줍니다. Azure 리소스 상태 관리 서비스에 대한 자세한 내용은 [Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.
 
 > [!NOTE]
-> 리소스 상태는 현재 가상 네트워크에서 호스팅되는 Azure Cache for Redis 인스턴스의 상태를 보고할 수 없습니다. 자세한 내용은 [VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> 리소스 상태는 현재 가상 네트워크에서 호스팅되는 Azure Cache for Redis 인스턴스의 상태를 보고할 수 없습니다. 자세한 내용은 [VNET에서 캐시를 호스팅하는 경우 모든 캐시 기능이 작동하나요?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-a-cache-is-hosted-in-a-virtual-network)
 >
 >
 

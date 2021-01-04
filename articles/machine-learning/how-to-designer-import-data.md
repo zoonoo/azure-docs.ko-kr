@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591991"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739861"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning designer로 데이터 가져오기
 
@@ -47,8 +47,7 @@ ms.locfileid: "94591991"
  - **파일 데이터 집합** 은 모듈의 출력 폴더를 파일 데이터 집합으로 등록 합니다. 출력 폴더에는 디자이너에서 내부적으로 사용 하는 데이터 파일 및 메타 파일이 포함 되어 있습니다. 디자이너에서 등록 된 데이터 집합을 계속 사용 하려는 경우이 옵션을 선택 합니다. 
 
  - **테이블 형식 데이터 집합** 은 모듈의 출력 데이터 파일만 표 형식 데이터 집합으로 등록 합니다. 이 형식은 자동 Machine Learning 또는 Python SDK와 같은 다른 도구에서 쉽게 사용할 수 있습니다. 디자이너 외부에서 등록 된 데이터 집합을 사용할 계획인 경우이 옵션을 선택 합니다.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>데이터 세트 사용
 
@@ -62,6 +61,14 @@ ms.locfileid: "94591991"
 > [!NOTE]
 > 디자이너는 [데이터 집합 버전 관리](how-to-version-track-datasets.md)를 지원 합니다. 데이터 집합 모듈의 속성 패널에서 데이터 집합 버전을 지정 합니다.
 
+### <a name="limitations"></a>제한 사항 
+
+- 현재는 디자이너 에서만 테이블 형식 데이터 집합을 시각화할 수 있습니다. 디자이너 외부에서 파일 데이터 집합을 등록 하는 경우 디자이너 캔버스에서 시각화할 수 없습니다.
+- 데이터 집합은 VNet (가상 네트워크)에 저장 됩니다. 시각화 하려는 경우 데이터 저장소의 작업 영역 관리 id를 사용 하도록 설정 해야 합니다.
+    1. 관련 데이터 저장소로 이동 하 고 **자격 증명** 업데이트 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="자격 증명"::: 업데이트를 클릭 합니다.
+    1. 작업 영역 관리 id를 사용 하려면 **예** 를 선택 합니다.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="작업 영역 관리 Id 사용":::
 
 ## <a name="import-data-using-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 데이터 가져오기
 

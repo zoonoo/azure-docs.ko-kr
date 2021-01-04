@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 3aedbef079ba62f42ea79afdcd9995d7ee23d9fa
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020728"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740558"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>새 Azure Time Series Insights Gen2 API 버전으로 마이그레이션
 
@@ -63,7 +63,7 @@ ms.locfileid: "95020728"
 
     [![저장 된 쿼리 업데이트](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **Done** 을 클릭합니다.
+1. **완료** 를 클릭합니다.
 
     [![완료 된 마이그레이션](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -76,7 +76,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
 새 API 버전 및 새 시계열 식 구문을 사용 하도록 쿼리를 업데이트 하려면 탐색기에서 쿼리를 다시 생성 해야 합니다. [Power BI 커넥터를 사용 하 여 쿼리를 만드는](./how-to-connect-power-bi.md)방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> Power BI Desktop 7 월 2020 버전을 사용 해야 합니다. 그렇지 않으면 [잘못 된 쿼리 페이로드 버전 오류가](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect)표시 될 수 있습니다.
+> Power BI Desktop 7 월 2020 버전 이상을 사용 해야 합니다. 그렇지 않으면 "잘못 된 쿼리 페이로드 버전" 오류가 표시 될 수 있습니다.
 
 ## <a name="migrate-custom-applications"></a>사용자 지정 응용 프로그램 마이그레이션
 
@@ -85,7 +85,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
 - Time Series Model API
   - 모델 설정 Api
     - [가져오기](/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Update](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [업데이트](/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - 인스턴스 API
     - [모든 일괄 처리 작업](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
     - [목록](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
@@ -107,7 +107,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
   - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="typesbatchput"></a>유형 Batchput
 

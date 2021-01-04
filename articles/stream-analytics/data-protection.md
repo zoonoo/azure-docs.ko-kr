@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 76218003a40c02def3dc62ea8480022d9647938d
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576509"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723340"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Azure Stream Analytics의 데이터 보호 
 
@@ -60,7 +60,7 @@ Stream Analytics 포털을 사용 하 여 키를 저장소 계정으로 업데�
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다. 
 
-1.  **Analytics**   > 결과 목록에서 Analytics **Stream Analytics 작업**   을 선택 합니다. 
+1.  ****   > 결과 목록에서 Analytics **Stream Analytics 작업**   을 선택 합니다. 
 
 1. 이름, 지역, 크기 등의 필요한 세부 정보를 사용 하 여 Stream Analytics 작업 페이지를 채웁니다. 
 
@@ -72,7 +72,7 @@ Stream Analytics 포털을 사용 하 여 키를 저장소 계정으로 업데�
 
    ![개인 데이터 저장소 계정 설정](./media/data-protection/storage-account-create.png)
 
-1. 관리 Id (미리 보기)를 사용 하 여 인증 하려면 인증 모드 드롭다운에서 **관리 id** 를 선택 합니다. 관리 Id를 선택 하는 경우 저장소 계정의 액세스 제어 목록에 Stream Analytics 작업을 추가 해야 합니다. 작업에 대 한 액세스 권한을 부여 하지 않으면 작업에서 작업을 수행할 수 없습니다. 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE RBAC를 사용 하 여 다른 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource)을 참조 하세요.
+1. 관리 Id (미리 보기)를 사용 하 여 인증 하려면 인증 모드 드롭다운에서 **관리 id** 를 선택 합니다. 관리 Id를 선택 하는 경우 저장소 *Blob 데이터 참가자* 역할을 사용 하 여 저장소 계정의 액세스 제어 목록에 Stream Analytics 작업을 추가 해야 합니다. 작업에 대 한 액세스 권한을 부여 하지 않으면 작업에서 작업을 수행할 수 없습니다. 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE RBAC를 사용 하 여 다른 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource)을 참조 하세요.
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="관리 id 인증을 사용 하는 개인 데이터 저장소 계정 설정":::
 

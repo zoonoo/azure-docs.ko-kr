@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661038"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733809"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>VPN gateway에 대 한 패킷 캡처 구성
 
@@ -31,6 +31,7 @@ ms.locfileid: "94661038"
 - 여러 게이트웨이 차원의 패킷 캡처를 동시에 실행할 수 없습니다.
 - 단일 연결에서 동시에 여러 패킷 캡처를 실행할 수 없습니다. 서로 다른 연결에서 여러 패킷 캡처를 동시에 실행할 수 있습니다.
 - 게이트웨이 당 최대 5 개의 패킷 캡처를 병렬로 실행할 수 있습니다. 이러한 패킷 캡처는 게이트웨이 차원의 패킷 캡처 및 연결당 패킷 캡처의 조합일 수 있습니다.
+- MaxPacketBufferSize의 단위는 바이트이 고 MaxFileSize는 mb입니다.
 
 ### <a name="example-json"></a>예제 JSON
 ```JSON-interactive

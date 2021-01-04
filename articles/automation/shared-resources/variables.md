@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5be0d45843eed8c7c0d7d9b6dc4655de01e914c3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461446"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734779"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -26,7 +26,7 @@ Automation 변수는 다음과 같은 시나리오에 유용합니다.
 
 Azure Automation은 변수를 유지하고 Runbook 또는 DSC 구성이 실패한 경우에도 변수를 사용할 수 있도록 합니다. 이 동작 덕분에 하나의 Runbook 또는 DSC 구성이 설정한 값을 다른 Runbook이 사용하거나 동일한 Runbook이나 DSC 구성이 다음에 실행될 때 다시 사용할 수 있습니다.
 
-Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고 암호화 상태를 변경할 수 없습니다. 아직 암호화 되지 않은 중요 한 데이터를 저장 하는 Automation 계정 변수가 있는 경우이를 삭제 하 고 암호화 된 변수로 다시 만들어야 합니다. Azure Security Center [Automation 계정 변수에 설명 된](../../security-center/recommendations-reference.md#recs-computeapp)대로 모든 Azure Automation 변수를 암호화 하는 것이 좋습니다. 이 보안 권장 사항에서 제외 하려는 암호화 되지 않은 변수가 있는 경우 권장 구성 [에서 리소스 제외 및 보안 점수](../../security-center/exempt-resource.md) 를 참조 하 여 예외 규칙을 만듭니다.
+Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고는 암호화 상태를 변경할 수 없습니다. 아직 암호화되지 않은 중요한 데이터를 저장하는 Automation 계정 변수가 있는 경우 이를 삭제하고 암호화된 변수로 다시 만들어야 합니다. Azure Security Center 권장 사항은 [Automation 계정 변수를 암호화해야 함](../../security-center/recommendations-reference.md#recs-computeapp)에 설명된 대로 모든 Azure Automation 변수를 암호화하는 것입니다. 이 보안 권장 사항에서 제외하려는 암호화되지 않은 변수가 있는 경우 [권장 사항 및 보안 점수에서 리소스 제외](../../security-center/exempt-resource.md)를 참조하여 예외 규칙을 만듭니다.
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다.
@@ -80,11 +80,11 @@ $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
 ```
 
-## <a name="python-2-functions-to-access-variables"></a>변수에 액세스하는 Python 2 함수
+## <a name="python-functions-to-access-variables"></a>변수에 액세스 하는 Python 함수
 
-다음 테이블의 함수는 Python 2 Runbook의 변수에 액세스하는 데 사용됩니다.
+다음 표의 함수는 Python 2 및 3 runbook의 변수에 액세스 하는 데 사용 됩니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
 
-|Python 2 함수|Description|
+|Python 함수|Description|
 |:---|:---|
 |`automationassets.get_automation_variable`|기존 변수의 값을 검색합니다. |
 |`automationassets.set_automation_variable`|기존 변수의 값을 설정합니다. |
@@ -135,9 +135,10 @@ $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 $vmName = $vmValue.Name
 $vmExtensions = $vmValue.Extensions
 ```
+
 ## <a name="textual-runbook-examples"></a>텍스트 Runbook 예제
 
-### <a name="retrieve-and-set-a-simple-value-from-a-variable"></a>변수에서 단순 값 검색 및 설정
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 예제에서는 텍스트 Runbook에서 변수를 설정 및 검색하는 방법을 보여 줍니다. 이 예제에서는 `NumberOfIterations` 및 `NumberOfRunnings`라는 정수 변수를 만들고 `SampleMessage`라는 문자열 변수를 만든다고 가정합니다.
 
@@ -154,7 +155,7 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
 Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 ```
 
-### <a name="retrieve-and-set-a-variable-in-a-python-2-runbook"></a>Python 2 Runbook에서 변수 검색 및 설정
+# <a name="python-2"></a>[Python 2](#tab/python2)
 
 다음 샘플은 Python 2 Runbook에서 변수를 가져오고, 변수를 설정하고, 없는 변수에 대한 예외를 처리하는 방법을 보여 줍니다.
 
@@ -177,6 +178,32 @@ try:
 except AutomationAssetNotFound:
     print "variable not found"
 ```
+
+# <a name="python-3"></a>[Python 3](#tab/python3)
+
+다음 샘플에서는 변수를 가져오고, 변수를 설정 하 고, Python 3 runbook (미리 보기)에서 존재 하지 않는 변수에 대 한 예외를 처리 하는 방법을 보여 줍니다.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
+
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
+
+# handle a non-existent variable exception
+try:
+    value = automationassets.get_automation_variable("nonexisting variable")
+except AutomationAssetNotFound:
+    print ("variable not found")
+```
+
+---
 
 ## <a name="graphical-runbook-examples"></a>그래픽 Runbook 예제
 

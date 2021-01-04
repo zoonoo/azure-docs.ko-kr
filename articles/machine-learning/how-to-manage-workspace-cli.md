@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 66a9c9d605911a9d3b30a55d47e16026e26e502a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4c457ef2c4957308735c222488ad04dac80235df
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447255"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740388"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 
@@ -79,6 +79,8 @@ Azure Machine Learning 작업 영역은 다음과 같은 Azure 서비스 또는 
 | **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
+
+ACR (Azure Container Registry)은 현재 리소스 그룹 이름에서 유니코드 문자를 지원 하지 않습니다. 이 문제를 완화 하려면 이러한 문자를 포함 하지 않는 리소스 그룹을 사용 합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

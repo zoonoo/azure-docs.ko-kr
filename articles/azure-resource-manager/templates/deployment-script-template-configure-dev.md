@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503559"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734184"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>템플릿에서 배포 스크립트에 대 한 개발 환경 구성
 
@@ -155,7 +155,10 @@ $DeploymentScriptOutputs['text'] = $output
 ```
 탑재 경로의 기본값은 **Deploymentscript** 입니다.  이 경로는 컨테이너 인스턴스에서 파일 공유에 탑재 된 경로입니다.
 
-템플릿에 지정 된 기본 컨테이너 이미지는 **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3 "** 입니다.  지원 되는 Azure PowerShell 버전 및 Azure CLI 버전 목록은 [Azure PowerShell 또는 Azure CLI](./deployment-script-template.md#prerequisites)를 참조 하세요.
+템플릿에 지정 된 기본 컨테이너 이미지는 **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3 "** 입니다.   [지원 되는 Azure PowerShell 버전](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list)목록을 참조 하세요. [지원 되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list)목록을 참조 하세요.
+
+  >[!IMPORTANT]
+  > 배포 스크립트는 MCR(Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용합니다. 배포 스크립트의 CLI 이미지를 인증하는 데 약 한 달이 걸립니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요. 지원되지 않는 버전을 사용하는 경우 오류 메시지에 지원되는 버전이 나열됩니다.
 
 템플릿은 컨테이너 인스턴스 1800 초를 일시 중단 합니다. 컨테이너 인스턴스가 터미널 상태가 되 고 세션이 종료 되기까지 30 분이 소요 됩니다.
 
@@ -200,7 +203,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
 1. **연결** 을 선택한 다음 **연결** 을 선택 합니다. 컨테이너 인스턴스에 연결할 수 없는 경우 컨테이너 그룹을 다시 시작 하 고 다시 시도 하세요.
 1. 콘솔 창에서 다음 명령을 실행 합니다.
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -209,6 +212,14 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
     **Hello John Dole** 출력입니다.
 
     ![배포 스크립트 컨테이너 인스턴스 테스트](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. AZ CLI container image를 사용 하는 경우 다음 코드를 실행 합니다.
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## <a name="use-docker"></a>Docker 사용
 

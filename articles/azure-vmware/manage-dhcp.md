@@ -2,21 +2,22 @@
 title: Azure VMware 솔루션에 대 한 DHCP 관리
 description: Azure VMware 솔루션 사설 클라우드의 DHCP를 만들고 관리 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
+ms.custom: contperf-fy21q2
 ms.date: 11/09/2020
-ms.openlocfilehash: 9143a8544fe1b98262c3e990ccdf56f5d5f65957
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: bcaba4274b0e6b423e9fa490c80fc57204d4e153
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335991"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708554"
 ---
 # <a name="manage-dhcp-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 DHCP 관리
 
 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 IP 주소 할당을 위한 DHCP 서비스가 필요 합니다.  이 문서에서는 다음과 같은 두 가지 방법으로 Azure VMware 솔루션에서 DHCP를 만들고 관리 하는 방법을 보여 줍니다.
 
-- NSX-T를 사용 하 여 DHCP 서버를 호스트 하는 경우 [dhcp 서버를 만들고](#create-a-dhcp-server) [해당 서버에 릴레이](#create-dhcp-relay-service)해야 합니다. DHCP 서버를 만들 때 네트워크 세그먼트도 추가 하 고 DHCP IP 주소 범위를 지정 합니다.   
+- NSX-T를 사용하여 DHCP 서버를 호스트하는 경우 [DHCP 서버를 생성](#create-a-dhcp-server)하고 [해당 서버에 릴레이](#create-dhcp-relay-service)해야 합니다. DHCP 서버를 만들 때 네트워크 세그먼트도 추가 하 고 DHCP IP 주소 범위를 지정 합니다.   
 
-- 네트워크에서 타사의 외부 DHCP 서버를 사용 하는 경우 [dhcp 릴레이 서비스를 만들어야](#create-dhcp-relay-service)합니다. Dhcp 서버에 대 한 릴레이를 만들 때 NSX 또는 타사를 사용 하 여 DHCP 서버를 호스트 하는지 여부에 관계 없이 dhcp IP 주소 범위를 지정 해야 합니다.
+- 네트워크에서 타사의 외부 DHCP 서버를 사용하는 경우 [DHCP 릴레이 서비스를 생성](#create-dhcp-relay-service)해야 합니다. Dhcp 서버에 대 한 릴레이를 만들 때 NSX 또는 타사를 사용 하 여 DHCP 서버를 호스트 하는지 여부에 관계 없이 dhcp IP 주소 범위를 지정 해야 합니다.
 
 >[!IMPORTANT]
 >Dhcp 서버가 온-프레미스 데이터 센터에 있는 경우 VMware HCX L2 스트레치 네트워크의 Vm (가상 컴퓨터)에 대해 DHCP가 작동 하지 않습니다.  NSX는 기본적으로 모든 DHCP 요청이 L2 스트레치를 통과 하지 못하도록 차단 합니다. 솔루션에 대 한 자세한 내용은 [온-프레미스 dhcp 서버에 dhcp 요청 보내기](#send-dhcp-requests-to-the-on-premises-dhcp-server) 절차를 참조 하세요.
@@ -78,7 +79,7 @@ NSX-T를 사용 하 여 DHCP 서버를 호스트 하려는 경우 DHCP 서버를
 
 ## <a name="specify-the-dhcp-ip-address-range"></a>DHCP IP 주소 범위 지정
 
-1. NSX-T 관리자에서 **네트워킹**  >  **세그먼트** 를 선택 합니다. 
+1. NSX-T Manager에서 **네트워킹** > **세그먼트** 를 선택합니다. 
    
 1. 세그먼트 이름에서 세로 줄임표를 선택 하 고 **편집** 을 선택 합니다.
    
