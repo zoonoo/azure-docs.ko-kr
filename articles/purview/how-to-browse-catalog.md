@@ -1,20 +1,20 @@
 ---
 title: '방법: Data Catalog 찾아보기'
 description: 이 문서에서는 자산 유형에 따라 Azure 부서의 범위 Data Catalog를 찾아보는 방법에 대 한 개요를 제공 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: b8cdbbc29472ae10920c347dde308c352bf0b68a
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: dd2fd4fbc9d8aecd9821d668dd02bd4b68659cf6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553605"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695066"
 ---
-# <a name="browse-the-azure-purview-data-catalog"></a>Azure 부서의 범위 Data catalog 찾아보기
+# <a name="browse-the-azure-purview-data-catalog"></a>Azure Purview 데이터 카탈로그 찾아보기
 
 이 문서에서는 데이터 원본 계층적 네임 스페이스를 사용 하 여 Azure 부서의 범위 Data Catalog에서 데이터를 검색 하는 방법을 설명 합니다.
 

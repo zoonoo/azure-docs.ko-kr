@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 54d1d8a29c87f8d129c0ea5b29973c4fef0e6f7a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 2d9d511098613ddc5bf3579a42b7abe91f51e1a4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94889000"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694316"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0으로 Log Analytics 작업 영역 만들기
 
@@ -32,10 +32,10 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.30 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.30 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-[az group deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용하여 작업 영역을 만듭니다. 다음 예에서는 로컬 컴퓨터에서 Resource Manager 템플릿을 사용하여 *eastus* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
+[Az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용 하 여 작업 영역을 만듭니다. 다음 예에서는 로컬 컴퓨터에서 Resource Manager 템플릿을 사용하여 *eastus* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
 지원되는 지역에 대한 자세한 내용은 [Log Analytics 사용 가능 지역](https://azure.microsoft.com/regions/services/)을 참조하고 **제품 검색** 필드에서 Azure Monitor를 검색합니다.
 
@@ -111,7 +111,7 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함된 폴더에서 다음 명령을 사용합니다. 작업 영역 이름을 묻는 메시지가 표시되면 모든 Azure 구독에서 전역적으로 고유한 이름을 입력합니다.
 
     ```azurecli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 결과가 포함된 메시지가 표시됩니다.

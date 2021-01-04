@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7c1e1d52b8434db930fcdd05c5c5441ba027abc8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f9005e95ac902a2d09b792c5f64520d0175c7707
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186017"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694974"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -366,7 +366,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 또는 Azure CLI를 통해 리소스 템플릿 배포를 사용합니다.
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
 ### <a name="metric-alerts-for-logs-with-dynamic-thresholds"></a>동적 임계값을 사용하는 로그 트릭 경고
@@ -682,7 +682,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 또는 Azure CLI를 통해 리소스 템플릿 배포를 사용합니다.
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
+az deployment group create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 
 ## <a name="next-steps"></a>다음 단계

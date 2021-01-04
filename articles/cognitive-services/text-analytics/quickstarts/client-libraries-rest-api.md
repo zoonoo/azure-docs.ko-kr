@@ -13,12 +13,12 @@ ms.author: aahi
 keywords: 텍스트 마이닝, 감정 분석, 텍스트 분석
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: a1eba2f599a0365f43707ff7c9035d91e8637481
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: f93b7954861bf3351d2930132e1391e1f21b2a6f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505867"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655121"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-and-rest-api"></a>빠른 시작: Text Analytics 클라이언트 라이브러리 및 REST API 사용
 
@@ -39,8 +39,6 @@ ms.locfileid: "97505867"
 >    * 사용 중인 버전에 대한 지침만 준수해야 합니다.
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 일괄 처리된 비동기 메서드를 사용하는 것이 좋습니다. 아래의 참조 설명서를 참조하세요.
 > * Text Analytics for health 또는 비동기 작업을 사용하려면 [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/) 또는 [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)에 대한 Github의 예를 참조하세요.
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 

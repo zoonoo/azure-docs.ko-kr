@@ -1,23 +1,33 @@
 ---
 title: Azure Lighthouse 및 Azure 관리형 애플리케이션
-description: Azure Lighthouse 및 Azure 관리 되는 응용 프로그램을 사용 하 여 다양 한 시나리오를 지원 하 고 함께 사용할 수 있는 방법을 이해 합니다.
-ms.date: 08/12/2020
+description: Azure Lighthouse 및 Azure 관리 되는 응용 프로그램을 함께 사용할 수 있는 방법에 대해 알아봅니다.
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3d6c83a50f1da006f2618f7f4ff59759dac2555
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5c30c3234a57e25ceaa521ad485f58d4d663ebe9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436524"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693962"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리형 애플리케이션
 
-Azure 관리 되는 응용 프로그램 및 Azure Lighthouse는 서비스 공급자가 고객의 테 넌 트에 있는 리소스에 액세스할 수 있도록 하 여 작동 합니다. 작동 방식 및 사용 하도록 설정 하는 데 도움이 되는 시나리오와 함께 사용할 수 있는 방법에 대 한 차이점을 이해 하는 것이 도움이 될 수 있습니다.
+Azure 관리 되는 응용 프로그램 및 Azure Lighthouse는 서비스 공급자가 고객의 테 넌 트에 있는 리소스에 액세스할 수 있도록 하 여 작동 합니다. 작동 방식 및 사용 하도록 설정 하는 데 도움이 되는 시나리오와 이러한 차이점을 함께 사용할 수 있는 방법을 이해 하는 것이 도움이 될 수 있습니다.
 
 > [!TIP]
 > 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](enterprise.md) 하는 기업은 동일한 프로세스와 도구를 사용할 수 있습니다.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse 및 Azure 관리 되는 응용 프로그램 비교
+
+다음 표에서는 Azure Lighthouse 또는 Azure 관리 되는 응용 프로그램을 사용 하도록 선택할 수 있는지 여부에 영향을 줄 수 있는 몇 가지 개략적인 차이점을 보여 줍니다. 아래에서 설명 했 듯이이를 함께 사용 하는 솔루션을 디자인할 수도 있습니다.
+
+|고려 사항  |Azure Lighthouse  |Azure 관리되는 애플리케이션  |
+|---------|---------|---------|
+|일반 사용자     |여러 테 넌 트를 관리 하는 서비스 공급자 또는 기업         |Isv (독립 소프트웨어 공급 업체)         |
+|테 넌 트 간 액세스의 범위     |구독 또는 리소스 그룹         |리소스 그룹 (단일 응용 프로그램으로 범위가 지정)         |
+|Azure Marketplace 구입 가능     |아니요 (제품은 Azure Marketplace에 게시할 수 있지만 고객은 별도로 청구 됨)        |예         |
+|IP 보호     |예 (IP는 서비스 공급자의 테 넌 트에 남아 있을 수 있음)        |예 (설계상 리소스 그룹은 고객에 게 잠겨 있음)         |
+|거부 할당     |아니요         |예        |
 
 ### <a name="azure-lighthouse"></a>Azure Lighthouse
 
@@ -51,3 +61,4 @@ Azure Lighthouse 및 Azure 관리 되는 응용 프로그램은 다른 액세스
 
 - [Azure 관리 되는 응용 프로그램](../../azure-resource-manager/managed-applications/overview.md)에 대해 알아봅니다.
 - [Azure Lighthouse에 구독을 등록](../how-to/onboard-customer.md)하는 방법에 대해 알아봅니다.
+- [Azure Lighthouse를 사용한 ISV 시나리오](isv-scenarios.md)에 대해 알아봅니다.

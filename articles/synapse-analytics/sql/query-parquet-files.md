@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462583"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694679"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 파일 쿼리
 
@@ -38,9 +38,9 @@ from openrowset(
 이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 Azure id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
 
 > [!IMPORTANT]
-> `Latin1_General_100_CI_AS_SC_UTF8`PARQUET 파일의 문자열 값이 utf-8 인코딩을 사용 하 여 인코딩 되므로 utf-8 데이터베이스 데이터 정렬을 사용 하 고 있는지 확인 합니다 (예:).
+> `Latin1_General_100_BIN2_UTF8`PARQUET 파일의 문자열 값이 utf-8 인코딩을 사용 하 여 인코딩 되므로 utf-8 데이터베이스 데이터 정렬을 사용 하 고 있는지 확인 합니다 (예:).
 > PARQUET 파일의 텍스트 인코딩과 데이터 정렬이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_BIN2_UTF8`
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 
@@ -74,10 +74,10 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> 절의 모든 문자열 열에 대해 일부 UTF-8 데이터 정렬 (예:)을 지정 `Latin1_General_100_CI_AS_SC_UTF8` `WITH` 하거나 데이터베이스 수준에서 utf-8 데이터 정렬을 설정 하는 것이 explicilty 합니다.
+> 절의 모든 문자열 열에 대해 일부 UTF-8 데이터 정렬 (예:)을 지정 `Latin1_General_100_BIN2_UTF8` `WITH` 하거나 데이터베이스 수준에서 utf-8 데이터 정렬을 설정 하는 것이 explicilty 합니다.
 > 파일의 텍스트 인코딩과 문자열 열 데이터 정렬의 불일치 때문에 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
-> 다음 정의를 사용 하 여 열 형식에 대 한 데이터 정렬을 쉽게 설정할 수 있습니다. `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
+> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_BIN2_UTF8`
+> 다음 정의를 사용 하 여 열 형식에 대 한 데이터 정렬을 쉽게 설정할 수 있습니다. `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 다음 섹션에서는 다양 한 유형의 PARQUET 파일을 쿼리 하는 방법을 볼 수 있습니다.
 

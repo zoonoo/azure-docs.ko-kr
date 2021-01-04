@@ -1,18 +1,21 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
-ms.date: 11/18/2020
+ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563180"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694182"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
 이 문서에서는 Batch의 실제 경험을 기반으로 Azure Batch 서비스를 효과적으로 사용 하기 위한 모범 사례 및 유용한 팁의 컬렉션을 설명 합니다. 이러한 팁은 Azure Batch 솔루션에서 성능을 향상 시키고 디자인 문제를 방지 하는 데 도움이 됩니다.
+
+> [!TIP]
+> Azure Batch의 보안에 대 한 지침은 [Batch 보안 및 규정 준수 모범 사례](security-best-practices.md)를 참조 하세요.
 
 ## <a name="pools"></a>풀
 

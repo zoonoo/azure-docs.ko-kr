@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여�
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: db153123622a59bbdde71afca4ea30e03a6fbf98
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006936"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694241"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -685,10 +685,10 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
 }
 ```
 
-다음 예제와 같이 [az group deployment create][az-group-deployment-create] 명령을 사용 하 여이 템플릿을 배포 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 표시 됩니다.
+다음 예제와 같이 [az deployment group create][az-deployment-group-create] 명령을 사용 하 여이 템플릿을 배포 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 표시 됩니다.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
@@ -829,7 +829,7 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

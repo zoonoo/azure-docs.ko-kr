@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 5b48d326efad889adbcf25d487ee27b8200f558f
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615650"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693921"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services의 네트워크 구성 경고
 
@@ -38,13 +38,15 @@ ms.locfileid: "97615650"
 
 ### <a name="inbound-security-rules"></a>인바운드 보안 규칙
 
-| 우선순위 | Name | 포트 | 프로토콜 | 원본 | 대상 | 작업 |
+| 우선 순위 | Name | 포트 | 프로토콜 | 원본 | 대상 | 작업 |
 |----------|------|------|----------|--------|-------------|--------|
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | 모두 | Allow |
 | 201      | AllowRD | 3389 | TCP | CorpNetSaw | 모두 | 거부<sup>1</sup> |
 | 65000    | AllVnetInBound | 모두 | 모두 | VirtualNetwork | VirtualNetwork | 허용 |
 | 65001    | AllowAzureLoadBalancerInBound | 모두 | 모두 | AzureLoadBalancer | 모두 | Allow |
 | 65500    | DenyAllInBound | 모두 | 모두 | 모두 | 모두 | 거부 |
+
+
 <sup>1</sup> 디버깅의 경우 선택 사항입니다. 고급 문제 해결에 필요한 경우 허용 합니다.
 
 > [!NOTE]
@@ -52,7 +54,7 @@ ms.locfileid: "97615650"
 
 ### <a name="outbound-security-rules"></a>아웃바운드 보안 규칙
 
-| 우선순위 | Name | 포트 | 프로토콜 | 원본 | 대상 | 작업 |
+| 우선 순위 | Name | 포트 | 프로토콜 | 원본 | 대상 | 작업 |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | 모두 | 모두 | VirtualNetwork | VirtualNetwork | 허용 |
 | 65001    | AllowAzureLoadBalancerOutBound | 모두 | 모두 |  모두 | 인터넷 | 허용 |

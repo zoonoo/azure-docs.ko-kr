@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: bf0194e82acde0406cfeb57af027831f92a90c92
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938310"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694916"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -121,7 +121,7 @@ ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `hea
 
 ### <a name="health-check-path"></a>상태 검사 경로
 
-200에서 299 (포함) 사이의 상태 코드를 사용 하 여 경로가 1 분 이내에 응답 해야 합니다. 경로가 1 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. App Service는 상태 검사 경로에 대 한 302 리디렉션을 따르지 않습니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 이러한 보안 기능을 사용 하는 경우에도 시스템은 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에 HTTP **s** 만 사용 하도록 설정 된 경우 http **s** 를 통해 healthcheck 요청이 전송 됩니다.
+200에서 299 (포함) 사이의 상태 코드를 사용 하 여 경로가 1 분 이내에 응답 해야 합니다. 경로가 1 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. App Service는 상태 검사 경로에서 30 배 (301, 302, 307, 등) 리디렉션을 따르지 않습니다. 이러한 상태 코드는 **비정상** 으로 간주 됩니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 이러한 보안 기능을 사용 하는 경우에도 시스템은 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에 HTTP **s** 만 사용 하도록 설정 된 경우 http **s** 를 통해 healthcheck 요청이 전송 됩니다.
 
 상태 검사 경로는 응용 프로그램의 중요 한 구성 요소를 확인 해야 합니다. 예를 들어 응용 프로그램이 데이터베이스 및 메시징 시스템에 종속 된 경우 상태 검사 끝점은 해당 구성 요소에 연결 해야 합니다. 응용 프로그램에서 중요 한 구성 요소에 연결할 수 없는 경우이 경로는 앱이 비정상 상태임을 나타내기 위해 500 수준 응답 코드를 반환 해야 합니다.
 
@@ -148,7 +148,7 @@ Healthcheck를 사용 하는 경우 남아 있는 정상적인 인스턴스의 �
 
 ## <a name="moving-autoscale-to-a-different-region"></a>자동 크기 조정을 다른 지역으로 이동
 이 섹션에서는 Azure 자동 크기 조정을 동일한 구독 및 리소스 그룹의 다른 지역으로 이동 하는 방법을 설명 합니다. REST API를 사용 하 여 자동 크기 조정 설정을 이동할 수 있습니다.
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 1. 구독 및 리소스 그룹을 사용할 수 있고 원본 및 대상 지역의 세부 정보가 동일한 지 확인 합니다.
 1. [이동 하려는 azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 azure 자동 크기 조정을 사용할 수 있는지 확인 합니다.
 

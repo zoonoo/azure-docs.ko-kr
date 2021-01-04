@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131499"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693616"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
@@ -109,9 +109,7 @@ ms.locfileid: "93131499"
 
 #### <a name="terms-and-conditions"></a>사용 약관
 
-사용자 고유의 사용자 지정 약관을 제공하려면 **사용 약관** 상자에서 최대 10,000자를 입력합니다. 사용 약관에 더 긴 설명이 필요한 경우 사용 약관으로 연결되는 단일 웹 링크를 입력합니다. 이 링크는 고객에게 활성 링크로 표시됩니다.
-
-고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
+사용자 고유의 사용자 지정 약관을 제공하려면 **사용 약관** 상자에서 최대 10,000자를 입력합니다. 고객은 이 약관에 동의해야 제품을 사용할 수 있습니다.
 
 다음 섹션인 제품 목록으로 진행하기 전에 **초안 저장** 을 선택합니다.
 
@@ -143,7 +141,7 @@ ms.locfileid: "93131499"
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. 설명
+10. Description
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성
