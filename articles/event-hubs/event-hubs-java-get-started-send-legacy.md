@@ -4,12 +4,12 @@ description: 이 문서에서는 이전 azure-eventhubs 패키지를 사용하�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e77ff762de11a9c8a723b162993db11efe715b66
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e86ca76f3eb661e1407a02b58e60b62b391f5702
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591551"
+ms.locfileid: "97607986"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기(azure-eventhubs)
 
@@ -17,7 +17,6 @@ ms.locfileid: "97591551"
 
 > [!WARNING]
 > 이 빠른 시작은 이전 **azure-eventhubs** 및 **azure-eventhubs-eph** 패키지를 사용합니다. 최신 **azure-messaging-eventhubs** 패키지를 사용하는 빠른 시작은 [azure-messaging-eventhubs를 사용하여 이벤트 보내기 및 받기](event-hubs-java-get-started-send.md)를 참조하세요. 이전 패키지를 사용하던 애플리케이션을 새 패키지로 이동하려면 [azure-eventhubs에서 azure-messaging-eventhubs로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)를 참조하세요. 
-
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -75,7 +74,6 @@ public class SimpleSend {
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
 
-
     }
  }
 ```
@@ -109,7 +107,6 @@ ConnectionStringBuilder 클래스를 사용하여 Event Hubs 클라이언트 인
         // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-
 
         try {
             for (int i = 0; i < 10; i++) {
@@ -418,7 +415,6 @@ com.microsoft.azure.eventprocessorhost.ICheckpointManager 인터페이스를 구
 사용자 환경에 제공되는 모든 데이터 저장소를 사용할 수 있습니다.
 
 com.microsoft.azure.eventprocessorhost.EventProcessorHost 클래스는 EventProcessorHost의 검사점 관리자를 재정의할 수 있는 2가지 생성자를 제공합니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 읽어보세요. 

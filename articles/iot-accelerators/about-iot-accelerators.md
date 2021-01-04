@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 193ceab0b2df1ab833a86eb748c18271a8e33b71
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 5012383e64a85ee025273f5339b828f5338e1d4f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852917"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629071"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -29,7 +29,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 각 솔루션 가속기의 애플리케이션 코드에는 솔루션 가속기를 관리할 수 있는 웹앱이 포함되어 있습니다.
 
 > [!NOTE]
-> 원격 모니터링 및 예측 유지 관리 솔루션이 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators) 사이트에서 제거되었습니다. 자세한 내용은 [Azure IoT 솔루션 가속기란(이전 버전)?](/previous-versions/azure/iot-accelerators/about-iot-accelerators.md)을 참조하세요.
+> 원격 모니터링 및 예측 유지 관리 솔루션이 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/Accelerators) 사이트에서 제거되었습니다. 자세한 내용은 [Azure IoT 솔루션 가속기란(이전 버전)?](/previous-versions/azure/iot-accelerators/about-iot-accelerators)을 참조하세요.
 
 ## <a name="supported-iot-scenarios"></a>지원되는 IoT 시나리오
 
