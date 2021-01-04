@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182855"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695786"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
 
@@ -37,7 +37,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 마지막으로 경험이 매우 간단 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 가상 머신에서 Azure Automanage를 사용 하도록 설정 하기 전에 고려해 야 할 몇 가지 필수 구성 요소가 있습니다.
 
@@ -52,7 +52,7 @@ Azure Automanage에 가상 머신을 온 보 딩 하면 자동으로 각 모범 
 > [!NOTE]
 > 다른 구독의 작업 영역에 연결 된 VM에서 Automanage를 사용 하려면 각 구독에서 위에 설명 된 사용 권한이 있어야 합니다.
 
-Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부 및 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
+Automanage는 유럽 서부, 미국 동부, 미국 서 부 2, 캐나다 중부, 미국 서 부, 일본 동부와 같은 지역에 있는 Windows Vm만 지원 한다는 점에 유의 해야 합니다.
 
 ## <a name="participating-services"></a>참여 하는 서비스
 

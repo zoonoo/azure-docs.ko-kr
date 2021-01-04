@@ -15,12 +15,12 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3bd938355d138e660958e34d046d7af03e75c7
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: edb602e3d55ae07f49d5448283ae0d2b6da4b0cb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371136"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694147"
 ---
 # <a name="manage-agent-registry-options"></a>에이전트 레지스트리 옵션 관리
 
@@ -63,6 +63,30 @@ System.DirectoryServices.Protocols.LdapException: The operation was aborted beca
     > ![조회 추적](media/how-to-manage-registry-options/referral-chasing.png)
 1. *서비스* 콘솔에서 Azure AD Connect 프로 비전 서비스를 다시 시작 합니다.
 1. 여러 프로 비전 에이전트를 배포한 경우 일관성을 위해 모든 에이전트에이 레지스트리 변경 내용을 적용 합니다.
+
+## <a name="skip-gmsa-configuration"></a>GMSA 구성 건너뛰기
+에이전트 버전 1.1.281.0 +를 사용 하는 경우 기본적으로 에이전트 구성 마법사를 실행 하면 [GMSA (그룹 관리 서비스 계정)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)를 설정 하 라는 메시지가 표시 됩니다. 마법사에의 한 GMSA 설치는 모든 동기화 및 프로 비전 작업에 대해 런타임에 사용 됩니다. 
+
+이전 버전의 에이전트에서 업그레이드 하 고 Active Directory 토폴로지와 관련 된 위임 된 OU 수준 권한으로 사용자 지정 서비스 계정을 설정 하는 경우 GMSA 구성을 건너뛰거나 연기 하 고이 변경에 대 한 계획을 수립할 수 있습니다. 
+
+> [!NOTE]
+> 이 지침은 1.1.281.0 이전에 에이전트 버전으로 HR (Workday/SuccessFactors) 인바운드 프로비저닝을 구성 하 고 에이전트 작업에 대 한 사용자 지정 서비스 계정을 설정 하는 고객에 게 특히 적용 됩니다. 장기 실행에서 모범 사례로 GMSA로 전환 하는 것이 좋습니다.  
+
+이 시나리오에서는 여전히 에이전트 이진 파일을 업그레이드 하 고 다음 단계를 사용 하 여 GMSA 구성을 건너뛸 수 있습니다. 
+
+1. Azure AD Connect 프로 비전 에이전트를 실행 하는 Windows server에서 관리자로 로그온 합니다.
+1. 에이전트 설치 관리자를 실행 하 여 새 에이전트 이진 파일을 설치 합니다. 설치에 성공한 후 자동으로 열리는 에이전트 구성 마법사를 닫습니다. 
+1. *실행* 메뉴 항목을 사용 하 여 레지스트리 편집기 (regedit.exe)를 엽니다. 
+1. 키 폴더를 찾습니다 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Provisioning Agent**
+1. 마우스 오른쪽 단추로 클릭 하 고 "새로 만들기-> DWORD 값"을 선택 합니다.
+1. 이름을 제공 합니다. `UseCredentials`
+1. **값 이름을** 두 번 클릭 하 고 값 데이터를로 입력 합니다 `1` .  
+    > [!div class="mx-imgBorder"]
+    > ![자격 증명 사용](media/how-to-manage-registry-options/use-credentials.png)
+1. *서비스* 콘솔에서 Azure AD Connect 프로 비전 서비스를 다시 시작 합니다.
+1. 여러 프로 비전 에이전트를 배포한 경우 일관성을 위해 모든 에이전트에이 레지스트리 변경 내용을 적용 합니다.
+1. 바탕 화면 짧은 잘라내기에서 에이전트 구성 마법사를 실행 합니다. 마법사가 GMSA 구성을 건너뜁니다. 
+
 
 > [!NOTE]
 > [자세한 정보 로깅을](how-to-troubleshoot.md#log-files)사용 하 여 레지스트리 옵션이 설정 되었는지 확인할 수 있습니다. 에이전트를 시작 하는 동안 내보낸 로그에는 레지스트리에서 선택한 구성 값이 표시 됩니다. 

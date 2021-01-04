@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 3fc2475569765116d46a175629f25d9d49634942
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 77866fcb72515d5167d9f06b7d9ad91c59bc7945
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993955"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97700574"
 ---
 이 문서에서는 릴리스된 Azure Active Directory Connect 프로 비전 에이전트의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 프로 비전 에이전트를 정기적으로 업데이트 합니다. 프로 비전 에이전트는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
 
@@ -28,6 +28,8 @@ Microsoft는 최신 에이전트 버전 및 이전 버전을 직접 지원 합�
 * 범위에 있는 개체에 대 한 PHS 필터링 지원 (원래 모든 개체에 대 한 암호 해시 동기화 중)
 * 에이전트의 메모리 누수 문제를 수정 했습니다.
 * 향상 된 프로 비전 로그
+* [LDAP 연결 제한 시간](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-ldap-connection-timeout) 구성 지원 
+* [조회 추적](../articles/active-directory/cloud-provisioning/how-to-manage-registry-options.md#configure-referral-chasing) 구성 지원 
 
 
 ## <a name="11960"></a>1.1.96.0

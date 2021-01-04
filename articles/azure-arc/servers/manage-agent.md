@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
-ms.date: 10/30/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e17bf58d1e94b64d1cdc6ff0b57b1b6a81be180
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f408048f61f76d6b258ea8e063630b4e2aa841af
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107195"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724377"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -61,7 +61,7 @@ Windows용 Connected Machine 에이전트에 대한 업데이트 패키지는 �
 
 * Microsoft 다운로드 센터에서 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드합니다.
 
-소프트웨어 업데이트 관리 프로세스를 지원하기 위해 다양한 방법으로 에이전트를 업그레이드할 수 있습니다. Microsoft 업데이트에서 가져오는 것 외에 명령 프롬프트를 사용하거나, 스크립트 또는 기타 자동화 솔루션을 사용하거나, UI 마법사에서 `AzureConnectedMachine.msi`를 실행하여 수동으로 다운로드하고 실행할 수 있습니다.
+소프트웨어 업데이트 관리 프로세스를 지원 하기 위해 다양 한 방법으로 에이전트를 업그레이드할 수 있습니다. Microsoft 업데이트에서 가져오는 것 외에 명령 프롬프트를 사용하거나, 스크립트 또는 기타 자동화 솔루션을 사용하거나, UI 마법사에서 `AzureConnectedMachine.msi`를 실행하여 수동으로 다운로드하고 실행할 수 있습니다.
 
 > [!NOTE]
 > * 에이전트를 업그레이드하려면 관리자 권한이 있어야 합니다.
@@ -189,7 +189,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
 ### <a name="disconnect"></a>연결 끊기
 
-이 매개 변수는 Azure Resource Manager의 리소스를 지정하여 머신이 Azure에서 삭제됨을 나타냅니다. 이 매개 변수가 머신에서 에이전트를 삭제하지는 않습니다. 별도의 단계로 작업을 수행해야 합니다. 컴퓨터가 분리 된 후에 Azure Arc 사용 서버에 다시 등록 하려면 `azcmagent connect` azure에서 새 리소스를 만들도록를 사용 합니다.
+이 매개 변수는 Azure Resource Manager의 리소스를 지정하여 머신이 Azure에서 삭제됨을 나타냅니다. 컴퓨터에서 에이전트를 제거 하지 않습니다. 에이전트는 별도로 제거 해야 합니다. 컴퓨터가 분리 된 후에 Azure Arc 사용 서버에 다시 등록 하려면 `azcmagent connect` azure에서 새 리소스를 만들도록를 사용 합니다.
 
 > [!NOTE]
 > 하나 이상의 Azure VM 확장을 Arc 사용 서버에 배포 하 고 Azure에서 해당 등록을 삭제 하는 경우 확장은 아직 설치 되어 있습니다. 설치 된 확장에 따라 함수를 적극적으로 수행 하는 것을 이해 하는 것이 중요 합니다. 사용 중지 되거나 Arc 사용 서버에서 더 이상 관리 되지 않는 컴퓨터는 먼저 Azure에서 등록을 제거 하기 전에 제거 된 확장이 있어야 합니다.
@@ -208,7 +208,7 @@ Azcmagent 도구 (Azcmagent.exe)는 설치 중에 Azure Arc 사용 서버 연결
 
 ## <a name="remove-the-agent"></a>에이전트 제거
 
-다음 방법 중 하나를 수행하여 머신에서 Windows 또는 Linux Connected Machine 에이전트를 제거합니다. 에이전트를 제거 해도 Arc 사용 서버를 사용 하 여 컴퓨터의 등록을 취소 하거나 설치 된 Azure VM 확장을 제거 하지 않습니다. 더 이상 Azure에서 컴퓨터를 관리할 필요가 없고 에이전트를 제거 하기 전에 이러한 단계를 완료 해야 하는 경우 이러한 단계를 별도로 수행 해야 합니다.
+다음 방법 중 하나를 수행하여 머신에서 Windows 또는 Linux Connected Machine 에이전트를 제거합니다. 에이전트를 제거 해도 Arc 사용 서버를 사용 하 여 컴퓨터의 등록을 취소 하거나 설치 된 Azure VM 확장을 제거 하지 않습니다. Azure에서 컴퓨터를 더 이상 관리할 필요가 없고 에이전트를 제거 하기 전에 이러한 단계를 완료 해야 하는 경우 컴퓨터의 등록을 취소 하 고 설치 된 VM 확장을 별도로 제거 해야 합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
 
@@ -286,6 +286,10 @@ Azure에서 지원 서비스를 사용 하 여 컴퓨터를 관리 하지 않으
 ## <a name="update-or-remove-proxy-settings"></a>프록시 설정 업데이트 또는 제거
 
 프록시 서버를 통해 서비스와 통신하도록 에이전트를 구성하거나 배포 후 이 구성을 제거하려면 다음 방법 중 하나를 사용하여 이 작업을 완료합니다.
+
+> [!NOTE]
+> Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
+>
 
 ### <a name="windows"></a>Windows
 

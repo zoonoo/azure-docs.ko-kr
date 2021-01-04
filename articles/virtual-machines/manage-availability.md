@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: b2f50ba910e3e47c55a63f58bc9f5e978e80e95a
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0ae4a311bc4f5084ff930b97d68482d64671a782
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401188"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695761"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Linux 가상 머신의 가용성 관리
 
@@ -40,7 +40,6 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 * 예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답
 * 각 애플리케이션 계층을 별도의 가용성 집합으로 구성
 * 가용성 영역 또는 집합과 부하 분산 장치 결합
-* 가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자를 보호합니다.
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자를 보호합니다.
 

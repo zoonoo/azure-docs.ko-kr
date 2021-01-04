@@ -1,18 +1,18 @@
 ---
 title: 사용자 지정 분류 및 분류 규칙 만들기 (미리 보기)
 description: 이 문서에서는 사용자 지정 분류를 만들어 조직에 고유한 데이터 공간에서 데이터 형식을 정의 하는 방법을 설명 합니다. 또한 데이터 공간 전체에서 지정 된 데이터를 찾을 수 있는 사용자 지정 분류 규칙을 만드는 방법을 설명 합니다.
-author: chandrakavya
-ms.author: kchandra
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/1/2020
-ms.openlocfilehash: 16a714cff506117c5d6f7fd4921fbd5346bfda39
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553928"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693460"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Azure 부서의 범위의 사용자 지정 분류 
 
@@ -87,7 +87,7 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 Id의 인스턴
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/classificationrules.png" alt-text="분류 규칙 타일" border="true":::
 
-4. **새 단계** 를 선택합니다.
+4. **새로 만들기** 를 선택합니다.
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/newclassificationrule.png" alt-text="새 분류 규칙 추가" border="true":::
 
@@ -95,10 +95,10 @@ Contoso는 사용자 지정 분류 규칙을 만들어 이러한 Id의 인스턴
 
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/createclassificationrule.png" alt-text="새 분류 규칙 만들기" border="true":::
 
-|필드     |설명  |
+|필드     |Description  |
 |---------|---------|
 |속성   |    필수 사항입니다. 최대 크기는 100 자입니다.    |
-|설명      |선택 사항입니다. 최대 크기는 256 자입니다.    |
+|Description      |선택 사항입니다. 최대 크기는 256 자입니다.    |
 |분류 이름    | 필수 요소. 드롭다운 목록에서 분류 이름을 선택 하 여 일치 하는 항목이 있는 경우 스캐너에 적용 하도록 지시 합니다.        |
 |주   |  필수 요소. 옵션은 사용 또는 사용 안 함입니다. 기본값은 Enabled입니다.    |
 |데이터 패턴    |선택 사항입니다. 데이터 필드에 저장 된 데이터를 나타내는 정규식입니다. 한도가 매우 많습니다. 이전 예제에서 데이터 패턴은 단어를 문자 그대로 하는 직원 ID를 테스트 합니다 `Employee{GUID}` .  |

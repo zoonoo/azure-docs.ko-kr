@@ -3,16 +3,14 @@ title: 청크를 사용하여 대량 메시지 처리
 description: 자동화 태스크 및 Azure Logic Apps에서 만든 워크플로에서 청크를 사용하여 대규모 메시지 크기를 처리하는 방법을 알아봅니다
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 1b23c92ec70b80a6cd08fc42a05ffec1e5b43b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656770"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695870"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
 
@@ -40,8 +38,57 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
 
 청크 분할을 지원하는 커넥터의 경우 기본 청크 분할 프로토콜은 최종 사용자에게 표시되지 않습니다. 그러나 모든 커넥터에서 청크 분할을 지원하지 것은 아니기 때문에 들어오는 메시지가 커넥터의 크기 제한을 초과하면 이러한 커넥터에서 런타임 오류가 발생합니다.
 
-> [!NOTE]
-> 청크를 사용하는 작업의 경우 트리거 본문을 전달하거나 이러한 작업에서 `@triggerBody()?['Content']`와 같은 식을 사용할 수 없습니다. 대신 텍스트 또는 JSON 파일 콘텐츠의 경우 [**작성** 작업](../logic-apps/logic-apps-perform-data-operations.md#compose-action) 또는 [변수 만들기](../logic-apps/logic-apps-create-variables-store-values.md)를 사용하여 해당 콘텐츠를 처리할 수 있습니다. 트리거 본문에 미디어 파일 등의 다른 콘텐츠 형식이 포함되어 있으면 해당 콘텐츠를 처리하는 다른 단계를 수행해야 합니다.
+
+을 지원 하 고 청크를 사용 하도록 설정 된 작업의 경우와 같은 트리거 본문, 변수 및 식을 사용할 수 없습니다 `@triggerBody()?['Content']` . 이러한 입력을 사용 하면 청크 작업이 발생 하지 않습니다. 대신 [ **작성** 작업](../logic-apps/logic-apps-perform-data-operations.md#compose-action)을 사용 합니다. 특히 `body` 트리거 본문, 변수, 식 등의 데이터 출력을 저장 하는 **작성** 작업을 사용 하 여 필드를 만들어야 합니다. 예를 들면 다음과 같습니다.
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+그런 다음 청크 작업에서 데이터를 참조 하려면를 사용 `@body('Compose')` 합니다.
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 
