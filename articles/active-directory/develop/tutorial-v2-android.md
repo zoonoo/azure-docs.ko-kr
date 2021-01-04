@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 08ee000d8f801559fcf572b8ab489161fd090b77
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7ba15e66cca7baefdf8cca5cabd5e5d5b1e2c7f7
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95996205"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507815"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -75,24 +75,28 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 
 ### <a name="register-your-application"></a>애플리케이션 등록
 
-1. [Azure 포털](https://aka.ms/MobileAppReg)로 이동합니다.
-2. [앱 등록 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)를 열고 **+새 등록** 을 클릭합니다.
-3. 앱의 **이름** 을 입력한 다음, 리디렉션 URI를 설정하지 **않고****등록** 을 클릭합니다.
-4. 나타나는 창의 **관리** 섹션에서 **인증** > **+ 플랫폼 추가** > **Android** 를 선택합니다. (이 섹션을 보려면 블레이드 상단 근처에 있는 "새 환경으로 전환"을 선택해야 할 수도 있습니다.)
-5. 프로젝트의 패키지 이름을 입력합니다. 코드를 다운로드한 경우 이 값은 `com.azuresamples.msalandroidapp`입니다.
-6. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성** 을 클릭합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **인증** > **플랫폼 추가** > **Android** 를 선택합니다.
+1. 프로젝트의 패키지 이름을 입력합니다. 코드를 다운로드한 경우 이 값은 `com.azuresamples.msalandroidapp`입니다.
+1. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성** 을 선택합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
 
    > [!Note]
    > KeyTool.exe는 JDK(Java Development Kit)의 일부로 설치됩니다. 또한 OpenSSL 도구를 설치하여 KeyTool 명령도 실행해야 합니다. 자세한 내용은 [키 생성에 대한 Android 설명서](https://developer.android.com/studio/publish/app-signing#generate-key)를 참조하세요.
 
-7. KeyTool에서 생성된 **서명 해시** 를 입력합니다.
-8. `Configure`를 클릭하고 **Android 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다.  **완료** 를 클릭합니다.
+1. KeyTool에서 생성된 **서명 해시** 를 입력합니다.
+1. **구성** 을 선택하고 **Android 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다.  
+1. **완료** 를 선택합니다.
 
 ### <a name="configure-your-application"></a>애플리케이션 구성
 
 1. Android Studio의 프로젝트 창에서 **app\src\main\res** 로 이동합니다.
-2. **res** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **디렉터리** 를 선택합니다. 새 디렉터리 이름으로 `raw`를 입력하고 **확인** 을 클릭합니다.
-3. **app** > **src** > **main** > **res** > **raw** 에서 `auth_config_single_account.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다.
+1. **res** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** > **디렉터리** 를 선택합니다. 새 디렉터리 이름으로 `raw`를 입력하고 **확인** 을 클릭합니다.
+1. **app** > **src** > **main** > **res** > **raw** 에서 `auth_config_single_account.json`이라는 새 JSON 파일을 만들고, 앞에서 저장한 MSAL 구성을 붙여넣습니다.
 
     리디렉션 URI 아래에 다음을 복사합니다.
     ```json

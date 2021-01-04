@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 76a490ed28f940620db7835c4cec145740f48503
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96013397"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509022"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 
@@ -45,42 +45,42 @@ ms.locfileid: "96013397"
 1. **통합** 을 선택한 다음, **Data Factory** 를 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. **새 데이터 팩터리** 페이지에서 **이름** 에 대해 **ADFTutorialDataFactory** 를 입력합니다. 
+1. **Data Factory 만들기** 페이지의 **기본 사항** 탭에서 데이터 팩터리를 만들려는 위치에 Azure **구독** 을 선택합니다.
+1. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
+
+    a. 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
+
+    b. **새로 만들기** 를 선택하고 새 리소스 그룹의 이름을 입력합니다.
+    
+    리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요. 
+
+1. **지역** 의 경우 데이터 팩터리의 위치를 선택합니다.
+
+   이 목록은 데이터 팩터리가 지원하는 위치 및 Azure Data Factory 메타데이터가 저장될 위치만 표시합니다. Data Factory에서 사용하는 연결된 데이터 저장소(Azure Storage 및 Azure SQL Database 등) 및 컴퓨팅(Azure HDInsight 등)은 다른 하위 지역에서 실행할 수 있습니다.
  
+1. **이름** 에 **ADFTutorialDataFactory** 를 입력합니다.
    Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **&lt;yourname&gt;ADFTutorialDataFactory**) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
    ![이름을 사용할 수 없는 경우 오류](./media/doc-common-process/name-not-available-error.png)
-1. **구독** 에 대해 데이터 팩터리를 만들려는 위치에 Azure 구독을 선택합니다. 
-1. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
-     
-   - **기존 항목 사용** 을 선택하고 목록에서 기존 리소스 그룹을 선택합니다. 
-   - **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력합니다.   
-         
-   리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
+
 1. **버전** 에서 **V2** 를 선택합니다.
-1. **위치** 에 데이터 팩터리의 위치를 선택합니다.
 
-   이 목록은 데이터 팩터리가 지원하는 위치 및 Azure Data Factory 메타데이터가 저장될 위치만 표시합니다. Data Factory에서 사용하는 연결된 데이터 저장소(Azure Storage 및 Azure SQL Database 등) 및 컴퓨팅(Azure HDInsight 등)은 다른 하위 지역에서 실행할 수 있습니다.
+1. 완료되면 **다음: Git 구성** 을 선택한 다음, **나중에 Git 구성** 확인란을 선택합니다.
 
-1. 완료되면 **다음: Git 구성** 을 선택한 다음, **나중에 Git 구성** 을 선택합니다.
+1. **검토 + 만들기** 를 선택하고 유효성 검사를 통과한 후 **만들기** 를 선택합니다. 만들기가 완료되면 **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다. 
 
-1. **만들기** 를 선택합니다. 만들기가 완료되면 **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다. 
-
-1. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
+1. **작성 및 모니터링** 타일을 선택하여 별도의 브라우저 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
    !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > 웹 브라우저가 "권한 부여"에서 중단되는 것이 확인되면 **타사 쿠키 및 사이트 데이터 차단** 확인란의 선택을 취소합니다. 또는 이를 선택된 상태로 두고 **login.microsoftonline.com** 에 대한 예외를 만든 다음, 앱을 다시 엽니다.
    
-1. **시작하기** 페이지에서 왼쪽 패널의 **작성자** 탭으로 전환합니다. 
-
-    !["시작하기" 페이지](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
 이 절차에서는 Azure Storage 계정을 데이터 팩터리에 연결하기 위한 연결된 서비스를 만듭니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
 
-1. 왼쪽 창에서 [관리 탭](./author-management-hub.md)을 엽니다.
+1. Azure Data Factory UI 페이지의 왼쪽 창에서 [**관리**](./author-management-hub.md) 탭을 엽니다.
 
 1. 연결된 서비스 페이지에서 **+새로 만들기** 를 선택하여 새로 연결된 서비스를 만듭니다.
 
@@ -109,10 +109,13 @@ ms.locfileid: "96013397"
 출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너(**adftutorial**), 폴더(**output**) 및 데이터가 복사될 파일을 지정합니다. 파이프라인의 각 실행에는 연결된 고유 ID가 있습니다. 시스템 변수 **RunId** 를 사용하여 이 ID에 액세스할 수 있습니다. 출력 파일의 이름은 파이프라인의 실행 ID에 따라 동적으로 평가됩니다.   
 
 연결된 서비스 설정에서 원본 데이터가 포함된 Azure Storage 계정을 지정했습니다. 원본 데이터 세트 설정에서 원본 데이터가 있는 정확한 위치(Blob 컨테이너, 폴더 및 파일)를 지정합니다. 싱크 데이터 세트 설정에서 데이터가 복사될 위치(Blob 컨테이너, 폴더 및 파일)를 지정합니다. 
- 
+
+1. 왼쪽 창에서 **작성자** 탭을 엽니다.
+
 1. **+** (더하기) 단추를 선택한 다음, **데이터 세트** 를 선택합니다.
 
    ![데이터 세트 만들기에 대한 메뉴](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. **새 데이터 세트** 페이지에서 **Azure Blob Storage** 를 선택한 다음, **계속** 을 선택합니다. 
 
 1. **형식 선택** 페이지에서 데이터의 형식 유형을 선택한 다음, **계속** 을 선택합니다. 이 경우 콘텐츠를 구문 분석하지 않고 파일을 있는 그대로 복사할 때 **Binary** 를 선택합니다.
@@ -163,7 +166,7 @@ ms.locfileid: "96013397"
 
 1. 복사 활동 설정의 **싱크** 탭으로 전환하고, **싱크 데이터 세트** 에 대해 **OutputDataset** 를 선택합니다.
 
-1. 캔버스 위에 있는 파이프라인 도구 모음에서 **유효성 검사** 를 클릭하여 파이프라인 설정의 유효성을 검사합니다. 파이프라인에 대한 유효성이 성공적으로 검사되었는지 확인합니다. 유효성 검사 출력을 닫으려면 **>>** (오른쪽 화살표) 단추를 선택합니다. 
+1. 캔버스 위에 있는 파이프라인 도구 모음에서 **유효성 검사** 를 클릭하여 파이프라인 설정의 유효성을 검사합니다. 파이프라인에 대한 유효성이 성공적으로 검사되었는지 확인합니다. 유효성 검사 출력을 닫으려면 오른쪽 위 모서리에 있는 유효성 검사 단추를 선택합니다. 
 
    ![파이프라인 유효성 검사](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -185,7 +188,7 @@ ms.locfileid: "96013397"
 
     ![모두 게시](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. 파이프라인을 수동으로 트리거하려면 파이프라인 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다. **파이프라인 실행** 페이지에서 **마침** 을 선택합니다.
+1. 파이프라인을 수동으로 트리거하려면 파이프라인 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다. **파이프라인 실행** 페이지에서 **확인** 을 선택합니다.
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 

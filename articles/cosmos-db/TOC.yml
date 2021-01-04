@@ -1002,6 +1002,8 @@
               href: cassandra-spark-aggregation-ops.md
             - name: 테이블 데이터 복사
               href: cassandra-spark-table-copy-ops.md
+        - name: Cassandra 및 Kafka
+          href: cassandra-kafka-connect.md
         - name: Resource Manager 템플릿을 사용하여 관리
           href: templates-samples-cassandra.md
           displayName: ARM

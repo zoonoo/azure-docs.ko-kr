@@ -10,12 +10,12 @@ ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: ae388263daeb47786df22007348d2572e035de87
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 511548da9767544ace2827a6a8b2baa83b1d2971
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816802"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96993026"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -60,6 +60,7 @@ dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
 
 ```csharp
 using System;
+using Azure.Communication;
 using Azure.Communication.Administration;
 
 namespace AccessTokensQuickstart
@@ -84,7 +85,7 @@ namespace AccessTokensQuickstart
 ```csharp
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
-string ConnectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
+string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
 var client = new CommunicationIdentityClient(ConnectionString);
 ```
 
@@ -115,12 +116,12 @@ Console.WriteLine(token);
 
 ## <a name="refresh-access-tokens"></a>액세스 토큰 새로 고침
 
-액세스 토큰을 새로 고치려면 `CommunicationUser` 개체를 사용하여 다시 발급합니다.
+액세스 토큰을 새로 고치려면 `CommunicationUser` 개체의 인스턴스를 `IssueTokenAsync`에 전달합니다. 이 `Id`를 저장했고 새 `CommunicationUser`를 만들어야 하는 경우 다음과 같이 저장된 `Id`를 `CommunicationUser` 생성자에 전달하면 됩니다.
 
 ```csharp  
-// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
-identity = new CommunicationUser(existingIdentity);
-tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+// In this example, userId is a string containing the Id property of a previously-created CommunicationUser
+identityToRefresh = new CommunicationUser(userId);
+tokenResponse = await client.IssueTokenAsync(identityToRefresh, scopes: new [] { CommunicationTokenScope.VoIP });
 ```
 
 ## <a name="revoke-access-tokens"></a>액세스 토큰 취소

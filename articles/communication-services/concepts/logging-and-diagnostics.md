@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d8afa769c90c5cf9450343cda1a65809062468fb
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888694"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033122"
 ---
 # <a name="communication-services-logs"></a>Communication Services 로그
 
@@ -39,6 +39,7 @@ Communication Services는 사용할 수 있는 세 가지 유형의 로그를 �
 * **사용량 로그** - 요금이 청구된 각 서비스 제품과 연결된 사용량 데이터를 제공합니다.
 * **채팅 작업 로그** - 채팅 서비스와 관련된 기본 정보를 제공합니다.
 * **SMS 작업 로그** - SMS 서비스와 관련된 기본 정보를 제공합니다.
+* **인증 작업 로그** - 인증 서비스와 관련된 기본 정보를 제공합니다.
 
 ### <a name="usage-logs-schema"></a>사용량 로그 스키마
 
@@ -100,3 +101,23 @@ Communication Services는 사용할 수 있는 세 가지 유형의 로그를 �
 | SdkType | 요청에 사용되는 SDK 유형입니다. |
 | PlatformType | 요청에 사용되는 플랫폼 유형입니다. |
 | 메서드 | 요청에 사용되는 메서드입니다. |
+
+### <a name="authentication-operational-logs"></a>인증 작업 로그
+
+| 속성 | Description |
+| -------- | ---------------|
+| TimeGenerated | 로그가 생성된 시간의 타임스탬프(UTC)입니다. |
+| OperationName | 로그 레코드와 연결된 작업입니다. |
+| CorrelationID | 상관 관계가 있는 이벤트의 ID입니다. 여러 테이블 간의 상관 관계가 있는 이벤트를 식별하는 데 사용할 수 있습니다. |
+| OperationVersion | `operationName`이 API를 사용하여 수행된 경우 작업과 연결된 `api-version`입니다. 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| Category | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. |
+| ResultType | 작업의 상태입니다. |
+| ResultSignature | 작업의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우 이 필드는 해당 REST 호출의 HTTP 상태 코드입니다. |
+| DurationMs | 밀리초 단위의 작업 기간입니다. |
+| callerIpAddress | 작업이 공용 IP 주소를 사용하는 엔터티에서 시작되는 API 호출에 해당하는 경우 호출자 IP 주소입니다. |
+| Level | 이벤트의 심각도 수준입니다. |
+| URI | 요청의 URI입니다. |
+| SdkType | 요청에 사용되는 SDK 유형입니다. |
+| PlatformType | 요청에 사용되는 플랫폼 유형입니다. |
+| ID | 작업과 관련된 Communication Services ID입니다. |
+| 범위 | 액세스 토큰에 있는 Communication Services 범위입니다. |

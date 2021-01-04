@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/25/2020
-ms.openlocfilehash: 3668d4e5164ad731058f944feaef66029c2ed2a9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: f4536beae18a50d3e1d42fc1593cf826c94418f8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126120"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033855"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -27,7 +27,7 @@ ms.locfileid: "96126120"
 
 *Program.cs* 에서 `main` 메서드는 `SetupDeviceClientAsync`를 호출하여 다음을 수행합니다.
 
-* DPS를 사용하여 디바이스를 프로비저닝할 때 모델 ID `dtmi:com:example:Thermostat;1`을 사용합니다.
+* DPS를 사용하여 디바이스를 프로비저닝할 때 모델 ID `dtmi:com:example:Thermostat;1`을 사용합니다. IoT Central은 모델 ID를 사용하여 이 디바이스에 대한 디바이스 템플릿을 식별하거나 생성합니다. 자세한 내용은 [디바이스 템플릿과 디바이스 연결](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)을 참조하세요.
 * IoT Central에 연결할 **DeviceClient** 인스턴스를 만듭니다.
 
 ```csharp

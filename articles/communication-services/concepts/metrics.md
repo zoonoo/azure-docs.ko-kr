@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 25c7016f6639df46a9279ef9a9aab2736efd4f95
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888660"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106006"
 ---
 # <a name="metrics-overview"></a>메트릭 개요
 
@@ -76,6 +76,17 @@ SMS API 요청 메트릭에는 다음과 같은 작업을 사용할 수 있습�
 
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API 요청 메트릭":::
+
+### <a name="authentication-api-requests"></a>인증 API 요청
+
+인증 API 요청 메트릭에는 다음과 같은 작업을 사용할 수 있습니다.
+
+| 작업/경로    | 설명                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| CreateIdentity       | 단일 사용자를 나타내는 ID를 만듭니다. |
+| DeleteIdentity       | ID를 삭제합니다. |
+| CreateToken          | 액세스 토큰을 만듭니다. |
+| RevokeToken          | 지정된 시간 전에 ID에 대해 만들어진 모든 액세스 토큰을 취소합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

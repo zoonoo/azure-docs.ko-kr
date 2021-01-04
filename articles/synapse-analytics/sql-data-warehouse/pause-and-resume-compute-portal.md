@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Portal을 통해 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작'
-description: Azure Portal을 사용하여 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절약할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
+title: '빠른 시작: Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작'
+description: Azure Portal을 사용하여 전용 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절감할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 88f6782a0f81b94977b37bd8f87bf26a0d4c8a72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457690"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109700"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-via-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 
-Azure Portal을 사용하여 전용 SQL 풀(이전의 SQL DW) 컴퓨팅 리소스를 일시 중지하고 다시 시작할 수 있습니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+Azure Portal을 사용하여 전용 SQL 풀 컴퓨팅 리소스를 일시 중지하고 다시 시작할 수 있습니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -40,9 +40,8 @@ Azure Portal을 사용하여 전용 SQL 풀(이전의 SQL DW) 컴퓨팅 리소�
 전용 SQL 풀을 일시 중지하려면 다음 단계를 따르세요.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 탐색 페이지에서 **전용 SQL 풀(이전의 SQL DW)** 을 클릭합니다.
-2. **전용 SQL 풀(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse** 를 선택하여 SQL 풀을 엽니다. 
-3. **mySampleDataWarehouse** 페이지에서 **상태** 는 **온라인** 이 됩니다.
+2. **전용 SQL 풀** 페이지로 이동하여 SQL 풀을 엽니다. 
+3. **상태** 가 **온라인** 입니다.
 
     ![온라인 컴퓨팅](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -62,8 +61,7 @@ Azure Portal을 사용하여 전용 SQL 풀(이전의 SQL DW) 컴퓨팅 리소�
 
 전용 SQL 풀을 다시 시작하려면 다음 단계를 따르세요.
 
-1. Azure Portal의 왼쪽 페이지에서 **전용 SQL 풀(이전의 SQL DW)** 을 클릭합니다.
-2. **전용 SQL 풀(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse** 를 선택하여 SQL 풀 페이지를 엽니다. 
+1. **전용 SQL 풀** 페이지로 이동하여 SQL 풀을 엽니다.
 3. **mySampleDataWarehouse** 페이지에서 **상태** 는 **일시 중지됨** 이 됩니다.
 
     ![오프라인 컴퓨팅](././media/pause-and-resume-compute-portal/compute-offline.png)

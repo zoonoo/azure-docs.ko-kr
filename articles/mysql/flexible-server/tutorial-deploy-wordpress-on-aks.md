@@ -7,16 +7,17 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 31ad9450c775e5e4e7ae543241b48f8c372ad9ee
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 7713b7596b21e02e941a19f64d3658ab0f5f51f5
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749211"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359016"
 ---
 # <a name="tutorial-deploy-wordpress-app-on-aks-with-azure-database-for-mysql---flexible-server"></a>자습서: Azure Database for MySQL - 유연한 서버를 사용하여 AKS에 WordPress 앱 배포
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기)를 통해 WordPress 애플리케이션을 AKS(Azure Kubernetes Service) 클러스터에 배포합니다. [AKS](../../aks/intro-kubernetes.md)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리되는 Kubernetes 서비스입니다. [Azure Database for MySQL - 유연한 서버(미리 보기)](overview.md)는 데이터베이스 관리 기능 및 구성 설정에 대해 더 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 현재 유연한 서버는 미리 보기에 있습니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure Database for MySQL - 유연한 서버(미리 보기)를 통해 WordPress 애플리케이션을 AKS(Azure Kubernetes Service) 클러스터에 배포합니다. 
+**[AKS](../../aks/intro-kubernetes.md)** 는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. **[Azure Database for MySQL - 유연한 서버(미리 보기)](overview.md)** 는 데이터베이스 관리 기능 및 구성 설정에 대해 더 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 현재 유연한 서버는 미리 보기에 있습니다.
 
 > [!NOTE]
 > - Azure Database for MySQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
@@ -115,7 +116,7 @@ az mysql flexible-server create --public-access <YOUR-IP-ADDRESS>
 - 명령에서 로컬 컨텍스트를 사용하므로 ```wordpress-project``` 리소스 그룹 및 ```eastus``` 지역에 서버를 만듭니다.
 
 
-## <a name="build-your-wordpress-docker-image"></a>WordPress Docker 이미지 빌드
+### <a name="build-your-wordpress-docker-image"></a>WordPress Docker 이미지 빌드
 
 [최신 WordPress](https://wordpress.org/download/) 버전을 다운로드합니다. 프로젝트에 대한 새 ```my-wordpress-app``` 디렉터리를 만들고, 다음과 같은 간단한 폴더 구조를 사용합니다.
 
@@ -173,6 +174,7 @@ define('DB_COLLATE', '');
 define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
 ```
 
+### <a name="create-a-dockerfile"></a>Dockerfile 만들기
 새 Dockerfile을 만들고 다음 코드 조각을 복사합니다. 이 Dockerfile은 PHP를 사용하여 Apache 웹 서버를 설정하고 mysqli 확장을 사용하도록 설정합니다.
 
 ```docker
@@ -182,12 +184,12 @@ RUN docker-php-ext-install mysqli
 RUN docker-php-ext-enable mysqli
 ```
 
-## <a name="build-your-docker-image"></a>Docker 이미지 빌드
-```cd``` 명령을 사용하여 터미널의 ```my-wordpress-app``` 디렉터리에 있는지 확인합니다. 다음 명령을 실행하여 게시판 이미지를 빌드합니다.
+### <a name="build-your-docker-image"></a>docker 이미지 빌드
+```cd``` 명령을 사용하여 터미널의 ```my-wordpress-app``` 디렉터리에 있는지 확인합니다. 다음 명령을 실행하여 이미지를 빌드합니다.
 
 ``` bash
 
-docker build --tag myblog:latest . 
+docker build --tag myblog:latest .
 
 ```
 
@@ -272,8 +274,6 @@ kubectl apply -f mywordpress.yaml
 
 ```output
 deployment "wordpress-blog" created
-service "php-svc" created
-deployment "azure-vote-front" created
 service "php-svc" created
 ```
 

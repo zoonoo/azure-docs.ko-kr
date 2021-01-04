@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Azure CLI를 사용하여 Azure Static Web Apps를 통해 첫 번째 정적 웹앱 빌드'
-description: Azure Static Web Apps CLI를 사용하여 Azure Static Web Apps 인스턴스를 빌드하는 방법을 알아봅니다.
+title: '빠른 시작: CLI를 사용하여 Azure Static Web Apps를 통해 첫 번째 정적 사이트 빌드'
+description: Azure CLI를 사용하여 정적 사이트를 Azure Static Web Apps에 배포하는 방법을 알아봅니다.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ca05194c0d8e63290a9cab8d9f7903daa192069b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320338"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030351"
 ---
-# <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 웹앱 빌드
+# <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 사이트 빌드
 
 Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로덕션 환경에 웹 사이트를 게시합니다. 이 빠른 시작에서는 Azure CLI를 사용하여 웹 애플리케이션을 Azure Static 웹앱에 배포합니다.
 
@@ -117,9 +117,9 @@ cd my-first-static-web-app
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 
-1. 위쪽 검색 창에서 **my-first-web-static-app**을 검색합니다.
+1. 위쪽 검색 창에서 **my-first-web-static-app** 을 검색합니다.
 
-1. **my-first-web-static-app**을 선택합니다.
+1. **my-first-web-static-app** 을 선택합니다.
 
 [!INCLUDE [view website](../../includes/static-web-apps-get-started-view-website.md)]
 

@@ -1,26 +1,26 @@
 ---
-title: '빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 웹앱 빌드'
-description: Azure Static Web Apps 웹 사이트를 빌드하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드'
+description: 정적 사이트를 Azure Static Web Apps에 배포하는 방법을 알아봅니다.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369565"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562517"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>빠른 시작: 첫 번째 정적 웹앱 빌드
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
 Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로덕션 환경에 웹 사이트를 게시합니다. 이 빠른 시작에서는 Visual Studio Code 확장을 사용하여 웹 애플리케이션을 Azure Static 웹앱에 배포합니다.
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Static Web App 만들기":::
 
-1. **마스터** 분기를 선택하고 **Enter** 를 누릅니다.
+1. **main** 분기를 선택하고 **Enter** 키를 누릅니다.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="분기 이름":::
 

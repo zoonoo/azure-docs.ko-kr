@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e85e433e1b1b31470fc8d7dee24353fd719b64e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562018"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031184"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 ASP.NET Core 웹 API 보호
 
@@ -38,12 +38,10 @@ ms.locfileid: "94562018"
 > 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록**, **새 등록** 을 차례로 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `AspNetCoreWebApi-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. **등록** 을 선택합니다.
-> 1. **관리** 에서 **API 표시** 를 선택합니다.
-> 1. **범위 추가** 를 선택하고 **저장 후 계속** 을 선택하여 기본 **애플리케이션 ID URI** 를 적용합니다.
-> 1. **범위 추가** 창에서 다음 값을 입력합니다.
+> 1. **관리** 에서 **API 표시** > **범위 추가** 를 선택합니다. **저장 및 계속** 을 선택하여 기본값 **애플리케이션 ID URI** 를 수락하고 다음 세부 정보를 입력합니다.
 >    - **범위 이름**: `access_as_user`
 >    - **동의할 수 있는 사람**: **관리자 및 사용자**
 >    - **관리자 동의 표시 이름**: `Access AspNetCoreWebApi-Quickstart`
@@ -73,8 +71,8 @@ ms.locfileid: "94562018"
 >    ```
 >
 >    - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 로 바꿉니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 를 찾을 수 있습니다.
->    - `Enter_the_Tenant_Info_Here`를 다음 중 하나로 바꿉니다.
->       - 애플리케이션이 **이 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 **디렉터리(테넌트) ID**(GUID) 또는 **테넌트 이름**(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID** 를 찾을 수 있습니다.
+>    - `Enter_the_Tenant_Info_Here`을 다음 중 하나로 바꿉니다.
+>       - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 **디렉터리(테넌트) ID**(GUID) 또는 **테넌트 이름**(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID** 를 찾을 수 있습니다.
 >       - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >       - 애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
 >
@@ -103,7 +101,7 @@ ms.locfileid: "94562018"
 | *appsettings.json* 키 | 설명                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.                                                                                       |
-| `Instance`             | 사용자가 인증하는 STS(보안 토큰 서비스) 엔드포인트 이 값은 일반적으로 `https://login.microsoftonline.com/`이며, Azure 퍼블릭 클라우드를 나타냅니다. |
+| `Instance`             | 사용자가 인증하는 STS(보안 토큰 서비스) 엔드포인트입니다. 이 값은 일반적으로 `https://login.microsoftonline.com/`이며, Azure 퍼블릭 클라우드를 나타냅니다. |
 | `TenantId`             | 회사 또는 학교 계정이나 Microsoft 개인 계정을 사용하여 사용자를 로그인하는 테넌트의 이름 또는 해당 테넌트 ID(GUID) 또는 *공용* 입니다.                             |
 
 `Configure()` 메서드에는 명명된 기능을 사용할 수 있도록 설정하는 두 가지 중요한 메서드인 `app.UseAuthentication()` 및 `app.UseAuthorization()`이 포함되어 있습니다.

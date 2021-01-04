@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 3ea3c3990a9319a81c841de8a7109850fcab5179
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: d1a3965fef6966f70a829cd66d6ce10a01d7af98
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993910"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030895"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -55,16 +55,17 @@ ms.locfileid: "95993910"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://aka.ms/MobileAppReg) 페이지로 이동합니다.
-> 1. **새 등록** 을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱에 로그인하거나 동의할 때 앱 사용자에게 표시할 의미 있는 애플리케이션 이름을 입력합니다.
->      - 이 페이지의 다른 구성은 건너뜁니다.
->      - `Register`를 선택합니다.
-> 1. **관리** 섹션에서 `Authentication` > `Add Platform` > `iOS`를 선택합니다.
->      - 애플리케이션에 대한 **_번들 식별자_* _를 입력합니다. 번들 식별자는 애플리케이션을 고유하게 식별하는 고유 문자열(예: `com.<yourname>.identitysample.MSALMacOS`)입니다. 사용하는 값을 기록해 둡니다.
->      - iOS 구성은 macOS 애플리케이션에도 적용할 수 있습니다.
-> 1. 이 빠른 시작 후반에 사용할 수 있도록 `Configure`를 선택하고 _*_MSAL 구성_*_ 세부 정보를 저장합니다.
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.    
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **등록** 을 선택합니다.
+> 1. **관리** 에서 **인증** > **플랫폼 추가** > **iOS** 를 선택합니다.
+> 1. 애플리케이션에 대한 **번들 식별자** 를 입력합니다. 번들 식별자는 애플리케이션을 고유하게 식별하는 고유 문자열(예: `com.<yourname>.identitysample.MSALMacOS`)입니다. 사용하는 값을 기록해 둡니다. iOS 구성은 macOS 애플리케이션에도 적용할 수 있습니다.
+> 1. 이 빠른 시작 후반에 사용할 수 있도록 **구성** 을 선택하고 **MSAL 구성** 세부 정보를 저장합니다.
+> 1. **완료** 를 선택합니다.
+
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
@@ -101,7 +102,7 @@ ms.locfileid: "95993910"
 >#### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
 > 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
 > 1. Zip 파일을 추출하고 XCode에서 프로젝트를 엽니다.
-> 1. _ *ViewController.swift**를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
+> 1. **ViewController.swift** 를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: f557794265f3bbf48fae97fc04e5e9b068b54f63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c545fa7d58d925dfcb9fa98b301c3bb0a20833e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540407"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358574"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>자습서: Logic App 및 Power Automate에서 Video Indexer 사용
 
@@ -54,9 +54,9 @@ Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정
 ![연결 이름 및 API 키](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> 이전에 Azure Storage 계정 또는 Video Indexer 계정을 논리 앱에 연결한 경우 연결 정보가 저장되고 자동으로 연결됩니다. <br/>Azure Storage(스토리지 창) 또는 Video Indexer(플레이어 창) 작업의 맨 아래에 있는 **연결 변경**을 클릭하여 연결을 편집할 수 있습니다.
+> 이전에 Azure Storage 계정 또는 Video Indexer 계정을 논리 앱에 연결한 경우 연결 정보가 저장되고 자동으로 연결됩니다. <br/>Azure Storage(스토리지 창) 또는 Video Indexer(플레이어 창) 작업의 맨 아래에 있는 **연결 변경** 을 클릭하여 연결을 편집할 수 있습니다.
 
-Azure Storage 및 Video Indexer 계정에 연결하고 **Logic Apps Designer**에서 "Blob이 추가되거나 수정되는 경우" 트리거를 찾아 선택합니다.
+Azure Storage 및 Video Indexer 계정에 연결하고 **Logic Apps Designer** 에서 "Blob이 추가되거나 수정되는 경우" 트리거를 찾아 선택합니다.
 
 비디오 파일을 저장할 컨테이너를 선택합니다. 
 
@@ -80,7 +80,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [
 
 다른 매개 변수에 대한 기본값을 사용하거나 필요에 따라 설정할 수 있습니다. 
 
-**저장**을 클릭합니다. 업로드와 인덱싱이 완료되면 인사이트를 추출하기 위한 두 번째 흐름을 구성해 보겠습니다. 
+**저장** 을 클릭합니다. 업로드와 인덱싱이 완료되면 인사이트를 추출하기 위한 두 번째 흐름을 구성해 보겠습니다. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>두 번째 흐름 설정 - JSON 추출  
 
@@ -108,7 +108,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [
 
 이 식은 이 흐름에서 "비디오 인덱스 가져오기" 작업의 출력을 가져옵니다. 
 
-**흐름 저장**을 클릭합니다. 
+**흐름 저장** 을 클릭합니다. 
 
 흐름이 저장되면 트리거에서 HTTP POST URL이 만들어집니다. 트리거에서 URL을 복사합니다. 
 
@@ -136,3 +136,5 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [
 
 > [!div class="nextstepaction"]
 > [Video Indexer API 사용](video-indexer-use-apis.md)
+
+추가 리소스는 [비디오 인덱서](https://docs.microsoft.com/connectors/videoindexer-v2/)에 대한 이 문서를 참조하세요.

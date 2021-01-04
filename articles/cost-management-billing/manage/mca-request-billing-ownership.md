@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.author: banders
-ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348990"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938480"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>다른 계정에서 Azure 구독의 청구 소유권 얻기
 
@@ -22,6 +22,14 @@ ms.locfileid: "96348990"
 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-for-access).
 
 청구 소유권을 요청하려면 **청구서 섹션 소유자** 또는 **청구서 섹션 기여자** 여야 합니다. 자세히 알아보려면 [청구서 섹션 역할 작업](understand-mca-roles.md#invoice-section-roles-and-tasks)을 참조하세요.
+
+청구 소유권을 요청하는 사용자는 다음 역할 중 하나를 가지고 있어야 합니다.
+
+- 엔터프라이즈 Microsoft 고객 계약의 경우 사용자는 청구 소유자입니다.
+- 기업계약의 경우 사용자는 청구 소유자여야 합니다.
+- Microsoft Online Service 프로그램 청구 계정의 경우 사용자는 계정 관리자여야 합니다.
+
+자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.
 
 ## <a name="request-billing-ownership"></a>청구 소유권 요청
 
@@ -42,7 +50,7 @@ ms.locfileid: "96348990"
 1. 목록에서 청구서 섹션을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 청구 프로필 청구서의 이 섹션에 할당됩니다.
 1. 왼쪽 아래에서 **전송 요청** 을 선택한 다음, **새 요청 추가** 를 선택합니다.  
     [![전송 요청 선택을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. 해당 사용자는 Microsoft Online Service Program 청구 계정의 계정 관리자이거나 기업계약의 계정 소유자여야 합니다. 자세한 내용은 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요. **요청 보내기** 를 선택합니다.  
+1. 청구 소유권 요청 대상 사용자의 이메일 주소를 입력합니다. **요청 보내기** 를 선택합니다.  
     [![전송 요청 전송을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. 사용자는 전송 요청을 검토하는 지침이 포함된 이메일을 받습니다.  
     ![전송 요청 이메일 검토를 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -68,6 +76,7 @@ ms.locfileid: "96348990"
 1. 목록에서 전송 요청을 보낸 청구서 섹션을 선택합니다.
 1. 왼쪽 아래에서 **전송 요청** 을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다.  
     [![전송 요청 목록을 보여주는 스크린샷](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |열|정의|
    |---------|---------|
    |요청 날짜|전송 요청이 전송된 날짜입니다.|

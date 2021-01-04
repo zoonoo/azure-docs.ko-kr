@@ -7,16 +7,19 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fb5396fae4676d85f67e98bb333cd58324d5a4e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337016"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357572"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>빠른 시작: GitHub Actions를 사용하여 Azure MySQL에 연결
 
-워크플로를 사용하여 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)에 데이터베이스 업데이트를 배포하는 [GitHub Actions](https://docs.github.com/en/actions)를 시작합니다. 
+**적용 대상**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 단일 서버 :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 유연한 서버
+
+워크플로를 사용하여 [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)에 데이터베이스 업데이트를 배포하는 [GitHub Actions](https://docs.github.com/en/actions)를 시작합니다.
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -67,6 +70,11 @@ GitHub Actions 워크플로는 리포지토리의 `/.github/workflows/` 경로�
 ## <a name="copy-the-mysql-connection-string"></a>MySQL 연결 문자열 복사 
 
 Azure Portal에서 Azure Database for MySQL 서버로 이동하여 **설정** > **연결 문자열** 을 차례로 엽니다. **ADO.NET** 연결 문자열을 복사합니다. `your_database` 및 `your_password`의 자리 표시자 값을 바꿉니다. 연결 문자열은 다음과 비슷합니다. 
+
+> [!IMPORTANT]
+> - 단일 서버의 경우 **Uid=adminusername@servername** 를 사용합니다. **@servername** 은 필수입니다.
+> - 유연한 서버의 경우 @servername없이 **Uid= adminusername** 을 사용합니다. MySQL 유연한 서버는 미리 보기로 제공됩니다. 
+
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;

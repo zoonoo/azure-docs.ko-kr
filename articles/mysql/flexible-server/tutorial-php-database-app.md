@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 426cf59c9fb9d88039231ed441b2ffc7246716c7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93e605cb20d593750100ec8e340a7ad74c4dd385
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844440"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587896"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP(Laravel) 및 MySQL 유연한 서버(미리 보기) 앱 빌드
 
@@ -219,7 +219,7 @@ MYSQL_SSL=true
 
 ### <a name="configure-tlsssl-certificate"></a>TLS/SSL 인증서 구성
 
-기본적으로 MySQL 유연한 서버는 클라이언트의 TLS 연결을 적용합니다. Azure의 MySQL 데이터베이스에 연결하려면 [Azure Database for MySQL 유연한 서버에서 제공하는 _.pem_ 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)를 사용해야 합니다. [이 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem))를 다운로드하여 샘플 앱 리포지토리의 로컬 복사본에 있는 **ssl** 폴더에 배치합니다.
+기본적으로 MySQL 유연한 서버는 클라이언트의 TLS 연결을 적용합니다. Azure의 MySQL 데이터베이스에 연결하려면 [Azure Database for MySQL 유연한 서버에서 제공하는 _.pem_ 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)를 사용해야 합니다. [이 인증서](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem))를 다운로드하여 샘플 앱 리포지토리의 로컬 복사본에 있는 **SSL** 폴더에 배치합니다.
 
 다음 코드와 같이 _config/database.php_ 를 열고 `sslmode` 및 `options` 매개 변수를 `connections.mysql`에 추가합니다.
 
@@ -390,7 +390,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. Git Credential Manager에서 자격 증명을 묻는 메시지가 표시되면 Azure Portal에 로그인하는 데 사용하는 자격 증명이 아니라 **배포 사용자 구성** 에서 만든 자격 증명을 입력해야 합니다.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
@@ -401,7 +401,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -551,7 +551,7 @@ Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.

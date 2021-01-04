@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
-ms.date: 11/12/2020
+ms.date: 12/10/2020
 ms.topic: overview
-ms.openlocfilehash: a8fd796218804a79c82a5723c0e5851af359cdea
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bef6107878f36e02a896b3c38b8913ebb50169a7
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95528825"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356364"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
@@ -45,3 +45,4 @@ Azure Lighthouse에는 참여 및 관리를 간소화하는 데 도움이 되는
 - [Azure 위임 리소스 관리](concepts/azure-delegated-resource-management.md)에 대해 알아봅니다.
 - [테넌트 간 관리 환경](concepts/cross-tenant-management-experience.md)을 살펴봅니다.
 - [엔터프라이즈 내에서 Azure Lighthouse를 사용](concepts/enterprise.md)하는 방법을 참조하세요.
+- Azure Lighthouse에 대한 [가용성](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) 및 [FedRAMP 및 DoD CC SRG 감사 범위](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) 세부 정보를 확인합니다.

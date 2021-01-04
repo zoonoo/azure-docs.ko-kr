@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure Portal에서 Azure Purview 계정 만들기(미리 보기)'
 description: 이 빠른 시작에서는 Azure Purview 계정을 만들고, 사용을 시작할 수 있는 권한을 구성하는 방법을 설명합니다.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602384"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400389"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
@@ -30,6 +30,10 @@ ms.locfileid: "96602384"
 * 계정에는 구독에서 리소스를 만들 수 있는 권한이 있어야 합니다.
 
 * 모든 애플리케이션에서 **Storage 계정** 및 **EventHub 네임스페이스** 를 만들지 못하도록 차단하는 **Azure Policy** 가 있는 경우 태그를 사용하여 정책 예외를 만들어야 합니다. 이 예외는 Purview 계정을 만드는 과정에서 입력할 수 있습니다. 가장 중요한 이유는 만든 각 Purview 계정에 대해 관리되는 리소스 그룹을 만들고 이 리소스 그룹 내에 Storage 계정 및 EventHub 네임스페이스를 만들어야 하기 때문입니다.
+
+    > [!important]
+    > Azure Policy가 없거나 기존 Azure Policy가 **스토리지 계정** 및 **EventHub 네임스페이스** 생성을 차단하지 않는 경우 이 단계를 수행하지 않아도 됩니다.
+
     1. Azure Portal로 이동하여 **정책** 을 검색합니다.
     1. [사용자 지정 정책 정의 만들기](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)를 수행하거나, 기존 정책을 수정하여 `not` 연산자와 `resourceBypass` 태그를 사용하는 두 가지 예외를 추가합니다.
 
@@ -151,7 +155,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. **역할 할당 추가** 를 선택합니다.
 
-1. **Purview 데이터 큐레이터 역할** 또는 **Purview 데이터 원본 관리자 역할** 의 역할 유형은 서비스 주체의 용도에 따라 달라집니다(자세한 내용은 [카탈로그 권한](catalog-permissions.md) 참조).
+1. **Purview 데이터 큐레이터 역할** 또는 **Purview 데이터 원본 관리자 역할** 의 역할 유형은 서비스 주체의 용도에 따라 달라집니다(자세한 내용은 [카탈로그 권한](catalog-permissions.md) 및 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 참조).
 
 1. **다음에 대한 액세스 할당** 에 대해 기본값(**사용자, 그룹 또는 서비스 주체**)을 그대로 둡니다.
 

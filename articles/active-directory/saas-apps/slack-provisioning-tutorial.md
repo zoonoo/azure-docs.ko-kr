@@ -174,7 +174,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
   
   * 허용되는 문장 부호에는 마침표, 밑줄, 하이픈, 아포스트로피, 대괄호(예: **( [ { } ] )**) 및 구분 기호(예: **, / ;**)가 포함됩니다.
   
-  * displayName 속성에는 '@' 문자를 사용할 수 없습니다. '@'가 포함되면 프로비저닝 로그에서 "AttributeValidationFailed"라는 설명이 있는 건너뛴 이벤트를 찾을 수 있습니다.
+  * displayName 속성에는 '\@' 문자를 사용할 수 없습니다. '\@'가 포함되면 프로비저닝 로그에서 "AttributeValidationFailed"라는 설명이 있는 건너뛴 이벤트를 찾을 수 있습니다.
 
   * Slack의 작업 공간/조직에서 두 설정, 즉 **Profile syncing is enabled**(프로필 동기화 사용) 및 **Users cannot change their display name**(사용자가 표시 이름을 변경할 수 없음)이 구성된 경우에만 업데이트됩니다.
 

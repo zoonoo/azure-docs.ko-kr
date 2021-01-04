@@ -7,12 +7,12 @@ author: vladvino
 ms.author: apimpm
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: 19080679291b88b693c95bd71f8ddc0e59286356
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: fdf7e842959e09a8ec35017031f745cb16d13c6d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057352"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400406"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 
@@ -42,7 +42,7 @@ Visual Studio Code를 시작하고 Azure 확장을 엽니다. (활동 표시줄�
 
 Microsoft 계정에 로그인하면 *Azure: API Management* 탐색기 창에 Azure 구독이 나열됩니다.
 
-사용하려는 구독을 마우스 오른쪽 단추로 클릭하고 **Azure에서 API Management 만들기**를 선택합니다.
+사용하려는 구독을 마우스 오른쪽 단추로 클릭하고 **Azure에서 API Management 만들기** 를 선택합니다.
 
 ![VS Code의 API Management 만들기 마법사](./media/vscode-create-service-instance/vscode-apim-create.png)
 
@@ -51,23 +51,23 @@ Microsoft 계정에 로그인하면 *Azure: API Management* 탐색기 창에 Azu
 새 API Management 인스턴스(및 상위 리소스 그룹)가 지정된 이름으로 생성됩니다. 기본적으로 인스턴스는 *Consumption* SKU를 사용하여 *미국 서부* 지역에 만들어집니다.
 
 > [!TIP]
-> *Azure API Management* 확장 설정에서 **고급 만들기**를 사용하도록 설정하면 [API Management SKU](https://azure.microsoft.com/pricing/details/api-management/), [Azure 지역](https://status.azure.com/en-us/status), [리소스 그룹](../azure-resource-manager/management/overview.md)을 지정하여 API Management 인스턴스를 배포할 수도 있습니다.
+> *Azure API Management* 확장 설정에서 **고급 만들기** 를 사용하도록 설정하면 [API Management SKU](https://azure.microsoft.com/pricing/details/api-management/), [Azure 지역](https://status.azure.com/en-us/status), [리소스 그룹](../azure-resource-manager/management/overview.md)을 지정하여 API Management 인스턴스를 배포할 수도 있습니다.
 >
 > *Consumption* SKU는 프로비저닝하는 데 1분 미만이 걸리지만 다른 SKU는 만드는 데 일반적으로 30~40분이 걸립니다.
 
-이제 첫 번째 API를 가져오고 게시할 준비가 되었습니다. 이 작업을 수행하고 Visual Studio Code용 확장 내에서 일반적인 API Management 작업을 수행할 수도 있습니다. 자세한 내용은 [Visual Studio Code용 API Management 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview) 설명서를 참조하세요.
+이제 첫 번째 API를 가져오고 게시할 준비가 되었습니다. 이 작업을 수행하고 Visual Studio Code용 확장 내에서 일반적인 API Management 작업을 수행할 수도 있습니다. 자세한 내용은 [자습서](visual-studio-code-tutorial.md)를 참조하세요.
 
 ![VS Code API Management 확장 창에서 새로 만든 API Management 인스턴스](./media/vscode-create-service-instance/vscode-apim-instance.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 마우스 오른쪽 단추를 클릭하고 **Portal에서 열기**를 선택하고 [API Management 서비스 및 리소스 그룹을 삭제](get-started-create-service-instance.md#clean-up-resources)하여 API Management 인스턴스를 제거합니다.
+더 이상 필요하지 않은 경우 마우스 오른쪽 단추를 클릭하고 **Portal에서 열기** 를 선택하고 [API Management 서비스 및 리소스 그룹을 삭제](get-started-create-service-instance.md#clean-up-resources)하여 API Management 인스턴스를 제거합니다.
 
-또는 **API Management 삭제**를 선택하여 API Management 인스턴스만 삭제할 수 있습니다(이 작업은 해당 리소스 그룹이 삭제되지 않음).
+또는 **API Management 삭제** 를 선택하여 API Management 인스턴스만 삭제할 수 있습니다(이 작업은 해당 리소스 그룹이 삭제되지 않음).
 
 ![VS Code에서 API Management 인스턴스 삭제](./media/vscode-create-service-instance/vscode-apim-delete.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [첫 번째 API 가져오기 및 게시](import-and-publish.md)
+> [API Management 확장을 사용하여 API 가져오기 및 관리](visual-studio-code-tutorial.md)

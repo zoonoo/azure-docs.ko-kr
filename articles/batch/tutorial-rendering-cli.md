@@ -1,15 +1,15 @@
 ---
-title: 클라우드에서 장면 렌더링
+title: 자습서 - 클라우드에서 장면 렌더링
 description: 자습서 - Batch Rendering Service 및 Azure 명령줄 인터페이스를 사용하여 Arnold에서 Autodesk 3ds Max 장면을 렌더링하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542391"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106345"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -346,7 +346,7 @@ az group delete --name myResourceGroup
 > * 풀 크기 조정 및 다중 프레임 장면 렌더링
 > * 렌더링된 출력 다운로드
 
-클라우드 수준 렌더링에 대한 자세한 내용은 Batch Rendering Service 옵션을 참조하세요. 
+클라우드 수준 렌더링에 대한 자세한 내용은 Batch 렌더링 설명서를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Batch 렌더링 서비스](batch-rendering-service.md)

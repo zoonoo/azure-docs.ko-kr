@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6845923d65b5fbe5a9f010474330ce2bbed948e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780096"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97005310"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>자습서: 등록 그룹을 사용하여 여러 X.509 디바이스 프로비저닝
 
@@ -195,7 +195,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 3. 다음 명령을 실행하여 새 디바이스 인증서를 포함하는 완전한 인증서 체인 .pem 파일을 만듭니다.
 
     ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem
+    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem && cd ..
     ```
 
     텍스트 편집기를 사용하여 인증서 체인 파일 *./certs/new-device-full-chain.cert.pem* 을 엽니다. 인증서 체인 텍스트에는 세 가지 인증서의 전체 체인이 포함됩니다. 이 텍스트를 이 자습서의 뒷부분에 나오는 사용자 지정 HSM 코드에서 인증서 체인으로 사용할 것입니다.
@@ -241,48 +241,85 @@ HSM 하드웨어는 필요하지는 않지만 인증서의 프라이빗 키와 �
     static const char* const COMMON_NAME = "custom-hsm-device-01";
     ```
 
-4. 동일한 파일에서, 인증서를 생성한 후 *./certs/new-device-full-chain.cert.pem* 에 저장한 인증서 체인 텍스트를 사용하여 `CERTIFICATE` 상수 문자열의 문자열 값을 업데이트합니다.
+4. 동일한 파일에서 인증서를 생성한 후 *./certs/new-device-full-chain.cert.pem* 에 저장한 인증서 체인 텍스트를 사용하여 `CERTIFICATE` 상수 문자열의 문자열 값을 업데이트해야 합니다.
 
-    > [!IMPORTANT]
-    > 텍스트를 Visual Studio로 복사할 때, 텍스트를 구문 분석하고 코드 간격 등으로 업데이트했다는 메시지가 표시될 수 있습니다. 이 경우 **Ctrl+Z** 키를 한 번 눌러 이 간격과 구문 분석을 제거해야 합니다.
-
-    추가 공백이나 Visual Studio에서 수행한 구문 분석 없이 아래 패턴을 따르도록 인증서 텍스트를 업데이트합니다.
+    인증서 텍스트 구문은 Visual Studio에서 수행한 추가 공백이나 구문 분석 없이 아래 패턴을 따라야 합니다.
 
     ```c
     // <Device/leaf cert>
     // <intermediates>
     // <root>
     static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----\n"
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy"
+    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
         ...
-    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh"
-    "\n-----END CERTIFICATE-----\n"
+    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+    "-----END CERTIFICATE-----\n"
     "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
         ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB"
-    "\n-----END CERTIFICATE-----";        
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
     ```
 
-5. 동일한 파일에서, 디바이스 인증서의 프라이빗 키를 사용하여 `PRIVATE_KEY` 상수 문자열의 문자열 값을 업데이트합니다.
+    이 단계에서 이 문자열 값을 올바르게 업데이트하는 것은 매우 번거로울 수 있으며 오류가 발생할 수 있습니다. Git Bash 프롬프트에서 적절한 구문을 생성하려면 다음 Bash 셸 명령을 Git Bash 명령 프롬프트에 복사하여 붙여넣고 **ENTER** 를 누릅니다. 이러한 명령은 `CERTIFICATE` 문자열 상수 값에 대한 구문을 생성합니다.
 
-    > [!IMPORTANT]
-    > 텍스트를 Visual Studio로 복사할 때, 텍스트를 구문 분석하고 코드 간격 등으로 업데이트했다는 메시지가 표시될 수 있습니다. 이 경우 **Ctrl+Z** 키를 한 번 눌러 이 간격과 구문 분석을 제거해야 합니다.
+    ```Bash
+    input="./certs/new-device-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
 
-    추가 공백이나 Visual Studio에서 수행한 구문 분석 없이 아래 패턴을 따르도록 프라이빗 키 텍스트를 업데이트합니다.
+    새 상수 값에 대한 출력 인증서 텍스트를 복사하여 붙여넣습니다. 
+
+
+5. 동일한 파일에서 `PRIVATE_KEY` 상수의 문자열 값도 디바이스 인증서의 프라이빗 키로 업데이트해야 합니다.
+
+    프라이빗 키 텍스트 구문은 Visual Studio에서 수행한 추가 공백이나 구문 분석 없이 아래 패턴을 따라야 합니다.
 
     ```c
     static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
-    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
         ...
-    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij"
-    "\n-----END RSA PRIVATE KEY-----";
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
     ```
+
+    이 단계에서 이 문자열 값을 올바르게 업데이트하는 것은 매우 번거로울 수 있으며 오류가 발생할 수도 있습니다. Git Bash 프롬프트에서 적절한 구문을 생성하려면 다음 Bash 셸 명령을 복사하여 붙여넣고 **ENTER** 를 누릅니다. 이러한 명령은 `PRIVATE_KEY` 문자열 상수 값에 대한 구문을 생성합니다.
+
+    ```Bash
+    input="./private/new-device.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    새 상수 값에 대한 출력 프라이빗 키 텍스트를 복사하여 붙여넣습니다. 
 
 6. *custom_hsm_example.c* 를 저장합니다.
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커�
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: fac409e9acc14048068c0f46ffb2b64cc69582ef
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: c8d1179f1c31642b350ab8757a8d4abf71583bfc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029996"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562891"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행
 
@@ -83,7 +83,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-이 작업은 모든 시간 코드를 `--context`에 지정된 리포지토리의 *마스터* 분기에 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 다단계 작업을 실행합니다. 리포지토리 루트의 `--file`에 지정된 YAML 파일에서 단계를 정의합니다. 
+이 작업은 모든 시간 코드를 `--context`에 지정된 리포지토리의 *기본* 분기에 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 다단계 작업을 실행합니다. 리포지토리 루트의 `--file`에 지정된 YAML 파일에서 단계를 정의합니다. 
 
 성공적인 [az acr task create][az-acr-task-create] 명령의 출력은 다음과 비슷합니다.
 
@@ -126,7 +126,7 @@ az acr task create \
       {
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
-          "branch": "master",
+          "branch": "main",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
@@ -220,7 +220,7 @@ cd acr-build-helloworld-node
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"
-git push origin master
+git push origin main
 ```
 
 `git push` 명령을 실행할 때 GitHub 자격 증명을 제공하라는 메시지가 표시될 수 있습니다. GitHub 사용자 이름을 제공하고, 이전에 암호에 대해 만든 PAT(개인용 액세스 토큰)를 입력합니다.

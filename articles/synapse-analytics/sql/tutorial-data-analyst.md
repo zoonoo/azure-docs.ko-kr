@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459128"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007554"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀로 데이터 레이크 탐색 및 분석
 
@@ -38,8 +38,8 @@ SELECT TOP 100 * FROM
 
 [NYC(New York City) Taxi 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)에는 다음이 포함됩니다.
 
-- 승하차 날짜와 시간
-- 승하차 위치. 
+- 승하차 날짜와 시간입니다.
+- 승하차 위치입니다. 
 - 이동 거리
 - 항목별 요금
 - 요율 유형

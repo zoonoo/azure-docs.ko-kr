@@ -89,6 +89,22 @@
       href: event-hubs-availability-and-consistency.md
     - name: 확장성
       href: event-hubs-scalability.md
+    - name: 페더레이션
+      items:
+        - name: 다중 사이트 및 다중 지역 페더레이션
+          href: event-hubs-federation-overview.md
+        - name: 이벤트 복제 작업 및 애플리케이션
+          href: event-hubs-federation-replicator-functions.md
+        - name: 이벤트 복제 작업 패턴
+          href: event-hubs-federation-patterns.md
+        - name: 구성된 복제 작업
+          href: event-hubs-federation-configuration.md
+        - name: Event Hubs 간 이벤트 복제
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy'
+        - name: Azure Service Bus에 이벤트 전송
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
+        - name: Azure Service Bus에서 이벤트 가져오기
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
     - name: 지리적 재해 복구
       items:
         - name: 지리적 재해 복구 및 지역에서 복제

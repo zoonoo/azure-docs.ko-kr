@@ -363,25 +363,13 @@
               href: custom-commands.md
             - name: 빠른 시작
               items:
-                - name: 사용자 지정 명령 앱 빌드
+                - name: 사용자 지정 명령 앱 만들기
                   href: quickstart-custom-commands-application.md
             - name: 방법 가이드
               items:
-                - name: 개발
-                  items:
-                    - name: 간단한 명령으로 애플리케이션 만들기
-                      href: how-to-custom-commands-create-application-with-simple-commands.md
-                    - name: 명령에 매개 변수 추가
-                      href: how-to-custom-commands-add-parameters-to-commands.md
-                    - name: 명령 매개 변수에 구성 추가
-                      href: how-to-custom-commands-add-parameter-configuration.md
-                    - name: 상호 작용 규칙 추가
-                      href: how-to-custom-commands-add-interaction-rules.md
-                    - name: 음성 응답을 위한 언어 생성 템플릿 추가
-                      href: how-to-custom-commands-add-language-generation-templates.md
-                    - name: 사용자 지정 음성 사용
-                      href: how-to-custom-commands-use-custom-voice.md
-                - name: 통합
+                - name: 사용자 지정 명령 앱 개발 및 사용자 지정
+                  href: how-to-develop-custom-commands-application.md
+                - name: 클라이언트 애플리케이션과 통합
                   items:
                     - name: 음성 SDK를 사용하여 클라이언트 앱과 통합
                       href: how-to-custom-commands-setup-speech-sdk.md
@@ -395,26 +383,18 @@
                       href: how-to-custom-commands-update-command-from-client.md
                     - name: 웹 엔드포인트에서 명령 업데이트
                       href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: 배포
-                  items:
-                    - name: Azure DevOps를 사용한 지속적인 배포
-                      href: how-to-custom-commands-deploy-cicd.md
-                - name: 테스트
-                  items:
-                    - name: 사용자 지정 명령 앱 테스트
-                      href: how-to-custom-commands-developer-flow-test.md
-                - name: 디버그
-                  items:
-                    - name: 앱을 작성할 때 오류 디버그
-                      href: how-to-custom-commands-debug-build-time.md
-                    - name: 앱을 실행할 때 오류 디버그
-                      href: how-to-custom-commands-debug-runtime.md
-                - name: 참조
-                  items:
-                    - name: 사용자 지정 명령 개념
-                      href: custom-commands-references.md
+                - name: Azure DevOps를 사용한 지속적인 배포
+                  href: how-to-custom-commands-deploy-cicd.md
+                - name: 사용자 지정 명령 애플리케이션 테스트
+                  href: how-to-custom-commands-developer-flow-test.md
+                - name: 앱을 작성할 때 오류 디버그
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: 앱을 실행할 때 오류 디버그
+                  href: how-to-custom-commands-debug-runtime.md
             - name: 리소스
               items:
+                - name: 사용자 지정 명령 개념
+                  href: custom-commands-references.md
                 - name: 사용자 지정 명령 샘플(GitHub)
                   href: 'https://aka.ms/speech/cc-samples'
                 - name: 음성 도우미 샘플(GitHub)

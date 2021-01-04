@@ -59,6 +59,8 @@
               href: solutions-windows-virtual-desktop.md
     - name: Azure NetApp Files에 대한 FAQ
       href: azure-netapp-files-faqs.md
+    - name: Azure Application Consistent Snapshot Tool이란?
+      href: azacsnap-introduction.md
 - name: 방법 가이드
   items:
     - name: Azure NetApp Files에 등록
@@ -131,6 +133,32 @@
       href: /rest/api/netapp/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.netapp/allversions
+    - name: Azure Application Consistent Snapshot Tool(AzAcSnap)
+      items:
+        - name: AzAcSnap 시작
+          href: azacsnap-get-started.md
+        - name: AzAcSnap 설치
+          href: azacsnap-installation.md
+        - name: AzAcSnap을 사용하여 재해 복구
+          href: azacsnap-disaster-recovery.md
+        - name: AzAcSnap 사용을 위한 팁과 요령
+          href: azacsnap-tips.md
+        - name: AzAcSnap 문제 해결
+          href: azacsnap-troubleshoot.md
+        - name: AzAcSnap 명령 참조
+          items:
+            - name: AzAcSnap 구성
+              href: azacsnap-cmd-ref-configure.md
+            - name: AzAcSnap 테스트
+              href: azacsnap-cmd-ref-test.md
+            - name: AzAcSnap을 사용하여 백업
+              href: azacsnap-cmd-ref-backup.md
+            - name: AzAcSnap을 사용하여 세부 정보 가져오기
+              href: azacsnap-cmd-ref-details.md
+            - name: AzAcSnap을 사용하여 삭제
+              href: azacsnap-cmd-ref-delete.md
+            - name: AzAcSnap을 사용하여 복원
+              href: azacsnap-cmd-ref-restore.md
 - name: 리소스
   items:
     - name: 가격 책정

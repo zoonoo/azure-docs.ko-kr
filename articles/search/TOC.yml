@@ -372,7 +372,7 @@
               href: search-indexer-howto-access-trusted-service-exception.md
             - name: 프라이빗 엔드포인트를 통한 액세스
               href: search-indexer-howto-access-private.md
-        - name: ID 기반 액세스
+        - name: 문서 수준 보안
           items:
             - name: 보안 필터
               href: search-security-trimming-for-azure-search.md
@@ -550,6 +550,8 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: 개발자 과정(Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
+    - name: 파트너 솔루션
+      href: resource-partners-knowledge-mining.md
     - name: FAQ
       href: search-faq-frequently-asked-questions.md
     - name: 가격 책정

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f0e69e3f62d3b9e4debb5761d877dcdfdd246f60
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 077500e0188d1cc20864d436a2e2fd711b180702
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886025"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560239"
 ---
 # <a name="chat-concepts"></a>채팅 개념
 
@@ -46,7 +46,8 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
 
 Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니라 **스레드 작업** 이라는 시스템 생성 메시지도 공유합니다. 스레드 작업은 채팅 스레드가 업데이트될 때 생성됩니다. 채팅 스레드에서 `List Messages` 또는 `Get Messages`를 호출하면 사용자가 생성한 텍스트 메시지는 물론 시스템 메시지가 시간 순서대로 결과에 포함됩니다. 이를 통해 멤버가 추가 또는 제거된 시기 또는 채팅 스레드 주제가 업데이트된 시기를 식별할 수 있습니다. 지원되는 메시지 유형은 다음과 같습니다.  
 
- - `Text`: 채팅 대화의 일부로 사용자가 작성하여 보낸 실제 메시지입니다. 
+ - `Text`: 채팅 대화의 일부로 사용자가 작성하여 보낸 일반 문자 메시지입니다. 
+ - `RichText/HTML`: 형식이 지정된 문자 메시지입니다. Communication Services 사용자는 현재 RichText 메시지를 보낼 수 없습니다. 이 메시지 유형은 Teams Interop 시나리오에서 Teams 사용자가 Communication Services 사용자에게 보내는 메시지에서 지원합니다.
  - `ThreadActivity/AddMember`: 한 명 이상의 멤버가 채팅 스레드에 추가되었음을 나타내는 시스템 메시지입니다. 다음은 그 예입니다. 
 
 ```xml
@@ -92,6 +93,30 @@ Communication Services 채팅은 사용자가 생성한 메시지 뿐만 아니�
 
 ```
 
+- `ThreadActivity/MemberJoined`: 게스트 사용자가 Teams 미팅 채팅에 참여할 때 생성되는 시스템 메시지입니다. Communication Services 사용자는 Teams 미팅 채팅의 게스트로 참가할 수 있습니다. 예:  
+```xml
+{ 
+  "id": "1606351443605", 
+  "type": "ThreadActivity/MemberJoined", 
+  "version": "1606347753409", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606351443080,\"initiator\":\"8:orgid:8a53fd2b5ef150bau8442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665d83-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": " 19:meeting_curGQFTQ8tifs3EK9aTusiszGpkZULzNTTy2dbfI4dCJEaik@thread.v2", 
+  "createdOn": "2020-11-29T00:44:03.6950000Z" 
+} 
+```
+- `ThreadActivity/MemberLeft`: 게스트 사용자가 미팅 채팅에서 나갈 때 생성되는 시스템 메시지입니다. Communication Services 사용자는 Teams 미팅 채팅의 게스트로 참가할 수 있습니다. 다음은 그 예입니다.  
+```xml
+{ 
+  "id": "1606347703429", 
+  "type": "ThreadActivity/MemberLeft", 
+  "version": "1606340753429", 
+  "priority": "normal", 
+  "content": "{\"eventtime\":1606340755385,\"initiator\":\"8:orgid:8a53fd2b5u8150ba81442ad732a6ac6b_0e8deebe7527544aa2e7bdf3ce1b8733\",\"members\":[{\"id\":\"8:acs:9b665753-8164-4923-ad5d-5e983b07d2d7_00000006-7ef9-3bbe-b274-5a3a0d0002b1\",\"friendlyname\":\"\"}]}", 
+  "senderId": "19:meeting_9u7hBcYiADudn41Djm0n9DTVyAHuMZuh7p0bDsx1rLVGpnMk@thread.v2", 
+  "createdOn": "2020-11-29T23:42:33.4290000Z" 
+} 
+```
 - `ThreadActivity/TopicUpdate`: 주제가 업데이트되었음을 나타내는 시스템 메시지입니다. 다음은 그 예입니다. 
 
 ```xml

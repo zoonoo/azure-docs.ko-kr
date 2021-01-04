@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165675"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346710"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기
 
@@ -236,7 +236,7 @@ RuuviTag 디바이스 템플릿의 기본 제공 인터페이스를 사용자 �
 ## <a name="add-rules-and-actions"></a>규칙 및 작업 추가
 Azure IoT Central 애플리케이션에서 센서를 사용하여 조건을 모니터링하는 과정의 일부로, 특정 조건이 충족될 때 작업을 실행하는 규칙을 만들 수 있습니다. 규칙은 디바이스 템플릿과 하나 이상의 디바이스에 연결되며 디바이스 원격 분석 또는 이벤트에 따라 충족되어야 하는 조건을 포함합니다. 규칙에는 하나 이상의 관련된 작업도 있습니다. 작업에는 메일 알림 전송 또는 다른 서비스로 데이터를 보내는 웹후크 작업 트리거 등이 포함될 수 있습니다. **매장 내 분석 - 체크 아웃** 애플리케이션 템플릿에는 애플리케이션의 디바이스에 대한 몇 가지 미리 정의된 규칙이 포함되어 있습니다.
 
-이 섹션에서는 RuuviTag 센서 원격 분석을 기준으로 최대 상대 습도 수준을 확인하는 새 규칙을 만듭니다. 습도가 최댓값을 초과하는 경우 애플리케이션에서 메일을 보내도록 규칙에 작업을 추가합니다. 
+이 섹션에서는 RuuviTag 센서 원격 분석을 기준으로 최대 상대 습도 수준을 확인하는 새 규칙을 만듭니다. 습도가 최댓값을 초과하는 경우 애플리케이션에서 이메일을 보내도록 규칙에 작업을 추가합니다. 
 
 규칙을 만들려면 다음을 수행합니다. 
 

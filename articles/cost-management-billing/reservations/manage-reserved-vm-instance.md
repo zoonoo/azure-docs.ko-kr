@@ -6,20 +6,20 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/08/2020
 ms.author: banders
-ms.openlocfilehash: 050984d58137ec03996572d2de41115073e4ab2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338166"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562976"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
 Azure 예약을 구입하면 다른 구독에 예약을 적용하거나, 예약을 관리할 수 있는 사용자를 변경하거나, 예약의 범위를 변경해야 할 수 있습니다. 또한 예약을 두 개로 분할하여 구입한 일부 인스턴스를 다른 구독에 적용할 수도 있습니다.
 
-Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 최적화 설정을 변경할 수 있습니다. 예약 할인을 동일한 시리즈의 VM에 적용하거나, 특정 VM 크기에 대한 데이터 센터 용량을 예약할 수 있습니다. 그리고 예약이 완전히 사용되도록 예약을 최적화해야 합니다.
+Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 최적화 설정을 변경할 수 있습니다. 예약 할인을 동일한 시리즈의 VM에 적용하거나, 특정 VM 크기에 대한 데이터 센터 용량을 예약할 수 있습니다. 예약이 완전히 사용되도록 예약을 최적화해야 합니다.
 
 *예약을 관리하는 데 필요한 권한은 구독 권한과는 다릅니다.*
 
@@ -31,7 +31,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 구매 시 예약 주문에 하나의 예약이 포함됩니다. 분할, 병합, 부분 환불 또는 교환 등의 작업은 **예약 주문** 에 새 예약을 생성합니다.
 
-예약 주문을 보려면 **Reservations** 로 이동하고 예약을 선택한 다음, **예약 주문 ID** 를 클릭합니다.
+예약 주문을 보려면 **Reservations** 로 이동하여 예약을 선택한 다음, **예약 주문 ID** 를 선택합니다.
 
 ![예약 주문 ID를 보여주는 예약 주문 세부 정보의 예 ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
@@ -53,23 +53,36 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 범위는 종량제 요금을 사용하는 개별 구독(MS-AZR-0003P 또는 MS-AZR-0023P 제안), 엔터프라이즈 제안 MS-AZR-0017P 또는 MS-AZR-0148P 또는 CSP 구독 유형에만 적용됩니다.
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>예약을 관리할 수 있는 사용자 추가 또는 변경
+## <a name="who-can-manage-a-reservation-by-default"></a>기본적으로 예약을 관리할 수 있는 사용자
 
-예약 주문 또는 예약에 대한 역할에 사용자를 추가하여 예약 관리를 위임할 수 있습니다. 기본적으로 예약 주문을 수행한 사용자 및 계정 관리자에게는 예약 주문 및 예약에 대한 소유자 역할이 있습니다.
+기본적으로 다음 사용자는 예약을 보고 관리할 수 있습니다.
 
-예약 할인을 받는 *구독과 별도로* 예약 주문 및 예약에 대한 액세스를 관리할 수 있습니다. 다른 사용자에게 예약 주문 또는 예약을 관리할 수 있는 권한을 부여해도 구독을 관리할 수 있는 권한은 부여되지 않습니다. 마찬가지로, 다른 사용자에게 예약 범위 내에서 구독을 관리하는 권한을 부여하더라도 예약 주문 또는 예약을 관리하는 권한은 부여되지 않습니다.
+- 예약을 구매하는 사용자와 예약 구매에 사용한 청구 구독의 계정 관리자가 예약 주문에 추가됩니다.
+- 기업계약 및 Microsoft 고객 계약 청구 관리자.
 
-교환 또는 환불을 수행하려면 예약 주문에 액세스할 수 있는 사용자여야 합니다. 다른 사용자에게 권한을 부여할 때는 예약이 아닌 예약 주문에 권한을 부여하는 것이 가장 좋습니다.
+다른 사용자가 예약을 관리할 수 있게 하려면 다음 두 가지 옵션을 사용하면 됩니다.
 
-예약에 대한 액세스 관리를 위임하려면:
+- 개별 예약 주문에 대한 액세스 관리를 위임합니다.
+    1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+    1. **모든 서비스** > **예약** 을 선택하여 액세스할 수 있는 예약을 나열합니다.
+    1. 다른 사용자에게 액세스 권한을 위임하려는 예약을 선택합니다.
+    1. 예약 세부 정보에서 예약 순서를 선택합니다.
+    1. **액세스 제어(IAM)** 를 선택합니다.
+    1. **역할 할당 추가** > **역할** > **소유자** 를 선택합니다. 제한된 액세스 권한을 부여하려면 다른 역할을 선택합니다.
+    1. 소유자로 추가할 사용자의 메일 주소를 입력합니다.
+    1. 사용자를 선택한 다음 **저장** 을 선택합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **모든 서비스** > **예약** 을 선택하여 액세스할 수 있는 예약을 나열합니다.
-3. 다른 사용자에게 액세스 권한을 위임하려는 예약을 선택합니다.
-4. **액세스 제어(IAM)** 를 선택합니다.
-5. **역할 할당 추가** > **역할** > **소유자** 를 선택합니다. 또는 제한된 액세스 권한을 부여하려는 경우 다른 역할을 선택합니다.
-6. 소유자로 추가할 사용자의 메일 주소를 입력합니다.
-7. 사용자를 선택한 다음 **저장** 을 선택합니다.
+- 기업계약 또는 Microsoft 고객 계약에 사용자를 청구 관리자로 추가합니다.
+    - 기업계약의 경우 _엔터프라이즈 관리자_ 역할이 있는 사용자를 추가하여 기업계약에 적용되는 모든 예약 주문을 보고 관리합니다. _엔터프라이즈 관리자(읽기 전용)_ 역할이 있는 사용자는 예약만 볼 수 있습니다. 부서 관리자 및 계정 소유자는 액세스 제어(IAM)를 사용하여 명시적으로 추가하지 _않는 한_ 예약을 볼 수 없습니다. 자세한 내용은 [Azure Enterprise 역할 관리](../manage/understand-ea-roles.md)를 참조하세요.
+
+        _엔터프라이즈 관리자는 예약 주문의 소유권을 가질 수 있으며, 액세스 제어(IAM)를 사용하여 예약에 다른 사용자를 추가할 수 있습니다._
+    - Microsoft 고객 계약의 경우 청구 프로필 소유자 역할 또는 청구 프로필 기여자 역할을 가진 사용자는 청구 프로필을 사용하여 이루어진 모든 예약 구매를 관리할 수 있습니다. 청구 프로필 리더와 청구서 관리자는 청구 프로필로 지불되는 모든 예약을 볼 수 있습니다. 그러나 예약을 변경할 수는 없습니다.
+    자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
+
+### <a name="how-billing-administrators-view-or-manage-reservations"></a>청구 관리자가 예약을 보거나 관리하는 방법
+
+1. **Cost Management + Billing** 으로 이동한 다음, 페이지 왼쪽에서 **예약 트랜잭션** 을 선택합니다.
+2. 필요한 청구 권한이 있는 경우 예약을 보고 관리할 수 있습니다. 예약이 표시되지 않으면 예약이 생성된 Azure AD 테넌트를 사용하여 로그인했는지 확인합니다.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>단일 예약을 두 개의 예약으로 분할
 
@@ -110,7 +123,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Reserved VM Instances에 대한 최적화 설정 변경
 
- Reserved VM Instance를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 선택합니다. 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](../../virtual-machines/reserved-vm-instance-size-flexibility.md)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 이 옵션을 사용하면 필요할 때 VM 인스턴스를 보다 확실히 시작할 수 있게 됩니다.
+ Reserved VM Instance를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 선택합니다. 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](../../virtual-machines/reserved-vm-instance-size-flexibility.md)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포에 가장 중요한 데이터 센터 용량을 지정합니다. 이 옵션을 사용하면 필요할 때 VM 인스턴스를 보다 확실히 시작할 수 있게 됩니다.
 
 기본적으로 예약의 범위를 공유할 경우 인스턴스 크기 유연성이 켜집니다. 데이터 센터 용량은 VM 배포에서 우선적으로 고려되지 않습니다.
 
@@ -121,9 +134,9 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **예약** 을 선택합니다.
 3. 예약을 선택합니다.
-4. **설정** > **구성** 을 선택합니다.  
+4. **설정** > **구성** 을 선택합니다.
   ![구성 항목을 보여주는 예제](./media/manage-reserved-vm-instance/add-product03.png)
-5. **다음에 맞게 최적화** 설정을 변경합니다.  
+5. **다음에 맞게 최적화** 설정을 변경합니다.
   ![최적화 설정을 보여주는 예제](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## <a name="optimize-reservation-use"></a>예약 사용 최적화
@@ -138,8 +151,8 @@ Azure 예약 절감은 리소스를 지속적으로 사용하는 경우에만 �
 2. **모든 서비스** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)를 선택하고 예약에 대한 **사용률(%)** 을 적어둡니다.  
   ![예약 목록을 보여주는 이미지](./media/manage-reserved-vm-instance/reservation-list.png)
 3. 예약을 선택합니다.
-4. 시간별 예약 사용 추세를 검토합니다.  
-  ![예약 사용을 보여주는 이미지 ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
+4. 시간별 예약 사용 추세를 검토합니다.
+  ![예약 사용을 보여주는 이미지](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
 
 ### <a name="view-reservation-use-with-api"></a>API를 사용하여 예약 사용 보기
 

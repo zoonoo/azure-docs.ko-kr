@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fcaaea387cab24772b9e6f31f4e7d93ff643b983
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 59c01d5d8589b61ff0aaacb81d12fed8fba4f842
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515596"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505514"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-paylocity"></a>자습서: Paylocity와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -120,7 +120,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -148,7 +148,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-paylocity-sso"></a>Paylocity SSO 구성
 
-**Paylocity** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Paylocity 지원 팀](mailto:service@paylocity.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Paylocity** 쪽에서 Single Sign-On을 구성하려면 다음을 수행합니다.
+
+1. **페더레이션 메타데이터 XML** 을 다운로드합니다.
+1. Paylocity에서 **HR & Payroll** > **사용자 액세스** > **SSO 구성** 으로 이동합니다.
+1. **SSO 통합** 에서 **SSO 통합 추가** 를 선택합니다. 새 서랍이 열립니다.
+1. 드롭다운에서 SSO 공급자로 **Microsoft Azure** 를 선택합니다.
+1. 드롭다운에서 **상태** 를 선택합니다.
+1. 드롭 영역에서 메타데이터 파일을 끌어서 놓습니다. Paylocity는 발급자, Post 리디렉션 및 바인딩 URL 및 보안 인증서를 구문 분석하려고 합니다.
+1. **저장** 을 선택하여 변경 내용을 확인합니다. 통합은 **SSO 통합** 아래에 표시되어야 합니다.
 
 ### <a name="create-paylocity-test-user"></a>Paylocity 테스트 사용자 만들기
 

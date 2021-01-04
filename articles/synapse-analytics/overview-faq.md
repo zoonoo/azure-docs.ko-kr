@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 671ca73cfa898be532521599d1211d2a8081eb4b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576029"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563265"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Azure Synapse Analytics 질문과 대답
 
@@ -59,7 +59,7 @@ A: Azure Synapse는 처음 시작할 때 Azure 구독 수준에서 사용할 수
 
 A: Synapse 작업 영역은 사용자 정의 폴더를 지원합니다.
 
-### <a name="q-can-i-link-more-than-one-power-bi-workspaces-to-a-single-azure-synapse-workspace"></a>Q: 둘 이상의 Power BI 작업 영역을 단일 Azure Synapse 작업 영역에 연결할 수 있나요?
+### <a name="q-can-i-link-more-than-one-power-bi-workspace-to-a-single-azure-synapse-workspace"></a>Q: 둘 이상의 Power BI 작업 영역을 단일 Azure Synapse 작업 영역에 연결할 수 있나요?
     
 A: 현재 단일 Power BI 작업 영역만 Azure Synapse 작업 영역에 연결할 수 있습니다. 
 
@@ -69,7 +69,7 @@ A: Apache Spark용 Synapse Link는 GA입니다. 서버리스 SQL 풀용 Synapse 
 
 ### <a name="q-does-azure-synapse-workspace-support-cicd"></a>Q: Azure Synapse 작업 영역에서 CI/CD를 지원하나요? 
 
-A: 예! 모든 파이프라인 아티팩트, Notebook, SQL 스크립트 및 Spark 작업 정의는 GIT에 있습니다. 모든 풀 정의는 ARM 템플릿으로 GIT에 저장됩니다. 전용 SQL 풀 개체(스키마, 테이블, 보기 등)는 CI/CD를 지원하는 데이터베이스 프로젝트를 사용하여 관리됩니다.
+A: 예! 모든 파이프라인 아티팩트, Notebooks, SQL 스크립트 및 Spark 작업 정의는 Git에 있습니다. 모든 풀 정의는 ARM 템플릿으로 Git에 저장됩니다. 전용 SQL 풀 개체(스키마, 테이블, 보기 등)는 CI/CD를 지원하는 데이터베이스 프로젝트를 사용하여 관리됩니다.
 
 ## <a name="pipelines"></a>Pipelines
 
@@ -91,7 +91,7 @@ A: 이때 원래 파이프라인에서 JSON을 내보내고 Synapse 작업 영�
 
 A: Synapse용 Apache Spark는 다른 서비스(AAD, AzureML 등), 추가 라이브러리(mssparktuils, Hummingbird) 및 미리 튜닝된 성능 구성과의 통합에 대한 지원이 추가된 Apache Spark입니다.
 
-현재 Apache Spark에서 실행되는 모든 워크로드는 변경 없이 MSFT Spark에서 실행됩니다. 
+현재 Apache Spark에서 실행 중인 모든 워크로드는 변경 없이 Azure Synapse용 Apache Spark에서 실행됩니다. 
 
 ### <a name="q-what-versions-of-spark-are-available"></a>Q: 사용할 수 있는 Spark 버전은 무엇인가요?
 
@@ -121,13 +121,13 @@ A: Azure Synapse는 특정 사용 사례를 위해 특별히 만든 엔진을 �
  
 이 시나리오를 충족하려면 각 개발자에게 적은 수의 Spark 리소스를 사용하도록 설정된 서버리스 Spark 풀을 제공해야 합니다. 서버리스 Spark 풀은 비용이 전혀 들지 않으므로 여러 개발자가 있으면 적극적으로 사용할 때까지 비용을 최소화할 수 있습니다. 풀은 메타데이터(Spark 테이블)를 공유하므로 서로 쉽게 작업할 수 있습니다.
 
-### <a name="q-how-do-i-include-manage-and-install-libraries"></a>Q: 라이브러리를 포함, 관리 및 설치하려면 어떻게 해야 하나요? 
+### <a name="q-how-do-i-include-manage-and-install-libraries"></a>Q: 라이브러리를 포함, 관리 및 설치하려면 어떻게 해야 하나요?
 
 A:  Spark 풀을 만드는 동안 Synapse 작업 영역 또는 Azure Portal에서 requirements.txt 파일을 통해 외부 패키지를 설치할 수 있습니다. [Azure Synapse Analytics에서 Apache Spark용 라이브러리 관리](./spark/apache-spark-azure-portal-add-libraries.md)를 참조하세요.
 
 ## <a name="dedicated-sql-pools"></a>전용 SQL 풀
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>Q: 전용 SQL 풀과 서버리스 풀의 기능적 차이점은 무엇인가요?
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-pools"></a>Q: 전용 SQL 풀과 서버리스 풀 간의 기능적 차이점은 무엇인가요?
 
 A: 차이점에 대한 전체 목록은 [Synapse SQL의 T-SQL 기능 차이점](./sql/overview-features.md)에서 찾을 수 있습니다.
 
@@ -140,7 +140,7 @@ A: "이동" 또는 "마이그레이션"을 수행할 수 없습니다. 기존 �
 A: 기본적으로 모든 새 전용 SQL 풀이 작업 영역에 배포되지만, 필요한 경우 여전히 독립 실행형 폼 팩터에서 전용 SQL 풀(이전의 SQL DW)을 만들 수 있습니다. 
 
 
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pool"></a>Q: 전용 SQL 풀과 서버리스 SQL 풀의 기능적 차이점은 무엇인가요? 
+### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>Q: 전용 SQL 풀과 서버리스 SQL 풀 간의 기능적 차이점은 무엇인가요?
 
 A: 차이점에 대한 전체 목록은 [Synapse SQL의 T-SQL 기능 차이점](./sql/overview-features.md)에서 찾을 수 있습니다.
 

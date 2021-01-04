@@ -7,13 +7,13 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: 092e07ed01fb870cdcd9a3fd63d46d30cef96007
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780844"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605533"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JavaScript 사용자 정의 함수
  
@@ -215,6 +215,14 @@ FROM
 Samstag, 28. Dezember 2019
 ```
 
+## <a name="user-logging"></a>사용자 로깅
+로깅 메커니즘을 통해 작업이 실행되는 동안 사용자 지정 정보를 캡처할 수 있습니다. 로그 데이터를 사용하여 사용자 지정 코드의 정확성을 실시간으로 디버그하거나 평가할 수 있습니다. 이 메커니즘은 Console.Log() 메서드를 통해 사용할 수 있습니다.
+
+```javascript
+console.log('my error message');
+```
+
+[진단 로그](data-errors.md)를 통해 로그 메시지에 액세스할 수 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Machine Learning UDF](./machine-learning-udf.md)

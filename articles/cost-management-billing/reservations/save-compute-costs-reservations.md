@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352986"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560494"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -58,13 +58,14 @@ Azure Portal, API, PowerShell 및 CLI에서 예약을 구매할 수 있습니다
 
 예약 요금은 구독에 연결된 결제 방법으로 청구됩니다. 가능한 경우, 예액 비용은 현금 약정 잔액에서 차감됩니다. 현금 약정 잔액으로 예약 비용이 해결되지 않는 경우 초과분에 대한 요금이 청구됩니다. 종량제 요금을 사용하는 개별 플랜의 구독이 있는 경우 계정에 등록된 신용 카드로 선결제 요금이 즉시 청구됩니다. 월간 결제 금액이 청구서에 표시되며 매월 신용 카드로 요금이 청구됩니다. 요금 청구를 청구서로 받는 경우 다음 달 청구서에 요금이 표시됩니다. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>예약 보기 및 관리 권한 할당 
+## <a name="who-can-manage-a-reservation-by-default"></a>기본적으로 예약을 관리할 수 있는 사용자
 
-예약을 구매한 사용자와 예약 대금 청구에 사용된 구독의 계정 관리자에게는 예약 주문 및 예약에 대한 소유자 역할이 부여됩니다.
+기본적으로 다음 사용자는 예약을 보고 관리할 수 있습니다.
 
-예약 주문 또는 예약에 대한 역할에 사용자를 추가하여 예약 관리를 위임할 수 있습니다. Azure Portal 또는 API와 PowerShell을 사용하여 역할을 할당합니다. 
+- 예약을 구매하는 사용자와 예약 구매에 사용한 청구 구독의 계정 관리자가 예약 주문에 추가됩니다.
+- 기업계약 및 Microsoft 고객 계약 청구 관리자.
 
-자세한 내용은  [예약을 관리할 수 있는 사용자 추가 또는 변경](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation)을 참조하세요. 
+다른 사용자가 예약을 관리할 수 있도록 하려면 [Azure 리소스에 대한 예약 관리](manage-reserved-vm-instance.md)를 참조하세요.
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>구매 후 예약 세부 정보 및 사용률 가져오기
 

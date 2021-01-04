@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/20/2020
+ms.date: 12/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4acc4c0cec530b8f83648042cd7a417992257543
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: f6f56958fb63e73e254a45e7cf8ad457be8269ef
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602056"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607646"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-software-ag-cloud"></a>자습서: Software AG Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -77,12 +77,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint` 패턴을 사용하는 URL을 입력합니다.
+    1. **로그온 URL** 텍스트 상자에서  패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://*.softwareag.cloud/auth/realms/TENANT-NAME` 패턴을 사용하는 URL을 입력합니다.
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-    > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Software AG Cloud 클라이언트 지원 팀](mailto:support@softwareag.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    1. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+
+        > [!NOTE]
+        > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Software AG Cloud 클라이언트 지원 팀](mailto:support@softwareag.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -99,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -137,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **ID 공급자 구성** 에서 **페더레이션 메타데이터 XML** 파일을 가져오고 **다음** 을 클릭합니다.
 
-    d. **구성** 페이지로 이동하여 필요한 대로 필드를 채웁니다.
+    d. **구성** 페이지로 이동하여 필요한 따라 필드를 완료합니다.
 
 ### <a name="create-software-ag-cloud-test-user"></a>Software AG Cloud 사용자 테스트 만들기
 
@@ -147,13 +151,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-* Microsoft Azure가 Software AG Cloud의 공급자로 구성되어 있다고 가정하고, `www.softwareag.cloud`로 이동하여 로그인 단추를 클릭하고 환경 이름을 입력합니다. 다음 화면에서 "<IDP NAME>으로 로그인" 링크를 클릭하고 자격 증명을 입력합니다. 인증되면 로그인되고 Software AG Cloud 홈 페이지로 이동합니다.
-
-* Software AG Cloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
-
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Software AG Cloud 타일을 클릭하면 Software AG Cloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
-
+Microsoft Azure가 Software AG Cloud의 공급자로 구성되어 있다고 가정하고, `www.softwareag.cloud`로 이동하여 로그인 단추를 클릭하고 환경 이름을 입력합니다. 다음 화면에서 "<IDP NAME>으로 로그인" 링크를 클릭하고 자격 증명을 입력합니다. 인증되면 로그인되고 Software AG Cloud 홈 페이지로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Software AG Cloud가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Software AG Cloud가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

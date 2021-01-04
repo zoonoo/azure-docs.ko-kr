@@ -72,6 +72,8 @@
       items:
         - name: Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
           href: hana-li-portal.md
+        - name: Azure Portal을 통해 BareMetal 인스턴스 관리
+          href: baremetal-infrastructure-portal.md
         - name: STONITH로 HA 설치
           href: ha-setup-with-stonith.md
         - name: Type II SKU용 OS 백업

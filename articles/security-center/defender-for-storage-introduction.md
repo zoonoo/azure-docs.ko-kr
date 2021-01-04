@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516512"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606728"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Azure Defender for Storage 소개
 
@@ -20,7 +20,6 @@ ms.locfileid: "97516512"
 **Azure Defender for Storage** 는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지하는 Azure 기본 보안 인텔리전스 계층입니다. 보안 AI 및 [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684)의 고급 기능을 활용하여 상황별 보안 경고 및 권장 사항을 제공합니다.
 
 보안 경고는 활동의 비정상 현상이 발생할 때 트리거됩니다. 이러한 경고는 Azure Security Center와 통합되며, 의심스러운 활동의 세부 정보와 위협을 조사하고 수정하는 방법에 대한 권장 사항을 포함하여 이메일을 통해 구독 관리자에게 전송됩니다.
-
 
 ## <a name="availability"></a>가용성
 
@@ -31,6 +30,17 @@ ms.locfileid: "97516512"
 |보호된 스토리지 형식:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure 파일](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
 |||
+
+
+## <a name="what-are-the-benefits-of-azure-defender-for-storage"></a>Azure Defender for Storage의 이점은?
+
+Azure Defender for Storage는 다음을 제공합니다.
+
+- **Azure 네이티브 보안** - 한 번의 클릭으로 Defender for Storage는 Azure Blob, Azure Files 및 Data Lakes에 저장된 데이터를 보호합니다. Azure 네이티브 서비스인 Defender for Storage는 Azure에서 관리하는 모든 데이터 자산에 중앙 집중화된 보안을 제공하며 Azure Sentinel과 같은 다른 Azure 보안 서비스와 통합됩니다.
+- **다양한 검색 제품군** - Microsoft Threat Intelligence로 구동되는 Defender for Storage의 검색은 익명 액세스, 손상된 자격 증명, 사회 공학, 권한 남용 및 악의적인 콘텐츠 등의 주요 스토리지 위협을 다룹니다.
+- **대규모 응답** - Security Center의 자동화 도구를 사용하면 식별된 위협을 더 쉽게 예방하고 대응할 수 있습니다. [Security Center 트리거에 대한 응답 자동화](workflow-automation.md)에서 자세히 알아보세요.
+
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Azure Defender for Storage의 기능에 대한 개략적인 개요":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Azure Defender for Storage는 어떤 종류의 경고를 제공하나요?

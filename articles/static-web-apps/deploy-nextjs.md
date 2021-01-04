@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350214"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563078"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 정적으로 렌더링된 Next.js 웹 사이트 배포
 
@@ -125,7 +125,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 1. GitHub에 변경 내용을 푸시합니다.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>정적 웹 사이트 배포
@@ -155,7 +155,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 1. **GitHub로 로그인 단추** 를 클릭합니다.
 1. Next.js 프로젝트의 리포지토리를 만든 **조직** 을 선택합니다. 이는 GitHub 사용자 이름일 수 있습니다.
 1. 이전에 만든 리포지토리의 이름을 찾아서 선택합니다.
-1. *분기* 드롭다운에서 분기로 **마스터** 를 선택합니다.
+1. *분기* 드롭다운에서 분기로 **주** 를 선택합니다.
 
    :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="GitHub 연결":::
 
@@ -189,7 +189,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 앱을 만들 때 Azure Static Web Apps는 리포지토리에 GitHub Actions 워크플로 파일을 만들었습니다. git 기록이 동기화되도록 이 파일을 로컬 리포지토리로 가져와야 합니다.
 
-터미널로 돌아가 다음 `git pull origin master` 명령을 실행합니다.
+터미널로 돌아가 다음 `git pull origin main` 명령을 실행합니다.
 
 ## <a name="configure-dynamic-routes"></a>동적 경로 구성
 

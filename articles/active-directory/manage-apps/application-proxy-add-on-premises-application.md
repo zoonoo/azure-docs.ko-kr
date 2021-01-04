@@ -8,19 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928470"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587556"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
 Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 액세스할 수 있는 애플리케이션 프록시 서비스가 포함됩니다. 이 자습서에서는 애플리케이션 프록시에서 사용할 환경을 준비합니다. 환경이 준비되면 Azure Portal을 사용하여 Azure AD 테넌트에 온-프레미스 애플리케이션을 추가합니다.
+
+커넥터는 애플리케이션 프록시의 핵심 부분입니다. 커넥터에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.
 
 이 자습서는 다음을 수행합니다.
 
@@ -74,7 +77,7 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 TLS 1.2를 사용하도록 설정하려면:
 
 1. 다음 레지스트리 키를 설정합니다.
-    
+
    ```
    Windows Registry Editor Version 5.00
 
@@ -191,10 +194,10 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 1. [Azure Portal](https://portal.azure.com/)에서 관리자로 로그인합니다.
 2. 왼쪽 탐색 패널에서 **Azure Active Directory** 를 선택합니다.
 3. **엔터프라이즈 애플리케이션**, **새 애플리케이션** 을 차례로 선택합니다.
-4. **사용자 고유의 애플리케이션 만들기** 섹션에서 **온-프레미스 애플리케이션에 대한 보안 원격 액세스를 위한 애플리케이션 프록시 구성** 을 선택합니다.
+4. **온-프레미스 애플리케이션** 섹션에서 페이지 중간쯤에 나타나는 **온-프레미스 애플리케이션 추가** 단추를 선택합니다. 또는 페이지 상단에 있는 **사용자 고유의 애플리케이션 만들기** 를 선택한 다음, **온-프레미스 애플리케이션에 대한 보안 원격 액세스를 위한 애플리케이션 프록시 구성** 을 선택합니다.
 5. **사용자 고유의 온-프레미스 애플리케이션 추가** 섹션에서 애플리케이션에 대해 다음 정보를 제공합니다.
 
-    | 필드 | 설명 |
+    | 필드 | Description |
     | :---- | :---------- |
     | **이름** | 내 앱 및 Azure Portal에 표시될 애플리케이션의 이름입니다. |
     | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 https:\//yourapp/app에 위치하고 https:\//yourapp/media에 있는 이미지를 사용하는 경우 https:\//yourapp/를 경로로 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |

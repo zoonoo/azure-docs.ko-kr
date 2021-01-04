@@ -8,13 +8,13 @@ ms.subservice: cost-management
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: b2340e5b220936c1333cf842251b669b3e034042
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151218"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028721"
 ---
 # <a name="analyze-unexpected-charges"></a>예기치 않은 요금 분석
 
@@ -31,9 +31,9 @@ Azure 서비스 구매 방법에 따라 요금과 관련된 리소스를 파악�
 - [Microsoft 고객 계약 검토 프로세스](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Microsoft 파트너 계약 검토 프로세스](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)
 
-Azure 청구서는 _미터_를 기준으로 해당 월의 요금을 집계합니다. 미터는 시간에 따른 리소스 사용량을 추적하는 데 사용되며 청구서를 계산하는 데 사용됩니다. 가상 머신과 같은 단일 Azure 리소스를 만들면 해당 리소스에 대한 하나 이상의 미터 인스턴스가 생성됩니다.
+Azure 청구서는 _미터_ 를 기준으로 해당 월의 요금을 집계합니다. 미터는 시간에 따른 리소스 사용량을 추적하는 데 사용되며 청구서를 계산하는 데 사용됩니다. 가상 머신과 같은 단일 Azure 리소스를 만들면 해당 리소스에 대한 하나 이상의 미터 인스턴스가 생성됩니다.
 
-미터에 적용되는 모든 품목을 보려면 분석할 청구서에 표시된 대로 _MeterName_을 기준으로 사용량 CSV 파일을 필터링하세요. 품목의 _InstanceID_는 요금이 발생한 실제 Azure 리소스에 해당합니다.
+미터에 적용되는 모든 품목을 보려면 분석할 청구서에 표시된 대로 _MeterName_ 을 기준으로 사용량 CSV 파일을 필터링하세요. 품목의 _InstanceID_ 는 요금이 발생한 실제 Azure 리소스에 해당합니다.
 
 해당 리소스를 식별한 후에는 Azure Cost Management에서 비용 분석을 사용하여 리소스와 관련된 비용을 추가로 분석할 수 있습니다. 비용 분석을 사용하는 방법에 대해 자세히 알아보려면 [비용 분석 시작](../costs/quick-acm-cost-analysis.md)을 참조하세요.
 
@@ -43,13 +43,13 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 
 [![청구서 세부 정보를 보여주는 예제](./media/analyze-unexpected-charges/invoice-details.png)](./media/analyze-unexpected-charges/invoice-details.png#lightbox)
 
-청구서 세부 정보를 보면 예기치 않은 비용이 드는 서비스를 식별하고 비용 분석에서 리소스와 직접 연관된 리소스를 확인할 수 있습니다. 예를 들어 Virtual Machines 서비스에 대한 요금을 분석하려면 **누적 비용** 보기로 이동합니다. 그런 다음, 세분성을 **일별**로 설정하고 요금 **서비스 이름: 가상 머신** 및 그룹 요금을 **리소스**로 필터링합니다.
+청구서 세부 정보를 보면 예기치 않은 비용이 드는 서비스를 식별하고 비용 분석에서 리소스와 직접 연관된 리소스를 확인할 수 있습니다. 예를 들어 Virtual Machines 서비스에 대한 요금을 분석하려면 **누적 비용** 보기로 이동합니다. 그런 다음, 세분성을 **일별** 로 설정하고 요금 **서비스 이름: 가상 머신** 및 그룹 요금을 **리소스** 로 필터링합니다.
 
 [![가상 머신의 누적 비용을 보여주는 예제](./media/analyze-unexpected-charges/virtual-machines.png)](./media/analyze-unexpected-charges/virtual-machines.png#lightbox)
 
 ## <a name="identify-spikes-in-cost-over-time"></a>시간에 따른 비용 급증 식별
 
-청구 요금 변동에 영향을 준 최근 비용을 모르는 경우가 있습니다. 변경 내용을 파악하려면 비용 분석을 사용하여 [시간에 따른 일별 또는 월별 비용 분석을 확인](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month)할 수 있습니다. 보기를 만든 후에 **서비스** 또는 **리소스**를 기준으로 요금을 그룹화하여 변경 내용을 식별합니다. 또한 데이터를 보다 잘 시각화할 수 있도록 보기를 **꺾은선형** 차트로 변경할 수도 있습니다.
+청구 요금 변동에 영향을 준 최근 비용을 모르는 경우가 있습니다. 변경 내용을 파악하려면 비용 분석을 사용하여 [시간에 따른 일별 또는 월별 비용 분석을 확인](../costs/cost-analysis-common-uses.md#view-costs-per-day-or-by-month)할 수 있습니다. 보기를 만든 후에 **서비스** 또는 **리소스** 를 기준으로 요금을 그룹화하여 변경 내용을 식별합니다. 또한 데이터를 보다 잘 시각화할 수 있도록 보기를 **꺾은선형** 차트로 변경할 수도 있습니다.
 
 ![비용 분석의 시간별 비용을 보여주는 예제](./media/analyze-unexpected-charges/costs-over-time.png)
 
@@ -80,7 +80,7 @@ VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합�
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>리소스의 부모 범위에 대한 사용자 권한 분석
 
-구독 또는 리소스 그룹에 대한 쓰기 권한이 있는 사용자는 일반적으로 생성된 리소스에 대한 정보를 가지고 있습니다. 리소스의 용도를 직접 설명하거나 이를 알고 있는 사람을 알려줄 수 있을 것입니다. 구독 범위에 대한 권한이 있는 사용자를 확인하려면 [역할 할당 보기](../../role-based-access-control/check-access.md#view-role-assignments)를 참조하세요. 리소스 그룹에도 유사한 프로세스를 사용할 수 있습니다.
+구독 또는 리소스 그룹에 대한 쓰기 권한이 있는 사용자는 일반적으로 생성된 리소스에 대한 정보를 가지고 있습니다. 리소스의 용도를 직접 설명하거나 이를 알고 있는 사람을 알려줄 수 있을 것입니다. 구독 범위에 대한 권한이 있는 사용자를 식별하려면 [Azure 리소스에 대한 사용자 액세스 확인](../../role-based-access-control/check-access.md)을 참조하세요. 리소스 그룹에도 유사한 프로세스를 사용할 수 있습니다.
 
 ## <a name="get-help-to-identify-charges"></a>요금 식별에 대한 지원 받기
 

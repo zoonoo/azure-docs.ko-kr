@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576471"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505548"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -69,7 +69,7 @@ ms.locfileid: "96576471"
 
 *이전 두 릴리스 외에도 최신 버전의 Chrome이 지원됩니다.<br/>
 
-**Safari 버전 13.1+가 지원됩니다. Safari macOS에 대한 보내는 비디오는 아직 지원되지 않지만 iOS에서 지원됩니다. 보내는 화면 공유는 데스크톱 iOS에서만 지원됩니다.
+**Safari 버전 13.1+가 지원됩니다. Safari macOS에 대한 보내는 비디오는 아직 지원되지 않지만 iOS에서 지원됩니다. 보내는 화면 공유는 데스크톱 iOS에서만 지원됩니다. 현재 Safari에서는 1:1 및 그룹 통화를 사용할 수 없습니다.
 
 ## <a name="calling-client---browser-security-model"></a>클라이언트 - 브라우저 보안 모델 호출
 
@@ -90,6 +90,15 @@ Iframe을 사용하여 다른 도메인에서 앱의 일부를 호스팅하려�
 ```html
 <iframe allow="camera *; microphone *">
 ```
+
+## <a name="calling-client-library-streaming-support"></a>통화 클라이언트 라이브러리 스트리밍 지원
+Communication Services 통화 클라이언트 라이브러리는 다음과 같은 스트리밍 구성을 지원합니다.
+
+|           |웹 | Android/iOS|
+|-----------|----|------------|
+|# 동시에 보낼 수 있는 나가는 스트림 수 |비디오 1개 + 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
+|# 동시에 렌더링할 수 있는 들어오는 스트림 수 |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
+
 
 ## <a name="next-steps"></a>다음 단계
 

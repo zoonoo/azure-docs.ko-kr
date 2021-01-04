@@ -6,15 +6,15 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 12/11/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 312c57c103bf733bc72c5de1d22ab3239d5b5e96
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86ef610af605c657868824eefe2e6e706f6963ac
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484716"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360189"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-sql"></a>빠른 시작: Synapse SQL을 사용하여 대량 로드
 
@@ -39,26 +39,25 @@ Synapse Studio 내에서 다음 영역을 마우스 오른쪽 단추로 클릭�
 
 ### <a name="steps"></a>단계
 
-1. 원본 스토리지 위치 패널에서 데이터를 로드하는 스토리지 계정과 파일 또는 폴더를 선택합니다. 마법사는 자동으로 Parquet 파일을 검색하려고 합니다. Parquet 파일 형식을 확인할 수 없는 경우 기본적으로 구분된 텍스트(CSV)가 사용됩니다.
+1. 원본 스토리지 위치 패널에서 데이터를 로드하는 스토리지 계정과 파일 또는 폴더를 선택합니다. 마법사는 파일의 원본 필드를 적절한 대상 SQL 데이터 형식으로 매핑하는 것을 포함하여 구분된 텍스트(CSV) 파일뿐만 아니라 Parquet 파일도 자동으로 검색하려고 합니다. 
 
    ![원본 위치 선택](./sql/media/bulk-load/bulk-load-source-location.png)
 
-2. 거부된 행(오류 파일)을 기록할 스토리지 계정을 포함하여 파일 형식 설정을 선택합니다. 현재는 CSV 및 Parquet 파일만 지원됩니다.
+2. 대량 로드 프로세스 중에 거부된 행이 있는 경우의 오류 설정을 포함하는 파일 형식 설정을 선택합니다. 또한 "데이터 미리 보기"를 선택하여 파일 형식 설정을 구성하는 데 도움이 되도록 COPY 문이 파일을 구문 분석하는 방법을 확인할 수 있습니다. 파일 형식 설정을 변경할 때마다 "데이터 미리 보기"를 선택하여 COPY 문이 업데이트된 설정으로 파일을 구문 분석하는 방법을 확인하세요.
 
-    ![파일 형식 설정 선택](./sql/media/bulk-load/bulk-load-file-format-settings.png)
-
-3. "데이터 미리 보기"를 선택하면 파일 형식 설정을 구성하는 데 도움이 되도록 COPY 문이 파일을 구문 분석하는 방법을 확인할 수 있습니다. 파일 형식 설정을 변경할 때마다 "데이터 미리 보기"를 선택하여 COPY 문이 업데이트된 설정으로 파일을 구문 분석하는 방법을 확인하세요. ![데이터 미리 보기](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
+   ![데이터 미리 보기](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
 > [!NOTE]  
 >
 > - 다중 문자 필드 종결자를 사용하여 데이터를 미리 보는 것은 대량 로드 마법사에서 지원되지 않습니다. 대량 로드 마법사는 다중 문자 필드 종결자를 지정할 때 단일 열 내의 데이터를 미리 봅니다. 
+> - "열 이름 유추"를 선택하면 대량 로드 마법사가 "첫 번째 행" 필드에 지정된 첫 번째 행에서 열 이름을 구문 분석합니다. 대량 로드 마법사는 이 헤더 행을 무시하도록 COPY 문의 FIRSTROW 값을 자동으로 1씩 증가시킵니다. 
 > - COPY 문에서는 다중 문자 행 종결자 지정이 지원됩니다. 그러나 오류가 throw되는 대량 로드 마법사에서는 지원되지 않습니다.
 
-4. 기존 테이블에 로드할 것인지 아니면 새 테이블에 로드할 것인지 여부를 포함하여 데이터 로드에 사용할 전용 SQL 풀을 선택합니다. ![대상 위치 선택](./sql/media/bulk-load/bulk-load-target-location.png)
+3. 기존 테이블에 로드할 것인지 아니면 새 테이블에 로드할 것인지 여부를 포함하여 데이터 로드에 사용할 전용 SQL 풀을 선택합니다. ![대상 위치 선택](./sql/media/bulk-load/bulk-load-target-location.png)
+4. "열 매핑 구성"을 선택하여 열 매핑이 적절한지 확인합니다. "열 이름 유추"를 사용하도록 설정하면 열 이름이 자동으로 검색됩니다. 새 테이블의 경우 대상 열 데이터 형식을 업데이트하려면 열 매핑을 구성해야 합니다.
 
-5. "열 매핑 구성"을 선택하여 열 매핑이 적절한지 확인합니다. "열 이름 유추"를 사용하도록 설정하면 열 이름이 자동으로 검색됩니다. 새 테이블의 경우 대상 열 데이터 형식을 업데이트하려면 열 매핑을 구성해야 합니다. ![열 매핑 구성](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
-
-6. "스크립트 열기"를 선택하면 데이터 레이크에서 로드하는 COPY 문을 사용하여 T-SQL 스크립트가 생성됩니다. ![SQL 스크립트 열기](./sql/media/bulk-load/bulk-load-target-final-script.png)
+   ![열 매핑 구성](./sql/media/bulk-load/bulk-load-target-location-column-mapping.png)
+5. "스크립트 열기"를 선택하면 데이터 레이크에서 로드하는 COPY 문을 사용하여 T-SQL 스크립트가 생성됩니다. ![SQL 스크립트 열기](./sql/media/bulk-load/bulk-load-target-final-script.png)
 
 ## <a name="next-steps"></a>다음 단계
 

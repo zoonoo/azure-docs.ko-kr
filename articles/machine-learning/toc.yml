@@ -165,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: 모델 이식성(ONNX)
       href: concept-onnx.md
+    - name: 오픈 소스 통합
+      href: concept-open-source.md
     - name: ML 파이프라인
       href: concept-ml-pipelines.md
     - name: 보안
@@ -370,6 +372,8 @@
           href: how-to-train-pytorch.md
         - name: 사용자 지정 Docker 이미지를 사용하여 학습
           href: how-to-train-with-custom-image.md
+        - name: 예측 도구에서 ScriptRunConfig로 마이그레이션
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: 교육 추적 및 모니터링
           items:
             - name: '시작, 모니터링 또는 실행 취소'
@@ -513,8 +517,6 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: ML 파이프라인 배포(Python)
           href: how-to-deploy-pipelines.md
-        - name: 파이프라인 예약(Python)
-          href: how-to-schedule-pipelines.md
         - name: 파이프라인 트리거
           href: how-to-trigger-published-pipeline.md
         - name: 디자이너(끌어서 놓기)

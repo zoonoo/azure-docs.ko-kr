@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 1a8d851d2e70850155950786c6aa67c1d5086eb2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 383f7f37e93b4705419ba1f93f509c86eaab192b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993876"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030640"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -50,31 +50,25 @@ ms.locfileid: "95993876"
 >
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록** 을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `python-webapp`)을 입력합니다.
->      - **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
->      - **등록** 을 선택합니다.
->      - 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-> 1. 메뉴에서 **인증** 을 선택한 후 다음 정보를 추가합니다.
->    - **웹** 플랫폼 구성을 추가합니다. `http://localhost:5000/getAToken`을 **리디렉션 URI** 로 추가합니다.
->    - **저장** 을 선택합니다.
-> 1. 왼쪽 메뉴에서 **인증서 및 비밀** 을 선택하고 **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀** 을 클릭합니다.
->
->      - 키 설명(인스턴스 앱 비밀)을 입력합니다.
->      - **1년 후** 키 기간을 선택합니다.
->      - **추가** 를 클릭하면 키 값이 표시됩니다.
->      - 키 값을 복사합니다. 이 시간은 나중에 필요합니다.
-> 1. **API 사용 권한** 섹션을 선택합니다.
->
->      - **권한 추가** 단추를 클릭한 다음,
->      - **Microsoft API** 탭을 선택합니다.
->      - *일반적으로 사용되는 Microsoft API* 섹션에서 **Microsoft Graph** 를 클릭합니다.
->      - **위임된 권한** 섹션에서 적절한 권한, 즉, **User.ReadBasic.All**. 필요한 경우 검색 상자를 사용합니다.
->      - **권한 추가** 단추를 선택합니다.
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `python-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
+> 1. **등록** 을 선택합니다.
+> 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
+> 1. **관리** 에서 **인증** 을 선택합니다.
+> 1. **플랫폼 추가** > **웹** 을 선택합니다.
+> 1. `http://localhost:5000/getAToken`을 **리디렉션 URI** 로 추가합니다.
+> 1. **구성** 을 선택합니다.
+> 1. **관리** 에서 **인증서 및 비밀** 을 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
+> 1. 키 설명(예: 앱 비밀)을 입력하고, 기본 만료를 그대로 유지하고, **추가** 를 선택합니다.
+> 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
+> 1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다.
+>1.  **Microsoft API** 탭이 선택되어 있는지 확인합니다.
+> 1. *일반적으로 사용되는 Microsoft API* 섹션에서 **Microsoft Graph** 를 선택합니다.
+> 1. **위임된 권한** 섹션에서 적절한 권한이 선택되었는지 확인합니다. **User.ReadBasic.All**. 필요한 경우 검색 상자를 사용합니다.
+> 1. **사용 권한 추가** 단추를 선택합니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >

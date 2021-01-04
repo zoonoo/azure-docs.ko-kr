@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95974336"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509464"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>자습서: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -347,21 +347,23 @@ private async Task DisplayMessageAsync(string message)
 이제 애플리케이션을 등록해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** > **앱 등록** 을 선택합니다.
-1. **새 등록** 을 선택합니다. 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: *UWP-App-calling-MSGraph*)을 입력합니다.
-1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다. 그런 다음, **등록** 을 선택하여 계속합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `UWP-App-calling-MSGraph`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다. 
+1. **등록** 을 선택합니다.
 1. 개요 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 복사합니다. Visual Studio로 돌아가서 *MainPage.xaml.cs* 를 열고 `ClientId` 값을 이 값으로 바꿉니다.
 
 애플리케이션에 대한 인증을 구성합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 돌아가서 **관리** 아래에서 **인증** 을 선택합니다.
-1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 https://login.microsoftonline.com/common/oauth2/nativeclient 를 확인합니다.
-1. **저장** 을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)로 돌아가 **관리** 에서 **인증** > **플랫폼 추가** 를 선택한 다음, **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
+1. **리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
+1. **구성** 을 선택합니다.
 
 애플리케이션에 대한 API 권한을 구성합니다.
 
-1. **관리** 아래에서 **API 권한** 을 선택합니다.
-1. **권한 추가** 를 선택한 다음, **Microsoft API** 를 선택했는지 확인합니다.
+1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다.
 1. **Microsoft Graph** 를 선택합니다.
 1. **위임된 권한** 을 선택하고, *Use.Read* 를 검색하고, **User.Read** 가 선택되어 있는지 확인합니다.
 1. 변경한 경우 **권한 추가** 를 선택하여 저장합니다.

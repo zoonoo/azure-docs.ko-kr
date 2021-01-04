@@ -1,24 +1,24 @@
 ---
-title: Azure의 엔터프라이즈 관리자 역할 이해
+title: Azure의 EA(기업계약) 관리자 역할 이해
 description: Azure의 엔터프라이즈 관리자 역할에 대해 알아봅니다. 5가지 개별 관리 역할을 할당할 수 있습니다.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409203"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560528"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Azure Enterprise 역할 관리
+# <a name="managing-azure-enterprise-agreement-roles"></a>Azure 기업계약 역할 관리
 
-조직의 사용량 및 지출 관리를 지원하기 위해 EA(기업계약)를 체결한 Azure 고객은 다음 5개의 관리 역할을 할당할 수 있습니다.
+조직의 사용량 및 지출 관리를 지원하기 위해 기업계약을 체결한 Azure 고객은 다음 5개의 관리 역할을 할당할 수 있습니다.
 
 - 엔터프라이즈 관리자
 - 엔터프라이즈 관리자(읽기 전용)<sup>1</sup>
@@ -82,6 +82,8 @@ Azure Enterprise Portal 계층 구조는 다음과 같이 구성됩니다.
 - 알림 연락처 관리
 - 모든 계정의 사용량 보기
 - 모든 계정의 미청구 요금 보기
+- 기업계약에 적용되는 모든 예약 주문 및 예약을 보고 관리합니다.
+  - 엔터프라이즈 관리자(읽기 전용)는 예약 주문 및 예약을 볼 수 있습니다. 이러한 항목은 관리할 수 없습니다.
 
 기업 등록 하나에 여러 엔터프라이즈 관리자를 둘 수 있습니다. 엔터프라이즈 관리자에게 읽기 전용 액세스 권한을 부여할 수 있습니다. 모든 엔터프라이즈 관리자는 부서 관리자 역할을 상속합니다.
 

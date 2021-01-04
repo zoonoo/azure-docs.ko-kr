@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 774f9e485c58712ea8648a148c92b6f9ef6a58c0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d24645ada2ef4ac12101aa747aacc1bbf90f123e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452618"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509260"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>빠른 시작: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
 
@@ -18,7 +18,7 @@ ms.locfileid: "96452618"
 이 자습서에서는 Azure Service Bus 큐와 메시지를 주고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
 > [!WARNING]
->  이 빠른 시작에서는 이전 azure-servicebus 패키지를 사용합니다. 최신 azure-messaging-servicebus 패키지를 사용하는 빠른 시작은 [azure-messaging-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues.md)를 참조하세요. 
+>  이 빠른 시작에서는 이전 `azure-servicebus` 패키지를 사용합니다. 최신 `azure-messaging-servicebus` 패키지를 사용하는 빠른 시작은 [`azure-messaging-servicebus`를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues.md)를 참조하세요. 
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -136,7 +136,7 @@ Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플
     void registerReceiver(QueueClient queueClient) throws Exception {
         // register the RegisterMessageHandler callback
         queueClient.registerMessageHandler(new IMessageHandler() {
-        // callback invoked when the message handler loop has obtained a message
+            // callback invoked when the message handler loop has obtained a message
             public CompletableFuture<Void> onMessageAsync(IMessage message) {
             // receives message is passed to callback
                 if (message.getLabel() != null &&
@@ -183,8 +183,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 > [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/)로 Service Bus 리소스를 관리할 수 있습니다. Service Bus Explorer를 사용하면 Service Bus 네임스페이스에 연결하고 쉬운 방식으로 메시징 엔터티를 관리할 수 있습니다. 이 도구는 가져오기/내보내기 기능 또는 항목, 큐, 구독, 릴레이 서비스, Notification Hubs 및 이벤트 허브를 테스트하는 기능과 같은 고급 기능을 제공합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-Java 샘플은 GitHub의 [azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.
-
+Java 샘플은 GitHub의 [`azure-service-bus` 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation

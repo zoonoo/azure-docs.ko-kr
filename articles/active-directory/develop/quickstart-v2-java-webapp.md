@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: e93c0c6bb689980cab1b41e529c491cdf3920260
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e188c00840a4d043e94f94f9db565e2d4e06aaba
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591719"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031065"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "94591719"
 
  자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -47,25 +47,22 @@ ms.locfileid: "94591719"
 >
 > 애플리케이션을 등록하고 앱의 등록 정보를 애플리케이션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
->
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록** 을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
->    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `java-webapp`)을 입력합니다.
->    - **등록** 을 선택합니다.
-> 1. **개요** 페이지에서 애플리케이션의 **애플리케이션(클라이언트) ID** 와 **디렉터리(테넌트) ID** 값을 찾습니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다.
-> 1. 메뉴에서 **인증** 을 선택한 후 다음 정보를 추가합니다.
->    - **웹** 플랫폼 구성을 추가합니다.  이러한 `https://localhost:8443/msal4jsample/secure/aad` 및 `https://localhost:8443/msal4jsample/graph/me`를 **리디렉션 URI** 로 추가합니다.
->    - **저장** 을 선택합니다.
-> 1. 메뉴에서 **인증서 및 암호** 를 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 클릭합니다.
->
->    - 키 설명(인스턴스 앱 비밀)을 입력합니다.
->    - **1년 후** 에 키 기간을 선택합니다.
->    - **추가** 를 선택하면 키 값이 표시됩니다.
->    - 나중에 사용할 수 있도록 키 값을 복사합니다. 이 키 값은 다시 표시되지 않으며 다른 어떤 방법으로도 검색할 수 없으므로, Azure Portal에 표시되는 즉시 기록해 두어야 합니다.
->
+> 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `java-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **등록** 을 선택합니다.
+> 1. **개요** 페이지에서 나중에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 와 **디렉터리(테넌트) ID** 를 기록해 둡니다.
+> 1. **관리** 에서 **인증** 을 선택합니다.
+> 1. **플랫폼 추가** > **웹** 을 선택합니다.
+> 1. **리디렉션 URI** 섹션에서 `https://localhost:8443/msal4jsample/secure/aad`를 추가합니다.
+> 1. **구성** 을 선택합니다.
+> 1. **웹** 섹션에서 `https://localhost:8443/msal4jsample/graph/me`를 두 번째 **리디렉션 URI** 로 추가합니다.
+> 1. **관리** 에서 **인증서 및 비밀** 을 선택합니다. **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
+> 1. 키 설명(예: 앱 비밀)을 입력하고, 기본 만료를 그대로 유지하고, **추가** 를 선택합니다.
+> 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 >
@@ -150,7 +147,7 @@ ms.locfileid: "94591719"
 
 ##### <a name="running-from-ide"></a>IDE에서 실행
 
-IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다음, 프로젝트의 홈페이지로 이동합니다. 이 샘플의 경우 표준 홈 페이지 URL이 https://localhost:8443 입니다.
+IDE에서 웹 애플리케이션을 실행하는 경우 실행을 선택한 다음, 프로젝트의 홈페이지로 이동합니다. 이 샘플의 경우 표준 홈 페이지 URL은 https://localhost:8443 입니다.
 
 1. 전면 페이지에서 **로그인** 단추를 선택하여 Azure Active Directory으로 리디렉션하고 사용자에게 자격 증명을 입력하라는 메시지를 표시합니다.
 

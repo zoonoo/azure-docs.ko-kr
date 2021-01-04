@@ -2,13 +2,13 @@
 title: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
 description: Azure Arc 사용 서버를 사용하여 하이브리드 머신을 연결하고 등록하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 11/12/2020
-ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/15/2020
+ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576839"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516792"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>빠른 시작: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
 
@@ -29,6 +29,9 @@ ms.locfileid: "94576839"
     * 머신이 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버를 통해 연결되는 경우 [나열된](../agent-overview.md#networking-configuration) URL이 차단되지 않는지 확인합니다.
 
     * Azure Arc 사용 서버는 [여기](../overview.md#supported-regions)에서 지정된 영역만 지원합니다.
+
+> [!WARNING]
+> Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

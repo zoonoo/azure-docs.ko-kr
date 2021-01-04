@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746730"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507713"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>자습서: iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -71,16 +71,17 @@ ms.locfileid: "95746730"
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-1. [Azure Portal](https://aka.ms/MobileAppReg)로 이동
-2. 앱 등록 블레이드를 열고 **+새 등록** 을 선택합니다.
-3. 앱의 **이름** 을 입력한 다음, 리디렉션 URI를 설정하지 않습니다.
-4. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
-5. **등록** 을 선택합니다.
-6. 나타나는 창의 **관리** 섹션에서 **인증** 을 선택합니다.
-
-7. 화면 위쪽에 있는 **새 환경 사용해 보기** 를 선택하여 새 앱 등록 환경을 연 다음, **+새 등록** >  **+ 플랫폼 추가** > **iOS/macOS** 를 선택합니다.
-    - 프로젝트의 번들 ID를 입력합니다. 코드를 다운로드한 경우 `com.microsoft.identitysample.MSALiOS`입니다. 사용자 고유의 프로젝트를 만드는 경우 Xcode에서 프로젝트를 선택하고 **일반** 탭을 엽니다. 번들 식별자가 **ID** 섹션에 나타납니다.
-8. `Configure`를 선택하고 **MSAL 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다. **완료** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 에서 **모든 조직 디렉터리의 계정(모든 Azure AD 디렉터리 - 다중 테넌트) 및 개인 Microsoft 계정(예: Skype, Xbox)** 을 선택합니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **인증** > **플랫폼 추가** > **iOS/macOS** 를 선택합니다.
+1. 프로젝트의 번들 ID를 입력합니다. 코드를 다운로드한 경우 `com.microsoft.identitysample.MSALiOS`입니다. 사용자 고유의 프로젝트를 만드는 경우 Xcode에서 프로젝트를 선택하고 **일반** 탭을 엽니다. 번들 식별자가 **ID** 섹션에 나타납니다.
+1. **구성** 을 선택하고 **MSAL 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다. 
+1. **완료** 를 선택합니다.
 
 ## <a name="add-msal"></a>MSAL 추가
 
@@ -520,7 +521,7 @@ MSAL은 토큰을 가져오기 위한 두 가지 기본 메서드 `acquireTokenS
 
 1. 범위를 사용하여 `MSALInteractiveTokenParameters`를 만듭니다.
 2. 만든 매개 변수를 사용하여 `acquireToken()`을 호출합니다.
-3. 오류를 처리합니다. 자세한 내용은 [iOS 및 macOS용 MSAL 오류 처리 가이드](msal-handling-exceptions.md)를 참조하세요.
+3. 오류를 처리합니다. 자세한 내용은 [iOS 및 macOS용 MSAL 오류 처리 가이드](msal-error-handling-ios.md)를 참조하세요.
 4. 성공 사례를 처리합니다.
 
 `ViewController` 클래스에 다음 코드를 추가합니다.

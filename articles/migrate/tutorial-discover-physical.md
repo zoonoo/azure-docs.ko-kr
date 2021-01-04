@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 1263bc3ffe18aa951b3e5b61747c889d36acbab1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2da5577b1b82c5374f33b732a0af54bac5ebae58
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752815"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109218"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>자습서: 서버 평가를 사용하여 물리적 서버 검색
 
@@ -223,7 +223,15 @@ chmod a+r /sys/class/dmi/id/product_uuid | BIOS GUID를 수집하려면 다음�
 
 이제 어플라이언스에서 검색할 물리적 서버에 연결하여 검색을 시작합니다.
 
-1. **1단계: Windows 및 Linux 물리적 서버 또는 가상 서버를 검색하는 데 필요한 자격 증명 제공** 에서 **자격 증명 추가** 를 클릭하여 자격 증명의 식별 이름을 지정하고 Windows 또는 Linux 서버의 **사용자 이름** 및 **암호** 를 추가합니다. **Save** 를 클릭합니다.
+1. **1단계: Windows 및 Linux 물리적 또는 가상 서버 검색을 위한 자격 증명 제공** 에서 **자격 증명 추가** 를 클릭합니다.
+1. Windows 서버의 경우 원본 유형을 **Windows Server** 로 선택하고, 자격 증명에 친숙한 이름을 지정하고, 사용자 이름 및 암호를 추가합니다. **저장** 을 클릭합니다.
+1. Linux 서버에 암호 기반 인증을 사용하는 경우 원본 유형을 **Linux Server(암호 기반)** 로 선택하고, 자격 증명에 친숙한 이름을 지정하고, 사용자 이름 및 암호를 추가합니다. **저장** 을 클릭합니다.
+1. Linux 서버에 SSH 키 기반 인증을 사용하는 경우 원본 유형을 **Linux Server(SSH 키 기반)** 로 선택하고, 자격 증명에 친숙한 이름을 지정하고, 사용자 이름을 추가하고, SSH 프라이빗 키 파일을 찾아서 선택할 수 있습니다. **Save** 를 클릭합니다.
+
+    - Azure Migrate는 RSA, DSA, ECDSA 및 ed25519 알고리즘을 사용하여 ssh-keygen 명령에 의해 생성된 SSH 프라이빗 키를 지원합니다.
+    - 현재 Azure Migrate는 암호 기반 SSH 키를 지원하지 않습니다. 암호 없이 SSH 키를 사용하세요.
+    - 현재 Azure Migrate는 PuTTY에서 생성된 SSH 프라이빗 키 파일을 지원하지 않습니다.
+
 1. 여러 자격 증명을 한 번에 추가하려면 **더 추가** 를 클릭하여 더 많은 자격 증명을 저장하고 추가합니다. 물리적 서버 검색에 여러 자격 증명이 지원됩니다.
 1. **2단계: 물리적 또는 가상 서버 세부 정보 제공** 에서 **검색 원본 추가** 를 클릭하여 서버 **IP 주소/FQDN** 을 지정하고 서버에 연결할 자격 증명의 식별 이름을 지정합니다.
 1. 한 번에 하나씩 **단일 항목을 추가** 하거나 한꺼번에 **여러 항목을 추가** 할 수 있습니다. 또한 **CSV 가져오기** 를 통해 서버 세부 정보를 제공하는 옵션도 있습니다.
