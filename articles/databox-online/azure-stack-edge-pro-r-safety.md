@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467575"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709445"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge Pro R 안전 지침
 
@@ -27,14 +27,14 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
 
 위험 경고 기호에 대 한 다음 신호 단어는 다음과 같습니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![위험물 기호](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)| **위험:** 피해를 주지 않는 경우에는 유해 또는 심각한 부상이 발생 하는 위험한 상황을 나타냅니다. <br> **경고:** 피해를 주지 않는 경우에는 유해 또는 심각한 부상이 발생할 수 있는 유해 상황을 나타냅니다. <br> **주의:** 피해를 주지 않는 경우 사소한 또는 보통 부상을 일으킬 수 있는 위험한 상황을 나타냅니다.|
 |
 
 다음 위험 아이콘은 Azure Stack Edge Pro R Edge 장치를 설정 하 고 실행할 때 관찰 됩니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![모든 지침을 먼저 읽을 것](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | 모든 지침을 먼저 읽을 것 |
 | ![위험물 기호](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | 위험물 기호 |
@@ -86,6 +86,7 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
   * 전기 장치로 생성 된 강력한 전자기 필드에서 격리 됩니다.
   * 올바르게 접지 된 콘센트가 제공 됩니다.
   * 전원 공급 장치 코드에 액세스할 수 있는 충분 한 공간이 제품의 기본 전원 연결 해제로 제공 됩니다.
+* 이더넷 케이블은 제품과 함께 제공 되지 않습니다. 전자기 간섭을 줄이려면 Cat 6 차폐 꼬아진 쌍 (STP) 케이블을 사용 하는 것이 좋습니다.
 * 장비에 대 한 적절 한 공기 배치를 허용 하는 작업 영역에서 장비를 설정 합니다. 장치를 실행 하는 동안 front 및 back 커버를 완전히 제거 해야 합니다.
 * Conductive contaminants를 사용 하 여 온도 제어 영역에서 장비를 설치 하 고 장비 주위에 적절 한 공기를 수 있습니다.
 * 액체와 과도 하 게 humid 환경의 원본에서 장비를 떨어진 곳으로 유지 하세요.
@@ -115,6 +116,11 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
   * 디바이스가 바닥에 떨어져서 디바이스 케이스가 손상되었습니다.
   * 디바이스를 점검하거나 수리를 받아야 할 것 같습니다.
 * 이동하기 전이나 어떤 방식으로든 손상될 것이라고 판단되는 장치 플러그를 영구적으로 뽑으십시오.
+* 높은 누출 전류를 방지 하려면 단일 전송 사례에 하나 이상의 중단 없는 전원 공급 장치 (UPS)가 있는 경우 각 UPS를 독립 분기 회로에 연결 하는 것이 좋습니다. 그러나 각 UPS의 안전 접지에서 PDU의 단일 공급 장치 접지 컨덕터를 사용 하는 경우 PDU (전원 분배 장치) 또는 기타 장치를 사용 하는 경우 각 UPS의 외부에 있는 접지 터미널도 보조 건물 접지와 함께 사용 해야 합니다.
+
+  > [!NOTE]
+  > 추가 접지 컨덕터를 이미 가진 PDU를 사용 하는 경우 UPS에서 추가 접지 터미널을 사용 하지 않아도 됩니다.
+
 * 다음 전원 사양을 충족하도록 전기 과부하 방지 기능이 있는 적절한 전원을 제공하세요.
 
   * 전압: 100 ~ 240 볼트 AC
@@ -157,7 +163,7 @@ Azure Stack Edge Pro R Edge 장치는 NRTL (UL, CSA, ETL 등) 및 IEC/EN 60950-1
 |:--- |:--- |
 |온도 사양 | <ul><li>저장소 온도: – 33 &deg; c – 63 &deg; c (– 28 &deg; f-145 &deg; f) </li><li>연속 작업: 5 &deg; c – 43 &deg; c (41 &deg; f – 110 &deg; f)</li><li>최대 온도 그라데이션 (운영 및 저장소): 20 &deg; C/h (68 &deg; F/h)</li></ul> |
 |상대 습도 사양 | <ul><li>저장소: 5% ~ 95% RH 33 &deg; C (91 &deg; F) 최대 dew 지점 대기는 항상 비응축이 아니어야 합니다.</li><li>운영: 29 &deg; C (84.2 &deg; F) 최대 dew point의 5% ~ 85% 상대 습도</li></ul> |
-| 최대 고도 사양 | <ul><li>운영 (UPS 제외): 15000 ft (4572 미터)</li><li>운영 (UPS 포함): 6.561 ft (2000 미터)</li><li>저장소: 4만 ft (12192 미터)</li></ul> |
+| 최대 고도 사양 | <ul><li>운영 (UPS 제외): 15000 ft (4572 미터)</li><li>운영 (UPS 포함): 1만 ft (3048 미터)</li><li>저장소: 4만 ft (12192 미터)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

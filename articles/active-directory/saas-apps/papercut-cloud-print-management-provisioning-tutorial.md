@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 860b880faae9c5fe37a2c7eab2ef3a068ed4da3e
-ms.sourcegitcommit: 236014c3274b31f03e5fcee5de510f9cacdc27a0
+ms.openlocfilehash: 127a9568d4f129763bee26210efedeaee8fe4aa1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96299093"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709380"
 ---
 # <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 용지 자르기 클라우드 인쇄 관리 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "96299093"
 
 * [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
-* 용지에 있는 사용자 계정 관리자 권한으로 클라우드 인쇄 관리 잘라내기
+* 용지 잘림 클라우드 인쇄 관리 관리자 계정입니다.
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
@@ -52,7 +52,7 @@ ms.locfileid: "96299093"
 
 1. 용지에 로그인 [포켓 관리 콘솔](https://pocket.papercut.com/) 또는 [용지 잘라내기 Hive 관리 콘솔](https://hive.papercut.com/)
 
-2. **추가** 기능으로 이동 하 여 모든 추가 기능으로 이동 하  >  **All Add-ons** 고 **Microsoft Azure AD 사용자 동기화 추가** 기능을 찾습니다.
+2. **추가** 기능으로 이동 하 여 모든 추가 기능으로 이동 하  >  고 **Microsoft Azure AD 사용자 동기화 추가** 기능을 찾습니다.
 
 3. **자세히 보기** 단추를 클릭 하 고 **추가** 를 클릭 하 여 설치 합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "96299093"
 
 
 
-## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 용지 추가 클라우드 인쇄 관리를 추가 합니다.
+## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 용지 추가 클라우드 인쇄 관리를 추가 합니다.
 
 Azure AD 응용 프로그램 갤러리에서 용지 잘림 클라우드 인쇄 관리를 추가 하 여 용지에 대 한 프로 비전 관리 클라우드 인쇄 관리를 시작 합니다. 이전에 설치 된 용지에 SSO에 대 한 클라우드 인쇄 관리를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
@@ -76,7 +76,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-papercut-cloud-print-management"></a>5단계. 용지 잘림 클라우드 인쇄 관리에 대 한 자동 사용자 프로 비전 구성
 
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+이 섹션에서는 azure ad 프로 비전 서비스를 구성 하 여 azure AD의 사용자 및/또는 그룹 할당을 기반으로 하는 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 하지 않도록 설정 하는 단계를 안내 합니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-papercut-cloud-print-management-in-azure-ad"></a>용지에 대해 자동 사용자 프로 비전을 구성 하려면 Azure AD에서 클라우드 인쇄 관리를 잘라냅니다.
 
@@ -106,7 +106,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 7. **저장** 을 선택합니다.
 
-8. **매핑** 섹션 아래에서 **사용자에 게 Azure Active Directory 사용자를 용지에 동기화를 선택 하 고 클라우드 인쇄 관리를** 선택 합니다.
+8. **매핑** 섹션에서 **Azure Active Directory 사용자 프로비전** 을 선택합니다.
+   ![AAD 매핑](media/papercut-cloud-print-management-provisioning-tutorial/mapping.png)
 
 9. **특성 매핑** 섹션에서 Azure AD에서 용지 자르기 클라우드 인쇄 관리로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 용지에서 클라우드 인쇄 관리를 잘라내는 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우에는 용지 잘림 클라우드 인쇄 관리 API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 

@@ -56,30 +56,20 @@
       items:
         - name: v3 Translator 참조
           href: reference/v3-0-reference.md
-          items:
-            - name: 언어
-              href: reference/v3-0-languages.md
-            - name: Translate
-              href: reference/v3-0-translate.md
-            - name: Transliterate
-              href: reference/v3-0-transliterate.md
-            - name: Detect
-              href: reference/v3-0-detect.md
-            - name: BreakSentence
-              href: reference/v3-0-break-sentence.md
-            - name: 사전 조회
-              href: reference/v3-0-dictionary-lookup.md
-            - name: 사전 예제
-              href: reference/v3-0-dictionary-examples.md
-        - name: v2 Translator 참조(사용되지 않음)
-          href: reference/v2-0-reference.md
-          items:
-            - name: 텍스트 변환
-              href: transform-text.md
-            - name: CTF(Collaborative Translation Framework) 보고 사용 방법
-              href: ctf-reporting.md
-            - name: N-Best 번역 반환
-              href: return-n-best-translations.md
+        - name: 언어
+          href: reference/v3-0-languages.md
+        - name: Translate
+          href: reference/v3-0-translate.md
+        - name: Transliterate
+          href: reference/v3-0-transliterate.md
+        - name: Detect
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: 사전 조회
+          href: reference/v3-0-dictionary-lookup.md
+        - name: 사전 예제
+          href: reference/v3-0-dictionary-examples.md
         - name: 요청 제한
           href: request-limits.md
     - name: 리소스

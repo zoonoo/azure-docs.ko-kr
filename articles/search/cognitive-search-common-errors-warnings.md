@@ -3,17 +3,17 @@ title: 인덱서 오류 및 경고
 titleSuffix: Azure Cognitive Search
 description: 이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 manager: nitinme
-author: amotley
-ms.author: abmotley
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: dcdc05ae696a207546eb62160fe89ea38d307058
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c65c9265d8eb4a06ea354c6d753cc6ed847eb6db
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492270"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724292"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "96492270"
 
 오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
 
-인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 여기에 설명 된 `maxFailedItems` 대로 및를 업데이트 하는 것이 좋습니다 `maxFailedItemsPerBatch` . [here](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)
+인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 여기에 설명 된 `maxFailedItems` 대로 및를 업데이트 하는 것이 좋습니다 `maxFailedItemsPerBatch` . [](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)
 
 > [!NOTE]
 > 문서 키 (사용 가능한 경우)와 함께 실패 한 각 문서는 인덱서 실행 상태에서 오류로 표시 됩니다. 오류가 허용 되도록 인덱서를 설정한 경우 [인덱스 api](/rest/api/searchservice/addupdate-or-delete-documents) 를 활용 하 여 나중에 수동으로 문서를 업로드할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "96492270"
 
 API 버전부터 `2019-05-06` 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
 
-| 속성 | 설명 | 예제 |
+| 속성 | Description | 예제 |
 | --- | --- | --- |
 | key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e. n a m e. myIndexName myOutputFieldName |
@@ -237,7 +237,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>경고: 기술 입력 ' languageCode '에 다음 언어 코드 ' X, Y, Z '가 하나 이상 잘못 되었습니다.
 다운스트림 기술에 대 한 선택적 입력으로 전달 된 값 중 하나 이상이 `languageCode` 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
 
-데이터 집합이 모두 한 언어로 표시 되는 경우 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) `languageCode` 해당 기술에 대 한 언어가 지원 되는 것으로 가정 하면 LanguageDetectionSkill 및 기술 입력을 제거 하 고 `defaultLanguageCode` 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
+데이터 집합이 모두 한 언어로 표시 되는 경우 [](cognitive-search-skill-language-detection.md) `languageCode` 해당 기술에 대 한 언어가 지원 되는 것으로 가정 하면 LanguageDetectionSkill 및 기술 입력을 제거 하 고 `defaultLanguageCode` 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
 
 데이터 집합에 여러 언어가 포함 되어 있으므로 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 및 입력이 필요 하다 고 생각 되 면 `languageCode` 텍스트를 다운스트림 기술로 전달 하기 전에 지원 되지 않는 언어를 사용 하 여 텍스트를 필터링 하는 [ConditionalSkill](cognitive-search-skill-conditional.md) 를 추가 하는 것이 좋습니다.  EntityRecognitionSkill에 대 한 예는 다음과 같습니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095171"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695816"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -65,7 +65,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 알림의 고유한 이름을 입력 합니다.
 
-    c. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
+    다. **세부 정보**: 선택한 알림 유형에 따라 전자 메일 주소, 전화 번호 등을 입력 합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
     
     b. **이름**: 동작에 대 한 고유한 이름을 입력 합니다.
 
-    c. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
+    다. **세부 정보**: 작업 유형에 따라 webhook URI, Azure 앱, itsm 연결 또는 자동화 runbook을 입력 합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
     
     d. **일반 경고 스키마**: Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용하도록 선택할 수 있습니다.
     
@@ -132,6 +132,18 @@ Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](
 구독 역할의 멤버에게 이메일을 보냅니다. 이메일은 해당 역할의 **Azure AD 사용자** 멤버에게만 발송됩니다. Azure AD 그룹 또는 서비스 주체에게는 이메일이 전송되지 않습니다.
 
 알림 전자 메일은 *기본 전자 메일* 주소로만 전송 됩니다.
+
+*기본 전자 메일* 에 대 한 알림을 받지 못하는 경우 다음 단계를 수행해 볼 수 있습니다.
+
+1. Azure Portal에서 *Active Directory* 로 이동 합니다.
+2. 왼쪽 창에서 모든 사용자를 클릭 하면 오른쪽 창에 사용자 목록이 표시 됩니다.
+3. *기본 전자 메일* 정보를 검토 하려는 사용자를 선택 합니다.
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="사용자 프로필을 검토 하는 방법에 대 한 예입니다."border="true":::
+
+4. 연락처 정보 아래의 사용자 프로필에서 "전자 메일" 탭이 비어 있는 경우 맨 위에 있는 *편집* 단추를 클릭 하 고 *기본 전자 메일* 을 추가 하 고 맨 위에 있는 *저장* 단추를 누릅니다.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="기본 전자 메일을 추가 하는 방법에 대 한 예입니다."border="true":::
 
 작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 

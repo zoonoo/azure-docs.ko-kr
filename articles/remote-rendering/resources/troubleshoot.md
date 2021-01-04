@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203673"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722235"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -18,12 +18,12 @@ ms.locfileid: "92203673"
 
 ## <a name="cant-link-storage-account-to-arr-account"></a>스토리지 계정을 ARR 계정에 연결할 수 없음
 
-[스토리지 계정을 연결](../how-tos/create-an-account.md#link-storage-accounts)하는 동안 Remote Rendering 계정이 나열되지 않는 경우가 가끔 있습니다. 이 문제를 해결하려면 Azure Portal에서 ARR 계정으로 이동하여 왼쪽에 있는 **설정** 그룹에서 **ID**를 선택합니다. **상태**가 **켬**으로 설정되었는지 확인합니다.
+[스토리지 계정을 연결](../how-tos/create-an-account.md#link-storage-accounts)하는 동안 Remote Rendering 계정이 나열되지 않는 경우가 가끔 있습니다. 이 문제를 해결하려면 Azure Portal에서 ARR 계정으로 이동하여 왼쪽에 있는 **설정** 그룹에서 **ID** 를 선택합니다. **상태** 가 **켬** 으로 설정되었는지 확인합니다.
 ![Unity 프레임 디버거](./media/troubleshoot-portal-identity.png)
 
 ## <a name="client-cant-connect-to-server"></a>클라이언트가 서버에 연결할 수 없음
 
-방화벽 (장치, 라우터 내 등)이 [시스템 요구 사항](../overview/system-requirements.md#network-ports)에 언급 된 포트를 차단 하지 않는지 확인 합니다.
+방화벽 (장치, 라우터 내 등)이 [시스템 요구 사항](../overview/system-requirements.md#network-firewall)에 언급 된 포트를 차단 하지 않는지 확인 합니다.
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>오류 ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -45,7 +45,7 @@ REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하
 
 **H265 코덱이 설치되지 않음:**
 
-먼저 시스템 요구 사항의 [소프트웨어](../overview/system-requirements.md#software) 섹션에 설명된 대로 **HEVC 비디오 확장**을 설치합니다.
+먼저 시스템 요구 사항의 [소프트웨어](../overview/system-requirements.md#software) 섹션에 설명된 대로 **HEVC 비디오 확장** 을 설치합니다.
 
 그래도 문제가 발생하면 사용하는 그래픽 카드가 H265을 지원하고 최신 그래픽 드라이버가 설치되었는지 확인합니다. 공급업체별 정보는 시스템 요구 사항의 [개발 PC](../overview/system-requirements.md#development-pc) 섹션을 참조하세요.
 
@@ -66,17 +66,17 @@ REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하
     ```
 
 1. Windows 탐색기에서 이 폴더를 엽니다.
-1. **x86** 및 **x64** 하위 폴더가 있을 것입니다. 폴더 중 하나를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+1. **x86** 및 **x64** 하위 폴더가 있을 것입니다. 폴더 중 하나를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
     1. **보안** 탭을 선택하고 **고급** 설정 단추를 클릭합니다.
-    1. **소유자**에 대한 **변경**을 클릭합니다.
-    1. 텍스트 필드에 **관리자**를 입력합니다.
-    1. **이름 확인**을 클릭하고 **확인**을 클릭합니다.
+    1. **소유자** 에 대한 **변경** 을 클릭합니다.
+    1. 텍스트 필드에 **관리자** 를 입력합니다.
+    1. **이름 확인** 을 클릭하고 **확인** 을 클릭합니다.
 1. 다른 폴더에 대해 위의 단계를 반복합니다.
 1. 두 폴더 안에 있는 각 DLL 파일에서도 위의 단계를 반복합니다. 총 4개의 DLL이 있어야 합니다.
 
 이제 설정이 올바른지 확인하기 위해, 4개의 각 DLL에 대해 다음 작업을 수행합니다.
 
-1. **속성 > 보안 > 편집**을 클릭합니다.
+1. **속성 > 보안 > 편집** 을 클릭합니다.
 1. 모든 **그룹/사용자** 목록을 살펴보고 각 항목의 **읽기 및 실행** 권한이 설정되었는지(**허용** 열의 확인 표시를 선택해야 함) 확인합니다.
 
 ## <a name="low-video-quality"></a>낮은 비디오 품질
@@ -159,13 +159,13 @@ Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디
 
 [Unity 자습서: 원격 모델 보기](../tutorials/unity/view-remote-models/view-remote-models.md) 를 참조 하십시오. 뒤집힌 이미지는 외부 렌더링 대상을 만드는 데 Unity가 필요 함을 나타냅니다. 이 동작은 현재 지원 되지 않으며 HoloLens 2의 성능에 큰 영향을 줍니다.
 
-이 문제가 발생 하는 이유는 MSAA, HDR 또는 post 처리를 사용할 수 있기 때문일 수 있습니다. 저품질 프로필을 선택 하 고 Unity에서 기본값으로 설정 했는지 확인 합니다. 이렇게 하려면 *편집 > 프로젝트 설정 ... > 품질로*이동 합니다.
+이 문제가 발생 하는 이유는 MSAA, HDR 또는 post 처리를 사용할 수 있기 때문일 수 있습니다. 저품질 프로필을 선택 하 고 Unity에서 기본값으로 설정 했는지 확인 합니다. 이렇게 하려면 *편집 > 프로젝트 설정 ... > 품질로* 이동 합니다.
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Remote Rendering API를 사용하는 Unity 코드가 컴파일되지 않음
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Unity 편집기에 사용하기 위해 컴파일할 때 디버그 사용
 
-Unity 솔루션의 *빌드 형식*을 **디버그**로 전환합니다. Unity 편집기에서 ARR을 테스트할 때 `UNITY_EDITOR` 정의는 '디버그' 빌드에서만 사용할 수 있습니다. [배포된 애플리케이션](../quickstarts/deploy-to-hololens.md)에 사용되는 빌드 형식과는 관련이 없습니다. 배포된 애플리케이션에는 '릴리스' 빌드를 사용해야 합니다.
+Unity 솔루션의 *빌드 형식* 을 **디버그** 로 전환합니다. Unity 편집기에서 ARR을 테스트할 때 `UNITY_EDITOR` 정의는 '디버그' 빌드에서만 사용할 수 있습니다. [배포된 애플리케이션](../quickstarts/deploy-to-hololens.md)에 사용되는 빌드 형식과는 관련이 없습니다. 배포된 애플리케이션에는 '릴리스' 빌드를 사용해야 합니다.
 
 ### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>HoloLens 2용 Unity 샘플을 컴파일하는 동안 컴파일 오류 발생
 
@@ -247,7 +247,7 @@ ARR에는 표면에서 z를 사용할 수 있는지를 확인 하는 기능 ( [�
 
 ## <a name="graphics-artifacts-using-multi-pass-stereo-rendering-in-native-c-apps"></a>네이티브 c + + 앱에서 다중 패스 스테레오 렌더링을 사용 하는 그래픽 아티팩트
 
-[**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) 를 호출한 후 로컬 콘텐츠에 대해 다중 패스 스테레오 렌더링 모드를 사용 하는 사용자 지정 네이티브 c + + 앱 (왼쪽 및 오른쪽으로 렌더링)을 사용 하 여 드라이버 버그를 트리거할 수 있는 경우도 있습니다. 버그로 인해 명확 하지 않은 래스터화 결함이 발생 하 여 개별 삼각형 또는 로컬 콘텐츠의 삼각형 부분이 무작위로 사라지게 됩니다. 성능상의 이유로 최신 단일 패스 스테레오 렌더링 기법을 사용 하 여 로컬 콘텐츠를 렌더링 하는 것이 좋습니다 (예: **SV_RenderTargetArrayIndex**사용).
+[**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) 를 호출한 후 로컬 콘텐츠에 대해 다중 패스 스테레오 렌더링 모드를 사용 하는 사용자 지정 네이티브 c + + 앱 (왼쪽 및 오른쪽으로 렌더링)을 사용 하 여 드라이버 버그를 트리거할 수 있는 경우도 있습니다. 버그로 인해 명확 하지 않은 래스터화 결함이 발생 하 여 개별 삼각형 또는 로컬 콘텐츠의 삼각형 부분이 무작위로 사라지게 됩니다. 성능상의 이유로 최신 단일 패스 스테레오 렌더링 기법을 사용 하 여 로컬 콘텐츠를 렌더링 하는 것이 좋습니다 (예: **SV_RenderTargetArrayIndex** 사용).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ff85ed669fb7c3ac43e322eb747c537a30801920
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/21/2020
+ms.openlocfilehash: 83bca8a2a81823cd0a8bda1633599292460ddd30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701435"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724330"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>담당 기계 학습 이란 무엇 인가요? (미리 보기)
 
@@ -62,10 +62,7 @@ AI 시스템의 불공정성을 줄이기 위한 두 가지 주요 단계는 평
 
 기존 시나리오에서는 원시 데이터가 파일 및 데이터베이스에 저장되었습니다. 사용자가 데이터를 분석할 때는 일반적으로 원시 데이터를 사용합니다. 이는 개인의 프라이버시를 침해할 수 있기 때문에 문제가 됩니다. 차등 프라이버시는 사용자가 개별 데이터 요소를 식별할 수 없도록 데이터에 "노이즈" 또는 임의성을 추가하여 이 문제를 처리합니다.
 
-차등 비공개 시스템을 구현하기는 어렵습니다. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core)는 글로벌 차등 비공개 시스템을 빌드하기 위한 여러 구성 요소가 포함된 오픈 소스 프로젝트입니다. 차등 프라이버시 및 WhiteNoise 프로젝트에 대해 자세히 알아보려면 [차등 프라이버시 및 WhiteNoise를 사용하여 데이터 프라이버시 보호](./concept-differential-privacy.md) 문서를 참조하세요.
-
-> [!NOTE]
-> 도구 키트의 이름을 바꾸고 새 이름을 소개 하는 주입니다. 
+차등 비공개 시스템을 구현하기는 어렵습니다. [Smartnoise](https://github.com/opendifferentialprivacy/smartnoise-core) 는 글로벌 differentially 개인 시스템을 빌드하기 위한 여러 구성 요소가 포함 된 오픈 소스 프로젝트입니다. 차등 개인 정보 및 SmartNoise 프로젝트에 대 한 자세한 내용은 [차등 개인 정보 및 SmartNoise를 사용 하 여 데이터 개인 정보 유지](./concept-differential-privacy.md) 문서를 참조 하세요.
 
 ## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Homomorphic 암호화를 사용 하 여 암호화 된 데이터에 대 한 작업
 

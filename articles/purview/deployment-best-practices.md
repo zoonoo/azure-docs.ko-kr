@@ -1,18 +1,18 @@
 ---
 title: 배포 모범 사례
-description: 이 문서에서는 Azure 부서의 범위 배포에 대 한 모범 사례를 제공 합니다. Azure 부서의 범위를 사용 하면 모든 사용자가 데이터 원본을 등록, 검색, 이해 및 소비할 수 있습니다.
-author: hophanms
-ms.author: hophan
+description: 이 문서에서는 Azure 부서의 범위 배포에 대 한 모범 사례를 제공 합니다. Azure Purview를 사용하면 모든 사용자가 데이터 원본을 등록, 검색, 이해 및 사용할 수 있습니다.
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400695"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695859"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure 부서의 범위 배포 모범 사례
 

@@ -1,14 +1,14 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 12/15/2020
+ms.date: 12/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: bff76cbaa678ed82538eb6d75633aa94cdce30bf
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616164"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723272"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -57,7 +57,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 - Amazon Linux 2(x64)
 
 > [!WARNING]
-> Linux 호스트 이름 또는 Windows 컴퓨터 이름에는 이름에 있는 예약 된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결 된 컴퓨터를 등록 하는 데 실패 합니다. 예약 된 단어 목록에 대해서는 [예약 된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md) 을 참조 하세요.
+> Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
@@ -82,6 +82,10 @@ Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 �
 
 Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 컴퓨터가 인터넷을 통해 통신 하기 위해 방화벽 또는 프록시 서버를 통해 연결 하는 경우 다음을 검토 하 여 네트워크 구성 요구 사항을 파악 합니다.
 
+> [!NOTE]
+> Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
+>
+
 방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트에서 서비스와 통신 하는 데 필요한 IP 범위 또는 도메인 이름만 허용 하는 경우 다음 서비스 태그와 Url에 대 한 액세스를 허용 해야 합니다.
 
 서비스 태그:
@@ -97,9 +101,11 @@ URL:
 |---------|---------|
 |`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
+|`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|
 |`*.his.arc.azure.com`|하이브리드 ID 서비스|
+|`www.office.com`|Office 365|
 
 Preview 에이전트 (버전 0.11 및 낮음) 에서도 다음 Url에 액세스할 수 있어야 합니다.
 
@@ -110,7 +116,7 @@ Preview 에이전트 (버전 0.11 및 낮음) 에서도 다음 Url에 액세스�
 
 각 서비스 태그/지역의 IP 주소 목록은 JSON 파일 - [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조하세요. Microsoft는 각 Azure 서비스 및 여기에 사용되는 IP 범위를 포함하는 주간 업데이트를 게시합니다. 자세한 내용은 [서비스 태그](../../virtual-network/network-security-groups-overview.md#service-tags)를 검토하세요.
 
-대부분의 서비스에는 현재 서비스 태그 등록이 없기 때문에 서비스 태그 IP 주소 범위 정보 외에도 앞에서 나온 표의 URL이 필요합니다. 따라서 IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
+대부분의 서비스에는 현재 서비스 태그 등록이 없으므로 위의 표에 있는 Url은 서비스 태그 IP 주소 범위 정보 외에 필요 합니다. 따라서 IP 주소는 변경될 수 있습니다. 방화벽 구성에 IP 주소 범위가 필요한 경우 모든 Azure 서비스에 대한 액세스를 허용하기 위해 **AzureCloud** 서비스 태그를 사용해야 합니다. 이러한 URL의 보안 모니터링 또는 검사를 해제하지 말고, 다른 인터넷 트래픽처럼 허용합니다.
 
 ### <a name="register-azure-resource-providers"></a>Azure 리소스 공급자 등록
 
@@ -147,7 +153,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 > [!IMPORTANT]
 > 연결 된 컴퓨터 에이전트는 Azure Windows 가상 컴퓨터에 설치할 수 없습니다. 을 (를) 시도 하면 설치에서이를 감지 하 고 롤백합니다.
 
-| 메서드 | Description |
+| 방법 | Description |
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
@@ -163,7 +169,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 * 명령 셸에서 `AzureConnectedMachineAgent.msi` Windows Installer 패키지를 실행하여 수동으로 설치합니다.
 * PowerShell 세션에서 스크립팅된 메서드를 사용합니다.
 
-Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 시스템 차원 구성 변경 내용이 적용됩니다.
+Windows 용 연결 된 컴퓨터 에이전트를 설치한 후 다음과 같은 시스템 수준의 구성 변경 내용이 적용 됩니다.
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
@@ -215,7 +221,7 @@ Windows용 Connected Machine 에이전트를 설치하면 다음과 같은 추�
 
 Linux용 Connected Machine 에이전트는 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)에서 호스팅되는 배포(.RPM 또는 .DEB)에 대한 기본 설정 패키지 형식으로 제공됩니다. 에이전트는 셸 스크립트 번들 [Install_linux_azcmagent.sh](https://aka.ms/azcmagent)를 사용하여 설치되고 구성됩니다.
 
-Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 시스템 차원 구성 변경 내용이 적용됩니다.
+Linux 용 연결 된 컴퓨터 에이전트를 설치한 후 다음과 같은 시스템 수준의 구성 변경 내용이 적용 됩니다.
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 

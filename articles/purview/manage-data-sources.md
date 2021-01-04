@@ -1,18 +1,18 @@
 ---
 title: Azure 부서의 범위 (미리 보기)에서 데이터 원본 관리
 description: Azure 부서의 범위 (미리 보기)에서 새 데이터 원본을 등록 하 고, 데이터 원본의 컬렉션을 관리 하 고, 소스를 보는 방법에 대해 알아봅니다.
-author: mamccrea
-ms.author: mamccrea
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 382c79cf77cb22d3cad1af41d6daa662fb00df4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 8714c3c3794186d6c21a0513bd7700764c000b6d
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781167"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694785"
 ---
 # <a name="manage-data-sources-in-azure-purview-preview"></a>Azure 부서의 범위 (미리 보기)에서 데이터 원본 관리
 
@@ -28,7 +28,6 @@ ms.locfileid: "96781167"
 * Azure Synapse Analytics(이전의 SQL DW)
 * Azure Cosmos DB
 * Power BI
-* Teradata(미리 보기)
 
 ## <a name="register-a-new-source"></a>새 원본 등록
 

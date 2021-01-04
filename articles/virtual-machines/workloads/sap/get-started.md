@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/12/2020
+ms.date: 12/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75ea3eec50516c9ba08504dd149d4bd08f8abbb6
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371937"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722898"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -48,7 +48,8 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
 - 타사 HA 프레임은 Windows 및 Pacemaker 지원 되는 것 외에도 작동 하나요? [SAP support note](https://launchpad.support.sap.com/#/notes/1928533) 의 아래쪽 부분을 확인 #1928533
 - 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 읽기
 - SAP에서 지 원하는 Oracle Enterprise Linux의 Red Hat 커널이 있나요? SAP [sap 지원 정보](https://launchpad.support.sap.com/#/notes/1565179) 를 참조 하십시오 #1565179
-- Azure [Da v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series) / [Ea](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) VM 제품군 SAP HANA에 대해 인증 되지 않는 이유는 무엇 인가요? Azure Das/Eas VM 제품군은 AMD 프로세서 기반 하드웨어를 기반으로 합니다. SAP HANA는 가상화 된 시나리오 뿐만 아니라 AMD 프로세서를 지원 하지 않습니다.
+- Azure [Da v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series) / [Ea](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) VM 제품군 SAP HANA에 대해 인증 되지 않는 이유는 무엇 인가요? Azure Das/Eas VM 제품군은 AMD 프로세서 기반 하드웨어를 기반으로 합니다. SAP HANA는 가상화 된 시나리오에도 포함 되지 않고 AMD 프로세서를 지원 하지 않습니다.
+- 가장 최근의 Linux 커널을 실행 하는 사실에도 불구 하 고, ' RDTSCP 명령에 대 한 cpu 플래그 또는 constant_tsc 또는 nonstop_tsc에 대 한 cpu 플래그는 설정 되어 있지 않거나 current_clocksource 및 available_clocksource 올바르게 SAP HANA 구성 되어 있지 않습니다. ' 메시지가 표시 되는 이유는 무엇 인가요? 답변에 대 한 자세한 내용은 [SAP 지원 정보](https://launchpad.support.sap.com/#/notes/2791572) 를 확인 #2791572 
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
@@ -82,6 +83,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 12/21/2020: [HLI에 대해 사용 가능한 sku](./hana-available-skus.md) 의 HANA 대량 인스턴스의 sku에 새 인증을 추가 합니다.
 - 12/12/2020: sap 메모에 대 한 포인터 추가 sap에서 [Azure 배포에 대해 지원 되는 sap 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support) 에 대 한 자세한 정보를 제공 합니다.
 - 11/26/2020: [SAP 워크 로드에 대 한](./planning-guide-storage.md) [Azure 가상 머신 저장소 구성](./hana-vm-operations-storage.md) 및 Azure Storage 유형을 변경 하 여 단일 [VM sla](https://azure.microsoft.com/support/legal/sla/virtual-machines) 를 변경 SAP HANA
 - 11/05/2020: [Azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 HANA 지원 파일 시스템 형식에 대 한 새 SAP 메모에 대 한 링크를 변경 하 고 있습니다. 
@@ -179,9 +181,3 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 - 2020 년 1 월 10 일- [SLES의 Azure vm에서 Sap NetWeaver에 대 한](./high-availability-guide-suse-netapp-files.md) 고가용성의 변경: sap 응용 프로그램 및 [Azure NetApp Files Virtual Machines azure](./high-availability-guide-rhel-netapp-files.md) 에서 sap 응용 프로그램에 대 한 고가용성을 Azure NetApp Files 사용 하 여 Azure NetApp Files NFSv4 볼륨을 탑재 하는 방법에 대 한 지침을 제공 합니다.
 - 2019년 12월 23일: [SLES 멀티 SID 가이드의 Azure VM에서 SAP NetWeaver의 고가용성](./high-availability-guide-suse-multi-sid.md)의 릴리스
 - 2019년 12월 18일: [RHEL의 Azure NetApp Files를 사용하여 Azure VM의 대기 노드로 SAP HANA 스케일 아웃](./sap-hana-scale-out-standby-netapp-files-rhel.md)의 릴리스
-- 2019년 11월 21일: [SUSE Linux Enterprise Server의 Azure NetApp Files를 사용하여 Azure VM의 대기 노드로 SAP HANA 스케일 아웃](./sap-hana-scale-out-standby-netapp-files-suse.md)을 변경하여 NFS ID 매핑에 대한 구성을 단순화하고 라우팅을 단순화하기 위해 권장 주요 네트워크 인터페이스를 변경
-- 2019년 11월 15일: [SAP 애플리케이션용 Azure NetApp Files를 사용한 SUSE Linux Enterprise Server에 있는 SAP NetWeaver의 고가용성](high-availability-guide-suse-netapp-files.md) 및 [SAP 애플리케이션용 Azure NetApp Files를 사용한 Red Hat Enterprise Linux에 있는 SAP NetWeaver의 고가용성](high-availability-guide-rhel-netapp-files.md)을 약간 변경하여 용량 풀 크기 제한 사항을 명확히 설명하고 NFSv3 버전만 지원된다는 설명 제거
-- 2019년 11월 12일: [Azure NetApp Files(SMB)를 사용한 Windows의 SAP NetWeaver 고가용성](high-availability-guide-windows-netapp-files-smb.md)의 릴리스
-- 2019년 11월 8일: [SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성](sap-hana-high-availability.md), [Azure VM(가상 머신)에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability-rhel.md), [SAP 애플리케이션용 SUSE Linux Enterprise Server에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-suse.md), [Azure NetApp Files를 사용한 SUSE Linux Enterprise Server에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-suse-netapp-files.md), [Red Hat Enterprise Linux에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-rhel.md), [Azure NetApp Files를 사용한 Red Hat Enterprise Linux에 있는 SAP NetWeaver의 Azure Virtual Machines 고가용성](high-availability-guide-rhel-netapp-files.md), [SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성](high-availability-guide-suse-nfs.md), [SAP NetWeaver용 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS](high-availability-guide-rhel-glusterfs.md)를 변경하여 Azure 표준 부하 분산 장치를 권장  
-- 2019년 11월 8일: [SAP 워크로드 계획 및 배포 검사 목록](sap-deployment-checklist.md)을 변경하여 암호화 권장 사항을 명시  
-- 2019년 11월 4일: [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](high-availability-guide-suse-pacemaker.md)을 변경하여 유니캐스트 구성으로 직접 클러스터를 만들도록 함

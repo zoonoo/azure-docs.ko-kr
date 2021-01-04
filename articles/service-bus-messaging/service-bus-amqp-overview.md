@@ -3,12 +3,12 @@ title: Azure Service Bus의 AMQP 1.0 개요
 description: 개방형 표준 프로토콜인 고급 메시지 큐 프로토콜 (AMQP) Azure Service Bus 지 원하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/20/2020
-ms.openlocfilehash: e585fcc905d1651d49008b623b01a6c2f8a04fcc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 241a6b7fb9f9055ce610e44e5cd37dba87c77554
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498781"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709285"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스는 기본 통신 수단으로 [AMQP (Advanced Message Queuing Protocol) 1.0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html) 를 사용 합니다. Microsoft는 [OASIS Amqp 기술 위원회](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp)에서 새로운 확장 프로그램을 개발 하 고 지난 10 년간의 amqp를 개발 하 고 개선 하기 위해 경쟁 메시징 브로커를 갖춘 고객과 공급 업체의 파트너와 협력 하 고 있습니다. AMQP 1.0는 ISO 및 IEC 표준 ([iso 19464:20149](https://www.iso.org/standard/64955.html))입니다. 
@@ -42,7 +42,7 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 * **기술 공급업체**: Axway Software, Huawei Technologies, IIT Software, INETCO Systems, Kaazing, Microsoft, Mitre Corporation, Primeton Technologies, Progress Software, Red Hat, SITA, Software AG, Solace Systems, VMware, WSO2, Zenika.
 * **사용자 업체**: Bank of America, Credit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
 
-[OASIS AMQP 기술 위원회] ( https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) Red Hat 및 Microsoft를 나타냄)의 현재입니다.
+[OASIS AMQP 기술 위원회](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) 의 현재는 Red Hat 및 Microsoft를 나타냅니다.
 
 개방형 표준의 몇 가지 주요 이점은 다음과 같습니다.
 
@@ -64,11 +64,11 @@ Azure Service Bus의 AMQP 1.0 지원은 효율적인 이진 프로토콜을 사�
 
 Azure SDK를 통해 사용할 수 있는 지원 되는 모든 Service Bus 클라이언트 라이브러리는 AMQP 1.0를 사용 합니다.
 
-- [.NET 용 Azure Service Bus](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Java 용 Azure Service Bus 라이브러리](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
-- [Azure Service Bus provider for Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [JavaScript 및 TypeScript 용 Azure Service Bus 모듈](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Python 용 Azure Service Bus 라이브러리](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [.NET용 Azure Service Bus](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
+- [Java용 Azure Service Bus 라이브러리](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Java JMS 2.0용 Azure Service Bus 공급자](how-to-use-java-message-service-20.md)
+- [JavaScript 및 TypeScript용 Azure Service Bus 모듈](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
+- [Python용 Azure Service Bus 라이브러리](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 

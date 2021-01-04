@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484008"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709302"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -47,8 +47,10 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 | 데이터 형식 | 테스트에 사용 됨 | 권장 수량 | 학습에 사용 됨 | 권장 수량 |
 |-----------|-----------------|----------|-------------------|----------|
 | [오디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
-| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1 ~ 1000 시간 (오디오) |
+| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1-20 시간 (오디오) |
 | [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+
+새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다.
 
 파일은 형식에 따라 데이터 집합으로 그룹화 되 고 .zip 파일로 업로드 되어야 합니다. 각 데이터 집합은 단일 데이터 형식만 포함할 수 있습니다.
 
@@ -117,9 +119,9 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > [!NOTE]
 > 학습 및 테스트 데이터를 업로드할 때 .zip 파일 크기는 2gb를 초과할 수 없습니다. *단일* 데이터 집합 에서만 테스트할 수 있으며, 적절 한 파일 크기 내에서 유지 해야 합니다. 또한 각 학습 파일은 60 초를 초과할 수 없습니다. 그렇지 않으면 오류가 발생 합니다.
 
-단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 1000 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
+단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 20 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-  다음은 그 예입니다. 
+  예를 들면 다음과 같습니다.
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -135,6 +137,8 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 > [!div class="mx-imgBorder"]
 > ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+음성 서비스 구독에 대해 권장 되는 지역 목록은 [Azure 계정 설정](custom-speech-overview.md#set-up-your-azure-account) 을 참조 하세요. 이러한 지역 중 하나에서 음성 구독을 설정 하면 모델을 학습 하는 데 걸리는 시간이 줄어듭니다.
 
 ## <a name="related-text-data-for-training"></a>학습에 대 한 관련 텍스트 데이터
 
