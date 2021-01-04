@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 09/15/2020
-ms.openlocfilehash: 4e9b5326f8ce28e94c829f9aed56d035c256be52
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 27eb4383084e9a782e0c2cb8ff734fba8496c9f1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625538"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582673"
 ---
 이 가이드는 Go용 Custom Vision 클라이언트 라이브러리를 사용하여 이미지 분류 모델을 빌드하는 데 유용한 지침과 샘플 코드를 제공합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습시키고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -188,6 +188,8 @@ Done!
 ```
 
 그러면 테스트 이미지(**<base_image_url>/Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

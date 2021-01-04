@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0a1cac0fe61ea13a18224ea5992b5c7c1ba69d8a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b52fbd820c4b4603481f585ea0b0983720cabb22
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510338"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709091"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
+
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Azure Security Center는 데이터 센터의 보안 상태를 강화하고, 온-프레미스뿐 아니라 Azure에 있는지 여부와 관계없이 클라우드의 전체 하이브리드 워크로드에 대해 지능형 위협 방지 기능을 제공하는 통합된 인프라 보안 관리 시스템입니다.
 

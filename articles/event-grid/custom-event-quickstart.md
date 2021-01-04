@@ -4,12 +4,12 @@ description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 사�
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e83c9193ef3beaed2a5a65afe964a1687a2d2505
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 0a3d8f5a1614704cea4242ce64ecc6c4504da754
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566336"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702024"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 
@@ -60,7 +60,7 @@ az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```azurecli-interactive
 sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group gridResourceGroup \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost

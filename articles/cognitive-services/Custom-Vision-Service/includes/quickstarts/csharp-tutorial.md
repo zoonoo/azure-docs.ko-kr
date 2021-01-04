@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6e703c8f0a75340253d72305ad4e5ce046af4535
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 1e6884b1eb342c55823414e92f679ddfcbe35f5f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625309"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582522"
 ---
 .NET용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 이미지 분류 모델을 빌드하기 위한 예제 코드를 사용해 봅니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -46,7 +46,7 @@ Visual Studio를 사용하여 새 .NET Core 애플리케이션을 만듭니다.
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치 
 
-새 프로젝트가 만들어지면 **솔루션 탐색기** 에서 마우스 오른쪽 단추로 프로젝트 솔루션을 클릭하고, **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` 및 `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`을 검색합니다. 최신 버전을 선택한 다음, **설치** 를 선택합니다. 
+새 프로젝트를 만든 후 **솔루션 탐색기** 에서 프로젝트 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고, **시험판 포함** 을 선택하고, `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training` 및 `Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction`을 검색합니다. 최신 버전을 선택한 다음, **설치** 를 선택합니다. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -96,11 +96,11 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 및 예측 키를 모두 가져와야 합니다.
+> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Custom Vision 리소스가 성공적으로 배포되면 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키와 엔드포인트를 찾을 수 있습니다. 학습 리소스의 엔드포인트와 함께 학습 및 예측 키를 모두 받아야 합니다.
 >
 > 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
-애플리케이션의 **Main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 이러한 메서드는 나중에 구현합니다.
+애플리케이션의 **Main** 메서드에서 이 빠른 시작에 사용된 메서드에 대한 호출을 추가합니다. 이러한 기능은 나중에 구현합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_maincalls)]
 
@@ -212,6 +212,8 @@ Making a prediction:
 ```
 
 그러면 테스트 이미지(**Images/Test/** 에 있음)에 태그가 적절하게 지정되는지 확인할 수 있습니다. 애플리케이션을 종료하려면 아무 키나 누릅니다. [Custom Vision 웹 사이트](https://customvision.ai)로 돌아가서 새로 만든 프로젝트의 현재 상태를 살펴볼 수도 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 

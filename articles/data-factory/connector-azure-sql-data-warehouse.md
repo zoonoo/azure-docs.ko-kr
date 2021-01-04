@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: 7f92b4327b53b38cc83493c65ad573523546ee58
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 12/18/2020
+ms.openlocfilehash: 68f536e06ec5a40083d96745f5b72e511e423f64
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095120"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695183"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에서 데이터 복사 및 변환
 
@@ -61,7 +61,7 @@ ms.locfileid: "97095120"
 
 Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성            | Description                                                  | 필수                                                     |
+| 속성            | 설명                                                  | 필수                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | type 속성은 **AzureSqlDW** 로 설정해야 합니다.             | 예                                                          |
 | connectionString    | **connectionString** 속성에 대해 Azure Synapse Analytics 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예                                                          |
@@ -222,7 +222,7 @@ Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다
 
 Azure Synapse Analytics 데이터 세트에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성  | Description                                                  | 필수                    |
+| 속성  | 설명                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 **type** 속성을 **AzureSqlDWTable** 로 설정해야 합니다. | 예                         |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -261,7 +261,7 @@ Azure Synapse Analytics 데이터 세트에 대해 지원되는 속성은 다음
 
 Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본의 **type** 속성을 **SqlDWSource** 로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성                     | Description                                                  | 필수 |
+| 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 **type** 속성을 **SqlDWSource** 로 설정해야 합니다. | 예      |
 | SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 예       |
@@ -273,7 +273,11 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
 | **_`partitionSettings` :_* _ | | |
 | partitionColumnName |  `int` `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` 병렬 복사를 위해 범위 분할에서 사용할 원본 열 _ in integer 또는 date/datetime 유형 * (,,,,,, 또는)의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfDynamicRangePartitionCondition ` WHERE 절에 후크 합니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 파티션 범위 분할에 대 한 파티션 열의 최대값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.  <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 예 |
-| partitionLowerBound | 파티션 범위 분할에 대 한 파티션 열의 최소값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 예 |
+| partitionLowerBound | 파티션 범위 분할에 대 한 파티션 열의 최소값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 아니요 |
+
+**다음 사항에 유의 하세요.**
+
+- 원본에서 저장 프로시저를 사용 하 여 데이터를 검색할 때 저장 프로시저가 다른 매개 변수 값이 전달 될 때 다른 스키마를 반환 하도록 디자인 된 경우 UI에서 스키마를 가져올 때 또는 자동 테이블 생성을 사용 하 여 SQL database로 데이터를 복사 하는 경우 예기치 않은 결과가 발생할 수 있습니다.
 
 **예: SQL 쿼리 사용**
 
@@ -376,7 +380,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 세 
 
 Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크 형식을 **SqlDWSink** 로 설정 합니다. 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink** 로 설정해야 합니다. | 예                                           |
 | allowPolyBase     | PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다.     |
@@ -482,7 +486,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 복사 작업의 `polyBaseSettings`에서 다음 PolyBase 설정이 지원됩니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
 | rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage** 입니다. | 예                                            |
@@ -710,7 +714,7 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 
 복사 작업의 `allowCopyCommand`에서 다음 COPY 문 설정이 지원됩니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Azure Synapse Analytics의 각 대상 열에 대 한 기본값을 지정 합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 ID 열에는 기본값을 사용할 수 없습니다. | 예 |
 | additionalOptions | [Copy 문의](/sql/t-sql/statements/copy-into-transact-sql)"With" 절에서 직접 Azure SYNAPSE Analytics 복사 문에 전달 되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
