@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182838"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704319"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure 증명 문제 해결 가이드
 
@@ -280,7 +280,7 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
 사용자에 게 적절 한 역할이 할당 되었습니다. 그러나 PowerShell을 통해 증명 정책을 관리 하는 동안 권한 부여 문제가 발생 했습니다.
 
 ### <a name="error"></a>오류
-개체 id가 있는 클라이언트에 게 <object Id>  작업을 수행할 수 있는 권한이 없습니다. 구독/ <subscriptionId> resourcegroups/secure_enclave_poc/providers/microsoft.authorization/roleassignments/' 범위에 대 한 authorization/roleassignments/write <role assignmentId> 또는 범위가 잘못 되었습니다. 액세스 권한이 최근에 부여 된 경우 자격 증명을 새로 고 치세요.
+개체 id가 개체 Id 인 클라이언트에 게 &lt; &gt;  작업을 수행할 수 있는 권한이 없습니다. ' 구독/ &lt; subscriptionId &gt; resourcegroups/secure_enclave_poc/providers/microsoft.authorization/roleassignments/role assignmentId ' 범위에 대 한 authorization/roleassignments/write &lt; &gt; 또는 범위가 잘못 되었습니다. 액세스 권한이 최근에 부여 된 경우 자격 증명을 새로 고 치세요.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 

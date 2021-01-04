@@ -80,7 +80,8 @@
         - name: 컨테이너 구성
           href: text-analytics-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
-          href: how-tos/text-analytics-how-to-use-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Kubernetes 서비스(AKS) 사용
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
         - name: Cognitive Services 컨테이너 설명서

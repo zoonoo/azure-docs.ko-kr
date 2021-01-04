@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512048"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705407"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -94,7 +94,7 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 | -------------------------- |------------ | -------------------------------- |
 | **실험**        |체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
 | **개발/테스트 환경**   |Basic        | 최대 14KB, 2GB 크기까지 게시    |
-| **프로덕션 환경** |Standard     | KB 최대 49개, 25GB 크기까지 게시 |
+| **프로덕션 환경** |표준     | KB 최대 49개, 25GB 크기까지 게시 |
 
 ---
 
@@ -268,8 +268,10 @@ Azure Portal 만들기 창에서 관리 되는 QnA Maker (미리 보기) 리소�
 
 > [!div class="mx-imgBorder"]
 > ![관리 QnA Maker (미리 보기) Azure Portal 리소스 목록 스크린샷](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+
 > [!TIP]
 > QnA Maker 리소스를 만들 때 새 리소스 그룹을 만듭니다. 이렇게 하면 리소스 그룹별로 검색할 때 QnA Maker 관리 (미리 보기) 리소스와 연결 된 모든 리소스를 볼 수 있습니다.
+
 > [!TIP]
 > 명명 규칙을 사용 하 여 리소스 이름 또는 리소스 그룹 내의 가격 책정 계층을 지정 합니다. 새 기술 자료를 만들거나 새 문서를 추가 하는 것에서 오류가 발생 하는 경우 Cognitive Search 가격 책정 계층 한도가 일반적인 문제입니다.
 

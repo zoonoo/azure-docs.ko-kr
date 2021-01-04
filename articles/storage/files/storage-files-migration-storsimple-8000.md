@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512174"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723981"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -137,7 +137,7 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 올바른 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있습니다. 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 
-#### <a name="resource-group"></a>Resource group
+#### <a name="resource-group"></a>리소스 그룹
 
 리소스 그룹은 리소스 구성과 관리 관리 권한을 지원 합니다. [Azure에서 리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)에 대해 자세히 알아보세요.
 
@@ -160,7 +160,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
 
 아직 확실 하지 않나요?
 
-* [프리미엄 Azure 파일 공유의 성능이](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)필요한 경우 premium storage를 선택 합니다.
+* [프리미엄 Azure 파일 공유의 성능이](understanding-billing.md#provisioned-billing)필요한 경우 premium storage를 선택 합니다.
 * 핫 데이터 및 보관 데이터를 포함 하는 범용 파일 서버 작업에 대 한 표준 저장소를 선택 합니다. 또한 클라우드의 공유에서 유일한 작업을 Azure File Sync 하는 경우 standard storage를 선택 합니다.
 
 #### <a name="account-kind"></a>계정 종류
@@ -209,7 +209,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="새 파일 공유 UI를 보여 주는 Azure Portal 스크린샷.":::
     :::column-end:::
     :::column:::
-        </br>**이름**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
+        </br>**Name**</br>소문자, 숫자 및 하이픈만 사용할 수 있습니다.</br></br>**할당량**</br>여기에서 할당량은 Windows Server 인스턴스의 SMB 하드 할당량과 비교할 수 있습니다. 할당량에 도달 하면 마이그레이션 및 기타 서비스가 실패 하기 때문에 여기서 할당량을 설정 하지 않는 것이 좋습니다.</br></br>**계층**</br>새 파일 공유에 대해 **최적화 된 트랜잭션** 을 선택 합니다. 마이그레이션 중에는 많은 트랜잭션이 발생 합니다. 계층을 나중에 작업에 가장 적합 한 계층으로 변경 하는 것이 더 비용 효율적입니다.
     :::column-end:::
 :::row-end:::
 
@@ -244,7 +244,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
         ![StorSimple 8000 시리즈 마이그레이션 작업](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "데이터 변환 서비스 작업에 대 한 새 작업 생성 양식의 스크린샷")
     :::column-end:::
     :::column:::
-        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>Target</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
+        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>대상</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
     :::column-end:::
 :::row-end:::
 
@@ -429,8 +429,8 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 1. 로 이동 하 여 **Microsoft\FileSync\Agent\Telemetry** 를 엽니다.
 1. 완료 된 동기화 세션에 해당 하는 최신 **이벤트 9102** 을 찾습니다.
 1. **세부 정보** 를 선택 하 고 **Syncdirection** 값이 **다운로드** 되는 이벤트를 확인 하 고 있는지 확인 합니다.
-1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오**, 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  **0** 합니다.
-1. 해당 이벤트를 놓친 경우 **syncdirection** **9102 events**  =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
+1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오**, 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  합니다.
+1. 해당 이벤트를 놓친 경우 **syncdirection**   =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
 
 ### <a name="a-final-robocopy"></a>최종 RoboCopy
 

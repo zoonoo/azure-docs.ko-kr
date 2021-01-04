@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 300e0ff26d643ae0263d21e604cb26da37a18841
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204744"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723828"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>ArrInspector 검사 도구
 
@@ -25,13 +25,13 @@ ARR 서버의 호스트 이름 (종료)을 가져온 후에는 `mixedreality.azu
 를 호출 하는 앱 `ConnectToArrInspectorAsync` 이 PC에서 이미 실행 중인 경우:
 
 * Unity 통합을 사용 하는 경우 자동으로 시작 될 수 있습니다.
-* 그렇지 않으면 *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도*에서 파일을 찾을 수 있습니다.
+* 그렇지 않으면 *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도* 에서 파일을 찾을 수 있습니다.
 
 앱이 HoloLens에서 실행 되는 경우:
 
 1. [Windows 장치 포털](/windows/mixed-reality/using-the-windows-device-portal)을 사용 하 여 HoloLens에 액세스 합니다.
-1. *시스템 > 파일 탐색기*로 이동 합니다.
-1. *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도*로 이동 합니다.
+1. *시스템 > 파일 탐색기* 로 이동 합니다.
+1. *사용자 폴더 \\ LocalAppData \\ [your_app] \\ AC \\ 온도* 로 이동 합니다.
 1. *StartArrInspector.html* 을 PC에 저장 합니다.
 1. *StartArrInspector.html* 을 열어 세션의 ArrInspector를 로드 합니다.
 
@@ -108,17 +108,3 @@ CTRL 키를 누른 상태로 끌면 확대/축소할 수 있습니다. 가로 �
 ![일시 중지 모드](./media/pause-mode.png)
 
 라이브 업데이트를 다시 사용 하도록 설정 하면 모든 패널이 다시 설정 됩니다.
-
-## <a name="host-configuration"></a>호스트 구성
-
-기본적으로이 도구는 ArrInspector를 제공 하는 동일한 호스트에서 실행 되는 ARR 서버에 연결 합니다. 그러나 도구 포트가 열려 있는 ARR 인스턴스를 실행 하 고 있다고 가정 하 고 다른 서버를 검사 하도록 구성할 수 있습니다.
-
-이렇게 하려면 머리글 표시줄의 왼쪽에 있는 주 메뉴에 액세스 하 고 *호스트 구성*을 선택 합니다. **새 호스트 추가**를 클릭 하 고 이름 및 호스트 이름을 입력 합니다. *호스트 이름* 에는에서 끝나는 호스트 이름만 사용 `.mixedreality.azure.com` 하 고 `http://` 또는 포트는 포함 하지 마세요.
-
-![호스트 구성](./media/host-configuration.png)
-
-한 호스트에서 다른 호스트로 신속 하 게 전환 하려면 오른쪽 위에 있는 드롭다운을 사용 합니다.
-
-![호스트 콤보](./media/host-switch-combo.png)
-
-호스트 목록은 브라우저 로컬 저장소에 저장 되므로 동일한 브라우저를 다시 열면 유지 됩니다.

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587573"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705135"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>관리 Id (미리 보기)를 사용 하 여 Azure Stream Analytics 작업을 Azure Blob Storage에 인증 합니다.
 
@@ -98,7 +98,7 @@ Azure Resource Manager를 사용 하면 Stream Analytics 작업의 배포를 완
     아래 Azure CLI 명령을 사용 하 여 리소스 그룹 **ExampleGroup** 에 위의 작업을 배포할 수 있습니다.
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. 작업을 만든 후 Azure Resource Manager를 사용 하 여 작업의 전체 정의를 검색할 수 있습니다.

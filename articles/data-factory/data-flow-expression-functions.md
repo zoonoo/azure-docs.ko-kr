@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/01/2020
-ms.openlocfilehash: 875b84613bede922b01b1043f2d6dab9aedbc2e8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/18/2020
+ms.openlocfilehash: f715a51367a82f190d394ecb8e10dea24ca70e97
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436932"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706918"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -1890,6 +1890,28 @@ ___
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+
+## <a name="cached-lookup-functions"></a>캐시 된 조회 함수
+다음 함수는 캐시 된 싱크를 포함할 때 캐시 된 조회를 사용 하는 경우에만 사용할 수 있습니다.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 첫 번째 행을 조회 합니다.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 일치 하는 모든 행을 조회 합니다.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+캐시 싱크 결과의 첫 번째 행을 반환 합니다. * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+캐시 싱크 결과의 전체 출력 행 집합을 반환 합니다. * ``cacheSink#outputs()``
+___
 
 ## <a name="window-functions"></a>창 함수
 다음 함수는 창 변환 에서만 사용할 수 있습니다.

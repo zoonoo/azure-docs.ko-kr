@@ -1,7 +1,7 @@
 ---
-title: Azure Machine Learning 디자이너를 사용 하 여 모델 다시 학습
+title: 파이프라인 매개 변수를 사용 하 여 디자이너에서 모델 다시 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning designer에서 게시 된 파이프라인을 사용 하 여 기계 학습 모델을 다시 학습 하는 방법을 알아봅니다.
+description: Azure Machine Learning designer에서 게시 된 파이프라인 및 파이프라인 매개 변수를 사용 하 여 모델을 다시 학습 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437119"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708469"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>파이프라인 매개 변수를 사용 하 여 디자이너에서 모델 다시 학습
 
 
-이 방법 문서에서는 Azure Machine Learning 디자이너를 사용하여 기계 학습 모델을 재학습시키는 방법에 대해 알아봅니다. 게시된 파이프라인을 사용하여 워크플로를 자동화하고 매개 변수를 설정하여 새 데이터에 대한 모델을 학습시킵니다. 
+이 방법 문서에서는 Azure Machine Learning designer를 사용 하 여 파이프라인 매개 변수를 사용 하 여 Machine Learning 모델을 다시 학습 하는 방법을 알아봅니다. 게시된 파이프라인을 사용하여 워크플로를 자동화하고 매개 변수를 설정하여 새 데이터에 대한 모델을 학습시킵니다. 파이프라인 매개 변수를 사용 하면 다른 작업에 대해 기존 파이프라인을 다시 사용할 수 있습니다.  
 
 이 문서에서는 다음 방법을 설명합니다.
 

@@ -8,12 +8,12 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 57db06d5d17793d87500e3fedd5fc9c682ce34eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 706432c039bc38e9799828ae752d6ad0c92ffde3
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89077554"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704608"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 토픽 및 구독이 있는 Service Bus 네임스페이스 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "89077554"
 > * [큐 및 권한 부여 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-auth-rule.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 **Service Bus**를 검색합니다.
+> 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 **Service Bus** 를 검색합니다.
 
 ## <a name="what-do-you-deploy"></a>배포할 항목
 
@@ -94,7 +94,7 @@ Service Bus 네임스페이스에서 만든 구독의 이름입니다.
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
 
-토픽 및 구독이 있는 **메시징**형식의 표준 Service Bus 네임스페이스를 만듭니다.
+토픽 및 구독이 있는 **메시징** 형식의 표준 Service Bus 네임스페이스를 만듭니다.
 
 ```json
 "resources": [{
@@ -144,7 +144,7 @@ New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<
 ## <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
-az group deployment create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+az deployment group create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>다음 단계

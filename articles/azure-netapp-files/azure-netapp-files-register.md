@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61d6ba1f908a7dae56db066bfae329fc26f1c5c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533641"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696132"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
 
@@ -30,7 +30,8 @@ ms.locfileid: "91533641"
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>서비스 액세스에 대 한 waitlist 요청을 제출 합니다.
 
-1. [Azure NetApp Files waitlist 제출 페이지](https://aka.ms/azurenetappfiles)를 통해 Azure NetApp Files 서비스에 액세스 하기 위한 waitlist 요청을 제출 합니다. 
+1. 다음 페이지로 이동 하 여 Azure NetApp Files 서비스에 액세스 하기 위한 waitlist 요청을 제출 합니다.  
+    [**Azure NetApp Files waitlist 제출 페이지**](https://aka.ms/azurenetappfiles) 
 
     Waitlist 등록은 즉각적인 서비스 액세스를 보장 하지 않습니다. 
 
@@ -101,7 +102,7 @@ ms.locfileid: "91533641"
 
 6. Azure Portal에서 **구독** 블레이드를 클릭합니다.
 7. 구독 블레이드에서 구독 ID를 클릭합니다. 
-8. 구독 설정에서 **리소스 공급자**를 클릭하여 Microsoft.NetApp 공급자가 등록됨 상태를 나타내는지 확인합니다. 
+8. 구독 설정에서 **리소스 공급자** 를 클릭하여 Microsoft.NetApp 공급자가 등록됨 상태를 나타내는지 확인합니다. 
 
       ![등록된 Microsoft.NetApp](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 

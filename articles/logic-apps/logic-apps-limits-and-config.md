@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 16002d7acf97832f743410a203e2f76e99646c0c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673361"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707472"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -412,7 +412,9 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement** 를 사용하면 복잡성을 줄일 수 있습니다.
-> 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
+> 관리 되는 커넥터의 경우 필요에 따라 각 지역에 대해 인바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 **azureconnectors** 서비스 태그를 사용할 수 있습니다.
+> 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -476,7 +478,7 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps** 를 사용하면 복잡성을 줄일 수 있습니다.
-> 관리 되는 커넥터의 경우 필요에 따라 각 지역에 대해 아웃 바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 **azureconnectors** 서비스 태그를 사용할 수 있습니다. 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다. 
+> 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다. 
 
 <a name="multi-tenant-outbound"></a>
 

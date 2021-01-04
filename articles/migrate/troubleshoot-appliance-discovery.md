@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 647e07fe32beedbd54ca6c5bb95c1de9564df2fd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654016"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704030"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "97654016"
 
 "제공 된 매니페스트 파일이 잘못 되었습니다. 잘못 된 위치 매니페스트 항목입니다." 오류가 표시 되 면 다음을 수행 합니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아봅니다](./tutorial-discover-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](./tutorial-discover-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트를 사용 하 여 (vCenter Server 대신) ESXi 호스트에 직접 연결 합니다 (https://<*호스트 IP 주소*>/uis).
@@ -42,12 +42,6 @@ ms.locfileid: "97654016"
 - URL 기반 방화벽 프록시를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 [이러한 url](migrate-appliance.md#url-access) 을 허용 목록에 추가 합니다.
 - 가로채기 프록시를 사용 하 여 인터넷에 연결 하는 경우 [다음 단계](./migrate-appliance.md)를 사용 하 여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
 
-
-## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>' 로그인 ' 단추를 클릭 하면 장치 코드가 없는 새 탭이 열립니다.
-
-어플라이언스 구성 관리자에서 ' 로그인 ' '를 클릭 한 후에는 새 탭이 코드 없이 열리고 어플라이언스 구성 관리자 탭으로 돌아가서 아래 스크린샷에 표시 된 것 처럼 ' 로그인 ' ' 단추 아래에 있는 굵은 글꼴로 장치 코드를 찾을 수 있습니다. 코드를 복사 하 여 로그인 탭에 붙여넣어 Azure를 인증 합니다.
-
-![디바이스 코드](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>어플라이언스 웹 앱에서 Azure에 로그인 할 수 없습니다.
 

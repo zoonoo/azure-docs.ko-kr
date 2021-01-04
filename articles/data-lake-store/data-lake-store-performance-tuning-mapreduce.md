@@ -1,27 +1,27 @@
 ---
 title: Azure Data Lake Storage Gen1 성능 조정-MapReduce
 description: 매개 변수, 지침, 예제 계산 및 제한 사항을 포함 하 여 Azure Data Lake Storage Gen1에서 MapReduce에 대 한 성능 조정에 대해 알아봅니다.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 2653e0b557f7c5c04184628b3266e8f2909130f6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 2549413241e422fb1e0e5e1f079c287e0b7cf005
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108289"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723731"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 MapReduce 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **HDInsight에서 MapReduce 사용**. 자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](../hdinsight/hadoop/hdinsight-use-mapreduce.md)을 참조하세요.
-* **Data Lake Storage Gen1에 대 한 성능 조정 지침을 검토**합니다. 일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md) 을 참조 하세요.
+* **Data Lake Storage Gen1에 대 한 성능 조정 지침을 검토** 합니다. 일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md) 을 참조 하세요.
 
 ## <a name="parameters"></a>매개 변수
 

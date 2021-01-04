@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: cc479f8e4dc87155721b25fab2ba522880b0ac4f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 749dd17c6f9b09db1841459da951b44470d8bb92
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751060"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704710"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -115,11 +115,16 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
 1. 포털에서 복사한 **Azure Migrate 프로젝트 키** 를 붙여넣습니다. 키가 없는 경우 **서버 평가 > 검색 > 기존 어플라이언스 관리** 로 차례로 이동하여 키 생성 시 제공한 어플라이언스 이름을 선택하고, 해당 키를 복사합니다.
-1. **로그인** 을 클릭합니다. 그러면 새 브라우저 탭에서 Azure 로그인 프롬프트가 열립니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. Azure를 사용 하 여 인증 하려면 장치 코드가 필요 합니다. **로그인** 을 클릭 하면 아래와 같이 장치 코드가 포함 된 모달이 열립니다.
+
+    ![장치 코드를 보여 주는 모달](./media/tutorial-discover-vmware/device-code.png)
+
+1. **코드 복사 & 로그인** 을 클릭 하 여 장치 코드를 복사 하 고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시 되지 않으면 브라우저에서 팝업 차단을 사용 하지 않도록 설정 했는지 확인 합니다.
+1. 새 탭에서 장치 코드를 붙여넣고 Azure 사용자 이름 및 암호를 사용 하 여 로그인 합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
-3. 성공적으로 로그인하면 웹앱으로 돌아갑니다. 
+3. 로그인 탭을 실수로 로그인 하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용 하도록 설정 해야 합니다.
+1. 성공적으로 로그인 한 후에 어플라이언스 구성 관리자를 사용 하 여 이전 탭으로 다시 이동 합니다.
 4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](./tutorial-discover-vmware.md#prepare-an-azure-user-account)이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
 

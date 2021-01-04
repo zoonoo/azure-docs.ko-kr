@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4727fa292a2516f3fa42578cb8ea1709951e0778
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: fd5fa4e09dd3f73aa7a8f044ded04d504bd2f3dd
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325148"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705475"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
@@ -108,7 +108,7 @@ Azure Resource Manager 템플릿에 익숙치 않은데 시도하려는 경우 �
 ```azurecli-interactive
 az login
 az group create -n ExampleResourceGroup  -l "West US2"
-az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+az deployment group create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 
 ## <a name="get-the-connection-information"></a>연결 정보 가져오기

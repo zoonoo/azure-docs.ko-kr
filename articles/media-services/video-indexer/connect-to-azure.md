@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 282e1ef98a3c0d6e152b56a180a639c86d004af9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493103"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702634"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
@@ -25,7 +25,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 *평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독
 
@@ -107,9 +107,14 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 1. [Azure](https://portal.azure.com/) Portal을 사용하여 [계정 만들기](../previous/media-services-portal-create-account.md)에 설명된 대로 Azure Media Services 계정을 만듭니다.
 
+     클래식 Api를 사용 하 여 Media Services 계정이 만들어졌는지 확인 합니다. 
+ 
+    ![Media Services 클래식 API](./media/create-account/enable-classic-api.png)
+
+
     Media Services 계정에 대 한 저장소 계정을 만들 때 복제 필드의 계정 종류 및 **지역 중복** (GRS)에 대해 **StorageV2** 를 선택 합니다.
 
-    ![새 AMS 계정](./media/create-account/create-ams-account1.png)
+    ![새 AMS 계정](./media/create-account/create-new-ams-account.png)
 
     > [!NOTE]
     > Media Services 리소스 및 계정 이름을 기록해 둡니다. 다음 섹션의 단계에 필요 합니다.
@@ -120,7 +125,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
     새 Media Services 계정에서 **스트리밍 끝점** 을 선택 합니다. 그런 다음 스트리밍 끝점을 선택 하 고 시작을 누릅니다.
 
-    ![스트리밍 엔드포인트](./media/create-account/create-ams-account2.png)
+    ![스트리밍 엔드포인트](./media/create-account/create-ams-account-se.png)
 4. Media Services API를 사용 하 여 인증 Video Indexer AD 앱을 만들어야 합니다. 다음 단계는 [Azure Portal을 사용하여 Azure AD 인증 시작](../previous/media-services-portal-get-started-with-aad.md)에 설명된 Azure AD 인증 프로세스를 안내합니다.
 
     1. 새 Media Services 계정에서 **API 액세스** 를 선택합니다.
@@ -140,14 +145,14 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|설명|
+|설정|Description|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
 |구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스** 를 선택 하 고 "구독"을 검색 합니다. **구독** 을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
-|애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
+|애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
 |애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기
@@ -171,7 +176,9 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 다음과 같은 Azure Media Services 관련 고려 사항이 적용됩니다.
 
-* 자동으로 연결 하는 경우 Azure 구독에 새 리소스 그룹, Media Services 계정 및 저장소 계정이 표시 됩니다.
+* 기존 Media Services 계정에 연결 하려는 경우 클래식 Api를 사용 하 여 Media Services 계정을 만들었는지 확인 합니다. 
+ 
+    ![Media Services 클래식 API](./media/create-account/enable-classic-api.png)
 * 기존 Media Services 계정에 연결 하는 경우 Video Indexer 기존 미디어 **예약 단위** 구성을 변경 하지 않습니다.
 
    계획 된 부하에 따라 미디어 예약 단위 유형 및 수를 조정 해야 할 수 있습니다. 로드가 높고 단위 또는 속도가 충분하지 않으면 비디오 처리로 인해 시간 제한 오류가 발생할 수 있습니다.

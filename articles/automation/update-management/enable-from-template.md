@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: ce04053d7b624bddf8c0d3a6476f26c3462af2c2
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 88dd82ee7e004a3613d6d9892b0e853406f4caf4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652027"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696152"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 
@@ -316,7 +316,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
     **Azure CLI**
 
     ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
     배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 결과가 포함된 메시지가 표시됩니다.

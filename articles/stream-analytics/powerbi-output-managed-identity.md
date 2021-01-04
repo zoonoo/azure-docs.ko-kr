@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573411"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705101"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>관리 Id를 사용 하 여 Power BI에 Azure Stream Analytics 작업 인증 (미리 보기)
 
@@ -19,7 +19,7 @@ Power BI 출력을 위한 [관리 되는 id 인증은](../active-directory/manag
 
 이 문서에서는 Azure Portal 및 Azure Resource Manager 배포를 통해 Stream Analytics 작업의 Power BI 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능을 사용 하려면 다음이 필요 합니다.
 
@@ -100,7 +100,7 @@ Azure Resource Manager를 사용 하 여 Stream Analytics 작업의 배포를 �
     아래 Azure CLI 명령을 사용 하 여 리소스 그룹 **ExampleGroup** 위의 작업을 배포 합니다.
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. 작업을 만든 후 Azure Resource Manager를 사용 하 여 작업의 전체 정의를 검색 합니다.

@@ -3,25 +3,37 @@ title: Azure Key Vault 복구 개요 | Microsoft Docs
 description: Key Vault 복구 기능은 키 자격 증명 모음에 저장 된 키 자격 증명 모음 및 암호, 키 및 인증서를 실수로 또는 악의적으로 삭제할 수 없도록 설계 되었습니다.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
-ms.date: 12/15/2020
-ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
+ms.date: 09/30/2020
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587114"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704217"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하도록 설정 하는 방법
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하 여 복구 관리 Azure Key Vault
 
 이 문서에서는 Azure Key Vault, 일시 삭제 및 보호 제거의 두 가지 복구 기능에 대해 설명 합니다. 이 문서에서는 이러한 기능에 대해 간략하게 설명 하 고 Azure Portal, Azure CLI 및 Azure PowerShell를 통해 이러한 기능을 관리 하는 방법을 보여 줍니다.
 
+Key Vault에 대 한 자세한 내용은을 참조 하십시오.
+- [Key Vault 개요](overview.md)
+- [Azure Key Vault 키, 암호 및 인증서 개요](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
+* [PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps)입니다.
+* [Azure CLI](/cli/azure/install-azure-cli)
+* Key Vault - [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 만들 수 있습니다.
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거 란?
 
-일시 삭제 및 보호 제거는 두 가지 주요 자격 증명 모음 복구 기능입니다.
+[일시 삭제](soft-delete-overview.md) 및 보호 제거는 두 가지 주요 자격 증명 모음 복구 기능입니다.
+
 > [!IMPORTANT]
 > 키 자격 증명 모음 및 자격 증명을 실수로 삭제 하지 않도록 보호 하려면 일시 삭제를 설정 하는 것이 중요 합니다. 그러나 일시 삭제를 설정 하는 것은 응용 프로그램 논리를 변경 하거나 서비스 사용자에 게 추가 권한을 제공 해야 할 수 있으므로 주요 변경 내용으로 간주 됩니다. 아래 지침을 사용 하 여 일시 삭제를 설정 하기 전에이 문서를 사용 하 여 응용 프로그램이 변경 내용과 호환 되는지 확인 하세요 [ .](soft-delete-change.md)
 
@@ -33,6 +45,8 @@ ms.locfileid: "97587114"
 
 > [!NOTE]
 > 제거 방지는 관리자 역할이 나 사용 권한이 제거 방지를 재정의, 사용 안 함 또는 우회 할 수 없도록 설계 되었습니다. **제거 보호를 사용 하도록 설정한 후에는 Microsoft를 포함 한 모든 사용자가 사용 하지 않도록 설정 하거나 재정의할 수 없습니다.** 즉, 키 자격 증명 모음 이름을 다시 사용 하기 전에 삭제 된 key vault를 복구 하거나 보존 기간이 경과할 때까지 기다려야 합니다.
+
+일시 삭제에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md) 를 참조 하세요.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -370,3 +384,14 @@ ms.locfileid: "97587114"
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>다음 단계
+
+- [PowerShell cmdlet Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Key Vault Azure CLI 명령](https://docs.microsoft.com/cli/azure/keyvault)
+- [Azure Key Vault 백업](backup.md)
+- [키 자격 증명 모음 로깅을 사용하는 방법](howto-logging.md)
+- [Key vault에 대한 액세스 보안](secure-your-key-vault.md)
+- [Azure Key Vault 개발자 가이드](developers-guide.md)
+- [주요 자격 증명 모음을 사용 하는 모범 사례](best-practices.md)

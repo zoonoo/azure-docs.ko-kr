@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: e8b8c89b94b2fbb191eee0ea57e957802a54204e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 35231eda43e766b5febd8ba90c4d92a44537e0ef
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126977"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703758"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Azure Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다. Azure Cosmos DB를 출력으로 사용 하는 경우 작업을 호환성 수준 1.2으로 설정 하는 것이 좋습니다.
@@ -97,7 +97,7 @@ Event Hubs의 들어오는 이벤트 속도는 Azure Cosmos DB 컨테이너(2만
 
 ![Azure Cosmos DB 메트릭 비교](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-1\.2를 사용하는 경우 Stream Analytics는 Azure Cosmos DB의 사용 가능한 처리량을 100% 활용하면서, 제한 또는 속도 제한에 따라 더 낮은 제출 작업을 유지합니다. 이를 통해 컨테이너에서 동시에 실행되는 쿼리 등의 다른 워크로드에 더 나은 환경을 제공합니다. Stream Analytics가 초당 1,000~10,000개 메시지의 싱크로 Azure Cosmos DB에서 스케일 아웃되는 방법을 확인하려면 [이 Azure 샘플 프로젝트](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)를 사용해 보세요.
+1\.2를 사용하는 경우 Stream Analytics는 Azure Cosmos DB의 사용 가능한 처리량을 100% 활용하면서, 제한 또는 속도 제한에 따라 더 낮은 제출 작업을 유지합니다. 이를 통해 컨테이너에서 동시에 실행되는 쿼리 등의 다른 워크로드에 더 나은 환경을 제공합니다. Stream Analytics가 초당 1,000~10,000개 메시지의 싱크로 Azure Cosmos DB에서 스케일 아웃되는 방법을 확인하려면 [이 Azure 샘플 프로젝트](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-streamanalytics-cosmosdb)를 사용해 보세요.
 
 Azure Cosmos DB 출력의 처리량은 1.0일 때와 1.1일 때 동일합니다. Azure Cosmos DB에서 Stream Analytics의 호환성 수준 1.2를 사용하도록 *강력히 권장* 됩니다.
 

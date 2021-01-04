@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004656"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708486"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -43,7 +43,7 @@ ms.locfileid: "96004656"
 다음 단계에 따라 Azure AD 역할에 대한 설정을 엽니다.
 
 1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할의 사용자를 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-gt
+
 1. **Azure AD Privileged Identity Management** &gt; **Azure AD 역할** &gt; **역할 설정** 을 엽니다.
 
     ![Azure AD 역할을 나열 하는 역할 설정 페이지](./media/pim-how-to-change-default-settings/role-settings.png)
@@ -147,7 +147,7 @@ Privileged Identity Management는 두 가지 고유한 시나리오에 대해 Az
 
 **활성화** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간(시간 단위)을 설정합니다. 이 값은 1 ~ 72시간 사이가 될 수 있습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 알림은 무단 또는 불법 활성화를 검색 하는 데 유용할 수 있습니다.
 
@@ -155,7 +155,7 @@ Privileged Identity Management는 두 가지 고유한 시나리오에 대해 Az
 
 - 권한 있는 역할 관리자
 - 보안 관리자
-- 글로벌 관리자
+- 전역 관리자
 
 자세한 내용은 [Privileged Identity Management에서 전자 메일 알림](pim-email-notifications.md)을 참조 하세요.
 
@@ -171,7 +171,7 @@ Privileged Identity Management는 두 가지 고유한 시나리오에 대해 Az
 - Azure AD 및 Microsoft 365에 대 한 높은 권한이 있는 역할에 대해서는 Azure AD Multi-Factor Authentication를 사용 하지 않도록 설정할 수 없습니다. 이 보안 기능은 다음 역할을 보호 하는 데 도움이 됩니다.  
   
   - Azure Information Protection 관리자
-  - 청구 관리자
+  - 대금 청구 관리자
   - 클라우드 애플리케이션 관리자
   - 규정 준수 관리자
   - 조건부 액세스 관리자

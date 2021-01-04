@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c321eae9451715077aa50d163b62b51ec88ce1a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95496888"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696159"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Azure 공간 앵커에서 앵커 관계 및 방법 찾기
 
@@ -64,7 +64,7 @@ ms.locfileid: "95496888"
 
 여러 세션에 앵커를 연결 하려면 다음을 수행 합니다.
 
-1. 앱은 하나의 CloudSpatialAnchorSession에서 일부 앵커를 만듭니다.
+1. 앱은 하나의 CloudSpatialAnchorSession에서 일부 앵커 (앵커 A와 B)를 만듭니다.
 2. 다른 시간에 앱은 새 CloudSpatialAnchorSession를 사용 하 여 이러한 앵커 중 하나 (예: 앵커 A)를 찾습니다.
 3. 새 위치로 이동 합니다. 기본 혼합 현실 또는 확대 현실 플랫폼은 이동을 추적 합니다.
 4. 동일한 CloudSpatialAnchorSession를 사용 하 여 앵커 C를 만듭니다. 이제 앵커 A, B, C가 연결 되어 있습니다. 공간 앵커 서비스는이 관계를 유지 합니다.

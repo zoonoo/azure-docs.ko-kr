@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: dcb5a3c664386e65e676f5559c47236126fefe87
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360070"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704931"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Azure CLI를 사용 하 여 전용 호스트에 배포
  
@@ -263,10 +263,10 @@ az group export --name myDHResourceGroup > myDHResourceGroup.json
 
 이 명령을 실행하면 `myDHResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 parameters.json 파일을 만듭니다.
  
-템플릿에서 환경을 만들려면 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create)를 사용합니다.
+템플릿에서 환경을 만들려면 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용 합니다.
 
 ```azurecli-interactive
-az group deployment create \ 
+az deployment group create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
 ```

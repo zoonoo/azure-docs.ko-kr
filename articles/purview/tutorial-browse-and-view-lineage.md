@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Purview에서 자산 찾아보기 및 해당 계보 보기'
 description: 이 자습서에서는 카탈로그에서 자산을 찾고 데이터 계보를 확인하는 방법을 설명합니다.
-author: hophanms
-ms.author: hophan
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: ab51e604412e79fb706190fef769ad76c694fd6c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 7ffbe2ded44ded4f580655f6ae9e98391490f94a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399437"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696099"
 ---
 # <a name="tutorial-browse-assets-in-azure-purview-preview-and-view-their-lineage"></a>자습서: Azure Purview(미리 보기)에서 자산 찾아보기 및 해당 계보 보기
 

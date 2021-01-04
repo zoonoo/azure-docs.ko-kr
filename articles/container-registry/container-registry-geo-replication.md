@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810058"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705169"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -59,6 +59,8 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 * 모든 지역이 동일한 이미지 URL을 사용 하므로 이미지 배포의 단일 구성을 관리 합니다. `contoso.azurecr.io/public/products/web:1.2`
 * 단일 레지스트리로 푸시하면 ACR이 지역 복제를 관리합니다. ACR은 고유한 레이어만 복제 하므로 지역 간에 데이터 전송이 줄어듭니다. 
 * 특정 복제본의 이벤트를 알리도록 지역 [웹 후크](container-registry-webhook.md) 를 구성 합니다.
+
+또한 Azure Container Registry는 Azure 지역 내에서 복원 력 및 고가용성 Azure 컨테이너 레지스트리를 만들기 위한 [가용성 영역](zone-redundancy.md) 을 지원 합니다. 지역 내 중복성에 대 한 가용성 영역을 조합 하 고 여러 지역에서 지역에서 복제를 조합 하 여 레지스트리의 안정성과 성능을 향상 시킵니다.
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 

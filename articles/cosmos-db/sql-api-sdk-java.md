@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0b48b8d954b132caab96e5978c90687899ea04c2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549228"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696276"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,6 +53,12 @@ ms.locfileid: "96549228"
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="261"></a><a name="2.6.1"></a>2.6.1
+* 서비스 interop를 통해 쿼리를 처리 하는 버그를 수정 했습니다.
+
+### <a name="260"></a><a name="2.6.0"></a>2.6.0
+* 특정 시점에서 변경 피드를 쿼리 하는 지원이 추가 되었습니다.
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * DocumentCollection 쿼리의 주 파티션 캐시 문제를 수정 합니다.
@@ -271,6 +277,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.0](#2.6.0) |2020년 7월 16일 |--- |
 | [2.5.1](#2.5.1) |June 03, 2020 |--- |
 | [2.5.0](#2.5.0) |2020년 5월 12일 |--- |
 | [2.4.7](#2.4.7) |2020년 2월 20일 |--- |

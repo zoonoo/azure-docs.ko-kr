@@ -48,7 +48,8 @@
         - name: 컨테이너 구성
           href: face-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
-          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
 - name: 시나리오 심층 분석

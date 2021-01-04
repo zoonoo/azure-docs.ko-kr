@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 99fc29071086a5c9271b8b2dec00976833a36352
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d37de4a1861cb78b4a76c8ca7bc8c3643245b32
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489781"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706969"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버 다시 시작
 
@@ -20,14 +20,15 @@ ms.locfileid: "92489781"
 
 서비스가 사용 중이면 서버 다시 시작이 차단 됩니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
 
-다시 시작을 완료 하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라 집니다. 다시 시작 시간을 줄이려면 다시 시작 하기 전에 서버에서 발생 하는 작업의 양을 최소화 하는 것이 좋습니다.
+> [!NOTE] 
+> 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다. 검사점 빈도를 늘릴 수도 있습니다. 또한를 포함 하 여 검사점 관련 매개 변수 값을 튜닝할 수 있습니다 `max_wal_size` . 또한 `CHECKPOINT` 서버를 다시 시작 하기 전에 명령을 실행 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
 - 로컬에 설치 되거나 브라우저에 [Azure Cloud Shell](https://shell.azure.com/) 된 [Az PowerShell 모듈](/powershell/azure/install-az-ps)
-- [PostgreSQL용 Azure Database 서버](quickstart-create-postgresql-server-database-using-azure-powershell.md)
+- [Azure Database for PostgreSQL 서버](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Az.PostgreSql PowerShell 모듈이 미리 보기에 있지만 `Install-Module -Name Az.PostgreSql -AllowPrerelease` 명령을 사용하여 Az PowerShell 모듈과 별도로 설치해야 합니다.

@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: f79b03884109ffbd856ff4f60909565daeb0e792
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549119"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703809"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Private Link 및 관리 ID를 사용하는 가상 네트워크에 대한 IoT Hub 지원
 
@@ -89,9 +89,15 @@ IoT Hub는 Azure Blob Storage, 이벤트 허브, 서비스 버스 리소스에 �
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="IoT Hub의 관리 ID를 켜는 방법을 보여 주는 스크린샷":::
 
+Azure CLI를 사용 하 여 관리 되는 id를 켜려면:
+
+```azurecli-interactive
+az iot hub update --name <iot-hub-resource-name> --set identity.type="SystemAssigned"
+```
+
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>ARM 템플릿을 사용 하 여 만들 때 IoT Hub에 관리 id 할당
 
-리소스 프로 비전 시간에 관리 되는 id를 IoT hub에 할당 하려면 아래 ARM 템플릿을 사용 합니다.
+리소스 프로 비전 시간에 관리 되는 id를 IoT hub에 할당 하려면 아래 ARM 템플릿을 사용 합니다. 이 ARM 템플릿에는 두 개의 필수 리소스가 있으며,와 같은 다른 리소스를 만들기 전에 두 리소스를 모두 배포 해야 `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups` 합니다. 
 
 ```json
 {
@@ -115,9 +121,9 @@ IoT Hub는 Azure Blob Storage, 이벤트 허브, 서비스 버스 리소스에 �
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-02-01",
-      "name": "updateIotHubWithKeyEncryptionKey",
+      "name": "createIotHub",
       "dependsOn": [
-        "<provide-a-valid-resource-name>"
+        "[resourceId('Microsoft.Devices/IotHubs', '<provide-a-valid-resource-name>')]"
       ],
       "properties": {
         "mode": "Incremental",

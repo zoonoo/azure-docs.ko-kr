@@ -1,18 +1,18 @@
 ---
 title: Power BI 테 넌 트 등록 및 검사 (미리 보기)
 description: Azure 부서의 범위 포털을 사용 하 여 Power BI 테 넌 트를 등록 하 고 검색 하는 방법을 알아봅니다.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615851"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696237"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -72,8 +72,6 @@ Power BI 테 넌 트의 관리 API에 연결할 수 있는 카탈로그 권한�
 
 먼저 부서의 범위 URL에 특수 기능 플래그를 추가 합니다. 
 
-1. 부서의 범위 인스턴스의 uri 끝에 다음 문자열을 추가 `?feature.ext.catalog={"pbi":"true"}` 합니다. 이렇게 하면 카탈로그에서 Power BI 등록 옵션을 사용할 수 있습니다.
-
 1. **관리 센터** 아이콘을 선택 합니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="관리 센터 아이콘.":::
@@ -112,6 +110,5 @@ Power BI 테 넌 트의 관리 API에 연결할 수 있는 카탈로그 권한�
 
 ## <a name="next-steps"></a>다음 단계
 
-PowerShell cmdlet을 사용 하 여 Power BI 테 넌 트를 등록 하 고 검색 하는 방법을 알아보려면 다음을 참조 하세요.
-  
-- [PowerShell을 사용 하 여 등록 및 검색 Power BI](powershell-register-scan-power-bi.md)
+- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
+- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)

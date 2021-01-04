@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554685"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722626"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Studio를 사용 하 여 디자이너에 학습 된 모델 배포
 
-이 문서에서는 디자이너의 학습 된 모델을 Azure Machine Learning studio에서 실시간 끝점으로 배포 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Machine Learning studio에서 디자이너 모델을 실시간 끝점으로 배포 하는 방법에 대해 알아봅니다.
+
+등록 하거나 다운로드 한 후에는 다른 모델과 마찬가지로 디자이너에서 학습 한 모델을 사용할 수 있습니다. 내보낸 모델은 IoT (사물 인터넷) 및 로컬 배포와 같은 사용 사례에서 배포할 수 있습니다.
 
 스튜디오에서 배포는 다음 단계로 구성 됩니다.
 
@@ -61,7 +63,6 @@ ms.locfileid: "94554685"
 모델을 등록 한 후에는 스튜디오의 **모델** 자산 페이지에서 찾을 수 있습니다.
     
 ![모델 자산 페이지에서 등록 된 모델의 스크린샷](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>항목 스크립트 파일 및 conda 종속성 파일 다운로드
 

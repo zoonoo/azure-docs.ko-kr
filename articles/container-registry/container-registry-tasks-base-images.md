@@ -3,12 +3,12 @@ title: 기본 이미지 업데이트-작업
 description: 응용 프로그램 컨테이너 이미지에 대 한 기본 이미지와 기본 이미지 업데이트가 Azure Container Registry 작업을 트리거할 수 있는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009826"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707489"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>ACR 작업의 기본 이미지 업데이트 정보
 
@@ -57,7 +57,7 @@ Dockerfile의 이미지 빌드의 경우 ACR 태스크는 다음 위치의 기�
 * **기본적으로 사용 하도록 설정** - [az ACR task create][az-acr-task-create] 명령을 사용 하 여 ACR 작업을 만들 때 기본적으로 작업은 기본 이미지 업데이트에 의해 트리거에 대해 *활성화* 됩니다. 즉, `base-image-trigger-enabled` 속성이 True로 설정됩니다. 작업에서 이 동작을 사용하지 않도록 설정하려면 속성을 False로 업데이트합니다. 예를 들어 다음 [az acr task update][az-acr-task-update] 명령을 실행합니다.
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **종속성을 추적 하기 위한 트리거** -ACR 작업에서 컨테이너 이미지의 종속성을 확인 하 고 추적할 수 있도록 하려면 (기본 이미지 포함), 먼저 **하나 이상의** 이미지를 빌드하기 위해 작업을 트리거해야 합니다. 예를 들어 [az acr task run][az-acr-task-run] 명령을 사용하여 작업을 수동으로 트리거합니다.

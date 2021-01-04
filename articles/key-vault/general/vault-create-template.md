@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285137"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704523"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure key vault 및 자격 증명 모음 액세스 정책을 만드는 방법
 
@@ -176,14 +176,14 @@ Key Vault 개체에 사용할 수 있는 다른 리소스 관리자 템플릿이
 
 Azure Portal를 사용 하 여 [사용자 지정 템플릿에서 리소스 배포](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)에 설명 된 대로 **편집기에서 사용자 고유의 템플릿 빌드** 옵션을 사용 하 여 위의 템플릿을 배포할 수 있습니다.
 
-위의 템플릿을 파일에 저장 하 고 다음 명령을 사용할 수도 있습니다.  [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
+위의 템플릿을 파일에 저장 하 고 다음 명령을 사용할 수도 있습니다.  [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file key-vault-template.json
+az deployment group create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

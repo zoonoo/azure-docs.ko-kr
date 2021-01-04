@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: d903d1bb16ba3576d0092979f1cc6b82fac1c0be
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507524"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703452"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Log Analytics 및 Excel 통합
 
-M 쿼리와 Log Analytics API를 사용 하 여 Log Analytics 및 Microsoft Excel Azure Monitor를 통합할 수 있습니다.  이러한 통합을 통해 50만 레코드를 Excel로 보낼 수 있습니다.
+M 쿼리와 Log Analytics API를 사용 하 여 Log Analytics 및 Microsoft Excel Azure Monitor를 통합할 수 있습니다. 이러한 통합을 통해 전체 결과 볼륨이 61MiB를 초과 하지 않는 한 최대 50만 개의 레코드를 Excel로 보낼 수 있습니다.
 
 > [!NOTE]
 > Excel은 로컬 클라이언트 응용 프로그램 이므로 로컬 하드웨어 및 소프트웨어 제한 사항으로 인해 성능 및 큰 데이터 집합을 처리 하는 기능이 영향을 받습니다.
@@ -93,10 +93,13 @@ in AnalyticsQuery
 
    :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="빈 쿼리 만들기" border="true":::
  
-1. **완료** , **로드 및 닫기** 를 차례로 선택 합니다. Excel은 Log analytics API 및 결과 집합을 사용 하 여 쿼리를 실행 합니다.
+1. **완료**, **로드 및 닫기** 를 차례로 선택 합니다. Excel은 Log analytics API 및 결과 집합을 사용 하 여 쿼리를 실행 합니다.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Excel의 쿼리 결과" border="true":::
+
+> [!Note]
+> 레코드 수가 예상 보다 적으면 결과의 볼륨이 61MiB 제한을 초과할 수 있습니다. `project`쿼리에서 또는를 사용 하 여 `project-away` 열을 필요한 열로 제한 하십시오.
 
 ##  <a name="refreshing--data"></a>데이터 새로 고침
 

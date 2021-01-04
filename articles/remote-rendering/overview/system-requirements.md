@@ -5,17 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 536f5e7d2fa12d1f9a9f09a31b463d2096dcad37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: references_regions
+ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207413"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722694"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
 > [!IMPORTANT]
-> **Azure Remote Rendering**은 현재 공개 미리 보기로 제공됩니다.
+> **Azure Remote Rendering** 은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 장에서는 ARR ( *Azure Remote 렌더링* )을 사용 하기 위한 최소 시스템 요구 사항을 나열 합니다.
@@ -49,11 +50,11 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 최신 버전은 대기 시간이 크게 향상 되므로 최신 HEVC 코덱을 사용 하는 것이 중요 합니다. 장치에 설치 된 버전을 확인 하려면 다음을 수행 합니다.
 
-1. **Microsoft Store**를 시작 합니다.
+1. **Microsoft Store** 를 시작 합니다.
 1. 오른쪽 위에 있는 **"..."** 단추를 클릭 합니다.
-1. **다운로드 및 업데이트를**선택 합니다.
-1. **장치 제조업체에서 HEVC 비디오 확장**목록을 검색 합니다. 이 항목이 업데이트 아래에 나열 되어 있지 않으면 최신 버전이 이미 설치 되어 있는 것입니다.
-1. 나열 된 코덱에 버전 **1.0.21821.0**이상이 있는지 확인 합니다.
+1. **다운로드 및 업데이트를** 선택 합니다.
+1. **장치 제조업체에서 HEVC 비디오 확장** 목록을 검색 합니다. 이 항목이 업데이트 아래에 나열 되어 있지 않으면 최신 버전이 이미 설치 되어 있는 것입니다.
+1. 나열 된 코덱에 버전 **1.0.21821.0** 이상이 있는지 확인 합니다.
 1. **업데이트 가져오기** 단추를 클릭 하 고 설치가 완료 될 때까지 기다립니다.
 
 ## <a name="network"></a>네트워크
@@ -64,7 +65,32 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 네트워크 문제 해결에 대 한 자세한 내용은 [문제 해결 가이드](../resources/troubleshoot.md#unstable-holograms)를 참조 하세요.
 
-### <a name="network-ports"></a>네트워크 포트
+### <a name="network-firewall"></a>네트워크 방화벽
+
+### <a name="sdk-version--0176"></a>SDK 버전 >= 0.1.76
+
+원격 렌더링 가상 컴퓨터는 다음 IP 범위의 공유 IP 주소를 사용 합니다.
+
+| Name             | 지역         | IP 접두사         |
+|------------------|:---------------|:------------------|
+| 오스트레일리아 동부   | australiaeast  | 20.53.44.240/28   |
+| 미국 동부          | eastus         | 20.62.129.224/28  |
+| 미국 동부 2        | eastus2        | 20.49.103.240/28  |
+| 일본 동부       | japaneast      | 20.191.165.112/28 |
+| 북유럽     | northeurope    | 52.146.133.64/28  |
+| 미국 중남부 | southcentralus | 20.65.132.80/28   |
+| 동남 아시아   | southeastasia  | 20.195.64.224/28  |
+| 영국 남부         | uksouth        | 51.143.209.144/28 |
+| 서유럽      | westeurope     | 20.61.99.112/28   |
+| 미국 서부 2        | westus2        | 20.51.9.64/28     |
+
+방화벽 (장치, 라우터 내 등)이 이러한 IP 범위 및 다음 포트 범위를 차단 하지 않는지 확인 합니다.
+
+| 포트              | 프로토콜  | 허용    |
+|-------------------|---------- |----------|
+| 49152-65534       | TCP/UDP | 나가는 포트 |
+
+#### <a name="sdk-version--0176"></a>SDK 버전 < 0.1.76
 
 디바이스의 방화벽, 라우터 내부의 방화벽 등 방화벽이 다음 포트를 차단하지 않는지 확인합니다.
 

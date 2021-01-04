@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853291"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722405"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -128,7 +128,7 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하 여 사용자 정의 경로
 
-|이름|주소 접두사|다음 홉|
+|Name|주소 접두사|다음 홉|
 |----|--------------|-------|
 |서브넷-vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-인터넷|13.64.0.0/11|인터넷|
@@ -311,12 +311,13 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 **Tls 1.2는 아웃 바운드 연결에 적용 됩니다**. Microsoft는 모든 Azure 서비스의 서비스 간 트래픽에 대해 Microsoft 2020에서 tls 1.2를 적용 했습니다. Azure SQL Managed Instance의 경우이로 인해 SQL Server에 대 한 복제 및 연결 된 서버 연결에 사용 되는 아웃 바운드 연결에 TLS 1.2이 적용 되었습니다. SQL Managed Instance에서 2016 보다 오래 된 SQL Server 버전을 사용 하는 경우 [TLS 1.2 관련 업데이트가](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) 적용 되었는지 확인 하십시오.
 
-다음 가상 네트워크 기능은 현재 SQL Managed Instance에서 지원 되지 않습니다.
+다음 가상 네트워크 기능은 현재 SQL Managed Instance에서 *지원 되지 않습니다* .
 
 - **Microsoft 피어 링**: express 경로 회로에서 [microsoft 피어 링](../../expressroute/expressroute-faqs.md#microsoft-peering) 을 사용 하도록 설정 하는 것은 가상 네트워크와 직접 또는 전이적으로 피어 링 하는 가상 Managed Instance 네트워크에서 가상 네트워크 내의 구성 요소 Managed Instance 간 트래픽 흐름에 영향을 줍니다. Microsoft 피어 링을 사용 하 여 가상 네트워크에 대 한 SQL Managed Instance 배포가 실패 하 게 됩니다.
 - **글로벌 가상 네트워크 피어 링**: Azure 지역 간에 [가상 네트워크 피어 링](../../virtual-network/virtual-network-peering-overview.md) 연결은 9/22/2020 이전에 만든 서브넷에 배치 되는 SQL 관리 되는 인스턴스에 대해 작동 하지 않습니다.
 - **AzurePlatformDNS**: AzurePlatformDNS [service 태그](../../virtual-network/service-tags-overview.md) 를 사용 하 여 플랫폼 DNS 확인을 차단 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance는 엔진 내에서 DNS 확인을 위해 고객이 정의한 DNS를 지원 하지만 플랫폼 작업을 위한 플랫폼 DNS에는 종속성이 있습니다.
 - **Nat 게이트웨이**: [Azure Virtual Network nat](../../virtual-network/nat-overview.md) 를 사용 하 여 특정 공용 IP 주소와의 아웃 바운드 연결을 제어 하면 SQL Managed Instance를 사용할 수 없게 됩니다. SQL Managed Instance 서비스는 현재 Virtual Network NAT를 사용 하 여 인바운드 및 아웃 바운드 흐름을 공존 하지 않는 기본 부하 분산 장치의 사용으로 제한 됩니다.
+- **Azure Virtual Network에 대 한 IPv6**: SQL Managed Instance를 [이중 스택 IPv4/IPv6 가상 네트워크](../../virtual-network/ipv6-overview.md) 에 배포 하는 작업이 실패할 것으로 예상 됩니다. IPv6 주소 접두사를 포함 하는 NSG (네트워크 보안 그룹) 또는 경로 테이블 (UDR)을 SQL Managed Instance 서브넷에 연결 하거나, 관리 되는 인스턴스 서브넷에 이미 연결 되어 있는 NSG 또는 UDR에 IPv6 주소 접두사를 추가 하면 SQL Managed Instance를 사용할 수 없게 됩니다. 이미 IPv6 접두사가 있는 NSG 및 UDR을 사용 하는 서브넷에 대 한 SQL Managed Instance 배포가 실패할 것으로 예상 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

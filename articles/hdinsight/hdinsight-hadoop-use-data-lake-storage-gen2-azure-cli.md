@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 09/17/2020
-ms.openlocfilehash: f88c242ab6f7ddabe17c9363aa1e6bb7f617c800
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4ffe5acce831435d3771a2eb48a90b16f584c92a
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845114"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704013"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-azure-cli"></a>Azure CLI를 사용 하 여 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
 
 저장소에 Data Lake Storage Gen2를 사용 하는 HDInsight 클러스터를 만들려면 다음 단계를 수행 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Data Lake Storage Gen2에 대해 잘 모르겠으면 [개요 섹션](hdinsight-hadoop-use-data-lake-storage-gen2.md)을 확인 하세요. 
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -77,7 +77,7 @@ az storage account create --name <STORAGEACCOUNTNAME> \
  > 저장소 계정에 **저장소 Blob 데이터 참가자** 역할 권한이 있는 사용자 할당 id가 있는지 확인 합니다. 그렇지 않으면 클러스터 만들기가 실패 합니다.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment \
+az deployment group create --name HDInsightADLSGen2Deployment \
     --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json

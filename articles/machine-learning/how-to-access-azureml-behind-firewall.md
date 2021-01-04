@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461406"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705067"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
-이 문서에서는 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하도록 Azure 방화벽을 구성 하는 방법에 대해 알아봅니다. Azure Machine Learning 보안 설정에 대 한 자세한 내용은 [Azure Machine Learning 엔터프라이즈 보안](concept-enterprise-security.md) 을 참조 하세요.
+이 문서에서는 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하도록 Azure 방화벽을 구성 하는 방법에 대해 알아봅니다. Azure Machine Learning 보안 설정에 대 한 자세한 내용은 [Azure Machine Learning 엔터프라이즈 보안](concept-enterprise-security.md)을 참조 하세요.
+
+> [!WARNING]
+> 방화벽 뒤에 있는 데이터 저장소에 대 한 액세스는 code first 환경 에서만 지원 됩니다. [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) 를 사용 하 여 방화벽 뒤에 있는 데이터에 액세스 하는 것은 지원 되지 않습니다. Studio를 사용 하 여 개인 네트워크에서 데이터 저장소를 사용 하려면 먼저 [가상 네트워크를 설정](../virtual-network/quick-create-portal.md) 하 고 [가상 네트워크 내에 저장 된 데이터에 대 한 액세스 권한을 studio에 부여](how-to-enable-studio-virtual-network.md)해야 합니다.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -72,7 +75,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
     * MicrosoftContainerRegistry
     * AzureFrontDoor.FirstParty
 
-    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예: `keyvault.westus`.
+    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예들 들어 `keyvault.westus`입니다.
 
     __프로토콜__ 에 대해를 선택 `TCP` 합니다. 원본 및 대상 __포트__ 의 경우를 선택 `*` 합니다.
 
