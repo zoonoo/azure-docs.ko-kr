@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 61aba3e5792d1cc20da16686d052de91744dab76
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186782"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696060"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -55,7 +55,7 @@ ms.locfileid: "96186782"
 
 1. 로그 경고는 다음과 같은 두 가지 유형의 [**측정값**](alerts-unified-log.md#measure)을 기반으로 할 수 있습니다.
     1. **결과 수** -쿼리에서 반환 된 레코드 수입니다.
-    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들어:
+    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들면 다음과 같습니다.
 
     ```Kusto
     // Reported errors
@@ -312,7 +312,7 @@ Azure Resource Manager CLI를 [템플릿](./alerts-log-create-templates.md) 파�
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file mylogalerttemplate.json \

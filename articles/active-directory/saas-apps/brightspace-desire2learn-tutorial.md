@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 91d48e42dc1c92e05e963b4c8b53e44daa403378
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f999818ab791cabac6b0877b7735fa730dab89e2
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456701"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>자습서: Brightspace by Desire2Learn와 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ Azure AD에 Brightspace by Desire2Learn을 통합하도록 구성하려면 갤�
 
 4. 검색 상자에 **Brightspace by Desire2Learn** 을 입력하고 결과 패널에서 **Brightspace by Desire2Learn** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Brightspace by Desire2Learn](common/search-new-app.png)
+    ![결과 목록의 Brightspace by Desire2Learn](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -105,7 +105,7 @@ Brightspace by Desire2Learn에서 Azure AD Single Sign-On을 구성하려면 다
     ![Brightspace by Desire2Learn 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
-    
+
     ```http
     https://<companyname>.tenants.brightspace.com/samlLogin
     https://<companyname>.desire2learn.com/shibboleth-sp
@@ -138,7 +138,7 @@ Brightspace by Desire2Learn에서 Azure AD Single Sign-On을 구성하려면 다
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -151,7 +151,7 @@ Brightspace by Desire2Learn에서 Azure AD Single Sign-On을 구성하려면 다
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -163,7 +163,7 @@ Brightspace by Desire2Learn에서 Azure AD Single Sign-On을 구성하려면 다
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Brightspace by Desire2Learn에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Brightspace by Desire2Learn** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Brightspace by Desire2Learn** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

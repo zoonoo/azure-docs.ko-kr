@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: c184d4758d6435659d737c11904357711f4f0a36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3337d66934c1fe317296cffaa9a663e212cce12d
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455875"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673178"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>자습서: ClickTime과 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ ClickTime의 Azure AD 통합을 구성하려면 갤러리의 ClickTime을 관리
 
 4. 검색 상자에 **ClickTime** 을 입력하고 결과 패널에서 **ClickTime** 을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 ClickTime](common/search-new-app.png)
+    ![결과 목록의 ClickTime](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -104,7 +104,7 @@ ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     a. **식별자** 텍스트 상자에 URL을 입력합니다. `https://app.clicktime.com/sp/`
 
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    
+
     ```http
     https://app.clicktime.com/Login/
     https://app.clicktime.com/App/Login/Consume.aspx
@@ -131,22 +131,22 @@ ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 1. 위쪽에 도구 모음에서 **기본 설정** 을 클릭한 다음 **보안 설정** 클릭합니다.
 
 1. **Single Sign-On 선호도** 섹션에서 다음 단계를 수행합니다.
-   
+
     ![보안 설정](./media/clicktime-tutorial/tic777280.png "보안 설정")
-   
+
     a.  **Azure AD** 와 SSO(Single Sign-On)를 사용하여 로그인 **허용** 을 선택합니다.
-   
+
     b. Azure Portal에서 복사한 **로그인 URL** 을 **ID 공급자 엔드포인트** 텍스트 상자에 붙여넣습니다.
-   
+
     다.  Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서** 를 **메모장** 에서 열고, 콘텐츠를 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여 넣습니다.
-   
+
     d.  **저장** 을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -159,7 +159,7 @@ ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -171,7 +171,7 @@ ClickTime에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ClickTime에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **ClickTime** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ClickTime** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -206,24 +206,24 @@ ClickTime의 경우 프로비전은 수동 작업입니다.
 1. **ClickTime** 테넌트에 로그인합니다.
 
 1. 위쪽에 도구 모음에서 **회사** 를 클릭한 다음 **피플** 을 클릭합니다.
-   
+
     ![스크린샷은 회사 및 사용자가 선택된 ClickTime 테넌트를 보여줍니다.](./media/clicktime-tutorial/tic777282.png "사람")
 
 1. **사람 추가** 를 클릭합니다.
-   
+
     ![사람 추가](./media/clicktime-tutorial/tic777283.png "사람 추가")
 
 1. 새 사람 섹션에서 다음 단계를 수행합니다.
-   
+
     ![스크린샷은 이 단계에서 정보를 추가할 수 있는 사람 추가 섹션을 보여줍니다.](./media/clicktime-tutorial/tic777284.png "사람")
-   
+
     a.  **전체 이름** 텍스트 상자에서 **Britta Simon** 과 같은 사용자의 전체 이름을 입력합니다. 
-  
-    b.  **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com** )을 입력합니다.
-       
+
+    b.  **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com**)을 입력합니다.
+
     > [!NOTE]
     > 원한다면 새 사람 개체의 추가 속성을 설정할 수 있습니다.
-   
+
     다.  **저장** 을 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

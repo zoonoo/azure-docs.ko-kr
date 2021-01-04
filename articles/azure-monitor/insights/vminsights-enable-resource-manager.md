@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 89a9a1b762e02237a8ee08dca5d6eedefabaafbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cee7072f9bc844fb1f89168de3547dc726472b67
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328230"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695902"
 ---
 # <a name="enable-azure-monitor-for-vms-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 VM용 Azure Monitor 사용
 이 문서에서는 리소스 관리자 템플릿을 사용 하 여 가상 머신 또는 가상 머신 확장 집합에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. 이 절차는 다음과 같은 경우에 사용할 수 있습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "87328230"
 - Azure 가상 머신 확장 집합
 - Azure Arc와 연결 된 하이브리드 가상 컴퓨터
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다. 
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -44,7 +44,7 @@ Azure Resource Manager 템플릿은 GitHub 리포지토리에서 [다운로드�
 - **ConfigureWorkspace** 템플릿 Linux 및 Windows 운영 체제 성능 카운터의 솔루션 및 컬렉션을 사용 하도록 설정 하 여 VM용 Azure Monitor을 지원 하도록 Log Analytics 작업 영역을 구성 합니다.
 
 >[!NOTE]
->가상 머신 확장 집합이 이미 있고 업그레이드 정책이 **수동**으로 설정 된 경우에는 **Existingvmssonboarding 보 딩** Azure Resource Manager 템플릿을 실행 한 후 기본적으로 인스턴스에 대해 VM용 Azure Monitor 사용 되지 않습니다. 인스턴스를 수동으로 업그레이드 해야 합니다.
+>가상 머신 확장 집합이 이미 있고 업그레이드 정책이 **수동** 으로 설정 된 경우에는 **Existingvmssonboarding 보 딩** Azure Resource Manager 템플릿을 실행 한 후 기본적으로 인스턴스에 대해 VM용 Azure Monitor 사용 되지 않습니다. 인스턴스를 수동으로 업그레이드 해야 합니다.
 
 ## <a name="deploy-templates"></a>템플릿 배포
 PowerShell 및 CLI를 사용 하는 다음 예제를 포함 하 여 [리소스 관리자 템플릿에 대 한 배포 방법을](../../azure-resource-manager/templates/deploy-powershell.md) 사용 하 여 템플릿을 배포할 수 있습니다.
@@ -55,7 +55,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 
 
 ```azurecli
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+az deployment group create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
 ```
 
 

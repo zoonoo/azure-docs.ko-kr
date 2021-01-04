@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 16995246578dc8d3c009253d8384c6d7ff3911d3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a81dfb3fab57b378a56bfa8ac8102d723a50dbbc
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186884"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695963"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "96186884"
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음을 확인 합니다.
 
@@ -186,7 +186,7 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
     ```azurecli
     az login
 
-    az group deployment create \
+    az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file templateFileName.json \

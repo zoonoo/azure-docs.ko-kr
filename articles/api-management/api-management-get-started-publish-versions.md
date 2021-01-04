@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e6afa26c65f097683a5b471dc34621cca38c01e6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377395"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679083"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>자습서: 여러 버전의 API 게시 
 
@@ -111,4 +111,4 @@ Azure API Management에서 *버전 관리 체계*: **경로, 헤더** 또는 **�
 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [개발자 포털 페이지의 스타일 사용자 지정](api-management-customize-styles.md)
+> [개발자 포털 페이지의 스타일 사용자 지정](api-management-howto-developer-portal-customize.md)

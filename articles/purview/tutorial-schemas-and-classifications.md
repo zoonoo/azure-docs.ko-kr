@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Purview(미리 보기)에서 리소스 집합, 세부 정보, 스키마 및 분류 살펴보기'
 description: 이 자습서에서는 리소스 집합, 자산 세부 정보, 스키마 및 분류를 사용하는 방법을 설명합니다.
-author: viseshag
-ms.author: viseshag
+author: animukherjee
+ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: c39ed746630c646b0ce305a9535ae6d610f5161c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c74324ebeeefeed361c0557c45a280a411effa22
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549763"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693332"
 ---
 # <a name="tutorial-explore-resource-sets-details-schemas-and-classifications-in-azure-purview-preview"></a>자습서: Azure Purview(미리 보기)에서 리소스 집합, 세부 정보, 스키마 및 분류 살펴보기
 

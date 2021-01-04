@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6672fd41dbd199940d663c4f7e1cb7f3b1936ce9
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 077ebdb4dd33249923064a4f5ed20c5641a82e26
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185779"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695895"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 리소스 관리
 
@@ -43,14 +43,14 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>템플릿 배포
 
-다음 스크립트는 저장소 계정을 만들기 위한 빠른 시작 템플릿 배포를 만듭니다. 자세한 내용은 [빠른 시작: Visual Studio Code를 사용 하 여 Azure Resource Manager 템플릿 만들기](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)를 참조 하세요.
+다음 스크립트는 저장소 계정을 만들기 위한 빠른 시작 템플릿 배포를 만듭니다. 자세한 내용은 [빠른 시작: Visual Studio Code을 사용 하 여 ARM 템플릿 만들기](../templates/quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell)를 참조 하세요.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the location (i.e. centralus):" &&
 read location &&
-az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+az deployment group create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../templates/deploy-cli.md)를 참조하세요.

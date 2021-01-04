@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 05c89c8628b4d4ce10ca4ba12c720b410b72601f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 29baaac7cf9139368a191153fdbd0179595bef66
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005149"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>자습서: Asana와 Azure Active Directory 통합
 
@@ -65,7 +65,7 @@ Asana의 Azure AD 통합을 구성하려면 갤러리의 Asana를 관리되는 S
 
 4. 검색 상자에 **Asana** 를 입력하고 결과 패널에서 **Asana** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Asana](common/search-new-app.png)
+    ![결과 목록의 Asana](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -154,7 +154,7 @@ Asana에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b0cdfd76ed5e7ae20800b52e6074809de12a8b5f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: adee491625cec3b4a22cc7b3d1f3ba17595d9e87
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031473"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673255"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -196,7 +196,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     1. **식별자, 회신 URL 및 로그인 URL** 값을 복사하여 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자, 회신 URL 및 로그인 URL** 텍스트 상자에 각각 붙여넣습니다.
 
     1. **Login Button Name**(로그인 단추 이름)에 조직이 사용자의 로그인 화면에 표시하려는 단추의 이름을 입력합니다.
-    
+
     1. **로그인 단추 설명** 의 조직에서 사용자가 로그인 화면에 표시하려는 단추에 대한 설명을 입력합니다.
 
     1. **SAML 사용자 ID 위치** 에서 **사용자 ID는 Subject 문의 NameIdentifier 요소에 있습니다.** 또는 **사용자 ID는 Attribute 요소에 있습니다.** 를 선택합니다.  이 ID는 Confluence 사용자 ID여야 합니다. 사용자 ID가 일치하지 않으면 시스템에서 사용자 로그인을 허용하지 않습니다. 
@@ -259,9 +259,9 @@ Azure AD 사용자가 Confluence 온-프레미스 서버에 로그인할 수 있
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

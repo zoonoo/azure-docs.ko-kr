@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Monitor를 사용하여 컨테이너에 �
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15ec102632258870745f510a98773f70242118be
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 99c4ecb6c8b77f1576f25816ba486ed262249c32
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96011645"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695705"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
 
@@ -135,7 +135,7 @@ Linux에서 Azure CLI로 다음 명령을 실행하여 솔루션을 제거하고
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 다음과 비슷한 메시지가 반환됩니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: a7e71f1c146b0e99ffa20cc74546e35e3ff8a5a6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bd7d05225ef0583c8d56804fb2164cfc73ad4a6a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309096"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673303"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ Adobe Sign의 Azure AD 통합을 구성하려면 갤러리의 Adobe Sign을 관�
 
     ![Azure Active Directory 단추](common/select-azuread.png)
 
-2. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Adobe Sign의 Azure AD 통합을 구성하려면 갤러리의 Adobe Sign을 관�
 
     ![새 애플리케이션 단추](common/add-new-app.png)
 
-4. 검색 상자에 **Adobe Sign**을 입력하고 결과 패널에서 **Adobe Sign**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Adobe Sign** 을 입력하고 결과 패널에서 **Adobe Sign** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Adobe Sign](common/search-new-app.png)
+    ![결과 목록의 Adobe Sign](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Adobe Sign의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
 Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
@@ -85,7 +85,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Adobe Sign** 애플리케이션 통합 페이지에서 **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **Adobe Sign** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
     ![Single Sign-On 구성 링크](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Adobe Sign 클라이언트 지원팀](https://helpx.adobe.com/in/contact/support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -129,12 +129,12 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
     a. [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에서 임의로 생성된 토큰을 보냅니다. 사용자의 도메인에 대한 토큰은 다음과 같습니다. **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
     b. DNS 텍스트 레코드에 확인 토큰을 게시하고 [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 알려야 합니다.
-    
+
     > [!NOTE]
     > 며칠 또는 그 이상 걸릴 수 있습니다. DNS 전파 지연은 DNS에 게시된 값이 한 시간 이상 동안 보이지 않을 수도 있음을 의미합니다. IT 관리자는 이 토큰을 DNS 텍스트 레코드에 게시하는 방법을 알아야 합니다.
-    
+
     다. 토큰이 게시된 후 지원 티켓을 통해 [Adobe Sign 클라이언트 지원 팀](https://helpx.adobe.com/in/contact/support.html)에 알리면 해당 팀이 도메인의 유효성을 검사한 후 사용자 계정에 추가합니다.
-    
+
     d. 일반적으로 DNS 레코드에 토큰을 게시하는 방법은 다음과 같습니다.
 
     * 도메인 계정에 로그인합니다.
@@ -145,41 +145,41 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 다른 웹 브라우저 창에서 Adobe Sign 회사 사이트에 관리자로 로그인합니다.
 
-1. SAML 메뉴에서 **계정 설정** > **SAML 설정**을 선택합니다.
-   
+1. SAML 메뉴에서 **계정 설정** > **SAML 설정** 을 선택합니다.
+
     ![Adobe Sign SAML 설정 페이지의 스크린샷](./media/adobe-echosign-tutorial/ic789520.png "계정")
 
 1. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
-  
-   ![SAML 필수 항목을 포함하여 SAML 설정을 강조 표시하는 스크린샷.](./media/adobe-echosign-tutorial/ic789521.png "SAML 설정")
-   
+
+    ![SAML 필수 항목을 포함하여 SAML 설정을 강조 표시하는 스크린샷.](./media/adobe-echosign-tutorial/ic789521.png "SAML 설정")
+
    ![SAML 설정의 스크린샷](./media/adobe-echosign-tutorial/ic789522.png "SAML 설정")
 
-   a. **SAML 모드**에서 **SAML 필수**를 선택합니다.
-   
-   b. **Echosign 계정 관리자가 Echosign 자격 증명을 사용하여 로그인할 수 있게 허용**을 선택합니다.
-   
-   다. **사용자 만들기**에서 **SAML을 통해 인증된 사용자를 자동으로 추가**를 선택합니다.
+   a. **SAML 모드** 에서 **SAML 필수** 를 선택합니다.
 
-   d. Azure Portal에서 복사한 **Azure AD 식별자**를 **IdD 엔터티 ID** 텍스트 상자에 붙여넣습니다.
-    
-   e. Azure Portal에서 복사한 **로그인 URL**을 **Idp 로그인 URL** 텍스트 상자에 붙여넣습니다.
-   
-   f. Azure Portal에서 복사한 **로그아웃 URL**을 **Idp 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+   b. **Echosign 계정 관리자가 Echosign 자격 증명을 사용하여 로그인할 수 있게 허용** 을 선택합니다.
+
+   다. **사용자 만들기** 에서 **SAML을 통해 인증된 사용자를 자동으로 추가** 를 선택합니다.
+
+   d. Azure Portal에서 복사한 **Azure AD 식별자** 를 **IdD 엔터티 ID** 텍스트 상자에 붙여넣습니다.
+
+   e. Azure Portal에서 복사한 **로그인 URL** 을 **Idp 로그인 URL** 텍스트 상자에 붙여넣습니다.
+
+   f. Azure Portal에서 복사한 **로그아웃 URL** 을 **Idp 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
    g. 다운로드한 **인증서(Base64)** 파일을 메모장에서 엽니다. 내용을 클립보드로 복사한 다음, **IdP 인증서** 텍스트 상자에 붙여넣습니다.
 
-   h. **변경 내용 저장**을 선택합니다.
+   h. **변경 내용 저장** 을 선택합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
-2. 화면 위쪽에서 **새 사용자**를 선택합니다.
+2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 
     ![새 사용자 단추](common/new-user.png)
 
@@ -187,36 +187,36 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![사용자 대화 상자](common/user-properties.png)
 
-    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
-  
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
+    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
+
+    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    d. **만들기** 를 클릭합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Adobe Sign에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택하고, **모든 애플리케이션**을 선택한 다음, **Adobe Sign**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택하고, **모든 애플리케이션** 을 선택한 다음, **Adobe Sign** 을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
-2. 애플리케이션 목록에서 **Adobe Sign**을 입력하고 선택합니다.
+2. 애플리케이션 목록에서 **Adobe Sign** 을 입력하고 선택합니다.
 
     ![애플리케이션 목록의 Adobe Sign 링크](common/all-applications.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
 
     !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 
     ![할당 추가 창](common/add-assign-user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
 6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
 
@@ -231,17 +231,17 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
 1. **Adobe Sign** 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 상단 메뉴에서 **계정**을 선택합니다. 그런 다음, 왼쪽 창에서 **사용자 및 그룹** > **새 사용자 만들기**를 선택합니다.
-   
+2. 상단 메뉴에서 **계정** 을 선택합니다. 그런 다음, 왼쪽 창에서 **사용자 및 그룹** > **새 사용자 만들기** 를 선택합니다.
+
     ![계정, 사용자 및 그룹, 새 사용자 만들기가 강조 표시된 Adobe Sign 회사 사이트의 스크린샷](./media/adobe-echosign-tutorial/ic789524.png "계정")
-   
+
 3. **새 사용자 만들기** 섹션에서 다음 단계를 수행합니다.
-   
+
     ![새 사용자 만들기 섹션의 스크린샷](./media/adobe-echosign-tutorial/ic789525.png "사용자 만들기")
-   
-    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **이메일 주소**, **이름** 및 **성**을 입력합니다.
-   
-    b. **사용자 만들기**를 선택합니다.
+
+    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **이메일 주소**, **이름** 및 **성** 을 입력합니다.
+
+    b. **사용자 만들기** 를 선택합니다.
 
 >[!NOTE]
 >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다. 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 8a23cff3f7bfe6d88e6a818117e62762abb6d226
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f5db7efffa685291584bd402e9898d365f615773
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455375"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672616"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>자습서: Concur와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -82,7 +82,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     a. **로그온 URL** 텍스트 상자에서 `https://www.concursolutions.com/UI/SSO/<OrganizationId>` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<customer-domain>.concursolutions.com` 패턴을 사용하는 URL을 입력합니다.
-    
+
     다. **회신 URL** 에 다음 URL 패턴 중 하나를 입력합니다.
 
     | 회신 URL|
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://<customer-domain>.concursolutions.com/<OrganizationId>` |
     | `https://<customer-domain>.concur.com` |
     | `https://<customer-domain>.concursolutions.com` | 
-    
+
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Concur 클라이언트 지원 팀](https://www.concur.co.in/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
@@ -152,9 +152,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Purview 홈 페이지 탐색 및 자산 검색'
 description: 이 자습서에서는 Azure Purview 홈 페이지의 기능을 사용하고 카탈로그에서 검색하는 방법을 설명합니다.
-author: hophanms
-ms.author: hophan
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 46c2ee284c33cc8ffb7b0bd3bc536905cf4e2052
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399879"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693340"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>자습서: Azure Purview(미리 보기) 홈 페이지 탐색 및 자산 검색
 

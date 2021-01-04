@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186918"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695663"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "96186918"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역](../platform/design-logs-deployment.md)
 
@@ -153,7 +153,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 5. 다음 단계에서는 Azure CLI를 사용 하 여 모니터링을 사용 하도록 설정 하 여 클러스터를 배포 합니다.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     출력은 다음과 유사합니다.
@@ -235,7 +235,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 6. Azure CLI를 사용 하 여 배포 하려면 다음 명령을 실행 합니다.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     출력은 다음과 유사합니다.

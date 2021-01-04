@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 321c6bf52f4dac636f6bebb3a79d3a206c2ea11b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456435"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>자습서: Central Desktop와 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Central Desktop과 Azure AD의 통합을 구성하려면 갤러리의 Central De
 
 4. 검색 상자에 **Central Desktop** 을 입력하고 결과 패널에서 **Central Desktop** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Central Desktop](common/search-new-app.png)
+    ![결과 목록의 Central Desktop](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -104,7 +104,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     a. **로그인 URL** 텍스트 상자에서 `https://<companyname>.centraldesktop.com` 패턴을 사용하여 URL을 입력합니다.
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다.
-    
+
     ```http
     https://<companyname>.centraldesktop.com/saml2-metadata.php
     https://<companyname>.imeetcentral.com/saml2-metadata.php
@@ -152,7 +152,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 4. **메시지 서명 확인 방법** 섹션에서 다음 단계를 수행합니다.
 
     ![메시지 서명 확인 방법](./media/central-desktop-tutorial/ic769565.png "메시지 서명 확인 방법")
-    
+
     a. **인증서** 를 선택합니다.
 
     b. **SSO 인증서** 목록에서 **RSH SHA256** 을 선택합니다.
@@ -167,7 +167,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -180,7 +180,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -236,7 +236,7 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이
 4. **내부 멤버 추가** 를 선택합니다.
 
     ![내부 멤버 추가](./media/central-desktop-tutorial/ic781053.png "내부 멤버 추가")
-  
+
    > [!NOTE]
    > 추가한 사용자는 해당 계정을 활성화하기 위한 확인 링크가 포함된 메일을 받습니다.
 

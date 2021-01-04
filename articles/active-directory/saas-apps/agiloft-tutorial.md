@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c56f1ab546327aaf281ff3616fa489728f3885a6
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: cd926875eda5676da6c154a57b0ac18ca12d9b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96297083"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>자습서: Agiloft와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Agiloft와 Azure AD 통합을 구성하려면 갤러리의 Agiloft를 관리되�
 
 4. 검색 상자에 **Agiloft** 를 입력하고 결과 패널에서 **Agiloft** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Agiloft](common/search-new-app.png)
+    ![결과 목록의 Agiloft](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -184,7 +184,7 @@ Agiloft에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
