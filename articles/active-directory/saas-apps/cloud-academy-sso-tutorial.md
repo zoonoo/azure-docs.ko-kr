@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 12/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 822e28402d0b7829b835ad03a3b3cf7d05c3d343
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 96c4eba31013b868fa7afb41544d5d8cbcc1cdc6
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181002"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607221"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>자습서: Cloud Academy - SSO와 Azure Active Directory SSO 통합
 
@@ -25,8 +25,6 @@ ms.locfileid: "96181002"
 * Azure AD를 사용하여 Cloud Academy - SSO에 액세스할 수 있는 사용자를 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 Cloud Academy - SSO에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
-
-Azure AD와 SaaS 앱 연결에 대해 자세히 알아보려면 [Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,15 +37,14 @@ Azure AD와 SaaS 앱 연결에 대해 자세히 알아보려면 [Single Sign-On�
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-Cloud Academy - SSO에서 SP 시작 SSO를 지원합니다.
-
-Cloud Academy - SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+* Cloud Academy - SSO에서 **SP** 시작 SSO를 지원합니다.
+* Cloud Academy - SSO는 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
 ## <a name="add-cloud-academy---sso-from-the-gallery"></a>갤러리에서 Cloud Academy - SSO 추가
 
 Cloud Academy - SSO가 Azure AD에 통합되도록 구성하려면 갤러리에서 Cloud Academy - SSO를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 Azure Portal에 로그인합니다.
 1. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
@@ -72,14 +69,29 @@ Academy - SSO에서 Azure AD SSO를 구성하고 테스트하려면 다음과 �
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 **Cloud Academy - SSO** 애플리케이션 통합 페이지의 **관리** 섹션에서 **Single Sign-On** 을 선택합니다.
+1. Azure Portal에서 **Cloud Academy - SSO** 애플리케이션 통합 페이지의 **관리** 섹션에서 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 선택하여 설정을 편집합니다.
 
    ![기본 SAML 구성을 편집하기 위한 연필 단추를 보여 주는 스크린샷](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션의 **로그온 URL** 상자에 `https://cloudacademy.com/login/enterprise/`를 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
+    a. **로그온 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
+    
+    | 로그온 URL |
+    |--------------|
+    | `https://cloudacademy.com/login/enterprise/` |
+    | `https://app.qa.com/login/enterprise/` |
+    |
+    
+    b. **회신 URL** 텍스트 상자에서 다음 URL 중 하나를 입력합니다.
+    
+    | 회신 URL |
+    |--------------|
+    | `https://cloudacademy.com/labs/social/complete/saml/` |
+    | `https://app.qa.com/labs/social/complete/saml/` |
+    |
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 선택하여 **앱 페더레이션 메타데이터 URL** 을 복사합니다. URL을 저장합니다.
 
     ![앱 페더레이션 메타데이터 URL에 대한 복사 단추를 보여 주는 스크린샷](common/copy-metadataurl.png)
@@ -103,15 +115,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **Cloud Academy - SSO** 를 선택합니다.
 1. 앱의 개요 페이지에 있는 **관리** 섹션에서 **사용자 및 그룹** 을 선택합니다.
-
-   ![사용자 및 그룹 옵션을 보여 주는 스크린샷](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 단추를 보여 주는 스크린샷](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon** 을 선택하고, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
 
 ## <a name="configure-single-sign-on-for-cloud-academy"></a>Cloud Academy에 대한 Single Sign-On 구성
@@ -145,36 +151,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-a-cloud-academy-test-user"></a>Cloud Academy 테스트 사용자 만들기
 
-1. Cloud Academy - SSO에 로그인합니다.
-
-1. 회사 이름을 선택한 다음, 표시되는 메뉴에서 **멤버** 를 선택합니다.
-
-    ![멤버 옵션을 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/create-user.PNG)
-
-1. **멤버 초대** 를 선택한 다음, **단일 멤버 초대** 를 선택합니다.
-
-    ![단일 멤버 초대 옵션을 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
-
-1. 필수 필드에 값을 입력한 다음, **초대** 를 선택합니다.
-
-    ![멤버 초대 대화 상자를 보여 주는 스크린샷](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
+이 섹션에서는 Cloud Academy - SSO에서 Britta Simon이라는 사용자를 만듭니다. Cloud Academy - SSO는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Cloud Academy - SSO에 사용자가 아직 없는 경우 인증 후에 새로운 사용자가 생성됩니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이제 액세스 패널을 사용하여 Azure AD SSO 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 Cloud Academy - SSO 타일을 선택하면 SSO를 설정한 Cloud Academy - SSO 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Cloud Academy - SSO 로그온 URL로 리디렉션됩니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+* Cloud Academy - SSO 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서](./tutorial-list.md)
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Cloud Academy - SSO 타일을 클릭하면 Cloud Academy - SSO 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure AD에서 Cloud Academy - SSO 사용해보기](https://aad.portal.azure.com/)
-
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
-
-- [고급 표시 유형 및 제어를 사용하여 Cloud Academy - SSO를 보호하는 방법](/cloud-app-security/proxy-intro-aad)
+Cloud Academy - SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

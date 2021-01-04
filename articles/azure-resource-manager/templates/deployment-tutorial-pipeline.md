@@ -4,12 +4,12 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)을 지속적으로 
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906355"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588134"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>자습서: ARM 템플릿과 Azure Pipelines의 연속 통합
 
@@ -19,7 +19,7 @@ Azure DevOps는 팀이 작업을 계획하고, 협업을 통해 코드를 개발
 
 > [!NOTE]
 > 프로젝트 이름을 선택합니다. 자습서를 진행할 때 **AzureRmPipeline** 을 프로젝트 이름으로 바꿔야 합니다.
-> 이 프로젝트 이름은 리소스 이름을 생성하는 데 사용됩니다.  리소스 중 하나는 스토리지 계정입니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다. 템플릿에서 스토리지 계정 이름은 "store"가 추가된 프로젝트 이름이며, 프로젝트 이름은 3-11자 사이여야 합니다. 따라서 프로젝트 이름은 스토리지 계정 이름 요구 사항을 충족해야 하며 11자 미만이어야 합니다.
+> 이 프로젝트 이름은 리소스 이름을 생성하는 데 사용됩니다.  리소스 중 하나는 스토리지 계정입니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다. 템플릿에서 스토리지 계정 이름은 **store** 가 추가된 프로젝트 이름이며, 프로젝트 이름은 3-11자 사이여야 합니다. 따라서 프로젝트 이름은 스토리지 계정 이름 요구 사항을 충족해야 하며 11자 미만이어야 합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * 템플릿의 리포지토리를 만드는 데 사용할 **GitHub 계정**. 계정이 없는 경우 [체험 계정](https://github.com)을 만들 수 있습니다. GitHub 리포지토리 사용에 대한 자세한 내용은 [GitHub 리포지토리 빌드](/azure/devops/pipelines/repos/github)를 참조하세요.
-* **Git를 설치** 합니다. 이 자습서의 지침에서는 *Git Bash* 또는 *Git Shell* 을 사용합니다. 지침은 [Git 설치]( https://www.atlassian.com/git/tutorials/install-git)를 참조하세요.
+* **Git를 설치** 합니다. 이 자습서의 지침에서는 *Git Bash* 또는 *Git Shell* 을 사용합니다. 지침은 [Git 설치](https://www.atlassian.com/git/tutorials/install-git)를 참조하세요.
 * **Azure DevOps 조직**. 조직이 없는 경우 무료로 만들 수 있습니다. [조직 또는 프로젝트 컬렉션 만들기](/azure/devops/organizations/accounts/create-organization?view=azure-devops)를 참조하세요.
 * (선택 사항)**Resource Manager 도구 확장이 포함된 Visual Studio Code**. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
@@ -57,13 +57,13 @@ GitHub 계정이 없는 경우 [사전 요구 사항](#prerequisites)을 참조�
 
 1. 녹색 **새로 만들기** 단추를 선택합니다.
 1. **리포지토리 이름** 에서 리포지토리 이름을 입력합니다.  예: **AzureRmPipeline-repo**. **AzureRmPipeline** 을 프로젝트 이름으로 바꿉니다. 이 자습서를 **공개** 로 진행할 것인지 아니면 **프라이빗** 으로 진행할 것인지 선택할 수 있습니다. 그런 다음, **리포지토리 만들기** 를 선택합니다.
-1. URL을 적어 둡니다. 리포지토리 URL은 다음과 같은 형식입니다. - **`https://github.com/[YourAccountName]/[YourRepositoryName]`**
+1. URL을 적어 둡니다. 리포지토리 URL은 다음과 같은 형식입니다. - `https://github.com/[YourAccountName]/[YourRepositoryName]`
 
 이 리포지토리를 *원격 리포지토리* 라고 합니다. 같은 프로젝트를 작업하는 각 개발자는 자신의 *로컬 리포지토리* 를 복제하고, 변경 내용을 원격 리포지토리에 병합할 수 있습니다.
 
 ### <a name="clone-the-remote-repository"></a>원격 리포지토리 복제
 
-1. Git Shell 또는 Git Bash를 엽니다.  [필수 조건](#prerequisites)을 참조하세요.
+1. Git Shell 또는 Git Bash를 엽니다. [필수 조건](#prerequisites)을 참조하세요.
 1. 현재 폴더가 **GitHub** 인지 확인합니다.
 1. 다음 명령을 실행합니다.
 
@@ -75,45 +75,46 @@ GitHub 계정이 없는 경우 [사전 요구 사항](#prerequisites)을 참조�
     pwd
     ```
 
-    **[YourAccountName]** 을 해당 GitHub 계정 이름으로 바꾸고, **[YourGitHubRepositoryName]** 을 이전 절차에서 만든 리포지토리 이름으로 바꿉니다.
+    `[YourAccountName]` 을 해당 GitHub 계정 이름으로 바꾸고, `[YourGitHubRepositoryName]` 을 이전 절차에서 만든 리포지토리 이름으로 바꿉니다.
 
-**CreateWebApp** 폴더는 템플릿이 저장되는 폴더입니다. **pwd** 명령은 폴더 경로를 보여줍니다. 경로는 다음 절차에 따라 템플릿을 저장하는 위치입니다.
+_CreateWebApp_ 폴더는 템플릿이 저장되는 폴더입니다. `pwd` 명령은 폴더 경로를 보여줍니다. 경로는 다음 절차에 따라 템플릿을 저장하는 위치입니다.
 
 ### <a name="download-a-quickstart-template"></a>빠른 시작 템플릿 다운로드
 
-템플릿을 만드는 대신 템플릿을 다운로드하여 **CreateWebApp** 폴더에 저장할 수 있습니다.
+템플릿을 만드는 대신 템플릿을 다운로드하여 _CreateWebApp_ 폴더에 저장할 수 있습니다.
 
 * 기본 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
 * 연결된 템플릿: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
-폴더 이름과 파일 이름은 모두 파이프라인에 있는 그대로 사용됩니다.  이러한 이름을 변경할 경우 파이프라인에서 사용되는 이름을 업데이트해야 합니다.
+폴더 이름과 파일 이름은 모두 파이프라인에 있는 그대로 사용됩니다. 이러한 이름을 변경할 경우 파이프라인에서 사용되는 이름을 업데이트해야 합니다.
 
 ### <a name="push-the-template-to-the-remote-repository"></a>원격 리포지토리에 템플릿 푸시
 
-azuredeploy.json 파일이 로컬 리포지토리에 추가되었습니다. 다음으로, 템플릿을 원격 리포지토리에 업로드합니다.
+_azuredeploy.json_ 이 로컬 리포지토리에 추가되었습니다. 다음으로, 템플릿을 원격 리포지토리에 업로드합니다.
 
 1. *Git Shell* 또는 *Git Bash* 가 열려 있지 않으면 지금 엽니다.
-1. 디렉터리를 로컬 리포지토리의 CreateWebApp 폴더로 변경합니다.
-1. **azuredeploy.json** 파일이 이 폴더에 있는지 확인합니다.
+1. 디렉터리를 로컬 리포지토리의 _CreateWebApp_ 폴더로 변경합니다.
+1. _azuredeploy.json_ 파일이 이 폴더에 있는지 확인합니다.
 1. 다음 명령을 실행합니다.
 
     ```bash
     git add .
     git commit -m "Add web app templates."
-    git push origin master
+    git push origin main
     ```
 
-    LF에 대한 경고가 발생할 수 있습니다. 경고를 무시해도 됩니다. **마스터** 는 마스터 분기입니다.  일반적으로 각 업데이트에 대한 분기를 만듭니다. 이 자습서에서는 간단하게 마스터 분기를 직접 사용하겠습니다.
-1. 브라우저에서 GitHub 리포지토리를 찾습니다.  URL은 **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** 입니다. **CreateWebApp** 폴더 및 이 폴더 내의 세 파일이 표시됩니다.
-1. **linkedStorageAccount.json** 을 선택하여 템플릿을 엽니다.
-1. **원시** 단추를 선택합니다. URL은 **raw.githubusercontent.com** 으로 시작합니다.
-1. URL 복사본을 만듭니다.  이 값은 나중에 자습서에서 파이프라인을 구성할 때 제공해야 합니다.
+    LF에 대한 경고가 발생할 수 있습니다. 경고를 무시해도 됩니다. **main** 은 기본 분기입니다.  일반적으로 각 업데이트에 대한 분기를 만듭니다. 자습서를 간소화하려면 기본 분기를 직접 사용합니다.
+
+1. 브라우저에서 GitHub 리포지토리를 찾습니다. URL은 `https://github.com/[YourAccountName]/[YourGitHubRepository]`입니다. _CreateWebApp_ 폴더 및 이 폴더 내의 세 파일이 표시됩니다.
+1. _linkedStorageAccount.json_ 을 선택하여 템플릿을 엽니다.
+1. **원시** 단추를 선택합니다. URL은 `https://raw.githubusercontent.com`으로 시작합니다.
+1. URL 복사본을 만듭니다. 이 값은 나중에 자습서에서 파이프라인을 구성할 때 제공해야 합니다.
 
 지금까지 GitHub 리포지토리를 만들고, 템플릿을 리포지토리에 업로드했습니다.
 
 ## <a name="create-a-devops-project"></a>DevOps 프로젝트 만들기
 
-다음 절차를 진행하려면 DevOps 조직이 필요합니다.  조직이 없는 경우 [사전 요구 사항](#prerequisites)을 참조하세요.
+다음 절차를 진행하려면 DevOps 조직이 필요합니다. 조직이 없는 경우 [사전 요구 사항](#prerequisites)을 참조하세요.
 
 1. [Azure DevOps](https://dev.azure.com)에 로그인합니다.
 1. 왼쪽에서 DevOps 조직을 선택합니다.
@@ -148,7 +149,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
 지금까지 다음 작업을 완료했습니다.  GitHub 및 DevOps에 익숙해서 이전 섹션을 건너뛴 경우 다음 작업을 완료해야만 계속 진행할 수 있습니다.
 
-* GitHub 리포지토리를 만들고, 템플릿을 리포지토리의 **CreateWebApp** 폴더에 저장합니다.
+* GitHub 리포지토리를 만들고, 템플릿을 리포지토리의 _CreateWebApp_ 폴더에 저장합니다.
 * DevOps 프로젝트를 만들고, Azure Resource Manager 서비스 연결을 만듭니다.
 
 템플릿을 배포하는 단계를 사용하여 파이프라인을 만들려면 다음을 수행합니다.
@@ -159,9 +160,9 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines 리포지토리만 선택](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
 
-1. **선택** 탭에서 리포지토리를 선택합니다.  기본 이름은 **[YourAccountName]/[YourGitHubRepositoryName]** 입니다.
-1. **구성** 탭에서 **시작 파이프라인** 을 선택합니다. 두 스크립트 단계가 있는 **azure-pipelines.yml** 파이프라인 파일이 표시됩니다.
-1. yml 파일에서 두 스크립트 단계를 삭제합니다.
+1. **선택** 탭에서 리포지토리를 선택합니다. 기본 이름은 `[YourAccountName]/[YourGitHubRepositoryName]`입니다.
+1. **구성** 탭에서 **시작 파이프라인** 을 선택합니다. 두 스크립트 단계가 있는 _azure-pipelines.yml_ 파이프라인 파일이 표시됩니다.
+1. _.yml_ 파일에서 두 스크립트 단계를 삭제합니다.
 1. 커서를 **steps:** 뒤의 줄로 이동합니다.
 1. 화면 오른쪽에서 **도우미 표시** 를 선택하여 **작업** 창을 엽니다.
 1. **ARM 템플릿 배포** 를 선택합니다.
@@ -174,9 +175,9 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
     * **리소스 그룹**: 새 리소스 그룹 이름을 입력합니다. 예: **AzureRmPipeline-rg**.
     * **위치**: 리소스 그룹의 위치를 선택합니다(예: **미국 중부**).
     * **템플릿 위치**: **연결된 아티팩트** 를 선택합니다. 그러면 연결된 리포지토리에서 템플릿 파일을 직접 찾습니다.
-    * **템플릿**: **CreateWebApp/azuredeploy.json** 을 입력합니다. 폴더 이름과 파일 이름을 변경한 경우 이 값을 변경해야 합니다.
+    * **템플릿**: _CreateWebApp/azuredeploy.json_ 을 입력합니다. 폴더 이름과 파일 이름을 변경한 경우 이 값을 변경해야 합니다.
     * **템플릿 매개 변수**: 이 필드는 공백으로 둡니다. 매개 변수 값을 **템플릿 매개 변수 재정의** 에 지정합니다.
-    * **템플릿 매개 변수 재정의**: **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** 을 입력합니다. 프로젝트 이름과 연결된 템플릿 URL을 바꿉니다. 연결된 템플릿 URL은 [GitHub 리포지토리 만들기](#create-a-github-repository)의 끝부분에서 작성한 것입니다. **https://raw.githubusercontent.com** 로 시작합니다.
+    * **템플릿 매개 변수 재정의**: `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` 을 입력합니다. 프로젝트 이름과 연결된 템플릿 URL을 바꿉니다. 연결된 템플릿 URL은 [GitHub 리포지토리 만들기](#create-a-github-repository)의 끝부분에서 작성한 것입니다. `https://raw.githubusercontent.com` 로 시작합니다.
     * **배포 모드**: **증분** 을 선택합니다.
     * **배포 이름**: **DeployPipelineTemplate** 을 입력합니다. **배포 이름** 을 표시하려면 **고급** 을 선택합니다.
 
@@ -186,7 +187,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     작업에 대한 자세한 내용은 [Azure Resource Group 배포 작업](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) 및 [Azure Resource Manager 템플릿 배포 작업](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)을 참조하세요.
 
-    yml 파일은 다음과 비슷해야 합니다.
+    _.yml_ 파일은 다음과 비슷해야 합니다.
 
     ![스크린샷은 [파이프라인 YAML 검토]라는 제목의 새 파이프라인이 있는 검토 페이지를 보여줍니다.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
@@ -199,7 +200,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 ## <a name="verify-the-deployment"></a>배포 확인
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 리소스 그룹을 엽니다. 이름은 파이프라인 YAML 파일에서 지정한 이름입니다.  스토리지 계정이 하나 만들어진 것이 보입니다.  스토리지 계정 이름은 **store** 로 시작합니다.
+1. 리소스 그룹을 엽니다. 이름은 파이프라인 YAML 파일에서 지정한 이름입니다. 스토리지 계정이 하나 만들어진 것이 보입니다. 스토리지 계정 이름은 **store** 로 시작합니다.
 1. 스토리지 계정 이름을 선택하여 엽니다.
 1. **속성** 을 선택합니다. **복제** 는 **LRS(로컬 중복 스토리지)** 입니다.
 
@@ -207,7 +208,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
 템플릿을 업데이트하고 변경 내용을 원격 리포지토리에 푸시하면 파이프라인이 자동으로 리소스(이 예에서는 스토리지 계정)를 업데이트합니다.
 
-1. Visual Studio Code 또는 텍스트 편집기의 로컬 리포지토리에서 **linkedStorageAccount.json** 을 엽니다.
+1. Visual Studio Code 또는 텍스트 편집기의 로컬 리포지토리에서 _linkedStorageAccount.json_ 을 엽니다.
 1. **storageAccountType** 의 **defaultValue** 를 **Standard_GRS** 로 업데이트합니다. 다음 스크린샷을 참조하세요.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines yaml 업데이트](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-update-yml.png)
@@ -216,17 +217,17 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 1. Git Bash/Shell에서 다음 명령을 실행하여 원격 리포지토리에 변경 내용을 푸시합니다.
 
     ```bash
-    git pull origin master
+    git pull origin main
     git add .
     git commit -m "Update the storage account type."
-    git push origin master
+    git push origin main
     ```
 
-    첫 번째 명령(pull)은 로컬 리포지토리를 원격 리포지토리와 동기화합니다. 파이프라인 YAML 파일이 원격 리포지토리에만 추가되었습니다. pull 명령을 실행하면 YAML 파일의 복사본이 로컬 분기로 다운로드됩니다.
+    첫 번째 명령(`pull`)은 로컬 리포지토리를 원격 리포지토리와 동기화합니다. 파이프라인 YAML 파일이 원격 리포지토리에만 추가되었습니다. `pull` 명령을 실행하면 YAML 파일의 복사본이 로컬 분기로 다운로드됩니다.
 
-    네 번째 명령(push)은 수정된 linkedStorageAccount.json 파일을 원격 리포지토리에 업로드합니다. 원격 리포지토리의 마스터 분기가 업데이트되었으므로 파이프라인이 다시 실행됩니다.
+    네 번째 명령(`push`)은 수정된 _linkedStorageAccount.json_ 파일을 원격 리포지토리에 업로드합니다. 원격 리포지토리의 기본 분기가 업데이트되었으므로 파이프라인이 다시 실행됩니다.
 
-변경 내용을 확인하려면 스토리지 계정의 복제 속성을 확인하면 됩니다.  [배포 확인](#verify-the-deployment)을 참조하세요.
+변경 내용을 확인하려면 스토리지 계정의 복제 속성을 확인하면 됩니다. [배포 확인](#verify-the-deployment)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

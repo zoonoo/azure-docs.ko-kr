@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 445e7ce2d6e609d75bff38bb3d049a87f184be12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613597"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106906"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>자습서: Azure 빠른 시작 템플릿 사용
 
@@ -34,10 +34,10 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 ## <a name="find-template"></a>템플릿 찾기
 
 1. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 엽니다.
-1. **검색**에 **deploy linux web app**(Linux 웹앱 배포)을 입력합니다.
-1. 제목이 **Deploy a basic Linux web app**(기본 Linux 웹앱 배포)인 항목을 선택합니다. 찾는 데 문제가 있으면 [직접 링크](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)를 사용하세요.
-1. **GitHub에서 찾아보기**를 선택합니다.
-1. **azuredeploy.json**을 선택합니다.
+1. **검색** 에 _deploy linux web app_(Linux 웹앱 배포)을 입력합니다.
+1. 제목이 **기본 Linux 웹앱 배포** 인 타일을 선택합니다. 찾는 데 문제가 있으면 [직접 링크](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)를 사용하세요.
+1. **GitHub에서 찾아보기** 를 선택합니다.
+1. _azuredeploy.json_ 을 선택합니다.
 1. 템플릿을 검토합니다. 특히, `Microsoft.Web/sites` 리소스를 살펴봅니다.
 
     ![Resource Manager 템플릿 빠른 시작 웹 사이트](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
@@ -48,15 +48,15 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-웹앱 이름은 Azure에서 고유해야 합니다. 이름이 중복되지 않도록, **webAppPortalName** 변수가 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 에서 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 으로 업데이트되었습니다.
+웹앱 이름은 Azure에서 고유해야 합니다. 이름이 중복되지 않도록, `webAppPortalName` 변수가 `"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"` 에서 `"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"` 으로 업데이트되었습니다.
 
 `Microsoft.Web/serverfarms` 정의의 끝에 쉼표를 추가하여 `Microsoft.Web/sites` 정의와 리소스 정의를 구분합니다.
 
 이 새 리소스에는 몇 가지 중요한 기능이 있습니다.
 
-App Service 계획으로 설정되는 **dependsOn**이라는 요소가 있음을 알 수 있습니다. 웹 앱을 만들기 전에 App Service 계획이 있어야 하기 때문에 이 설정이 필요합니다. **dependsOn** 요소는 배포를 위해 리소스를 정렬하는 방법을 Resource Manager에 알려줍니다.
+앱 서비스 계획으로 설정되는 `dependsOn`이라는 요소가 있음을 알 수 있습니다. 웹 앱을 만들기 전에 App Service 계획이 있어야 하기 때문에 이 설정이 필요합니다. `dependsOn` 요소는 배포를 위해 리소스를 정렬하는 방법을 Resource Manager에 알려줍니다.
 
-**serverFarmId** 속성은 [resourceId](template-functions-resource.md#resourceid) 함수를 사용합니다. 이 함수는 리소스의 고유 식별자를 가져옵니다. 이 경우 App Service 계획의 고유 식별자를 가져옵니다. 웹앱은 하나의 특정 App Service 계획과 연결됩니다.
+`serverFarmId` 속성은 [resourceId](template-functions-resource.md#resourceid) 함수를 사용합니다. 이 함수는 리소스의 고유 식별자를 가져옵니다. 이 경우 App Service 계획의 고유 식별자를 가져옵니다. 웹앱은 하나의 특정 App Service 계획과 연결됩니다.
 
 ## <a name="deploy-template"></a>템플릿 배포
 
@@ -91,7 +91,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> 배포에 실패한 경우 **자세한 정보** 스위치를 사용하여 생성되는 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 **디버그** 스위치를 사용합니다.
+> 배포에 실패한 경우 `verbose` 스위치를 사용하여 생성 중인 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 `debug` 스위치를 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -99,10 +99,10 @@ az deployment group create \
 
 지금 중지하는 경우에는 리소스 그룹을 삭제하여 배포된 리소스를 정리하는 것이 좋습니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
 3. 해당 리소스 그룹 이름을 선택합니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+4. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

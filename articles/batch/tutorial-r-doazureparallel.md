@@ -1,16 +1,16 @@
 ---
-title: Azure Batch를 사용한 병렬 R 시뮬레이션
+title: 자습서 - Azure Batch를 사용하여 병렬 R 시뮬레이션 실행
 description: 자습서 - R doAzureParallel 패키지를 사용하여 Azure Batch에서 몬테카를로 재무 시뮬레이션을 실행하는 단계별 지침
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 3ce4cff94bb565ce3dd9bc4e9307a2b21c4c0ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f157a3596992fc9d40179653cc1f9a070c6ef803
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851138"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106364"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>자습서: Azure Batch를 사용하여 병렬 R 시뮬레이션 실행
 
@@ -56,7 +56,7 @@ library(doAzureParallel)
 ```
 설치하는 데 몇 분이 걸릴 수 있습니다.
 
-이전에 얻은 계정 자격 증명으로 doAzureParallel을 구성하려면 작업 디렉터리에 *credentials.json*이라는 구성 파일을 생성합니다.
+이전에 얻은 계정 자격 증명으로 doAzureParallel을 구성하려면 작업 디렉터리에 *credentials.json* 이라는 구성 파일을 생성합니다.
 
 ```R
 generateCredentialsConfig("credentials.json")
@@ -101,8 +101,8 @@ generateClusterConfig("cluster.json")
 
 이 자습서에서는 구성을 다음과 같이 변경합니다.
 
-* 각 노드의 두 코어를 모두 활용하려면 `taskSlotsPerNode`를 *2*로 늘립니다.
-* `dedicatedNodes`를 *0*으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `lowPriorityNodes`의 `min`을 *5*로, `max`를 *10*으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다.
+* 각 노드의 두 코어를 모두 활용하려면 `taskSlotsPerNode`를 *2* 로 늘립니다.
+* `dedicatedNodes`를 *0* 으로 설정하면 Batch에 사용할 수 있는 우선 순위가 낮은 VM을 시도할 수 있습니다. `lowPriorityNodes`의 `min`을 *5* 로, `max`를 *10* 으로 설정하거나, 필요한 경우 더 작은 숫자를 선택합니다.
 
 나머지 설정에 대한 기본값은 그대로 두고 파일을 저장합니다. 결과는 다음과 비슷합니다.
 
@@ -145,7 +145,7 @@ registerDoAzureParallel(cluster)
 getDoParWorkers()
 ```
 
-출력에는 doAzureParallel에 대한 "실행 작업자"의 수가 표시됩니다. 이 숫자는 노드 수에 `taskSlotsPerNode` 값을 곱한 값입니다. 클러스터 구성을 앞에서 설명한 대로 수정한 경우 이 숫자는 *10*입니다.
+출력에는 doAzureParallel에 대한 "실행 작업자"의 수가 표시됩니다. 이 숫자는 노드 수에 `taskSlotsPerNode` 값을 곱한 값입니다. 클러스터 구성을 앞에서 설명한 대로 수정한 경우 이 숫자는 *10* 입니다.
 
 ## <a name="run-a-parallel-simulation"></a>병렬 시뮬레이션 실행
 
@@ -220,7 +220,7 @@ closingPrices_p <- foreach(i = 1:100, .combine='c', .options.azure = opt) %dopar
 end_p <- Sys.time()
 ```
 
-시뮬레이션에서는 Batch 풀의 노드에 태스크를 배포합니다. 활동이 Azure Portal의 풀에 대한 열 지도에 표시됩니다. **배치 계정** > *myBatchAccount*로 차례로 이동합니다. **풀** > *myPoolName*을 차례로 클릭합니다.
+시뮬레이션에서는 Batch 풀의 노드에 태스크를 배포합니다. 활동이 Azure Portal의 풀에 대한 열 지도에 표시됩니다. **배치 계정** > *myBatchAccount* 로 차례로 이동합니다. **풀** > *myPoolName* 을 차례로 클릭합니다.
 
 ![병렬 R 태스크를 실행하는 풀의 열 지도](media/tutorial-r-doazureparallel/pool.png)
 
@@ -251,7 +251,7 @@ stopCluster(cluster)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > doAzureParallel을 설치하고 배치 계정 및 스토리지 계정에 액세스하도록 구성
@@ -263,7 +263,3 @@ doAzureParallel에 대한 자세한 내용은 GitHub의 설명서 및 샘플을 
 
 > [!div class="nextstepaction"]
 > [doAzureParallel 패키지](https://github.com/Azure/doAzureParallel/)
-
-
-
-

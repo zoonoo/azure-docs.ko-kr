@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 84f6ef813fb1b2cc425e096212010717d0561aef
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498305"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401675"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
 
@@ -68,13 +68,13 @@ ms.locfileid: "96498305"
 이 다이어그램은 [미디어 그래프](media-graph-concept.md) 및 원하는 시나리오를 수행하는 추가 모듈을 그림으로 표현한 것입니다. 다음 4개의 IoT Edge 모듈이 포함되어 있습니다.
 
 * Live Video Analytics on IoT Edge 모듈
-* HTTP 엔드포인트 내부에서 AI 모델을 실행하는 에지 모듈. 이 AI 모듈은 다양한 형식의 개체를 감지할 수 있는 [YOLO v3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 모델을 사용합니다.
+* HTTP 엔드포인트 내부에서 AI 모델을 실행하는 에지 모듈. 이 AI 모듈은 다양한 형식의 개체를 감지할 수 있는 [YOLOv3](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) 모델을 사용합니다.
 * 개체를 계산하고 필터링하는 사용자 지정 모듈(다이어그램에서는 개체 카운터라고 함). 이 자습서에서는 개체 카운터를 빌드하고 배포합니다.
 * RTSP 카메라를 시뮬레이션하는 [RTSP 시뮬레이터 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)
     
 다이어그램에서 볼 수 있듯이 미디어 그래프에서 [RTSP 원본](media-graph-concept.md#rtsp-source) 노드를 사용하여 고속도로에서 시뮬레이션된 라이브 교통 비디오를 캡처하고 해당 비디오를 두 개의 경로로 보냅니다.
 
-* 첫 번째 경로는 지정된(축소된) 프레임 속도로 비디오 프레임을 출력하는 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드의 경로입니다. 이러한 비디오 프레임은 HTTP 확장 노드로 보내집니다. 그런 다음, 노드에서 프레임을 이미지로 개체 감지기인 YOLO v3 AI 모듈에 릴레이합니다. 노드는 모델에서 감지된 개체(교통 차량)인 결과를 받습니다. 그런 다음, HTTP 확장 노드에서 IoT Hub 메시지 싱크 노드를 통해 결과를 IoT Edge 허브에 게시합니다.
+* 첫 번째 경로는 HTTP 확장 노드에 대한 것입니다. 노드는 `samplingOptions` 필드를 사용하여 사용자가 설정한 값으로 비디오 프레임을 샘플링한 다음, 프레임을 개체 감지기인 AI 모듈 YOLOv3에 이미지로 릴레이합니다. 노드는 모델에서 감지된 개체(교통 차량)인 결과를 받습니다. 그런 다음, HTTP 확장 노드에서 IoT Hub 메시지 싱크 노드를 통해 결과를 IoT Edge 허브에 게시합니다.
 * objectCounter 모듈이 IoT Edge 허브에서 메시지를 받도록 설정되며, 여기에는 개체 감지 결과(교통 차량)가 포함됩니다. 모듈은 이러한 메시지를 확인하고 설정을 통해 구성된 특정 형식의 개체를 찾습니다. 이러한 개체가 있으면 이 모듈에서 메시지를 IoT Edge 허브에 보냅니다. 이러한 "개체 발견" 메시지는 미디어 그래프의 IoT Hub 원본 노드로 라우팅됩니다. 이러한 메시지를 받으면 미디어 그래프의 IoT Hub 원본 노드에서 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor) 노드를 트리거합니다. 그러면 신호 게이트 프로세서 노드가 구성된 시간 동안 열립니다. 비디오는 이 시간 동안 게이트를 통과하여 자산 싱크 노드로 이동합니다. 그런 다음, 라이브 스트림의 해당 부분이 [자산 싱크](media-graph-concept.md#asset-sink) 노드를 통해 Azure Media Services 계정의 [자산](terminology.md#asset)에 기록됩니다.
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정

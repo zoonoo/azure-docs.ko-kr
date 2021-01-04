@@ -290,6 +290,8 @@
         - name: 배포 관리자에서 상태 검사 사용
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+    - name: 템플릿에 대한 Microsoft Learn 경로
+      href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: 개념
   items:
     - name: 템플릿 모범 사례
@@ -325,7 +327,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: template-parameters.md
-        - name: 변수
+        - name: variables
           href: template-variables.md
         - name: 사용자 정의 함수
           href: template-user-defined-functions.md

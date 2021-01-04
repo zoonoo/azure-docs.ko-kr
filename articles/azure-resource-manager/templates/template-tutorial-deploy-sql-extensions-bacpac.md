@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2d50903f464c03157ee393787af6ddfdad975aed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931404"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588049"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
-Azure SQL Database 확장을 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)을 통해 BACPAC 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다.
+Azure SQL Database 확장을 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)을 통해 [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 파일을 가져오는 방법에 대해 알아봅니다. 배포 아티팩트는 배포를 완료하는 데 필요한 기본 템플릿 파일 이외의 모든 파일입니다. BACPAC 파일은 아티팩트입니다.
 
 이 자습서에서는 [논리 SQL 서버](../../azure-sql/database/logical-servers.md) 및 단일 데이터베이스를 배포하는 템플릿을 만들고 BACPAC 파일을 가져옵니다. ARM 템플릿을 사용하여 Azure 가상 머신 확장을 배포하는 방법에 대한 자세한 내용은 [자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포](./template-tutorial-deploy-vm-extensions.md)를 참조하세요.
 
@@ -55,7 +55,7 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 * 컨테이너에 BACPAC 파일 업로드
 * 스토리지 계정 키와 Blob URL을 표시합니다.
 
-1. **사용해보기** 를 선택하여 클라우드 셸을 엽니다. 그런 다음, 다음 PowerShell 스크립트를 셸 창에 붙여넣습니다.
+1. **사용해보기** 를 선택하여 셸을 엽니다. 그런 다음, 다음 PowerShell 스크립트를 셸 창에 붙여넣습니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -120,7 +120,7 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
 ## <a name="edit-the-template"></a>템플릿 편집
 
-1. **매개 변수** 섹션의 끝에 두 개의 매개 변수를 더 추가하여 스토리지 계정 키와 BACPAC URL을 설정합니다.
+1. `parameters` 섹션의 끝에 두 개의 매개 변수를 더 추가하여 스토리지 계정 키와 BACPAC URL을 설정합니다.
 
     ```json
         "storageAccountKey": {
@@ -137,7 +137,7 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
         }
     ```
 
-    **adminPassword** 뒤에 쉼표를 추가합니다. Visual Studio Code에서 JSON 파일의 형식을 지정하려면 Shift + Alt + F를 선택합니다.
+    `adminPassword` 속성의 닫는 중괄호(`}`) 뒤에 쉼표를 추가합니다. Visual Studio Code에서 JSON 파일의 형식을 지정하려면 Shift + Alt + F를 선택합니다.
 
     이러한 두 값을 가져오려면 [BACPAC 파일 준비](#prepare-a-bacpac-file)를 참조하세요.
 
@@ -196,11 +196,11 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
         리소스 정의를 이해하려면 [SQL Database 확장 참조](/azure/templates/microsoft.sql/servers/databases/extensions)를 확인하세요. 다음은 중요한 요소입니다.
 
-        * **dependsOn**: 데이터베이스가 생성된 후 확장 리소스를 만들어야 합니다.
-        * **storageKeyType**: 사용할 스토리지 키 형식을 지정합니다. 값은 `StorageAccessKey` 또는 `SharedAccessKey`일 수 있습니다. 이 자습서에서는 `StorageAccessKey`를 사용합니다.
-        * **storageKey**: BACPAC 파일이 저장된 스토리지 계정의 키를 지정합니다. 스토리지 키 형식이 `SharedAccessKey`이면 앞에 “?”가 있어야 합니다.
-        * **storageUri**: 스토리지 계정에 저장된 BACPAC 파일의 URL을 지정합니다.
-        * **administratorLoginPassword**: SQL 관리자의 암호입니다. 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
+        * `dependsOn`: 데이터베이스가 생성된 후 확장 리소스를 만들어야 합니다.
+        * `storageKeyType`: 사용할 스토리지 키 형식을 지정합니다. 값은 `StorageAccessKey` 또는 `SharedAccessKey`일 수 있습니다. 이 자습서에서는 `StorageAccessKey`를 사용합니다.
+        * `storageKey`: BACPAC 파일이 저장된 스토리지 계정의 키를 지정합니다. 스토리지 키 형식이 `SharedAccessKey`이면 앞에 “?”가 있어야 합니다.
+        * `storageUri`: 스토리지 계정에 저장된 BACPAC 파일의 URL을 지정합니다.
+        * `administratorLoginPassword`: SQL 관리자의 암호입니다. 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 
 완성된 템플릿은 다음과 같습니다.
 

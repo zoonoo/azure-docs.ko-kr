@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 919688a05081c6f0b717fa4a524da769f2a281fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351625"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563469"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 서버에 렌더링된 Nuxt.js 웹 사이트 배포
 
@@ -109,7 +109,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 1. GitHub에 변경 내용을 푸시합니다.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>정적 웹 사이트를 배포합니다.
@@ -139,7 +139,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 1. **GitHub로 로그인 단추** 를 클릭합니다.
 1. Nuxt.js 프로젝트의 리포지토리를 만든 **조직** 을 선택합니다. 이는 GitHub 사용자 이름일 수 있습니다.
 1. 이전에 만든 리포지토리의 이름을 찾아서 선택합니다.
-1. *분기* 드롭다운에서 분기로 **마스터** 를 선택합니다.
+1. *분기* 드롭다운에서 분기로 **주** 를 선택합니다.
 
    :::image type="content" source="media/deploy-nuxtjs/connect-github.png" alt-text="GitHub 연결":::
 
@@ -172,7 +172,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 앱을 만들 때 Azure Static Web Apps는 리포지토리에 GitHub 작업 워크플로 파일을 만들었습니다. git 기록이 동기화되도록 이 파일을 로컬 리포지토리로 가져와야 합니다.
 
-터미널로 돌아가 다음 `git pull origin master` 명령을 실행합니다.
+터미널로 돌아가 다음 `git pull origin main` 명령을 실행합니다.
 
 ## <a name="configure-dynamic-routes"></a>동적 경로 구성
 

@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931455"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587947"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prepare-a-powershell-script"></a>PowerShell 스크립트 준비
 
-인라인 PowerShell 스크립트 또는 스크립트 파일을 사용할 수 있습니다.  이 자습서에서는 스크립트 파일을 사용하는 방법을 보여줍니다. 다음 콘텐츠가 포함된 PowerShell 스크립트는 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)에서 공유됩니다.
+인라인 PowerShell 스크립트 또는 스크립트 파일을 사용할 수 있습니다. 이 자습서에서는 스크립트 파일을 사용하는 방법을 보여줍니다. 다음 콘텐츠가 포함된 PowerShell 스크립트는 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)에서 공유됩니다.
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -105,22 +105,22 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
 이 리소스 정의에 대한 자세한 내용은 [확장 참조](/azure/templates/microsoft.compute/virtualmachines/extensions)를 참조하세요. 다음은 중요한 요소입니다.
 
-* **name**: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요.
-* **dependsOn**: 가상 머신을 만든 후 확장 리소스를 만듭니다.
-* **fileUris**: 스크립트 파일이 저장되는 위치입니다. 제공된 위치를 사용하지 않으려면 값을 업데이트해야 합니다.
-* **commandToExecute**: 이 명령은 스크립트를 호출합니다.
+* `name`: 확장 리소스는 가상 머신 개체의 자식 리소스이므로 이름에 가상 머신 이름 접두사가 있어야 합니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요.
+* `dependsOn`: 가상 머신을 만든 후 확장 리소스를 만듭니다.
+* `fileUris`: 스크립트 파일이 저장되는 위치입니다. 제공된 위치를 사용하지 않으려면 값을 업데이트해야 합니다.
+* `commandToExecute`: 이 명령은 스크립트를 호출합니다.
 
-인라인 스크립트를 사용하려면 **fileUris** 를 제거하고 **commandToExecute** 를 다음과 같이 업데이트합니다.
+인라인 스크립트를 사용하려면 `fileUris`를 제거하고 `commandToExecute`를 다음으로 업데이트합니다.
 
 ```powershell
 powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
 ```
 
-이 인라인 스크립트는 iisstart.html 콘텐츠도 업데이트합니다.
+이 인라인 스크립트는 _iisstart.html_ 콘텐츠도 업데이트합니다.
 
 또한 웹 서버에 액세스할 수 있도록 HTTP 포트를 열어야 합니다.
 
-1. 템플릿에서 **securityRules** 를 찾습니다.
+1. 템플릿에서 `securityRules`를 찾습니다.
 1. **default-allow-3389** 옆에 다음 규칙을 추가합니다.
 
     ```json
@@ -141,7 +141,7 @@ powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools &
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-배포 절차는 다음의 “템플릿 배포” 섹션을 참조하세요. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). 가상 머신 관리자 계정에 대해 생성된 암호를 사용하는 것이 좋습니다. 이 문서의 [필수 구성 요소](#prerequisites) 섹션을 참조하세요.
+배포 절차는 [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 **템플릿 배포** 섹션을 참조하세요. 가상 머신 관리자 계정에 대해 생성된 암호를 사용하는 것이 좋습니다. 이 문서의 [필수 구성 요소](#prerequisites) 섹션을 참조하세요.
 
 Cloud Shell에서 다음 명령을 실행하여 VM의 공용 IP 주소를 검색합니다.
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931591"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588039"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
 
-1. Visual Studio Code에서 **파일**>**파일 열기** 를 차례로 선택합니다.
+1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 2. **파일 이름** 에서 다음 URL을 붙여넣습니다.
 
     ```url
@@ -54,18 +54,18 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     ```
 
 3. **열기** 를 선택하여 파일을 엽니다.
-4. **파일**>**다른 이름으로 저장** 을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json** 이라는 이름으로 저장합니다.
+4. **파일** > **다른 이름으로 저장** 을 선택하여 파일 복사본을 로컬 컴퓨터에 _azuredeploy.json_ 이라는 이름으로 저장합니다.
 
 ## <a name="explore-the-template"></a>템플릿 탐색
 
 이 섹션의 템플릿을 탐색하는 경우 다음 질문에 대답해 보세요.
 
 * 이 템플릿에 정의되는 Azure 리소스는 얼마나 되나요?
-* 리소스 중 하나는 Azure Storage 계정입니다.  마지막 자습서에서 사용한 것과 비슷한 같은 정의인가요?
+* 리소스 중 하나는 Azure Storage 계정입니다. 마지막 자습서에서 사용한 것과 비슷한 같은 정의인가요?
 * 이 템플릿에 정의된 리소스에 대한 템플릿 참조를 찾을 수 있나요?
 * 리소스의 종속성을 찾을 수 있나요?
 
-1. Visual Studio Code에서 **리소스** 내부에 첫 번째 수준 요소와 두 번째 수준 요소만 표시될 때까지 요소를 축소합니다.
+1. Visual Studio Code에서 `resources` 내부에 첫 번째 수준 요소와 두 번째 수준 요소만 표시될 때까지 요소를 축소합니다.
 
     ![Visual Studio Code ARM 템플릿](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -96,7 +96,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
     ![Visual Studio Code ARM 템플릿 가상 네트워크 dependsOn](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    dependsOn 요소를 사용하면 한 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 이 리소스는 다음과 같은 다른 리소스에 종속됩니다.
+    `dependsOn` 요소를 사용하면 한 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 이 리소스는 다음과 같은 다른 리소스에 종속됩니다.
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
     ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. 이전 스크린샷을 참조하세요. 이전에 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
+1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. 이전 스크린샷을 참조하세요. 이전에 저장한 파일을 선택합니다. 파일을 업로드한 후 `ls` 명령 및 `cat` 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
 1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 

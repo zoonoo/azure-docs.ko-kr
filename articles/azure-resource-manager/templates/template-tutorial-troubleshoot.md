@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928531"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589120"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>자습서: ARM 템플릿 배포 문제 해결
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라는 템플릿을 열고 두 가지 템플릿 문제를 설정합니다.
 
-1. Visual Studio Code에서 **파일**>**파일 열기** 를 차례로 선택합니다.
+1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 2. **파일 이름** 에서 다음 URL을 붙여넣습니다.
 
     ```url
@@ -51,16 +51,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
 3. **열기** 를 선택하여 파일을 엽니다.
-4. **apiVersion** 줄을 다음 줄로 변경합니다.
+4. `apiVersion` 줄을 다음 줄로 변경합니다.
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** 은 잘못된 요소 이름입니다. 유효성 검사 오류입니다.
-    - API 버전은 "2018-07-01"이어야 합니다.  배포 오류입니다.
+    - `apiVersion1`은 잘못된 요소 이름입니다. 유효성 검사 오류입니다.
+    - API 버전은 `"2018-07-01"`이어야 합니다.  배포 오류입니다.
 
-5. **파일**>**이름으로 저장** 을 차례로 선택하여 파일을 **azuredeploy.json** 으로 저장합니다.
+5. **파일** > **이름으로 저장** 을 차례로 선택하여 파일을 _azuredeploy.json_ 으로 저장합니다.
 
 ## <a name="troubleshoot-the-validation-error"></a>유효성 검사 오류 문제 해결
 
@@ -68,13 +68,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 셸에서 다음과 유사한 오류가 발생합니다.
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-오류 메시지는 **apiVersion1** 에 문제가 있음을 나타냅니다.
+오류 메시지는 `apiVersion1`에 문제가 있음을 나타냅니다.
 
-Visual Studio Code를 사용하여 **apiVersion1** 을 **apiVersion** 으로 변경한 다음, 템플릿을 저장하여 문제를 해결합니다.
+Visual Studio Code를 사용하여 `apiVersion1`을 `apiVersion`으로 변경한 다음, 템플릿을 저장하여 문제를 해결합니다.
 
 ## <a name="troubleshoot-the-deployment-error"></a>배포 오류 문제 해결
 
@@ -82,7 +82,7 @@ Visual Studio Code를 사용하여 **apiVersion1** 을 **apiVersion** 으로 변
 
 셸에서 다음과 유사한 오류가 발생합니다.
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",

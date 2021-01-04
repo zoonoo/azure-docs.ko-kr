@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: e55638e20bceb6df4b8e74375d67836123167162
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 7acfb168462354017168ee333ea0b1ecaea434c1
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931744"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107127"
 ---
 # <a name="tutorial-add-outputs-to-your-arm-template"></a>자습서: ARM 템플릿에 출력 추가
 
@@ -41,17 +41,17 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 추가한 출력 값과 관련하여 알아두어야 할 몇 가지 중요한 항목이 있습니다.
 
-반환되는 값의 유형은 **object** 로 설정됩니다. 즉, JSON 개체를 반환합니다.
+반환되는 값의 유형은 `object`로 설정됩니다. 즉, JSON 개체를 반환합니다.
 
 [reference](template-functions-resource.md#reference) 함수를 사용하여 스토리지 계정의 런타임 상태를 가져옵니다. 리소스의 런타임 상태를 가져오려면 리소스의 이름 또는 ID를 전달합니다. 이 경우 스토리지 계정의 이름을 만드는 데 사용한 것과 동일한 변수를 사용합니다.
 
-마지막으로, 스토리지 계정에서 **primaryEndpoints** 속성을 반환합니다.
+마지막으로, 스토리지 계정에서 `primaryEndpoints` 속성을 반환합니다.
 
 ## <a name="deploy-template"></a>템플릿 배포
 
 템플릿을 배포하고 반환되는 값을 확인할 준비가 되었습니다.
 
-리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
+리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 `templateFile` 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -92,7 +92,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> 배포에 실패한 경우 **자세한 정보** 스위치를 사용하여 생성되는 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 **디버그** 스위치를 사용합니다.
+> 배포에 실패한 경우 `verbose` 스위치를 사용하여 생성 중인 리소스에 대한 정보를 가져옵니다. 디버깅에 대한 자세한 정보를 보려면 `debug` 스위치를 사용합니다.
 
 ## <a name="review-your-work"></a>작업 검토
 

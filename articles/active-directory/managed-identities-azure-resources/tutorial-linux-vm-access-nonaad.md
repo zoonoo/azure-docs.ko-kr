@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cfcaec38a939291090da7d2229c4a95f984bf28
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5151f97386ebb6b06be2320505771dc8f47d59a0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360443"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107535"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 
@@ -36,7 +36,7 @@ ms.locfileid: "93360443"
  
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 관리 ID에 대한 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
+- 관리 ID에 대한 기본 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
 - Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 - 적절한 범위(사용자 구독 또는 리소스 그룹)에서 필요한 리소스 생성 및 역할 관리 단계를 수행할 수 있는 "소유자" 권한. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 - 시스템 할당 관리 ID가 활성화된 Linux 가상 머신도 필요합니다.
@@ -62,6 +62,20 @@ ms.locfileid: "93360443"
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
+### <a name="create-a-secret"></a>비밀 만들기
+
+다음으로, Key Vault에 비밀을 추가하면 나중에 VM에서 실행 중인 코드를 사용하여 비밀을 검색할 수 있습니다. 이 자습서에서는 PowerShell을 사용하지만 이 가상 머신에서 실행되는 모든 코드에 동일한 개념이 적용됩니다.
+
+1. 새로 만든 Key Vault로 이동합니다.
+1. **비밀** 을 선택하고 **추가** 를 클릭합니다.
+1. **생성/가져오기** 를 선택합니다.
+1. **업로드 옵션 **의** 비밀 만들기** 화면에서 **수동** 을 선택한 상태로 둡니다.
+1. 비밀의 이름과 값을 입력합니다.  원하는 어떤 값이나 입력할 수 있습니다. 
+1. 활성화 날짜와 만료 날짜는 비워 두고 **사용 가능** 은 **예** 로 유지합니다. 
+1. **만들기** 를 클릭하여 비밀을 만듭니다.
+
+   ![비밀 만들기](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>액세스 권한 부여
 
 가상 머신에서 사용하는 관리 ID에는 Key Vault에 저장할 비밀을 읽을 수 있는 액세스 권한이 부여되어야 합니다.
@@ -77,20 +91,6 @@ ms.locfileid: "93360443"
 1. **추가** 를 선택합니다.
 1. **저장** 을 선택합니다.
 
-## <a name="create-a-secret"></a>비밀 만들기
-
-다음으로, Key Vault에 비밀을 추가하면 나중에 VM에서 실행 중인 코드를 사용하여 비밀을 검색할 수 있습니다. 이 자습서에서는 PowerShell을 사용하지만 이 가상 머신에서 실행되는 모든 코드에 동일한 개념이 적용됩니다.
-
-1. 새로 만든 Key Vault로 이동합니다.
-1. **비밀** 을 선택하고 **추가** 를 클릭합니다.
-1. **생성/가져오기** 를 선택합니다.
-1. **업로드 옵션 **의** 비밀 만들기** 화면에서 **수동** 을 선택한 상태로 둡니다.
-1. 비밀의 이름과 값을 입력합니다.  원하는 어떤 값이나 입력할 수 있습니다. 
-1. 활성화 날짜와 만료 날짜는 비워 두고 **사용 가능** 은 **예** 로 유지합니다. 
-1. **만들기** 를 클릭하여 비밀을 만듭니다.
-
-   ![비밀 만들기](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
- 
 ## <a name="access-data"></a>데이터 액세스
 
 아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다.  Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](../../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
@@ -121,7 +121,7 @@ ms.locfileid: "93360443"
     이 액세스 토큰을 사용하여 Azure Key Vault에 인증할 수 있습니다.  다음 CURL 요청은 CURL 및 Key Vault REST API를 사용하여 Key Vault에서 비밀을 읽는 방법을 보여 줍니다.  Key Vault **개요** 페이지의 **기본 정보** 섹션에 있는 Key Vault의 URL이 필요합니다.  또한 이전 호출에서 확인한 액세스 토큰도 필요합니다. 
         
     ```bash
-    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
     응답은 다음과 같습니다. 

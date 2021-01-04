@@ -1,15 +1,15 @@
 ---
 title: Azure 빠른 시작 - 배치 계정 만들기 - Azure Resource Manager 템플릿
-description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 빠르게 알아봅니다. 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리합니다.
+description: 이 빠른 시작에서는 ARM 템플릿을 사용하여 Batch 계정을 만드는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fc6f1537b32c8ced2cfc2bf09f16106f791001fc
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642404"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106583"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Batch 계정 만들기
 
@@ -49,14 +49,14 @@ ms.locfileid: "88642404"
    ![Resource Manager 템플릿, 배치 계정 만들기, 배포 포털](media/quick-create-template/batch-template.png)
 
    - **구독**: Azure 구독을 선택합니다.
-   - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인**을 클릭합니다.
+   - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
    - **위치**: 위치를 선택합니다. 예: **미국 중부**
    - **배치 계정 이름**: 기본값을 그대로 둡니다.
-   - **Storage Accountsku**: 스토리지 계정 유형을 선택합니다. 예를 들어 **Standard_LRS**입니다.
+   - **Storage Accountsku**: 스토리지 계정 유형을 선택합니다. 예를 들어 **Standard_LRS** 입니다.
    - **위치**: 리소스가 리소스 그룹과 동일한 위치에 있도록 기본값을 그대로 둡니다.
    - 위에 명시된 사용 약관에 동의합니다. **선택**
 
-1. **구매**를 선택합니다.
+1. **구매** 를 선택합니다.
 
 몇 분 후에 배치 계정을 성공적으로 만들었다는 알림이 표시됩니다.
 

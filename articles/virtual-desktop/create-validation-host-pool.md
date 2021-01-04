@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 서비스 업데이트 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 03/13/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8eb8378480b8784939e3ab63327e73e3705c74a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead4c0aa7d8d71642fd8a4635edbabcafee5b6c2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526513"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563248"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -66,6 +66,20 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
     LoadBalancerType    : BreadthFirst
     ValidationEnvironment : True
 ```
+
+## <a name="enable-your-validation-environment-with-the-azure-portal"></a>Azure Portal을 통해 유효성 검사 환경 활성화
+
+Azure Portal을 사용하여 유효성 검사 환경을 활성화할 수도 있습니다.
+
+Azure Portal을 사용하여 유효성 검사 호스트 풀을 구성하려면 다음을 수행합니다.
+
+1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
+2. **Windows Virtual Desktop** 을 검색하여 선택합니다.
+3. Windows Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
+4. 편집하려는 풀의 이름을 선택합니다.
+5. **속성** 을 선택합니다.
+6. 유효성 검사 환경 필드에서 **예** 를 선택하여 유효성 검사 환경을 사용하도록 설정합니다.
+7. **저장** 을 선택합니다. 그러면 새 설정이 적용됩니다.
 
 ## <a name="update-schedule"></a>업데이트 일정
 

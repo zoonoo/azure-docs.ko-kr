@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ae2361d12dfe18cadd80dd3b84405b2b17751e59
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929319"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584088"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
@@ -43,6 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```console
     openssl rand -base64 32
     ```
+
     생성된 암호가 VM 암호 요구 사항을 충족하는지 확인합니다. Azure 서비스마다 특정한 암호 요구 사항이 있습니다. VM 암호 요구 사항은 [VM을 만들 때의 암호 요구 사항은 무엇인가요?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)를 참조하세요.
 
 ## <a name="prepare-a-key-vault"></a>키 자격 증명 모음 준비
@@ -53,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * 키 자격 증명 모음에 비밀을 추가합니다. 비밀에는 VM 관리자 암호가 저장됩니다.
 
 > [!NOTE]
-> 가상 머신 템플릿을 배포하는 사용자가 키 자격 증명 모음의 소유자나 기여자가 아닌 경우에는 소유자나 기여자가 키 자격 증명 모음의 *Microsoft.KeyVault/vaults/deploy/action* 에 대한 액세스 권한을 해당 사용자에게 부여해야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
+> 가상 머신 템플릿을 배포하는 사용자가 키 자격 증명 모음의 소유자나 기여자가 아닌 경우에는 소유자나 기여자가 키 자격 증명 모음의 `Microsoft.KeyVault/vaults/deploy/action`에 대한 액세스 권한을 해당 사용자에게 부여해야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./key-vault-parameter.md)을 참조하세요.
 
 다음 Azure PowerShell 스크립트를 실행하려면 **사용해 보세요** 를 선택하여 Azure Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭한 다음, **붙여넣기** 를 선택합니다.
 
@@ -79,7 +80,7 @@ Write-Host "Press [ENTER] to continue ..."
 > * 비밀의 기본 이름은 **vmAdminPassword** 입니다. 이 이름은 템플릿에 하드 코드되어 있습니다.
 > * 템플릿에서 비밀을 검색할 수 있도록 하려면 키 자격 증명 모음에 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용** 이라는 액세스 정책을 사용하도록 설정해야 합니다. 이 정책은 템플릿에서 사용하도록 설정됩니다. 이 액세스 정책에 대한 자세한 내용은 [키 자격 증명 모음 및 비밀 배포](./key-vault-parameter.md#deploy-key-vaults-and-secrets)를 참조하세요.
 
-템플릿에는 *keyVaultId* 라는 하나의 출력 값이 있습니다. 이 ID를 비밀 이름과 함께 사용하여 자습서의 뒷부분에서 비밀 값을 검색합니다. 리소스 ID 형식은 다음과 같습니다.
+템플릿에는 `keyVaultId`라는 하나의 출력 값이 있습니다. 이 ID를 비밀 이름과 함께 사용하여 자습서의 뒷부분에서 비밀 값을 검색합니다. 리소스 ID 형식은 다음과 같습니다.
 
 ```json
 /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
@@ -87,7 +88,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ID를 복사하여 붙여넣으면 ID가 여러 줄로 분할될 수 있습니다. 줄을 병합하고 여분의 공백을 제거하세요.
 
-배포의 유효성을 검사하려면 동일한 셸 창에서 다음 PowerShell 명령을 실행하여 비밀을 일반 텍스트로 검색합니다. 이 명령은 이전 PowerShell 스크립트에 정의된 *$keyVaultName* 변수를 사용하므로 동일한 셸 세션에서만 작동합니다.
+배포의 유효성을 검사하려면 동일한 셸 창에서 다음 PowerShell 명령을 실행하여 비밀을 일반 텍스트로 검색합니다. 이 명령은 이전 PowerShell 스크립트에 정의된 `$keyVaultName` 변수를 사용하므로 동일한 셸 세션에서만 작동합니다.
 
 ```azurepowershell
 (Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
@@ -146,14 +147,14 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
     ```
 
     > [!IMPORTANT]
-    > **id** 의 값을 이전 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다. secretName은 **vmAdminPassword** 로 하드 코딩됩니다.  [키 자격 증명 모음 준비](#prepare-a-key-vault)를 참조하세요.
+    > `id`의 값을 이전 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다. `secretName`은 **vmAdminPassword** 로 하드 코딩됩니다.  [키 자격 증명 모음 준비](#prepare-a-key-vault)를 참조하세요.
 
     ![키 자격 증명 모음과 Resource Manager 템플릿 가상 머신 배포 매개 변수 파일 통합](./media/template-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 
 1. 다음 값을 업데이트합니다.
 
-    * **adminUsername**: 가상 머신 관리자 계정의 이름입니다.
-    * **dnsLabelPrefix**: dnsLabelPrefix 값의 이름을 지정합니다.
+    * `adminUsername`: 가상 머신 관리자 계정의 이름입니다.
+    * `dnsLabelPrefix`: `dnsLabelPrefix` 값의 이름을 지정합니다.
 
     이름의 예는 이전의 이미지를 참조하세요.
 
@@ -167,7 +168,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 
     ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. *azuredeploy.json* 및 *azuredeploy.parameters.json* 을 Cloud Shell에 업로드합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
+1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. *azuredeploy.json* 및 *azuredeploy.parameters.json* 을 Cloud Shell에 업로드합니다. 파일을 업로드한 후 `ls` 명령 및 `cat` 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
 1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 

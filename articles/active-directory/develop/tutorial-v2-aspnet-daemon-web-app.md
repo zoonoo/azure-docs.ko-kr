@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406602"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509430"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 이 샘플에는 하나의 프로젝트가 있습니다. Azure AD 테넌트에 애플리케이션을 등록하려면 다음 중 하나를 수행합니다.
 
-- [Azure Active Directory 테넌트에 샘플 등록](#register-your-application) 및 [Azure AD 테넌트를 사용하도록 샘플 구성](#choose-the-azure-ad-tenant)의 단계를 수행합니다.
+- [Azure Active Directory 테넌트에 샘플 등록](#register-the-client-app-dotnet-web-daemon-v2) 및 [Azure AD 테넌트를 사용하도록 샘플 구성](#choose-the-azure-ad-tenant)의 단계를 수행합니다.
 - 다음을 수행하는 PowerShell 스크립트를 사용합니다.
   - Azure AD 애플리케이션 및 관련 개체(암호, 권한, 종속성)를 *자동으로* 만듭니다.
   - Visual Studio 프로젝트의 구성 파일을 수정합니다.
@@ -93,40 +93,34 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 ### <a name="choose-the-azure-ad-tenant"></a>Azure AD 테넌트 선택
 
-1. 회사 계정, 학교 계정 또는 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정이 둘 이상의 Azure AD 테넌트에 있는 경우 페이지 위쪽의 메뉴에서 프로필을 선택한 다음, **디렉터리 전환** 을 선택합니다.
-1. 포털 세션을 원하는 Azure AD 테넌트로 변경합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>클라이언트 앱(dotnet-web-daemon-v2) 등록
 
-1. 개발자용 Microsoft ID 플랫폼의 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-1. **새 등록** 을 선택합니다.
-1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-   - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **dotnet-web-daemon-v2** 를 입력합니다.
-   - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정** 을 선택합니다.
-   - **리디렉션 URI(선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택하고, 다음 리디렉션 URI를 입력합니다.
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `dotnet-web-daemon-v2`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정** 을 선택합니다.
+1. **리디렉션 URI(선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택하고 리디렉션 URI로 `https://localhost:44316/` 및 `https://localhost:44316/Account/GrantPermissions`를 입력합니다.
 
-     셋 이상의 리디렉션 URI가 있는 경우 나중에 앱이 성공적으로 만들어지면 **인증** 탭에서 이러한 URI를 추가해야 합니다.
+    셋 이상의 리디렉션 URI가 있는 경우 나중에 앱이 성공적으로 만들어지면 **인증** 탭에서 이러한 URI를 추가해야 합니다.
 1. **등록** 을 선택하여 애플리케이션을 만듭니다.
-1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
-1. 앱의 페이지 목록에서 **인증** 을 선택합니다. 그렇다면
-   - **고급 설정** 섹션에서 **로그아웃 URL** 을 **https://localhost:44316/Account/EndSession** 으로 설정합니다.
-   - **액세스 토큰** > **암시적 허용** 섹션에서 **액세스 토큰** 및 **ID 토큰** 을 선택합니다. 이 샘플에서는 사용자를 로그인하고 API를 호출하는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다.
+1. 나중에 사용할 수 있도록 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
+1. **관리** 에서 **인증** 을 선택합니다.
+1. **로그아웃 URL** 을 `https://localhost:44316/Account/EndSession`으로 설정합니다.
+1. **암시적 허용** 섹션에서 **액세스 토큰** 및 **ID 토큰** 을 선택합니다. 이 샘플에서는 사용자를 로그인하고 API를 호출하는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다.
 1. **저장** 을 선택합니다.
-1. **인증서 및 비밀** 페이지의 **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다. 그렇다면
-
-   1. 키 설명(예: **앱 비밀**)을 입력합니다.
-   1. 키 기간을 **1년 후**, **2년 후** 또는 **만료 기한 제한 없음** 으로 선택합니다.
-   1. **추가** 단추를 선택합니다.
-   1. 키 값이 표시되면 이를 복사하여 안전한 위치에 저장합니다. 나중에 Visual Studio에서 프로젝트를 구성하려면 이 키가 필요합니다. 다른 방법으로 다시 표시하거나 검색할 수 없습니다.
-1. 앱의 페이지 목록에서 **API 권한** 을 선택합니다. 그렇다면
-   1. **권한 추가** 를 선택합니다.
-   1. **Microsoft API** 탭이 선택되어 있는지 확인합니다.
-   1. **일반적으로 사용되는 Microsoft API** 섹션에서 **Microsoft Graph** 를 선택합니다.
-   1. **애플리케이션 권한** 섹션에서 올바른 권한(**User.Read.All**)이 선택되었는지 확인합니다.
-   1. **사용 권한 추가** 단추를 선택합니다.
+1. **관리** 에서 **인증서 및 암호** 를 선택합니다.
+1. **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀** 을 선택합니다. 
+1. 키 설명(예: **앱 비밀**)을 입력합니다.
+1. 키 기간을 **1년 후**, **2년 후** 또는 **만료 기한 제한 없음** 으로 선택합니다.
+1. **추가** 를 선택합니다. 안전한 위치에 키 값을 기록합니다. 나중에 Visual Studio에서 프로젝트를 구성하려면 이 키가 필요합니다.
+1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다.
+1. **일반적으로 사용되는 Microsoft API** 섹션에서 **Microsoft Graph** 를 선택합니다.
+1. **애플리케이션 권한** 섹션에서 올바른 권한(**User.Read.All**)이 선택되었는지 확인합니다.
+1. **권한 추가** 를 선택합니다.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Azure AD 테넌트를 사용하도록 샘플 구성
 

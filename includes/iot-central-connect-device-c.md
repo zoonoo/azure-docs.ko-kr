@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 6ad2a405fc8abf2e7df2a896d5c5363b9618dda2
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 16cba46d9c0f6a933965366d82eb8e21c4ab1ca6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126125"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033874"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -69,7 +69,7 @@ git submodule update --init
 
 `main` 함수는 먼저 `CreateAndConfigureDeviceClientHandleForPnP`를 호출하여 다음을 수행합니다.
 
-* `dtmi:com:example:Thermostat;1` 모델 ID를 설정합니다.
+* `dtmi:com:example:Thermostat;1` 모델 ID를 설정합니다. IoT Central은 모델 ID를 사용하여 이 디바이스에 대한 디바이스 템플릿을 식별하거나 생성합니다. 자세한 내용은 [디바이스 템플릿과 디바이스 연결](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template)을 참조하세요.
 * DPS를 사용하여 디바이스를 프로비저닝하고 등록합니다.
 * `getMaxMinReport` 명령에 대한 명령 처리기를 만듭니다.
 * 쓰기 가능한 `targetTemperature` 속성에 대한 속성 업데이트 처리기를 만듭니다.

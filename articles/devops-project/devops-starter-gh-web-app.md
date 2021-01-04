@@ -7,12 +7,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 08/25/2020
 author: ninallam
-ms.openlocfilehash: 9a2abf7e714b75f2551a35a220e30c2465d86a49
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 4caac943df33177728997c74c9ec812105efd62c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332570"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588780"
 ---
 # <a name="tutorial-deploy-nodejs-app-to-azure-web-app-using-devops-starter-for-github-actions"></a>자습서: GitHub Actions용 DevOps Starter를 사용하여 Node.js 앱을 Azure Web App에 배포
 
@@ -34,7 +34,7 @@ DevOps Starter는 다음 작업도 수행합니다.
 > * Azure Application Insights 모니터링 구성
 > * 리소스 정리
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -52,11 +52,11 @@ DevOps Starter는 GitHub에서 워크플로를 만듭니다. 기존 GitHub 조�
 
     ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
-1. **Node.js** , **다음** 을 차례로 선택합니다.
+1. **Node.js**, **다음** 을 차례로 선택합니다.
 
-1. **애플리케이션 프레임워크 선택** 아래에서 **Express.js** , **다음** 을 차례로 선택합니다. 이전 단계에서 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다. 
+1. **애플리케이션 프레임워크 선택** 아래에서 **Express.js**, **다음** 을 차례로 선택합니다. 이전 단계에서 선택한 애플리케이션 프레임워크는 여기에서 사용 가능한 Azure 서비스 배포 대상의 유형을 나타냅니다. 
 
-1. **Windows Web App** , **다음** 을 차례로 선택합니다.
+1. **Windows Web App**, **다음** 을 차례로 선택합니다.
 
 ## <a name="configure-github-and-an-azure-subscription"></a>GitHub 및 Azure 구독 구성
 
@@ -80,7 +80,7 @@ DevOps Starter는 코드 변경을 리포지토리에 배포하는 트리거를 
     
 ## <a name="examine-the-github-workflow"></a>GitHub 워크플로 검사
 
-이전 단계에서는 DevOps Starter에서 전체 GitHub 워크플로를 자동으로 구성했습니다. 필요에 따라 워크플로를 살펴보고 사용자 지정합니다. 다음 단계를 수행하여 워크플로를 숙지합니다.
+이전 단계에서는 DevOps Starter에서 전체 GitHub 워크플로를 자동으로 구성했습니다. 워크플로를 살펴보고 필요한 대로 사용자 지정하세요. 다음 단계를 수행하여 워크플로를 숙지합니다.
 
 1. DevOps Starter 대시보드의 왼쪽에서 **GitHub 워크플로** 를 선택합니다. 이 링크를 선택하면 새 프로젝트에 대한 브라우저 탭과 GitHub 워크플로가 열립니다.
     > [!NOTE]
@@ -102,14 +102,14 @@ DevOps Starter는 코드 변경을 리포지토리에 배포하는 트리거를 
 
 DevOps Starter는 GitHub에서 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
-1. DevOps Starter 대시보드 왼쪽에서 마스터 분기에 대한 링크를 선택합니다. 이 링크를 선택하면 새로 만든 GitHub 리포지토리에 대한 보기가 열립니다.
+1. DevOps Starter 대시보드 왼쪽에서 기본 분기에 대한 링크를 선택합니다. 이 링크를 선택하면 새로 만든 GitHub 리포지토리에 대한 보기가 열립니다.
 
-1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제** 를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 마스터 분기에 만들고 커밋할 수 있습니다.
+1. 리포지토리 복제 URL을 보려면 브라우저의 오른쪽 위에서 **복제** 를 선택합니다. 즐겨찾는 IDE에서 Git 리포지토리를 복제할 수 있습니다. 다음 몇 단계에서는 웹 브라우저를 사용하여 코드 변경을 직접 기본 분기에 만들고 커밋할 수 있습니다.
 
 1. 브라우저의 왼쪽에서 **/Application/views/index.pug** 파일로 이동합니다.
 
 1. **편집** 을 선택하고 일부 텍스트를 변경합니다.
-    예를 들어 태그 중 하나에 대한 일부 텍스트를 변경합니다.
+    예를 들어 태그 중 하나의 텍스트를 변경합니다.
 
 1. **커밋** 을 선택하고 변경 내용을 저장합니다.
 

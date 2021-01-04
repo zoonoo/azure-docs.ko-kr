@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917633"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106277"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>자습서: Azure Batch를 사용하여 Azure Data Factory를 통해 Python 스크립트 실행
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Batch 및 Storage 계정 인증
@@ -148,12 +148,23 @@ python main.py
 1. 오류 종료 코드가 있는 작업을 클릭합니다.
 1. `stdout.txt` 및 `stderr.txt`를 확인하여 문제를 조사하고 진단합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+작업 및 태스크 자체에 대한 요금이 부과되지 않지만 컴퓨팅 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 스토리지 계정에 남아 있습니다. 더 이상 필요하지 않은 경우 Batch 계정과 스토리지 계정을 삭제할 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Batch를 사용하여 Azure Data Factory를 통해 Python 스크립트를 파이프라인의 일부로 실행하는 방법을 설명하는 예제를 살펴보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
+
+> [!div class="checklist"]
+> * Batch 및 Storage 계정 인증
+> * Python에서 스크립트 개발 및 실행
+> * 컴퓨팅 노드 풀을 만들어 애플리케이션 실행
+> * Python 워크로드 예약
+> * 분석 파이프라인 모니터링
+> * 로그 파일에 액세스
 
 Azure Data Factory에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Data Factory 개요](../data-factory/introduction.md)
-

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922564"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559967"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>자습서: Azure Purview(미리 보기)를 사용하여 데이터 스캔
 
@@ -146,10 +146,11 @@ Azure Purview 계정을 직접 만든 경우 자동으로 액세스 권한이 �
 
    명령을 실행하면 Azure Active Directory 자격 증명을 사용하여 로그인하는 팝업 창이 표시될 수 있습니다.
 
-1. 다음 명령을 사용하여 시작 키트를 실행합니다. `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname` 및 `CatalogResourceGroupName` 자리 표시자를 바꿉니다. `newresourcegroupname`에는 데이터 자산을 포함할 리소스 그룹의 고유한 이름을 사용합니다.
 
-> [!IMPORTANT]
-> **newresourcegroupname** 에는 숫자 및 소문자만 사용하고 17자 미만이어야 합니다. **대문자 및 특수 문자는 허용되지 않습니다.** 이 제약 조건은 스토리지 계정 명명 규칙에서 온 것입니다.
+1. 다음 명령을 사용하여 시작 키트를 실행합니다. `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName` 및 `CatalogResourceGroupName` 자리 표시자를 바꿉니다. `NewResourceGroupName`의 경우 데이터 자산을 포함할 리소스 그룹에 고유한 이름(소문자 영숫자만 포함)을 사용합니다.
+
+   > [!IMPORTANT]
+   > **newresourcegroupname** 에는 숫자 및 소문자만 사용하고 17자 미만이어야 합니다. **대문자 및 특수 문자는 허용되지 않습니다.** 이 제약 조건은 스토리지 계정 명명 규칙에서 온 것입니다.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8594250d72754e6b7d2a6d8c27d3d5bcd0e9c8e4
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920871"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508886"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -25,7 +25,7 @@ ms.locfileid: "96920871"
 이 자습서에서는 **Azure SQL Database에서 Azure Synapse Analytics로 여러 테이블을 복사** 하는 방법을 보여줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 테이블을 SQL Server/Oracle에서 Azure SQL Database/Azure Synapse Analytics/Azure Blob으로 복사하고, 다른 경로를 Blob에서 Azure SQL Database 테이블로 복사합니다.
 
 > [!NOTE]
-> - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
+> Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
 이 자습서에서 수행하는 단계는 대략적으로 다음과 같습니다.
 
@@ -99,9 +99,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 1. 만들기가 완료되면 **리소스로 이동** 을 선택하여 **Data Factory** 페이지로 이동합니다. 
    
 1. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Data Factory UI 애플리케이션을 시작합니다.
-1. **시작하기** 페이지에서 다음 이미지와 같이 왼쪽 패널의 **작성** 탭으로 전환합니다.
 
-     ![시작 페이지](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 연결된 서비스를 만들어 데이터 저장소와 계산을 데이터 팩터리에 연결합니다. 연결된 서비스에는 런타임에 Data Factory 서비스에서 데이터 저장소에 연결하는 데 사용하는 연결 정보가 있습니다. 
@@ -177,7 +175,9 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 세트 만들기
 
-1. 왼쪽 창에서 **+(더하기)** 를 클릭한 다음, **데이터 세트** 를 클릭합니다. 
+1. 왼쪽 창에서 **작성자** 탭을 엽니다.
+
+1. 왼쪽 창에서 **+** (더하기)를 선택한 다음, **데이터 세트** 를 선택합니다. 
 
     ![새 데이터 세트 메뉴](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. **새 데이터 세트** 창에서 **Azure SQL Database** 를 선택한 다음, **계속** 을 클릭합니다. 
@@ -277,7 +277,7 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
     1. **준비 프로세스 사용** 확인란을 선택합니다.
     1. **저장소 계정 연결된 서비스** 에 대해 **AzureStorageLinkedService** 를 선택합니다.
 
-1. 파이프라인 설정에 대한 유효성을 검사하려면 위쪽 파이프라인 도구 모음에서 **유효성 검사** 를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 를 닫으려면 **>>** 를 클릭합니다.
+1. 파이프라인 설정에 대한 유효성을 검사하려면 위쪽 파이프라인 도구 모음에서 **유효성 검사** 를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서** 를 닫으려면 이중 꺾쇠 괄호 **>>** 를 클릭합니다.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>GetTableListAndTriggerCopyData 파이프라인 만들기
 
@@ -285,6 +285,8 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
 
 * Azure SQL Database 시스템 테이블을 찾아 복사할 테이블의 목록을 가져옵니다.
 * "IterateAndCopySQLTables" 파이프라인을 트리거하여 실제 데이터 복사를 수행합니다.
+
+파이프라인을 만드는 단계는 다음과 같습니다.
 
 1. 왼쪽 창에서 **+(더하기)** , **파이프라인** 을 차례로 클릭합니다.
 1. 일반 패널의 **속성** 에서 파이프라인 이름을 **GetTableListAndTriggerCopyData** 로 변경합니다. 

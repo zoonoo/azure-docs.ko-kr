@@ -4,25 +4,23 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/25/2020
+ms.date: 12/14/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931438"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589103"
 ---
-# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기(미리 보기)
+# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기
 
-ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사용하는 방법을 알아봅니다. 배포 스크립트를 사용하여 ARM 템플릿으로 수행할 수 없는 사용자 지정 단계를 수행할 수 있습니다. 예를 들어 자체 서명된 인증서를 만듭니다.  이 자습서에서는 Azure 키 자격 증명 모음을 배포하는 템플릿을 만들고, 동일한 템플릿의 `Microsoft.Resources/deploymentScripts` 리소스를 사용하여 인증서를 만든 다음, 이 인증서를 키 자격 증명 모음에 추가합니다. 배포 스크립트에 대한 자세한 내용은 [ARM 템플릿에서 배포 스크립트 사용](./deployment-script-template.md)을 참조하세요.
+ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사용하는 방법을 알아봅니다. 배포 스크립트를 사용하여 ARM 템플릿으로 수행할 수 없는 사용자 지정 단계를 수행할 수 있습니다. 예를 들어 자체 서명된 인증서를 만듭니다. 이 자습서에서는 Azure 키 자격 증명 모음을 배포하는 템플릿을 만들고, 동일한 템플릿의 `Microsoft.Resources/deploymentScripts` 리소스를 사용하여 인증서를 만든 다음, 이 인증서를 키 자격 증명 모음에 추가합니다. 배포 스크립트에 대한 자세한 내용은 [ARM 템플릿에서 배포 스크립트 사용](./deployment-script-template.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 일반적으로 스크립트 실행이 터미널 상태가 되면 스크립트 서비스에서 이러한 리소스를 삭제합니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세한 내용은 [배포 스크립트 리소스 정리](./deployment-script-template.md#clean-up-deployment-script-resources)를 참조하세요.
@@ -62,7 +60,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
 이 빠른 시작에서 사용되는 템플릿을 [Create an Azure Key Vault and a secret(Azure Key Vault 및 비밀 만들기)](https://azure.microsoft.com/resources/templates/101-key-vault-create/)이라고 합니다. 템플릿은 키 자격 증명 모음을 만든 다음, 비밀을 이 키 자격 증명 모음에 추가합니다.
 
-1. Visual Studio Code에서 **파일**>**파일 열기** 를 차례로 선택합니다.
+1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 2. **파일 이름** 에서 다음 URL을 붙여넣습니다.
 
     ```url
@@ -70,7 +68,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
     ```
 
 3. **열기** 를 선택하여 파일을 엽니다.
-4. **파일**>**이름으로 저장** 을 차례로 선택하여 파일을 **azuredeploy.json** 으로 저장합니다.
+4. **파일** > **이름으로 저장** 을 차례로 선택하여 파일을 _azuredeploy.json_ 으로 저장합니다.
 
 ## <a name="edit-the-template"></a>템플릿 편집
 
@@ -78,14 +76,14 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
 ### <a name="clean-up-the-template-optional"></a>템플릿 정리(선택 사항)
 
-원본 템플릿은 비밀을 키 자격 증명 모음에 추가합니다.  자습서를 간소화하기 위해 다음 리소스를 제거합니다.
+원본 템플릿은 비밀을 키 자격 증명 모음에 추가합니다. 자습서를 간소화하기 위해 다음 리소스를 제거합니다.
 
-* **Microsoft.KeyVault/vaults/secrets**
+* `Microsoft.KeyVault/vaults/secrets`
 
 다음 두 매개 변수 정의를 제거합니다.
 
-* **secretName**
-* **secretValue**
+* `secretName`
+* `secretValue`
 
 이러한 정의를 제거하지 않도록 선택하는 경우 배포 중에 매개 변수 값을 지정해야 합니다.
 
@@ -105,7 +103,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
     ```
 
     > [!NOTE]
-    > Visual Studio Code의 Resource Manager 템플릿 확장은 아직 배포 스크립트의 형식을 지정할 수 없습니다. 다음과 같이 [SHIFT]+[ALT]+F를 사용하여 deploymentScripts 리소스의 형식을 지정하지 마세요.
+    > Visual Studio Code의 Resource Manager 템플릿 확장은 아직 배포 스크립트의 형식을 지정할 수 없습니다. 다음과 같이 Shift+Alt+F를 사용하여 `deploymentScripts` 리소스의 형식을 지정하지 마세요.
 
 1. 관리 ID에서 인증서를 키 자격 증명 모음에 추가할 수 있도록 키 자격 증명 모음 액세스 정책을 구성하는 매개 변수를 추가합니다.
 
@@ -149,7 +147,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
     ],
     ```
 
-    두 가지 정책, 즉 로그인한 사용자에 대한 정책과 관리 ID에 대한 정책이 정의되어 있습니다.  로그인한 사용자에게는 배포를 확인할 수 있는 *list*(목록) 권한만 있으면 됩니다.  자습서를 간소화하기 위해 관리 ID와 로그인한 사용자 둘 모두에 동일한 인증서가 할당됩니다.
+    두 가지 정책, 즉 로그인한 사용자에 대한 정책과 관리 ID에 대한 정책이 정의되어 있습니다. 로그인한 사용자에게는 배포를 확인할 수 있는 *list*(목록) 권한만 있으면 됩니다. 자습서를 간소화하기 위해 관리 ID와 로그인한 사용자 둘 모두에 동일한 인증서가 할당됩니다.
 
 ### <a name="add-the-deployment-script"></a>배포 스크립트 추가
 
@@ -170,15 +168,15 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
     }
     ```
 
-1. deploymentScripts 리소스를 추가합니다.
+1. `deploymentScripts` 리소스를 추가합니다.
 
     > [!NOTE]
-    > 인라인 배포 스크립트는 큰따옴표로 묶여 있으므로 배포 스크립트 내의 문자열을 작은따옴표로 묶어야 합니다. PowerShell의 이스케이프 문자는 **&#92;** 입니다.
+    > 인라인 배포 스크립트는 큰따옴표로 묶여 있으므로 배포 스크립트 내의 문자열을 작은따옴표로 묶어야 합니다. [PowerShell 이스케이프 문자](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#single-and-double-quoted-strings)는 backtick(`` ` ``)입니다.
 
     ```json
     {
       "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2019-10-01-preview",
+      "apiVersion": "2020-10-01",
       "name": "createAddCertificate",
       "location": "[resourceGroup().location]",
       "dependsOn": [
@@ -253,22 +251,22 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
     }
     ```
 
-    `deploymentScripts` 리소스는 키 자격 증명 모음 리소스 및 역할 할당 리소스에 따라 달라집니다.  다음과 같은 속성이 있습니다.
+    `deploymentScripts` 리소스는 키 자격 증명 모음 리소스 및 역할 할당 리소스에 따라 달라집니다. 다음과 같은 속성이 있습니다.
 
-    * **identity**: 배포 스크립트는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다.
-    * **kind**: 스크립트 유형을 지정합니다. 현재 PowerShell 스크립트만 지원됩니다.
-    * **forceUpdateTag**: 스크립트 원본이 변경되지 않은 경우에도 배포 스크립트를 실행할지 여부를 결정합니다. 현재 타임스탬프 또는 GUID일 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](./deployment-script-template.md#run-script-more-than-once)을 참조하세요.
-    * **azPowerShellVersion**: 사용할 Azure PowerShell 모듈 버전을 지정합니다. 배포 스크립트는 현재 2.7.0, 2.8.0 및 3.0.0 버전을 지원합니다.
-    * **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D** 입니다.
-    * **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
-    * **scriptContent**: 스크립트 콘텐츠를 지정합니다. 외부 스크립트를 실행하려면 **primaryScriptURI** 를 대신 사용합니다. 자세한 내용은 [외부 스크립트 사용](./deployment-script-template.md#use-external-scripts)을 참조하세요.
-        로컬 머신에서 스크립트를 테스트하는 경우에만 **$DeploymentScriptOutputs** 를 선언해야 합니다. 이 변수를 선언하면 스크립트를 변경하지 않고도 로컬 머신과 deploymentScript 리소스에서 실행할 수 있습니다. $DeploymentScriptOutputs에 할당된 값은 배포에서 출력으로 사용할 수 있습니다. 자세한 내용은 [PowerShell 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-powershell-script) 또는 [CLI 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-cli-script)을 참조하세요.
-    * **cleanupPreference**: 배포 스크립트 리소스를 삭제할 시간에 대한 기본 설정을 지정합니다.  기본값은 **Always**(항상)이며, 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 배포 스크립트 리소스가 삭제됨을 의미합니다. 이 자습서에서는 **OnSuccess** 가 사용되므로 스크립트 실행 결과를 볼 수 있습니다.
-    * **retentionInterval**: 서비스가 터미널 상태에 도달되면 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 리소스가 삭제됩니다. 기간은 ISO 8601 패턴을 기반으로 합니다. 이 자습서에서는 하루를 의미하는 P1D를 사용합니다.  이 속성은 **cleanupPreference** 가 **OnExpiration** 으로 설정된 경우에 사용됩니다. 이 속성은 현재 사용하도록 설정되어 있지 않습니다.
+    * `identity`: 배포 스크립트는 사용자가 할당한 관리 ID를 사용하여 스크립트를 실행합니다.
+    * `kind`: 스크립트 유형을 지정합니다. 현재 PowerShell 스크립트만 지원됩니다.
+    * `forceUpdateTag`: 스크립트 원본이 변경되지 않은 경우에도 배포 스크립트를 실행할지 여부를 결정합니다. 현재 타임스탬프 또는 GUID일 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](./deployment-script-template.md#run-script-more-than-once)을 참조하세요.
+    * `azPowerShellVersion`: 사용할 Azure PowerShell 모듈 버전을 지정합니다. 배포 스크립트는 현재 2.7.0, 2.8.0 및 3.0.0 버전을 지원합니다.
+    * `timeout`: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D** 입니다.
+    * `arguments`: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
+    * `scriptContent`: 스크립트 콘텐츠를 지정합니다. 외부 스크립트를 실행하려면 `primaryScriptURI`를 대신 사용합니다. 자세한 내용은 [외부 스크립트 사용](./deployment-script-template.md#use-external-scripts)을 참조하세요.
+        로컬 머신에서 스크립트를 테스트하는 경우에만 `$DeploymentScriptOutputs`를 선언해야 합니다. 이 변수를 선언하면 스크립트를 변경하지 않고도 로컬 머신과 `deploymentScript` 리소스에서 실행할 수 있습니다. `$DeploymentScriptOutputs`에 할당된 값은 배포에서 출력으로 사용할 수 있습니다. 자세한 내용은 [PowerShell 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-powershell-script) 또는 [CLI 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-cli-script)을 참조하세요.
+    * `cleanupPreference`: 배포 스크립트 리소스를 삭제할 시간에 대한 기본 설정을 지정합니다. 기본값은 **Always**(항상)이며, 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 배포 스크립트 리소스가 삭제됨을 의미합니다. 이 자습서에서는 **OnSuccess** 가 사용되므로 스크립트 실행 결과를 볼 수 있습니다.
+    * `retentionInterval`: 서비스가 터미널 상태에 도달되면 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 리소스가 삭제됩니다. 기간은 ISO 8601 패턴을 기반으로 합니다. 이 자습서에서는 하루를 의미하는 **P1D** 를 사용합니다. 이 속성은 `cleanupPreference`가 **OnExpiration** 으로 설정된 경우에 사용됩니다. 이 속성은 현재 활성화되어 있지 않습니다.
 
-    배포 스크립트에는 키 자격 증명 모음 이름, 인증서 이름 및 주체 이름의 세 가지 매개 변수가 사용됩니다.  인증서를 만든 다음, 인증서를 키 자격 증명 모음에 추가합니다.
+    배포 스크립트는 `keyVaultName`, `certificateName` 및 `subjectName`의 세 가지 매개 변수를 사용합니다. 인증서를 만든 다음, 인증서를 키 자격 증명 모음에 추가합니다.
 
-    **$DeploymentScriptOutputs** 는 출력 값을 저장하는 데 사용됩니다.  자세한 내용은 [PowerShell 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-powershell-script) 또는 [CLI 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-cli-script)을 참조하세요.
+    `$DeploymentScriptOutputs`는 출력 값을 저장하는 데 사용됩니다. 자세한 내용은 [PowerShell 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-powershell-script) 또는 [CLI 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-cli-script)을 참조하세요.
 
     완성된 템플릿은 [여기](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)서 찾을 수 있습니다.
 
@@ -278,19 +276,19 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
     Write-Output1 $keyVaultName
     ```
 
-    올바른 명령은 **Write-Output1** 대신 **Write-Output** 입니다.
+    올바른 명령은 `Write-Output1` 대신 `Write-Output`입니다.
 
-1. **파일**>**저장** 을 차례로 선택하여 파일을 저장합니다.
+1. **파일** > **저장** 을 차례로 선택하여 파일을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
-1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다.  전환하는 경우 셸을 다시 시작해야 합니다.
+1. 왼쪽 위 모서리에서 **PowerShell** 또는 **Bash**(CLI용)를 선택하여 기본 환경을 선택합니다. 전환하는 경우 셸을 다시 시작해야 합니다.
 
     ![Azure Portal Cloud Shell 업로드 파일](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. 이전 스크린샷을 참조하세요.  이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 **ls** 명령 및 **cat** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
+1. **파일 업로드/다운로드** 를 선택한 다음, **업로드** 를 선택합니다. 이전 스크린샷을 참조하세요.  이전 섹션에서 저장한 파일을 선택합니다. 파일을 업로드한 후 `ls` 명령 및 `cat` 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
 1. 다음 PowerShell 스크립트를 실행하여 템플릿을 배포합니다.
 
@@ -313,11 +311,11 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
     배포 스크립트 서비스에서 스크립트 실행을 위한 추가 배포 스크립트 리소스를 만들어야 합니다. 준비 및 정리 프로세스는 실제 스크립트 실행 시간 외에도 완료하는 데 최대 1분 정도 걸릴 수 있습니다.
 
-    스크립트에 **Write-Output1** 이 사용되는 잘못된 명령으로 인해 배포에 실패했습니다. 다음과 같은 오류 메시지가 표시됩니다.
+    스크립트에 `Write-Output1`이 사용되는 잘못된 명령으로 인해 배포에 실패했습니다. 다음과 같은 오류 메시지가 표시됩니다.
 
     ```error
     The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
     ```
 
     배포 스크립트 실행 결과는 문제 해결을 위해 배포 스크립트 리소스에 저장됩니다.
@@ -331,15 +329,15 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
     두 파일에는 모두 **azscripts** 접미사가 있습니다. 하나는 스토리지 계정이고, 다른 하나는 컨테이너 인스턴스입니다.
 
-    **숨겨진 형식 표시** 를 선택하여 deploymentScripts 리소스를 나열합니다.
+    **숨겨진 형식 표시** 를 선택하여 `deploymentScripts` 리소스를 나열합니다.
 
 1. **azscripts** 접미사가 있는 스토리지 계정을 선택합니다.
-1. **파일 공유** 타일을 선택합니다. **azscripts** 폴더가 표시됩니다.  이 폴더에는 배포 스크립트 실행 파일이 포함되어 있습니다.
-1. **azscripts** 를 선택합니다. **azscriptinput** 및 **azscriptoutput** 의 두 폴더가 표시됩니다.  입력 폴더에는 시스템 PowerShell 스크립트 파일과 사용자 배포 스크립트 파일이 포함되어 있습니다. 출력 폴더에는 **executionresult.json** 및 스크립트 출력 파일이 포함되어 있습니다. **executionresult.json** 에서 오류 메시지를 볼 수 있습니다. 실행이 실패하여 출력 파일이 없습니다.
+1. **파일 공유** 타일을 선택합니다. **azscripts** 폴더가 표시됩니다. 이 폴더에는 배포 스크립트 실행 파일이 포함되어 있습니다.
+1. **azscripts** 를 선택합니다. **azscriptinput** 및 **azscriptoutput** 의 두 폴더가 표시됩니다. 입력 폴더에는 시스템 PowerShell 스크립트 파일과 사용자 배포 스크립트 파일이 포함되어 있습니다. 출력 폴더에는 _executionresult.json_ 및 스크립트 출력 파일이 포함되어 있습니다. _executionresult.json_ 에서 오류 메시지를 볼 수 있습니다. 실행이 실패하여 출력 파일이 없습니다.
 
-**Write-Output1** 줄을 제거하고, 해당 템플릿을 다시 배포합니다.
+`Write-Output1` 줄을 제거하고, 해당 템플릿을 다시 배포합니다.
 
-두 번째 배포가 성공적으로 실행되면 **cleanupPreference** 속성이 **OnSuccess** 로 설정되어 있으므로 스크립트 서비스에서 배포 스크립트 리소스를 제거합니다.
+두 번째 배포가 성공적으로 실행되면 `cleanupPreference` 속성이 **OnSuccess** 로 설정되어 있으므로 스크립트 서비스에서 배포 스크립트 리소스를 제거합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
