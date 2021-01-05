@@ -3,12 +3,12 @@ title: 이벤트 복제 태스크 패턴-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 특정 이벤트 복제 태스크 패턴을 구현 하기 위한 자세한 지침을 제공 합니다.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 370c0f2d5c5c591668aa2dadf0512760a4a9b2f5
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663650"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803989"
 ---
 # <a name="event-replication-tasks-patterns"></a>이벤트 복제 태스크 패턴
 
@@ -136,7 +136,7 @@ DNS를 사용 하 여 끝점 정보를 공유 하는 가장 간단한 방법은 
 
 처음 두 가지 패턴 변형은 trivial 이며 일반 복제 작업과는 다릅니다.
 
-마지막 시나리오에서는 이미 복제 된 이벤트를 다시 복제 하는 것을 제외 해야 합니다. 이 기법은 [EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/main/code/EventHubToEventHubMerge) 샘플에 설명 되어 있습니다.
+마지막 시나리오에서는 이미 복제 된 이벤트를 다시 복제 하는 것을 제외 해야 합니다. 이 기법은 [EventHubToEventHubMerge](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/code/EventHubMerge) 샘플에 설명 되어 있습니다.
 
 ## <a name="editor"></a>편집기
 

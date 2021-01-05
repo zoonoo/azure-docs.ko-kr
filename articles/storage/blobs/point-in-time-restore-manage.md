@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895726"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803921"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 blob 데이터에 지정 시간 복원 수행
 
@@ -23,7 +23,7 @@ ms.locfileid: "95895726"
 지정 시간 복원에 대 한 자세한 내용은 [블록 blob에 대 한 지정 시간 복원](point-in-time-restore-overview.md)을 참조 하세요.
 
 > [!CAUTION]
-> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 컨테이너를 삭제 하는 대신, 개별 blob을 복원 하는 것이 좋습니다.
+> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제 하는 대신 나중에 복원할 수 있는 경우 개별 blob을 삭제 합니다.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>지정 시간 복원 활성화 및 구성
 
@@ -107,6 +107,8 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 > 복원 작업을 수행 하는 경우 Azure Storage은 작업 기간 동안 복원 되는 범위의 blob에 대 한 데이터 작업을 차단 합니다. 읽기, 쓰기 및 삭제 작업은 기본 위치에서 차단 됩니다. 이러한 이유로 복원 작업이 진행 되는 동안 Azure Portal의 컨테이너 나열 등의 작업이 예상 대로 수행 되지 않을 수 있습니다.
 >
 > 저장소 계정이 지리적으로 복제 되는 경우 보조 위치에서 읽기 작업은 복원 작업 중에 진행할 수 있습니다.
+>
+> 데이터 집합을 복원 하는 데 걸리는 시간은 복원 기간 중에 수행 된 쓰기 및 삭제 작업의 수를 기반으로 합니다. 예를 들어, 하루에 3000 개체가 추가 된 100만 개체와 매일 삭제 된 1000 개체가 있는 계정은 과거 30 일 지점으로 복원 하는 데 약 2 시간이 소요 됩니다. 이 변경 내용으로 인 한 계정에는 보존 기간 및 과거 90 일 넘게 복원 하지 않는 것이 좋습니다.
 
 ### <a name="restore-all-containers-in-the-account"></a>계정의 모든 컨테이너 복원
 

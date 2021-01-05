@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181206"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803530"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Azure Active Directory 포털에서 보고서 프로 비전 (미리 보기)
 
@@ -39,11 +39,12 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 항목에서는 프로 비전 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 * 응용 프로그램 소유자는 자신이 소유한 응용 프로그램에 대 한 로그를 볼 수 있습니다.
 * 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
+* [ProvisioningLogs 권한이](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions) 있는 사용자 지정 역할의 사용자
 * 글로벌 관리자
 
 
@@ -56,12 +57,12 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 프로 비전 로그는 다음 질문에 대 한 답변을 제공 합니다.
 
 * ServiceNow에서 성공적으로 생성 된 그룹은 무엇 인가요?
-* Amazon Web Services에서 가져온 역할은 무엇 인가요?
+* Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * DropBox에서 어떤 사용자를 만들지 못했습니다.
 
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **모니터링** 섹션에서 **프로 비전** 로그를 선택 하 여 프로 비전 로그에 액세스할 수 있습니다. 일부 프로 비전 레코드가 포털에 표시 되는 데 최대 2 시간이 걸릴 수 있습니다.
 
-![프로 비전 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
+![프로비저닝 로그](./media/concept-provisioning-logs/access-provisioning-logs.png "프로비저닝 로그")
 
 
 프로 비전 로그에는 다음을 보여 주는 기본 목록 보기가 있습니다.
@@ -86,7 +87,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![자세한 정보](./media/concept-provisioning-logs/steps.png "필터")
+![자세한 정보](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ## <a name="filter-provisioning-activities"></a>프로 비전 작업 필터링
@@ -100,7 +101,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - 작업
 
 
-![필터 추가](./media/concept-provisioning-logs/default-filter.png "필터")
+![필터 추가](./media/concept-provisioning-logs/default-filter.png "Assert")
 
 **Id** 필터를 사용 하면 관심 있는 이름이 나 id를 지정할 수 있습니다. 이 id는 사용자, 그룹, 역할 또는 다른 개체 일 수 있습니다. 개체의 이름 또는 ID를 기준으로 검색할 수 있습니다. ID는 시나리오에 따라 달라 집니다. 예를 들어 Azure AD에서 SalesForce로 개체를 프로 비전 할 때 원본 ID는 Azure AD에서 사용자의 개체 ID이 고 TargetID는 Salesforce의 사용자 ID입니다. Workday에서 Active Directory로 프로 비전 할 때 원본 ID는 Workday 작업자 직원 ID입니다. 사용자 이름은 항상 Id 열에 표시 되지 않을 수 있습니다. 항상 하나의 ID가 있습니다. 
 
@@ -130,8 +131,8 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 만들기 
 - 업데이트
-- 삭제
-- 사용 중지
+- DELETE
+- 사용 안 함
 - 기타
 
 또한 기본 보기의 필터에는 다음 필터를 설정할 수도 있습니다.
@@ -191,7 +192,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 
 
-![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "필터")
+![스크린샷 프로 비전 단계를 보여 주는 단계 탭을 표시 합니다.](./media/concept-provisioning-logs/steps.png "Assert")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>문제 해결 및 권장 사항
@@ -219,7 +220,9 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - 범위에 없는 사용자에 대 한 건너뛴 이벤트를 볼 수 있습니다. 이는 특히 동기화 범위가 모든 사용자 및 그룹으로 설정 된 경우에 필요 합니다. 서비스는 범위를 벗어난 모든 개체를 포함 하 여 테 넌 트의 모든 개체를 평가 합니다. 
 
-- 프로 비전 로그는 현재 정부 클라우드에서 사용할 수 없습니다. 프로 비전 로그에 액세스할 수 없는 경우 감사 로그를 임시 해결 방법으로 사용 하세요.  
+- 프로 비전 로그는 현재 정부 클라우드에서 사용할 수 없습니다. 프로 비전 로그에 액세스할 수 없는 경우 감사 로그를 임시 해결 방법으로 사용 하세요. 
+
+- 프로 비전 로그에는 역할 가져오기가 표시 되지 않습니다 (AWS, SalesForce 및 ZenDesk에 적용 됨). 역할 가져오기에 대 한 로그는 감사 로그에서 찾을 수 있습니다. 
 
 ## <a name="error-codes"></a>오류 코드
 

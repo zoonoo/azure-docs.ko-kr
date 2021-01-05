@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc6b7553d240de05404d24f828a5f7db14772f93
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 279a00a6146d756e6a518dbf86b88f471d170b3a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657510"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805645"
 ---
 ## <a name="what-is-a-replication-task"></a>복제 작업 이란?
 
@@ -22,11 +22,11 @@ ms.locfileid: "97657510"
 
 복제 태스크는 일반적으로 상태 비저장입니다. 즉, 작업의 순차적 또는 병렬 실행에 대 한 상태 또는 기타 부작용을 공유 하지 않습니다. 일괄 처리 및 연결의 경우에도 마찬가지입니다 .이는 모두 스트림의 기존 상태를 기반으로 구현 될 수 있습니다. 
 
-이를 통해 복제 작업은 일반적으로 상태를 저장 하는 집계 작업과 다르며 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction.md)와 같은 분석 프레임 워크 및 서비스의 도메인입니다.
+이를 통해 복제 작업은 일반적으로 상태를 저장 하는 집계 작업과 다르며 [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)와 같은 분석 프레임 워크 및 서비스의 도메인입니다.
 
 ## <a name="replication-applications-and-tasks-in-azure-functions"></a>Azure Functions의 복제 응용 프로그램 및 태스크
 
-Azure Functions에서 복제 태스크는 구성 된 원본에서 하나 이상의 입력 메시지를 가져오는 [트리거와](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md) 원본에서 구성 된 대상으로 복사 된 메시지를 전달 하는 [출력 바인딩을](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md#binding-direction) 사용 하 여 구현 됩니다. 
+Azure Functions에서 복제 태스크는 구성 된 원본에서 하나 이상의 입력 메시지를 가져오는 [트리거와](/azure/azure-functions/functions-triggers-bindings) 원본에서 구성 된 대상으로 복사 된 메시지를 전달 하는 [출력 바인딩을](/azure/azure-functions/functions-triggers-bindings#binding-direction) 사용 하 여 구현 됩니다. 
 
 | 트리거  | 출력 |
 |----------|--------|
@@ -57,17 +57,17 @@ Event Hubs와 Service Bus 간에 메시지를 복사 하는 간단한 복제 작
 
 ### <a name="retry-policy"></a>재시도 정책
 
-복제 함수 양쪽의 가용성 이벤트 중 데이터 손실을 방지 하려면 다시 시도 정책을 강력 하 게 구성 해야 합니다. 재시도 정책 구성에 [대 한 Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) 를 참조 하십시오. 
+복제 함수 양쪽의 가용성 이벤트 중 데이터 손실을 방지 하려면 다시 시도 정책을 강력 하 게 구성 해야 합니다. 재시도 정책 구성에 [대 한 Azure Functions 설명서](/azure/azure-functions/functions-bindings-error-pages) 를 참조 하십시오. 
 
 [샘플 리포지토리의](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) 예제 프로젝트에 대해 선택한 정책 설정은 데이터 손실을 방지 하기 위해 재시도 간격을 5 초에서 15 분으로 설정 하 여 지 수 백오프 전략을 구성 합니다. 
 
-Service Bus의 경우 큐의 상호 작용 및 큐에 대해 정의 된 최대 배달 횟수를 이해 하려면 ["트리거 복원 력 맨 위에 있는 재시도 지원 사용"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) 섹션을 검토 합니다.
+Service Bus의 경우 큐의 상호 작용 및 큐에 대해 정의 된 최대 배달 횟수를 이해 하려면 ["트리거 복원 력 맨 위에 있는 재시도 지원 사용"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) 섹션을 검토 합니다.
 
 ### <a name="setting-up-a-replication-application-host"></a>복제 응용 프로그램 호스트 설정
 
 복제 응용 프로그램은 하나 이상의 복제 태스크에 대 한 실행 호스트입니다. 
 
-소비 계획에서 실행 되도록 구성 된 Azure Functions 응용 프로그램 이거나 Azure Functions 프리미엄 계획에 대 한 (권장)입니다. 모든 복제 응용 프로그램은 [시스템 또는 사용자 할당 관리 id](https://docs.microsoft.com/azure/app-service/overview-managed-identity.md)로 실행 해야 합니다. 
+소비 계획에서 실행 되도록 구성 된 Azure Functions 응용 프로그램 이거나 Azure Functions 프리미엄 계획에 대 한 (권장)입니다. 모든 복제 응용 프로그램은 [시스템 또는 사용자 할당 관리 id](/azure/app-service/overview-managed-identity)로 실행 해야 합니다. 
 
 ARM (연결 된 Azure Resource Manager) 템플릿은 다음을 사용 하 여 복제 응용 프로그램을 만들고 구성 합니다.
 
@@ -137,7 +137,7 @@ public static Task JobsTransfer(
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Functions 배포](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies.md)
-* [Azure Functions 진단](https://docs.microsoft.com/azure/azure-functions/functions-diagnostics.md)
-* [Azure Functions 네트워킹 옵션](https://docs.microsoft.com/azure/azure-functions/functions-networking-options.md)
-* [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview.md)
+* [Azure Functions 배포](/azure/azure-functions/functions-deployment-technologies)
+* [Azure Functions 진단](/azure/azure-functions/functions-diagnostics)
+* [Azure Functions 네트워킹 옵션](/azure/azure-functions/functions-networking-options)
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: thvankra
-ms.openlocfilehash: f5f2cb5ac8c354df38310cdcb47b98e1da5b6cfa
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: c969e4fac3ae30088cfe47a7b0edff22c578cb8b
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97521826"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802374"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB의 일반적인 문제 해결 Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -23,12 +23,12 @@ Azure Cosmos DB의 Cassandra API은 인기 있는 오픈 소스 Apache Cassandra
 
 ## <a name="common-errors-and-solutions"></a>일반 오류 및 해결 방법
 
-| Error               |  Description             | 해결 방법  |
+| 오류               |  Description             | 해결 방법  |
 |---------------------|--------------------------|-----------|
 | OverloadedException (Java) | 사용 된 총 요청 단위 수가 keyspace 또는 테이블에서 프로 비전 된 요청 단위 보다 많은 경우 따라서 요청이 제한 됩니다. | Azure Portal에서 keyspace 또는 테이블에 할당 된 처리량의 크기를 조정 하는 것이 좋습니다 (Cassandra API 크기 조정 작업은 [여기](manage-scale-cassandra.md) 참조). 또는 다시 시도 정책을 구현할 수 있습니다. Java의 경우 [v3 드라이버](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) 및 [v4 .x 드라이버](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4)에 대 한 다시 시도 샘플을 참조 하세요. 또한 [Java 용 Azure Cosmos Cassandra Extensions를](https://github.com/Azure/azure-cosmos-cassandra-extensions) 참조 하세요. |
 | OverloadedException (Java) 처리량이 충분 합니다. | 요청 볼륨에 대해 프로 비전 되는 충분 한 처리량과/또는 사용 된 요청 단위 비용에도 불구 하 고 시스템에 제한 요청이 표시 됩니다.  | Cassandra API은 스키마 수준 작업에 대 한 시스템 처리량 예산 (CREATE TABLE, ALTER TABLE, DROP TABLE)을 구현 합니다. 이 예산은 프로덕션 시스템의 스키마 작업에 충분 해야 합니다. 그러나 스키마 수준 작업이 많은 경우에는이 제한을 초과할 수 있습니다. 이 예산이 사용자 제어 되지 않으므로 실행 중인 스키마 작업의 수를 줄이는 것을 고려해 야 합니다. 이 작업을 수행 해도 문제가 해결 되지 않거나 작업에 적합 하지 않은 경우 [Azure 지원 요청을 만듭니다](../azure-portal/supportability/how-to-create-azure-support-request.md).|
 | ClosedConnectionException (Java) | 연결에 성공한 후 유휴 시간이 지나면 응용 프로그램에서 연결할 수 없습니다.| 이 오류는 Azure LoadBalancers 조정기의 유휴 시간 제한 (4 분) 때문일 수 있습니다. 드라이버에서 연결 유지 설정을 설정 하 고 (아래 참조) 운영 체제에서 연결 유지 설정을 늘리거나 [Azure Load Balancer에서 유휴 시간 제한을 조정](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal)합니다. |
-| 기타 일시적인 연결 오류 (Java) | 연결이 예기치 않게 삭제 되거나 시간 초과 됩니다. | Java 용 Apache Cassandra 드라이버는 및의 두 가지 기본 다시 연결 정책을 제공 합니다. `ExponentialReconnectionPolicy` `ConstantReconnectionPolicy` 기본값은 `ExponentialReconnectionPolicy`입니다. 그러나 Azure Cosmos DB Cassandra API의 경우 `ConstantReconnectionPolicy` 2 초의 지연 시간을 사용 하는 것이 좋습니다. Java [2.x에 대](https://docs.datastax.com/developer/java-driver/3.7/manual/reconnection/) 한 [드라이버 설명서](https://docs.datastax.com/developer/java-driver/4.9/manual/core/reconnection/) 및 java 3.x 지침 (아래 예제 참조)을 참조 하세요.|
+| 기타 일시적인 연결 오류 (Java) | 연결이 예기치 않게 삭제 되거나 시간 초과 됩니다. | Java 용 Apache Cassandra 드라이버는 및의 두 가지 기본 다시 연결 정책을 제공 합니다. `ExponentialReconnectionPolicy` `ConstantReconnectionPolicy` 기본값은 `ExponentialReconnectionPolicy`입니다. 그러나 Azure Cosmos DB Cassandra API의 경우 `ConstantReconnectionPolicy` 2 초의 지연 시간을 사용 하는 것이 좋습니다. Java [2.x에 대](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) 한 [드라이버 설명서](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/) 및 java 3.x 지침 (아래 예제 참조)을 참조 하세요.|
 
 오류가 위에 나열 되어 있지 않으며 [Cassandra API에서 지원](cassandra-support.md)되는 작업을 실행할 때 오류가 발생 하는 경우 ( *네이티브 Apache Cassandra를 사용 하* 는 동안 오류가 나타나지 않음) [Azure 지원 요청을 만듭니다](../azure-portal/supportability/how-to-create-azure-support-request.md) .
 

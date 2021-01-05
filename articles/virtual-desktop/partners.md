@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7a1b178450a1aa06db07d7b1ef525f7f781db9ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602821"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802714"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -62,7 +62,7 @@ Automai의 ScenarioBuilder 도구와 GUI 기반 워크플로 엔진을 사용 �
 Automai를 사용 하면 단일 플랫폼에서 성능 테스트, 기능 테스트, 성능 모니터링 및 로보틱 프로세스 자동화에 동일한 스크립트를 사용할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N)하세요.
-- [파트너 웹 사이트로 이동](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580)합니다.
+- [파트너 웹 사이트로 이동](https://www.automai.com/windows-virtual-desktop-performance-testing/)합니다.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 

@@ -3,12 +3,12 @@ title: 메시지 복제 및 지역 간 페더레이션-Azure Service Bus | Micro
 description: 이 문서에서는 Azure Service Bus를 사용 하 여 이벤트 복제 및 지역 간 페더레이션에 대 한 개요를 제공 합니다.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 32d8c9112eeb2f71e7f2c8dcd6f8f73da2dc1ca9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657515"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803275"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>메시지 복제 및 지역 간 페더레이션
 
@@ -150,7 +150,7 @@ Service Bus 토픽 및 해당 구독 규칙은 종종 특정 대상 그룹에 �
 
 또한 Azure Functions를 사용 하면 복제 태스크가 모든 Azure 메시징 서비스에 대 한 Azure 가상 네트워크 및 [서비스 끝점과](../virtual-network/virtual-network-service-endpoints-overview.md) 직접 통합 될 수 있으며, [Azure Monitor](../azure-monitor/overview.md)와 쉽게 통합 됩니다.
 
-가장 중요 한 점은 [azure Event Hubs](../azure-functions/functions-bindings-service-bus.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md), [azure Queue Storage](/azure-functions/functions-bindings-storage-queue.md), [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)에 대 한 사용자 지정 확장, [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)에 대 한 미리 작성 되 고 확장 가능한 트리거 및 출력 바인딩이 Azure Functions입니다. 대부분의 트리거는 문서화 된 메트릭에 따라 동시에 실행 되는 인스턴스 수를 확장 하 여 처리량 요구에 맞게 동적으로 조정 됩니다. 
+가장 중요 한 점은 [azure Event Hubs](../azure-functions/functions-bindings-service-bus.md), [Azure IoT Hub](../azure-functions/functions-bindings-event-iot.md), [Azure Service Bus](../azure-functions/functions-bindings-service-bus.md), [Azure Event Grid](../azure-functions/functions-bindings-event-grid.md), [azure Queue Storage](/azure/azure-functions/functions-bindings-storage-queue), [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)에 대 한 사용자 지정 확장, [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)에 대 한 미리 작성 되 고 확장 가능한 트리거 및 출력 바인딩이 Azure Functions입니다. 대부분의 트리거는 문서화 된 메트릭에 따라 동시에 실행 되는 인스턴스 수를 확장 하 여 처리량 요구에 맞게 동적으로 조정 됩니다. 
 
 Azure Functions 소비 계획을 사용 하는 경우 미리 작성 된 트리거는 복제에 사용할 수 있는 메시지가 없는 상태에서 0으로 축소 될 수도 있습니다. 즉, 구성의 크기를 조정할 수 있도록 유지 하는 비용이 들지 않습니다. 소비 계획을 사용 하는 경우의 주요 단점은이 상태에서 "절전 모드 해제" 복제 작업에 대 한 대기 시간이 인프라를 실행 하는 호스팅 계획 보다 훨씬 높기 때문입니다.  
 
@@ -165,6 +165,6 @@ Azure Functions 소비 계획을 사용 하는 경우 미리 작성 된 트리�
 - [Azure Functions의 복제 응용 프로그램](service-bus-federation-replicator-functions.md)
 - [Service Bus 엔터티 간에 이벤트 복제](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy)
 - [Azure Event Hubs로 이벤트 라우팅](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
-- [Azure Event Hubs에서 이벤트 가져오기](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubsCopyToServiceBus)
+- [Azure Event Hubs에서 이벤트 가져오기](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif 

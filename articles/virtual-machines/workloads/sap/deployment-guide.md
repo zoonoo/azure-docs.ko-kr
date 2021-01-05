@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: ed30c271e4c2458a33784cbcfc682001b542f2b6
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d57512d631685f1f8da7dcd22181bf4d4223937f
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964952"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807572"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -1070,8 +1070,14 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 Id를 사용 하 여 VM의 모�
     예제:
 
     ```azurecli
+    # Azure CLI on Linux
     spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
     rgId=$(az group show -g <resource-group-name> --query id --out tsv)
+    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
+
+    # Azure CLI on Windows/PowerShell
+    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
+    $rgId=az group show -g <resource-group-name> --query id --out tsv
     az role assignment create --assignee $spID --role 'Reader' --scope $rgId
     ```
 
@@ -1079,11 +1085,19 @@ SAP 용 새 VM 확장은 vm에 할당 된 관리 Id를 사용 하 여 VM의 모�
     확장은 현재 AzureCloud 에서만 지원 됩니다. Azure 중국 21Vianet, Azure Government 또는 기타 특수 환경은 아직 지원 되지 않습니다.
 
     ```azurecli
-    # For Linux machines
+    # Azure CLI on Linux
+    ## For Linux machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
 
-    #For Windows machines
+    ## For Windows machines
     az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
+
+    # Azure CLI on Windows/PowerShell
+    ## For Linux machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
+
+    ## For Windows machines
+    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
     ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>확인 및 문제 해결
@@ -1447,7 +1461,7 @@ SAP Note [1999351] 을 사용 하 여 문제를 해결 해도 문제가 해결 �
 
 ## <a name="azure-extension-error-codes"></a>Azure 확장 오류 코드
 
-| 오류 ID | 오류 설명 | 해결 방법 |
+| 오류 ID | 오류 설명 | 솔루션 |
 |---|---|---|
 | <a name="cfg_018"></a>cfg/018 | 앱 구성이 없습니다. | [설치 스크립트 실행][deployment-guide-run-the-script] |
 | <a name="cfg_019"></a>cfg/019 | 앱 구성에 배포 ID가 없습니다. | [지원 문의][deployment-guide-contact-support] |

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs를 사용 하 여 다중 사�
 ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 02057d505308902d780e20e095bc248d1eaa1a74
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7deb6fe04241225f1f97a204cc62b4aefad9f440
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657465"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804040"
 ---
 # <a name="multi-site-and-multi-region-federation"></a>다중 사이트 및 다중 지역 페더레이션
 
@@ -148,9 +148,9 @@ True "게시-구독" 기능을 사용 하 여 원하는 이벤트를 선택할 �
 
 이벤트 간의 관계를 고려해 야 하는 상태 저장 복제 응용 프로그램의 경우, 복합 이벤트를 만들거나 이벤트를 보강 하거나 이벤트를 줄이고 이벤트 페이로드를 변환 하는 것이 가장 좋은 구현 옵션 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 입니다.
 
-Azure Stream Analytics에서 [입력](../stream-analytics/stream-analytics-add-inputs.md) 및 [출력](../stream-analytics/stream-analytics-define-outputs.md) 을 통합 하 고 출력에서 사용할 수 있는 결과를 생성 하는 [쿼리](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) 를 통해 입력의 데이터를 통합 하는 [작업을 만듭니다](../stream-analytics/stream-analytics-quick-create-portal.md) .
+Azure Stream Analytics에서 [입력](../stream-analytics/stream-analytics-add-inputs.md) 및 [출력](../stream-analytics/stream-analytics-define-outputs.md) 을 통합 하 고 출력에서 사용할 수 있는 결과를 생성 하는 [쿼리](/stream-analytics-query/stream-analytics-query-language-reference) 를 통해 입력의 데이터를 통합 하는 [작업을 만듭니다](../stream-analytics/stream-analytics-quick-create-portal.md) .
 
-쿼리는 [SQL 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) 를 기반으로 하며 일정 시간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인 하는 데 사용할 수 있습니다. [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) 및 [c # udf (사용자 정의 함수)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md)를 사용 하 여이 SQL 언어를 확장할 수도 있습니다. 간단한 언어 구성 및/또는 구성을 통해 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 손쉽게 조정할 수 있습니다.
+쿼리는 [SQL 쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference) 를 기반으로 하며 일정 시간 동안 스트리밍 데이터를 쉽게 필터링, 정렬, 집계 및 조인 하는 데 사용할 수 있습니다. [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) 및 [c # udf (사용자 정의 함수)](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md)를 사용 하 여이 SQL 언어를 확장할 수도 있습니다. 간단한 언어 구성 및/또는 구성을 통해 집계 작업을 수행할 때 이벤트 순서 지정 옵션 및 시간 범위 기간을 손쉽게 조정할 수 있습니다.
 
 각 작업에는 변환된 데이터에 대한 하나 또는 여러 개의 출력이 있으며, 분석한 정보에 대한 응답으로 수행되는 작업을 제어 할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
@@ -191,7 +191,7 @@ Azure Stream Analytics (는)를 복제 하는 동안 이벤트의 페이로드�
 
 다음으로 Azure Stream Analytics 또는 Azure Functions를 사용 하 여 복제기 응용 프로그램을 설정 하는 방법을 확인 하 고 Event Hubs와 기타 다양 한 이벤트 및 메시징 시스템 간에 이벤트 흐름을 복제 하는 방법을 확인할 수 있습니다.
 
-- [이벤트 복제 태스크 패턴][10]
+- [이벤트 복제 작업 패턴][10]
 - [Azure Stream Analytics를 사용 하 여 데이터 처리][9]
 - [Azure Functions의 이벤트 복제기 응용 프로그램][1]
 - [Event Hubs 간 이벤트 복제][2]

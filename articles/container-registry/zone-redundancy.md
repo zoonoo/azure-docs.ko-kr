@@ -3,12 +3,12 @@ title: 고가용성을 위한 영역 중복 레지스트리
 description: Azure 가용성 영역에서 컨테이너 레지스트리 또는 복제를 만들어 Azure Container Registry에서 영역 중복성을 사용 하도록 설정 하는 방법에 대해 알아봅니다. 영역 중복성은 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 12/11/2020
-ms.openlocfilehash: f94d5a8d61c42e8833e21f035303be173c81764d
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 1553beef47a3d493f066e47cd39751093d83fc24
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681818"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803513"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>복원 력 및 고가용성을 위해 Azure Container Registry에서 영역 중복성 사용
 
@@ -25,7 +25,6 @@ ms.locfileid: "97681818"
 * 영역 중복성은 지역에서 사용 하지 않도록 설정할 수 없습니다.
 * [ACR 작업](container-registry-tasks-overview.md) 은 아직 가용성 영역을 지원 하지 않습니다.
 * 현재 Azure Resource Manager 템플릿 또는 Azure Portal를 통해 지원 됩니다. Azure CLI 지원은 이후 릴리스에서 사용 하도록 설정 됩니다.
-* 현재 영역 중복 컨테이너 레지스트리를 다른 리소스 그룹으로 이동 하는 경우 영역 중복 설정은로 표시 `Disabled` 됩니다.
 
 ## <a name="about-zone-redundancy"></a>영역 중복성 정보
 
@@ -58,7 +57,7 @@ Azure [가용성 영역](../availability-zones/az-overview.md) 을 사용 하 �
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-필요한 경우 [az group create](/cli/az/group#az_group_create) 명령을 실행 하 여 *에서는 eastus* 와 같이 Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 레지스트리에 대 한 리소스 그룹을 만듭니다.
+필요한 경우 [az group create](/cli/azure/group) 명령을 실행 하 여 *에서는 eastus* 와 같이 Azure Container Registry에 대 한 [가용성 영역을 지 원하는](../availability-zones/az-region.md) 지역에 레지스트리에 대 한 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -164,7 +163,7 @@ az group create --name <resource-group-name> --location <location>
   }
 ```
 
-다음 [az deployment group create](/cli/az/deployment#az_group_deployment_create) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
+다음 [az deployment group create](/cli/azure/deployment?view=azure-cli-latest) 명령을 실행 하 여 이전 템플릿 파일을 사용 하 여 레지스트리를 만듭니다. 표시 되는 경우 다음을 제공 합니다.
 
 * 고유한 레지스트리 이름 또는 매개 변수 없이 템플릿을 배포 하 고 고유한 이름을 만듭니다.
 * 가용성 영역을 지 원하는 복제본의 위치 (예: *westus2* )

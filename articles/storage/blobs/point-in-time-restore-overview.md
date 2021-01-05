@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908798"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803870"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 blob에 대 한 지정 시간 복원
 
@@ -43,7 +43,7 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 > 저장소 계정이 지리적으로 복제 되는 경우 보조 위치에서 읽기 작업은 복원 작업 중에 진행할 수 있습니다.
 
 > [!CAUTION]
-> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 컨테이너를 삭제 하는 대신, 개별 blob을 복원 하는 것이 좋습니다.
+> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 전체 컨테이너를 삭제 하는 대신 나중에 복원할 수 있는 경우 개별 blob을 삭제 합니다.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>지정 시간 복원에 대 한 필수 조건
 
@@ -57,9 +57,12 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 
 저장소 계정에 대 한 특정 시점 복원을 사용 하도록 설정 하는 경우 보존 기간을 지정 합니다. 저장소 계정의 블록 blob은 보존 기간 동안 복원 될 수 있습니다.
 
-지정 시간 복원을 사용 하도록 설정 하면 보존 기간이 시작 됩니다. 보존 기간이 시작 되기 전에는 blob을 상태로 복원할 수 없습니다. 예를 들어 1 년 5 월 1 일에 30 일 동안 지정 시간 복원을 사용 하도록 설정한 경우 5 월 15 일까 지 최대 15 일까 지 복원할 수 있습니다. 6 월 1 일에는 1 일에서 30 일 사이에 데이터를 복원할 수 있습니다.
+지정 시간 복원을 사용 하도록 설정 하 고 몇 분 후에 보존 기간이 시작 됩니다. 보존 기간이 시작 되기 전에는 blob을 상태로 복원할 수 없습니다. 예를 들어 1 년 5 월 1 일에 30 일 동안 지정 시간 복원을 사용 하도록 설정한 경우 5 월 15 일까 지 최대 15 일까 지 복원할 수 있습니다. 6 월 1 일에는 1 일에서 30 일 사이에 데이터를 복원할 수 있습니다.
 
 지정 시간 복원에 대 한 보존 기간은 일시 삭제에 지정 된 보존 기간 보다 하루 이상 적어야 합니다. 예를 들어 일시 삭제 보존 기간이 7 일로 설정 된 경우 지정 시간 복원 보존 기간은 1 ~ 6 일이 될 수 있습니다.
+
+> [!IMPORTANT]
+> 데이터 집합을 복원 하는 데 걸리는 시간은 복원 기간 중에 수행 된 쓰기 및 삭제 작업의 수를 기반으로 합니다. 예를 들어, 하루에 3000 개체가 추가 된 100만 개체와 매일 삭제 된 1000 개체가 있는 계정은 과거 30 일 지점으로 복원 하는 데 약 2 시간이 소요 됩니다. 이 변경 내용으로 인 한 계정에는 보존 기간 및 과거 90 일 넘게 복원 하지 않는 것이 좋습니다.
 
 ### <a name="permissions-for-point-in-time-restore"></a>지정 시간 복원에 대 한 사용 권한
 

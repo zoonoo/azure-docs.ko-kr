@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102833"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805649"
 ---
 ## <a name="common-scenarios"></a>일반적인 시나리오
 다음 시나리오는 버스트에서 크게 이점을 누릴 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "87102833"
     - 프로 비전 된 MB/s: 25
     - 최대 버스트 MB/s: 170 
 - 2 P10 데이터 디스크 
-    - 프로 비전 된 MB/s: 25
+    - 프로 비전 된 MB/s: 100
     - 최대 버스트 MB/s: 170
 
  VM이 부팅 되 면 OS 디스크에서 데이터를 검색 합니다. OS 디스크는 시작 되는 VM의 일부 이기 때문에 OS 디스크는 버스트 크레딧을 차지 합니다. 이러한 크레딧을 통해 OS 디스크는 아래에 표시 된 대로 170 m b/초 후에 시작을 버스트 합니다.

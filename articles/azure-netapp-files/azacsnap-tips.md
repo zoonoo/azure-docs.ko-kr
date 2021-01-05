@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: d73bfd19a4135d09e9e19fcbcfedd50dbc1f7067
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632808"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803190"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하기 위한 팁과 요령 (미리 보기)
 
@@ -132,7 +132,7 @@ Cron 및 crontab 파일의 형식에 대 한 자세한 설명은 다음과 같�
 
 스냅숏은 SAP HANA 데이터 영역에 다시 복사할 수 있지만 복사본이 생성 될 때 () SAP HANA 실행 되 고 있지 않아야 합니다 `cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*` .
 
-Azure Large Instance의 경우 사용 가능한 기존 스냅숏에서 원하는 스냅숏을 복원 하는 서비스 요청을 열어 Microsoft 운영 팀에 문의할 수 있습니다. Azure Portal에서 서비스 요청을 열 수 있습니다. <https://portal.azure.com.>
+Azure Large Instance의 경우 사용 가능한 기존 스냅숏에서 원하는 스냅숏을 복원 하는 서비스 요청을 열어 Microsoft 운영 팀에 문의할 수 있습니다. Azure Portal에서 서비스 요청을 열 수 있습니다. <https://portal.azure.com>
 
 재해 복구 장애 조치 (failover)를 수행 하기로 결정 한 경우 `azacsnap -c restore --restore revertvolume` DR 사이트의 명령이 SAP HANA 복구를 위해 최신 ( `/hana/data` 및 `/hana/logbackups` ) 볼륨 스냅숏을 자동으로 사용할 수 있게 됩니다. 프로덕션 및 DR 사이트 간 복제가 중단 되는 경우이 명령을 주의 해 서 사용 합니다.
 
@@ -249,7 +249,7 @@ Azure Large Instance의 경우 사용 가능한 기존 스냅숏에서 원하는
 
 1. 고객은 서버를 종료 해야 합니다.
 1. 서버가 종료 된 후 고객은 복원할 컴퓨터 ID와 스냅숏이 포함 된 서비스 요청을 열어야 합니다.
-    > 고객은 Azure Portal에서 서비스 요청을 열 수 있습니다. <https://portal.azure.com.>
+    > 고객은 Azure Portal에서 서비스 요청을 열 수 있습니다. <https://portal.azure.com>
 1. Microsoft는 지정 된 컴퓨터 ID와 스냅숏을 사용 하 여 운영 체제 LUN을 복원한 다음 서버를 부팅 합니다.
 1. 그러면 고객은 서버가 부팅 되 고 정상 상태 인지 확인 해야 합니다.
 

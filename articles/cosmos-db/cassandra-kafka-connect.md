@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: abhishgu
 ms.reviewer: abhishgu
-ms.openlocfilehash: a233845e8f19cc44cd9d00a0392b1341db297fd6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 25972ba2bb30c39838c4822a42af292e8d8b1dba
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632967"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803632"
 ---
 # <a name="ingest-data-from-apache-kafka-into-azure-cosmos-db-cassandra-api-using-kafka-connect"></a>Kafka Connect를 사용 하 여 Apache Kafka에서 Azure Cosmos DB Cassandra API으로 데이터 수집
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "97632967"
 
 Apache Kafka (토픽)의 데이터는 다른 응용 프로그램에서 사용 하거나 다른 시스템에 수집 하는 경우에만 유용 합니다. [선택한 언어와 클라이언트 SDK를 사용](https://cwiki.apache.org/confluence/display/KAFKA/Clients)하 여 [Kafka 생산자/소비자](https://kafka.apache.org/documentation/#api) api를 사용 하 여 솔루션을 빌드할 수 있습니다. Kafka Connect는 대체 솔루션을 제공 합니다. 확장 가능 하 고 신뢰할 수 있는 방식으로 Apache Kafka와 기타 시스템 간에 데이터를 스트림 하는 플랫폼입니다. Kafka Connect는 Cassandra을 포함 하는 선반 커넥터를 지원 하므로 Kafka을 Azure Cosmos DB Cassandra API와 통합 하는 사용자 지정 코드를 작성할 필요가 없습니다. 
 
-이 문서에서는 kafka Connect 프레임 워크를 기반으로 하 여 Kafka 토픽에서 하나 이상의 Cassandra 테이블의 행으로 레코드를 수집 하는 오픈 소스 [DataStax Apache Kafka 커넥터](https://docs.datastax.com/kafka/doc/kafka/kafkaIntro.html)를 사용 합니다. 이 예제에서는 Docker Compose를 사용 하 여 다시 사용할 수 있는 설정을 제공 합니다. 이는 단일 명령을 사용 하 여 모든 필수 구성 요소를 로컬로 부트스트랩 시킬 수 있기 때문에 매우 편리 합니다. 이러한 구성 요소에는 Kafka, 사육 사, Kafka Connect 작업자 및 샘플 데이터 생성기 응용 프로그램이 포함 됩니다.
+이 문서에서는 kafka Connect 프레임 워크를 기반으로 하 여 Kafka 토픽에서 하나 이상의 Cassandra 테이블의 행으로 레코드를 수집 하는 오픈 소스 [DataStax Apache Kafka 커넥터](https://docs.datastax.com/en/kafka/doc/kafka/kafkaIntro.html)를 사용 합니다. 이 예제에서는 Docker Compose를 사용 하 여 다시 사용할 수 있는 설정을 제공 합니다. 이는 단일 명령을 사용 하 여 모든 필수 구성 요소를 로컬로 부트스트랩 시킬 수 있기 때문에 매우 편리 합니다. 이러한 구성 요소에는 Kafka, 사육 사, Kafka Connect 작업자 및 샘플 데이터 생성기 응용 프로그램이 포함 됩니다.
 
 다음은 구성 요소 및 해당 서비스 정의를 분석 하는 것입니다 `docker-compose` . [GitHub 리포지토리의](https://github.com/Azure-Samples/cosmosdb-cassandra-kafka/blob/main/docker-compose.yaml)전체 파일을 참조할 수 있습니다.
 

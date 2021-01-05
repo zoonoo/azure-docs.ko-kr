@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: aaaeb23ef24f0d8a0fa4b38139fed57cda6fa63d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 93b6160b495b609e23e10b3f709d130792067423
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657042"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803785"
 ---
 # <a name="it-service-management-connector-overview"></a>IT 서비스 관리 커넥터 개요
 
@@ -43,13 +43,11 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 다음 단계를 완료 하 여 ITSMC 사용을 시작할 수 있습니다.
 
-1. [IT 서비스 관리 커넥터를 사용 하 여 ITSM 제품/서비스를 연결 합니다.](./itsmc-connections.md)
-1. [ITSMC를 추가 합니다.](/.itsmc-definition.md#add-it-service-management-connector)
-1. [ITSM 연결을 만듭니다.](./itsmc-definition.md#create-an-itsm-connection)
-1. [연결을 사용 합니다.](./itsmc-definition.md#use-itsmc)
+1. [Azure에서 경고를 수락 하도록 ITSM 환경을 설정 합니다.](./itsmc-connections.md)
+1. [Azure ITSM 솔루션 구성](./itsmc-definition.md#add-it-service-management-connector)
+1. [ITSM 환경에 대해 Azure ITSM 커넥터를 구성 합니다.](./itsmc-definition.md#create-an-itsm-connection)
+1. [ITSM 커넥터를 활용 하도록 작업 그룹을 구성 합니다.](./itsmc-definition.md#use-itsmc)
 
 ## <a name="next-steps"></a>다음 단계
 
-[IT 서비스 관리 커넥터에 ITSM 제품/서비스를 추가 합니다](./itsmc-connections.md) 
- . [ITSM 커넥터 추가](./itsmc-definition.md) 
- [ITSM 커넥터 문제 해결](./itsmc-resync-servicenow.md)
+* [ITSM 커넥터의 문제 해결](./itsmc-resync-servicenow.md)

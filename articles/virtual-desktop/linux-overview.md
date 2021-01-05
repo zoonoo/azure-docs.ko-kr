@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ae279c117172f116641c7c908b9fc53f26ceaa90
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960646"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802306"
 ---
 # <a name="linux-support"></a>Linux 지원
 
@@ -25,7 +25,7 @@ Linux 씬 클라이언트 파트너에서 제공 하는 [웹 클라이언트](co
 |:------|:--------------------|:--------------|
 |![IGEL 로고](./media/partners/igel.png)|[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
 |![NComputing 로고](./media/partners/ncomputing.png)|[NComputing 클라이언트 설명서](https://www.ncomputing.com/microsoft)|[NComputing 지원](https://www.ncomputing.com/support/support-options)|
-|![Stratodesk 로고](./media/partners/stratodesk.png)|[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support-3/)|
+|![Stratodesk 로고](./media/partners/stratodesk.png)|[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support/)|
 
 ## <a name="next-steps"></a>다음 단계
 

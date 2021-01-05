@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: f559c87a5c3285bf966f9389d623b2262e93cbca
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bf357dcc9c4790632a1131278edc41c13ac810b1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425816"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802612"
 ---
 # <a name="client-application-registration"></a>클라이언트 애플리케이션 등록
 이전 자습서에서는 Azure API for FHIR을 배포하고 설정했습니다. 이제 Azure API for FHIR을 설정했으므로 퍼블릭 클라이언트 애플리케이션을 등록합니다. 자세한 내용 또는 문제 해결에 대한 전체 [퍼블릭 클라이언트 앱 등록](register-public-azure-ad-client-app.md) 방법 가이드를 참조할 수 있지만 아래 이 자습서에 대한 주요 단계를 소개했습니다.
@@ -22,7 +22,7 @@ ms.locfileid: "94425816"
 1. Azure Active Directory로 이동
 1. **앱 등록** --> **새 등록** 선택
 1. 애플리케이션의 이름을 지정합니다.
-1. **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택하고 리디렉션 URI를 https://www.getpostman.com/oauth2/callback 으로 설정합니다.
+1. **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택하고 리디렉션 URI를 `https://www.getpostman.com/oauth2/callback` 으로 설정합니다.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="애플리케이션 등록 창의 스크린샷 및 애플리케이션 이름과 리디렉션 URL의 예입니다.":::
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df2962c8d428694a663acddf5922829f8b913b92
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 1a7bd36a6e3f3cc5b785745fc51f0aede3b47b74
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737492"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803309"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
 
@@ -41,7 +41,7 @@ ms.locfileid: "94737492"
 
 이 모드는 수동 입력 없이 자동으로 편집된 mp4를 생성합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MOV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -51,7 +51,7 @@ ms.locfileid: "94737492"
 
 2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치의 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -117,7 +117,7 @@ ms.locfileid: "94737492"
 
 분석 단계의 출력에는 원본 동영상이 포함되지 않습니다. 동영상을 편집 모드 작업의 입력 자산으로 업로드하고 기본 파일로 선택해야 합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상. 1단계와 동일한 동영상입니다. |
 | 입력 자산 |foo_annotations.json |1단계의 주석 메타데이터 파일 및 수정 사항(선택 사항) |
@@ -385,4 +385,4 @@ namespace FaceRedaction
 
 [Azure Media Services 분석 개요](./legacy-components.md)
 
-[Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 미디어 분석 데모](http://amslabs.azurewebsites.net/demos/Analytics.html)

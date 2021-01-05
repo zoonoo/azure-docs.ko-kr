@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 5070d1dc19995b635ebff6b98fec07e2b7d9fc70
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9cc19548f0b969421974afe3e274fc5334590cb0
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663665"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805620"
 ---
 Azure Functions를 사용 하 여 미리 작성 된 진입점에 대 한 구성 전용 복제 작업을 만들 수 있습니다. [Azure Functions에 대 한 구성 기반 복제 샘플](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) 에서는 [미리 작성 된 도우미](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) 를 사용자 코드에서 활용 하거나 코드를 모두 처리 하지 않고 구성을 사용 하는 방법을 보여 줍니다.
 
@@ -218,9 +218,9 @@ Service Bus 토픽으로 이벤트를 전달 하려는 경우 "바인딩" 내의
 
 ### <a name="retry-policy"></a>재시도 정책
 
-재시도 정책 구성에 [대 한 Azure Functions 설명서](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) 를 참조 하십시오. 이 리포지토리의 프로젝트 전체에서 선택한 정책 설정은 데이터 손실을 방지 하기 위해 재시도 간격을 5 초에서 5 분으로 설정 하 여 지 수 백오프 전략을 구성 합니다.
+재시도 정책 구성에 [대 한 Azure Functions 설명서](/azure/azure-functions/functions-bindings-error-pages) 를 참조 하십시오. 이 리포지토리의 프로젝트 전체에서 선택한 정책 설정은 데이터 손실을 방지 하기 위해 재시도 간격을 5 초에서 5 분으로 설정 하 여 지 수 백오프 전략을 구성 합니다.
 
-Service Bus의 경우 큐의 상호 작용 및 큐에 대해 정의 된 최대 배달 횟수를 이해 하려면 ["트리거 복원 력 맨 위에 있는 재시도 지원 사용"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) 섹션을 검토 합니다.
+Service Bus의 경우 큐의 상호 작용 및 큐에 대해 정의 된 최대 배달 횟수를 이해 하려면 ["트리거 복원 력 맨 위에 있는 재시도 지원 사용"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) 섹션을 검토 합니다.
 
 ### <a name="build-deploy-and-configure"></a>빌드, 배포 및 구성
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0b91869e59109550910712b9386056c23843cecd
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 235d54d36965ac5d8d173354b2223247806a1fff
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559594"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803666"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>ML 학습 실행에서 로깅 사용
 
@@ -92,7 +92,7 @@ Azure Machine Learning 디자이너의 메트릭 로깅에 대한 자세한 내�
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
-[! Aml-복제 포함-azure-노트북](/includes/aml-clone-for-examples.md)
+[! Aml-복제 포함-azure-노트북](https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/includes/aml-clone-for-examples.md)
 
 ## <a name="next-steps"></a>다음 단계
 

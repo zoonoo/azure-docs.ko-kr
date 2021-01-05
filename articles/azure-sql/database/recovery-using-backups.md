@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989465"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797216"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 수행할 수 있습니다.
+[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음 작업을 수행할 수 있습니다.
 
 - 동일한 서버에 새 데이터베이스를 만들어 보존 기간 내의 지정 된 특정 시점으로 복구 합니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 되는 동일한 서버에 데이터베이스를 만듭니다.
@@ -95,7 +95,7 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스 데이터베이스를 
   ![SQL 관리 되는 인스턴스에 대 한 데이터베이스 복원 옵션의 스크린샷](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> 백업에서 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식으로 복구 수행](recovery-using-backups.md)을 참조 하세요.
+> 백업에서 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식 복구](recovery-using-backups.md)를 참조 하세요.
 
 ## <a name="deleted-database-restore"></a>삭제된 데이터베이스 복원
 

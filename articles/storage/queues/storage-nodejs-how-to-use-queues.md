@@ -4,17 +4,17 @@ description: Azure Queue Storage을 사용 하 여 큐를 만들고 삭제 하�
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: ebae3c8850947f3b6cbde6f2ebd8bfbd45b2fbb4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12ae05e10cdf0fa9a5f0725acaa1784eedc3612c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592180"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803683"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Node.js에서 Azure Queue Storage를 사용 하는 방법
 
@@ -350,4 +350,4 @@ queueSvc.deleteQueue(queueName, function(error, response){
 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡 한 저장소 작업에 대해 알아보세요.
 
 - [Azure Storage 팀 블로그](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog) 를 방문 하 여 새로운 기능에 대해 알아보세요.
-- GitHub에서 [JavaScript 리포지토리의 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) 방문
+- GitHub에서 [JavaScript 리포지토리의 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#Azure-storage-client-library-for-JavaScript) 방문

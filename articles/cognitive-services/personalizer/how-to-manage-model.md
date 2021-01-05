@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: f82adad5273f1c5559cbeb1924f59e57c863f6b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e954eab9da5dfc638f93a7c4e55c675c4f2ac9
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303457"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797250"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>모델 및 학습 설정을 관리 하는 방법
 
@@ -18,13 +18,13 @@ ms.locfileid: "91303457"
 
 ## <a name="export-the-personalizer-model"></a>Personalizer 모델 내보내기
 
-**모델 및 학습 설정**에 대 한 리소스 관리 섹션에서 모델 생성 및 마지막 업데이트 날짜를 검토 하 고 현재 모델을 내보냅니다. Azure Portal 또는 Personalizer API를 사용하여 보관을 위해 모델 파일을 내보낼 수 있습니다.
+**모델 및 학습 설정** 에 대 한 리소스 관리 섹션에서 모델 생성 및 마지막 업데이트 날짜를 검토 하 고 현재 모델을 내보냅니다. Azure Portal 또는 Personalizer API를 사용하여 보관을 위해 모델 파일을 내보낼 수 있습니다.
 
 ![현재 Personalizer 모델 내보내기](media/settings/export-current-personalizer-model.png)
 
 ## <a name="clear-data-for-your-learning-loop"></a>학습 루프의 데이터 지우기
 
-1. Azure Portal에서 Personalizer 리소스에 대해 **모델 및 학습 설정** 페이지에서 **데이터 지우기**를 선택 합니다.
+1. Azure Portal에서 Personalizer 리소스에 대해 **모델 및 학습 설정** 페이지에서 **데이터 지우기** 를 선택 합니다.
 1. 모든 데이터를 지우고 학습 루프를 원래 상태로 다시 설정 하려면 3 개의 확인란을 모두 선택 합니다.
 
     ![Azure Portal에서 Personalizer 리소스의 데이터를 지웁니다.](./media/settings/clear-data-from-personalizer-resource.png)
@@ -55,4 +55,4 @@ ms.locfileid: "91303457"
 
 ## <a name="next-steps"></a>다음 단계
 
-[학습 정책을 관리 하는 방법 알아보기](how-to-manage-model.md)
+[오프 라인 평가를 사용 하 여 학습 루프 분석](how-to-offline-evaluation.md)
