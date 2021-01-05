@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: c17ade2af751b80e612aa104a9af1a22c4325413
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: ff3e8916a6634c564aa98b21b7e8d7c89fa1b17e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695736"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897181"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
@@ -150,7 +150,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 
 | 클래식 표현 | Resource Manager 표현 | 메모 |
 | --- | --- | --- |
-| 클라우드 서비스 이름 |DNS 이름 |마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. |
+| 클라우드 서비스 이름 (호스팅된 서비스 이름) |DNS 이름 |마이그레이션하는 동안 명명 패턴 `<cloudservicename>-migrated`를 사용하여 모든 클라우드 서비스에 대한 새 리소스 그룹을 만듭니다. 이 리소스 그룹에는 모든 리소스가 포함됩니다. 클라우드 서비스 이름은 공용 IP 주소와 연결된 DNS 이름이 됩니다. |
 | 가상 머신 |가상 머신 |VM 관련 속성은 변경되지 않고 마이그레이션됩니다. 컴퓨터 이름과 같은 특정 osProfile 정보는 클래식 배포 모델에 저장되지 않으며, 마이그레이션 후에도 비어 있습니다. |
 | VM에 연결된 디스크 리소스 |VM에 연결된 암시적 디스크 |Resource Manager 배포 모델에서는 디스크가 최상위 리소스로 모델링되지 않습니다. VM에서 암시적 디스크로 마이그레이션됩니다. 현재 VM에 연결되어 있는 디스크만 지원됩니다. 리소스 관리자 VM은 이제 클래식 배포 모델에서 스토리지 계정을 사용할 수 있으므로 디스크를 업데이트하지 않고도 쉽게 마이그레이션할 수 있습니다. |
 | VM 확장 |VM 확장 |클래식 배포 모델에서는 XML 확장을 제외한 모든 리소스 확장이 마이그레이션됩니다. |

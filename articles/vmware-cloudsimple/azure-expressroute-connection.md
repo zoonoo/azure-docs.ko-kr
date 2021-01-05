@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 azure VMware 솔루션-Express 경로를 사용 하 여 사설 클라우드를 Azure 네트워크에 연결
 description: Express 경로를 사용 하 여 CloudSimple 사설 클라우드 환경을 Azure virtual network에 연결 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9bb68ec68f4de646239477ceeaac50a7a33989fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98eec6b48d2b02c6eb7f6faea38994a9176bcf87
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77015238"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895991"
 ---
 # <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Express 경로를 사용 하 여 CloudSimple 사설 클라우드 환경을 Azure virtual network에 연결
 
@@ -44,7 +44,7 @@ Azure Express 경로를 사용 하 여 CloudSimple 사설 클라우드를 Azure 
 
 ## <a name="test-the-virtual-network-connection"></a>가상 네트워크 연결 테스트
 
-연결이 만들어지면 **설정**에서 **속성** 을 선택 하 여 연결 상태를 확인할 수 있습니다.  상태 및 프로 비전 상태가 **성공**으로 표시 되어야 합니다.
+연결이 만들어지면 **설정** 에서 **속성** 을 선택 하 여 연결 상태를 확인할 수 있습니다.  상태 및 프로 비전 상태가 **성공** 으로 표시 되어야 합니다.
 
 ![연결 상태](media/azure-expressroute-connection.png)
 

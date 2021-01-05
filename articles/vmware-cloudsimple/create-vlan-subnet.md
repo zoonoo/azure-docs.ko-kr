@@ -1,19 +1,19 @@
 ---
 title: V m/서브넷 만들기-CloudSimple 별 Azure VMware 솔루션
 description: CloudSimple의 Azure VMware 솔루션-사설 클라우드의 Vlan/서브넷을 만들고 관리 하는 방법을 설명 하 고 방화벽 규칙을 적용 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06bebcb7369f6604fc79c1d3d0a4a6afa8b0a1da
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77565998"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896314"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>사설 클라우드에 대 한 Vlan/서브넷 만들기 및 관리
 
@@ -22,8 +22,8 @@ ms.locfileid: "77565998"
 ## <a name="create-a-vlansubnet"></a>VLAN/서브넷 만들기
 
 1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
-2. **Vlan/서브넷**을 선택 합니다.
-3. **VLAN/서브넷 만들기**를 클릭 합니다.
+2. **Vlan/서브넷** 을 선택 합니다.
+3. **VLAN/서브넷 만들기** 를 클릭 합니다.
 
     ![VLAN/서브넷 페이지](media/vlan-subnet-page.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "77565998"
 5. VLAN ID를 입력 하십시오.
 6. 서브넷 이름을 입력 합니다.
 7. VLAN (서브넷)에서 라우팅을 사용 하도록 설정 하려면 서브넷 CIDR 범위를 지정 합니다. CIDR 범위가 온-프레미스 서브넷, Azure 서브넷 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
-8. **제출**을 클릭합니다.
+8. **제출** 을 클릭합니다.
 
     ![VLAN/서브넷 만들기](media/create-new-vlan-subnet-details.png)
 
@@ -56,7 +56,7 @@ VSphere 분산 포트 그룹을 만들려면 <a href="https://docs.vmware.com/en
 
 ## <a name="edit-a-vlansubnet"></a>VLAN/서브넷 편집
 
-VLAN/서브넷에 대 한 설정을 편집 하려면 **vlan/** 서브넷 페이지에서 해당 설정을 선택 하 고 **편집** 아이콘을 클릭 합니다. 변경을 수행 하 고 **Submet**을 클릭 합니다.
+VLAN/서브넷에 대 한 설정을 편집 하려면 **vlan/** 서브넷 페이지에서 해당 설정을 선택 하 고 **편집** 아이콘을 클릭 합니다. 변경을 수행 하 고 **Submet** 을 클릭 합니다.
 
 ## <a name="delete-a-vlansubnet"></a>VLAN/서브넷 삭제
 

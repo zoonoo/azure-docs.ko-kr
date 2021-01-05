@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c9b624a1efc72bebec8547e8ecf9f3bf9fc99863
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 0558513d88eb5ffb03484e9d3bd8e37b2c9a0dcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680647"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895022"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -38,6 +38,21 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
   - 인증서를 사용 하 여 인스턴스를 Key Vault 합니다. [Key Vault 만들기를](../../key-vault/general/quick-create-portal.md) 참조 하세요.
   - VM/VMSS에서 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 할당 해야 함
   - `get` `list` 암호의 인증서 부분을 검색 하려면 VM/vmss 관리 id에 대 한 암호 및 사용 권한을 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](../../key-vault/general/authentication.md) 하 고 [Key Vault 액세스 정책을 할당](../../key-vault/general/assign-access-policy-cli.md)하는 방법을 참조 하세요.
+  -  VMSS에는 다음과 같은 id 설정이 있어야 합니다. ` 
+  "identity": {
+  "type": "UserAssigned",
+  "userAssignedIdentities": {
+  "[parameters('userAssignedIdentityResourceId')]": {}
+  }
+  }
+  `
+  
+ - AKV 확장에는 다음 설정이 있어야 합니다. `
+                 "authenticationSettings": {
+                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+                  }
+   `
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -86,7 +101,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -138,6 +153,17 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
     }
 ```
 
+### <a name="extension-dependency-ordering"></a>확장 종속성 순서 지정
+Key Vault VM 확장은 구성 된 경우 확장 순서를 지원 합니다. 기본적으로 확장은 폴링을 시작한 직후에 성공적으로 시작 되었음을 보고 합니다. 그러나 성공적인 시작을 보고 하기 전에 인증서의 전체 목록이 성공적으로 다운로드 될 때까지 대기 하도록 구성할 수 있습니다. 다른 확장이 시작 하기 전에 전체 인증서 집합을 설치 해야 하는 경우이 설정을 사용 하도록 설정 하면 해당 확장이 Key Vault 확장에 대 한 종속성을 선언할 수 있습니다. 이렇게 하면 해당 확장이 종속 된 모든 인증서가 설치 될 때까지 해당 확장을 시작할 수 없습니다. 확장은 초기 다운로드를 무기한으로 다시 시도 하 고 상태로 유지 됩니다 `Transitioning` .
+
+이를 설정 하려면 다음을 설정 합니다.
+```
+"secretsManagementSettings": {
+    "requireInitialSync": true,
+    ...
+}
+```
+> 두고 이 기능을 사용 하는 것은 시스템 할당 id를 만들고 해당 id를 사용 하 여 Key Vault 액세스 정책을 업데이트 하는 ARM 템플릿과 호환 되지 않습니다. 이렇게 하면 모든 확장이 시작 될 때까지 자격 증명 모음 액세스 정책을 업데이트할 수 없으므로 교착 상태가 발생 합니다. 대신 *단일 사용자 할당 MSI id* 를 사용 하 고 배포 하기 전에 해당 id를 사용 하 여 자격 증명 모음에 사전 ACL을 사용 해야 합니다.
 
 ## <a name="azure-powershell-deployment"></a>Azure PowerShell 배포
 > [!WARNING]

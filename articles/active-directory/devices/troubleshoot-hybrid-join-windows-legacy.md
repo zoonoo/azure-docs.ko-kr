@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 057ff064264485a9aea6fc2b31fe57ce37c805ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079022"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895617"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -44,6 +44,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 - 운영 체제 재설치 또는 수동 재등록으로 인해 사용자 정보 탭에 디바이스에 대한 여러 항목이 있을 수도 있습니다.
 - 초기 디바이스 등록/조인은 로그온 또는 잠금/잠금 해제 상태에서 시도를 수행하도록 구성됩니다. 작업 스케줄러 작업에 의해 트리거되는 5분 지연이 있을 수 있습니다. 
 - Windows 7 SP1 또는 Windows Server 2008 R2 SP1의 경우, [KB4284842](https://support.microsoft.com/help/4284842)가 설치되어 있는지 확인합니다. 이 업데이트는 암호를 변경한 후 고객이 보호된 키에 액세스할 수 없어서 발생하는 이후의 인증 실패를 방지합니다.
+- 사용자가 UPN을 변경 하 여 원활한 SSO 인증 프로세스를 중단 하 고 나면 하이브리드 Azure AD 조인이 실패할 수 있습니다. 참가 프로세스 중에는 브라우저 세션 쿠키가 지우거 나 사용자가 명시적으로 로그 아웃 하 고 이전 UPN을 제거 하지 않는 한, 이전 UPN을 Azure AD에 전송 하는 것을 볼 수 있습니다.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>1단계: 등록 상태 검색 
 
@@ -65,7 +66,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 - 잘못 구성된 AD FS 또는 Azure AD, 또는 네트워크 문제
 
-    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 전자 메일 주소를 포함 하는 텍스트는 특정 장치가 작업 공간에 조인 되었음을 나타내는 상태입니다." border="false":::
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 텍스트는 계정 인증 중에 오류가 발생 했음을 보고 합니다." border="false":::
     
    - Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없습니다. 이러한 상황은 누락되었거나 잘못 구성된 AD FS(페더레이션된 도메인용) 또는 누락되었거나 잘못 구성된 Azure AD Seamless Single Sign-On(관리되는 도메인용) 또는 네트워크 문제로 인해 야기될 수 있습니다. 
    - 사용자에 대해 MFA (multi-factor authentication)가 설정/구성 되어 있고 AD FS 서버에 WIAORMULTIAUTHN가 구성 되어 있지 않을 수 있습니다. 
@@ -76,7 +77,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
    - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 디바이스의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용** 이 활성화되어 있지 않습니다.
 - 도메인 사용자로 로그온되지 않음
 
-   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 전자 메일 주소를 포함 하는 텍스트는 특정 장치가 작업 공간에 조인 되었음을 나타내는 상태입니다." border="false":::
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 텍스트는 계정 확인 중에 오류가 발생 했음을 보고 합니다." border="false":::
 
    발생할 수 있는 몇 가지 다른 이유가 있습니다.
 
@@ -84,11 +85,11 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
    - 클라이언트가 도메인 컨트롤러에 연결할 수 없습니다.    
 - 할당량에 도달함
 
-    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 전자 메일 주소를 포함 하는 텍스트는 특정 장치가 작업 공간에 조인 되었음을 나타내는 상태입니다." border="false":::
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 사용자가 가입 된 최대 장치 수에 도달 하 여 텍스트에서 오류를 보고 합니다." border="false":::
 
 - 서비스가 응답하지 않음 
 
-    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 전자 메일 주소를 포함 하는 텍스트는 특정 장치가 작업 공간에 조인 되었음을 나타내는 상태입니다." border="false":::
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Windows 용 Workplace Join 대화 상자의 스크린샷 서버에서 응답 하지 않아 오류가 발생 했음을 보고 하는 텍스트입니다." border="false":::
 
 **Applications and Services Log\Microsoft-Workplace Join** 의 이벤트 로그에서 상태 정보를 찾을 수도 있습니다.
   

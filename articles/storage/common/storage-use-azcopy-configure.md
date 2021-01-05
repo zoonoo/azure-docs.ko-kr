@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: a54c77844498beb4fd052153cbcf8cbe498cdb75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132213"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897861"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -28,13 +28,13 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 
 ## <a name="configure-proxy-settings"></a>프록시 설정 구성
 
-AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변수를 설정 합니다. Windows에서 AzCopy를 실행하는 경우 AzCopy가 프록시 설정을 자동으로 검색하므로 Windows에서 이 설정을 사용할 필요가 없습니다. Windows에서 이 설정을 사용하도록 선택하면 자동 검색이 재정의됩니다.
+AzCopy에 대 한 프록시 설정을 구성 하려면 `HTTPS_PROXY` 환경 변수를 설정 합니다. Windows에서 AzCopy를 실행하는 경우 AzCopy가 프록시 설정을 자동으로 검색하므로 Windows에서 이 설정을 사용할 필요가 없습니다. Windows에서 이 설정을 사용하도록 선택하면 자동 검색이 재정의됩니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
-| **Windows** | 명령 프롬프트에서 다음을 사용 합니다. `set https_proxy=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다. `$env:https_proxy="<proxy IP>:<proxy port>"`|
-| **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **Windows** | 명령 프롬프트에서 다음을 사용 합니다. `set HTTPS_PROXY=<proxy IP>:<proxy port>`<br> PowerShell에서 다음을 사용 합니다. `$env:HTTPS_PROXY="<proxy IP>:<proxy port>"`|
+| **Linux** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
+| **macOS** | `export HTTPS_PROXY=<proxy IP>:<proxy port>` |
 
 현재 AzCopy는 NTLM 또는 Kerberos 인증을 요구 하는 프록시를 지원 하지 않습니다.
 

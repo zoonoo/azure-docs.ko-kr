@@ -13,4 +13,4 @@
 - name: 참조
   items:
     - name: BareMetal 워크로드 유형
-      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/context/context
+      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context

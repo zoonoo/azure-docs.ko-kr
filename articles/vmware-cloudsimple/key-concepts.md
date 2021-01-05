@@ -2,19 +2,19 @@
 title: CloudSimple로 Azure VMware 솔루션을 관리 하기 위한 주요 개념
 titleSuffix: Azure VMware Solution by CloudSimple
 description: CloudSimple에서 Azure VMware 솔루션을 관리 하기 위한 주요 개념을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 04/24/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8677bc7e4b9f4c2b24b5439aeefb307b9c544ed3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5544ef7725855d28e20d39ff345db6bb07671a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525027"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895328"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solutions-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션 관리를 위한 주요 개념
 
@@ -58,7 +58,7 @@ CloudSimple 서비스는 CloudSimple 서비스가 배포 되는 지역 당 네�
 
 CloudSimple 서비스를 사용 하 여 Azure Portal에서 VMware 가상 컴퓨터를 관리할 수 있습니다. VSphere 환경에서 하나 이상의 클러스터 또는 리소스 풀을 서비스가 만들어진 구독에 매핑할 수 있습니다.
 
-다음에 대해 자세히 알아봅니다.
+다음에 대해 자세히 알아보세요.
 
 * [CloudSimple virtual machines](cloudsimple-virtual-machines.md)
 * [Azure 구독 매핑](./azure-subscription-mapping.md)

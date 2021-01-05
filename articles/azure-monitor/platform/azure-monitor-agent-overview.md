@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315586"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895532"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요 (미리 보기)
 Azure Monitor 에이전트 (AMA)는 가상 컴퓨터의 게스트 운영 체제에서 모니터링 데이터를 수집 하 여 Azure Monitor에 전달 합니다. 이 문서에서는 Azure Monitor 에이전트를 설치 하는 방법 및 데이터 수집을 구성 하는 방법을 비롯 하 여 에이전트에 대 한 개요를 제공 합니다.
@@ -54,7 +54,7 @@ Azure Monitor 에이전트의 공개 미리 보기 중에는 다음과 같은 �
 
 - Azure Monitor 에이전트는 VM용 Azure Monitor 및 Azure Security Center와 같은 솔루션 및 통찰력을 지원 하지 않습니다. 현재 지원 되는 유일한 시나리오는 구성 하는 데이터 수집 규칙을 사용 하 여 데이터를 수집 하는 것입니다. 
 - 데이터 수집 규칙은 대상으로 사용 되는 Log Analytics 작업 영역과 동일한 지역에 만들어야 합니다.
-- Azure virtual machines 및 Azure Arc 사용 서버는 현재 지원 됩니다. Virtual machine scale sets, Azure Kubernetes Service 및 기타 계산 리소스 유형은 현재 지원 되지 않습니다.
+- Azure 가상 머신, 가상 머신 확장 집합 및 Azure Arc 사용 서버는 현재 지원 됩니다. Azure Kubernetes Service 및 기타 계산 리소스 유형은 현재 지원 되지 않습니다.
 - 가상 컴퓨터에는 다음 HTTPS 끝점에 대 한 액세스 권한이 있어야 합니다.
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com

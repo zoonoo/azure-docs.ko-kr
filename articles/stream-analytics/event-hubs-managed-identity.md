@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: c65833e5bf581c6326bf9362c7e5fc00a985d301
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 01/04/2021
+ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355111"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895141"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스 (미리 보기)
 
@@ -21,13 +21,16 @@ Azure Stream Analytics는 Azure Event Hubs 입력 및 출력 모두에 대해 �
 
 이 문서에서는 Azure Portal를 통해 Stream Analytics 작업의 Event Hubs 입력 또는 출력에 대해 관리 되는 Id를 사용 하도록 설정 하는 방법을 보여 줍니다.관리 Id를 사용 하도록 설정 하기 전에 먼저 Stream Analytics 작업 및 이벤트 허브 리소스를 사용 해야 합니다.
 
+### <a name="limitation"></a>제한 사항
+미리 보기가 제공 되는 동안 관리 되는 Id 인증 모드를 사용 하는 경우 Azure Portal Event Hubs의 샘플링 입력이 작동 하지 않습니다.
+
 ## <a name="create-a-managedidentity"></a>관리 id 만들기  
 
 먼저 Azure Stream Analytics 작업의 관리 ID를 만듭니다.  
 
 1. Azure Portal에서 Azure Stream Analytics 작업을 엽니다.  
 
-1. 왼쪽 탐색 메뉴에서 구성 아래에 있는 **관리 id** 를 선택   합니다. *Configure* 그런 다음 **시스템 할당 관리 Id 사용** 옆의 확인란을 선택 하   고 **저장** 을 선택 합니다.
+1. 왼쪽 탐색 메뉴에서 구성 아래에 있는 **관리 id** 를 선택   합니다. ** 그런 다음 **시스템 할당 관리 Id 사용** 옆의 확인란을 선택 하   고 **저장** 을 선택 합니다.
 
    :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="시스템 할당 관리 id":::  
 

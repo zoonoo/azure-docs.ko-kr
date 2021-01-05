@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fa8f9ad2d15730d2a0a2c1a722aa3970bbc8f173
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e80b1446142786cbd77245a2b6696cac1bb9272
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033989"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897096"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -59,7 +59,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 **Azure의 Linux Vm** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다.<br/><br/> Linux의 경우 이러한 운영 체제에 대 한 변경 내용이 자동으로 Azure Migrate.<br/> -Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> -센트 OS 7.7, 7.6, 7.5, 7.4, 6.x</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19.04, 19.10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> 다른 운영 체제의 경우 [필요한 변경](prepare-for-migration.md#verify-required-changes-before-migrating) 작업을 수동으로 수행 합니다.
 **Linux 부팅** | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다.
 **UEFI 부팅** | 지원됨. UEFI 기반 Vm은 Azure 2 세대 Vm으로 마이그레이션됩니다. 
-**디스크 크기** | 2TB OS 디스크 (BIOS 부팅); 4tb OS 디스크 (UEFI 부팅); 데이터 디스크의 경우 32 TB입니다.
+**디스크 크기** | 2TB OS 디스크  데이터 디스크의 경우 32 TB입니다.
 **디스크 제한** |  VM 당 최대 60 디스크
 **암호화 된 디스크/볼륨** | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다.
 **공유된 디스크 클러스터** | 지원 안 됨
@@ -122,7 +122,7 @@ vSphere/ESXI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바�
 **UEFI 부팅** | 지원됨. UEFI 기반 Vm은 Azure 2 세대 Vm으로 마이그레이션됩니다. 
 **UEFI-보안 부팅**         | 마이그레이션에 지원 되지 않습니다.
 **대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 표준 SSD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
-**디스크 크기** | 2TB OS 디스크 (BIOS 부팅); 4tb OS 디스크 (UEFI 부팅); 데이터 디스크의 경우 8TB입니다.
+**디스크 크기** | 2TB OS 디스크 데이터 디스크의 경우 32 TB입니다.
 **디스크 제한** |  VM 당 최대 63 디스크
 **암호화 된 디스크/볼륨** | 암호화 된 디스크/볼륨이 있는 Vm은 마이그레이션을 지원 하지 않습니다.
 **공유된 디스크 클러스터** | 지원 안 됨
@@ -131,7 +131,7 @@ vSphere/ESXI 호스트 | 어플라이언스의 TCP 포트 902에 대 한 인바�
 **NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 **iSCSI 대상** | 지원됨.
 **다중 경로 IO** | 지원 안 됨
-**저장소 vMotion** | 지원됨
+**저장소 vMotion** | 지원 여부
 **팀 Nic** | 지원 안 됨
 **IPv6** | 지원 안 됨
 
@@ -172,7 +172,7 @@ Azure에 복제 되는 모든 온-프레미스 Vm (에이전트 없는 에이전
 FC 디스크 | 지원 안 됨 
 BitLocker | 지원 안 됨<br/><br/> 컴퓨터를 마이그레이션하기 전에 BitLocker를 사용 하지 않도록 설정 해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. 
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고,   ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아봅니다](prepare-for-migration.md).
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고,   ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md).
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> 장애 조치 (failover) 후에 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다.<br/><br/> 또한 VM에 대 한 공용 IP 주소를 추가 합니다.  
 
 

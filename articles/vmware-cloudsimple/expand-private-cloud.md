@@ -1,19 +1,19 @@
 ---
 title: CloudSimple 사설 클라우드를 통해 Azure VMware 솔루션 확장
 description: 기존 CloudSimple 사설 클라우드를 확장 하 여 기존 또는 새 클러스터에 용량을 추가 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 06/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c469ea3f104e71eb80010d4a5cd421eab6184fcf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77025302"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895860"
 ---
 # <a name="expand-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 확장
 
@@ -41,14 +41,14 @@ VCenter의 기본 **데이터 센터** 를 사용 하 여 사설 클라우드를
 
 2. **리소스** 페이지를 열고 확장할 사설 클라우드를 선택 합니다.
 
-3. 요약 섹션에서 **확장**을 클릭 합니다.
+3. 요약 섹션에서 **확장** 을 클릭 합니다.
 
     ![사설 클라우드 확장](media/resources-expand-private-cloud.png)
 
 4. 기존 클러스터를 확장할지 아니면 새 vSphere 클러스터를 만들지를 선택 합니다. 변경 작업을 수행 하면 페이지의 요약 정보가 업데이트 됩니다.
 
-    * 기존 클러스터를 확장 하려면 **기존 클러스터 확장**을 클릭 합니다. 확장할 클러스터를 선택 하 고 추가할 노드 수를 입력 합니다. 각 클러스터에는 최대 16 개의 노드가 있을 수 있습니다.
-    * 새 클러스터를 추가 하려면 **새 클러스터 만들기**를 클릭 합니다. 클러스터의 이름을 입력합니다. 기존 데이터 센터를 선택 하거나 이름을 입력 하 여 새 데이터 센터를 만듭니다. 노드 형식을 선택 합니다. 새 vSphere 클러스터를 만들 때 다른 노드 유형을 선택할 수 있지만 기존 vSphere 클러스터를 확장할 때는 선택할 수 없습니다. 노드 수를 선택 합니다. 각 새 클러스터에는 세 개 이상의 노드가 있어야 합니다.
+    * 기존 클러스터를 확장 하려면 **기존 클러스터 확장** 을 클릭 합니다. 확장할 클러스터를 선택 하 고 추가할 노드 수를 입력 합니다. 각 클러스터에는 최대 16 개의 노드가 있을 수 있습니다.
+    * 새 클러스터를 추가 하려면 **새 클러스터 만들기** 를 클릭 합니다. 클러스터의 이름을 입력합니다. 기존 데이터 센터를 선택 하거나 이름을 입력 하 여 새 데이터 센터를 만듭니다. 노드 형식을 선택 합니다. 새 vSphere 클러스터를 만들 때 다른 노드 유형을 선택할 수 있지만 기존 vSphere 클러스터를 확장할 때는 선택할 수 없습니다. 노드 수를 선택 합니다. 각 새 클러스터에는 세 개 이상의 노드가 있어야 합니다.
 
     ![사설 클라우드 확장-노드 추가](media/resources-expand-private-cloud-add-nodes.png)
 

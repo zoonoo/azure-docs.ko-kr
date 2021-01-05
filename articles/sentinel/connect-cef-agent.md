@@ -9,17 +9,17 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: ead878daaab977c77b3ab36f42ccfe4d01d7bc03
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 617599e3eb6dcca74324a7bdfd51e604904a2fa1
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548633"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897504"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -51,13 +51,13 @@ ms.locfileid: "96548633"
 1. 1.2 아래에서 **Linux 컴퓨터에 CEF 수집기를 설치** 하 고, 다음 스크립트 실행에서 제공 된 링크를 복사 **하 여 cef 수집기를 설치 하 고 적용** 하거나 아래 텍스트에서 (자리 표시자 대신 작업 영역 ID 및 기본 키를 적용 합니다.)
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
     ```
 
 1. 스크립트를 실행 하는 동안 오류 또는 경고 메시지가 표시 되지 않는지 확인 합니다.
     - 명령을 실행 하 여 *컴퓨터* 필드의 매핑에 대 한 문제를 해결 하도록 지시 하는 메시지가 표시 될 수 있습니다. 자세한 내용은 [배포 스크립트의 설명을](#mapping-command) 참조 하십시오.
 
-1. [2 단계: CEF 메시지를 전달 하도록 보안 솔루션 구성](connect-cef-solution-config.md) 을 계속 진행 합니다.
+1. [2 단계: CEF 메시지를 전달 하도록 보안 솔루션 구성](connect-cef-solution-config.md)을 계속 진행 합니다.
 
 
 > [!NOTE]
@@ -189,8 +189,7 @@ Syslog 디먼을 선택 하 여 적절 한 설명을 확인 합니다.
         파일의 내용 `security-config-omsagent.conf` :
 
         ```bash
-        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};destination oms_destination {tcp(\"127.0.0.1\" port(25226));};
         log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
         ```
 

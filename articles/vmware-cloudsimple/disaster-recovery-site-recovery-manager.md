@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-VMware Site Recovery Manager를 사용 하 여 사설 클라우드를 재해 복구 사이트로 설정
 description: VMware Site Recovery Manager를 사용 하 여 CloudSimple 사설 클라우드를 재해 복구 사이트로 설정 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6714b2c5d87141fd94d0f96d9cf07913442d18d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d71f8aec1f35514ac6c10b17b6f7b69b79b05bd
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267060"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897912"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager를 사용 하 여 사설 클라우드를 재해 복구 대상으로 설정
 
@@ -65,7 +65,7 @@ CloudSimple 솔루션을 사용 하려면 다음을 수행 해야 합니다.
 
 관련 VMware 설명서 및 호환성 정보에 대 한 링크를 보려면 [VMware Site Recovery Manager](https://docs.vmware.com/en/Site-Recovery-Manager/index.html) 설명서로 이동 하세요.
 
-사설 클라우드에서 vCenter 및 PSC의 버전을 확인 하려면 CloudSimple 포털을 엽니다. **리소스**로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
+사설 클라우드에서 vCenter 및 PSC의 버전을 확인 하려면 CloudSimple 포털을 엽니다. **리소스** 로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
 
 ![사설 클라우드의 vCenter & PSC 버전](media/srm-resources.png)
 
@@ -122,7 +122,7 @@ VMware 설명서에 따라 온-프레미스 환경에 vSphere 복제 어플라�
 
 지침은 [CloudSimple 사설 클라우드에 대 한 VPN 연결 구성](set-up-vpn.md)을 참조 하세요. 이러한 단계는 온-프레미스 설치와 비슷합니다.
 
-CloudSimple은 vRA 및 SRM을 설치 하는 동안 IP 주소 대신 Fqdn을 사용 하는 것이 좋습니다. 사설 클라우드에서 vCenter 및 PSC의 FQDN을 확인 하려면 CloudSimple 포털을 엽니다. **리소스**로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
+CloudSimple은 vRA 및 SRM을 설치 하는 동안 IP 주소 대신 Fqdn을 사용 하는 것이 좋습니다. 사설 클라우드에서 vCenter 및 PSC의 FQDN을 확인 하려면 CloudSimple 포털을 엽니다. **리소스** 로 이동 하 여 사설 클라우드를 선택 하 고 **Vsphere 관리 네트워크** 탭을 클릭 합니다.
 
 ![사설 클라우드에서 vCenter/PSC의 FQDN 찾기](media/srm-resources.png)
 

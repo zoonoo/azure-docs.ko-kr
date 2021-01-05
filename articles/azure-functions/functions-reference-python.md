@@ -4,12 +4,12 @@ description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8254abda68949e6884143316d4b29b07ade129dc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cf1d8f89de61a548f6c542d6d8a73fde93675e95
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167848"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895413"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -299,87 +299,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ## <a name="scaling-and-performance"></a>크기 조정 및 성능
 
-함수를 수행 하는 방법과 함수 앱의 크기를 조정 하는 방법에 따라 성능이 어떻게 달라 지는 지 이해 하는 것이 중요 합니다. 이는 고성능 앱을 디자인할 때 특히 중요 합니다. 함수 앱을 디자인, 작성 및 구성할 때 고려해 야 할 몇 가지 요소는 다음과 같습니다.
-
-### <a name="horizontal-scaling"></a>수평 크기 조정
-기본적으로 Azure Functions는 애플리케이션의 부하를 자동으로 모니터링하면서 필요에 따라 Python에 사용할 추가 호스트 인스턴스를 만듭니다. 함수는 여러 트리거 유형에 대해 기본 제공 임계값을 사용 하 여 QueueTrigger에 대 한 메시지의 보존 기간 및 큐 크기와 같은 인스턴스를 추가할 시기를 결정 합니다. 이러한 임계값은 사용자가 구성할 수 없습니다. 자세한 내용은 [사용 계획 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조하세요.
-
-### <a name="improving-throughput-performance"></a>처리량 성능 향상
-
-성능을 향상 시키기 위한 핵심은 앱에서 리소스를 사용 하 고 그에 따라 함수 앱을 구성 하는 방법을 이해 하는 것입니다.
-
-#### <a name="understanding-your-workload"></a>작업 이해
-
-기본 구성은 대부분의 Azure Functions 응용 프로그램에 적합 합니다. 그러나 워크 로드 프로필을 기반으로 구성을 사용 하 여 응용 프로그램 처리량의 성능을 향상 시킬 수 있습니다. 첫 번째 단계는 실행 중인 작업의 유형을 이해 하는 것입니다.
-
-| | I/o 바인딩된 작업 | CPU 바인딩된 작업 |
-|--| -- | -- |
-|**함수 앱 특징**| <ul><li>앱은 많은 동시 호출을 처리 해야 합니다.</li> <li> 앱은 네트워크 호출 및 디스크 읽기/쓰기와 같은 많은 i/o 이벤트를 처리 합니다.</li> </ul>| <ul><li>앱은 이미지 크기 조정과 같은 장기 실행 계산을 수행 합니다.</li> <li>앱에서 데이터를 변환 합니다.</li> </ul> |
-|**예**| <ul><li>Web API</li><ul> | <ul><li>데이터 처리</li><li> 기계 학습 유추</li><ul>|
-
-
-> [!NOTE]
->  실제 함수 워크 로드는 대부분 i/o와 CPU를 혼합 하는 경우가 많기 때문에 실제 프로덕션 부하에서 워크 로드를 프로 파일링 하는 것이 좋습니다.
-
-
-#### <a name="performance-specific-configurations"></a>성능 관련 구성
-
-함수 앱의 작업 프로필을 이해 한 후에는 함수에 대 한 처리량 성능을 향상 시키기 위해 사용할 수 있는 구성이 다음과 같습니다.
-
-##### <a name="async"></a>Async
-
-[Python은 단일 스레드 런타임](https://wiki.python.org/moin/GlobalInterpreterLock)이므로 python의 호스트 인스턴스는 한 번에 하나의 함수 호출만 처리할 수 있습니다. 많은 i/o 이벤트를 처리 하는 응용 프로그램 또는 i/o 바인딩된 응용 프로그램의 경우 함수를 비동기적으로 실행 하 여 성능을 크게 향상 시킬 수 있습니다.
-
-함수를 비동기적으로 실행하려면 [asyncio](https://docs.python.org/3/library/asyncio.html)를 사용하여 함수를 직접 실행하는 `async def` 문을 사용하세요.
-
-```python
-async def main():
-    await some_nonblocking_socket_io_op()
-```
-[Aiohttp](https://pypi.org/project/aiohttp/) http 클라이언트를 사용 하는 http 트리거를 사용 하는 함수의 예는 다음과 같습니다.
-
-```python
-import aiohttp
-
-import azure.functions as func
-
-async def main(req: func.HttpRequest) -> func.HttpResponse:
-    async with aiohttp.ClientSession() as client:
-        async with client.get("PUT_YOUR_URL_HERE") as response:
-            return func.HttpResponse(await response.text())
-
-    return func.HttpResponse(body='NotFound', status_code=404)
-```
-
-
-`async` 키워드가 없는 함수는 asyncio 스레드 풀에서 자동으로 실행됩니다.
-
-```python
-# Runs in an asyncio thread-pool
-
-def main():
-    some_blocking_socket_io()
-```
-
-함수를 비동기적으로 실행 하는 이점을 최대한 활용 하기 위해 코드에 사용 되는 i/o 작업/라이브러리에도 async가 구현 되어 있어야 합니다. 비동기로 정의 된 함수에서 동기 i/o 작업을 사용 하면 전체 성능이 **저하 될 수 있습니다** .
-
-다음은 비동기 패턴을 구현 하는 클라이언트 라이브러리의 몇 가지 예입니다.
-- [aiohttp](https://pypi.org/project/aiohttp/) -asyncio 용 http 클라이언트/서버 
-- [스트림 API](https://docs.python.org/3/library/asyncio-stream.html) -네트워크 연결을 사용 하기 위한 상위 수준 비동기/대기 중인 기본 형식
-- [Janus 큐](https://pypi.org/project/janus/) -Python의 스레드로부터 안전한 asyncio 인식 큐
-- [pyzmq](https://pypi.org/project/pyzmq/) -ZeroMQ에 대 한 Python 바인딩
- 
-
-##### <a name="use-multiple-language-worker-processes"></a>여러 언어 작업자 프로세스 사용
-
-기본적으로 모든 Functions 호스트 인스턴스에는 언어 작업자 프로세스가 하나만 있습니다. [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) 애플리케이션 설정을 사용하여 호스트당 작업자 프로세스 수를 10개까지 늘릴 수 있습니다. 그러면 Azure Functions는 이러한 작업자 사이에 동시 함수 호출을 균등하게 분산하려고 시도합니다.
-
-CPU 바인딩된 응용 프로그램의 경우 언어 작업자 수를 함수 앱 당 사용 가능한 코어 수와 동일 하거나 그 보다 높게 설정 해야 합니다. 자세히 알아보려면 [사용 가능한 인스턴스 sku](functions-premium-plan.md#available-instance-skus)를 참조 하세요. 
-
-I/o 바운드 앱은 사용 가능한 코어 수를 초과 하 여 작업자 프로세스 수를 늘릴 수도 있습니다. 작업자 수를 너무 높게 설정 하면 필요한 컨텍스트 전환 횟수가 증가 하 여 전반적인 성능에 영향을 줄 수 있습니다. 
-
-요구 사항을 충족하기 위해 애플리케이션을 스케일 아웃할 때 Functions가 만드는 각 호스트에 FUNCTIONS_WORKER_PROCESS_COUNT가 적용됩니다.
-
+Python 함수 앱에 대 한 크기 조정 및 성능 모범 사례는 [python 규모 및 성능 문서](python-scale-performance-reference.md)를 참조 하세요.
 
 ## <a name="context"></a>Context
 
