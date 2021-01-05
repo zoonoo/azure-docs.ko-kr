@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 01/04/2020
 ms.author: b-juche
-ms.openlocfilehash: ceaf0209dd14c8d97088d7f8e8e6990429607089
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e74b729f837c8e6ebe86514a01b6c8bdddc616e4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591825"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881092"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -39,7 +39,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
 * NFS 클라이언트가 최신 상태이며 운영 체제에 대한 최신 업데이트를 실행 중인지 확인합니다.
 * Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여이 작업을 수행할 수 있습니다.
-* Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 AD에서 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
+* Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 ad에 대 한 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
 * 이중 프로토콜 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다.  
 * 이중 프로토콜 볼륨에서 사용 하는 NFS 버전은 NFSv3입니다. 따라서 다음과 같은 고려 사항이 적용 됩니다.
     * 이중 프로토콜은 NFS 클라이언트의 Windows ACL 확장 특성을 지원 하지 않습니다 `set/get` .
@@ -132,7 +132,8 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
     * 도메인에 가입 하 고 루트 인증서가 설치 된 Windows 기반 클라이언트 
     * 루트 인증서를 포함 하는 도메인의 다른 컴퓨터  
 
-3. 루트 인증서를 내보냅니다.  
+3. 루트 CA 인증서를 내보냅니다.  
+    루트 CA 인증서는 개인 또는 신뢰할 수 있는 루트 인증 기관에서 내보낼 수 있습니다.   
     인증서를 Base-64로 인코딩된 x.509 ()로 내보내야 합니다. CER) 형식: 
 
     ![인증서 내보내기 마법사](../media/azure-netapp-files/certificate-export-wizard.png)

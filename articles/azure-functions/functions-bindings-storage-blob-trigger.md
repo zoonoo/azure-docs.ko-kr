@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: fd33ca4c5d637e31230d8c124fdb9ec7c71d2ba7
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3213df378bc3b8403ebd11f899d722106de67a65
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094848"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882027"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 트리거
 
@@ -114,6 +114,24 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+이 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `myblob` .
+
+```java
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)의 Blob 트리거 바인딩을 보여줍니다. 함수는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
@@ -146,6 +164,34 @@ module.exports = function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
     context.done();
 };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예제에서는 blob 저장소 컨테이너에 파일을 추가할 때 실행 되는 함수를 만드는 방법을 보여 줍니다 `source` .
+
+의 함수 구성 파일 (_function.js_)에는 `type` 의 `blobTrigger` 및를로 설정 하 `direction` 는 바인딩이 포함 되어 있습니다 `in` .
+
+```json
+{
+  "bindings": [
+    {
+      "name": "InputBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "source/{name}",
+      "connection": "MyStorageAccountConnectionString"
+    }
+  ]
+}
+```
+
+_run.ps1_ 파일에 대 한 관련 코드는 다음과 같습니다.
+
+```powershell
+param([byte[]] $InputBlob, $TriggerMetadata)
+
+Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($InputBlob.Length) bytes"
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -185,24 +231,6 @@ def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-이 함수는 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다 `myblob` .
-
-```java
-@FunctionName("blobprocessor")
-public void run(
-  @BlobTrigger(name = "file",
-               dataType = "binary",
-               path = "myblob/{name}",
-               connection = "MyStorageAccountAppSetting") byte[] content,
-  @BindingName("name") String filename,
-  final ExecutionContext context
-) {
-  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
@@ -213,7 +241,7 @@ public void run(
 
 * [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
-  특성의 생성자는 조사할 컨테이너 및 선택적으로 [Blob 이름 패턴](#blob-name-patterns)을 나타내는 경로 문자열을 사용합니다. 예를 들면 다음과 같습니다.
+  특성의 생성자는 조사할 컨테이너 및 선택적으로 [Blob 이름 패턴](#blob-name-patterns)을 나타내는 경로 문자열을 사용합니다. 예는 다음과 같습니다.
 
   ```csharp
   [FunctionName("ResizeImage")]
@@ -267,17 +295,21 @@ public void run(
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+`@BlobTrigger`특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원하지 않습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 특성을 지원하지 않습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-`@BlobTrigger`특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
 
 ---
 
@@ -305,17 +337,21 @@ Python에서는 특성을 지원하지 않습니다.
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+`@BlobTrigger`특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Where를 사용 하 여 blob 데이터 `context.bindings.<NAME>` `<NAME>` 에 액세스 합니다. 여기서는 *function.js* 에 정의 된 값과 일치 합니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+파일 _의function.js_ 에서 바인딩의 name 매개 변수에 지정 된 이름과 일치 하는 매개 변수를 통해 blob 데이터에 액세스 합니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
-[InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
-
-# <a name="java"></a>[Java](#tab/java)
-
-`@BlobTrigger`특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
+[InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#example) 를 참조 하세요.
 
 ---
 
@@ -374,6 +410,10 @@ Blob의 이름이 *{20140101}-soundfile.mp3* 이면 `name` 함수 코드의 변�
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+메타 데이터는 Java에서 사용할 수 없습니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
@@ -383,13 +423,13 @@ module.exports = function (context, myBlob) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+메타 데이터는 매개 변수를 통해 사용할 수 있습니다 `$TriggerMetadata` .
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 메타 데이터를 사용할 수 없습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-메타 데이터는 Java에서 사용할 수 없습니다.
 
 ---
 
@@ -399,11 +439,11 @@ Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 �
 
 Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage` 앱 설정에서 지정됨) Azure Storage 계정의 *azure-webjobs-hosts* 라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* 트리거된 함수 ("*&lt; 함수 앱 이름>* 입니다. 역함수. *&lt; 함수 이름>*"(예:" Myfunctionapp. copyblob ")
+* 트리거된 함수 ( `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` 예: `MyFunctionApp.Functions.CopyBlob` )
 * 컨테이너 이름
-* Blob 유형("BlockBlob" 또는 "PageBlob")
+* Blob 유형 ( `BlockBlob` 또는 `PageBlob` )
 * Blob 이름
-* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
+* ETag (blob 버전 식별자, 예: `0x8D1DC6E70A277EF` )
 
 Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 다시 처리는 즉시 발생 하지 않을 수 있지만 나중에 발생 하는 것이 보장 됩니다. 즉시 다시 처리 하기 위해 *azure-webjobs/blobscaninfo* 의 *scaninfo* blob을 업데이트할 수 있습니다. 속성 뒤에 마지막으로 수정 된 타임 스탬프가 있는 모든 blob `LatestScan` 은 다시 검사 됩니다.
 
@@ -413,11 +453,11 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 
 5번 모두 실패한 경우 Azure Functions는 *webjobs-blobtrigger-poison* 이라는 스토리지 큐에 메시지를 추가합니다. 최대 다시 시도 횟수는 구성 가능합니다. 동일한 MaxDequeueCount 설정이 포이즌 Blob 처리와 포이즌 큐 메시지 처리에 사용됩니다. 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId (형식 *&lt; 함수 앱 이름>* 합니다. 역함수. *&lt; 함수 이름>*)
-* BlobType("BlockBlob" 또는 "PageBlob")
+* FunctionId (형식 `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>` )
+* BlobType ( `BlockBlob` 또는 `PageBlob` )
 * ContainerName
 * BlobName
-* ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
+* ETag (blob 버전 식별자, 예: `0x8D1DC6E70A277EF` )
 
 ## <a name="concurrency-and-memory-usage"></a>동시성 및 메모리 사용량
 

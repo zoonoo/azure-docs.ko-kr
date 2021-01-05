@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 20c59e5ecc24dfe5c9eadb05899bf37d39ce09e7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809482"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882289"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -129,7 +129,22 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
 
 9. **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택 하면 모든 구성 항목에 자체 작업 항목이 포함 됩니다. 즉, 구성 항목 마다 하나의 작업 항목이 있는 것입니다.
 
-    * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우: **각 구성 항목에 대 한 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 모든 경고에서 새 작업 항목을 만듭니다. 구성 항목 마다 경고가 여러 개 있을 수 있습니다.
+    * 작업 항목 드롭다운에서 "인시던트" 또는 "경고"를 선택 하는 경우: 
+        * **각 구성 항목에 대해 개별 작업 항목 만들기** 확인란을 선택 하면 모든 경고에서 새 작업 항목을 만듭니다. ITSM 시스템의 구성 항목 마다 작업 항목이 둘 이상 있을 수 있습니다.
+
+            예:
+            1) 3 개 구성 항목을 포함 하는 경고 1: A, B, C는 세 개의 작업 항목을 만듭니다.
+            2) 1 개 구성 항목을 포함 하는 경고 2: D는 작업 항목 1 개를 만듭니다.
+
+                **이 흐름이 끝나면 4 개의 경고가 발생 합니다.**
+        * **각 구성 항목에 대 한 개별 작업 항목 만들기** 확인란의 선택을 취소 하면 새 작업 항목을 만들지 않는 경고가 표시 됩니다. 작업 항목은 경고 규칙에 따라 병합 됩니다.
+
+            예:
+            1) 3 개의 구성 항목을 포함 하는 경고 1: A, B, C는 1 개의 작업 항목을 만듭니다.
+            2) 1 단계와 동일한 경고 규칙에 대 한 경고 2:1 단계에서 작업 항목에 D가 병합 됩니다.
+            3) 1 개 구성 항목을 포함 하는 다른 경고 규칙에 대 한 경고 3: E에서 작업 항목 1 개를 만듭니다.
+
+                **이 흐름이 끝나면 2 개의 경고가 발생 합니다.**
 
        ![ITSM 인시던트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
 

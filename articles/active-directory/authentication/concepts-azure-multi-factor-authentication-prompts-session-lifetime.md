@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14a65b83195bff48934668ff029f925e13884bad
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743703"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881245"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure AD Multi-Factor Authentication의 세션 수명 이해
 
@@ -108,7 +108,7 @@ Azure AD Premium 1 라이선스를 사용 하는 경우 *영구 브라우저 세
 1. **회사 브랜딩** 을 선택 하 고 각 로캘에 대해 **로그인 상태를 유지 하려면 옵션 표시를** 선택 합니다.
 1. *예* 를 선택 하 고 **저장** 을 선택 합니다.
 
-Multi-factor authentication 설정을 기억을 하려면 다음 단계를 완료 합니다.
+신뢰할 수 있는 장치에서 Multi-factor authentication 설정을 기억을 하려면 다음 단계를 완료 합니다.
 
 1. Azure AD 포털에서 *Azure Active Directory* 를 검색 하 고 선택 합니다.
 1. **보안**, **MFA** 를 차례로 선택 합니다.

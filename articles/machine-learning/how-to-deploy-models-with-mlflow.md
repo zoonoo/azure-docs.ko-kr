@@ -11,38 +11,40 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1159a6cfda6b877f04573c85fa437ce3bff81af1
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: b905b050752e2a6b7acd11e82420c0b0203dfcd1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97761747"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882197"
 ---
 # <a name="deploy-mlflow-models-with-azure-machine-learning-preview"></a>Azure Machine Learning를 사용 하 여 MLflow 모델 배포 (미리 보기)
 
-이 문서에서는 Azure Machine Learning 웹 서비스로 MLflow 모델을 배포 하는 방법에 대해 알아봅니다. 그러면 Azure Machine Learning의 모델 관리 및 데이터 드리프트 검색 기능을 활용 하 여 프로덕션 모델에 적용할 수 있습니다.
+이 문서에서는 Azure Machine Learning 웹 서비스로 [Mlflow](https://www.mlflow.org) 모델을 배포 하는 방법에 대해 알아봅니다. 그러면 Azure Machine Learning의 모델 관리 및 데이터 드리프트 검색 기능을 활용 하 여 프로덕션 모델에 적용할 수 있습니다.
 
 Azure Machine Learning는 다음에 대 한 배포 구성을 제공 합니다.
 * 빠른 개발-테스트 배포에 적합 한 선택 인 ACI (Azure Container Instance).
 * Azure Kubernetes Service (AKS)는 확장 가능한 프로덕션 배포에 권장 됩니다.
 
-[MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. Azure Machine Learning와 통합 하면 모델 학습 단계를 넘어서이 관리를 프로덕션 모델의 배포 단계로 확장할 수 있습니다.
+MLflow는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. Azure Machine Learning와의 통합을 통해 모델 학습 단계 외에이 관리를 프로덕션 모델의 배포 단계로 확장할 수 있습니다.
 
 >[!NOTE]
 > 오픈 소스 라이브러리로 MLflow는 자주 변경 됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공 되는 기능은 미리 보기로 간주 해야 하며 Microsoft에서 완벽 하 게 지원 되지 않습니다.
 
-다음 다이어그램은 MLflow 배포 API를 사용 하 여 PyTorch, Tensorflow, scikit, ONNX 등의 프레임 워크에도 불구 하 고 기존 MLflow 모델을 Azure Machine Learning 웹 서비스로 배포 하 고 작업 영역에서 프로덕션 모델을 관리할 수 있음을 보여 줍니다.
+다음 다이어그램은 MLflow 배포 API 및 Azure Machine Learning를 사용 하 여 PyTorch, Tensorflow, Azure Machine Learning scikit 등의 인기 있는 프레임 워크를 사용 하 여 만든 모델을 웹 서비스로 배포 하 고 작업 영역에서 관리할 수 있음을 보여 줍니다. 
 
 ![ azure machine learning을 사용 하 여 mlflow 모델 배포](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 > [!TIP]
 > 이 문서의 정보는 주로 Azure Machine Learning 웹 서비스 끝점에 MLflow 모델을 배포 하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료된 학습 실행 또는 완료된 모델 배포와 같이 Azure Machine Learning의 리소스 사용과 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-* [Azure Machine Learning 연결 하도록 MLflow 추적 URI를 설정](how-to-use-mlflow.md)합니다.
+* 기계 학습 모델입니다. 학습 된 모델이 없는 경우 [이 리포지토리의](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) 계산 시나리오에 가장 잘 맞는 노트북 예제를 찾고 해당 지침을 따르세요. 
+* [Azure Machine Learning 연결 하도록 MLflow 추적 URI를 설정](how-to-use-mlflow.md#track-local-runs)합니다.
 * `azureml-mlflow` 패키지를 설치합니다. 
     * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
+* [작업 영역을 사용 하 여 MLflow 작업을 수행 하는 데 필요한 액세스 권한을](how-to-assign-roles.md#mlflow-operations)확인 하세요. 
 
 ## <a name="deploy-to-aci"></a>ACI에 배포
 
@@ -140,7 +142,7 @@ webservice.wait_for_deployment()
 
 ## <a name="example-notebooks"></a>노트북 예제
 
-[Azure ML을 사용한 MLflow 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow)은 이 문서에 나와 있는 개념을 시연하고 확장합니다.
+[Azure Machine Learning 노트북을 사용 하는 Mlflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) 는이 문서에 나와 있는 개념을 시연 하 고 확장 합니다.
 
 > [!NOTE]
 > Mlflow를 사용 하는 커뮤니티 중심 예제 리포지토리는에서 찾을 수 있습니다 https://github.com/Azure/azureml-examples .
@@ -150,3 +152,4 @@ webservice.wait_for_deployment()
 * [모델 관리](concept-model-management-and-deployment.md).
 * [데이터 드리프트](./how-to-enable-data-collection.md)를 위한 프로덕션 모델 모니터링.
 * [MLflow를 사용 하 여 실행 Azure Databricks 추적](how-to-use-mlflow-azure-databricks.md)합니다.
+

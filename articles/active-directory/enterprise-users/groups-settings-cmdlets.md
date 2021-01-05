@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70387717c15dade349a323e663ac0fd31935a15f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c48e23de6832999b262283c0bf6664b4dfe88ee7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859881"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881568"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -84,10 +84,11 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```powershell
    $Setting = $Template.CreateDirectorySetting()
    ```  
-4. 그런 다음 사용 지침 값을 업데이트합니다.
+4. 그런 다음 설정 개체를 새 값으로 업데이트 합니다. 아래의 두 예제에서는 사용 지침 값을 변경 하 고 민감도 레이블을 사용 하도록 설정 합니다. 필요에 따라 템플릿에서 이러한 설정 또는 기타 설정을 설정 합니다.
   
    ```powershell
    $Setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+   $Setting["EnableMIPLabels"] = "True"
    ```  
 5. 그런 다음 설정을 적용 합니다.
   
@@ -118,7 +119,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```powershell
     Name                          Value
     ----                          -----
-    EnableMIPLabels               false
+    EnableMIPLabels               True
     CustomBlockedWordsList
     EnableMSStandardBlockedWords  False
     ClassificationDescriptions
@@ -321,7 +322,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet 구문 참조
 [Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
-## <a name="additional-reading"></a>추가 자료
+## <a name="additional-reading"></a>추가 참조 항목
 
 * [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

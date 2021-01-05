@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ddb02bbcf284566550517f8fa343a728e2275a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 895b4529a8b99ecc66e3566b4696a0e61c337153
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483630"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881908"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -38,16 +38,23 @@ ms.locfileid: "96483630"
 >
 > 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
 
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="regional-availability"></a>국가별 가용성
+
+이제 Azure Portal의 노르웨이 동부 지역에서 Azure Media Services를 사용할 수 있습니다.  이 영역에는 restV2 없습니다.
+
 ## <a name="october-2020"></a>2020년 10월
 
 ### <a name="basic-audio-analysis"></a>기본 오디오 분석
+
 이제 오디오 분석 기본 설정에 기본 모드 가격 책정 계층이 포함 되어 있습니다. 새로운 기본 오디오 분석기 모드는 음성 기록을 추출 하 고 출력 캡션과 자막의 서식을 지정 하는 저렴 한 옵션을 제공 합니다. 이 모드는 VTT 부제목/캡션 파일의 음성 텍스트 기록 및 생성을 수행 합니다. 이 모드의 출력에는 키워드, 기록 및 타이밍 정보만 포함 된 Insights JSON 파일이 포함 됩니다. 자동 언어 감지 및 스피커 diarization이 모드에 포함 되지 않습니다. [지원 되는 언어](analyzing-video-audio-files-concept.md#built-in-presets) 목록을 참조 하세요.
 
 인덱서 v1 및 인덱서 v2를 사용 하는 고객은 기본 오디오 분석 사전 설정으로 마이그레이션해야 합니다.
 
 기본 오디오 분석기 모드에 대 한 자세한 내용은 [비디오 및 오디오 파일 분석](analyzing-video-audio-files-concept.md)을 참조 하세요.  REST API에서 기본 오디오 분석기 모드를 사용 하는 방법에 대 한 자세한 내용은 [기본 오디오 변환을 만드는 방법](how-to-create-basic-audio-transform.md)을 참조 하세요.
 
-## <a name="live-events"></a>라이브 이벤트
+### <a name="live-events"></a>라이브 이벤트
 
 이제 라이브 이벤트가 중지 될 때 대부분의 속성에 대 한 업데이트가 허용 됩니다. 또한 사용자는 라이브 이벤트의 입력 및 미리 보기 Url에 대 한 정적 호스트 이름에 대 한 접두사를 지정할 수 있습니다. 이제 `useStaticHostName` 속성의 의도를 보다 잘 반영 하기 위해 VanityUrl가 호출 됩니다.
 
@@ -57,7 +64,7 @@ ms.locfileid: "96483630"
 
 이제 라이브 인코딩은 고정 키 프레임 간격 조각을 0.5 ~ 20 초 사이에 출력 하는 기능을 추가 합니다.
 
-## <a name="accounts"></a>계정
+### <a name="accounts"></a>계정
 
 > [!WARNING]
 > 2020-05-01 API 버전을 사용 하 여 Media Services 계정을 만드는 경우 RESTv2에서 작동 하지 않습니다. 

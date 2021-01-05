@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/21/2020
+ms.date: 1/4/2021
 ms.author: yohaddad
-ms.openlocfilehash: 5e61dcb5a329916ed2c95646282bbdccad3b5767
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 429e343a61e61b01fa07c37a6c2b702f6ef633d1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708503"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882350"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. *Azure 게스트 OS 업데이트 설정* 의 설명에 따라 [자동][Azure Guest OS Update Settings]게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -187,7 +187,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
-|  WA-게스트-OS-5.49 _202011-02  |  2020 년 12 월 19 일  |  5.51 게시  | 
+|  WA-게스트-OS-5.49 _202011-01  |  2020 년 12 월 19 일  |  5.51 게시  | 
 |  WA-게스트-OS-5.48 _202010-02  |  2020년 11월 17일  |  5.50 게시  | 
 |~~WA-게스트-OS-5.47 _202009-01~~|  2020 년 10 월 10 일  |  2020 년 12 월 19 일  | 
 |~~WA-게스트-OS-5.46 _202008-02~~|  2020 년 9 월 5 일  |  2020년 11월 17일  |  

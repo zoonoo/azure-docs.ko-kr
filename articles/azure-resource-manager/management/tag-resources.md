@@ -2,14 +2,14 @@
 title: 논리적 조직에 대 한 리소스, 리소스 그룹 및 구독 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 12/03/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e47d3acf15ce5e4f5cb70444419b76beb21ae98b
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3d1161eb99e1145c7a003326310db1922ec3d55c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558150"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881751"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -438,9 +438,12 @@ az tag delete --resource-id $resource
 az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## <a name="templates"></a>템플릿
+## <a name="arm-templates"></a>ARM 템플릿
 
-리소스 관리자 템플릿을 사용 하 여 배포 하는 동안 리소스, 리소스 그룹 및 구독에 태그를 지정할 수 있습니다.
+Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 배포 하는 동안 리소스, 리소스 그룹 및 구독에 태그를 지정할 수 있습니다.
+
+> [!NOTE]
+> ARM 템플릿을 통해 적용 하는 태그는 기존 태그를 덮어씁니다.
 
 ### <a name="apply-values"></a>값 적용
 
@@ -448,7 +451,7 @@ az tag update --resource-id $group --operation Merge --tags "Cost Center"=Financ
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcShort": {
@@ -487,7 +490,7 @@ az tag update --resource-id $group --operation Merge --tags "Cost Center"=Financ
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -525,7 +528,7 @@ az tag update --resource-id $group --operation Merge --tags "Cost Center"=Financ
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
@@ -558,7 +561,7 @@ az tag update --resource-id $group --operation Merge --tags "Cost Center"=Financ
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {

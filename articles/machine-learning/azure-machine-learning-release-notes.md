@@ -9,17 +9,29 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760115"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881823"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
 
+## <a name="2020-12-31"></a>2020-12-31
+### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Azure Machine Learning Studio 노트북 환경 (12 월 업데이트)
++ **새로운 기능**
+  + 사용자 파일 이름 검색 이제 사용자는 작업 영역에 저장 된 모든 파일을 검색할 수 있습니다.
+  + Markdown Side by 노트북 셀 지원. 이제 사용자는 노트북 셀에서 렌더링 된 markdown 및 markdown 구문을 나란히 볼 수 있습니다.
+  + 셀 상태 표시줄입니다. 상태 표시줄에는 코드 셀의 상태, 셀 실행 성공 여부 및 실행 소요 시간 등이 표시 됩니다. 
+   
++ **버그 수정 및 향상 된 기능**
+  + 페이지 로드 시간 향상
+  + 성능 향상 
+  + 향상 된 속도 및 커널 안정성
+  
 ## <a name="2020-12-07"></a>2020-12-07
 
 ### <a name="azure-machine-learning-sdk-for-python-v1190"></a>Azure Machine Learning SDK for Python v 1.19.0
@@ -83,7 +95,19 @@ ms.locfileid: "97760115"
     + Nccl 및 Gloo를 평가기 클래스에 대 한 유효한 입력 형식으로 사용 하는 것은 사용 되지 않으며 ScriptRunConfig와 함께 PyTorchConfiguration를 사용 합니다. 
     + 평가기 클래스에 대 한 유효한 입력 형식으로 Mpi를 사용 하는 것은 사용 되지 않으며 ScriptRunConfig와 함께 MpiConfiguration를 사용 합니다.
 
+## <a name="2020-11-30"></a>2020-11-30
+### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Azure Machine Learning Studio 노트북 환경 (11 월 업데이트)
++ **새로운 기능**
+   + 기본 터미널입니다. 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다 [.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+  + 중복 폴더 
+  + 계산 드롭다운 비용 
+  + 오프 라인 계산 Pylance 
 
++ **버그 수정 및 향상 된 기능**
+  + 페이지 로드 시간 향상
+  + 성능 향상 
+  + 향상 된 속도 및 커널 안정성
+  + 대량 파일 업로드. 이제 95mb >파일을 업로드할 수 있습니다.
 
 ## <a name="2020-11-09"></a>2020-11-09
 
@@ -105,7 +129,7 @@ ms.locfileid: "97760115"
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
+      [자세한 정보](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 Id를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
@@ -1891,7 +1915,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + `read_parquet`Spark에서 실행 하는 경우의 성능이 개선 되었습니다.
   + `column_type_builder`모호한 날짜 형식의 단일 열에 대해 실패 한 경우 문제가 해결 되었습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 + **미리 보기 기능**
   + 이제 실행 정보 페이지에 대 한 로그 및 출력 파일 스트리밍을 사용할 수 있습니다. 이 파일은 미리 보기 토글이 설정 된 경우 실시간으로 업데이트를 스트리밍합니다.
   + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 **사용량 + 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하면 됩니다. 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
@@ -2170,7 +2194,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 ## <a name="2019-04-15"></a>2019-04-15
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
   + 이제 기존 원격 계산 클러스터에서 기존 스크립트 실행을 다시 제출할 수 있습니다.
   + 이제 파이프라인 탭에서 새 매개 변수를 사용 하 여 게시 된 파이프라인을 실행할 수 있습니다.
   + 이제 실행 세부 정보에서 새로운 스냅숏 파일 뷰어를 지원 합니다. 특정 실행을 제출할 때 디렉터리의 스냅숏을 볼 수 있습니다. 전송 된 노트북을 다운로드 하 여 실행을 시작할 수도 있습니다.
@@ -2228,7 +2252,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 + **버그 수정 및 향상 된 기능**
   + [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?preserve-view=true&view=azure-ml-py)에 제공 되는 [runconfigurations](/python/api/azureml-core/azureml.core.runconfig.runconfiguration?preserve-view=true&view=azure-ml-py) 에서 source_directory_data_store 속성을 원하는 데이터 저장소 (예: blob storage)로 설정 하기 위한 Azure Machine Learning 파이프라인에 대 한 지원이 추가 되었습니다. 기본적으로 Azure 파일 저장소는 백업 데이터 저장소로 사용 됩니다 .이는 많은 수의 단계가 동시에 실행 될 때 제한 문제가 발생할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 + **새로운 기능**
   + 새 보고서 끌어서 놓기 테이블 편집기 환경 사용자는 테이블의 미리 보기가 표시 되는 테이블 영역에서 열을 끌 수 있습니다. 열을 다시 정렬할 수 있습니다.

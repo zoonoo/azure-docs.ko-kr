@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a093fe330ccbecc33cd8dac03d6425655e90366d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 085ba4d9d4e78acec4505ddb0e9e89d4e0b5c4a3
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760472"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881483"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 ML 모델 학습 및 추적 (미리 보기)
 
@@ -65,6 +65,7 @@ ms.locfileid: "97760472"
 * `azureml-mlflow` 패키지를 설치합니다. 
     * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).
+    * [작업 영역을 사용 하 여 MLflow 작업을 수행 하는 데 필요한 액세스 권한을](how-to-assign-roles.md#mlflow-operations)확인 하세요.
 
 ## <a name="track-local-runs"></a>로컬 실행 추적
 

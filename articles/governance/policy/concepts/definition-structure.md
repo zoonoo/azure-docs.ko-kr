@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305149"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883251"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -75,9 +75,9 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 **displayName** 및 **description** 을 사용하여 정책 정의를 식별하고 사용하는 시기에 대한 컨텍스트를 제공합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
 
 > [!NOTE]
-> 정책 정의를 만들거나 업데이트하는 동안 **id** , **type** , **name** 이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id** , **type** , **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
+> 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name** 이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>유형
+## <a name="type"></a>형식
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 
@@ -106,7 +106,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 다음 리소스 공급자 모드는 완전히 지원 됩니다.
 
-- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용 하는 정의는 효과 _감사_ , _거부_ 및 사용 _안 함_ 을 사용 합니다. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 사용 하는 것은 _더 이상 사용 되지_ 않습니다.
+- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용 하는 정의는 효과 _감사_, _거부_ 및 사용 _안 함_ 을 사용 합니다. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 사용 하는 것은 _더 이상 사용 되지_ 않습니다.
 
 다음 리소스 공급자 모드는 현재 **미리 보기로** 지원 됩니다.
 
@@ -143,7 +143,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
 
 - `name`: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
-- `type`: 매개 변수가 **문자열** , **배열** , **개체** , **부울** , **정수** , **float** , **datetime** 중에 무엇인지 확인합니다.
+- `type`: 매개 변수가 **문자열**, **배열**, **개체**, **부울**, **정수**, **float**, **datetime** 중에 무엇인지 확인합니다.
 - `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
   - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
@@ -189,7 +189,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. `Microsoft.Network/virtualNetworks/subnets`)을 입력합니다.
+`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
 
 **Get-AzResourceProvider** 에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -284,7 +284,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-**less** , **lessOrEquals** , **greater** , **greaterOrEquals** 의 경우, 속성 유형이 조건 유형과 일치하지 않으면 오류가 발생합니다. 문자열 비교는 `InvariantCultureIgnoreCase`를 사용하여 수행됩니다.
+**less**, **lessOrEquals**, **greater**, **greaterOrEquals** 의 경우, 속성 유형이 조건 유형과 일치하지 않으면 오류가 발생합니다. 문자열 비교는 `InvariantCultureIgnoreCase`를 사용하여 수행됩니다.
 
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
@@ -459,7 +459,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 **count** 에 사용되는 속성은 다음과 같습니다.
 
 - **count.field** (필수): 배열의 경로를 포함하며 배열 별칭이어야 합니다. 배열이 없으면 조건식을 고려하지 않고 식이 _false_ 로 평가됩니다.
-- **count.where** (선택 사항): **count.field** 의 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 개별적으로 평가하는 조건식입니다. 이 속성을 제공 하지 않으면 ' field ' 경로를 사용 하는 모든 배열 멤버가 _true_ 로 평가 됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다.
+- **count.where**(선택 사항): **count.field** 의 각 [\[\*\] alias](#understanding-the--alias) 배열 멤버를 개별적으로 평가하는 조건식입니다. 이 속성을 제공 하지 않으면 ' field ' 경로를 사용 하는 모든 배열 멤버가 _true_ 로 평가 됩니다. 속성 내에서 모든 [condition](../concepts/definition-structure.md#conditions)을 사용할 수 있습니다.
   [논리 연산자](#logical-operators)는 이 속성 내에서 복잡한 평가 요구 사항을 만드는 데 사용할 수 있습니다.
 - **\<condition\>** (필수): 값은 count를 만족 하는 항목의 수와 비교 됩니다 **. where** 조건 식. 숫자 [조건](../concepts/definition-structure.md#conditions)을 사용해야 합니다.
 
@@ -570,12 +570,12 @@ Azure Policy에서 배열 속성을 사용 하는 방법에 대 한 자세한 �
 Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 - **추가** 는 정의된 필드 집합을 요청에 추가합니다.
-- **Audit** : 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
-- **AuditIfNotExists** : 관련 리소스가 없으면 활동 로그에 경고 이벤트를 생성합니다.
-- **거부** : 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
-- **DeployIfNotExists** : 관련 리소스가 아직 없으면 배포합니다.
-- **Disabled** : 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
-- **Modify** : 리소스에서 정의된 태그를 추가, 업데이트 또는 제거합니다.
+- **Audit**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
+- **AuditIfNotExists**: 관련 리소스가 없으면 활동 로그에 경고 이벤트를 생성합니다.
+- **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
+- **DeployIfNotExists**: 관련 리소스가 아직 없으면 배포합니다.
+- **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
+- **Modify**: 리소스에서 정의된 태그를 추가, 업데이트 또는 제거합니다.
 - **EnforceOPAConstraint** (사용 되지 않음): Azure에서 자체 관리 되는 Kubernetes 클러스터에 대 한 게이트 키퍼 V3로 열린 정책 에이전트 입학 컨트롤러를 구성 합니다.
 - **EnforceRegoPolicy** (사용 되지 않음): Azure Kubernetes Service에서 게이트 키퍼 v 2로 개방 된 정책 에이전트 입학 컨트롤러를 구성 합니다.
 
@@ -606,10 +606,10 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 다음 함수는 정책 규칙에서만 사용할 수 있습니다.
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime** : [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: ss의 문자열 문자열입니다. FFFFFFFZ '
-  - **numberOfDaysToAdd** : [필수] 정소 - 추가할 일수
+  - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: ss의 문자열 문자열입니다. FFFFFFFZ '
+  - **numberOfDaysToAdd**: [필수] 정소 - 추가할 일수
 - `field(fieldName)`
-  - **fieldName** : [필수] 문자열 - 검색할 [field](#fields)의 이름
+  - **fieldName**: [필수] 문자열 - 검색할 [field](#fields)의 이름
   - If 조건에 의해 평가 되는 리소스에서 해당 필드의 값을 반환 합니다.
   - `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists** 와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 - `requestContext().apiVersion`
@@ -629,8 +629,8 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 
 - `ipRangeContains(range, targetRange)`
-    - **범위** : [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
-    - **Targetrange** : [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
+    - **범위**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
+    - **Targetrange**: [필수] 문자열 문자열-IP 주소 범위를 지정 합니다.
 
     지정 된 IP 주소 범위에 대상 IP 주소 범위가 포함 되어 있는지 여부를 반환 합니다. 빈 범위 또는 IP 제품군 간 혼합은 허용 되지 않으며 평가 오류가 발생 합니다.
 
@@ -669,25 +669,6 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
   [Visual Studio Code용 Azure Policy 확장](../how-to/extension-for-vscode.md)을 사용하여 리소스 속성에 대한 별칭을 보고 검색할 수 있습니다.
 
   :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="별칭 이름을 표시 하는 속성을 Visual Studio Code 가리키기 위한 Azure Policy 확장의 스크린샷" border="false":::
-
-- Azure Resource Graph
-
-  `project` 연산자를 사용하여 리소스의 **alias** 를 표시합니다.
-
-  ```kusto
-  Resources
-  | where type=~'microsoft.storage/storageaccounts'
-  | limit 1
-  | project aliases
-  ```
-  
-  ```azurecli-interactive
-  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
-  
-  ```azurepowershell-interactive
-  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-  ```
 
 - Azure PowerShell
 
@@ -735,7 +716,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 'normal' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 세트가 정의한 것과 정확히 같아야 하는(초과 또는 미만 없이) 정확한 일치 비교 시나리오를 위한 것입니다.
 
-**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 다음은 그 예입니다.
+**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 예:
 
 | Alias | 선택한 값 |
 |:---|:---|

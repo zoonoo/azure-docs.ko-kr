@@ -4,12 +4,12 @@ description: Azure Container Instances를 사용하여 상태가 유지되도록
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746863"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881806"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
@@ -20,6 +20,9 @@ ms.locfileid: "92746863"
 >
 > 컨테이너 인스턴스에 Azure Files 공유를 탑재 하는 것은 Docker [바인드 탑재](https://docs.docker.com/storage/bind-mounts/)와 비슷합니다. 파일이 나 디렉터리가 있는 컨테이너 디렉터리에 공유를 탑재 하는 경우 이러한 파일이 나 디렉터리는 탑재로 가려져 컨테이너가 실행 되는 동안에는 액세스할 수 없습니다.
 >
+
+> [!IMPORTANT]
+> Azure Virtual Network에 컨테이너 그룹을 배포 하는 경우 Azure Storage 계정에 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 추가 해야 합니다.
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 

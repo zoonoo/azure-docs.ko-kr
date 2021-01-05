@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755976"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881789"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -138,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+리소스에 필요한 속성이 있는 경우 `Get-TargetResource` 에도 클래스와 함께를 사용 하 여를 반환 해야 합니다 `reasons` . 가 `reasons` 포함 되지 않은 경우 서비스에는 입력 값과에 의해 반환 되는 값을 비교 하는 "모두 catch" 동작이 포함 되며,에 대 한 `Get-TargetResource` `Get-TargetResource` 자세한 비교를 제공 합니다 `reasons` .
+
 ### <a name="configuration-requirements"></a>구성 요구 사항
 
 사용자 지정 구성의 이름은 모든 위치에서 일관되어야 합니다. 콘텐츠 패키지용 .zip 파일의 이름, MOF 파일의 구성 이름 및 Azure Resource Manager 템플릿 (ARM 템플릿)의 게스트 할당 이름이 동일 해야 합니다.
+
+### <a name="policy-requirements"></a>정책 요구 사항
+
+`metadata`게스트 구성 서비스의 프로 비전 및 보고를 자동화 하기 위해 정책 정의 섹션에는 게스트 구성 서비스에 대 한 두 개의 속성이 포함 되어야 합니다. `category`속성은 "게스트 구성"으로 설정 해야 하며, 명명 된 섹션에는 `Guest Configuration` 게스트 구성 할당에 대 한 정보가 포함 되어야 합니다. `New-GuestConfigurationPolicy`Cmdlet은이 텍스트를 자동으로 만듭니다.
+이 페이지의 단계별 지침을 참조 하세요.
+
+다음 예제에서는 섹션을 보여 줍니다 `metadata` .
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>게스트 구성 프로젝트 스캐폴딩
 

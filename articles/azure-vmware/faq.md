@@ -1,14 +1,14 @@
 ---
-title: 질문과 대답
+title: 자주 묻는 질문
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
-ms.date: 12/22/2020
-ms.openlocfilehash: 941708003558dda601aa43459bc83133788687fd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/4/2020
+ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835196"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881228"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -201,7 +201,7 @@ Azure 가상 WAN은 연결 된 두 Express 경로 회로와 비가상 WAN Expres
 
 #### <a name="could-i-use-hcx-through-public-internet-communications-as-a-workaround-for-the-non-supportability-of-hcx-when-using-vpn-s2s-with-vwan-for-on-premises-communications"></a>온-프레미스 통신을 위해 vWAN에서 VPN S2S를 사용 하는 경우 HCX의 지원 되지 않는 문제에 대 한 해결 방법으로 공용 인터넷 통신을 통해 HCX를 사용할 수 있나요?
 
-현재 HCX에서 유일 하 게 지원 되는 방법은 Express 경로를 통해서만 지원 됩니다.
+현재 VMware HCX에서 유일 하 게 지원 되는 방법은 Express 경로를 통해서만 지원 됩니다.
 
 ## <a name="accounts-and-privileges"></a>계정 및 권한
 

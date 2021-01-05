@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979966"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881512"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -183,7 +183,6 @@ foreach ($webapp in $webapp_list)
     ```
 
 - **Microsoft. ChangeAnalysis 리소스 공급자를 등록 하지 못했습니다**. 이 메시지는 UI가 리소스 공급자를 등록 하 라는 요청을 보낸 후 즉시 실패 한 것을 의미 하며, 권한 문제와는 관련이 없습니다. 일시적인 인터넷 연결 문제일 가능성이 있습니다. 페이지를 새로 고치고 인터넷 연결을 확인 하세요. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@microsoft.com
-- Azure lighthouse 구독 메시지를 사용 하 여 **Microsoft ChangeAnalysis 리소스 공급자를 쿼리하지 못했습니다** . *변경 내용은 구독의 홈 테 넌 트에서만 제공* 됩니다. 현재는 홈 테 넌 트에 없는 사용자를 위해 Azure Lighthouse 구독을 통해 변경 분석 리소스 공급자를 등록 하는 제한 사항이 있습니다. 이 제한은 가까운 장래에 해결 될 예정입니다. 이 문제가 차단 문제인 경우 서비스 주체를 만들고 액세스를 허용 하도록 역할을 명시적으로 할당 하는 해결 방법이 있습니다.  자세한 내용은에 문의 하세요 changeanalysishelp@microsoft.com .
 
 - **이 작업이 예상 보다 오래 걸리고** 있습니다. 이 메시지는 등록이 2 분 이상 걸리는 것을 의미 합니다. 이것은 비정상 이지만 반드시 문제가 발생 한 것은 아닙니다. 구독으로 이동할 수 있습니다. **|** **Microsoft. changeanalysis** 리소스 공급자 등록 상태를 확인 하는 리소스 공급자입니다. UI를 사용 하 여 등록을 취소 하 고 다시 등록 하거나 새로 고쳐 도움이 되는지 확인할 수 있습니다. 문제가 계속 되 면 지원 담당자에 게 문의 하세요 changeanalysishelp@microsoft.com .
     ![너무 오래 걸리는 RP 등록 문제 해결](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ foreach ($webapp in $webapp_list)
 ![문제 해결 도구가 선택 된 가상 컴퓨터에 대 한 문제 진단 및 해결 도구의 스크린샷](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![가상 컴퓨터에 대 한 최근 변경 내용 분석 문제 해결 도구에 대 한 타일의 스크린샷](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>Azure Lighthouse 구독은 지원 되지 않습니다.
+
+- Azure lighthouse 구독 메시지를 사용 하 여 **Microsoft ChangeAnalysis 리소스 공급자를 쿼리하지 못했습니다** . *변경 내용은 구독의 홈 테 넌 트에서만 제공* 됩니다. 현재는 홈 테 넌 트에 없는 사용자를 위해 Azure Lighthouse 구독을 통해 변경 분석 리소스 공급자를 등록 하는 제한 사항이 있습니다. 이 제한은 가까운 장래에 해결 될 예정입니다. 이 문제가 차단 문제인 경우 서비스 주체를 만들고 액세스를 허용 하도록 역할을 명시적으로 할당 하는 해결 방법이 있습니다.  자세한 내용은에 문의 하세요 changeanalysishelp@microsoft.com .
 
 ## <a name="next-steps"></a>다음 단계
 

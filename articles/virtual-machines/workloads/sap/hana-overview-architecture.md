@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967587"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880990"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
 
@@ -35,12 +35,14 @@ SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니�
 
 이러한 베어 메탈 서버 단위는 SAP HANA 실행만 지원합니다. SAP 애플리케이션 계층 또는 워크로드 미들웨어 계층은 가상 머신에서 실행됩니다. SAP HANA on Azure(대규모 인스턴스) 장치를 실행하는 인프라 스탬프는 Azure 네트워크 서비스 백본에 연결됩니다. 이러한 방식으로 SAP HANA on Azure(대규모 인스턴스) 장치와 가상 머신 간의 짧은 대기 시간 연결이 제공됩니다.
 
-7 월 2019을 통해 HANA Large Instance 스탬프와 배포 위치에 대 한 두 가지 다른 수정 버전을 구분 합니다.
+2021 년 1 월 1 일부 터는 HANA Large Instance 스탬프와 배포 위치에 대 한 두 가지 다른 수정 버전을 구분 합니다.
 
 - "수정 버전 3" (Rev 3): 고객이 7 월 2019 일 이전에 배포할 수 있도록 만든 스탬프입니다.
 - "수정 버전 4" (Rev 4): Azure VM 호스트와 가까운 곳에 배포 되 고 지금 까지의 Azure 지역에서 출시 되는 새 스탬프 디자인:
     -  미국 서부2 
-    -  미국 동부 
+    -  미국 동부
+    -  동부 미국 (두 가용성 영역 간)
+    -  남부 중부 US (두 개의 가용성 영역)
     -  서유럽
     -  북유럽
 

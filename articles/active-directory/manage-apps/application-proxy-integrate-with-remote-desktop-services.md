@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 666b3c609224c1665c150718b2b89c4bac72577e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488071"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882231"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -42,18 +42,13 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 ## <a name="requirements"></a>요구 사항
 
 - RD 웹 및 RD 게이트웨이 엔드포인트는 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 애플리케이션 프록시와 함께 단일 애플리케이션으로 게시되므로 두 애플리케이션 간에 Single Sign-On 환경이 있을 수 있습니다.
-
-- 이미 [RDS를 배포](/windows-server/remote/remote-desktop-services/rds-in-azure)하고 [애플리케이션 프록시를 사용하도록 설정](application-proxy-add-on-premises-application.md)했어야 합니다.
-
+- 이미 [RDS를 배포](/windows-server/remote/remote-desktop-services/rds-in-azure)하고 [애플리케이션 프록시를 사용하도록 설정](application-proxy-add-on-premises-application.md)했어야 합니다. 커넥터를 설치 하 고, 필요한 포트 및 URL을 열고, 서버에서 TLS 1.2을 사용 하도록 설정 하는 등 응용 프로그램 프록시를 사용 하도록 설정 하기 위한 필수 구성 요소를 충족 하는지 확인 합니다.
 - 최종 사용자는 RD 웹 또는 RD 웹 클라이언트에 연결 하는 데 호환 되는 브라우저를 사용 해야 합니다. 자세한 내용은 [클라이언트 구성 지원](#support-for-other-client-configurations)을 참조 하세요.
-
 - RD 웹을 게시할 경우 동일한 내부 및 외부 FQDN을 사용하는 것이 좋습니다. 내부 및 외부 FQDN 서로 다른 경우 클라이언트가 잘못된 링크를 받는 것을 방지하려면 요청 헤더 변환을 사용하지 않도록 설정해야 합니다.
-
 - Internet Explorer에서 RD 웹을 사용 하는 경우 RDS ActiveX 추가 기능을 사용 하도록 설정 해야 합니다.
-
 - RD 웹 클라이언트를 사용 하는 경우 응용 프로그램 프록시 [커넥터 버전 1.5.1975 이상을](./application-proxy-release-version-history.md)사용 해야 합니다.
-
 - Azure AD 사전 인증 흐름의 경우 사용자는 **RemoteApp 및 데스크톱** 창에서 게시 된 리소스에만 연결할 수 있습니다. 사용자는 **원격 PC에 연결** 창을 사용 하 여 데스크톱에 연결할 수 없습니다.
+- Windows Server 2019를 사용 하는 경우 HTTP2 프로토콜을 사용 하지 않도록 설정 해야 할 수 있습니다. 자세한 내용은 [자습서: 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가 Azure Active Directory](application-proxy-add-on-premises-application.md)를 참조 하세요.
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 애플리케이션 프록시 시나리오 배포
 
@@ -96,7 +91,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **다음은 그 예입니다.**
+   **예:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```

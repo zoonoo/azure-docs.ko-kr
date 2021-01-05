@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 0895e84363d40bdbf30408f2b2a0d95f951eb303
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032561"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883353"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -41,7 +41,7 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 ## <a name="deprecation"></a>사용 중단
 ### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
-HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들지 않습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
+HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
 
 ### <a name="disabled-vm-sizes"></a>비활성화 된 VM 크기
 11 월 16 2020부터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 새 고객을 차단 합니다. 지난 3 달 동안 이러한 VM 크기를 사용한 기존 고객에 게는 영향을 주지 않습니다. 9 2021 년 1 월 1 일부 터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 모든 고객을 차단 합니다. 기존 클러스터는 그대로 실행 됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
@@ -53,8 +53,14 @@ HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) �
 ## <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
 
+### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>기본 클러스터 VM 크기가 Ev3 제품군으로 변경 됨
+다음 릴리스 (1 월의 끝)에서 시작 하 여 기본 클러스터 VM 크기가 D 제품군에서 Ev3 제품군으로 변경 됩니다. 이 변경 내용은 헤드 노드 및 작업자 노드에 적용 됩니다. 이러한 변경을 방지 하려면 ARM 템플릿에서 사용 하려는 VM 크기를 지정 합니다.
+
 ### <a name="default-cluster-version-will-be-changed-to-40"></a>기본 클러스터 버전이 4.0로 변경 됩니다.
 2021 2 월부터 HDInsight 클러스터의 기본 버전이 3.6에서 4.0로 변경 됩니다. 사용 가능한 버전에 대 한 자세한 내용은 [사용 가능한 버전](./hdinsight-component-versioning.md#available-versions)을 참조 하세요. [HDInsight 4.0](./hdinsight-version-release.md) 의 새로운 기능에 대 한 자세한 정보
+
+### <a name="os-version-upgrade"></a>OS 버전 업그레이드
+HDInsight에서 OS 버전을 16.04에서 18.04로 업그레이드 하 고 있습니다. 업그레이드는 4 월 2021 일 전에 완료 됩니다.
 
 ### <a name="hdinsight-36-end-of-support-on-june-30-2021"></a>HDInsight 3.6 6 월 30 2021의 지원 종료
 HDInsight 3.6은 지원 종료 될 예정입니다. 6 월 30 2021 양식을 시작 하면 고객이 새 HDInsight 3.6 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.

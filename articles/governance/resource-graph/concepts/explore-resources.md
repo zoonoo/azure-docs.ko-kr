@@ -3,12 +3,12 @@ title: Azure 리소스 검색
 description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하고 리소스가 연결되는 방식을 파악하는 방법에 대해 알아봅니다.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2b0ef3935d865618a9d4dda2825f7d4383baf772
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 01f9c0c574d8a8d6d4b5f06fc1398313649cfb8d
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056245"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882911"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -37,7 +37,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ```
 
 > [!NOTE]
-> Azure PowerShell `Search-AzGraph` cmdlet은 기본적으로 **PSCustomObject**를 반환합니다. Azure CLI에서 반환하는 내용과 똑같은 출력을 원한다면 `ConvertTo-Json` cmdlet을 사용합니다. **깊이** 기본값은 _2_입니다. 이 값을 _100_으로 설정하면 반환된 모든 수준이 변환됩니다.
+> Azure PowerShell `Search-AzGraph` cmdlet은 기본적으로 **PSCustomObject** 를 반환합니다. Azure CLI에서 반환하는 내용과 똑같은 출력을 원한다면 `ConvertTo-Json` cmdlet을 사용합니다. **깊이** 기본값은 _2_ 입니다. 이 값을 _100_ 으로 설정하면 반환된 모든 수준이 변환됩니다.
 
 JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
@@ -147,7 +147,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
 ### <a name="virtual-machines-by-sku"></a>SKU별 가상 머신
 
-이제 처음에 살펴보았던 가상 머신 속성으로 돌아가서 SKU 크기가 **Standard_B2s**인 모든 가상 머신을 찾아 보겠습니다. 반환된 JSON을 살펴보면 SKU 크기가 **properties.hardwareprofile.vmsize**에 저장되어 있음을 확인할 수 있습니다. 이 크기와 일치하는 모든 VM을 찾은 다음 VM 및 지역 이름만 반환하도록 쿼리를 업데이트합니다.
+이제 처음에 살펴보았던 가상 머신 속성으로 돌아가서 SKU 크기가 **Standard_B2s** 인 모든 가상 머신을 찾아 보겠습니다. 반환된 JSON을 살펴보면 SKU 크기가 **properties.hardwareprofile.vmsize** 에 저장되어 있음을 확인할 수 있습니다. 이 크기와 일치하는 모든 VM을 찾은 다음 VM 및 지역 이름만 반환하도록 쿼리를 업데이트합니다.
 
 ```kusto
 Resources
@@ -174,9 +174,6 @@ Resources
 | where disk.storageAccountType == 'Premium_LRS'
 | project disk.id
 ```
-
-> [!NOTE]
-> **aliases** 속성 **Microsoft.Compute/virtualMachines/sku.name**을 사용하여 SKU를 가져올 수도 있습니다. [별칭 표시](../samples/starter.md#show-aliases) 및 [고유 별칭 값 표시](../samples/starter.md#distinct-alias-values) 예를 참조하세요.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -207,7 +204,7 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-쿼리를 실행하기 전에 고려할 점은, **type**을 이번에는 **Microsoft.Compute/disks**로 설정해야 한다는 것입니다. 전체 ID 문자열의 일부분으로 **/providers/Microsoft.Compute/disks/** 가 포함되어 있습니다.
+쿼리를 실행하기 전에 고려할 점은, **type** 을 이번에는 **Microsoft.Compute/disks** 로 설정해야 한다는 것입니다. 전체 ID 문자열의 일부분으로 **/providers/Microsoft.Compute/disks/** 가 포함되어 있습니다.
 이 문자열 조각에서 검색해야 하는 유형을 확인할 수 있습니다. 유형 기준 제한을 제거한 후 ID 필드를 기준으로만 검색하는 방법도 있습니다. ID는 고유하므로 레코드가 하나만 반환되며, 해당 레코드의 **type** 속성이 필요한 세부 정보를 제공합니다.
 
 > [!NOTE]

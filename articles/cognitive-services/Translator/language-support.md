@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: c7e859b05450b95cf9c75421599dd9c54a639cdc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606847"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882418"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -256,7 +256,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 노르웨이어      | `nb`          |
 | 페르시아어      | `fa`          |
 | 폴란드어      | `pl`          |
-| 포르투갈어(브라질)     | `pt-br`          |
+| 포르투갈어(브라질)     | `pt`          |
 | 루마니아어      | `ro`          |
 | 러시아어      | `ru`          |
 | 세르비아어(라틴 문자)      | `sr-Latn`          |

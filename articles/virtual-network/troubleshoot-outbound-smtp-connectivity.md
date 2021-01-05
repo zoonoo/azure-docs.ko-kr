@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814485"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883115"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Azure의 아웃 바운드 SMTP 연결 문제 해결
 
@@ -52,7 +52,7 @@ ms.locfileid: "97814485"
 - MSDN
 - Azure Pass
 - Azure in Open
-- 교육
+- Education
 - Azure for Students
 - 무료 평가판
 - 모든 Visual Studio 구독  
@@ -76,10 +76,6 @@ ms.locfileid: "97814485"
 인증 된 SMTP 릴레이를 사용 하지 않고 Azure vm에서 외부 전자 메일 공급자로 직접 전자 메일을 보낼 수 있도록 하려면 **기술**  >  **Virtual Network**  >  **연결** 에서  >  **전자 메일을 보낼 수 없습니다 (SMTP/포트 25)**. 배포가 인증 된 릴레이를 사용 하는 대신 메일 공급자에 게 직접 메일을 보내야 하는 이유에 대 한 세부 정보를 추가 해야 합니다. Microsoft에서 요청을 검토 하 고 승인 합니다. 추가 antifraud 검사가 완료 된 후에만 요청이 허용 됩니다. 
 
 구독이 제외 되 고 Vm이 중지 되 고 Azure Portal 다시 시작 되 면 해당 구독의 모든 Vm은 제외 됩니다. 예외는 요청 된 구독에만 적용 되 고 인터넷으로 직접 라우팅되는 VM 트래픽에만 적용 됩니다.
-
-## <a name="restrictions-and-limitations"></a>제한 사항
-
-[Azure 방화벽](https://azure.microsoft.com/services/azure-firewall/) 같은 azure PaaS 서비스를 통해 포트 25 트래픽 라우팅은 지원 되지 않습니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

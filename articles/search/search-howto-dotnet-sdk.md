@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917174"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881636"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>C # .NET 응용 프로그램에서 Azure.Search.Documents를 사용 하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "94917174"
 + 인덱스에서 검색 문서 로드 및 관리
 + HTTP 및 JSON의 세부 정보를 처리 하지 않고도 쿼리를 실행 합니다.
 
-라이브러리는 검색 서비스에 대 한 프로그래밍 방식 액세스에 사용 되는 모든 Api를 포함 하는 단일 [Azure.Search.DocUment NuGet 패키지로](https://www.nuget.org/packages/Azure.Search.Documents/)배포 됩니다.
+라이브러리는 검색 서비스에 대 한 프로그래밍 방식 액세스에 사용 되는 모든 Api를 포함 하는 단일 [Azure.Search.DocUments NuGet 패키지로](https://www.nuget.org/packages/Azure.Search.Documents/)배포 됩니다.
 
 클라이언트 라이브러리는 `SearchIndexClient` 및 `SearchClient` 클래스에서 `SearchIndex`, `SearchField`, `SearchDocument` 등의 클래스와 `SearchIndexClient.CreateIndex` 및 `SearchClient.Search` 등의 작업을 정의합니다. 이러한 클래스는 다음과 같은 네임 스페이스에 구성됩니다.
 
@@ -54,11 +54,11 @@ Azure.Search.Documents (버전 11) [ `2020-06-30` Azure Cognitive Search REST AP
 
 + 사용자 고유의 Azure Cognitive Search 서비스. SDK를 사용하려면 서비스 이름과 하나 이상의 API 키가 필요합니다. [포털이 없으면 포털에서 서비스를 만듭니다](search-create-service-portal.md) .
 
-+ **도구** 를 사용 하 여 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents) 를 다운로드  >  **NuGet Package Manager**  >  Visual Studio에서 **솔루션에 대 한 nuget 패키지 관리를** 사용 합니다. 패키지 이름을 검색 `Azure.Search.Documents` 합니다.
++ **도구** 를 사용 하 여 [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents) 를 다운로드  >    >  Visual Studio에서 **솔루션에 대 한 nuget 패키지 관리를** 사용 합니다. 패키지 이름을 검색 `Azure.Search.Documents` 합니다.
 
-.NET 용 Azure SDK는 [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support)를 준수 하며,이는 최소 요구 사항으로 4.6.1 및 .net Core 2.0 .NET Framework 의미 합니다.
+.NET용 Azure SDK는 [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support)을 준수합니다. 이는 최소 요구 사항으로 .NET Framework 4.6.1 및 .NET Core 2.0을 의미합니다.
 
-## <a name="example-application"></a>예제 응용 프로그램
+## <a name="example-application"></a>예제 애플리케이션
 
 이 문서에서는 GitHub의 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 코드 예제에 의존 하 여 Azure Cognitive Search의 기본 개념을 설명 하는 (예:) 검색 인덱스를 만들고 로드 하 고 쿼리 하는 방법에 대해 설명 합니다.
 

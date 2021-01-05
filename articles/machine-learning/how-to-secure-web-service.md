@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 11/18/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 86cd5a5cbbb17dc3d3e4d56e4267be2718f6081d
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 14e4fda6ef36dd8fc57529046473d8afa916ef2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830873"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880973"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -168,7 +168,7 @@ TLS/SSL 인증서가 만료 되 고 갱신 되어야 합니다. 일반적으로�
 
 ### <a name="update-a-microsoft-generated-certificate"></a>Microsoft에서 생성 한 인증서 업데이트
 
-인증서가 원래 Microsoft에서 생성 된 경우 ( *leaf_domain_label* 를 사용 하 여 서비스를 만드는 경우) 다음 예제 중 하나를 사용 하 여 인증서를 업데이트 합니다.
+인증서가 원래 Microsoft에서 생성 된 경우 ( *leaf_domain_label* 를 사용 하 여 서비스를 만드는 경우) 필요한 경우 **자동으로 갱신 됩니다** . 수동으로 갱신 하려면 다음 예제 중 하나를 사용 하 여 인증서를 업데이트 합니다.
 
 > [!IMPORTANT]
 > * 기존 인증서가 여전히 유효한 경우 `renew=True` (SDK) 또는 `--ssl-renew` (CLI)를 사용 하 여 구성을 강제로 갱신 합니다. 예를 들어 기존 인증서가 여전히 10 일간 유효 하 고를 사용 하지 않는 경우 `renew=True` 인증서를 갱신 하지 못할 수 있습니다.

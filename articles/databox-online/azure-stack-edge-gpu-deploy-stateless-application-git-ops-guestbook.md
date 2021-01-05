@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561939"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882962"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
 
@@ -27,13 +27,15 @@ ms.locfileid: "97561939"
 
 이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](../azure-arc/kubernetes/overview.md)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 종속 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
@@ -108,7 +110,6 @@ Azure Portal를 통해 GitOps 구성을 배포 하도록 Azure Arc 리소스를 
 1. 배포에는 몇 분이 걸립니다. 배포가 완료 되 면 **운영자 상태** 는 **설치** 됨으로 표시 됩니다.
 
     ![설치 된 상태의 Azure Arc enabled Kubernetes 클러스터를 보여 주는 스크린샷](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## <a name="verify-deployment"></a>배포 확인
 

@@ -3,12 +3,12 @@ title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 SDK 및 추가 기능 만들기와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511001"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882979"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -36,7 +36,7 @@ Azure Policy [별칭](../concepts/definition-structure.md#aliases) 을 사용 �
 
 #### <a name="resolution"></a>해결 방법
 
-먼저 리소스 관리자 속성에 별칭이 있는지 확인 합니다. Visual Studio Code, [Azure 리소스 그래프](../../resource-graph/samples/starter.md#distinct-alias-values)또는 SDK [에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md)을 사용 하 여 사용 가능한 별칭을 조회 합니다. 리소스 관리자 속성에 대 한 별칭이 없으면 지원 티켓을 만듭니다.
+먼저 리소스 관리자 속성에 별칭이 있는지 확인 합니다. Visual Studio Code 또는 SDK [에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md) 을 사용 하 여 사용 가능한 별칭을 조회 합니다. 리소스 관리자 속성에 대 한 별칭이 없으면 지원 티켓을 만듭니다.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>시나리오: 평가 세부 정보가 최신 상태가 아님
 

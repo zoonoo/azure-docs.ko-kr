@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b40171d87ccffa7c5c4fb72d2e79af015b1d16f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a78cf9b7d78078030ac0db8bd2f0fddb93a8dda4
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859966"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881399"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory의 Microsoft 365 그룹에 민감도 레이블 할당
 
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
     ```
 
     > [!NOTE]
-    > 이 Azure AD 조직에 대해 그룹 설정이 생성 되지 않은 경우 먼저 설정을 만들어야 합니다. [그룹 설정을 구성 하는 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md) 의 단계에 따라이 Azure AD 조직에 대 한 그룹 설정을 만듭니다.
+    > 이 Azure AD 조직에 대해 그룹 설정이 생성 되지 않은 경우 "' Id ' 매개 변수에 인수를 바인딩할 수 없습니다." 라는 오류 메시지가 표시 됩니다. 이 경우 먼저 설정을 만들어야 합니다. [그룹 설정을 구성 하는 Azure Active Directory cmdlet](../enterprise-users/groups-settings-cmdlets.md) 의 단계에 따라이 Azure AD 조직에 대 한 그룹 설정을 만듭니다.
 
 1. 다음으로, 현재 그룹 설정을 표시 합니다.
 

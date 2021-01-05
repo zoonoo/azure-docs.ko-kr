@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 953a958d2a21dd9ffda07b208916a5ee01aa505f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998886"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881058"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 출력 바인딩
 
@@ -123,108 +123,6 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-<!--Same example for input and output. -->
-
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 스크립트](functions-reference-node.md) 코드에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
-
-*function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "myInputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "myOutputBlob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
-
-JavaScript 코드는 다음과 같습니다.
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputBlob = context.bindings.myInputBlob;
-    context.done();
-};
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-<!--Same example for input and output. -->
-
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
-
-*function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "queuemsg",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "inputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    },
-    {
-      "name": "outputblob",
-      "type": "blob",
-      "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "out"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
-
-다음은 Python 코드입니다.
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
-         outputblob: func.Out[func.InputStream]):
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
-    outputblob.set(inputblob)
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
@@ -292,6 +190,148 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
  [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Blob Storage의 개체에 기록될 함수 매개 변수에 대한 `@BlobOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 원시 Java 형식 또는 POJO입니다.
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+<!--Same example for input and output. -->
+
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 스크립트](functions-reference-node.md) 코드에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
+
+*function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
+    context.bindings.myOutputBlob = context.bindings.myInputBlob;
+    context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 예에서는 [PowerShell 함수의](functions-reference-powershell.md)출력으로 들어오는 blob의 복사본을 만드는 방법을 보여 줍니다.
+
+함수의 구성 파일 (*function.js*)에서 `trigger` 메타 데이터 속성은 속성의 출력 blob 이름을 지정 하는 데 사용 됩니다 `path` .
+
+> [!NOTE]
+> 무한 루프를 방지 하려면 입력 및 출력 경로가 서로 다른 지 확인 합니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myInputBlob",
+      "path": "data/{trigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in",
+      "type": "blobTrigger"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "data/copy/{trigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+PowerShell 코드는 다음과 같습니다.
+
+```powershell
+# Input bindings are passed in via param block.
+param([byte[]] $myInputBlob, $TriggerMetadata)
+Write-Host "PowerShell Blob trigger function Processed blob Name: $($TriggerMetadata.Name)"
+Push-OutputBinding -Name myOutputBlob -Value $myInputBlob
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+<!--Same example for input and output. -->
+
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Python 코드](functions-reference-python.md)에서 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 blob 이름은 *{originalblobname}-Copy* 입니다.
+
+*function.json* 파일에서 `queueTrigger` 메타데이터 속성은 `path` 속성에서 Blob 이름을 지정하는 데 사용됩니다.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "outputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+[구성](#configuration) 섹션에서는 이러한 속성을 설명합니다.
+
+다음은 Python 코드입니다.
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
+         outputblob: func.Out[func.InputStream]):
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    outputblob.set(inputblob)
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>특성 및 주석
@@ -328,17 +368,21 @@ public static void Run(
 
 C# 스크립트에서는 특성을 지원하지 않습니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+`@BlobOutput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [출력 예제](#example) 를 참조 하십시오.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원하지 않습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+특성은 PowerShell에서 지원 되지 않습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python에서는 특성을 지원하지 않습니다.
-
-# <a name="java"></a>[Java](#tab/java)
-
-`@BlobOutput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [출력 예제](#example) 를 참조 하십시오.
 
 ---
 
@@ -371,9 +415,17 @@ Python에서는 특성을 지원하지 않습니다.
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
+# <a name="java"></a>[Java](#tab/java)
+
+`@BlobOutput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [출력 예제](#example) 를 참조 하십시오.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여 Blob 데이터에 액세스합니다.
+을 사용 하 여 blob 데이터에 액세스 합니다 `context.bindings.<BINDING_NAME>` . 여기서 바인딩 이름은 파일 _의function.js_ 에 정의 됩니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+파일 _의function.js_ 에서 바인딩의 name 매개 변수에 지정 된 이름과 일치 하는 매개 변수를 통해 blob 데이터에 액세스 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -383,10 +435,6 @@ JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여
 * 스트림 `func.Out(func.InputStream)`
 
 자세한 내용은 [출력 예제](#example) 를 참조 하십시오.
-
-# <a name="java"></a>[Java](#tab/java)
-
-`@BlobOutput`특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType` 를로 설정 `binary` 합니다. 자세한 내용은 [출력 예제](#example) 를 참조 하십시오.
 
 ---
 
