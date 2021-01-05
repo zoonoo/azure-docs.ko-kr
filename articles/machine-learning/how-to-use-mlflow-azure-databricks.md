@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 72079cc399eea249bce4d285e2c3c4fbf9304708
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319034"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760608"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 Azure Databricks ML 실험 추적 (미리 보기)
 
@@ -43,7 +43,7 @@ ms.locfileid: "93319034"
 
 Azure Machine Learning를 사용한 MLflow 추적을 사용 하면 Azure Databricks 실행 되는 로그 된 메트릭과 아티팩트를 모두에 저장할 수 있습니다. 
 
-* Azure Databricks 작업 영역.
+* Azure Databricks 작업 영역입니다.
 * Azure Machine Learning 작업 영역
 
 Azure Databricks 작업 영역 및 클러스터를 만든 후 
@@ -180,8 +180,8 @@ ML 모델에 대 한 끝점을 만들 준비가 된 경우 을로 배포할 수 
 [Mlflow. azureml](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) API를 활용 하 여 Azure Machine Learning 작업 영역에 모델을 배포할 수 있습니다. [MLflow를 사용 하 여 모델 등록](#register-models-with-mlflow) 섹션에 설명 된 대로 Azure Databricks 작업 영역에만 모델을 등록 한 경우 `model_name` 매개 변수를 지정 하 여 모델을 Azure Machine Learning 작업 영역에 등록 합니다. 
 
 다음 끝점에 Azure Databricks 실행을 배포할 수 있습니다. 
-* [Azure Container Instance](how-to-use-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-use-mlflow.md#deploy-to-aks)
+* [Azure 컨테이너 인스턴스](how-to-deploy-models-with-mlflow.md#deploy-to-aci)
+* [Azure Kubernetes Service](how-to-deploy-models-with-mlflow.md#deploy-to-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>일괄 처리 점수 매기기를 위해 ADB 끝점에 모델 배포 
 

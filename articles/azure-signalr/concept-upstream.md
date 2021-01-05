@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143246"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763118"
 ---
 # <a name="upstream-settings"></a>업스트림 설정
 
@@ -53,16 +53,29 @@ http://host.com/chat/api/connections/connected
 http://host.com/chat/api/messages/broadcast
 ```
 
+### <a name="key-vault-secret-reference-in-url-template-settings"></a>URL 템플릿 설정에서 Key Vault 비밀 참조
+
+업스트림의 URL은 미사용 암호화가 아닙니다. 중요 한 정보가 있는 경우 Key Vault를 사용 하 여 액세스 제어가 더 나은 보험을 갖는 경우이를 저장 하는 것이 좋습니다. 기본적으로 Azure SignalR Service의 관리 되는 id를 사용 하도록 설정한 다음 Key Vault 인스턴스에 대 한 읽기 권한을 부여 하 고 업스트림 URL 패턴에서 일반 텍스트 대신 Key Vault 참조를 사용할 수 있습니다.
+
+1. 시스템이 할당 한 id 또는 사용자 할당 id를 추가 합니다. [Azure Portal에서 관리 id를 추가 하는 방법을](./howto-use-managed-identity.md#add-a-system-assigned-identity) 참조 하세요.
+
+2. Key Vault의 액세스 정책에서 관리 되는 id에 대 한 비밀 읽기 권한을 부여 합니다. [Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당을](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) 참조 하세요.
+
+3. 중요 한 텍스트를 `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` 업스트림 URL 패턴의 구문으로 바꿉니다.
+
+> [!NOTE]
+> 비밀 콘텐츠는 업스트림 설정을 변경 하거나 관리 되는 id를 변경 하는 경우에만 다시 읽습니다. Key Vault 비밀 참조를 사용 하기 전에 관리 되는 id에 대 한 비밀 읽기 권한을 부여 했는지 확인 합니다.
+
 ### <a name="rule-settings"></a>규칙 설정
 
-*허브 규칙*, *범주 규칙*및 *이벤트 규칙* 에 대 한 규칙을 별도로 설정할 수 있습니다. 일치 규칙은 세 가지 형식을 지원 합니다. 이벤트 규칙을 예로 들어 보겠습니다.
+*허브 규칙*, *범주 규칙* 및 *이벤트 규칙* 에 대 한 규칙을 별도로 설정할 수 있습니다. 일치 규칙은 세 가지 형식을 지원 합니다. 이벤트 규칙을 예로 들어 보겠습니다.
 - 별표 (*)를 사용 하 여 모든 이벤트를 일치 시킵니다.
 - 여러 이벤트를 조인 하려면 쉼표 (,)를 사용 합니다. 예를 들어는 `connected, disconnected` 연결 된 이벤트와 연결이 끊어진 이벤트를 일치 시킵니다.
 - 이벤트와 일치 시키려면 전체 이벤트 이름을 사용 합니다. 예를 들어는 `connected` 연결 된 이벤트와 일치 합니다.
 
 > [!NOTE]
-> Azure Functions 및 [SignalR 트리거](../azure-functions/functions-bindings-signalr-service-trigger.md)를 사용 하는 경우 SignalR 트리거는 형식으로 단일 끝점을 노출 `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` 합니다.
-> 이 url에 대 한 url 템플릿만 구성할 수 있습니다.
+> Azure Functions 및 [SignalR 트리거](../azure-functions/functions-bindings-signalr-service-trigger.md)를 사용 하는 경우 SignalR 트리거는 형식으로 단일 끝점을 노출 `<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>` 합니다.
+> 이 url에 **url 템플릿 설정을** 구성 하 고 **규칙 설정** 기본값을 유지할 수 있습니다. 및를 찾는 방법에 대 한 자세한 내용은 [SignalR Service 통합](../azure-functions/functions-bindings-signalr-service-trigger.md#signalr-service-integration) 을 참조 하십시오 `<Function_App_URL>` `<API_KEY>` .
 
 ### <a name="authentication-settings"></a>인증 설정
 
@@ -75,16 +88,16 @@ http://host.com/chat/api/messages/broadcast
 ## <a name="create-upstream-settings-via-the-azure-portal"></a>Azure Portal을 통해 업스트림 설정 만들기
 
 1. Azure SignalR Service로 이동 합니다.
-2. **설정** 을 선택 하 고 **서비스 모드** 를 **서버**리스로 전환 합니다. 업스트림 설정이 다음과 같이 표시 됩니다.
+2. **설정** 을 선택 하 고 **서비스 모드** 를 **서버** 리스로 전환 합니다. 업스트림 설정이 다음과 같이 표시 됩니다.
 
     :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="업스트림 설정":::
 
-3. **업스트림 Url 패턴**에서 url을 추가 합니다. 그런 다음 **허브 규칙과** 같은 설정이 기본값을 표시 합니다.
-4. **허브 규칙**, **이벤트 규칙**, **범주 규칙**및 **업스트림 인증**에 대 한 설정을 설정 하려면 **허브 규칙**값을 선택 합니다. 설정을 편집할 수 있는 페이지가 나타납니다.
+3. **업스트림 Url 패턴** 에서 url을 추가 합니다. 그런 다음 **허브 규칙과** 같은 설정이 기본값을 표시 합니다.
+4. **허브 규칙**, **이벤트 규칙**, **범주 규칙** 및 **업스트림 인증** 에 대 한 설정을 설정 하려면 **허브 규칙** 값을 선택 합니다. 설정을 편집할 수 있는 페이지가 나타납니다.
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="업스트림 설정":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="업스트림 설정 정보":::
 
-5. **업스트림 인증**을 설정 하려면 먼저 관리 되는 id를 사용 하도록 설정 했는지 확인 합니다. 그런 다음 **관리 되는 Id 사용**을 선택 합니다. 사용자의 요구 사항에 따라 **Auth 리소스 ID**에서 옵션을 선택할 수 있습니다. 자세한 내용은 [Azure SignalR 서비스에 대 한 관리 되는 id](howto-use-managed-identity.md) 를 참조 하세요.
+5. **업스트림 인증** 을 설정 하려면 먼저 관리 되는 id를 사용 하도록 설정 했는지 확인 합니다. 그런 다음 **관리 되는 Id 사용** 을 선택 합니다. 사용자의 요구 사항에 따라 **Auth 리소스 ID** 에서 옵션을 선택할 수 있습니다. 자세한 내용은 [Azure SignalR 서비스에 대 한 관리 되는 id](howto-use-managed-identity.md) 를 참조 하세요.
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>리소스 관리자 템플릿을 통해 업스트림 설정 만들기
 
@@ -115,7 +128,7 @@ http://host.com/chat/api/messages/broadcast
 
 ## <a name="serverless-protocols"></a>서버 리스 프로토콜
 
-Azure SignalR Service는 다음 프로토콜을 따르는 끝점으로 메시지를 보냅니다.
+Azure SignalR Service는 다음 프로토콜을 따르는 끝점으로 메시지를 보냅니다. 이러한 프로토콜을 처리 하는 함수 앱에서 [SignalR Service 트리거 바인딩을](../azure-functions/functions-bindings-signalr-service-trigger.md) 사용할 수 있습니다.
 
 ### <a name="method"></a>메서드
 
@@ -145,7 +158,7 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json`
 
-|Name  |Type  |Description  |
+|Name  |유형  |Description  |
 |---------|---------|---------|
 |오류 |문자열 |닫힌 연결의 오류 메시지입니다. 연결이 오류 없이 닫힐 때 비어 있습니다.|
 
@@ -153,7 +166,7 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json` 또는 `application/x-msgpack`
 
-|Name  |Type  |Description  |
+|Name  |유형  |Description  |
 |---------|---------|---------|
 |InvocationId |문자열 | 호출 메시지를 나타내는 선택적 문자열입니다. [호출](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations)에서 세부 정보를 찾습니다.|
 |대상 |문자열 | 이벤트와 동일 하며 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)의 대상과 동일 합니다. |
@@ -170,3 +183,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 - [Azure SignalR Service에 대 한 관리 되는 id](howto-use-managed-identity.md)
 - [Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성](signalr-concept-serverless-development-config.md)
+- [SignalR Service의 메시지 처리 (트리거 바인딩)](../azure-functions/functions-bindings-signalr-service-trigger.md)
+- [SignalR Service 트리거 바인딩 샘플](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)

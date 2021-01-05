@@ -1,69 +1,87 @@
 ---
-title: 전용 끝점에서 음성 서비스 사용
+title: 음성 서비스에서 전용 끝점을 사용 하는 방법
 titleSuffix: Azure Cognitive Services
-description: Azure 개인 링크에서 제공 하는 개인 끝점에서 음성 서비스 사용에 대 한 방법
+description: Azure 개인 링크에서 제공 하는 개인 끝점에서 음성 서비스를 사용 하는 방법을 알아봅니다.
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 01a0171ed2b660fbabebf4276a74f8a3ea631bde
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: f905582615b16780fae179ba6a21bd4343bd47f3
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516537"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755806"
 ---
-# <a name="using-speech-services-with-private-endpoints-provided-by-azure-private-link"></a>Azure 개인 링크에서 제공 하는 개인 끝점에서 음성 서비스 사용
+# <a name="use-speech-service-through-a-private-endpoint"></a>개인 끝점을 통해 Speech service 사용
 
-[Azure 개인 링크](../../private-link/private-link-overview.md) 를 사용 하면 [개인 끝점](../../private-link/private-endpoint-overview.md)을 통해 Azure의 다양 한 PaaS 서비스에 연결할 수 있습니다. 개인 끝점은 특정 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 및 서브넷의 개인 IP 주소입니다.
+[Azure 개인 링크](../../private-link/private-link-overview.md) 를 사용 하면 [개인 끝점](../../private-link/private-endpoint-overview.md)을 사용 하 여 azure에서 서비스에 연결할 수 있습니다.
+개인 끝점은 특정 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 및 서브넷 내 에서만 액세스할 수 있는 개인 IP 주소입니다.
 
-이 문서에서는 Azure 인식 음성 서비스를 사용 하 여 개인 링크 및 개인 끝점을 설정 하 고 사용 하는 방법을 설명 합니다. 
+이 문서에서는 Azure 인식 음성 서비스를 사용 하 여 개인 링크 및 개인 끝점을 설정 하 고 사용 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure 인식 음성 서비스를 통한 개인 링크 설정 및 사용에 대 한 세부 정보를 설명 합니다. 계속 하기 전에 [Cognitive Services에서 가상 네트워크를 사용 하는 방법](../cognitive-services-virtual-networks.md)에 대 한 일반적인 문서를 숙지 하세요.
+> 이 문서에서는 Azure 인식 음성 서비스를 통한 개인 링크 설정 및 사용에 대 한 세부 정보를 설명 합니다. 계속 하기 전에 [Cognitive Services에서 가상 네트워크를 사용](../cognitive-services-virtual-networks.md)하는 방법을 검토 하세요.
 
-개인 끝점 시나리오에 음성 리소스를 사용 하도록 설정 하려면 다음 작업을 수행 해야 합니다.
-- [음성 리소스 사용자 지정 도메인 이름 만들기](#create-custom-domain-name)
-- [개인 끝점 만들기 및 구성](#enabling-private-endpoints)
-- [기존 응용 프로그램 및 솔루션 조정](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
+개인 끝점을 통해 음성 서비스를 사용 하려면 다음 작업을 수행 합니다.
 
-나중에 모든 개인 끝점을 제거 하지만 리소스를 계속 사용 하려는 경우 [이 섹션](#using-speech-resource-with-custom-domain-name-without-private-endpoints)에 설명 된 필수 작업을 설명 합니다.
+1. [음성 리소스 사용자 지정 도메인 이름 만들기](#create-a-custom-domain-name)
+2. [개인 끝점 만들기 및 구성](#enable-private-endpoints)
+3. [기존 응용 프로그램 및 솔루션 조정](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
-## <a name="create-custom-domain-name"></a>사용자 지정 도메인 이름 만들기
+나중에 전용 끝점을 제거 하지만 여전히 음성 리소스를 사용 하려면 [이 섹션](#use-speech-resource-with-custom-domain-name-without-private-endpoints)에서 설명 하는 작업을 수행 합니다.
 
-개인 끝점을 사용 하려면 [사용자 지정 하위 도메인 이름을 Cognitive Services](../cognitive-services-custom-subdomains.md)사용 해야 합니다. 아래 지침을 사용 하 여 음성 리소스에 대해 하나를 만듭니다.
+## <a name="create-a-custom-domain-name"></a>사용자 지정 도메인 이름 만들기
 
-> [!WARNING]
-> 사용자 지정 도메인 이름이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 개인 끝점을 사용 하도록 [설정](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) 하 고 [개인 끝점을 사용 **하지 않는**](#using-speech-resource-with-custom-domain-name-without-private-endpoints) 시나리오의 경우 응용 프로그램 코드를 조정 해야 하는 경우가 많습니다.
+개인 끝점에는 [Cognitive Services 사용자 지정 하위 도메인 이름이](../cognitive-services-custom-subdomains.md)필요 합니다. 아래 지침에 따라 음성 리소스에 대해 하나를 만듭니다.
+
+> [!CAUTION]
+> 사용자 지정 도메인 이름이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다.
+> 개인 끝점을 사용 [하도록 설정](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) 하 고 [개인 끝점을 사용 **하지 않는**](#use-speech-resource-with-custom-domain-name-without-private-endpoints) 시나리오 둘 다에 대해 응용 프로그램 코드를 조정 해야 할 수도 있습니다.
 >
-> 사용자 지정 도메인 이름을 사용 하도록 설정 하는 작업은 [**되돌릴 수 없습니다**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). [지역 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 으로 다시 이동 하는 유일한 방법은 새 음성 리소스를 만드는 것입니다. 
+> 사용자 지정 도메인 이름을 사용 하도록 설정 하면 작업을 [**되돌릴 수 없습니다**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). [지역 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 으로 다시 이동 하는 유일한 방법은 새 음성 리소스를 만드는 것입니다.
 >
-> 특히 speech 리소스에 연결 된 사용자 지정 모델 및 프로젝트를 [Speech Studio](https://speech.microsoft.com/) 를 통해 만든 경우 테스트 리소스를 사용 하 여 구성을 시도한 다음 프로덕션에 사용 되는 프로젝트를 수정 하는 **것이 좋습니다** .
+> 음성 리소스에 많은 연결 된 사용자 지정 모델과 [Speech Studio](https://speech.microsoft.com/) 를 통해 만든 프로젝트가 있는 경우 프로덕션에 사용 되는 리소스를 수정 하기 전에 테스트 리소스를 사용 하 여 구성을 시도 하는 **것이 좋습니다** .
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-- [Azure Portal](https://portal.azure.com/) 로 이동 하 여 Azure 계정에 로그인 합니다.
-- 필요한 음성 리소스를 선택 합니다.
-- *네트워킹* (*리소스 관리* 그룹) 선택 
-- *방화벽 및 가상 네트워크* 탭 (기본값)에서 **사용자 지정 도메인 이름 생성** 단추를 클릭 합니다.
-- 리소스에 대해 고유한 사용자 지정 하위 도메인을 만드는 지침이 포함 된 새 패널이 표시 됩니다.
-> [!WARNING]
-> 사용자 지정 도메인 이름을 만든 후에는 변경할 수 **없습니다** . 위의 경고에서 추가 정보를 참조 하세요.
-- 작업이 완료 된 후에는 *키와 끝점* (*리소스 관리* 그룹)을 선택 하 고 다음 형식으로 리소스의 새 끝점 이름을 확인 하는 것이 좋습니다. <p />`{your custom name}.cognitiveservices.azure.com`
+Azure Portal를 사용 하 여 사용자 지정 도메인 이름을 만들려면 다음 단계를 수행 합니다.
+
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 Azure 계정에 로그인 합니다.
+1. 필요한 음성 리소스를 선택 합니다.
+1. 왼쪽 탐색 창의 **리소스 관리** 그룹에서 **네트워킹** 을 클릭 합니다.
+1. **방화벽 및 가상 네트워크** 탭에서 **사용자 지정 도메인 이름 생성** 을 클릭 합니다. 리소스에 대해 고유한 사용자 지정 하위 도메인을 만드는 지침이 포함 된 새 오른쪽 패널이 나타납니다.
+1. 사용자 지정 도메인 이름 생성 패널에서 사용자 지정 도메인 이름 부분을 입력 합니다. 전체 사용자 지정 도메인은와 같습니다 `https://{your custom name}.cognitiveservices.azure.com` . 
+    **사용자 지정 도메인 이름을 만든 후에는 변경할 수 _없습니다_ . 위의 주의 경고를 다시 읽으십시오.** 사용자 지정 도메인 이름을 입력 한 후 **저장** 을 클릭 합니다.
+1. 작업이 완료 되 면 **리소스 관리** 그룹에서 **키 및 끝점** 을 클릭 합니다. 리소스의 새 끝점 이름이 다음과 같은 방식으로 시작 되는지 확인 합니다.
+
+    `https://{your custom name}.cognitiveservices.azure.com`
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-이 섹션에서는 Azure PowerShell 모듈 버전 5.1.0 이상을 사용 하 여 PowerShell 버전 4.x 이상을 로컬로 실행 해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+PowerShell을 사용 하 여 사용자 지정 도메인 이름을 만들려면 컴퓨터의 Azure PowerShell 모듈 버전이 5.1.0 이상인 PowerShell 버전 4.x 이상 인지 확인 합니다. 이러한 도구의 버전을 확인 하려면 다음 단계를 수행 합니다.
 
-`Connect-AzAccount`Azure를 사용 하 여 연결을 만들기 위해 추가 실행을 계속 합니다.
+1. PowerShell 창에서 다음을 입력 합니다.
 
-## <a name="verify-custom-domain-name-availability"></a>사용자 지정 도메인 이름 가용성 확인
+    `$PSVersionTable`
 
-사용 하려는 사용자 지정 도메인이 사용 가능한 지 여부를 확인 해야 합니다. Cognitive Services REST API에서 [도메인 가용성 확인](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) 방법을 사용 합니다. 단계를 설명 하는 아래 코드 블록의 주석을 참조 하세요.
+    PSVersion 값이 7. x 보다 큰지 확인 합니다. PowerShell을 업그레이드 하려면 [다양 한 버전의 powershell을 설치 하는 방법의](/powershell/scripting/install/installing-powershell) 지침에 따라 업그레이드 합니다.
+
+1. PowerShell 창에서 다음을 입력 합니다.
+
+    `Get-Module -ListAvailable Az`
+
+    아무 것도 표시 되지 않거나 Azure PowerShell 모듈 버전이 5.1.0 보다 낮은 경우 [설치 Azure PowerShell 모듈](/powershell/azure/install-Az-ps) 의 지침에 따라 업그레이드 합니다.
+
+계속 하기 전에를 실행 `Connect-AzAccount` 하 여 Azure와의 연결을 만듭니다.
+
+## <a name="verify-custom-domain-name-is-available"></a>사용자 지정 도메인 이름을 사용할 수 있는지 확인 하세요.
+
+사용 하려는 사용자 지정 도메인을 사용할 수 있는지 여부를 확인 해야 합니다. Cognitive Services REST API에서 [도메인 가용성 확인](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) 작업을 사용 하 여 도메인을 사용할 수 있는지 확인 하려면 다음 단계를 수행 합니다.
 
 > [!TIP]
 > 아래 코드는 Azure Cloud Shell에서 작동 **하지** 않습니다.
@@ -72,18 +90,16 @@ ms.locfileid: "97516537"
 $subId = "Your Azure subscription Id"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 Set-AzContext -SubscriptionId $subId
 
-# Preparing OAuth token which is used in request
-# to Cognitive Services REST API
+# Prepare OAuth token to use in request to Cognitive Services REST API.
 $Context = Get-AzContext
 $AccessToken = (Get-AzAccessToken -TenantId $Context.Tenant.Id).Token
 $token = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
 
-# Preparing and executing the request to Cognitive Services REST API
+# Prepare and send the request to Cognitive Services REST API.
 $uri = "https://management.azure.com/subscriptions/" + $subId + `
     "/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18"
 $body = @{
@@ -94,40 +110,40 @@ $jsonBody = $body | ConvertTo-Json
 Invoke-RestMethod -Method Post -Uri $uri -ContentType "application/json" -Authentication Bearer `
     -Token $token -Body $jsonBody | Format-List
 ```
-원하는 이름을 사용할 수 있는 경우 다음과 같은 응답을 받게 됩니다.
+원하는 이름을 사용할 수 있는 경우 다음과 같은 응답이 표시 됩니다.
 ```azurepowershell
 isSubdomainAvailable : True
 reason               :
 type                 :
 subdomainName        : my-custom-name
 ```
-이름이 이미 사용 되는 경우 다음 응답을 받게 됩니다.
+이름이 이미 사용 되 고 있으면 다음 응답이 표시 됩니다.
 ```azurepowershell
 isSubdomainAvailable : False
 reason               : Sub domain name 'my-custom-name' is already used. Please pick a different name.
 type                 :
 subdomainName        : my-custom-name
 ```
-## <a name="enabling-custom-domain-name"></a>사용자 지정 도메인 이름 사용
+## <a name="create-your-custom-domain-name"></a>사용자 지정 도메인 이름 만들기
 
-선택한 음성 리소스에 대해 사용자 지정 도메인 이름을 사용 하도록 설정 하려면 [AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet을 사용 합니다. 단계를 설명 하는 아래 코드 블록의 주석을 참조 하세요.
+선택한 음성 리소스에 대해 사용자 지정 도메인 이름을 사용 하도록 설정 하려면 [AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet을 사용 합니다.
 
-> [!WARNING]
-> 아래 코드를 성공적으로 실행 한 후에는 음성 리소스에 대 한 사용자 지정 도메인 이름을 만듭니다. 이 이름은 변경할 수 **없습니다** . 위의 경고에서 추가 정보를 참조 하세요.
+> [!CAUTION]
+> 아래 코드를 성공적으로 실행 한 후에는 음성 리소스에 대 한 사용자 지정 도메인 이름을 만듭니다.
+> 이 이름은 변경할 수 **없습니다** . 위의 **주의** 경고에 추가 정보를 참조 하세요.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
 $speechResourceName = "Your Speech resource name"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
-# Set the custom domain name to the selected resource
-# WARNING! THIS IS NOT REVERSIBLE!
+# Set the custom domain name to the selected resource.
+# CAUTION: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -138,11 +154,11 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 - 이 섹션에는 최신 버전의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-## <a name="verify-custom-domain-name-availability"></a>사용자 지정 도메인 이름 가용성 확인
+## <a name="verify-the-custom-domain-name-is-available"></a>사용자 지정 도메인 이름을 사용할 수 있는지 확인 합니다.
 
-사용 하려는 사용자 지정 도메인이 사용 가능한 지 여부를 확인 해야 합니다. Cognitive Services REST API에서 [도메인 가용성 확인](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) 방법을 사용 합니다. 
+사용 하려는 사용자 지정 도메인이 사용 가능한 지 여부를 확인 해야 합니다. Cognitive Services REST API에서 [도메인 가용성 확인](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) 방법을 사용 합니다.
 
-아래 코드 블록을 복사 하 고 사용자 지정 도메인 이름을 삽입 한 다음 파일에 저장 `subdomain.json` 합니다.
+아래 코드 블록을 복사 하 고 원하는 사용자 지정 도메인 이름을 삽입 한 다음 파일에 저장 `subdomain.json` 합니다.
 
 ```json
 {
@@ -156,7 +172,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 ```azurecli-interactive
 az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18" --body @subdomain.json
 ```
-원하는 이름을 사용할 수 있는 경우 다음과 같은 응답을 받게 됩니다.
+원하는 이름을 사용할 수 있는 경우 다음과 같은 응답이 표시 됩니다.
 ```azurecli
 {
   "isSubdomainAvailable": true,
@@ -166,7 +182,7 @@ az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx
 }
 ```
 
-이름이 이미 사용 되는 경우 다음 응답을 받게 됩니다.
+이름이 이미 사용 되 고 있으면 다음 응답이 표시 됩니다.
 ```azurecli
 {
   "isSubdomainAvailable": false,
@@ -175,7 +191,7 @@ az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx
   "type": null
 }
 ```
-## <a name="enabling-custom-domain-name"></a>사용자 지정 도메인 이름 사용
+## <a name="enable-custom-domain-name"></a>사용자 지정 도메인 이름 사용
 
 선택한 음성 리소스에 대해 사용자 지정 도메인 이름을 사용 하도록 설정 하려면 [az cognitiveservices account account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) 명령을 사용 합니다.
 
@@ -184,15 +200,17 @@ az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 사용자 지정 도메인 이름을 선택한 리소스에 설정 합니다. 샘플 매개 변수 값을 실제 값으로 바꾸고 아래 명령을 실행 합니다.
-> [!WARNING]
-> 아래 명령이 성공적으로 실행 되 면 음성 리소스에 대 한 사용자 지정 도메인 이름을 만듭니다. 이 이름은 변경할 수 **없습니다** . 위의 경고에서 추가 정보를 참조 하세요.
+
+> [!CAUTION]
+> 아래 명령이 성공적으로 실행 되 면 음성 리소스에 대 한 사용자 지정 도메인 이름을 만듭니다. 이 이름은 변경할 수 **없습니다** . 위의 주의 경고에 추가 정보를 참조 하세요.
+
 ```azurecli
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 
 **_
 
-## <a name="enabling-private-endpoints"></a>전용 끝점 사용
+## <a name="enable-private-endpoints"></a>전용 끝점 사용
 
 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 개인 끝점을 사용 하도록 설정 합니다.
 
@@ -202,7 +220,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 개인 끝점�
 
 | 설정             | 값                                    |
 |---------------------|------------------------------------------|
-| 리소스 유형       | **Microsoft.CognitiveServices/accounts** |
+| 리소스 종류       | **Microsoft.CognitiveServices/accounts** |
 | 리소스            | **\<your-speech-resource-name>**         |
 | 대상 하위 리소스 | **account**                              |
 
@@ -218,7 +236,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI를 사용 하 여 개인 끝점�
 
 `my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름으로를 사용 합니다.
 
-개인 끝점을 연결한 가상 네트워크에 있는 가상 컴퓨터에 로그온 합니다. Windows 명령 프롬프트 또는 Bash 셸을 열고 ' nslookup ' 명령을 실행 한 다음 리소스 사용자 지정 도메인 이름이 성공적으로 확인 되는지 확인 합니다.
+개인 끝점을 연결한 가상 네트워크에 있는 가상 컴퓨터에 로그온 합니다. Windows 명령 프롬프트 또는 Bash 셸을 열고를 실행 `nslookup` 하 고 리소스 사용자 지정 도메인 이름이 성공적으로 확인 되는지 확인 합니다.
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -233,11 +251,11 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 
 #### <a name="optional-check-dns-resolution-from-other-networks"></a>(선택 사항 확인). 다른 네트워크의 DNS 확인
 
-이 확인은 리소스의 *네트워킹* 섹션에서 *모든 네트워크* 또는 *선택한 네트워크 및 개인 끝점* 액세스 옵션을 사용 하도록 설정 하는 "하이브리드" 모드에서 개인 끝점 사용 음성 리소스를 사용 하려는 경우에 필요 합니다. 전용 엔드포인트를 사용 하 여 리소스에 액세스 하려는 경우이 섹션을 건너뛸 수 있습니다.
+이 확인은 리소스의 *네트워킹* 섹션에서 *모든 네트워크* 또는 *선택한 네트워크 및 개인 끝점* 액세스 옵션을 사용 하도록 설정한 "하이브리드" 모드에서 개인 끝점 사용 음성 리소스를 사용 하려는 경우에 필요 합니다. 전용 끝점을 사용 하 여 리소스에 액세스할 계획인 경우이 섹션을 건너뛸 수 있습니다.
 
 `my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름으로를 사용 합니다.
 
-리소스에 대 한 액세스를 허용 하는 네트워크에 연결 된 모든 컴퓨터에서 Windows 명령 프롬프트 또는 Bash 셸을 열고 ' nslookup ' 명령을 실행 하 여 리소스 사용자 지정 도메인 이름이 성공적으로 확인 되는지 확인 합니다.
+리소스에 대 한 액세스를 허용 하는 네트워크에 연결 된 컴퓨터에서 Windows 명령 프롬프트 또는 Bash 셸을 열고 `nslookup` 명령을 실행 한 다음 리소스 사용자 지정 도메인 이름이 성공적으로 확인 되는지 확인 합니다.
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -251,18 +269,18 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           westeurope.prod.vnet.cog.trafficmanager.net
 ```
 
-확인 된 IP 주소는 VNet 프록시 끝점을 가리키며,이 끝점은 개인 끝점 사용 Cognitive Services 리소스에 대 한 네트워크 트래픽을 발송 하는 데 사용 됩니다. 이 동작은 사용자 지정 도메인 이름을 사용 하도록 설정 하 고 개인 끝점이 구성 *되지 않은* 리소스에 대해서는 다릅니다. [이 섹션](#dns-configuration)을 참조 하세요.
+확인 된 IP 주소는 가상 네트워크 프록시 끝점을 가리키며,이 끝점은 네트워크 트래픽을 Cognitive Services 리소스의 개인 끝점으로 디스패치합니다. 이 동작은 사용자 지정 도메인 이름이 있지만 전용 끝점이 *없는* 리소스에 대해 다릅니다. 자세한 내용은 [이 섹션](#dns-configuration) 을 참조 하세요.
 
-## <a name="adjusting-existing-applications-and-solutions"></a>기존 응용 프로그램 및 솔루션 조정 
+## <a name="adjust-existing-applications-and-solutions"></a>기존 응용 프로그램 및 솔루션 조정
 
-사용자 지정 도메인이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 이는 전용 끝점 [을 사용 하거나 사용](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) [하지 않고](#using-speech-resource-with-custom-domain-name-without-private-endpoints) 사용자 지정 도메인 사용 음성 리소스에 적용 됩니다. 현재 섹션에서는 두 경우 모두에 필요한 정보를 제공 합니다.
+사용자 지정 도메인이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 이는 전용 끝점 [을 사용 하거나 사용](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) [하지 않고](#use-speech-resource-with-custom-domain-name-without-private-endpoints) 사용자 지정 도메인 사용 음성 리소스에 적용 됩니다. 현재 섹션에서는 두 경우 모두에 필요한 정보를 제공 합니다.
 
-### <a name="using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>사용자 지정 도메인 이름 및 개인 끝점이 설정 된 음성 리소스 사용
+### <a name="use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>사용자 지정 도메인 이름 및 개인 끝점이 사용 하도록 설정 된 음성 리소스 사용
 
 사용자 지정 도메인 이름 및 개인 끝점이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 이 섹션에서는 Speech Services REST API 및 [SPEECH SDK](speech-sdk.md)를 사용 하 여 이러한 리소스를 사용 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 개인 끝점은 없지만 **사용자 지정 도메인 이름을** 사용 하도록 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 특별 한 방법이 있지만 이러한 방식은 개인 끝점 사용 음성 리소스의 시나리오와 다릅니다. 이러한 리소스가 있는 경우 (즉, 전용 끝점을 사용 하는 리소스가 있지만 제거 하기로 결정 한 경우) [대응 섹션](#using-speech-resource-with-custom-domain-name-without-private-endpoints)을 잘 알고 있어야 합니다.
+> 개인 끝점은 없지만 **사용자 지정 도메인 이름을** 사용 하도록 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 특별 한 방법이 있지만 이러한 방식은 개인 끝점 사용 음성 리소스의 시나리오와 다릅니다. 이러한 리소스가 있는 경우 (즉, 전용 끝점을 사용 하는 리소스가 있지만 제거 하기로 결정 한 경우) [대응 섹션](#use-speech-resource-with-custom-domain-name-without-private-endpoints)을 잘 알고 있어야 합니다.
 
 #### <a name="speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-rest-api"></a>사용자 지정 도메인 이름 및 개인 끝점을 사용 하는 음성 리소스 REST API 사용
 
@@ -330,11 +348,11 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 
 지역에서 지원 되는 음성 목록을 가져오려면 다음 두 가지 작업을 수행 해야 합니다.
 
-- 를 통해 권한 부여 토큰 가져오기
+- 권한 부여 토큰 가져오기:
 ```http
 https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
 ```
-- 가져온 토큰을 사용 하 여 다음을 통해 음성 목록 가져오기
+- 토큰을 사용 하 여 음성 목록을 가져옵니다.
 ```http
 https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
 ```
@@ -362,7 +380,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 
 일반적으로 SDK 시나리오 (텍스트-음성 REST API 시나리오)에서 음성 리소스는 다양 한 서비스 제공에 대 한 특수 지역 끝점을 사용 합니다. 이러한 끝점에 대 한 DNS 이름 형식은 다음과 같습니다. </p>`{region}.{speech service offering}.speech.microsoft.com`
 
-예: </p>`westeurope.stt.speech.microsoft.com`
+예제: </p>`westeurope.stt.speech.microsoft.com`
 
 다음 표에서는 지역 (DNS 이름의 첫 번째 요소)에 대해 가능한 모든 값 [을 나열 합니다](regions.md) . 아래 표에서는 Speech Services 제공 (dns 이름의 두 번째 요소)에 사용할 수 있는 값을 보여 줍니다.
 
@@ -413,7 +431,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 - 응용 프로그램에서 사용 하는 끝점 URL 확인
 - 이전 섹션에 설명 된 대로 끝점 URL을 수정 하 고 `SpeechConfig` 이 수정 된 url을 사용 하 여 클래스 인스턴스를 명시적으로 만듭니다.
 
-###### <a name="determining-application-endpoint-url"></a>응용 프로그램 끝점 URL 확인
+###### <a name="determine-application-endpoint-url"></a>응용 프로그램 끝점 URL 확인
 
 - [응용 프로그램에 대 한 로깅을 사용 하도록 설정](how-to-use-logging.md) 하 고 실행 하 여 로그 생성
 - 로그 파일에서을 검색 합니다 `SPEECH-ConnectionUrl` . 문자열에는 매개 변수가 포함 됩니다 .이 `value` 매개 변수는 응용 프로그램에서 사용 하는 전체 URL을 포함 합니다.
@@ -426,7 +444,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-###### <a name="creating-speechconfig-instance-using-full-endpoint-url"></a>`SpeechConfig`전체 끝점 URL을 사용 하 여 인스턴스 만들기
+###### <a name="create-speechconfig-instance-using-full-endpoint-url"></a>`SpeechConfig`전체 끝점 URL을 사용 하 여 인스턴스 만들기
 
 위의 [일반적인 원칙](#general-principle) 에 설명 된 대로 이전 섹션에서 결정 한 끝점을 수정 합니다.
 
@@ -464,7 +482,7 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithE
 
 이 수정 후에는 응용 프로그램이 개인 활성화 된 음성 리소스를 사용 하 여 작동 해야 합니다. 개인 끝점 시나리오를 더욱 원활 하 게 지원 하기 위해 노력 하 고 있습니다.
 
-### <a name="using-speech-resource-with-custom-domain-name-without-private-endpoints"></a>Private 끝점이 없는 사용자 지정 도메인 이름으로 음성 리소스 사용
+### <a name="use-speech-resource-with-custom-domain-name-without-private-endpoints"></a>개인 끝점이 없는 사용자 지정 도메인 이름으로 음성 리소스 사용
 
 이 문서에서는 음성 리소스에 대해 사용자 지정 도메인을 사용 하도록 설정 하는 것이 **영구적** 이 지 않도록 하 고 이러한 리소스는 "일반" ( [지역 끝점 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)사용)과 비교 하 여 음성 서비스와 통신 하는 다른 방법을 사용 합니다.
 
@@ -529,7 +547,7 @@ var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 - Cognitive Services REST API를 통해 권한 부여 토큰 요청
 - "권한 부여 토큰 `SpeechConfig` 에서"/"권한 부여 토큰 사용" 메서드를 사용 하 여 클래스를 인스턴스화합니다. 
 
-###### <a name="requesting-authorization-token"></a>권한 부여 토큰 요청
+###### <a name="request-authorization-token"></a>요청 인증 토큰
 
 Cognitive Services REST API를 통해 토큰을 가져오는 방법은 [이 문서](../authentication.md#authenticate-with-an-authentication-token) 를 참조 하세요. 
 
@@ -540,7 +558,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 > [!TIP]
 > Azure Portal에서 음성 리소스의 *키 및 끝점* (*리소스 관리* 그룹) 섹션에서이 URL을 찾을 수 있습니다.
 
-###### <a name="creating-speechconfig-instance-using-authorization-token"></a>`SpeechConfig`권한 부여 토큰을 사용 하 여 인스턴스 만들기
+###### <a name="create-speechconfig-instance-using-authorization-token"></a>`SpeechConfig`권한 부여 토큰을 사용 하 여 인스턴스 만들기
 
 `SpeechConfig`이전 섹션에서 얻은 권한 부여 토큰을 사용 하 여 클래스를 인스턴스화해야 합니다. 다음 변수가 정의 되어 있다고 가정 합니다.
 

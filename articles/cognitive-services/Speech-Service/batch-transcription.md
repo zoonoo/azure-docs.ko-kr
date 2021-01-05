@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426cf78f6b87acf1d8c7551b0b0a6172a30167b1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 68a129f38e9a94a7e381d11ffa3c3d02791b025b
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621098"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755772"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
-일괄 처리는 저장소에서 많은 양의 오디오를 높여줄 수 있도록 하는 REST API 작업 집합입니다. 일반적인 URI 또는 SAS (공유 액세스 서명) URI를 사용 하 여 오디오 파일을 가리키고 기록 결과를 비동기적으로 받을 수 있습니다. V 3.0 API를 사용 하 여 하나 이상의 오디오 파일을 높여줄 하거나 전체 저장소 컨테이너를 처리할 수 있습니다.
+일괄 처리는 저장소에서 많은 양의 오디오를 높여줄 수 있도록 하는 REST API 작업 집합입니다. 일반적인 URI 또는 [SAS (공유 액세스 서명](../../storage/common/storage-sas-overview.md) ) uri를 사용 하 여 오디오 파일을 가리키고 기록 결과를 비동기적으로 받을 수 있습니다. V 3.0 API를 사용 하 여 하나 이상의 오디오 파일을 높여줄 하거나 전체 저장소 컨테이너를 처리할 수 있습니다.
 
 일괄 처리 기록 REST Api를 사용 하 여 다음 메서드를 호출할 수 있습니다.
 
-|    일괄 처리 기록 작업                                             |    메서드    |    REST API 호출                                   |
+|    일괄 처리 기록 작업                                             |    방법    |    REST API 호출                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    새 기록을 만듭니다.                                              |    POST      |    speechtotext/v 3.0/            |
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
@@ -55,7 +55,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 
 일괄 처리 기록 API는 다음과 같은 형식을 지원 합니다.
 
-| 서식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
+| 형식 | Codec | 샘플 당 비트 수 | 샘플링 주기             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
 | MP3    | PCM   | 16비트  | 8Khz 또는 16khz, mono 또는 스테레오 |
@@ -66,7 +66,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 
 ### <a name="configuration"></a>Configuration
 
-구성 매개 변수는 JSON으로 제공 됩니다.
+구성 매개 변수는 JSON으로 제공 됩니다. 
 
 **하나 이상의 개별 파일을 찍으면 되므로 간편 합니다.** 높여줄에 대 한 파일이 두 개 이상 있는 경우 하나의 요청으로 여러 파일을 보내는 것이 좋습니다. 다음 예제에서는 세 개의 파일을 사용 합니다.
 
@@ -85,7 +85,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
 }
 ```
 
-**전체 저장소 컨테이너 처리:**
+**전체 저장소 컨테이너를 처리 합니다.** 컨테이너 [SAS](../../storage/common/storage-sas-overview.md) 는 `r` (읽기) 및 `l` (목록) 사용 권한을 포함 해야 합니다.
 
 ```json
 {
@@ -177,7 +177,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Azure에서 쓰기 가능한 컨테이너에 [서비스 임시 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다. 저장 된 액세스 정책을 사용 하는 SAS는 지원 **되지 않습니다** . 지정 하지 않으면 microsoft에서 관리 하는 저장소 컨테이너에 결과를 저장 합니다. [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)호출 하 여 기록을 삭제 하면 결과 데이터도 삭제 됩니다.
+      Azure에서 쓰기 가능한 컨테이너에 대 한 [임시 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다. 저장 된 액세스 정책을 사용 하는 SAS는 지원 **되지 않습니다** . 지정 하지 않으면 microsoft에서 관리 하는 저장소 컨테이너에 결과를 저장 합니다. [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)호출 하 여 기록을 삭제 하면 결과 데이터도 삭제 됩니다.
 :::row-end:::
 
 ### <a name="storage"></a>스토리지

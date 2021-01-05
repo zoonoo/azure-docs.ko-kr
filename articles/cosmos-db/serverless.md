@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: cabc243c6ba74217873b5b0a5fa51a7cb410512e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170838"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760363"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>서버를 사용 하지 않는 Azure Cosmos DB (미리 보기)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,7 +19,7 @@ ms.locfileid: "96170838"
 > [!IMPORTANT]
 > 서버를 사용 하지 않는 Azure Cosmos DB 현재 미리 보기 상태입니다. 이 미리 보기 버전은 Service Level Agreement(서비스 수준 약정) 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-서버를 사용 하지 않는 Azure Cosmos DB 데이터베이스 작업에서 사용한 요청 단위 및 데이터에서 사용 하는 저장소에 대해서만 요금이 부과 되는 소비 기반 방식으로 Azure Cosmos 계정을 사용할 수 있습니다. 서버를 사용 하지 않는 모드로 Azure Cosmos DB를 사용 하는 경우에는 최소한의 요금이 부과 되지 않습니다.
+서버를 사용 하지 않는 Azure Cosmos DB 데이터베이스 작업에서 사용한 요청 단위 및 데이터에서 사용 하는 저장소에 대해서만 요금이 부과 되는 소비 기반 방식으로 Azure Cosmos 계정을 사용할 수 있습니다. 서버를 사용 하지 않는 컨테이너는 최소 요금을 청구 하지 않고 용량을 계획 하지 않아도 되는 초당 수천 개의 요청을 처리할 수 있습니다.
 
 > [!IMPORTANT] 
 > 서버 리스에 대 한 의견이 있나요? 의견을 듣고 싶습니다! 서버를 사용 하지 않는 Azure Cosmos DB 팀에 게 메시지를 끌어서 놓으면 [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com) 됩니다.
@@ -36,13 +36,12 @@ Azure Cosmos DB 서버를 사용 하지 않는 최상의 시나리오는 다음�
 - **낮은, 간헐적 및 예기치 않은 트래픽**: 이러한 상황에서 프로 비전 용량이 필요 하지 않으며 비용이 높을 수 있기 때문입니다.
 - **보통 성능**: 서버 리스 컨테이너에 [특정 성능 특성이](#performance) 있으므로
 
-이러한 이유로 서버를 사용 하지 않는 Azure Cosmos DB 다음 유형의 작업에 대해 고려해 야 합니다.
+이러한 이유로 서버를 사용 하지 않는 Azure Cosmos DB는 다음과 같은 경우에 고려해 야 합니다.
 
-- 개발
-- 테스트
-- 프로토타입 생성
-- 개념 증명
-- 낮은 트래픽이 있는 중요 하지 않은 응용 프로그램
+- Azure Cosmos DB 시작
+- 새 응용 프로그램 개발, 테스트 및 프로토타입
+- 예측 하기 어려운 일시적인 트래픽으로 중소 규모의 응용 프로그램 실행
+- [Azure Functions](../azure-functions/functions-overview.md) 와 같은 서버를 사용 하지 않는 계산 서비스와 통합
 
 사용 사례에 가장 적합 한 제품을 선택 하는 방법에 대 한 자세한 지침은 [프로 비전 된 처리량과 서버 리스 서버 간에 선택 하는 방법](throughput-serverless.md) 문서를 참조 하세요.
 

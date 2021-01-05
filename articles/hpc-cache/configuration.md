@@ -4,14 +4,14 @@ description: MTU 및 비 루트 squash 같은 캐시에 대 한 추가 설정을
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 12/21/2020
 ms.author: v-erkel
-ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497202"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760506"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC 캐시 설정 구성
 
@@ -29,7 +29,7 @@ Azure Portal **구성** 페이지에는 여러 설정을 사용자 지정 하는
 ## <a name="adjust-mtu-value"></a>MTU 값 조정
 <!-- linked from troubleshoot-nas article -->
 
-**MTU 크기**레이블이 지정 된 드롭다운 메뉴를 사용 하 여 캐시에 대 한 최대 전송 단위 크기를 선택할 수 있습니다.
+**MTU 크기** 레이블이 지정 된 드롭다운 메뉴를 사용 하 여 캐시에 대 한 최대 전송 단위 크기를 선택할 수 있습니다.
 
 기본값은 1500 바이트 이지만 1400로 변경할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure Portal **구성** 페이지에는 여러 설정을 사용자 지정 하는
 Azure [vm에 대 한 tcp/ip 성능 튜닝](../virtual-network/virtual-network-tcpip-performance-tuning.md)을 읽어 azure virtual NETWORK의 MTU 설정에 대해 자세히 알아보세요.
 
 ## <a name="configure-root-squash"></a>Root squash 구성
-<!-- linked from troubleshoot -->
+<!-- linked from troubleshoot and from access policies -->
 
 **Enable root squash** 설정은 Azure HPC 캐시가 클라이언트 컴퓨터에서 루트 사용자의 요청을 처리 하는 방법을 제어 합니다.
 
@@ -53,7 +53,10 @@ Root squash가 사용 하지 않도록 설정 된 경우 클라이언트 루트 
 
 캐시에서 root squash를 설정 하면 ``no_root_squash`` 저장소 대상으로 사용 되는 NAS 시스템에서 필요한 설정을 보정할 수 있습니다. [NFS 저장소 대상 필수 구성 요소](hpc-cache-prerequisites.md#nfs-storage-requirements)에 대해 자세히 알아보세요. 또한 Azure Blob 저장소 대상에서 사용 하는 경우 보안을 향상 시킬 수 있습니다.
 
-기본 설정은 **예**입니다. 4 월 2020 이전에 만든 캐시에는 기본 설정인 **No**가 있을 수 있습니다.
+기본 설정은 **예** 입니다. 4 월 2020 이전에 만든 캐시에는 기본 설정인 **No** 가 있을 수 있습니다.
+
+> [!TIP]
+> [클라이언트 액세스 정책을](access-policies.md#root-squash)사용자 지정 하 여 특정 저장소 내보내기에 대 한 루트 squash 설정할 수도 있습니다.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Blob 저장소 대상에 대 한 스냅숏 보기
 

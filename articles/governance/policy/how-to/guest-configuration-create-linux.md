@@ -4,12 +4,12 @@ description: Linux용 Azure Policy 게스트 구성 정책을 만드는 방법�
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f6308250717d35dc725b097575bf3921646c6a0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302713"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755874"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
 
@@ -329,10 +329,15 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 
-정책 정의에 대 한 업데이트를 해제 하려면 주의가 필요한 세 개의 필드가 있습니다.
+정책에 대 한 업데이트를 해제 하려면 게스트 구성 패키지와 Azure Policy 정의 세부 정보를 모두 변경 합니다.
 
 > [!NOTE]
 > `version`게스트 구성 할당의 속성은 Microsoft에서 호스팅하는 패키지에만 영향을 주는 것입니다. 사용자 지정 콘텐츠의 버전을 지정 하는 가장 좋은 방법은 버전을 파일 이름에 포함 하는 것입니다.
+
+먼저,를 실행 하 `New-GuestConfigurationPackage` 는 경우 이전 버전에서 고유 하 게 만들 패키지의 이름을 지정 합니다. 이름에 버전 번호를 포함할 수 있습니다 (예:) `PackageName_1.0.0` .
+이 예의 숫자는 패키지를 고유 하 게 만드는 데만 사용 되며 패키지를 다른 패키지 보다 최신 또는 이전 버전으로 간주 하도록 지정 하는 데에는 사용 되지 않습니다.
+
+그런 다음 아래 설명에 따라 cmdlet에 사용 된 매개 변수를 업데이트 합니다 `New-GuestConfigurationPolicy` .
 
 - **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시된 것보다 큰 버전 번호를 지정해야 합니다.
 - **contenturi**: cmdlet을 실행할 때 `New-GuestConfigurationPolicy` 패키지의 위치에 대 한 URI를 지정 해야 합니다. 패키지 버전을 파일 이름에 포함 하면 각 릴리스에서이 속성의 값이 변경 됩니다.

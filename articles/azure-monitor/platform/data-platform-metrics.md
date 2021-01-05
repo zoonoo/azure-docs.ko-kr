@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f64a91e3b285c265296c361366a10443eda18201
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b7af6b489aeb919fd1db0e45ddba58a21b1c3633
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489424"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760143"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Azure Monitor 메트릭 개요
 Azure Monitor 메트릭은 모니터링 되는 [리소스](../monitor-reference.md) 의 숫자 데이터를 시계열 데이터베이스로 수집 하는 Azure Monitor의 기능입니다. 메트릭은 정기적으로 수집 되는 숫자 값으로, 특정 시점에 시스템의 일부 측면을 설명 합니다. Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오를 지원할 수 특히 경고 및 빠른 문제 감지에 유용합니다. 메트릭 탐색기를 사용 하 여 대화형으로 분석 하거나, 값이 임계값을 초과할 때 경고를 사용 하 여 사전에 통보 하거나, 통합 문서 또는 대시보드에서 시각화할 수 있습니다.
@@ -56,7 +56,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 ## <a name="metrics-explorer"></a>메트릭 탐색기
 [메트릭 탐색기](metrics-charts.md)를 사용하여 메트릭 데이터베이스에서 데이터를 대화형으로 분석하고 시간 경과에 따라 여러 가지 메트릭의 값을 기록합니다. 다른 시각화 요소를 사용하여 보려는 대시보드에 차트를 고정할 수 있습니다. [Azure 모니터링 REST API](rest-api-walkthrough.md)를 사용하여 메트릭을 검색할 수도 있습니다.
 
-![메트릭 탐색기](media/data-platform/metrics-explorer.png)
+![메트릭 탐색기](media/data-platform-metrics/metrics-explorer.png)
 
 - 메트릭 탐색기를 사용 하 여 시작 하려면 [Azure Monitor 메트릭 탐색기 시작](metrics-getting-started.md) 을 참조 하세요.
 
@@ -73,7 +73,7 @@ Azure Monitor 메트릭에서 수집한 데이터는 타임 스탬프 데이터 
 ## <a name="multi-dimensional-metrics"></a>다차원 메트릭
 메트릭 데이터의 문제 중 하나는 수집된 값에 대한 컨텍스트를 제공하는 데 제한된 정보를 포함하는 경우가 많다는 것입니다. Azure Monitor는 다차원 메트릭으로 이 문제를 해결합니다. 메트릭의 차원은 메트릭 값을 설명하도록 추가 데이터를 전송하는 이름 값 쌍입니다. 예를 들어 _사용 가능한 디스크 공간_ 메트릭에는 _C:_ , _D:_ 값을 가진 _드라이브_ 라는 차원이 있을 수 있습니다. 이 값을 사용하면 모든 드라이브 또는 각 드라이브에 개별적으로 사용 가능한 디스크 공간을 볼 수 있습니다.
 
-아래 예제에서는 _네트워크 처리량_ 이라는 가상의 메트릭에 대한 두 개의 데이터 세트를 보여줍니다. 첫 번째 데이터 세트에는 차원이 없습니다. 두 번째 데이터 세트에는 두 가지 차원, 즉 _IP 주소_ 와 _방향_ (Direction)의 값이 표시됩니다.
+아래 예제에서는 _네트워크 처리량_ 이라는 가상의 메트릭에 대한 두 개의 데이터 세트를 보여줍니다. 첫 번째 데이터 세트에는 차원이 없습니다. 두 번째 데이터 세트에는 두 가지 차원, 즉 _IP 주소_ 와 _방향_(Direction)의 값이 표시됩니다.
 
 ### <a name="network-throughput"></a>네트워크 처리량
 

@@ -2,16 +2,23 @@
 title: Service Fabric 프로젝트 만들기 다음 단계
 description: Visual Studio에서 방금 만든 애플리케이션 프로젝트에 대해 알아봅니다.  자습서를 사용하여 서비스를 빌드하는 방법을 알아보고 Service Fabric용 서비스 개발에 대해 자세히 알아봅니다.
 ms.topic: conceptual
-ms.date: 12/07/2017
-ms.openlocfilehash: 01a69016e0c299fba0365fab5332b572fd2ca87a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 12/21/2020
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314468"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760438"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계
-Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에서는 사용해 볼 만한 자습서, 프로젝트의 구성, 관심을 둘 만한 추가 정보 및 수행할 수 있는 다음 단계에 대해 설명합니다.
+Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에는 몇 가지 리소스, 관심을 가질 수 있는 몇 가지 추가 정보 및 [다음 단계가](#next-steps)포함 됩니다.
+
+새 사용자가 [자습서, 연습 및 샘플](#get-started-with-tutorials-walk-throughs-and-samples) 을 유용 하 게 찾을 수 있습니다. [만든 응용 프로그램 프로젝트의 구조](#the-application-project)를 검사 하는 것도 유용할 수 있습니다. Service Fabric의 [프로그래밍 모델](#learn-more-about-the-programming-models), [서비스 통신](#learn-about-service-communication), [응용 프로그램 보안](#learn-about-configuring-application-security)및 [응용 프로그램 수명 주기에](#learn-about-the-application-lifecycle)대 한 설명도 포함 되어 있습니다.
+
+숙련 된 사용자는 최대 효율성의 플랫폼과 구조 응용 프로그램을 활용 하는 방법을 배우는 데 도움이 되는 Service Fabric [모범 사례](#learn-about-best-practices) 섹션을 찾을 수 있습니다.
+
+질문이 나 피드백이 있는 경우 나 문제를 보고 하려는 경우 [해당 섹션](#have-questions-or-feedback--need-to-report-an-issue)을 참조 하세요.
 
 ## <a name="get-started-with-tutorials-walk-throughs-and-samples"></a>자습서, 연습 및 샘플 시작하기
 시작할 준비가 되셨나요?  
@@ -26,11 +33,6 @@ Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문�
 
 [애플리케이션 예제](/samples/browse/?products=azure)를 사용해 볼 수도 있습니다.
 
-## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>질문이나 의견이 있으신가요?  문제를 보고해야 하나요?
-[일반적인 질문](service-fabric-common-questions.md)을 자세히 읽고 Service Fabric으로 할 수 있는 작업과 사용 방법에 대한 답변을 찾아보세요.
-
-[지원 옵션](service-fabric-support.md)에는 질문을 하는 것 외에 문제를 보고하고, 지원을 받고, 제품 피드백을 제출하는 옵션을 제공하는 StackOverflow 및 MSDN의 포럼 목록이 나와 있습니다.
-
 ## <a name="the-application-project"></a>애플리케이션 프로젝트
 모든 새 애플리케이션에는 애플리케이션 프로젝트가 포함되어 있습니다. 선택한 서비스의 형식에 따라 하나 또는 두 개의 추가 프로젝트가 있을 수 있습니다.
 
@@ -41,8 +43,6 @@ Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문�
 * 서비스에 대해 만들려는 파티션 수와 같은 환경 관련 애플리케이션 구성을 유지하는 데 사용할 수 있는 세 개의 애플리케이션 매개 변수 파일(위와 동일)입니다. [여러 환경에 대한 애플리케이션을 구성](service-fabric-manage-multiple-environment-app-configuration.md)하는 방법을 알아봅니다.
 * 애플리케이션을 명령줄에서 배포하거나 자동화된 연속 통합 및 배포 파이프라인의 일부로 배포하는 경우에 사용할 수 있는 배포 스크립트입니다. [PowerShell을 사용하여 애플리케이션을 배포](service-fabric-deploy-remove-applications.md)하는 방법에 대해 자세히 알아봅니다.
 * 애플리케이션을 설명하는 애플리케이션 매니페스트입니다. ApplicationPackageRoot 폴더에서 매니페스트를 찾을 수 있습니다. [애플리케이션 및 서비스 매니페스트](service-fabric-application-model.md)에 대해 자세히 알아봅니다.
-
-
 
 ## <a name="learn-more-about-the-programming-models"></a>프로그래밍 모델에 대해 자세히 알아보기
 Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다.  다음은 [상태 비저장 및 상태 저장 Reliable Services](service-fabric-reliable-services-introduction.md), [Reliable Actors](service-fabric-reliable-actors-introduction.md), [컨테이너](service-fabric-containers-overview.md), [게스트 실행 파일](service-fabric-guest-executables-introduction.md) 및 [상태 비저장 및 상태 저장 ASP.NET Core 서비스](service-fabric-reliable-services-communication-aspnetcore.md)에 대한 개요 및 개념 정보입니다.
@@ -57,6 +57,26 @@ Service Fabric 애플리케이션은 여러 가지 서비스로 구성되며, �
 
 ## <a name="learn-about-the-application-lifecycle"></a>애플리케이션 수명 주기에 대해 알아보기
 다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.
+
+## <a name="learn-about-best-practices"></a>모범 사례에 대 한 자세한 정보
+Service Fabric에는 [모범 사례](./service-fabric-best-practices-overview.md)를 설명 하는 다양 한 문서가 있습니다. 이 정보를 활용 하 여 클러스터 및 응용 프로그램의 실행 가능성을 보장 합니다.
+다루는 항목은 다음과 같습니다.
+* [보안](./service-fabric-best-practices-security.md)
+* [네트워킹](./service-fabric-best-practices-networking.md)
+* [컴퓨팅 계획 및 크기 조정](./service-fabric-best-practices-capacity-scaling.md)
+* [코드 제공 인프라(Infrastructure as code)](./service-fabric-best-practices-infrastructure-as-code.md)
+* [모니터링 및 진단](./service-fabric-best-practices-monitoring.md)
+* [애플리케이션 설계](./service-fabric-best-practices-applications.md)
+
+모든 모범 사례 정보를 사용 하기 쉬운 형식으로 통합 하는 [프로덕션 준비 검사 목록](./service-fabric-production-readiness-checklist.md) 도 포함 되어 있습니다.
+
+## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>질문이나 의견이 있으신가요?  문제를 보고해야 하나요?
+[일반적인 질문](service-fabric-common-questions.md)을 자세히 읽고 Service Fabric으로 할 수 있는 작업과 사용 방법에 대한 답변을 찾아보세요.
+
+[문제 해결 가이드](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides) 는 Service Fabric 클러스터의 일반적인 문제를 진단 하 고 해결 하는 데 도움이 될 수 있습니다.
+
+[지원 옵션](service-fabric-support.md)에는 질문을 하는 것 외에 문제를 보고하고, 지원을 받고, 제품 피드백을 제출하는 옵션을 제공하는 StackOverflow 및 MSDN의 포럼 목록이 나와 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure에서 Windows 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)

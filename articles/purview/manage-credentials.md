@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 30004306d9ff44df04a26640a2bd7a09256fce25
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 4c964f3661e120026189a75d331e6db975b41c70
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516678"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756078"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure 부서의 범위에서 원본 인증에 대 한 자격 증명
 
@@ -73,7 +73,7 @@ ms.locfileid: "97516678"
 * SQL 인증: 키 자격 증명 모음에 **암호를 암호로** 추가 합니다.
 * 계정 키: 키 자격 증명 모음에 **계정 키** 를 암호로 추가 합니다.
 
-키 자격 증명 모음에 비밀을 추가 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요. (Insert key vault 문서)
+자세한 내용은 [Key Vault에 암호 추가](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)를 참조 하세요.
 
 키 자격 증명 모음에 비밀을 저장 한 후 자격 증명 명령 모음에서 + 새로 만들기를 선택 하 여 새 자격 증명을 만듭니다. 인증 방법을 선택 하 고 암호를 선택할 Key Vault 인스턴스를 선택 하는 등 필요한 정보를 제공 합니다. 모든 세부 정보를 입력 한 후 만들기를 클릭 합니다.
 

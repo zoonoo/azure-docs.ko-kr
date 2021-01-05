@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: c12935a4b0b9cbbf088ba7b9c5ea804be0ce85a1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447356"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762924"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "96447356"
 
 다음 다이어그램에 배포 워크플로가 나와 있습니다.
 
-![VM 배포 워크플로](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![VM 배포 워크플로](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
 배포 워크플로에 대한 개략적인 요약은 다음과 같습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "96447356"
 10. VNet 만들기
 11. VNet 서브넷 ID를 사용하여 VNIC 만들기
 
-워크플로 다이어그램에 대한 자세한 설명은 [Azure PowerShell을 사용하여 Azure Stack Edge Pro 디바이스에 VM 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)를 참조하세요. Azure Resource Manager에 연결하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure Resource Manager에 연결](azure-stack-edge-j-series-connect-resource-manager.md)을 참조하세요.
+워크플로 다이어그램에 대한 자세한 설명은 [Azure PowerShell을 사용하여 Azure Stack Edge Pro 디바이스에 VM 배포](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md)를 참조하세요. Azure Resource Manager에 연결하는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 Azure Resource Manager에 연결](azure-stack-edge-j-series-connect-resource-manager.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

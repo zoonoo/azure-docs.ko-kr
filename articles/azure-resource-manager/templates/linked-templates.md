@@ -1,22 +1,22 @@
 ---
 title: 배포용 링크 템플릿
-description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 연결 된 템플릿을 사용 하 여 모듈식 템플릿 솔루션을 만드는 방법을 설명 합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 1e2ccc57b42f8072c9aa28612d534507b9a674ed
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: cac63ccdd13e245baf97695e9b138c29d3db4958
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852101"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760625"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
-복잡 한 솔루션을 배포 하려면 템플릿을 여러 관련 템플릿으로 분할 한 다음 주 템플릿을 통해 함께 배포할 수 있습니다. 관련 템플릿은 기본 템플릿 내에 포함 된 별도의 파일 또는 템플릿 구문이 될 수 있습니다. 이 문서에서는 **연결 된 템플릿** 이라는 용어를 사용 하 여 주 템플릿의 링크를 통해 참조 되는 별도의 템플릿 파일을 참조 합니다. **중첩 된 템플릿** 이라는 용어를 사용 하 여 기본 템플릿 내에 포함 된 템플릿 구문을 참조 합니다.
+복잡 한 솔루션을 배포 하려면 Azure Resource Manager 템플릿 (ARM 템플릿)을 여러 관련 템플릿으로 분할 한 다음 주 템플릿을 통해 함께 배포할 수 있습니다. 관련 템플릿은 기본 템플릿 내에 포함 된 별도의 파일 또는 템플릿 구문이 될 수 있습니다. 이 문서에서는 **연결 된 템플릿** 이라는 용어를 사용 하 여 주 템플릿의 링크를 통해 참조 되는 별도의 템플릿 파일을 참조 합니다. **중첩 된 템플릿** 이라는 용어를 사용 하 여 기본 템플릿 내에 포함 된 템플릿 구문을 참조 합니다.
 
 중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. 관련 템플릿을 다른 시나리오에 쉽게 재사용할 수 있습니다.
 
-자습서의 경우 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./deployment-tutorial-linked-template.md)를 참조하세요.
+자습서는 [자습서: 연결 된 템플릿 배포](./deployment-tutorial-linked-template.md)를 참조 하세요.
 
 > [!NOTE]
 > 연결 된 또는 중첩 된 템플릿의 경우에는 배포 모드만 [증분](deployment-modes.md)로 설정할 수 있습니다. 그러나 주 템플릿은 전체 모드로 배포할 수 있습니다. 주 템플릿을 전체 모드로 배포 하 고 연결 된 템플릿이나 중첩 된 템플릿이 동일한 리소스 그룹을 대상으로 하는 경우 연결 된 또는 중첩 된 템플릿에 배포 된 리소스는 전체 모드 배포에 대 한 평가에 포함 됩니다. 주 템플릿과 연결 된 또는 중첩 된 템플릿에 배포 된 리소스의 결합 된 컬렉션을 리소스 그룹의 기존 리소스와 비교 합니다. 이 결합 된 컬렉션에 포함 되지 않은 모든 리소스는 삭제 됩니다.
@@ -26,7 +26,7 @@ ms.locfileid: "96852101"
 
 ## <a name="nested-template"></a>중첩된 템플릿
 
-템플릿을 중첩 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. **템플릿** 속성에서 템플릿 구문을 지정 합니다.
+템플릿을 중첩 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `template` 템플릿 구문을 지정 합니다.
 
 ```json
 {
@@ -283,7 +283,7 @@ ms.locfileid: "96852101"
 
 ## <a name="linked-template"></a>연결된 템플릿
 
-템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. **Templatelink** 속성에서 포함할 템플릿의 URI를 지정 합니다. 다음 예제에서는 저장소 계정에 있는 템플릿에 연결 합니다.
+템플릿을 연결 하려면 [배포 리소스](/azure/templates/microsoft.resources/deployments) 를 기본 템플릿에 추가 합니다. 속성에서 `templateLink` 포함할 템플릿의 URI를 지정 합니다. 다음 예제에서는 저장소 계정에 있는 템플릿에 연결 합니다.
 
 ```json
 {
@@ -310,9 +310,9 @@ ms.locfileid: "96852101"
 }
 ```
 
-연결 된 템플릿을 참조할 때의 값은 로컬 `uri` 파일 또는 로컬 네트워크 에서만 사용할 수 있는 파일 일 수 없습니다. Azure Resource Manager는 템플릿에 액세스할 수 있어야 합니다. **Http** 또는 **https** 로 다운로드 가능한 URI 값을 제공 합니다. 
+연결 된 템플릿을 참조할 때의 값은 로컬 `uri` 파일 또는 로컬 네트워크 에서만 사용할 수 있는 파일 일 수 없습니다. Azure Resource Manager는 템플릿에 액세스할 수 있어야 합니다. HTTP 또는 HTTPS로 다운로드 가능한 URI 값을 제공 합니다.
 
-**Http** 또는 **https** 를 포함 하는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다. 예를 들어 일반적인 패턴은 매개 변수를 사용 하는 것입니다 `_artifactsLocation` . 연결 된 템플릿은 다음과 같은 식을 사용 하 여 설정할 수 있습니다.
+HTTP 또는 HTTPS를 포함 하는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다. 예를 들어 일반적인 패턴은 매개 변수를 사용 하는 것입니다 `_artifactsLocation` . 연결 된 템플릿은 다음과 같은 식을 사용 하 여 설정할 수 있습니다.
 
 ```json
 "uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
@@ -324,47 +324,49 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 ### <a name="parameters-for-linked-template"></a>연결 된 템플릿의 매개 변수
 
-외부 파일이 나 인라인에 연결 된 템플릿에 대 한 매개 변수를 제공할 수 있습니다. 외부 매개 변수 파일을 제공 하는 경우 **parametersLink** 속성을 사용 합니다.
+외부 파일이 나 인라인에 연결 된 템플릿에 대 한 매개 변수를 제공할 수 있습니다. 외부 매개 변수 파일을 제공 하는 경우 속성을 사용 합니다 `parametersLink` .
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "linkedTemplate",
-  "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-      "contentVersion":"1.0.0.0"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
     }
-  }
   }
 ]
 ```
 
-매개 변수 값을 인라인으로 전달 하려면 **parameters** 속성을 사용 합니다.
+매개 변수 값을 인라인으로 전달 하려면 속성을 사용 `parameters` 합니다.
 
 ```json
 "resources": [
   {
-   "type": "Microsoft.Resources/deployments",
-   "apiVersion": "2019-10-01",
-   "name": "linkedTemplate",
-   "properties": {
-     "mode": "Incremental",
-     "templateLink": {
-      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-      "contentVersion":"1.0.0.0"
-     },
-     "parameters": {
-      "storageAccountName":{"value": "[parameters('storageAccountName')]"}
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "linkedTemplate",
+    "properties": {
+      "mode": "Incremental",
+      "templateLink": {
+        "uri": "https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "parameters": {
+        "storageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+        }
+      }
     }
-   }
   }
 ]
 ```
@@ -375,7 +377,7 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 액세스 가능한 끝점에서 연결 된 템플릿을 유지 관리 하는 대신, 배포할 수 있는 단일 엔터티로 주 템플릿과 연결 된 템플릿을 패키지 하는 [템플릿 사양을](template-specs.md) 만들 수 있습니다. 템플릿 사양은 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은 다음을 참조하십시오.
 
 - [자습서: 연결 된 템플릿으로 템플릿 사양을 만듭니다](./template-specs-create-linked.md).
 - [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](./template-specs-deploy-linked-template.md)합니다.
@@ -394,7 +396,7 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 앞의 예제에서는 템플릿 링크에 대한 하드 코딩된 URL 값을 보여 주었습니다. 이 방법은 간단한 템플릿에는 적용 될 수 있지만, 많은 모듈식 템플릿 집합에 대해서는 제대로 작동 하지 않습니다. 대신, 주 템플릿에 대한 기본 URL을 보관하는 정적 변수를 만든 다음 해당 기본 URL에서 연결된 템플릿에 대한 URL을 동적으로 만들 수 있습니다. 이 방법의 장점으로는 주 템플릿에서 정적 변수만 변경 하면 되므로 템플릿을 쉽게 이동 하거나 분기할 수 있습니다. 주 템플릿은 분해된 템플릿 전체에서 올바른 URI를 전달합니다.
 
-다음 예제에서는 기본 URL을 사용하여 연결된 템플릿에 대한 두 개의 URL을 만드는 방법을 보여 줍니다(**sharedTemplateUrl** 및 **vmTemplate**).
+다음 예에서는 기본 URL을 사용 하 여 연결 된 템플릿 (및)에 대 한 두 개의 Url을 만드는 방법을 보여 줍니다 `sharedTemplateUrl` `vmTemplateUrl` .
 
 ```json
 "variables": {
@@ -404,7 +406,7 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 }
 ```
 
-또한 [deployment()](template-functions-deployment.md#deployment) 를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이 방법은 템플릿 위치가 변경되거나 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다. templateLink 속성은 URL을 사용하여 원격 템플릿을 연결할 때만 반환됩니다. 로컬 템플릿을 사용하는 경우 이 속성을 사용할 수 없습니다.
+또한 [deployment()](template-functions-deployment.md#deployment) 를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이 방법은 템플릿 위치가 변경되거나 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다. `templateLink`속성은 URL을 사용 하 여 원격 템플릿에 연결 하는 경우에만 반환 됩니다. 로컬 템플릿을 사용하는 경우 이 속성을 사용할 수 없습니다.
 
 ```json
 "variables": {
@@ -423,49 +425,49 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 ## <a name="using-copy"></a>Copy 사용
 
-중첩 된 템플릿을 사용 하 여 리소스의 여러 인스턴스를 만들려면 **Microsoft .resources/배포** 리소스 수준에 copy 요소를 추가 합니다. 범위가 inner 인 경우 중첩 된 템플릿 내에 복사본을 추가할 수 있습니다.
+중첩 된 템플릿을 사용 하 여 리소스의 여러 인스턴스를 만들려면 `copy` 리소스 수준에서 요소를 추가 `Microsoft.Resources/deployments` 합니다. 또는 범위가 인 경우 중첩 된 `inner` 템플릿 내에 복사본을 추가할 수 있습니다.
 
-다음 예제 템플릿에서는 중첩 된 템플릿과 함께 copy를 사용 하는 방법을 보여 줍니다.
+다음 예제 템플릿에서는 `copy` 중첩 된 템플릿과 함께를 사용 하는 방법을 보여 줍니다.
 
 ```json
 "resources": [
   {
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2019-10-01",
-  "name": "[concat('nestedTemplate', copyIndex())]",
-  // yes, copy works here
-  "copy":{
-    "name": "storagecopy",
-    "count": 2
-  },
-  "properties": {
-    "mode": "Incremental",
-    "expressionEvaluationOptions": {
-    "scope": "inner"
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2019-10-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy": {
+      "name": "storagecopy",
+      "count": 2
     },
-    "template": {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(variables('storageName'), copyIndex())]",
-      "location": "West US",
-      "sku": {
-        "name": "Standard_LRS"
+    "properties": {
+      "mode": "Incremental",
+      "expressionEvaluationOptions": {
+        "scope": "inner"
       },
-      "kind": "StorageV2"
-      // Copy works here when scope is inner
-      // But, when scope is default or outer, you get an error
-      //"copy":{
-      //  "name": "storagecopy",
-      //  "count": 2
-      //}
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "sku": {
+              "name": "Standard_LRS"
+            },
+            "kind": "StorageV2"
+            // Copy works here when scope is inner
+            // But, when scope is default or outer, you get an error
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
       }
-    ]
     }
-  }
   }
 ]
 ```
@@ -476,7 +478,7 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 연결 된 템플릿에서 출력 속성을 가져오는 경우 속성 이름에 대시를 포함 하면 안 됩니다.
 
-다음 예에서는 연결된 템플릿을 참조하고 출력 값을 가져오는 방법을 보여 줍니다. 연결된 템플릿이 간단한 메시지를 반환합니다.  먼저 연결 된 템플릿:
+다음 예에서는 연결된 템플릿을 참조하고 출력 값을 가져오는 방법을 보여 줍니다. 연결된 템플릿이 간단한 메시지를 반환합니다. 먼저 연결 된 템플릿:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/linkedtemplates/helloworld.json":::
 
@@ -613,28 +615,28 @@ done
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-  "containerSasToken": { "type": "securestring" }
+    "containerSasToken": { "type": "securestring" }
   },
   "resources": [
-  {
-    "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2019-10-01",
-    "name": "linkedTemplate",
-    "properties": {
-    "mode": "Incremental",
-    "templateLink": {
-      "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
-      "contentVersion": "1.0.0.0"
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "linkedTemplate",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
     }
-    }
-  }
   ],
   "outputs": {
   }
 }
 ```
 
-PowerShell에서는 다음 명령을 사용하여 컨테이너용 토큰을 얻고 템플릿을 배포합니다. **containerSasToken** 매개 변수는 템플릿에 정의됩니다. **New-AzResourceGroupDeployment** 명령의 매개 변수가 아닙니다.
+PowerShell에서는 다음 명령을 사용하여 컨테이너용 토큰을 얻고 템플릿을 배포합니다. `containerSasToken`매개 변수가 템플릿에 정의 되어 있는지 확인 합니다. 명령의 매개 변수가 아닙니다 `New-AzResourceGroupDeployment` .
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -680,7 +682,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자습서를 진행하려면 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./deployment-tutorial-linked-template.md)를 참조하세요.
-* 리소스 배포 순서를 정의하는 방법을 알아보려면 [Azure Resource Manager 템플릿에서 종속성 정의](define-resource-dependency.md)를 참조하세요.
-* 한 리소스를 정의 하 되 여러 인스턴스를 만드는 방법을 알아보려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조 하세요.
-* 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](deploy-powershell.md) 또는 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](deploy-cli.md)를 참조하세요.
+* 자습서를 진행 하려면 [자습서: 연결 된 템플릿 배포](./deployment-tutorial-linked-template.md)를 참조 하세요.
+* 리소스의 배포 순서를 정의 하는 방법에 대 한 자세한 내용은 [ARM 템플릿에서 리소스를 배포 하는 순서 정의](define-resource-dependency.md)를 참조 하세요.
+* 한 리소스를 정의 하 되 여러 인스턴스를 만드는 방법을 알아보려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.
+* 저장소 계정에서 템플릿을 설정 하 고 SAS 토큰을 생성 하는 단계에 대 한 자세한 내용은 [arm 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md) 또는 [arm 템플릿과 Azure CLI를 사용 하 여 리소스 배포](deploy-cli.md)를 참조 하세요.

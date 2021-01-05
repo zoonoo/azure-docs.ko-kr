@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/23/2020
 ms.author: memildin
-ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 3899b00038f3c12add4dbf49a7f05e07141d8606
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512281"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755857"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -108,7 +108,7 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
     각 보기에서 보안 검사는 **심각도** 를 기준으로 정렬 됩니다. 특정 보안 검사를 클릭 하 여 세부 정보 창에 **설명** **,이를 수정 하는** 방법 및 **영향** 또는 **벤치 마크** 와 같은 기타 관련 정보를 표시 합니다.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender for SQL 경고
-경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 경고 [참조 페이지의 SQL Database 및 Azure Synapse Analytics에 대 한 경고 섹션](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.
+경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 [경고 참조 페이지](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.
 
 ## <a name="explore-and-investigate-security-alerts"></a>보안 경고 탐색 및 조사
 
@@ -126,9 +126,8 @@ Azure Defender for SQL 경고는 Security Center의 경고 페이지, 리소스�
 
 ## <a name="next-steps"></a>다음 단계
 
-관련 자료는 다음 문서를 참조 하세요.
+관련 자료는 다음 문서를 참조하세요.
 
 - [SQL Database 및 Azure Synapse 분석에 대 한 보안 경고](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [보안 경고에 대한 이메일 알림 설정](security-center-provide-security-contact-details.md)
 - [Azure 센티널에 대해 자세히 알아보기](../sentinel/index.yml)
-- [Azure Security Center의 데이터 보안 패키지](../azure-sql/database/azure-defender-for-sql.md)

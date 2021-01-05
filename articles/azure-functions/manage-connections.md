@@ -4,12 +4,12 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 6a426aff1721ac3565b53cf2eef7c5aa094dd7e2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 53848e6273cf59439d44b431652981b18bdd5ba6
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168310"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755959"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -103,7 +103,7 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
-V3. x 함수를 사용 하는 경우 참조를 Microsoft.Azure.Doc하는 데 필요 합니다. 코드에 참조를 추가 합니다.
+V3. x 함수를 사용 하는 경우에는 Microsoft.Azure.DocumentDB. Core에 대 한 참조가 필요 합니다. 코드에 참조를 추가 합니다.
 
 ```cs
 #r "Microsoft.Azure.DocumentDB.Core"

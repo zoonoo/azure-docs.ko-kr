@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187258"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760336"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>프로 비전 된 처리량과 서버 리스 서버 중에서 선택 하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,8 +24,8 @@ Azure Cosmos DB는 [프로 비전 된 처리량](set-throughput.md) 및 [서버]
 
 | 조건 | 프로비전된 처리량 | 서버를 사용하지 않음 |
 | --- | --- | --- |
-| 상태 | 일반 공급 | 미리 보기 |
-| 가장 적합한 용도 | 예측 가능한 성능이 필요한 중요 업무용 워크 로드 | 가볍고 간헐적인 트래픽을 포함 하는 중요 하지 않은 중소 워크 로드 |
+| Status | 일반 공급 | 미리 보기 |
+| 가장 적합한 용도 | 예측 가능한 성능이 필요한 중요 업무용 워크 로드 | 예측 하기 어려운 가볍고 간헐적인 트래픽이 있는 중소 규모의 워크 로드 |
 | 작동 방식 | 각 컨테이너에 대해 초당 [요청 단위로](request-units.md) 표현 된 처리량을 프로 비전 합니다. 초 마다이 요청 단위를 데이터베이스 작업에 사용할 수 있습니다. 프로 비전 된 처리량을 수동으로 업데이트 하거나 자동 [크기 조정을](provision-throughput-autoscale.md)사용 하 여 자동으로 조정할 수 있습니다. | 용량을 프로 비전 하지 않고도 컨테이너에 대해 데이터베이스 작업을 실행할 수 있습니다. |
 | 지역 배포 | 사용 가능 (Azure 지역 수 제한 없음) | 사용할 수 없음 (서버 리스 계정은 1 개의 Azure 지역 에서만 실행할 수 있음) |
 | 컨테이너당 최대 스토리지 | 제한 없음 | 50GB |

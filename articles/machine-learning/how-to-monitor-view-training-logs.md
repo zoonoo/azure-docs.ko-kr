@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0dd5f6a48175bad35b37155c8ff881e352922ca7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674476"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756061"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -121,7 +121,7 @@ RunDetails(run).show()
 아래 표에는이 섹션에서 볼 수 있는 폴더의 로그 파일 내용이 나와 있습니다.
 
 > [!NOTE]
-> SkimmingYou에 모든 실행에 대 한 모든 파일이 반드시 표시 되지 않는 경우에도 사용자에 게 알리는 정보입니다. 예를 들어 20_image_build_log * .txt는 새 이미지가 작성 된 경우에만 나타납니다 (예: 환경을 변경 하는 경우).
+> 모든 실행에 대 한 모든 파일이 반드시 표시 되는 것은 아닙니다. 예를 들어 20_image_build_log * .txt는 새 이미지가 작성 된 경우에만 나타납니다 (예: 환경을 변경 하는 경우).
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` 폴더
 

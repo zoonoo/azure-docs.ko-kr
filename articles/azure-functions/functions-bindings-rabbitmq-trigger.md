@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673990"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760404"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 트리거
 
 > [!NOTE]
-> RabbitMQ 바인딩은 **Windows Premium 및 전용** 계획 에서만 완벽 하 게 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
+> RabbitMQ 바인딩은 **프리미엄 및 전용** 계획 에서만 완전 하 게 지원 됩니다. 소비는 지원 되지 않습니다.
 
 RabbitMQ 트리거를 사용 하 여 RabbitMQ 큐의 메시지에 응답 합니다.
 
@@ -43,18 +43,23 @@ public static void RabbitMQTrigger_BasicDeliverEventArgs(
 다음 예제에서는 POCO로 메시지를 읽는 방법을 보여 줍니다.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
 
-[FunctionName("RabbitMQTriggerCSharp")]
-public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
-    ILogger logger
-    )
-{
-    logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {Encoding.UTF8.GetString(pocObj)}");
+    public class RabbitMQTriggerCSharp{
+        [FunctionName("RabbitMQTriggerCSharp")]
+        public static void RabbitMQTrigger_BasicDeliverEventArgs(
+            [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
+            ILogger logger
+            )
+        {
+            logger.LogInformation($"C# RabbitMQ queue trigger function processed message: {pocObj}");
+        }
+    }
 }
 ```
 
@@ -82,7 +87,7 @@ Json 개체와 마찬가지로 메시지의 형식이 c # 개체로 올바르게
 
 C# 스크립트 코드는 다음과 같습니다.
 
-```csx
+```C#
 using System;
 
 public static void Run(string myQueueItem, ILogger log)
@@ -216,7 +221,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**userNameSetting**|**UserNameSetting**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 데 사용할 사용자 이름이 포함 된 앱 설정의 이름입니다. 예: UserNameSetting: "% < UserNameFromSettings >%"|
 |**passwordSetting**|**PasswordSetting**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하기 위한 암호를 포함 하는 앱 설정의 이름입니다. 예: PasswordSetting: "% < PasswordFromSettings >%"|
 |**connectionStringSetting**|**ConnectionStringSetting**|RabbitMQ message queue 연결 문자열이 포함 된 앱 설정의 이름입니다. local.settings.js에서 앱 설정을 통해서가 아니라 직접 연결 문자열을 지정 하는 경우에는 트리거가 작동 하지 않습니다. (예: *function.json*: connectionStringSetting: "rabbitMQConnection" <br> *local.settings.js*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**포트**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
+|**port**|**포트**|(ConnectionStringSetting를 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 rabbitmq client의 기본 포트 설정인 5672을 가리키는 0입니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -280,7 +285,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 |prefetchCount|30|메시지 수신자가 동시에 요청 하 고 캐시 하는 메시지 수를 가져오거나 설정 합니다.|
 |queueName|해당 없음| 메시지를 받을 큐의 이름입니다.|
 |connectionString|해당 없음|RabbitMQ 메시지 큐 연결 문자열입니다. 연결 문자열은 앱 설정이 아니라 여기에 직접 지정 됩니다.|
-|포트|0|(ConnectionStringSetting를 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 0입니다.|
+|포트|0|(connectionString을 사용 하는 경우 무시 됨) 사용 되는 포트를 가져오거나 설정 합니다. 기본값은 rabbitmq client의 기본 포트 설정인 5672을 가리키는 0입니다.|
 
 ## <a name="local-testing"></a>로컬 테스트
 
@@ -305,9 +310,24 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|hostName|해당 없음|(ConnectStringSetting을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
-|userName|해당 없음|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 이름 |
-|password|해당 없음|(ConnectionStringSetting를 사용 하는 경우 무시 됨) <br>큐에 액세스 하기 위한 암호|
+|hostName|해당 없음|(connectionString을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
+|userName|해당 없음|(connectionString을 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 이름 |
+|password|해당 없음|(connectionString을 사용 하는 경우 무시 됨) <br>큐에 액세스 하기 위한 암호|
+
+
+## <a name="enable-runtime-scaling"></a>런타임 배율 사용
+
+RabbitMQ 트리거가 여러 인스턴스로 확장 되려면 **런타임 규모 모니터링** 설정을 사용 하도록 설정 해야 합니다. 
+
+포털에서이 설정은   >  함수 앱에 대 한 구성 **함수 런타임 설정** 에서 찾을 수 있습니다.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+CLI에서 다음 명령을 사용 하 여 **런타임 크기 조정 모니터링** 을 사용 하도록 설정할 수 있습니다.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## <a name="monitoring-rabbitmq-endpoint"></a>RabbitMQ 끝점 모니터링
 특정 RabbitMQ 끝점에 대 한 큐 및 교환을 모니터링 하려면:

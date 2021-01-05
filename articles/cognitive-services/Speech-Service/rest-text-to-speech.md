@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 77a8321ba8bac0ecaf577bce6c3c05d10508128e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: references_regions
+ms.openlocfilehash: bfdea5f2e2bd20a35ee948e99b3be9bf55038b13
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96020163"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760659"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -34,7 +35,7 @@ ms.locfileid: "96020163"
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
 > [!TIP]
-> FairFax (정부 클라우드) 끝점에 대 한 Azure 정부 [설명서](../../azure-government/compare-azure-government-global-azure.md) 를 참조 하세요.
+> FairFax (정부 클라우드) 끝점에 대 한 [Azure 정부 설명서](/azure/azure-government/compare-azure-government-global-azure) 를 참조 하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -65,6 +66,9 @@ ms.locfileid: "96020163"
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+
+> [!TIP]
+> [미리 보기의 음성](language-support.md#neural-voices-in-preview) 은 미국 동부, 유럽 서부 및 동남 아시아의 3 개 지역 에서만 사용할 수 있습니다.
 
 ### <a name="request-headers"></a>요청 헤더
 
@@ -98,46 +102,78 @@ Authorization: Bearer [Base64 access_token]
 
 ```json
 [
+  {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+    "DisplayName": "Hoda",
+    "LocalName": "هدى",
+    "ShortName": "ar-EG-Hoda",
+    "Gender": "Female",
+    "Locale": "ar-EG",
+    "SampleRateHertz": "16000",
+    "VoiceType": "Standard",
+    "Status": "GA"
+  },
+
+...
+      
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-        "ShortName": "ar-EG-Hoda",
-        "Gender": "Female",
-        "Locale": "ar-EG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
-        "ShortName": "ar-SA-Naayf",
-        "Gender": "Male",
-        "Locale": "ar-SA",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
-        "ShortName": "bg-BG-Ivan",
-        "Gender": "Male",
-        "Locale": "bg-BG",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
-        "ShortName": "ca-ES-HerenaRUS",
-        "Gender": "Female",
-        "Locale": "ca-ES",
-        "SampleRateHertz": "16000",
-        "VoiceType": "Standard"
-    },
-    {
-        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
-        "ShortName": "zh-CN-XiaoxiaoNeural",
-        "Gender": "Female",
-        "Locale": "zh-CN",
-        "SampleRateHertz": "24000",
-        "VoiceType": "Neural"
-    },
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)",
+    "DisplayName": "Aria",
+    "LocalName": "Aria",
+    "ShortName": "en-US-AriaNeural",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "StyleList": [
+      "chat",
+      "customerservice",
+      "newscast-casual",
+      "newscast-formal",
+      "cheerful",
+      "empathetic"
+    ],
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "GA"
+  },
+  
+  ...
+    
+     {
+    "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
+    "DisplayName": "Orla",
+    "LocalName": "Orla",
+    "ShortName": "ga-IE-OrlaNeural",
+    "Gender": "Female",
+    "Locale": "ga-IE",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "Preview"
+  },
+  
+  ...
+    
+   {
+    "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, YunxiNeural)",
+    "DisplayName": "Yunxi",
+    "LocalName": "云希",
+    "ShortName": "zh-CN-YunxiNeural",
+    "Gender": "Male",
+    "Locale": "zh-CN",
+    "StyleList": [
+      "Calm",
+      "Fearful",
+      "Cheerful",
+      "Disgruntled",
+      "Serious",
+      "Angry",
+      "Sad",
+      "Depressed",
+      "Embarrassed"
+    ],
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "Status": "Preview"
+  },
 
     ...
 ]
@@ -208,23 +244,17 @@ audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
 
-X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+X-Microsoft-OutputFormat: raw-24khz-16bit-mono-pcm
 Content-Type: application/ssml+xml
 Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='en-US-AriaRUS'>
+    name='en-US-AriaNeural'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
-
-언어 관련 예제는 빠른 시작을 참조 하세요.
-
-* [.NET Core, C #](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
-* [Python](./get-started-text-to-speech.md?pivots=programming-language-python)
-* [Node.JS](./get-started-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP 상태 코드
 
@@ -235,7 +265,6 @@ Authorization: Bearer [Base64 access_token]
 | 200 | 확인 | 요청이 성공했습니다. 응답 본문이 오디오 파일입니다. |
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
 | 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
-| 413 | 요청 엔터티가 너무 큼 | SSML 입력이 1024자보다 깁니다. |
 | 415 | 지원되지 않는 미디어 유형 | 잘못 된를 제공 했을 수 `Content-Type` 있습니다. `Content-Type` 로 설정 해야 `application/ssml+xml` 합니다. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
 | 502 | 잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
@@ -245,5 +274,5 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 ## <a name="next-steps"></a>다음 단계
 
 - [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-- [긴 형식의 오디오에 대 한 비동기 합성](./long-audio-api.md)
+- [긴 형식의 오디오에 대 한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Custom Voice 시작](how-to-custom-voice.md)

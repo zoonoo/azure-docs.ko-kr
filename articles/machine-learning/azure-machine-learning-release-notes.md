@@ -9,18 +9,16 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 4998469fa353fef9e8a91d078349150d9f739ac2
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779416"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760115"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
-
-알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
 ## <a name="2020-12-07"></a>2020-12-07
 
@@ -854,7 +852,7 @@ ms.locfileid: "96779416"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     설명  |
+| 웹 기반 도구  |     Description  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1366,7 +1364,7 @@ ms.locfileid: "96779416"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | 설명 | 
+| 웹 기반 도구 | Description | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 
@@ -1554,13 +1552,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
+    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
 
         ```py
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
+        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
 
         ```py
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -1569,7 +1567,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
+        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
 
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
