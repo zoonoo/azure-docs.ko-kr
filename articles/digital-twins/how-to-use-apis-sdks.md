@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9f9cc53c62ed19fa5fbd1e78c840a8a34b6fb84
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3c880d570cfa6e1b1388e59557836a3070d7cdc7
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824656"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862549"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -29,7 +29,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 최신 제어 평면 API 버전은 _**2020-12-01**_ 입니다.
 
 제어 평면 Api를 사용 하려면 다음을 수행 합니다.
-* [제어 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins)에서 최신 Swagger를 참조 하 여 api를 직접 호출할 수 있습니다. 또한이 리포지토리에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.
+* [컨트롤 평면 swagger 리포지토리의](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable)최신 Swagger 폴더를 참조 하 여 api를 직접 호출할 수 있습니다. 이 폴더에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다.
 * 현재에서 컨트롤 Api에 대 한 Sdk에 액세스할 수 있습니다.
   - [**.Net (c #)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([참조 [자동 생성]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([원본](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
   - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([참조 [자동 생성]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([원본](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
@@ -51,7 +51,7 @@ Azure Digital Twins는 인스턴스 및 해당 요소를 관리 하기 위한 **
 
 데이터 평면 Api를 사용 하려면 다음을 수행 합니다.
 * Api는 다음을 통해 직접 호출할 수 있습니다.
-   - [데이터 평면 swagger 폴더](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)에서 최신 Swagger를 참조 합니다. 또한이 리포지토리에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다. 
+   - [데이터 평면 swagger 리포지토리의](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)최신 Swagger 폴더를 참조 합니다. 이 폴더에는 사용법을 보여 주는 예제 폴더도 포함 되어 있습니다. 
    - [API 참조 설명서](/rest/api/azure-digitaltwins/)보기
 * **.Net (c #) SDK** 를 사용할 수 있습니다. .NET SDK를 사용 하려면 ...
    - NuGet: [DigitalTwins](https://www.nuget.org/packages/Azure.DigitalTwins.Core)에서 패키지를 보고 추가할 수 있습니다. 

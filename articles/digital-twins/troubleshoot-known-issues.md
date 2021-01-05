@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: a9735e355244d51464c66c10e02f97f03d2e67cd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673474"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862457"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -37,13 +37,21 @@ ms.locfileid: "97673474"
 | --- | --- | --- |
 | 스크립트를 실행 한 후 역할 할당이 성공적으로 설정 되었는지 확인 하려면 설치 문서의 [*사용자 역할 할당 확인*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) 섹션에 있는 지침을 따르세요. 사용자가이 역할에 표시 되지 않는 경우이 문제가 영향을 받습니다. | 사용자가 [MSA (개인 Microsoft 계정)](https://account.microsoft.com/account)로 로그인 한 사용자의 경우 사용자의 로그인 메일과 다를 수 있습니다. 사용자의 로그인 메일과 같이 스크립트를 검색 하 여 역할을 적절 하 게 할당 하는 데 사용 하기 어려울 수 있습니다. | 해결 하려면 [CLI 명령](how-to-set-up-instance-cli.md#set-up-user-access-permissions) 또는 [Azure Portal 지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)을 사용 하 여 수동으로 역할 할당을 설정할 수 있습니다. |
 
-## <a name="issue-with-interactive-browser-authentication"></a>대화형 브라우저 인증과 관련 된 문제
+## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Azure의 대화형 브라우저 인증에 문제가 있습니다. Identity 1.2.0
 
 **문제 설명:** Azure **1.2.0** **[](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) 라이브러리** 의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드와 관련 된 문제가 발생할 수 있습니다. 이는 브라우저 창에서 인증을 시도할 때 "AuthenticationFailedException"의 오류 응답으로 표시 됩니다. 브라우저 창이 완전히 시작 되지 않거나 사용자를 성공적으로 인증 하는 것 처럼 보이지만 클라이언트 응용 프로그램은 오류와 함께 실패 합니다.
 
 | 이는 영향을 미칩니까? | 원인 | 해결 방법 |
 | --- | --- | --- |
 | &nbsp;영향을 받는 &nbsp; 메서드는 &nbsp; &nbsp; &nbsp; &nbsp; 다음 문서에서 사용 됩니다 &nbsp; .<br><br>[*자습서: 클라이언트 앱 코딩*](tutorial-code.md)<br><br>[*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)<br><br>[*방법: Azure Digital Twins Api 및 Sdk 사용*](how-to-use-apis-sdks.md) | 일부 사용자에 게는 라이브러리의 버전 **1.2.0** 문제가 있습니다 `Azure.Identity` . | 이 문제를 해결 하려면 [최신 버전](https://www.nuget.org/packages/Azure.Identity) 의를 사용 하도록 응용 프로그램을 업데이트 `Azure.Identity` 합니다. 라이브러리 버전을 업데이트 한 후 브라우저에서 예상 대로 로드 하 고 인증 해야 합니다. |
+
+## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Azure에서 기본 Azure 자격 증명 인증에 문제가 있습니다. Identity 1.3.0
+
+**문제 설명:** Azure **1.3.0** **[](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) 라이브러리** 의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 이러한 문서 전체에서 많은 샘플에 사용 된 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) 메서드와 관련 된 문제가 발생할 수 있습니다. 이는 코드에서 인증을 시도할 때 "AuthenticationFailedException: SharedTokenCacheCredential authentication failed"의 오류 응답으로 표시 됩니다.
+
+| 이는 영향을 미칩니까? | 원인 | 해결 방법 |
+| --- | --- | --- |
+| DefaultAzureCredential는 인증을 포함 하는 대부분의 설명서 예제에서 사용 됩니다. DefaultAzureCredential를 사용 하 고 라이브러리의 버전 1.3.0를 사용 하 여 인증 코드를 작성 하는 경우 `Azure.Identity` 영향을 받을 수 있습니다. | 이 문제는 라이브러리의 버전 **1.3.0** 과 함께 DefaultAzureCredential를 사용 하는 경우에 나타납니다 `Azure.Identity` . | 이 문제를 해결 하려면 [1.2.2의 버전](https://www.nuget.org/packages/Azure.Identity/1.2.2) 을 사용 하도록 응용 프로그램을 전환 `Azure.Identity` 합니다. 라이브러리 버전을 변경한 후에는 인증이 정상적으로 완료 되어야 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

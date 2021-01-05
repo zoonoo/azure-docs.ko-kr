@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e1ae369560fcf8357e6016e1f7e2e438edd8c9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803224"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862440"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -141,7 +141,7 @@ Azure AD 프로 비전 서비스는 현재 순환 방식으로 작동 합니다.
 **서비스 범주:** 기타  
 **제품 기능:** 자격 관리
  
-새 위임 된 권한 EntitlementManagement는 이제 Microsoft Graph beta의 자격 관리 API에서 사용할 수 있습니다. 사용 가능한 Api에 대해 자세히 알아보려면 [AZURE AD 자격 관리 Api 작업](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)을 참조 하세요.
+새 위임 된 권한 EntitlementManagement는 이제 Microsoft Graph beta의 자격 관리 API에서 사용할 수 있습니다. 사용 가능한 Api에 대해 자세히 알아보려면 [AZURE AD 자격 관리 Api 작업](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true)을 참조 하세요.
 
 ---
 
@@ -339,7 +339,7 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 �
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** Id 보안 & 보호
 
-[AZURE AD 조건부 액세스에 대 한 보고서 전용 모드](../conditional-access/concept-conditional-access-report-only.md) 를 통해 액세스 제어를 적용 하지 않고 정책의 결과를 평가할 수 있습니다. 조직 전체에서 보고서 전용 정책을 테스트 하 고 사용 하도록 설정 하기 전에 영향을 파악 하 여 배포를 더 안전 하 고 쉽게 만들 수 있습니다. 지난 몇 달 동안 보고서 전용 모드를 강력 하 게 채택 했습니다. 26M 사용자는 이미 보고서 전용 정책의 범위에 있습니다. 오늘 공지를 사용 하면 기본적으로 새 Azure AD 조건부 액세스 정책이 보고서 전용 모드에서 생성 됩니다. 즉, 정책을 만든 순간부터 정책의 영향을 모니터링할 수 있습니다. MS Graph Api를 사용 하는 사용자의 경우에도 [프로그래밍 방식으로 보고서 전용 정책을 관리할](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta) 수 있습니다. 
+[AZURE AD 조건부 액세스에 대 한 보고서 전용 모드](../conditional-access/concept-conditional-access-report-only.md) 를 통해 액세스 제어를 적용 하지 않고 정책의 결과를 평가할 수 있습니다. 조직 전체에서 보고서 전용 정책을 테스트 하 고 사용 하도록 설정 하기 전에 영향을 파악 하 여 배포를 더 안전 하 고 쉽게 만들 수 있습니다. 지난 몇 달 동안 보고서 전용 모드를 강력 하 게 채택 했습니다. 26M 사용자는 이미 보고서 전용 정책의 범위에 있습니다. 오늘 공지를 사용 하면 기본적으로 새 Azure AD 조건부 액세스 정책이 보고서 전용 모드에서 생성 됩니다. 즉, 정책을 만든 순간부터 정책의 영향을 모니터링할 수 있습니다. MS Graph Api를 사용 하는 사용자의 경우에도 [프로그래밍 방식으로 보고서 전용 정책을 관리할](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true) 수 있습니다. 
 
 ---
 
@@ -406,7 +406,7 @@ Microsoft Graph Directory 개체 Api에 대 한 새로운 기능이 도입 되�
 * [Juno Journey](../saas-apps/juno-journey-provisioning-tutorial.md)
 * [MediusFlow](../saas-apps/mediusflow-provisioning-tutorial.md)
 * [조직별 새 Relic](../saas-apps/new-relic-by-organization-provisioning-tutorial.md)
-* [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md)
+* [Oracle Cloud Infrastructure Console](../saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial.md)
 
 자동화된 사용자 계정 프로비저닝을 사용하여 조직의 보안을 강화하는 방법에 대한 자세한 내용은 [Azure AD를 사용하여 SaaS 애플리케이션에 대한 사용자 프로비저닝 자동화](../app-provisioning/user-provisioning.md)를 참조하세요.
 
@@ -546,7 +546,7 @@ Microsoft는 향후 b2b 공동 작업 자격 증명을 사용 하도록 기존 �
 
 **제품 기능:** Id 보안 & 보호
 
-[AZURE AD 조건부 액세스에 대 한 보고서 전용 모드](../conditional-access/concept-conditional-access-report-only.md) 를 통해 액세스 제어를 적용 하지 않고 정책의 결과를 평가할 수 있습니다. 조직 전체에서 보고서 전용 정책을 테스트 하 고 사용 하도록 설정 하기 전에 영향을 파악 하 여 배포를 더 안전 하 고 쉽게 만들 수 있습니다. 지난 몇 달 동안 보고서 전용 정책의 범위에 이미 있는 26M 사용자를 포함 하 여 보고서 전용 모드를 강력 하 게 채택 했습니다. 이 공지를 사용 하면 기본적으로 새 Azure AD 조건부 액세스 정책이 보고서 전용 모드에서 생성 됩니다. 즉, 정책을 만든 순간부터 정책의 영향을 모니터링할 수 있습니다. MS Graph Api를 사용 하는 사용자의 경우에는 [프로그래밍 방식으로 보고서 전용 정책을 관리할](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)수도 있습니다. 
+[AZURE AD 조건부 액세스에 대 한 보고서 전용 모드](../conditional-access/concept-conditional-access-report-only.md) 를 통해 액세스 제어를 적용 하지 않고 정책의 결과를 평가할 수 있습니다. 조직 전체에서 보고서 전용 정책을 테스트 하 고 사용 하도록 설정 하기 전에 영향을 파악 하 여 배포를 더 안전 하 고 쉽게 만들 수 있습니다. 지난 몇 달 동안 보고서 전용 정책의 범위에 이미 있는 26M 사용자를 포함 하 여 보고서 전용 모드를 강력 하 게 채택 했습니다. 이 공지를 사용 하면 기본적으로 새 Azure AD 조건부 액세스 정책이 보고서 전용 모드에서 생성 됩니다. 즉, 정책을 만든 순간부터 정책의 영향을 모니터링할 수 있습니다. MS Graph Api를 사용 하는 사용자의 경우에는 [프로그래밍 방식으로 보고서 전용 정책을 관리할](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true)수도 있습니다. 
 
 ---
 
@@ -598,7 +598,7 @@ Microsoft는 향후 b2b 공동 작업 자격 증명을 사용 하도록 기존 �
 
 **제품 기능:** 개발자 환경
 
-OAuth2PermissionGrant에 대 한 델타 쿼리는 공개 미리 보기에서 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링할 필요 없이 변경 내용을 추적할 수 있습니다. [자세한 정보](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta)
+OAuth2PermissionGrant에 대 한 델타 쿼리는 공개 미리 보기에서 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링할 필요 없이 변경 내용을 추적할 수 있습니다. [자세한 정보](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -632,7 +632,7 @@ OAuth2PermissionGrant에 대 한 델타 쿼리는 공개 미리 보기에서 사
 
 **서비스 범주:** MS 그래프
 
-**제품 기능:** 관리 단위에 대 한 개발자 환경 델타 쿼리는 공개 미리 보기에서 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링할 필요 없이 변경 내용을 추적할 수 있습니다. [자세한 정보](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta)
+**제품 기능:** 관리 단위에 대 한 개발자 환경 델타 쿼리는 공개 미리 보기에서 사용할 수 있습니다. 이제 Microsoft Graph를 지속적으로 폴링할 필요 없이 변경 내용을 추적할 수 있습니다. [자세한 정보](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -650,7 +650,7 @@ OAuth2PermissionGrant에 대 한 델타 쿼리는 공개 미리 보기에서 사
 - 사용자의 암호 다시 설정
 - SMS 로그인 설정 및 해제
 
-자세한 내용은 [AZURE AD 인증 방법 API 개요](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta)를 참조 하세요.
+자세한 내용은 [AZURE AD 인증 방법 API 개요](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)를 참조 하세요.
 
 ---
 
@@ -1424,7 +1424,7 @@ Azure Active Directory 테 넌 트에서 프로 비전, Openid connect 연결 �
 
 **유형:** 변경 계획 **서비스 범주:** Identity Protection **제품 기능:** ID 보안 및 보호
 
-개발자 피드백에 대한 응답으로, Azure AD Premium P2 구독자는 이제 새 Microsoft Graph용 riskDetection API를 사용하여 Azure Active Directory Identity Protection의 위험 검색 데이터에 대한 복합 쿼리를 수행할 수 있습니다. 기존 [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) API 베타 버전은 **2020년 1월 10일** 경부터 데이터 반환을 중지할 예정입니다. identityRiskEvent API를 사용하는 조직에서는 새 riskDetection API로 전환해야 합니다.
+개발자 피드백에 대한 응답으로, Azure AD Premium P2 구독자는 이제 새 Microsoft Graph용 riskDetection API를 사용하여 Azure Active Directory Identity Protection의 위험 검색 데이터에 대한 복합 쿼리를 수행할 수 있습니다. 기존 [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) API 베타 버전은 **2020년 1월 10일** 경부터 데이터 반환을 중지할 예정입니다. identityRiskEvent API를 사용하는 조직에서는 새 riskDetection API로 전환해야 합니다.
 
 새 riskDetection API에 대한 자세한 내용은 [위험 검색 API 참조 설명서](/graph/api/resources/riskdetection)에서 확인할 수 있습니다.
 
@@ -2144,7 +2144,7 @@ Azure AD Domain Service 보안 감사를 공개 미리 보기로 사용할 수 �
 
 Microsoft Graph용 새 riskDetections API를 공개 미리 보기로 사용할 수 있다는 기쁜 소식을 전해드립니다. 이 새 API를 사용하여 조직의 Identity Protection 관련 사용자 및 로그인 위험 검색 목록을 볼 수 있습니다. 또한 이 API를 사용하여 검색 유형, 상태, 수준 등에 대한 세부 정보를 포함하여 위험 검색을 보다 효율적으로 쿼리할 수 있습니다.
 
-자세한 내용은 [위험 검색 API 참조 문서](/graph/api/resources/riskdetection?view=graph-rest-beta)를 확인하세요.
+자세한 내용은 [위험 검색 API 참조 문서](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true)를 확인하세요.
 
 ---
 
@@ -2292,7 +2292,7 @@ ID 보안 점수 기능에 대한 자세한 내용은 [Azure Active Directory의
 
 이제 위험한 사용자 API를 사용하여 사용자의 위험 기록을 검색하고, 위험한 사용자를 해제하고, 사용자가 손상된 것으로 확인할 수 있습니다. 이번 변화로 인해 사용자의 위험 상태를 보다 효율적으로 업데이트하고 위험 기록을 이해할 수 있게 되었습니다.
 
-자세한 내용은 [위험 사용자 API 참조 문서](/graph/api/resources/riskyuser?view=graph-rest-beta)를 확인하세요.
+자세한 내용은 [위험 사용자 API 참조 문서](/graph/api/resources/riskyuser?view=graph-rest-beta&preserve-view=true)를 확인하세요.
 
 ---
 

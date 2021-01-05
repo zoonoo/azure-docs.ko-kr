@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 188a348b497a485be0a8091b50a3f2c11b6493c0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 71b57eae1a66e6966f61123e638c4790410ef445
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960753"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862522"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
 
@@ -22,7 +22,7 @@ ms.locfileid: "94960753"
 
 **Q: 사용할 수 있는 기능은 무엇 인가요?**
 
-**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. [Docker 허브](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서 컨테이너를 볼 수도 있습니다.
+**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. [Docker 허브](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서 컨테이너를 볼 수도 있습니다.
 
 **Q: Cognitive Services 클라우드와 컨테이너 간에 차이가 있나요?**
 
@@ -86,7 +86,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 
 **A:** 상태 메시지 및 오류 목록은 다음 표를 참조 하세요.
 
-|상태  | Description  |
+|Status  | 설명  |
 |---------|---------|
 | `Valid` | API 키가 올바르지만 아무런 조치도 필요 하지 않습니다. |
 | `Invalid` |   API 키가 잘못 되었습니다. 컨테이너를 실행 하려면 올바른 API 키를 제공 해야 합니다. Azure Portal에서 Azure Cognitive Services 리소스에 대 한 **키 및 끝점** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
@@ -129,7 +129,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Form Recognizer][fr-containers-billing]
 * [언어 이해(LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
-* [Text Analytics][ta-containers-billing]
+* [텍스트 분석][ta-containers-billing]
 
 > [!IMPORTANT]
 > Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다.
@@ -156,7 +156,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Form Recognizer][fr-containers-recommendations]
 * [언어 이해(LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
-* [Text Analytics][ta-containers-recommendations]
+* [텍스트 분석][ta-containers-recommendations]
  
 **Q: 이러한 컨테이너는 현재 Windows에서 지원 되나요?**
 
@@ -164,7 +164,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
  
 **Q: 컨테이너를 검색 어떻게 할까요?**
 
-**A:** Cognitive Services 컨테이너는 Azure Portal, Docker 허브, Azure container registry 등의 다양 한 위치에서 사용할 수 있습니다. 최신 컨테이너 위치는 [컨테이너 리포지토리 및 이미지](../cognitive-services-container-support.md#container-repositories-and-images)를 참조 하세요.
+**A:** Cognitive Services 컨테이너는 Azure Portal, Docker 허브, Azure container registry 등의 다양 한 위치에서 사용할 수 있습니다. 최신 컨테이너 위치는 [컨테이너 이미지](container-image-tags.md)를 참조 하세요.
 
 **Q: Cognitive Services 컨테이너가 AWS 및 Google 제품에 어떻게 비교 되나요?**
 

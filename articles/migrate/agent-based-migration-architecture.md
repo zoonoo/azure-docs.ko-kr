@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1389b03d87beb24cba50fec0a782de8b7f935557
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753895"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861948"
 ---
 # <a name="agent-based-migration-architecture"></a>에이전트 기반 마이그레이션 아키텍처
 
@@ -99,7 +99,7 @@ VMware Vm을 복제 하는 경우 [vmware에 대 한 Site Recovery Deployment Pl
 --- | --- | --- | --- | ---
 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz) | 16GB | 300GB | 500GB 이하 | 컴퓨터 100대 미만 
 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) | 18GB | 600GB | 501GB~1TB | 100-150 컴퓨터.
-16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) | 32 G1 |  1TB | 1TB ~ 2TB | 151-200 컴퓨터.
+16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) | 32GB |  1TB | 1TB ~ 2TB | 151-200 컴퓨터.
 
 ### <a name="sizing-scale-out-process-servers"></a>스케일 아웃 프로세스 서버 크기 조정
 
@@ -108,7 +108,7 @@ VMware Vm을 복제 하는 경우 [vmware에 대 한 Site Recovery Deployment Pl
 **프로세스 서버** | **데이터 캐싱에 사용 가능한 공간** | **변동 율** | **복제 제한**
 --- | --- | --- | --- 
 4개 vCPU(2개 소켓 * 2코어 \@ 2.5GHz) 8GB 메모리 | 300GB | 250GB 이하 | 최대 85 대의 컴퓨터 
-8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB    | 86-150 컴퓨터.
+8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB | 86-150 컴퓨터.
 12 개 vCPUs (2 개 소켓 * 6 코어 \@ 2.5 g h z), 24gb 메모리 | 1TB | 1-2TB | 151-225 컴퓨터.
 
 ## <a name="throttle-upload-bandwidth"></a>업로드 대역폭을 제한 합니다.
