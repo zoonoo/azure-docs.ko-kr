@@ -1,6 +1,6 @@
 ---
 title: Cosmos DB & Apache Kafka Apache Spark-Azure HDInsight
-description: Apache Spark 구조적 스트림을 사용하여 Apache Kafka에서 데이터를 읽고 Azure Cosmos DB로 저장하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
+description: Apache Spark 구조적 스트림을 사용하여 Apache Kafka에서 데이터를 읽고 Azure Cosmos DB로 저장하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook를 사용 하 여 데이터를 스트리밍합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0f07cf563a3b1ce9d105fc5ca5c4f2869b13d2da
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842467"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821777"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
@@ -97,7 +97,7 @@ resourceGroupName='myresourcegroup'
 name='mycosmosaccount'
 
 # WARNING: If you change the databaseName or collectionName
-#          then you must update the values in the Jupyter notebook
+#          then you must update the values in the Jupyter Notebook
 databaseName='kafkadata'
 collectionName='kafkacollection'
 
@@ -134,7 +134,7 @@ az cosmosdb keys list --name $name --resource-group $resourceGroupName --type ke
 
 프로젝트에서 HDInsight 클러스터의 Spark로 Notebooks을 업로드하려면 다음 단계를 사용합니다.
 
-1. 웹 브라우저의 Spark 클러스터에 있는 Jupyter Notebook에 연결합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
+1. 웹 브라우저에서 Spark 클러스터의 Jupyter Notebook에 연결 합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter

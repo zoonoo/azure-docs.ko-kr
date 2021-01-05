@@ -12,12 +12,12 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: ace584b51f0aa457e30d8e48d97834aa735a1a57
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 410c0942b9040a6707a51e4ff9f375b9d4728668
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026576"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821573"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 코덱 압축 오디오 입력 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "95026576"
 
 플랫폼 | 언어 | 지원 되는 GStreamer 버전
 | :--- | ---: | :---:
-Windows (UWP 제외)  | C + +, c #, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/data/pkg/windows/1.15.1/)
+Windows (UWP 제외)  | C + +, c #, Java, Python | [1.15.1](https://gstreamer.freedesktop.org/releases/gstreamer/1.5.1.html)
 Linux  | C + +, c #, Java, Python | [지원 되는 Linux 배포판 및 대상 아키텍처](~/articles/cognitive-services/speech-service/speech-sdk.md)
 Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/)
 
@@ -35,7 +35,7 @@ Android  | Java | [1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="gstreamer-required-to-handle-compressed-audio"></a>압축 된 오디오를 처리 하는 데 필요한 GStreamer
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]

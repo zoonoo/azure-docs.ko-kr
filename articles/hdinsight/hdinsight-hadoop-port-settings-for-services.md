@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e3e2ca2eca0d258a14365edc97b98d0c827b0b6f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d0d990bc273c33e94b82b597753b29361b1665e1
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546061"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821862"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
@@ -162,11 +162,11 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="spark-ports"></a>Spark 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | URL 경로 | 설명 |
+| 서비스 | 노드 | 포트 | 프로토콜 | URL 경로 | Description |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 서버 |헤드 노드 |10002 |Thrift | &nbsp; | Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
 | Livy 서버 | 헤드 노드 | 8998 | HTTP | &nbsp; | 문, 작업 및 애플리케이션을 실행하기 위한 서비스 |
-| Jupyter Notebook | 헤드 노드 | 8001 | HTTP | &nbsp; | Jupyter Notebook 웹 사이트 |
+| Jupyter 노트북 | 헤드 노드 | 8001 | HTTP | &nbsp; | 웹 사이트 Jupyter Notebook |
 
 예제:
 

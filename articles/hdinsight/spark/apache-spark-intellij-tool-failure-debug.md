@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: ebed7d87ba538b2f886155527bb89c1ffd2bcf58
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c8ce1a66d6dbf215c3d49740f2aec47ab01f7591
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545704"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822321"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)
 
 이 문서에서는 [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij) 의 HDInsight 도구를 사용 하 여 **Spark 오류 디버그** 응용 프로그램을 실행 하는 방법에 대 한 단계별 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 이 자습서에서는 Java 버전 8.0.202를 사용합니다.
   
@@ -54,7 +54,7 @@ ms.locfileid: "92545704"
 
    b. **프로젝트 SDK** 드롭다운 목록에서 **Spark 2.3.2** 클러스터용 **Java 1.8** 를 선택 합니다.
 
-   c. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
+   다. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
 
    d. **마침** 을 선택합니다.
 
@@ -68,11 +68,11 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
    ![HDI Intellij 구성 추가](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
 
-2. **실행/디버깅 구성** 대화 상자에서 더하기 기호( **+** )를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
+2. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
 
    ![Intellij 새 구성 추가](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. **클러스터에서 원격으로 실행** 탭으로 전환 합니다. **이름** , **Spark 클러스터** 및 **주 클래스 이름** 에 대 한 정보를 입력 합니다. 이 도구는 **실행기** 를 사용하여 디버그를 지원합니다. **NumExectors** 기본값은 5이 고 3 보다 큰 값을 설정 하지 않는 것이 좋습니다. 실행 시간을 줄이기 위해 **작업 구성** 에 **yarn** 를 추가 하 고 값을 1로 설정할 수 있습니다. **확인** 단추를 클릭 하 여 구성을 저장 합니다.
+3. **클러스터에서 원격으로 실행** 탭으로 전환 합니다. **이름**, **Spark 클러스터** 및 **주 클래스 이름** 에 대 한 정보를 입력 합니다. 이 도구는 **실행기** 를 사용하여 디버그를 지원합니다. **NumExectors** 기본값은 5이 고 3 보다 큰 값을 설정 하지 않는 것이 좋습니다. 실행 시간을 줄이기 위해 **작업 구성** 에 **yarn** 를 추가 하 고 값을 1로 설정할 수 있습니다. **확인** 단추를 클릭 하 여 구성을 저장 합니다.
 
    ![Intellij 디버그 구성 새로 실행](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
@@ -142,7 +142,7 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 * [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](./apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight 용 Apache Spark 클러스터의 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 

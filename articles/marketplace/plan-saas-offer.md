@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621606"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821488"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -59,7 +59,7 @@ _지금 가져오기 (무료)_, _무료 평가판_ 및 Microsoft 목록 옵션�
 
 - 방문 페이지에 액세스 하는 구매 사용자는 SSO (Single Sign-On) id 관리 및 인증을 사용 하 여 Azure AD가 필요 합니다. 자세한 지침은 [상업적 marketplace의 AZURE AD 및 불가능 SaaS 제품](azure-ad-saas.md)을 참조 하세요.
 - [SaaS 처리 api](./partner-center-portal/pc-saas-fulfillment-api-v2.md) 를 사용 하 여 Azure Marketplace 및 Microsoft AppSource와 통합 해야 합니다. 사용자 계정 및 서비스 계획을 만들고, 업데이트 하 고, 삭제할 수 있도록 SaaS 구독과 상호 작용할 수 있는 서비스를 노출 해야 합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. 수집 된 필드 사용을 설명 하는 다이어그램 및 자세한 설명은 [api](./partner-center-portal/pc-saas-fulfillment-api-v2.md)에 대 한 설명서에서 확인할 수 있습니다.
-- 제품에 대 한 계획을 하나 이상 만들어야 합니다. 요금제는 게시 하기 전에 선택 하는 가격 책정 모델을 기준으로 가격이 책정 됩니다 _per-user_ _._ [요금제](#plans) 에 대 한 자세한 내용은이 문서의 뒷부분에 제공 됩니다.
+- 제품에 대 한 계획을 하나 이상 만들어야 합니다. 요금제는 게시 하기 전에 선택 하는 가격 책정 모델을 기준으로 가격이 책정 됩니다  _._ [요금제](#plans) 에 대 한 자세한 내용은이 문서의 뒷부분에 제공 됩니다.
 - 고객은 언제 든 지 제품을 취소할 수 있습니다.
 
 ### <a name="technical-information"></a>기술 정보
@@ -202,7 +202,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - 이름
+  - Name
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 
@@ -250,7 +250,7 @@ Microsoft에서 제공 하는 SaaS 앱 제품은 [요금제 서비스](./partner
 | Microsoft는 라이선스 비용의 80%를 지불합니다.<br>`*` Microsoft는 정규화 된 SaaS 앱에 대해 90%의 라이선스 비용을 지불 합니다.| 매월 $80.00<br>``*`` 매월 $90.00 |
 |||
 
-**`*` Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 영업일 (5) 이상의 영업일을 충족 해야 합니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
+**`*` Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 각 월이 종료 될 때까지 최소 5 영업일 (5) 이상의 영업일을 충족 해야만 Marketplace 서비스 요금을 절감할 수 있습니다. 자격이 충족 되 면 다음 달의 첫 번째 날부터 적용 되는 모든 거래에 감소 된 서비스 요금이 부과 되며, Azure IP 공동 판매 incentivized 상태가 손실 될 때까지 계속 적용 됩니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
 
 ## <a name="additional-sales-opportunities"></a>추가 판매 기회
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504936"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821148"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -130,7 +130,7 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 |Spark 코어|Spark Core, Spark SQL, Spark 스트리밍 Api, GraphX 및 Apache Spark MLlib.|
 |Anaconda|Python 패키지 관리자입니다.|
 |Apache Livy|HDInsight Spark 클러스터에 원격 작업을 제출 하는 데 사용 되는 Apache Spark REST API입니다.|
-|Jupyter 및 Apache Zeppelin 노트북|Spark 클러스터와 상호 작용 하기 위한 대화형 브라우저 기반 UI입니다.|
+|Jupyter 노트북 및 Apache Zeppelin 노트북|Spark 클러스터와 상호 작용 하기 위한 대화형 브라우저 기반 UI입니다.|
 |ODBC 드라이버|HDInsight의 Spark 클러스터를 Microsoft Power BI 및 Tableau와 같은 BI (비즈니스 인텔리전스) 도구에 연결 합니다.|
 
 Jupyter Notebook에서 실행 되는 응용 프로그램의 경우 `%%configure` 명령을 사용 하 여 노트북 자체 내에서 구성을 변경할 수 있습니다. 이러한 구성 변경 내용은 노트 인스턴스에서 실행되는 Spark 작업에 적용됩니다. 첫 번째 코드 셀을 실행 하기 전에 응용 프로그램의 시작 부분에서 이러한 변경을 수행 합니다. 변경된 구성은 생성된 Livy 세션에 적용됩니다.

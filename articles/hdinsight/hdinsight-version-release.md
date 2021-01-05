@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: b8f9759d19089f74d62def41b205d862ce9a7d43
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0d732fd484e9ca4788204d726286503296bec8ab
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359730"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822100"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Azure HDInsight 4.0 개요
 
@@ -100,7 +100,7 @@ Apache Oozie 4.3.1은 다음 변경 내용으로 HDI 4.0에 포함됩니다.
 * Hive 보기는 4.1 이상의 버전 번호가 있는 HDInsight 4.0 클러스터 에서만 사용할 수 있습니다. 이 버전 번호는 Ambari 관리 > 버전에서 사용할 수 있습니다.
 * Apache Zeppelin의 셸 인터프리터는 Spark 및 대화형 쿼리 클러스터에서 지원되지 않습니다.
 * LLAP는 Spark-LLAP 클러스터에서 *사용하지 않도록 설정* 할 수 없으며, 이를 해제할 수만 있습니다.
-* Azure Data Lake Storage Gen2는 Spark 클러스터에 Jupyter Notebook을 저장할 수 없습니다.
+* Azure Data Lake Storage Gen2 Spark 클러스터에 Jupyter 노트북을 저장할 수 없습니다.
 * Apache pig는 기본적으로 Tez에서 실행되지만 Mapreduce로 변경할 수 있습니다.
 * 행 및 열 보안에 대한 Spark SQL Ranger 통합은 더 이상 사용되지 않습니다.
 * Spark 2.4 및 Kafka 2.1은 HDInsight 4.0에서 사용할 수 있으므로 Spark 2.3 및 Kafka 1.1은 더 이상 지원되지 않습니다. HDInsight 4.0에서 Spark 2.4 및 Kafka 2.1 이상을 사용하는 것이 좋습니다.

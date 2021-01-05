@@ -2,14 +2,14 @@
 title: 서비스 할당량 및 제한
 description: 기본 Azure Batch 할당량, 한도 및 제약 조건에 대해 알아보고 할당량 증가를 요청하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 12/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9f529d388cb883f635b6225801af5ce41b8c997a
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614520"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814638"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -33,7 +33,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Batch 서비스 모드의 코어 할당량
 
-전용 코어 할당량의 적용이 개선 되 고 있으며,이는 단계에서 사용 가능 하 고 12 월 2020 일 말에 모든 Batch 계정에 대해 완료 된 변경 내용입니다.
+전용 코어 할당량의 적용이 개선 되 고 있으며, 단계에서 변경 내용을 사용할 수 있으며, 1 월 2021 일 말에 모든 Batch 계정에 대해 완료 됩니다.
 
 Batch에서 지원 되는 각 VM 시리즈에 대 한 코어 할당량은 포털의 **할당량** 페이지에 표시 됩니다. VM 시리즈 할당량 한도는 아래에 설명 된 대로 지원 요청으로 업데이트할 수 있습니다.
 
@@ -70,7 +70,7 @@ Batch에서 지원 되는 각 VM 시리즈에 대 한 코어 할당량은 포털
 
 ## <a name="other-limits"></a>기타 제한
 
-Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량](#resource-quotas)과 달리 이 값은 변경할 수 없습니다.
+이러한 추가 제한은 Batch 서비스에 의해 설정 됩니다. [리소스 할당량](#resource-quotas)과 달리 이 값은 변경할 수 없습니다.
 
 | **리소스** | **최대 제한** |
 | --- | --- |
@@ -80,6 +80,7 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
 | 풀당 애플리케이션 패키지 | 10 |
 | 최대 작업 수명 | 180일<sup>1</sup> |
 | 컴퓨팅 노드당 [탑재](virtual-file-mount.md) | 10 |
+| 풀 당 인증서 | 12 |
 
 <sup>1</sup> 태스크의 최대 수명(태스크가 작업에 추가되는 시점부터 완료되는 시점까지)은 180일입니다. 완료된 태스크는 7일 동안 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
 
@@ -91,7 +92,7 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
 1. 배치 계정의 메뉴에서 **할당량** 을 선택합니다.
 1. Batch 계정에 현재 적용된 할당량을 표시합니다.
 
-:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Batch 계정 할당량":::
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Azure Portal에서 Batch 계정 할당량을 보여 주는 스크린샷":::
 
 ## <a name="increase-a-quota"></a>할당량 증가
 
@@ -100,26 +101,26 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
 1. 포털 대시보드에서 **도움말 + 지원** 타일을 선택하거나 포털 오른쪽 위 모서리에 있는 물음표( **?** )를 선택합니다.
 1. **새 기본 지원 요청** > **기본** 을 클릭합니다.
 1. **기본 사항** 에서
-   
+
     1. **문제 유형** > **서비스 및 구독 제한(할당량)**
-   
+
     1. 구독을 선택합니다.
-   
+
     1. **할당량 유형** > **배치**
-      
+
        **다음** 을 선택합니다.
-    
+
 1. **세부 정보** 에서 다음을 수행합니다.
-      
+
     1. **세부 정보 제공** 에서 위치, 할당량 유형 및 Batch 계정을 지정합니다.
-    
-       ![Batch 할당량 증가][quota_increase]
+
+       :::image type="content" source="media/batch-quota-limit/quota-increase.png" alt-text="할당량 증가를 요청할 때의 할당량 정보 화면 스크린샷":::
 
        할당량 유형에는 다음이 포함됩니다.
 
        * **Batch 계정당**  
          전용 및 우선 순위가 낮은 코어, 작업 및 풀 수 등 가 단일 Batch 계정에 해당하는 값입니다.
-        
+
        * **지역당**  
          지역의 모든 Batch 계정에 적용되는 값으로, 구독당 지역별 Batch 계정 수를 포함합니다.
 
@@ -130,11 +131,11 @@ Batch 서비스에 의해 설정된 추가 제한입니다. [리소스 할당량
        **다음** 을 선택합니다.
 
 1. **연락처 정보** 에서
-   
+
     1. **기본 연락 방법** 을 선택합니다.
-   
+
     1. 필수 연락처 세부 정보를 확인하고 입력합니다.
-   
+
        **만들기** 를 선택하여 지원 요청을 제출합니다.
 
 지원 요청을 제출하면 Azure 지원 팀에서 연락을 드릴 것입니다. 할당량 요청은 몇 분에서 최대 2일(영업일 기준) 이내에 완료될 수 있습니다.

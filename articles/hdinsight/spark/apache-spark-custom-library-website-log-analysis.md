@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 1094235f5bc5cc25cf6d8f3762dc242503952de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ec2db1799919eb395996b56d08b77e3be7ff5a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083800"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822372"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
-이 노트북에서는 HDInsight의 Apache Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py**라는 Python 라이브입니다.
+이 노트북에서는 HDInsight의 Apache Spark와 함께 사용자 지정 라이브러리를 사용하여 로그 데이터를 분석하는 방법을 보여줍니다. 사용하는 사용자 지정 라이브러리는 **iislogparser.py** 라는 Python 라이브입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,21 +25,21 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 ## <a name="save-raw-data-as-an-rdd"></a>RDD로 원시 데이터 저장
 
-이 섹션에서는 HDInsight에서 Apache Spark 클러스터와 연결된 [Jupyter](https://jupyter.org) 노트북을 사용하여 원시 샘플 데이터를 처리하고 하이브 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
+이 섹션에서는 HDInsight의 Apache Spark 클러스터와 연결 된 [Jupyter](https://jupyter.org) 노트북을 사용 하 여 원시 샘플 데이터를 처리 하 고 Hive 테이블로 저장 하는 작업을 실행 합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
 
 데이터가 Apache Hive 테이블로 저장 되 면 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용 하 여 Hive 테이블에 연결 합니다.
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. 새 Notebook을 만듭니다. **새로 만들기**를 선택한 다음 **PySpark**를 선택 합니다.
+1. 새 Notebook을 만듭니다. **새로 만들기** 를 선택한 다음 **PySpark** 를 선택 합니다.
 
-    ![새 Apache Jupyter 노트북 만들기](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "새 Jupyter 노트북 만들기")
+    ![새 Apache Jupyter Notebook 만들기](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "새 Jupyter Notebook 만들기")
 
 1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 위쪽에서 노트북 이름을 선택 하 고 이름을 입력 합니다.
 
     ![노트북에 대한 이름 제공](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "노트북에 대한 이름 제공")
 
-1. PySpark 커널을 사용 하 여 노트북을 만들었으므로 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + enter**를 누릅니다.
+1. PySpark 커널을 사용 하 여 노트북을 만들었으므로 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + enter** 를 누릅니다.
 
     ```pyspark
     from pyspark.sql import Row
@@ -154,7 +154,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     (u'/blogposts/mvc4/step1.png', 98.0)]
     ```
 
-1. 그림의 형식에 이 정보를 제공할 수도 있습니다. 플롯을 만드는 첫 번째 단계로, 먼저 임시 테이블 **AverageTime**을 만듭니다. 이 테이블은 특정 시간에 특수한 대기 시간 급증 현상이 없는지 확인하도록 시간으로 로그를 그룹화합니다.
+1. 그림의 형식에 이 정보를 제공할 수도 있습니다. 플롯을 만드는 첫 번째 단계로, 먼저 임시 테이블 **AverageTime** 을 만듭니다. 이 테이블은 특정 시간에 특수한 대기 시간 급증 현상이 없는지 확인하도록 시간으로 로그를 그룹화합니다.
 
     ```pyspark
     avgTimeTakenByMinute = avgTimeTakenByKey(logLines.map(lambda p: (p.datetime.minute, p))).sortByKey()
@@ -172,7 +172,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     SELECT * FROM AverageTime
     ```
 
-   `-o averagetime` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [averagetime](https://pandas.pydata.org/) 이라는 이름이 지정된 **Pandas**데이터 프레임으로 유지됩니다.
+   `-o averagetime` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [averagetime](https://pandas.pydata.org/) 이라는 이름이 지정된 **Pandas** 데이터 프레임으로 유지됩니다.
 
    다음 이미지와 같은 출력이 표시 됩니다.
 
@@ -196,7 +196,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
    ![apache spark 웹 로그 분석 그림](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
 
-1. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. 이 작업은 노트북을 종료 하 고 닫습니다.
+1. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지** 를 선택합니다. 이 작업은 노트북을 종료 하 고 닫습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4cfcc860e40415403952efeda13bac513a2c6347
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022254"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822151"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Spark 문제 해결
 
@@ -75,9 +75,9 @@ Spark 구성 값을 튜닝 하 여 Apache Spark 응용 프로그램 예외를 �
 
 이러한 변경 내용은 클러스터 전체를 대상으로 하지만 Spark 작업을 제출할 때 재정의할 수 있습니다.
 
-## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook을 사용하여 Apache Spark 애플리케이션을 구성하려면 어떻게 해야 하나요?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>클러스터에서 Jupyter Notebook를 사용 하 여 Apache Spark 응용 프로그램을 구성 어떻게 할까요??
 
-Jupyter Notebook의 첫 번째 셀에서 **%%configure** 지시문 뒤에 유효한 JSON 형식의 Spark 구성을 지정합니다. 필요에 따라 실제 값을 변경합니다.
+Jupyter Notebook의 첫 번째 셀에서 **%% configure** 지시문 뒤에 올바른 JSON 형식의 Spark 구성을 지정 합니다. 필요에 따라 실제 값을 변경합니다.
 
 ![구성 추가](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
@@ -97,7 +97,7 @@ curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POS
 spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
 ```
 
-### <a name="additional-reading"></a>추가 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 [HDInsight 클러스터에서 Apache Spark 작업 제출](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 

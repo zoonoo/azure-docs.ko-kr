@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654595"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822287"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 외부 제어 활동에 대한 일반적인 문제 해결 방법을 살펴봅니다.
@@ -498,7 +499,7 @@ ms.locfileid: "94654595"
 
 - **메시지**: `There are duplicate files in the resource folder.`
 
-- **원인**: 이름이 동일한 여러 파일이 folderPath의 여러 하위 폴더에 있습니다.
+- **원인**: 이름이 같은 여러 파일이 folderPath의 다른 하위 폴더에 있습니다.
 
 - **권장 사항**: 사용자 지정 활동은 folderPath에서 폴더 구조를 평면화합니다. 폴더 구조를 유지해야 하는 경우 파일을 압축한 후 압축 풀기 명령을 사용하여 Azure Batch에서 압축을 풉니다.
    
@@ -545,7 +546,6 @@ ms.locfileid: "94654595"
 - **원인**: 서비스 주체를 읽거나 MSI 인증을 인스턴스화하는 중 내부 오류가 발생했습니다.
 
 - **권장 사항**: 제공된 구독에서 HDInsight 클러스터를 생성할 권한이 있는 서비스 주체를 제공하고 다시 시도하세요. [ID 관리가 올바르게 설정](../hdinsight/hdinsight-managed-identities.md)되어 있는지 확인하세요.
-
 
 ### <a name="error-code-2300"></a>오류 코드: 2300
 
@@ -952,6 +952,16 @@ ms.locfileid: "94654595"
 
 - **권장 사항**: HDInsight 주문형 연결 서비스에 대한 추가 저장소로 Azure Blob Storage 계정을 제공하세요.
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>HDInsight ESP 클러스터를 사용 하 여 ADF 연결 된 서비스에 대 한 SSL 오류
+
+- **메시지**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **원인**:이 문제는 시스템 신뢰 저장소와 관련 된 것일 수 있습니다.
+
+- **해결** 방법: **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** 경로로 이동 하 고 DriverConfiguration64.exe를 열어 설정을 변경할 수 있습니다.
+
+    ![시스템 신뢰 저장소 사용 선택을 취소 합니다.](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>웹 작업
 
 ### <a name="error-code-2128"></a>오류 코드: 2128
@@ -1015,9 +1025,9 @@ ms.locfileid: "94654595"
 
 **오류 메시지:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**원인:** 각 작업 실행에 대 한 페이로드에는 활동 구성, 연결 된 데이터 집합 및 연결 된 서비스 구성 (있는 경우) 및 활동 유형별 생성 된 일부 시스템 속성이 포함 됩니다. 이러한 페이로드 크기의 제한은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션에 설명 된 대로 896KB입니다.
+**원인:** 각 작업 실행에 대 한 페이로드는 활동 구성, 연결 된 데이터 집합 및 연결 된 서비스 구성 (있는 경우) 및 활동 유형별 생성 된 일부 시스템 속성을 포함 합니다. 이러한 페이로드 크기의 제한은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) 섹션에 설명 된 대로 896 KB입니다.
 
-**권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달 하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달 하는 경우에 발생할 수 있습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 조정 하 여 활동 간에 이러한 값을 전달 하지 않고 활동 내에서 해당 값을 처리 하지 않도록 하십시오.
+**권장 사항:** 이 제한은 업스트림 활동 출력 또는 외부에서 하나 이상의 큰 매개 변수 값을 전달 하는 경우, 특히 제어 흐름의 활동 간에 실제 데이터를 전달 하는 경우에 발생할 수 있습니다. 큰 매개 변수 값의 크기를 줄이거나 파이프라인 논리를 조정 하 여 활동 간에 이러한 값을 전달 하지 않고 활동 내에서 처리할 수 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

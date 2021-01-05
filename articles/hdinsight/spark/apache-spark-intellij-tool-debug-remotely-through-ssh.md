@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 421993ac4aaba551b6fcbd002783d44559ce377d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a2044e9bb0110eda666d12e29a715547381e2be
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995338"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822338"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>SSH를 통해 Azure Toolkit for IntelliJ를 사용 하 여 HDInsight 클러스터에서 Apache Spark 응용 프로그램 디버그
 
@@ -50,7 +50,7 @@ ms.locfileid: "95995338"
 
      ![Intellij 새 프로젝트 만들기 Spark](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-create-projectfor-debug-remotely.png)
 
-1. **새로 만들기** 를 선택합니다.
+1. **다음** 을 선택합니다.
 
 1. 다음 **새 프로젝트** 창에서 다음 정보를 제공 합니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "95995338"
 
 1. **SparkCore_WasbIOTest** 스크립트에서 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **' SparkCore_WasbIOTest ' 실행** 옵션을 선택 하 여 로컬 실행을 수행 합니다.
 
-1. 로컬 실행이 완료 되 면 현재 프로젝트 탐색기 **데이터** 의 기본값에 저장 된 출력 파일을 볼 수 있습니다  >  **__default__**.
+1. 로컬 실행이 완료 되 면 현재 프로젝트 탐색기 **데이터** 의 기본값에 저장 된 출력 파일을 볼 수 있습니다  >  ****.
 
     ![Intellij 프로젝트 로컬 실행 결과](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "95995338"
 
 ## <a name="perform-remote-run"></a>원격 실행 수행
 
-1. **Run**  >  **구성 편집 ...** 을 실행 하 여 이동 합니다. 이 메뉴에서 원격 디버깅에 대 한 구성을 만들거나 편집할 수 있습니다.
+1.   >  **구성 편집 ...** 을 실행 하 여 이동 합니다. 이 메뉴에서 원격 디버깅에 대 한 구성을 만들거나 편집할 수 있습니다.
 
 1. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
 
@@ -178,7 +178,7 @@ ms.locfileid: "95995338"
 * [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](./apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight 용 Apache Spark 클러스터의 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 

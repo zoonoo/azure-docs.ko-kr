@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
-ms.openlocfilehash: 8e7a484ff968454f3c5b31422b87123dcee03726
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: b8744d86300287403ca390d93c70b25215bcac4f
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682871"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822134"
 ---
 # <a name="tutorial-analyze-fraudulent-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics를 사용하여 사기 전화 데이터를 분석하고 Power BI 대시보드에 결과 시각화
 
@@ -283,17 +283,14 @@ FROM
 1. 쿼리 편집기에 다음 쿼리를 붙여넣습니다.
 
     ```SQL
-    SELECT  System.Timestamp as Time, 
-        CS1.CallingIMSI, 
-        CS1.CallingNum as CallingNum1, 
-        CS2.CallingNum as CallingNum2, 
-        CS1.SwitchNum as Switch1, 
-        CS2.SwitchNum as Switch2 
-    FROM CallStream CS1 TIMESTAMP BY CallRecTime 
-        JOIN CallStream CS2 TIMESTAMP BY CallRecTime 
-        ON CS1.CallingIMSI = CS2.CallingIMSI 
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
+    SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+    INTO "MyPBIoutput"
+    FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+    JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+    ON CS1.CallingIMSI = CS2.CallingIMSI
+    AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
     WHERE CS1.SwitchNum != CS2.SwitchNum
+    GROUP BY TumblingWindow(Duration(second, 1))
     ```
 
     이 쿼리는 조인에서 `DATEDIFF` 함수를 제외하고 SQL 조인과 유사합니다. 이 `DATEDIFF` 버전은 Streaming Analytics에 국한되며 `ON...BETWEEN` 절에 표시되어야 합니다. 매개 변수는 시간 단위(이 예제에서는 초)와 조인의 두 원본에 대한 별칭입니다. 표준 SQL `DATEDIFF` 함수와는 다릅니다.

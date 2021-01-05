@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d979a68f4e3aa0071fb7654647610af1fbf95e90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97c326bd1d2f61ba3fb9d6e381f5a8711bd0ca1d
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023979"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821199"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용 하 여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
 Azure SQL Database를 사용 하 여 Azure HDInsight에서 Apache Spark 클러스터를 연결 하는 방법에 대해 알아봅니다. 그런 다음 SQL database에서 데이터를 읽고, 쓰고, 스트리밍합니다. 이 문서의 지침은 Jupyter Notebook을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에서 독립 실행형 응용 프로그램을 만들고 동일한 작업을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure HDInsight Spark 클러스터 -  [HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)의 지침을 따르세요.
 
@@ -36,20 +36,20 @@ Azure SQL Database를 사용 하 여 Azure HDInsight에서 Apache Spark 클러�
 먼저 Spark 클러스터와 연결 된 Jupyter Notebook를 만듭니다. 이 노트를 사용해서 이 문서에 사용된 코드 조각을 실행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 엽니다.
-1. 오른쪽에 있는 **클러스터 대시보드** 아래에서 **Jupyter Notebook** 을 선택합니다.  **클러스터 대시보드가** 표시 되지 않으면 왼쪽 메뉴에서 **개요** 를 선택 합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+1. 오른쪽의 **클러스터 대시보드** 아래에서 **Jupyter Notebook** 를 선택 합니다.  **클러스터 대시보드가** 표시 되지 않으면 왼쪽 메뉴에서 **개요** 를 선택 합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-    ![Apache Spark의 jupyter 노트북](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark의 jupyter 노트북")
+    ![Apache Spark Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark의 Jupyter Notebook")
 
    > [!NOTE]  
-   > 또한 브라우저에서 다음 URL을 열어 Spark 클러스터의 Jupyter 노트에 액세스할 수도 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
+   > 브라우저에서 다음 URL을 열어 Spark 클러스터의 Jupyter Notebook에 액세스할 수도 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-1. Jupyter 노트의 오른쪽 위 모서리에서 **새로 만들기** 를 클릭하고 **Spark** 를 클릭하여 Scala 노트를만 듭니다. HDInsight Spark 클러스터의 Jupyter 노트는 Python2 애플리케이션에 대한 **PySpark** 커널과 Python3 애플리케이션에 대한 **PySpark3** 커널도 제공합니다. 이 문서에서는 Scala 노트를 만듭니다.
+1. Jupyter Notebook의 오른쪽 위 모서리에서 **새로 만들기** 를 클릭 한 다음 **Spark** 를 클릭 하 여 Scala 노트북을 만듭니다. 또한 HDInsight Spark 클러스터의 jupyter 노트북은 Python2 응용 프로그램에 대 한 **PySpark** 커널과 Python3 응용 프로그램에 대 한 **PySpark3** 커널을 제공 합니다. 이 문서에서는 Scala 노트를 만듭니다.
 
-    ![Spark의 Jupyter 노트북에 대 한 커널](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북에 대 한 커널")
+    ![Spark의 Jupyter Notebook에 대 한 커널](./media/apache-spark-connect-to-sql-database/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter Notebook에 대 한 커널")
 
-    커널에 대한 자세한 내용은 [HDInsight에서 Apache Spark 클러스터와 함께 Jupyter Notebook 커널 사용](apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+    커널에 대 한 자세한 내용은 [HDInsight에서 Apache Spark 클러스터와 함께 Jupyter Notebook 커널 사용](apache-spark-jupyter-notebook-kernels.md)을 참조 하세요.
 
    > [!NOTE]  
    > 이 문서에서는 Spark에서 SQL Database로 데이터를 스트리밍하는 것이 현재 Scala 및 Java 에서만 지원 되기 때문에 Spark (Scala) 커널을 사용 합니다. SQL에서 읽고 쓰는 작업은 Python을 사용해서 수행할 수 있지만, 이 문서에서는 일관성을 위해 3가지 작업 모두에 Scala를 사용합니다.
@@ -64,7 +64,7 @@ Azure SQL Database를 사용 하 여 Azure HDInsight에서 Apache Spark 클러�
 
 이 섹션에서는 AdventureWorks 데이터베이스에 존재하는 테이블(예: **SalesLT.Address**)에서 데이터를 읽습니다.
 
-1. 새 Jupyter 노트북의 코드 셀에서 다음 코드 조각을 붙여넣고 자리 표시자 값을 데이터베이스의 값으로 바꿉니다.
+1. 새 Jupyter Notebook 코드 셀에서 다음 코드 조각을 붙여넣고 자리 표시자 값을 데이터베이스에 대 한 값으로 바꿉니다.
 
     ```scala
     // Declare the values for your database
@@ -121,7 +121,7 @@ Azure SQL Database를 사용 하 여 Azure HDInsight에서 Apache Spark 클러�
 
 이 섹션에서는 클러스터에서 사용할 수 있는 샘플 CSV 파일을 사용 하 여 데이터베이스에 테이블을 만들고 데이터로 채웁니다. 샘플 CSV 파일(**HVAC.csv**)은 `HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv`의 모든 HDInsight 클러스터에서 사용할 수 있습니다.
 
-1. 새 Jupyter 노트북의 코드 셀에서 다음 코드 조각을 붙여넣고 자리 표시자 값을 데이터베이스의 값으로 바꿉니다.
+1. 새 Jupyter Notebook 코드 셀에서 다음 코드 조각을 붙여넣고 자리 표시자 값을 데이터베이스에 대 한 값으로 바꿉니다.
 
     ```scala
     // Declare the values for your database
@@ -192,7 +192,7 @@ Azure SQL Database를 사용 하 여 Azure HDInsight에서 Apache Spark 클러�
     TRUNCATE TABLE [dbo].[hvactable]
     ```
 
-1. HDInsight Spark 클러스터에서 새 Jupyter 노트를 만듭니다. 빈 셀에서 다음 코드 조각을 붙여넣고 **Shift+Enter** 를 누릅니다.
+1. HDInsight Spark 클러스터에 새 Jupyter Notebook를 만듭니다. 빈 셀에서 다음 코드 조각을 붙여넣고 **Shift+Enter** 를 누릅니다.
 
     ```scala
     import org.apache.spark.sql._

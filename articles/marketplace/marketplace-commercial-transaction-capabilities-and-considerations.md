@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 898c106fb961373889fbae87db6c755fe2495ff8
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621266"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822389"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -90,11 +90,11 @@ Transact-sql 게시 시나리오의 경우 구독에 따라 30 ~ 120 일간 소�
 
 고객이 상용 marketplace에서 구입한 제품을 구매할 때 20% standard store 서비스 요금이 부과 됩니다. 이 요금에 대 한 자세한 내용은 [Microsoft Publisher 규약](https://go.microsoft.com/fwlink/?LinkID=699560)의 5c 섹션을 참조 하십시오.
 
-상용 marketplace에 게시 하는 특정 불가능 제품의 경우 절감 된 매장 서비스 요금 (10%)을 한정할 수 있습니다. 제안을 받으려면 Microsoft에서 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 최소 5 영업일 동안 자격을 충족 해야 합니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요.
+상용 marketplace에 게시 하는 특정 불가능 제품의 경우 절감 된 매장 서비스 요금 (10%)을 한정할 수 있습니다. 제안을 받으려면 Microsoft에서 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 각 월이 종료 될 때까지 5 영업일 이상 후에는 자격을 충족 해야 합니다. 자격이 충족 되 면 Azure IP 공동 판매 incentivized 상태가 손실 될 때까지 다음 달의 첫 번째 날에 적용 되는 모든 거래에 감소 된 서비스 요금이 부과 됩니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요.
 
 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 솔루션에 적용 됩니다. Microsoft 팀 앱 하나 또는 두 개 이상의 Microsoft 365 추가 기능 (Excel, PowerPoint, Word, Outlook, SharePoint)과 관련 된 유료 SaaS 제품 및이 할인을 받을 Microsoft AppSource에 게시 됩니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 **사용량 기반** 
 
