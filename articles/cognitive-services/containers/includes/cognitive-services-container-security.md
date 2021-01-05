@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/11/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 4b106ebc5606c4e5a290e12728d4e2011e80f6a2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94574067"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861812"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Azure Cognitive Services 컨테이너 보안
 
@@ -44,7 +44,7 @@ ms.locfileid: "94574067"
 
 #### <a name="disable-deep-packet-inspection"></a>심층 패킷 검사 사용 안 함
 
-> [깊이 패킷 검사](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI)는 컴퓨터 네트워크를 통해 전송 되는 데이터를 자세히 검사 하 고이에 따라 일반적으로 차단, 다시 라우팅 또는 로깅을 수행 하 여 작업을 수행 하는 데이터 처리 유형입니다.
+[깊이 패킷 검사](https://en.wikipedia.org/wiki/Deep_packet_inspection) (DPI)는 컴퓨터 네트워크를 통해 전송 되는 데이터를 자세히 검사 하 고이에 따라 일반적으로 차단, 다시 라우팅 또는 로깅을 수행 하 여 작업을 수행 하는 데이터 처리 유형입니다.
 
 Cognitive Services 컨테이너가 Microsoft 서버에 만드는 보안 채널에서 DPI를 사용 하지 않도록 설정 합니다. 이렇게 하지 않으면 컨테이너가 제대로 작동 하지 않습니다.
 

@@ -172,12 +172,12 @@
           href: how-to-migrate.md
         - name: 마이그레이션을 위한 머신 준비
           href: prepare-for-migration.md
+        - name: Windows 2003 서버 마이그레이션 준비
+          href: prepare-windows-server-2003-migration.md
         - name: VMware VM 마이그레이션
           items:
             - name: VMware VM을 암호화된 Azure VM으로 마이그레이션
               href: how-to-migrate-vmware-vms-with-cmk-disks.md
-            - name: Windows 2003 서버 마이그레이션 준비
-              href: prepare-windows-server-2003-migration.md
         - name: 마이그레이션 스케일링
           items:
             - name: 많은 수의 VM의 마이그레이션 자동화

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 778fe388ae3db68d836384299a8a1c7c06e31f41
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2bef6aa4e624386750a4c989d7e56cc1b22aaa5e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001809"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862002"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>LUIS 용 Docker 컨테이너 설치 및 실행
 
@@ -33,13 +33,13 @@ LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
 |필수|목적|
 |--|--|
-|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
+|Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
 |Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* _Cognitive Services_ Azure 리소스 및 연결 된 청구 키 청구 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. [Authoring api](#authoring-apis-for-package-file)에서 LUIS 패키지 된 앱을 가져오는 경우에는 _제작 키_ 도 필요 합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}**:이 키는 클라우드의 LUIS 서비스에서 패키지 된 앱을 가져오고 쿼리 로그를 클라우드에 다시 업로드 하는 데 사용 됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APP_ID}**:이 ID는 앱을 선택 하는 데 사용 됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{API_KEY}**:이 키는 컨테이너를 시작 하는 데 사용 됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Cognitive Services_ 리소스의 키 목록 내의 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{ENDPOINT_URI}**: 개요 페이지에 제공 된 끝점입니다.<br><br>[작성 키 및 엔드포인트 키](luis-limits.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
 
@@ -113,7 +113,7 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 |패키지 형식|쿼리 엔드포인트 API|쿼리 가용성|패키지 파일 이름 형식|
 |--|--|--|--|
 |바뀔|GET, POST|컨테이너만|`{APP_ID}_v{APP_VERSION}.gz`|
-|스테이징|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
+|준비|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
 |생산|GET, POST|Azure 및 컨테이너|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -276,7 +276,7 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 |쿼리 매개 변수|형식|목적|
 |--|--|--|
 |`q`|문자열|사용자의 발화입니다.|
-|`timezoneOffset`|숫자|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
+|`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
 |`verbose`|boolean|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
 |`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
 |`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 true입니다.|
@@ -373,9 +373,6 @@ LUIS 컨테이너는 Azure 계정의 _Cognitive Services_ 리소스를 사용 �
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](luis-container-configuration.md)을 참조하세요.
-
-<!--blogs/samples/video courses -->
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>요약
 
