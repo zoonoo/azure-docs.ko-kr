@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548854"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832372"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>IoT 용 Defender 이벤트 집계
 
@@ -73,8 +73,8 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 | aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스 생성 이벤트에 대 한 집계 간격 |
 | aggregationEnabledConnectionCreate | boolean| 연결 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
 | aggregationIntervalConnectionCreate | ISO8601 Timespan 문자열 | 연결 생성 이벤트에 대 한 집계 간격 |
-| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만|
-| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만|
+| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만 해당|
+| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만 해당|
 |
 
 ## <a name="default-configurations-settings"></a>기본 구성 설정
@@ -97,6 +97,6 @@ IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니
 
 - [보안 에이전트 인증 방법](concept-security-agent-authentication-methods.md) 이해
 - [보안 에이전트](how-to-deploy-agent.md) 선택 및 배포
-- IoT [서비스 필수 구성 요소](service-prerequisites.md) 에 대 한 검토
+- IoT [시스템 필수 구성 요소](quickstart-system-prerequisites.md) 에 대 한 검토
 - [IoT Hub에서 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법에 대해 알아봅니다.
 - [IoT 용 DEFENDER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대 한 자세한 정보

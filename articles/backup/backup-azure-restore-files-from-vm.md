@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511657"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831672"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -118,6 +118,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | --------------- | ---- |
 | bash | 4 이상 |
 | python | 2.6.6 이상  |
+| .NET | 4.6.2 이상 |
 | TLS | 1.2가 지원되어야 합니다.  |
 
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>4 단계: 스크립트를 성공적으로 실행 하기 위한 액세스 요구 사항

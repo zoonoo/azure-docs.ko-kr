@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 4f6d9f670a1b85e55ccc8f6cb18645b92927221a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 132c21588df2f2180ddd973d208eb95ea6657e7d
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351642"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832457"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>IoT Edge 보안 모듈에 대 한 Azure Defender
 
@@ -60,6 +60,6 @@ IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니
 
 - [IoT Edge에 대 한 보안 모듈](how-to-deploy-edge.md) 배포
 - [보안 모듈을 구성](how-to-agent-configuration.md) 하는 방법 알아보기
-- IoT [서비스 필수 구성 요소](service-prerequisites.md) 를 검토 합니다.
+- Iot 용 IoT [defender](resources-manage-proprietary-protocols.md) 용 defender를 검토 합니다.
 - [IoT Hub에서 IoT 서비스용 Defender를 사용 하도록 설정](quickstart-onboard-iot-hub.md) 하는 방법에 대해 알아봅니다.
 - [IoT 용 DEFENDER FAQ](resources-frequently-asked-questions.md) 에서 서비스에 대 한 자세한 정보

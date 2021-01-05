@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4077ade7de93470aaf03acef1dc1cefca8bd3d4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7f142aa4ca203a65c45741f87853579ca60e1879
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837365"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831757"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -151,7 +151,7 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 해당 장치를
 
 Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중 하나가 할당 되어야 합니다.
 
-- 글로벌 관리자
+- 전역 관리자
 - 클라우드 디바이스 관리자
 - 글로벌 읽기 권한자
 - 디렉터리 판독기
@@ -165,10 +165,10 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 
 - **Azure AD 조인 디바이스의 추가 로컬 관리자** - 디바이스에서 로컬 관리자 권한이 부여된 사용자를 선택할 수 있습니다. 이러한 사용자는 Azure AD의 *장치 관리자* 역할에 추가 됩니다. Azure AD의 전역 관리자 및 디바이스 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다. 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 버전 기능입니다.
 - **사용자가 AZURE ad에 장치를 등록할 수 있음** -Windows 10 개인, IOS, Android 및 macos 장치를 azure ad에 등록할 수 있도록이 설정을 구성 해야 합니다. **없음** 을 선택 하는 경우 장치는 Azure AD에 등록할 수 없습니다. Microsoft Intune 또는 Microsoft 365 용 MDM (모바일 장치 관리)에 등록 하려면 등록 해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두** 가 선택되고 **없음** 은 사용할 수 없습니다.
-- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요** 입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 여러 Azure AD Multi-Factor Authentication 서비스에 대 한 자세한 내용은 [AZURE ad Multi-Factor Authentication 시작](../authentication/concept-mfa-howitworks.md)하기를 참조 하세요. 
+- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 장치를 Azure AD에 가입 하거나 등록 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요** 입니다. 장치를 등록 하거나 조인할 때 multi-factor authentication을 요구 하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 여러 Azure AD Multi-Factor Authentication 서비스에 대 한 자세한 내용은 [AZURE ad Multi-Factor Authentication 시작](../authentication/concept-mfa-howitworks.md)하기를 참조 하세요. 
 
 > [!NOTE]
-> **장치에 연결 하기 위한 Multi-factor Auth 필요** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
+> **장치에 연결 하기 위한 Multi-factor Auth 필요** 설정은 azure ad 조인 (몇 가지 예외 포함) 또는 azure ad가 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치, azure [의 AZURE ad 조인 된 vm](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) 및 [Windows Autopilot 자체 배포 모드](/mem/autopilot/self-deploying)를 사용 하는 azure ad 조인 장치에는이 설정이 적용 되지 않습니다.
 
 - **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50** 입니다.
 
@@ -206,7 +206,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 - 활동 리소스 종류
 - 활동
 - 날짜 범위
-- Target
+- 대상
 - 초기자(작업자)
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.

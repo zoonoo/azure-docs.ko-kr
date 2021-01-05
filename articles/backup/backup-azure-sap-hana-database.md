@@ -3,12 +3,12 @@ title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682852"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831638"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -91,6 +91,9 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 
 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장도 인증에 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 필요한 서비스에 대한 액세스를 허용하려면 위에서 언급한 IP 및 FQDN 목록을 사용하세요. 인증된 프록시 서버는 지원되지 않습니다.
 
+> [!NOTE]
+> 서비스 수준 프록시는 지원 되지 않습니다. 즉, 일부 또는 선택 된 서비스 (Azure backup 서비스) 에서만 프록시를 통해 트래픽을 지원 하지 않습니다. 전체 데이터 또는 트래픽은 프록시로 라우팅할 수 있습니다.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
@@ -170,9 +173,9 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
     > [!NOTE]
     > 이제 공개 미리 보기에서 증분 백업이 지원 됩니다. 차등 또는 증분을 매일 백업으로 선택할 수 있지만 둘 다를 선택할 수는 없습니다.
-1. **증분 백업 정책** 에서 **사용** 을 선택 하 여 빈도 및 보존 컨트롤을 엽니다.
-    * 하루에 하나의 증분 백업을 트리거할 수 있습니다.
-    * 증분 백업은 최대 180 일 동안 보존할 수 있습니다. 더 오래 보존해야 하는 경우에는 전체 백업을 사용해야 합니다.
+1. **증분 백업 정책** 에서 **사용** 을 선택하여 빈도 및 보존 컨트롤을 엽니다.
+    * 많으면, 하루에 하나의 증분 백업을 트리거할 수 있습니다.
+    * 증분 백업은 최대 180일 동안 보존될 수 있습니다. 더 오래 보존해야 하는 경우에는 전체 백업을 사용해야 합니다.
 
     ![증분 백업 정책](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 

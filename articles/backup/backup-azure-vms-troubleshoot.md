@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325216"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831553"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -74,6 +74,16 @@ VM이 실패 상태여서 백업 작업이 실패했습니다. 백업이 성공�
 * **fsck** 명령을 사용하여 이러한 디바이스에서 파일 시스템 일관성 검사를 실행합니다.
 * 디바이스를 다시 탑재하고 백업 작업을 다시 시도합니다.</ol>
 
+장치를 탑재 해제할 수 없는 경우 VM 백업 구성을 업데이트 하 여 특정 탑재 지점이 무시 되도록 할 수 있습니다. 예를 들어 '/mnt/resource ' 탑재 지점을 탑재 해제 하 고 VM 백업 오류를 발생 시킬 수 없는 경우 다음과 같이 속성을 사용 하 여 VM 백업 구성 파일을 업데이트할 수 있습니다 ```MountsToSkip``` .
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
+
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - COM+ 오류로 인해 확장 설치/작업이 실패했습니다.
 
 오류 코드: ExtensionSnapshotFailedCOM <br/>
@@ -104,11 +114,11 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 
 이 오류는 VSS 기록기가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 기록기와 상호 작용 하 여 디스크의 스냅숏을 생성 합니다. 이 문제를 해결하려면 다음 단계를 수행하세요.
 
-1 단계: 잘못 된 상태의 VSS 기록기를 다시 시작 합니다.
+1단계: 잘못된 상태의 VSS 기록기를 다시 시작합니다.
 
 * 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다.
-* 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1]** 이 아닌 모든 vss 기록기의 경우 해당 vss 기록기의 서비스를 다시 시작 합니다.
-* 서비스를 다시 시작 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
+* 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1] Stable** 이 아닌 모든 VSS 기록기에 대해 해당 VSS 기록기의 서비스를 다시 시작합니다.
+* 서비스를 다시 시작하려면 관리자 권한 명령 프롬프트에서  명령을 실행합니다.
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
@@ -140,16 +150,16 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 이 오류는 VSS 서비스가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 서비스와 상호 작용 하 여 디스크의 스냅숏을 만드는 데 사용 됩니다. 이 문제를 해결하려면 다음 단계를 수행하세요.
 
-VSS (볼륨 섀도 복사본) 서비스를 다시 시작 합니다.
+VSS(볼륨 섀도 복사본) 서비스를 다시 시작합니다.
 
-* Services.msc로 이동 하 여 ' 볼륨 섀도 복사본 서비스 '를 다시 시작 합니다.<br>
+* Services.msc로 이동하여 '볼륨 섀도 복사본 서비스'를 다시 시작합니다.<br>
 (또는)<br>
 * 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
-문제가 계속 되 면 예약 된 가동 중지 시간에 VM을 다시 시작 합니다.
+문제가 계속되면 예약된 가동 중지 시간에 VM을 다시 시작합니다.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-선택한 VM 크기를 사용할 수 없으므로 VM을 만들지 못했습니다.
 
@@ -283,7 +293,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 * VM이 **실행 중** 에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다.
 * VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent** 를 제외하여 백업 확장이 설치되도록 합니다.
 
-* VM 에이전트가 가상 머신에 없습니다. <br>모든 필수 구성 요소 및 VM 에이전트를 설치합니다. 그런 다음, 작업을 다시 시작합니다. 자세한 내용은 [Vm 에이전트 설치 및 Vm 에이전트 설치의 유효성을 검사 하는 방법](#vm-agent)을 참조 하세요.
+* VM 에이전트가 가상 머신에 없습니다. <br>모든 필수 구성 요소 및 VM 에이전트를 설치합니다. 그런 다음, 작업을 다시 시작합니다. | [Vm 에이전트 설치 및 Vm 에이전트 설치의 유효성을 검사 하는 방법](#vm-agent)에 대해 자세히 알아보세요.
 
 ### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-보안 네트워크 통신 채널을 만드는 데 실패 하 여 스냅숏 작업이 실패 했습니다.
 

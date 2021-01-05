@@ -1,5 +1,5 @@
 ---
-title: IoT 용 Azure 센티널 구성 (미리 보기)
+title: IoT 용 Azure 센티널 구성
 description: IoT 용 Defender 솔루션에서 데이터를 수신 하도록 Azure 센티널를 구성 하는 방법을 설명 합니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -10,19 +10,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 12/28/2020
 ms.author: shhazam
-ms.openlocfilehash: c033f6fc6f3fc40005d98bd48832c15792d6f484
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: d4686f1d7192d1469e52e653185f1fc9389764de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629088"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832321"
 ---
-# <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>IoT 용 Defender의 데이터를 Azure 센티널에 연결 (미리 보기)
-
-> [!IMPORTANT]
-> IoT 용 Defender 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다. 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>IoT 용 Defender의 데이터를 Azure 센티널에 연결 
 
 IoT 용 Defender 커넥터를 사용 하 여 모든 IoT 이벤트 용 Defender를 Azure 센티널로 스트리밍합니다. 
 

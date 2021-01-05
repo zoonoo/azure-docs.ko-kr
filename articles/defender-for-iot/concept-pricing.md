@@ -4,21 +4,21 @@ description: IoT 용 Defender와 관련 된 비용 및 제어 하는 방법을 �
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/04/2020
-ms.author: mlottner
-ms.openlocfilehash: 24ae6c4014948639aa737a0d2d88ec15f98a7cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/08/2020
+ms.author: shhazam
+ms.openlocfilehash: a97bcbf5ba47289a2e68b0eaa587ea39d7fb705a
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939524"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832355"
 ---
 # <a name="pricing-and-associated-costs"></a>가격 책정 및 관련 비용
 
@@ -46,13 +46,13 @@ IoT 용 Defender에는 직접 가격 책정에 속하지 않는 관련 비용이
 
 1. IoT Hub를 엽니다.
 
-1. **보안**에서 **설정**을 클릭 합니다.
+1. **보안** 에서 **설정** 을 클릭 합니다.
 
-1. **데이터 컬렉션**을 클릭 합니다.
+1. **데이터 컬렉션** 을 클릭 합니다.
 
 다음 표에서는 각 옵션의 관련 비용 및 의미에 대 한 요약을 제공 합니다.
 
-| 옵션 | 사용 | 주석 |
+| 옵션 | 사용 | 설명 |
 | --- | --- | --- |
 | **Log Analytics 저장소** |  |
 | 장치 권장 사항 및 경고| 서비스에서 생성 하는 보안 권장 사항 및 경고 | 선택 사항 아님 |
@@ -71,7 +71,7 @@ IoT 용 Defender에는 직접 가격 책정에 속하지 않는 관련 비용이
 | | [경고](concept-security-alerts.md) 및 [권장 사항](concept-recommendations.md) 조사에 대 한 세부 정보를 사용할 수 없음 |
 |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [원시 보안 데이터](how-to-security-data-access.md) 액세스
 - [디바이스 조사](how-to-investigate-device.md)

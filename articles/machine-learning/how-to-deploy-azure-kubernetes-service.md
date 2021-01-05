@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy, devx-track-azurecli
+ms.custom: how-to, contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: d7540066ccc0d3a62dbd4012eee100d8e8aea98f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 7ba01139e365b2f0023ef0784b6ed83e7bde609a
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505089"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831733"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
@@ -91,6 +91,55 @@ Azure Machine Learning에서 "배포"는 보다 일반적으로 사용 가능 �
 Azureml-fe는 더 많은 코어를 사용 하도록 수직으로 확장 하 고 더 많은 pod를 사용 하기 위해 수평으로 확장 합니다. 수직 확장을 결정할 때 들어오는 유추 요청을 라우팅하는 데 걸리는 시간이 사용 됩니다. 이 시간이 임계값을 초과 하면 확장이 발생 합니다. 들어오는 요청을 라우팅하는 데 걸리는 시간이 임계값을 계속 초과 하면 확장이 발생 합니다.
 
 규모를 축소 하는 경우 CPU 사용량이 사용 됩니다. CPU 사용 임계값에 도달 하면 프런트 엔드는 먼저 축소 됩니다. CPU 사용량이 확장 임계값으로 떨어지면 확장 작업이 수행 됩니다. 규모를 확장 및 축소 하는 것은 사용 가능한 클러스터 리소스가 충분 한 경우에만 발생 합니다.
+
+## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>AKS 추론 클러스터에 대 한 연결 요구 사항 이해
+
+Azure Machine Learning에서 AKS 클러스터를 만들거나 연결할 때 AKS 클러스터는 다음 두 가지 네트워크 모델 중 하나를 사용 하 여 배포 됩니다.
+* Kubenet 네트워킹 - 네트워크 리소스는 일반적으로 AKS 클러스터가 배포될 때 만들어지고 구성됩니다.
+* Azure CNI(컨테이너 네트워킹 인터페이스) 네트워킹 - AKS 클러스터가 기존 가상 네트워크 리소스 및 구성에 연결됩니다.
+
+첫 번째 네트워크 모드의 경우에는 Azure Machine Learning 서비스에 대해 네트워킹이 만들어지고 적절히 구성 됩니다. 클러스터가 기존 가상 네트워크에 연결 되어 있기 때문에 두 번째 네트워킹 모드의 경우, 특히 기존 가상 네트워크에 사용자 지정 DNS를 사용 하는 경우 고객은 AKS 추론 클러스터에 대 한 연결 요구 사항에 특히 주의를 기울여야 하며 AKS 추론에 대 한 DNS 확인 및 아웃 바운드 연결을 보장 해야 합니다.
+
+다음 다이어그램은 AKS 추론에 대 한 모든 연결 요구 사항을 캡처합니다. 검은색 화살표는 실제 통신을 나타내고 파란색 화살표는 고객이 제어 하는 DNS가 확인 해야 하는 도메인 이름을 나타냅니다.
+
+ ![AKS 추론에 대 한 연결 요구 사항](./media/how-to-deploy-aks/aks-network.png)
+
+### <a name="overall-dns-resolution-requirements"></a>전체 DNS 확인 요구 사항
+기존 VNET 내 DNS 확인은 고객의 통제를 받고 있습니다. 다음 DNS 항목을 확인할 수 있어야 합니다.
+* AKS 형식으로 API \<cluster\> 서버를. \<region\> azmk8s.io
+* MCR (Microsoft Container Registry): mcr.microsoft.com
+* Azurecr.io 형식으로 된 고객의 Azure Container Registry (ARC) \<ACR name\>
+* \<account\>Table.core.windows.net 및. blob.core.windows.net 형식의 Azure Storage 계정 \<account\>
+* 필드 AAD 인증의 경우: api.azureml.ms
+* Azure ML 또는 사용자 지정 도메인 이름으로 자동 생성 되는 점수 매기기 끝점 도메인 이름입니다. 자동 생성 된 도메인 이름은와 \<leaf-domain-label \+ auto-generated suffix\> 같습니다. \<region\> cloudapp.azure.com
+
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>시간 순서 대로 연결 요구 사항: 클러스터 만들기에서 모델 배포까지
+
+AKS 만들기 또는 연결 과정에서 Azure ML 라우터 (azureml-fe)는 AKS 클러스터에 배포 됩니다. Azure ML 라우터를 배포 하기 위해 AKS 노드에서 다음을 수행할 수 있어야 합니다.
+* AKS API 서버에 대 한 DNS 확인
+* Azure ML 라우터에 대 한 docker 이미지를 다운로드 하기 위해 MCR에 대 한 DNS를 확인 합니다.
+* 아웃 바운드 연결이 필요한 MCR에서 이미지 다운로드
+
+Azureml-fe를 배포한 후에는를 시작 하 고 다음을 수행 해야 합니다.
+* AKS API 서버에 대 한 DNS 확인
+* AKS API 서버를 쿼리하여 다른 인스턴스 (multi-factor service)를 검색 합니다.
+* 다른 인스턴스에 연결
+
+Azureml-fe를 시작한 후에는 추가 연결이 제대로 작동 해야 합니다.
+* Azure Storage에 연결 하 여 동적 구성을 다운로드 합니다.
+* AAD 인증 서버 api.azureml.ms에 대 한 DNS를 확인 하 고 배포 된 서비스가 AAD 인증을 사용 하는 경우 통신 합니다.
+* 배포 된 모델을 검색 하는 AKS API 서버 쿼리
+* 배포 된 모델 Pod 통신
+
+모델 배포 시 성공적인 모델 배포 AKS 노드는 다음을 수행할 수 있어야 합니다. 
+* 고객의 ACR에 대 한 DNS 확인
+* 고객의 ACR에서 이미지 다운로드
+* 모델이 저장 되는 Azure Blob에 대 한 DNS를 확인 합니다.
+* Azure Blob에서 모델 다운로드
+
+모델을 배포 하 고 서비스를 시작한 후 azureml-fe는 AKS API를 사용 하 여 자동으로 검색 하 고 요청을 라우팅할 준비가 됩니다. 모델 Pod 통신할 수 있어야 합니다.
+>[!Note]
+>배포 된 모델에 연결 (예: 외부 데이터베이스 또는 기타 REST 서비스 쿼리, 블로그 다운로드 등)이 필요한 경우 이러한 서비스에 대 한 DNS 확인 및 아웃 바운드 통신을 모두 사용 하도록 설정 해야 합니다.
 
 ## <a name="deploy-to-aks"></a>AKS에 배포
 
