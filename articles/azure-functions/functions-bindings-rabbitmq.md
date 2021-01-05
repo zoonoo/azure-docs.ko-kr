@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672511"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746527"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 바인딩
 
 > [!NOTE]
-> RabbitMQ 바인딩은 **Windows Premium 및 전용** 계획 에서만 완벽 하 게 지원 됩니다. 소비 및 Linux는 현재 지원 되지 않습니다.
+> RabbitMQ 바인딩은 **프리미엄 및 전용** 계획 에서만 완전 하 게 지원 됩니다. 소비는 지원 되지 않습니다.
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [RabbitMQ](https://www.rabbitmq.com/) 와 통합 됩니다. Azure Functions RabbitMQ 확장을 사용 하면 함수를 사용 하 여 RabbitMQ API를 사용 하 여 메시지를 보내고 받을 수 있습니다.
 
-| 작업 | 형식 |
+| 작업 | 유형 |
 |---------|---------|
 | 큐를 통해 RabbitMQ 메시지가 들어올 때 함수를 실행 합니다. | [트리거](./functions-bindings-rabbitmq-trigger.md) |
 | RabbitMQ 메시지 보내기 |[출력 바인딩](./functions-bindings-rabbitmq-output.md) |
@@ -34,7 +34,7 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 
 트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 
-| 언어                                        | 추가 방법 ...                                   | 설명 
+| 언어                                        | 추가 방법 ...                                   | 설명
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지]설치, 버전 4.x | |
 | C # 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장] 은 Visual Studio Code와 함께 사용 하는 것이 좋습니다. |

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/17/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783826"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746646"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure Monitor에서 Azure AD 권한 관리에 대한 로그 및 보고 보관
 
@@ -37,24 +37,24 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
 
 1. 글로벌 관리자인 사용자로서 Azure Portal에 로그인합니다. Azure Monitor 작업 영역을 포함하는 리소스 그룹에 액세스할 수 있는지 확인합니다.
  
-1. **Azure Active Directory**를 선택한 다음 왼쪽 탐색 메뉴의 모니터링에서 **진단 설정**을 클릭합니다. 감사 로그를 해당 작업 영역으로 보내기 위한 설정이 이미 있는지 확인합니다.
+1. **Azure Active Directory** 를 선택한 다음 왼쪽 탐색 메뉴의 모니터링에서 **진단 설정** 을 클릭합니다. 감사 로그를 해당 작업 영역으로 보내기 위한 설정이 이미 있는지 확인합니다.
 
-1. 설정이 아직 없는 경우 **진단 설정 추가**를 클릭합니다. [Azure AD 로그를 Azure Monitor 로그와 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) 문서의 지침을 사용하여 Azure AD 감사 로그를 Azure Monitor 작업 영역으로 보냅니다.
+1. 설정이 아직 없는 경우 **진단 설정 추가** 를 클릭합니다. [Azure AD 로그를 Azure Monitor 로그와 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md#send-logs-to-azure-monitor) 문서의 지침을 사용하여 Azure AD 감사 로그를 Azure Monitor 작업 영역으로 보냅니다.
 
     ![진단 설정 창](./media/entitlement-management-logs-and-reporting/audit-log-diagnostics-settings.png)
 
 
-1. 로그를 Azure Monitor에 보낸 후 **Log Analytics 작업 영역**을 선택하고 Azure AD 감사 로그가 포함된 작업 영역을 선택합니다.
+1. 로그를 Azure Monitor에 보낸 후 **Log Analytics 작업 영역** 을 선택하고 Azure AD 감사 로그가 포함된 작업 영역을 선택합니다.
 
-1. **사용량 및 예상 비용**을 선택하고 **데이터 보존**을 클릭합니다. 감사 요구 사항을 충족할 수 있도록 데이터를 유지할 기간(일)으로 슬라이더를 변경합니다.
+1. **사용량 및 예상 비용** 을 선택하고 **데이터 보존** 을 클릭합니다. 감사 요구 사항을 충족할 수 있도록 데이터를 유지할 기간(일)으로 슬라이더를 변경합니다.
 
     ![Log Analytics 작업 영역 창](./media/entitlement-management-logs-and-reporting/log-analytics-workspaces.png)
 
 1. 나중에 작업 영역에 유지되는 날짜 범위를 확인하려면 *보관된 로그 날짜 범위* 통합 문서를 사용하면 됩니다.  
     
-    1. **Azure Active Directory**를 선택한 다음 **통합 문서**를 클릭합니다. 
+    1. **Azure Active Directory** 를 선택한 다음 **통합 문서** 를 클릭합니다. 
     
-    1. **Azure Active Directory 문제 해결** 섹션을 확장하고 **보관된 로그 날짜 범위**를 클릭합니다. 
+    1. **Azure Active Directory 문제 해결** 섹션을 확장하고 **보관된 로그 날짜 범위** 를 클릭합니다. 
 
 
 ## <a name="view-events-for-an-access-package"></a>액세스 패키지에 대한 이벤트 보기  
@@ -69,13 +69,13 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
 
 이벤트를 보려면 다음 절차를 따릅니다. 
 
-1. Azure Portal에서 **Azure Active Directory**를 선택한 다음 **통합 문서**를 클릭합니다. 구독이 하나만 있는 경우 3단계로 이동 합니다. 
+1. Azure Portal에서 **Azure Active Directory** 를 선택한 다음 **통합 문서** 를 클릭합니다. 구독이 하나만 있는 경우 3단계로 이동 합니다. 
 
 1. 구독이 여러 개 있는 경우 작업 영역이 포함된 구독을 선택합니다.  
 
-1. *액세스 패키지 작업*이라는 통합 문서를 선택합니다. 
+1. *액세스 패키지 작업* 이라는 통합 문서를 선택합니다. 
 
-1. 해당 통합 문서에서 시간 범위를 선택(확실하지 않은 경우 **모두**로 변경)하고 해당 시간 범위 중에 작업이 포함된 모든 액세스 패키지의 드롭다운 목록에서 액세스 패키지 ID를 선택합니다. 선택한 시간 범위 중에 발생한 액세스 패키지와 관련 있는 이벤트가 표시됩니다.  
+1. 해당 통합 문서에서 시간 범위를 선택(확실하지 않은 경우 **모두** 로 변경)하고 해당 시간 범위 중에 작업이 포함된 모든 액세스 패키지의 드롭다운 목록에서 액세스 패키지 ID를 선택합니다. 선택한 시간 범위 중에 발생한 액세스 패키지와 관련 있는 이벤트가 표시됩니다.  
 
     ![액세스 패키지 이벤트 보기](./media/entitlement-management-logs-and-reporting/view-events-access-package.png) 
 
@@ -85,9 +85,9 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
 ## <a name="create-custom-azure-monitor-queries-using-the-azure-portal"></a>Azure Portal을 이용해 사용자 지정 Azure Monitor 쿼리 만들기
 권한 관리 이벤트를 포함하여 Azure AD 감사 이벤트에 대한 고유 쿼리를 만들 수 있습니다.  
 
-1. Azure Portal의 Azure Active Directory에서 왼쪽 탐색 메뉴의 모니터링 섹션에 있는 **로그**를 클릭하여 새 쿼리 페이지를 만듭니다.
+1. Azure Portal의 Azure Active Directory에서 왼쪽 탐색 메뉴의 모니터링 섹션에 있는 **로그** 를 클릭하여 새 쿼리 페이지를 만듭니다.
 
-1. 작업 영역이 쿼리 페이지의 왼쪽 위에 표시되어야 합니다. Azure Monitor 작업 영역이 여러 개 있고 Azure AD 감사 이벤트를 저장하는 데 사용하는 작업 영역이 표시되지 않는 경우 **범위 선택**을 클릭합니다. 그런 다음 올바른 구독 및 작업 영역을 선택합니다.
+1. 작업 영역이 쿼리 페이지의 왼쪽 위에 표시되어야 합니다. Azure Monitor 작업 영역이 여러 개 있고 Azure AD 감사 이벤트를 저장하는 데 사용하는 작업 영역이 표시되지 않는 경우 **범위 선택** 을 클릭합니다. 그런 다음 올바른 구독 및 작업 영역을 선택합니다.
 
 1. 다음으로 쿼리 텍스트 영역에서 "검색 *" 문자열을 삭제하고 다음 쿼리로 바꿉니다.
 
@@ -95,7 +95,7 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
     AuditLogs | where Category == "EntitlementManagement"
     ```
 
-1. 그런 다음 **실행**을 클릭합니다. 
+1. 그런 다음 **실행** 을 클릭합니다. 
 
     ![실행을 클릭하여 쿼리 시작](./media/entitlement-management-logs-and-reporting/run-query.png)
 
@@ -124,7 +124,7 @@ Azure AD를 인증할 사용자 또는 서비스 주체가 Log Analytics 작업 
 
 1. **Access Control(IAM)** 을 선택합니다.
 
-1. 그런 다음 **추가**를 클릭하여 역할 할당을 추가합니다.
+1. 그런 다음 **추가** 를 클릭하여 역할 할당을 추가합니다.
 
     ![역할 할당 추가](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 

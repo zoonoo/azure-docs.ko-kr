@@ -11,14 +11,14 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ef8ee7718aabb443fda6cd7b276ee53472261913
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 878e6f11645a6478c0d536e9d6d6dac4518c5349
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424350"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740966"
 ---
-# <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Databricks 및 autoML을 사용 하 여 개발 환경 설정 Azure Machine Learning 
+# <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Databricks 및 AutoML을 사용 하 여 개발 환경 설정 Azure Machine Learning 
 
 Azure Databricks 및 자동화 된 ML을 사용 하는 Azure Machine Learning에서 개발 환경을 구성 하는 방법에 대해 알아봅니다.
 
@@ -27,14 +27,14 @@ Azure Databricks는 Azure 클라우드의 확장 가능 Apache Spark 플랫폼�
 다른 기계 학습 개발 환경에 대 한 자세한 내용은 [Python 개발 환경 설정](how-to-configure-environment.md)을 참조 하세요.
 
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
 Azure Machine Learning 작업 영역입니다. 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
 
-## <a name="azure-databricks-with-azure-machine-learning-and-automl"></a>Azure Machine Learning 및 autoML을 사용 하 여 Azure Databricks
+## <a name="azure-databricks-with-azure-machine-learning-and-automl"></a>Azure Machine Learning 및 AutoML을 사용 하 여 Azure Databricks
 
-Azure Databricks Azure Machine Learning 및 해당 autoML 기능과 통합 됩니다. 
+Azure Databricks Azure Machine Learning 및 해당 AutoML 기능과 통합 됩니다. 
 
 Azure Databricks를 사용할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure Databricks를 사용할 수 있습니다.
 자동 ML을 사용 하려면 AutoML을 사용 하 [여 AZURE ML SDK 추가](#add-the-azure-ml-sdk-with-automl-to-databricks)로 건너뜁니다.
 
 
-1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기**  >  **Library** 를 선택 합니다.
+1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. 라이브러리 **만들기**  >  를 선택 합니다.
     
     > [!TIP]
     > 이전 SDK 버전이 있는 경우 클러스터의 설치 된 라이브러리에서 선택을 취소 하 고 휴지통으로 이동 합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 다시 시작한 후 문제가 발생 하면 클러스터를 분리 하 고 다시 연결 합니다.
@@ -120,6 +120,44 @@ AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수�
  ![ 가져오기 패널 가져오기 선택](./media/how-to-configure-environment/azure-db-import.png)
 
 + [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+* **패키지 설치 시 실패**
+
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
+    
+    ```python
+    psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+    ```
+
+    또는 Python 라이브러리와의 연결을 유지 하는 경우 init 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)를 참조 하세요.
+
+* **가져오기 오류: `Timedelta` `pandas._libs.tslibs` 에서 이름을 가져올 수 없음**: 자동화 된 machine learning을 사용 하는 경우이 오류가 표시 되 면 노트북에서 다음 두 줄을 실행 합니다.
+    ```
+    %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
+    %sh /databricks/python/bin/pip install pandas==0.23.4
+    ```
+
+* **가져오기 오류: ' pandas ' (이) 라는 모듈이 없습니다**. 자동화 된 machine learning을 사용 하는 경우이 오류가 표시 됩니다.
+
+    1. Azure Databricks 클러스터에 두 개의 패키지를 설치 하려면이 명령을 실행 합니다.
+    
+       ```bash
+       scikit-learn==0.19.1
+       pandas==0.22.0
+       ```
+    
+    1. 클러스터를 분리 했다가 노트북에 다시 연결 합니다.
+    
+    이러한 단계를 수행 해도 문제가 해결 되지 않으면 클러스터를 다시 시작 하십시오.
+
+* **Failtosendfeather**: `FailToSendFeather` Azure Databricks 클러스터에서 데이터를 읽는 동안 오류가 표시 되는 경우 다음 해결 방법을 참조 하세요.
+    
+    * `azureml-sdk[automl]`패키지를 최신 버전으로 업그레이드 합니다.
+    * `azureml-dataprep`버전 1.1.8 이상을 추가 합니다.
+    * `pyarrow`버전 0.11 이상을 추가 합니다.
+  
 
 ## <a name="next-steps"></a>다음 단계
 

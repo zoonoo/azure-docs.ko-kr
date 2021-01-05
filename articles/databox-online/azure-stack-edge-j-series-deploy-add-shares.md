@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 12/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 68cac756a3c84d0360d475a4bf88a392e3961f1d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447564"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740915"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU와 공유를 통해 데이터 전송
 
@@ -72,8 +72,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
    
     f. SMB 공유 또는 NFS 공유를 만들었는지 여부에 따라 다음 단계 중 하나를 수행합니다. 
      
-    - **SMB 공유**: **모든 권한 로컬 사용자**  아래에서 **새로 만들기** 또는 **기존 항목 사용** 을 선택합니다. 새 로컬 사용자를 만드는 경우 사용자 이름과 암호를 입력한 다음, 해당 암호를 확인합니다. 이 작업은 로컬 사용자에게 권한을 할당합니다. 여기서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
-    이 공유 데이터에 대해 **읽기 작업만 허용** 확인란을 선택하면 읽기 전용 사용자를 지정할 수 있습니다.
+    - **SMB 공유**: **모든 권한 로컬 사용자**  아래에서 **새로 만들기** 또는 **기존 항목 사용** 을 선택합니다. 새 로컬 사용자를 만드는 경우 사용자 이름과 암호를 입력한 다음, 해당 암호를 확인합니다. 이 작업은 로컬 사용자에게 권한을 할당합니다. 공유 수준 권한 수정은 현재 지원되지 않습니다. 이 공유 데이터에 대해 **읽기 작업만 허용** 확인란을 선택하면 읽기 전용 사용자를 지정할 수 있습니다.
     
         ![SMB 공유 추가](./media/azure-stack-edge-j-series-deploy-add-shares/add-share-smb-1.png)
    

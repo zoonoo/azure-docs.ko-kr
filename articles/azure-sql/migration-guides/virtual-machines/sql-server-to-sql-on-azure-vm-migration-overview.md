@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 4979902853602073e6230ef7387d6c6596fe77da
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325924"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746578"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: Azure Vm에서 SQL Server으로 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -127,6 +127,20 @@ SQL Server 데이터베이스를 Azure Vm의 SQL Server 인스턴스로 마이�
 
 Azure Vm에서 SQL Server 데이터베이스를 SQL Server으로 마이그레이션하기 위해 준비할 때 지원 되는 SQL Server 버전을 고려해 야 합니다. Azure Vm에서 현재 지원 되는 SQL Server 버전 목록은 [Azure vm의 SQL Server](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms)를 참조 하세요.
 
+## <a name="migration-assets"></a>마이그레이션 자산 
+
+추가 지원이 필요한 경우 실제 마이그레이션 프로젝트용으로 개발 된 다음 리소스를 참조 하세요.
+
+|자산  |Description  |
+|---------|---------|
+|[데이터 워크로드 평가 모델 및 도구](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
+|[Logman를 사용 하 여 Perfmon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|마이그레이션 대상 권장 사항에 도움이 되는 기준 성능을 이해 하기 위해 데이터를 수집 하는 도구입니다. 이 도구는 logman.exe을 사용 하 여 원격 SQL Server에 설정 된 성능 카운터를 만들고, 시작 하 고, 중지 하 고, 삭제 하는 명령을 만듭니다.|
+|[Azure에서 SQL Server 배포](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|이 지침 백서는 기능 비교, 고가용성 및 백업/저장소 고려 사항을 포함 하 여 SQL Server 워크 로드를 Azure로 이동 하는 다양 한 옵션을 검토 하는 데 도움이 됩니다. |
+|[Azure 가상 컴퓨터에 온-프레미스 SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|이 백서에서는 Azure 가상 머신에서 샘플 스크립트를 사용 하 여 온-프레미스 SQL Server에서 SQL Server로 데이터베이스를 백업 및 복원 하는 단계를 간략하게 설명 합니다.|
+|[다중 SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정 하는 단계를 간략하게 설명 합니다.|
+|[지역별 울트라 SSD를 지 원하는 Azure virtual machines](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|이러한 PowerShell 스크립트는 울트라 Ssd를 지 원하는 Azure virtual machines를 지 원하는 지역 목록을 검색 하는 프로그래밍 방식의 옵션을 제공 합니다.|
+
+위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
