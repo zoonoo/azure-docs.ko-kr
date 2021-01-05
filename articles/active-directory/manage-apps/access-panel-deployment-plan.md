@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 209760b51e0f3ab931fa43ef88406f15c75ac079
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835665"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832542"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>내 앱 배포 Azure Active Directory 계획
 
@@ -74,8 +74,8 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 | 영역| 설명 |
 | - | - |
-| Access| 회사 네트워크 내의 회사 및 개인 장치에서 내 앱 포털에 액세스할 수 있습니다. |
-|Access | 회사 네트워크 외부의 회사 장치에서 내 앱 포털에 액세스할 수 있습니다. |
+| 액세스 권한| 회사 네트워크 내의 회사 및 개인 장치에서 내 앱 포털에 액세스할 수 있습니다. |
+|액세스 | 회사 네트워크 외부의 회사 장치에서 내 앱 포털에 액세스할 수 있습니다. |
 | 감사| 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 됩니다. |
 | 거버넌스| Azure AD에 연결 된 응용 프로그램 및 그룹에 대 한 사용자 할당의 수명 주기는 정의 되 고 모니터링 됩니다. |
 | 보안| 리소스에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. 권한 있는 사용자만 리소스 액세스를 관리할 수 있습니다. |

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174920"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832627"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>배우기
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 

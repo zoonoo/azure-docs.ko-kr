@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 5e7eabd44ea8c56fbb102f9e48812745a31de62a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089199"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835026"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>IoT 용 Azure Defender 질문과 대답
 
@@ -79,15 +79,11 @@ IoT 용 Azure Defender 센서는 범위 포트 또는 네트워크 탭에 연결
 
 센서와 에이전트는 장치가 실행 되는 동안 계속 실행 되 고 데이터를 저장 합니다. 데이터는 크기 구성에 따라 보안 메시지 캐시에 저장됩니다. 디바이스가 다시 연결되면 보안 메시지 보내기가 다시 시작됩니다.
 
-
-
-
-
 ## <a name="next-steps"></a>다음 단계
 
 IoT 용 Defender를 시작 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - IoT 용 Defender [개요](overview.md) 읽기
-- [서비스 필수 조건](service-prerequisites.md) 확인
-- [시작](getting-started.md) 방법에 대한 자세한 정보
+- [시스템 필수 구성 요소](quickstart-system-prerequisites.md) 확인
+- [IoT 용 Defender를 시작](getting-started.md) 하는 방법에 대 한 자세한 정보
 - [IoT 보안 경고에 대 한 Defender](concept-security-alerts.md) 이해

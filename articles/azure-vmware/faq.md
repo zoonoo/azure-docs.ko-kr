@@ -2,24 +2,23 @@
 title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.author: dikamath
-ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/22/2020
+ms.openlocfilehash: 941708003558dda601aa43459bc83133788687fd
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861411"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835196"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
-이 문서에서는 Azure VMware 솔루션에 대 한 자주 묻는 질문에 답변 합니다.
+이 문서에서는 Azure VMware 솔루션에 대 한 자주 묻는 질문과 대답을 제공 합니다.
 
 ## <a name="general"></a>일반
 
 #### <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
-기업은 IT 현대화 전략을 활용 하 여 비즈니스 민첩성을 개선 하 고 비용을 절감 하며 혁신을 가속화 하는 하이브리드 클라우드 플랫폼은 고객의 디지털 변환의 핵심 핵심으로 등장 했습니다. Azure VMware 솔루션은 VMware의 SDDC (Software-Defined 데이터 센터) 소프트웨어를 Microsoft Azure 글로벌 클라우드 서비스 에코 시스템과 결합 합니다. Azure VMware 솔루션은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족 하도록 관리 됩니다.
+기업은 IT 현대화 전략을 활용 하 여 비즈니스 민첩성을 개선 하 고 비용을 절감 하며 혁신을 가속화 하는 하이브리드 클라우드 플랫폼은 고객의 디지털 변환의 핵심 핵심으로 등장 했습니다. Azure VMware 솔루션은 VMware의 SDDC (Software-Defined 데이터 센터) 소프트웨어를 Microsoft의 Azure 글로벌 클라우드 서비스 에코 시스템과 결합 합니다. Azure VMware 솔루션은 성능, 가용성, 보안 및 규정 준수 요구 사항을 충족 하도록 관리 됩니다.
 
 ## <a name="azure-vmware-solution-service"></a>Azure VMware 솔루션 서비스
 
@@ -59,31 +58,29 @@ Azure VMware 솔루션은 시작 시 온-프레미스 및 사설 클라우드 �
 
 새 Azure VMware Solution과 관련하여 Microsoft와 VMware는 직접 클라우드 공급자 파트너십을 체결했습니다. 새로운 솔루션은 Microsoft에서 완전히 설계, 구축 및 지원 되며 VMware에 의해 보증 됩니다. 아키텍처는 전용 Azure 인프라에서 실행 되는 VMware 기술 스택을 사용 하 여 일관 된 솔루션입니다.
 
-
-
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>VMRC를 통해 Azure VMware 솔루션 Vm을 관리할 수 있나요?
-예, 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있고 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인할 수 있습니다.
+예. 가 설치 된 시스템에서 사설 클라우드 vCenter에 액세스할 수 있으며 공용 DNS를 사용 하 여 ESXi 호스트 이름을 확인 합니다.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm과 함께 VMRC를 설치 하 고 사용 하기 위한 특별 지침이 있나요?
-아니요. [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) 하는 지침을 사용 하 여 해당 지침에 지정 된 VM 필수 조건을 충족 합니다. 
+아니요. VM 필수 구성 요소를 충족 하려면 [VMware에서 제공](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html)하는 지침을 따르세요. 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>Vpn에서 VMware HCX가 지원 되나요?
 아니요, 대역폭 및 대기 시간 요구 사항으로 인해 발생 합니다.
 
 #### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>Azure가 Azure VMware 솔루션 Vm에 연결 하는 데 사용할 수 있나요?
-Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 위해 점프 상자에 연결 하는 서비스입니다. Azure 가상 사용자는 azure IaaS 개체가 아니기 때문에 azure 방호를 사용 하 여 azure VMware 솔루션 Vm에 연결할 수 없습니다.
+Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 위해 점프 상자에 연결 하는 서비스입니다. Azure 가상 사용자는 azure IaaS 개체가 아니므로 azure 방호를 사용 하 여 azure VMware 솔루션 Vm에 연결할 수 없습니다.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>내부 Azure Load Balancer Azure VMware 솔루션 Vm에 사용할 수 있나요?
 아니요. Azure Load Balancer 내부 전용은 Azure IaaS Vm만 지원 합니다. Azure Load Balancer는 IP 기반 백 엔드 풀을 지원 하지 않습니다. azure VMware 솔루션 Vm이 azure 개체가 아닌 Azure Vm 또는 가상 머신 확장 집합 개체만.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>기존 Express 경로 게이트웨이를 Azure VMware 솔루션에 연결 하는 데 사용할 수 있나요?
-예, 가상 네트워크 당 4 개의 Express 경로 회로 제한을 초과 하지 않는 한 기존 Express 경로 게이트웨이를 사용 하 여 Azure VMware 솔루션에 연결할 수 있습니다.  그러나 ExpressRoute를 통해 온-프레미스에서 Azure VMware Solution에 액세스하려면 ExpressRoute 게이트웨이가 연결된 회로 간에 전이적 라우팅을 제공하지 않으므로 ExpressRoute Global Reach가 있어야 합니다.
+예. 가상 네트워크 당 4 개의 Express 경로 회로 제한을 초과 하지 않는 한 기존 Express 경로 게이트웨이를 사용 하 여 Azure VMware 솔루션에 연결 합니다. Express 경로를 통해 온-프레미스에서 Azure VMware 솔루션에 액세스 하려면 Express 경로 게이트웨이가 연결 된 회로 간에 전이적 라우팅을 제공 하지 않으므로 Express 경로 Global Reach 있어야 합니다.
 
 ## <a name="compute-network-storage-and-backup"></a>계산, 네트워크, 저장소 및 백업
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>사용 가능한 호스트 유형이 2개 이상 있나요?
 
-사용 가능한 호스트 유형은 하나뿐입니다.
+사용할 수 있는 호스트 유형은 하나 뿐입니다.
 
 #### <a name="what-are-the-cpu-specifications-in-each-type-of-host"></a>각 호스트 유형의 CPU 사양이 어떻게 되나요?
 
@@ -105,9 +102,9 @@ Azure VMware 솔루션의 각 ESXi 호스트는 4 25-Gbps Nic, ESXi 시스템 �
 
 예, 모든 vSAN 데이터는 Azure Key Vault에 저장 된 키를 사용 하 여 기본적으로 암호화 됩니다.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>Commvault, Veritas 및 Veeam을 사용 하 여 Azure VMware 솔루션으로 작업 하는 백업 솔루션을 확장 했습니다. 다른 Isv (독립 소프트웨어 공급 업체) 백업 솔루션은 무엇 인가요?
+####  <a name="what-independent-software-vendors-isvs-backup-solutions-work-with-azure-vmware-solution"></a>Azure VMware 솔루션에서 사용할 Isv (독립 소프트웨어 공급 업체) 백업 솔루션은 무엇 인가요?
 
-앞서 설명한 것 처럼 HotAdd 전송 모드에서 VMware VADP를 사용 하는 모든 백업 솔루션은 Azure VMware 솔루션에서 즉시 작동 해야 합니다.
+Commvault, Veritas 및 Veeam은 Azure VMware 솔루션을 사용 하도록 백업 솔루션을 확장 했습니다.  그러나 HotAdd 전송 모드에서 VMware VADP를 사용 하는 모든 백업 솔루션은 Azure VMware 솔루션에서 바로 사용할 수 있습니다.
 
 #### <a name="what-about-support-for-isv-backup-solutions"></a>ISV 백업 솔루션에 대 한 지원 이란 무엇 인가요?
 
@@ -127,7 +124,7 @@ VM 템플릿에 대 한 *thin_provision* 저장소 정책을 사용 합니다.  
 
 아니요, 프라이빗 클라우드 호스트와 클러스터는 전용이며 사용 전과 후에 안전하게 삭제됩니다.
 
-#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>클러스터당 최소 및 최대 호스트 수는 얼마 인가요?
+#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>클러스터당 최소/최대 호스트 수는 얼마인가요?
 
 ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습니다. 평가판 클러스터는 호스트 3개로 제한됩니다.
 
@@ -147,7 +144,8 @@ ESXi 호스트 3~16개 사이에서 클러스터를 스케일링할 수 있습�
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>프라이빗 클라우드에 사용되는 VMware 소프트웨어 버전은 무엇인가요?
 
-사설 클라우드는 vSphere 6.7 U3, Vsphere 6.7 U3, VMware HCX 및 NSX 2.5를 사용 합니다.  자세한 내용은 [VMware software version 요구 사항](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html)을 참조 하세요.
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>프라이빗 클라우드는 VMware NSX를 사용하나요?
 
@@ -188,11 +186,11 @@ Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>프라이빗 클라우드의 논리 네트워크에 있는 VM에 대한 인터넷 액세스를 제한해야 하나요?
 
-아니요. 인터넷에서 사설 클라우드로 직접 들어오는 네트워크 트래픽은 기본적으로 허용 되지 않습니다.  그러나 Azure VMware 솔루션 사설 클라우드의 Azure Portal에서 [공용 IP](public-ip-usage.md) 옵션을 통해 Azure Vmware 솔루션 Vm을 인터넷에 노출할 수 있습니다.
+아니요. 인터넷에서 사설 클라우드로 직접 들어오는 네트워크 트래픽은 기본적으로 허용 되지 않습니다.  그러나 Azure VMware 솔루션 사설 클라우드의 Azure Portal에서 [공용 IP](public-ip-usage.md) 옵션을 통해 Azure Vmware 솔루션 vm을 인터넷에 노출할 수 있습니다.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>논리 네트워크의 VM에서 인터넷으로 액세스하는 것을 제한해야 하나요?
 
-예. NSX-T 관리자를 사용하여 VM의 인터넷 액세스를 제한하는 방화벽을 만들어야 합니다.
+예. NSX manager를 사용 하 여 방화벽을 만들어 인터넷에 대 한 VM 액세스를 제한 해야 합니다.
 
 
 #### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>Azure VMware 솔루션은 Azure 가상 WAN 호스트 된 Express 경로 게이트웨이를 사용할 수 있나요?
@@ -201,6 +199,9 @@ Azure Portal에서 프라이빗 클라우드에 인터넷 연결을 사용하도
 #### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>Express 경로 Global Reach를 통해 Azure 가상 WAN을 통해 온-프레미스와 Azure VMware 솔루션 간에 전송 연결을 설정할 수 있나요?
 Azure 가상 WAN은 연결 된 두 Express 경로 회로와 비가상 WAN Express 경로 게이트웨이 간의 전이적 라우팅을 제공 하지 않습니다. Express 경로 Global Reach를 사용 하 여 온-프레미스와 Azure VMware 솔루션 간의 연결을 허용 하지만 가상 WAN 허브 대신 Microsoft의 글로벌 네트워크를 통해 이동 합니다.
 
+#### <a name="could-i-use-hcx-through-public-internet-communications-as-a-workaround-for-the-non-supportability-of-hcx-when-using-vpn-s2s-with-vwan-for-on-premises-communications"></a>온-프레미스 통신을 위해 vWAN에서 VPN S2S를 사용 하는 경우 HCX의 지원 되지 않는 문제에 대 한 해결 방법으로 공용 인터넷 통신을 통해 HCX를 사용할 수 있나요?
+
+현재 HCX에서 유일 하 게 지원 되는 방법은 Express 경로를 통해서만 지원 됩니다.
 
 ## <a name="accounts-and-privileges"></a>계정 및 권한
 
@@ -245,7 +246,7 @@ Azure 구독의 Azure 계정이 필요합니다.
 
 #### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Red Hat 솔루션은 Azure VMware 솔루션에서 지원 되나요?
 
-Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 공동 배치 된 통합 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로 Azure VMware 솔루션은 클라우드 액세스 및 통합 지원 파라솔에 속합니다. Red Hat Enterprise Linux는 Azure 내의 Azure VMware 솔루션을 기반으로 실행 하기 위해 지원 됩니다.
+Microsoft 및 Red Hat는 Azure 플랫폼에서 실행 되는 Red Hat 에코 시스템에 대 한 통합 연결 지점을 제공 하는 통합 된 공동 배치 지원 팀을 공유 합니다.  Red Hat Enterprise Linux를 사용 하는 다른 Azure platform 서비스와 마찬가지로 Azure VMware 솔루션은 클라우드 액세스 및 통합 지원 파라솔에 속합니다. Red Hat Enterprise Linux는 Azure 내의 Azure VMware 솔루션을 기반으로 실행 하기 위해 지원 됩니다.
 
 #### <a name="is-vmware-hcx-enterprise-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise를 사용할 수 있으며, 그렇다면 비용은 얼마나 되나요?
 
@@ -294,11 +295,11 @@ Azure VMware 솔루션 리소스를 만들기 전에 호스트를 할당 하도�
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
-   리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요. 
+   리소스 공급자를 등록 하는 방법에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요. 
 
 #### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>CSP (클라우드 솔루션 공급자) 프로그램을 통해 구매할 수 있는 예약 된 인스턴스 인가요?
 
-예. CSP는 고객에 대 한 예약 인스턴스를 구입할 수 있습니다. 자세한 내용은 [예약 된 인스턴스를 사용 하 여 비용](reserved-instance.md) 절감 문서를 참조 하세요. 
+예. CSP는 고객에 대 한 예약 인스턴스를 구입할 수 있습니다. 자세한 내용은 [예약 된 인스턴스로 비용](reserved-instance.md)절감을 참조 하세요. 
 
 #### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>Azure VMware 솔루션은 CSP 파트너 호스팅을 위한 다중 테 넌 트를 제공 하나요?
 
