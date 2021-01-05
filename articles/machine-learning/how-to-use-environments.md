@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 67b2dacb9debae1990d51be8ca47c76b7342cf67
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: f464664737ab56b43ca0c0a159837487494a1eaa
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660120"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826041"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "94660120"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -261,7 +261,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]
-> 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 _at the time of environment creation_ 계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](./concept-environments.md#environment-building-caching-and-reuse)을 참조 하세요.
+> 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 사용자 환경의 캐시 된 이미지를 재사용 합니다. 예를 들어 고정 해제 된 패키지 종속성을 사용 하 여 환경을 만드는 경우 환경을 만들 때 ```numpy``` 설치 된 패키지 버전을 계속 사용 하 게 됩니다. 또한 일치 하는 정의가 있는 이후의 모든 환경은 이전 버전을 계속 사용 합니다. 자세한 내용은 [환경 빌드, 캐싱 및 다시 사용](./concept-environments.md#environment-building-caching-and-reuse)을 참조 하세요.
 
 ### <a name="private-python-packages"></a>개인 Python 패키지
 

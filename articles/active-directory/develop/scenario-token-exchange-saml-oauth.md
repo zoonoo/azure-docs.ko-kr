@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 16de95e177f6be1b5bb2517b5ae3ca595cfb5766
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5841af4225f88b36fe727b60a597af208ac830f5
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939172"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827175"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>SAML 및 OIDC/OAuth를 사용 하는 Microsoft id 플랫폼 토큰 교환 시나리오
 
@@ -33,4 +33,4 @@ SAML 및 OIDC (Openid connect Connect)/OAuth는 SSO (Single Sign-On)를 구현 �
 > OIDC/OAuth 동작을 추가 하기 위한 권장 라이브러리는 MSAL (Microsoft 인증 라이브러리)입니다. MSAL에 대 한 자세한 내용은 [msal (Microsoft 인증 라이브러리) 개요](msal-overview.md)를 참조 하세요. 이전 라이브러리를 ADAL (Active Directory 인증 라이브러리) 이라고 하지만 MSAL에서 바꾸는 것은 권장 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [인증 흐름 및 응용 프로그램 시나리오](authentication-flows-app-scenarios.md)
+- [인증 흐름 및 애플리케이션 시나리오](authentication-flows-app-scenarios.md)

@@ -3,13 +3,13 @@ title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트의 레코드를 가져오고, 서식을 지정하고, 페이징하고, 건너뛰는 방법을 파악합니다.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 6054d2cd2cf012c21f451ece87db672897fa0398
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 59f69738bf9fe25cb739539b7a1f93e4499d781a
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843352"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97826035"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -67,7 +67,7 @@ Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _1000_ 을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
  **queryresponse** 는 결과 집합을 표시 하는 값을 제공 합니다. **resulttruncated** 및 **$skipToken**. **resultTruncated** 는 응답에 반환되지 않은 추가 레코드가 있는지 여부를 소비자에게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords** 는 쿼리와 일치하는 레코드 수를 정의합니다.
 
- **resultTruncated** 열이 없거나 **true** `id` 쿼리를 요청 하는 것 보다 사용 가능한 리소스가 부족 하기 때문에 페이징이 사용 하지 않도록 설정 되거나 가능 하지 않은 경우에는 true가 잘립니다. **Resulttruncated** 경우 **$skipToken** 속성이 설정 **되지 않습니다.**
+  열이 없거나  `id` 쿼리를 요청 하는 것 보다 사용 가능한 리소스가 부족 하기 때문에 페이징이 사용 하지 않도록 설정 되거나 가능 하지 않은 경우에는 true가 잘립니다. **Resulttruncated** 경우 **$skipToken** 속성이 설정 **되지 않습니다.**
 
 다음 예에서는 Azure CLI 및 Azure PowerShell을 사용하여 처음 3000개 레코드를 **건너뛰고** 이러한 레코드를 건너뛴 후 **처음** 1000개 레코드를 반환하는 방법을 보여 줍니다.
 

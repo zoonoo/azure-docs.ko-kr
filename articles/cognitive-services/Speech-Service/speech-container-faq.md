@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a657f43ef2d889cad1608d34e9235b1d5e7cb576
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85534d1f64b273e42a2ea063e67286ee7bb4a90a
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894153"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827158"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
 
@@ -98,7 +98,7 @@ Microsoft에 부과 되는 유지 관리 비용은 서비스 수준 및 서비�
 
 **답변:** 는 `speech_recognition_language=<YOUR_LANGUAGE>` 요청에서 참조 클라이언트를 사용 하는 경우 명시적으로 구성 해야 합니다.
 
-예들 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```python
 if not recognize_once(
@@ -169,7 +169,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**답변 2:** 대/소문자를 구분 하는 요청에 올바른 음성 이름을 제공 해야 합니다. 전체 서비스 이름 매핑을 참조 하세요. `en-US-JessaRUS` `en-US-JessaNeural` 텍스트 음성 변환의 컨테이너 버전에서 현재 사용할 수 없으므로를 사용 해야 합니다.
+**답변 2:** 대/소문자를 구분 하는 요청에 올바른 음성 이름을 제공 해야 합니다. 전체 서비스 이름 매핑을 참조 하세요.
 
 **오류 3:**
 
@@ -292,15 +292,15 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 
 | 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | Yes      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 예       |
+| `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | 예      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 아니요       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services 온-프레미스 대화형 v1 websocket 끝점  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | 인식 서비스 온-프레미스 대화 v1 websocket 끝점 |     |          |
 
 **답변:** 다음에 대 한 fusion입니다.
 - 컨테이너에 대해 받아쓰기 끝점을 시도 하는 사람들 (해당 URL의 받는 방법에 대해 알 수 없음)
 - 컨테이너에 있는 1 개의<sup>st</sup> 파티 끝점입니다.
-- 3 개의<sup>st</sup> `speech.hypothesis` <sup>ts</sup> 파트 끝점이 받아쓰기 끝점에 대해 반환 하는 메시지 대신, 한 개의 st 파티 끝점은 메시지 대신 음성 조각화 메시지를 반환 합니다.
+- 3 개의<sup></sup> `speech.hypothesis` <sup>ts</sup> 파트 끝점이 받아쓰기 끝점에 대해 반환 하는 메시지 대신, 한 개의 st 파티 끝점은 메시지 대신 음성 조각화 메시지를 반환 합니다.
 - 참조 퀵 스타트 모두 사용 `RecognizeOnce` (대화형 모드)
 - 상호 작용을 필요로 하는 메시지에 대 한 어설션이 `speech.fragment` 대화형 모드로 반환 되지 않습니다.
 - 해당 어설션이 릴리스 빌드에서 발생 하는 것을 말합니다.
@@ -309,6 +309,8 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 코드에 대해 끝점을/speech/recognition/interactive/cognitiveservices/v1로 설정 합니다. `host:port`
 
 다양 한 모드에 대 한 자세한 내용은 음성 모드-아래를 참조 하십시오.
+
+## <a name="speech-modes---interactive-conversation-dictation"></a>음성 모드-대화형, 대화, 받아쓰기
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
@@ -367,7 +369,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 문서는 다른 포트를 표시 하 고 있지만 LUIS 컨테이너는 여전히 포트 5000에서 수신 대기 하 고 있습니까?
 
-**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예: `-p 5001:5000`.
+**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예들 들어 `-p 5001:5000`입니다.
 
 
 <br>
@@ -395,17 +397,17 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 **답변:** 실시간으로는 최근 8 개를 사용 하 여 `en-US` 6 개 이상의 동시 요청 보다 많은 docker 컨테이너를 사용 하는 것이 좋습니다. 16 개 코어를 초과 하는 crazier을 가져오고, NUMA (non-uniform memory access) 노드가 중요 한 것으로 인식 됩니다. 다음 표에서는 각 음성 컨테이너에 대 한 최소 및 권장 리소스 할당을 설명 합니다.
 
-# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너      | 최소             | 권장         |
 |----------------|---------------------|---------------------|
 | 음성 텍스트 변환 | 2 코어, 2gb 메모리 | 4 코어, 4gb 메모리 |
 
-# <a name="custom-speech-to-text"></a>[Custom Speech 텍스트](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[사용자 지정 음성 텍스트 변환](#tab/cstt)
 
 | 컨테이너             | 최소             | 권장         |
 |-----------------------|---------------------|---------------------|
-| Custom Speech 텍스트 | 2 코어, 2gb 메모리 | 4 코어, 4gb 메모리 |
+| 사용자 지정 음성 텍스트 변환 | 2 코어, 2gb 메모리 | 4 코어, 4gb 메모리 |
 
 # <a name="text-to-speech"></a>[텍스트 음성 변환](#tab/tts)
 
@@ -440,7 +442,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 _ *대답:** 온-프레미스 컨테이너에서 사용할 수 있는 대문자 (itn)가 있습니다. 문장 부호는 언어에 따라 다르며 중국어 및 일본어를 비롯 한 일부 언어에 대해서는 지원 되지 않습니다.
 
-기존 *do* 컨테이너에 대해 암시적 및 기본 문장 부호를 지원 하지만 기본적으로 지원 됩니다 `off` . 즉 `.` , 예제에서 문자를 가져올 수 있지만 문자는 가져올 수 없습니다 `。` . 이 암시적 논리를 사용 하기 위해 다음은 음성 SDK를 사용 하 여 Python에서이 작업을 수행 하는 방법의 예입니다 (다른 언어와 유사 함).
+기존  컨테이너에 대해 암시적 및 기본 문장 부호를 지원 하지만 기본적으로 지원 됩니다 `off` . 즉 `.` , 예제에서 문자를 가져올 수 있지만 문자는 가져올 수 없습니다 `。` . 이 암시적 논리를 사용 하기 위해 다음은 음성 SDK를 사용 하 여 Python에서이 작업을 수행 하는 방법의 예입니다 (다른 언어와 유사 함).
 
 ```python
 speech_config.set_service_property(
@@ -559,6 +561,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 
 **답변:** 음성 컨테이너에는 다른 용도에 대 한 세 가지 끝점이 있습니다. 이러한 끝점은 음성 모드로 정의 됩니다. 다음을 참조 하세요.
 
+## <a name="speech-modes"></a>음성 모드
+
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 서로 다른 용도로 사용 되며 다르게 사용 됩니다.
@@ -571,7 +575,7 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 받아쓰기를 사용 하도록 설정 하려면 c #에서 함수를 호출 `SpeechConfig.EnableDictation()` 합니다.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` Api
-| Language | API 세부 정보 |
+| 언어 | API 세부 정보 |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -592,7 +596,7 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 
 ### <a name="fromhost-apis"></a>`FromHost` Api
 
-| Language | API 세부 정보 |
+| 언어 | API 세부 정보 |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |

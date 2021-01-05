@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/05/2020
-ms.openlocfilehash: 783431c4888a68e24cf3d2603c541c4797ea65d8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 12/29/2020
+ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741102"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827481"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Logic Apps REST API를 사용하여 ISE(통합 서비스 환경) 만들기
 
@@ -69,9 +69,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 요청 본문에서 ise에 대해 사용 하도록 설정 하려는 추가 기능에 대 한 정보를 포함 하 여 ISE를 만드는 데 사용할 리소스 정의를 제공 합니다. 예를 들면 다음과 같습니다.
 
-* 위치에 설치 된 자체 서명 된 인증서를 사용할 수 있도록 하는 ISE를 만들려면 `TrustedRoot` 나중에 설명 하는 `certificates` 것 처럼 ise 정의의 섹션 내에 개체를 포함 합니다 `properties` .
-
-  기존 ISE에서이 기능을 사용 하도록 설정 하려면 해당 개체에 대 한 패치 요청을 보낼 수 있습니다 `certificates` . 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요.
+* 해당 위치에 설치 된 엔터프라이즈 인증 기관에서 발급 한 자체 서명 된 인증서 및 인증서를 사용 하도록 허용 하는 ISE를 만들려면 `TrustedRoot` 나중에 `certificates` 이 문서에서 설명 하는 것 처럼 ise 정의의 섹션 내에 개체를 포함 합니다 `properties` .
 
 * 시스템 할당 또는 사용자 할당 관리 id를 사용 하는 ISE를 만들려면 `identity` 나중에이 문서에서 설명 하는 것 처럼 관리 되는 id 형식 및 기타 필수 정보를 포함 하는 개체를 ise 정의에 포함 합니다.
 
@@ -123,7 +121,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certificate support
+      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -183,6 +181,45 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
             "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
             "kind": "TrustedRoot"
          }
+      }
+   }
+}
+```
+## <a name="add-custom-root-certificates"></a>사용자 지정 루트 인증서 추가
+
+종종 ISE를 사용 하 여 가상 네트워크 또는 온-프레미스의 사용자 지정 서비스에 연결 합니다. 이러한 사용자 지정 서비스는 엔터프라이즈 인증 기관 또는 자체 서명 된 인증서와 같은 사용자 지정 루트 인증 기관에서 발급 한 인증서로 보호 되는 경우가 많습니다. 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요. ISE가 TLS (Transport Layer Security)를 통해 이러한 서비스에 성공적으로 연결 하려면 ISE에서 이러한 루트 인증서에 액세스 해야 합니다. 사용자 지정 신뢰할 수 있는 루트 인증서를 사용 하 여 ISE를 업데이트 하려면 다음 HTTPS 요청을 수행 합니다 `PATCH` .
+
+`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+이 작업을 수행 하기 전에 다음 사항을 검토 하십시오.
+
+* 루트 인증서 *와* 모든 중간 인증서를 업로드 해야 합니다. 최대 인증서 수는 20 개입니다.
+
+* 루트 인증서 업로드는 최근 업로드가 이전 업로드를 덮어쓰는 대체 작업입니다. 예를 들어 한 인증서를 업로드 하는 요청을 보낸 다음 다른 인증서를 업로드 하는 다른 요청을 보내면 ISE는 두 번째 인증서만 사용 합니다. 두 인증서를 모두 사용 해야 하는 경우 동일한 요청에 함께 추가 합니다.  
+
+* 루트 인증서를 업로드 하는 작업은 다소 시간이 걸릴 수 있는 비동기 작업입니다. 상태 또는 결과를 확인 하려면 `GET` 동일한 URI를 사용 하 여 요청을 보낼 수 있습니다. 응답 메시지에는 `provisioningState` `InProgress` 업로드 작업이 계속 작동 하는 경우 값을 반환 하는 필드가 있습니다. `provisioningState`값이 이면 `Succeeded` 업로드 작업이 완료 된 것입니다.
+
+#### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>사용자 지정 루트 인증서를 추가 하기 위한 요청 본문 구문
+
+다음은 루트 인증서를 추가할 때 사용할 속성을 설명 하는 요청 본문 구문입니다.
+
+```json
+{
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "name": "{ISE-name}",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "{Azure-region}",
+   "properties": {
+      "certificates": {
+         "testCertificate1": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         },
+         "testCertificate2": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
+      }
    }
 }
 ```

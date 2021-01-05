@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 872958f87e7d75427d5939aed73314920cfaf3ea
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.custom: how-to
+ms.openlocfilehash: 86cd5a5cbbb17dc3d3e4d56e4267be2718f6081d
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631094"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830873"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -73,14 +73,17 @@ TLS/SSL 인증서 (디지털 인증서)를 가져오는 방법에는 여러 가�
 
 ## <a name="enable-tls-and-deploy"></a><a id="enable"></a> TLS를 사용 하도록 설정 하 고 배포
 
-TLS를 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
+**AKS 배포의** 경우 AML 작업 영역에서 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md) 때 TLS 종료를 사용 하도록 설정할 수 있습니다. AKS 모델 배포 시간에 배포 구성 개체를 사용 하 여 TLS 종료를 사용 하지 않도록 설정할 수 있습니다. 그렇지 않으면 기본적으로 모든 AKS model 배포에서 AKS 클러스터 만들기 또는 연결 시간에 TLS 종료를 사용 하도록 설정 합니다.
+
+ACI 배포의 경우 배포 구성 개체를 사용 하 여 모델 배포 시 TLS 종료를 사용 하도록 설정할 수 있습니다.
+
 
 ### <a name="deploy-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
   > [!NOTE]
   > 이 단원의 정보는 디자이너에 대 한 보안 웹 서비스를 배포할 때에도 적용 됩니다. Python SDK를 사용 하는 방법을 잘 모르는 경우 [python 용 AZURE MACHINE LEARNING SDK 란 무엇 인가요?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 참조 하세요.
 
-**[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
+AML 작업 영역에서 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md) 때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
 
 Microsoft 인증서 또는 CA에서 구매한 사용자 지정 인증서를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다. 
 
