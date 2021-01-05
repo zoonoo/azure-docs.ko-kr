@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853931"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732107"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -215,9 +215,9 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 
 ## <a name="use-apis-and-command-line"></a>API 및 명령줄 사용
 
-Azure Resource Manager 템플릿과 명령줄 인터페이스를 사용하여 앞에서 설명한 프로세스를 자동화할 수 있습니다.
+Azure Resource Manager 템플릿, REST 및 명령줄 인터페이스를 사용 하 여 앞에서 설명한 프로세스를 자동화할 수 있습니다.
 
-프라이빗 링크 범위를 만들고 관리하려면 [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest)를 사용합니다. 이 명령을 사용하면 범위를 만들고, Log Analytics 작업 영역 및 Application Insights 구성 요소를 연결하며, 프라이빗 엔드포인트를 추가/제거/승인할 수 있습니다.
+개인 링크 범위를 만들고 관리 하려면 [REST API](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) 또는 Azure CLI를 사용 합니다 [(az monitor private 링크 범위)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) 또는 [Application Insights 구성 요소](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
 

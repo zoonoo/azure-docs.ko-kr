@@ -1,17 +1,17 @@
 ---
 title: Azure SignalR Service에 대한 문제 해결 가이드
 description: 일반적인 문제를 해결 하는 방법 알아보기
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 505176758e1dbba1d6bf262554568edd8a197a4d
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607426"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707676"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR Service의 일반적인 문제에 대 한 문제 해결 가이드
 
@@ -63,6 +63,8 @@ services.MapAzureSignalR(GetType().FullName, options =>
             });
 ```
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="tls-12-required"></a>TLS 1.2 필요
 
 ### <a name="possible-errors"></a>가능한 오류:
@@ -104,11 +106,15 @@ GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="400-bad-request-returned-for-client-requests"></a>400 클라이언트 요청에 대해 잘못 된 요청이 반환 됨
 
 ### <a name="root-cause"></a>근본 원인
 
 클라이언트 요청에 여러 `hub` 쿼리 문자열이 있는지 확인 합니다. `hub` 는 유지 되는 쿼리 매개 변수이 고, 서비스에서 쿼리에서 둘 이상의를 검색 하면 400가 throw 됩니다 `hub` .
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="401-unauthorized-returned-for-client-requests"></a>401 권한이 없음 클라이언트 요청에 대해 반환됨
 
@@ -122,11 +128,13 @@ ASP.NET Core SignalR의 다른 전송 유형, SSE 및 긴 폴링의 경우 기�
 
 ASP.NET SignalR의 경우 클라이언트는 `/ping` 시간에서 서비스에 KeepAlive 요청을 전송 합니다 `/ping` .이 실패 하면 클라이언트는 연결을 **중단** 하 고 다시 연결 하지 않습니다. 즉, ASP.NET SignalR의 경우 기본 토큰 수명은 모든 전송 형식에 대해 **최대** 1 시간 동안 연결이 지속 되도록 합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 보안 문제를 해결 하기 위해 TTL을 확장 하는 것은 권장 되지 않습니다. 이러한 401이 발생 하면 연결을 다시 시작 하기 위해 클라이언트에서 다시 연결 논리를 추가 하는 것이 좋습니다. 클라이언트는 연결을 다시 시작할 때 JWT 토큰을 다시 가져오고 갱신 된 토큰을 가져오기 위해 app server와 협상 합니다.
 
 클라이언트 연결을 다시 시작 하는 방법은 [여기](#restart_connection) 를 확인 하세요.
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="404-returned-for-client-requests"></a>404 클라이언트 요청에 대해 반환됨
 
@@ -138,9 +146,13 @@ SignalR 영구 연결의 경우 먼저 `/negotiate` Azure SignalR service로 이
 * 404이 발생할 때 요청의 URL을 확인 합니다. URL이 웹 앱을 대상으로 하 고와 유사한 경우 `{your_web_app}/hubs/{hubName}` 클라이언트가 `SkipNegotiation` 인지 확인 `true` 합니다. Azure SignalR를 사용 하는 경우 클라이언트는 먼저 앱 서버와 협상 될 때 리디렉션 URL을 수신 합니다. Azure SignalR를 사용 하는 경우 클라이언트에서 협상 **을 건너뛰지 않아야 합니다.**
 * 가 호출 된 후 connect 요청이 **5** 초 이상 처리 되는 경우 다른 404이 발생할 수 있습니다 `/negotiate` . 클라이언트 요청의 타임 스탬프를 확인 하 고 서비스 요청에 저속 응답이 있는 경우 문제를 엽니다.
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="404-returned-for-aspnet-signalrs-reconnect-request"></a>404 ASP.NET SignalR의 다시 연결 요청에 대해 반환 됨
 
 ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_connection_drop) `connectionId` 연결을 중지 하기 전에 3 번에 대해 동일한를 사용 하 여 다시 연결 합니다. `/reconnect``/reconnect`영구 연결을 성공적으로 다시 설정할 수 있는 네트워크 간헐적 문제로 인해 연결이 끊어진 경우에 도움이 될 수 있습니다. 다른 상황에서는 예를 들어 라우트된 서버 연결이 끊어졌거나 SignalR Service에 인스턴스 다시 시작/장애 조치/배포와 같은 일부 내부 오류가 있기 때문에 클라이언트 연결이 끊어졌거나, 연결이 더 이상 존재 하지 않으므로이 `/reconnect` 반환 `404` 됩니다. 이는 및에 대 한 예상 동작이 `/reconnect` 며, 다시 시도 하면 연결이 중지 됩니다. 연결이 중지 될 때 [연결 다시 시작](#restart_connection) 논리를 제안 하는 것이 좋습니다.
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (너무 많은 요청)이 클라이언트 요청에 대해 반환 됨
 
@@ -155,6 +167,8 @@ ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_conne
 ### <a name="too-many-negotiate-requests-at-the-same-time"></a>동시에 negotiate 요청 수가 너무 많습니다.
 
 다시 연결 하기 전에 임의 지연이 발생 하는 것이 좋습니다. 다시 시도 샘플은 [여기](#restart_connection) 를 확인 하세요.
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>500 협상 시 오류 발생: Azure SignalR 서비스가 아직 연결 되지 않았습니다. 나중에 다시 시도 하세요.
 
@@ -215,6 +229,8 @@ SDK 버전 >=를 사용 하 `1.0.0` 는 경우 `web.config` ([세부 정보](htt
 
 <a name="client_connection_drop"></a>
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="client-connection-drops"></a>클라이언트 연결 삭제
 
 클라이언트가 Azure SignalR에 연결 된 경우 클라이언트와 Azure SignalR 간의 영구 연결이 다른 이유로 인해 삭제 될 수 있습니다. 이 섹션에서는 이러한 연결을 삭제할 수 있는 몇 가지 가능성에 대해 설명 하 고 근본 원인을 식별 하는 방법에 대 한 지침을 제공 합니다.
@@ -240,6 +256,7 @@ SDK 버전 >=를 사용 하 `1.0.0` 는 경우 `web.config` ([세부 정보](htt
 2. 앱 서버 쪽 이벤트 로그를 확인 하 여 앱 서버를 다시 시작 했는지 확인 합니다.
 3. 시간 프레임을 제공 하는 문제를 만들고 리소스 이름을 전자 메일로 보내 주세요.
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="client-connection-increases-constantly"></a>클라이언트 연결이 지속적으로 늘어납니다.
 
@@ -259,11 +276,11 @@ SignalR 클라이언트 연결 `DisposeAsync` 을 호출할 수 없습니다. �
 
 1. SignalR **클라이언트가 닫히지** 않았는지 확인 합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 연결을 닫고 있는지 확인 합니다. `HubConnection.DisposeAsync()`를 사용 하 여 연결을 중지 하려면 수동으로를 호출 합니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```C#
 var connection = new HubConnectionBuilder()
@@ -287,13 +304,15 @@ finally
 
 이 문제는 사용자가 함수 클래스에 대 한 정적 멤버로 설정 하는 대신 Azure Function 메서드에서 SignalR 클라이언트 연결을 설정 하는 경우에 종종 발생 합니다. 클라이언트 연결이 한 번만 설정 될 수 있지만 클라이언트 연결 수가 계속 해 서 Azure Portal 리소스 메뉴의 모니터링 섹션에 있는 메트릭에 표시 되는 것을 볼 수 있습니다. 이러한 모든 연결은 Azure Function 또는 Azure SignalR 서비스가 다시 시작 된 후에만 삭제 됩니다. 이는 **각** 요청에 대해 azure function이 **하나의** 클라이언트 연결을 만들기 때문입니다. 함수 메서드에서 클라이언트 연결을 중지 하지 않으면 클라이언트가 Azure SignalR service에 연결 된 상태를 유지 합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 * Azure 함수에서 SignalR 클라이언트를 사용 하거나 SignalR client를 singleton으로 사용 하는 경우 클라이언트 연결을 닫아야 합니다.
 * Azure function에서 SignalR 클라이언트를 사용 하는 대신, 다른 곳에서 SignalR 클라이언트를 만들고 [Azure SignalR Service에 대 한 Azure Functions 바인딩을](https://github.com/Azure/azure-functions-signalrservice-extension) 사용 하 여 클라이언트를 azure SignalR에 [협상할](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L22) 수 있습니다. 또한 바인딩을 활용 하 여 [메시지를 보낼](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L40)수 있습니다. 클라이언트를 협상 하 고 메시지를 보내는 샘플은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples)에서 찾을 수 있습니다. 자세한 내용은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension)를 참조 하세요.
 * Azure function에서 SignalR 클라이언트를 사용 하는 경우 시나리오에 더 나은 아키텍처가 있을 수 있습니다. 서버를 사용 하지 않는 적절 한 아키텍처를 디자인 하는지 확인 합니다. [Azure Functions에서 SignalR 서비스 바인딩을 사용 하 여 실시간 서버 리스 응용 프로그램](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService)을 참조할 수 있습니다.
 
 <a name="server_connection_drop"></a>
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="server-connection-drops"></a>서버 연결 삭제
 
@@ -320,6 +339,8 @@ finally
 1. 앱 서버 쪽 로그를 열어 비정상적인 작업이 발생 하는지 확인 합니다.
 2. 앱 서버 쪽 이벤트 로그를 확인 하 여 앱 서버를 다시 시작 했는지 확인 합니다.
 3. 시간 프레임을 제공 하는 문제를 만들고 리소스 이름을 전자 메일로 보내 주세요.
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="tips"></a>팁
 
@@ -352,6 +373,8 @@ finally
     * [ASP.NET c # 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
     * [ASP.NET JavaScript 클라이언트](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.JavaScriptClient/wwwroot/index.html#L71)
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>다음 단계
 

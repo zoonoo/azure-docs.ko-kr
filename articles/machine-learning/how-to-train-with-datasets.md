@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: b6ec9d7035194efc471fc06befad9822c8684a5d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685582"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740677"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 
@@ -26,7 +26,7 @@ ms.locfileid: "94685582"
 
 Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md)같은 Azure Machine Learning 학습 기능과 원활한 통합을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 
@@ -220,6 +220,7 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+
 ## <a name="directly-access-datasets-in-your-script"></a>스크립트의 데이터 집합에 직접 액세스
 
 등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이름으로 등록 된 데이터 집합에 액세스 합니다. 기본적으로 [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
@@ -255,7 +256,34 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="notebook-examples"></a>Notebook 예제
 
 + [데이터 집합 노트북](https://aka.ms/dataset-tutorial) 은이 문서의 개념을 시연 하 고 확장 합니다.
-+ [ML 파이프라인에서 데이터 집합을 parametize](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb)하는 방법을 참조 하세요.
++ [ML 파이프라인에서 데이터 집합을 parametrize](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb)하는 방법을 참조 하세요.
+
+## <a name="troubleshooting"></a>문제 해결
+
+* **데이터 집합 초기화 실패: 탑재 지점의 준비 대기 시간이 초과 되었습니다**. 
+  * 아웃 바운드 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) 규칙이 없고를 사용 하는 경우 `azureml-sdk>=1.12.0` , 업데이트 `azureml-dataset-runtime` 및 해당 종속성이 특정 부 버전에 대 한 최신 버전으로 업데이트 되 고, 해당 종속성이 특정 부 버전에 대 한 최신 패치를 사용 하는 경우, 최신 패치를 수정 프로그램과 함께 사용할 수 있도록 환경을 다시 만드세요. 
+  * 를 사용 하는 경우 `azureml-sdk<1.12.0` 최신 버전으로 업그레이드 합니다.
+  * 아웃 바운드 NSG 규칙이 있는 경우 서비스 태그의 모든 트래픽을 허용 하는 아웃 바운드 규칙이 있는지 확인 합니다 `AzureResourceMonitor` .
+
+### <a name="overloaded-azurefile-storage"></a>오버 로드 된 AzureFile 저장소
+
+오류가 표시 `Unable to upload project files to working directory in AzureFile because the storage is overloaded` 되 면 다음 해결 방법을 적용 합니다.
+
+데이터 전송과 같은 다른 작업에 대해 파일 공유를 사용 하는 경우 파일 공유를 사용 하 여 실행을 제출할 수 있도록 blob을 사용 하는 것이 좋습니다. 작업을 서로 다른 두 작업 영역 간에 분할할 수도 있습니다.
+
+### <a name="passing-data-as-input"></a>데이터를 입력으로 전달
+
+*  **TypeError: FileNotFound: 해당 파일 또는 디렉터리가 없습니다**.이 오류는 사용자가 제공 하는 파일 경로가 파일이 있는 위치가 아닌 경우에 발생 합니다. 계산 대상에서 데이터 집합을 탑재 한 위치와 파일을 참조 하는 방법이 일치 하는지 확인 해야 합니다. 결정적 상태를 보장 하려면 계산 대상에 데이터 집합을 탑재할 때 추상 경로를 사용 하는 것이 좋습니다. 예를 들어 다음 코드에서 계산 대상의 파일 시스템 루트 아래에 데이터 집합을 탑재 `/tmp` 합니다. 
+    
+    ```python
+    # Note the leading / in '/tmp/dataset'
+    script_params = {
+        '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+    } 
+    ```
+
+    선행 슬래시 ('/')를 포함 하지 않는 경우 `/mnt/batch/.../tmp/dataset` 데이터 집합을 탑재할 위치를 나타내기 위해 계산 대상에서 작업 디렉터리 (예:)에 접두사를 추가 해야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

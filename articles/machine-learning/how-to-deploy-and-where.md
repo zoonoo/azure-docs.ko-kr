@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: f273902aee47a22bcf29bdf507f617efe242f5a4
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: dd7a336df5ff187b874876db32abb45915e00f3b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505140"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739385"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 
@@ -316,9 +316,9 @@ print(service.state)
 
 | 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
-| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
+| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
 | Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
 | 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
@@ -349,7 +349,6 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 자세한 내용은 [WebService. delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) 및 [Model. delete ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--)설명서를 참조 하십시오.
 
 ---
-
 
 ## <a name="next-steps"></a>다음 단계
 

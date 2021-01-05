@@ -1,7 +1,7 @@
 ---
-title: 로컬에서 웹 서비스 배포 문제 해결
+title: 로컬 모델 배포 문제 해결
 titleSuffix: Azure Machine Learning
-description: 로컬 Azure Machine Learning에서 Docker 배포 오류를 해결 하 고 해결 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
+description: 모델 배포 오류 문제 해결의 첫 단계로 로컬 모델 배포를 시도 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 01a5f600acf9542c5adabcdf2523a42ca44233af
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680495"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740643"
 ---
-# <a name="troubleshoot-model-deployment-locally"></a>로컬로 모델 배포 문제 해결
+# <a name="troubleshooting-with-a-local-model-deployment"></a>로컬 모델 배포 문제 해결
 
-일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 해결 하 고 해결 하거나 해결 하는 방법에 대해 알아봅니다.
+Azure Container Instances (ACI) 또는 Azure Kubernetes 서비스 (AKS)에 대 한 배포 문제 해결의 첫 단계로 로컬 모델 배포를 시도 합니다.  로컬 웹 서비스를 사용 하면 일반적인 Azure Machine Learning Docker 웹 서비스 배포 오류를 쉽게 파악 하 고 해결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,8 +33,6 @@ ms.locfileid: "97680495"
     Docker 설치를 확인하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용합니다. Docker 설치 또는 Docker 오류 문제 해결에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조하세요.
 
 ## <a name="debug-locally"></a>로컬에서 디버그
-
-ACI 또는 AKS에 모델을 배포할 때 문제가 발생 하는 경우 로컬 웹 서비스로 배포 합니다. 로컬 웹 서비스를 사용하면 문제를 더 쉽게 해결할 수 있습니다.
 
 [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) 리포지토리에서 샘플 [로컬 배포 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) 을 찾아 실행 가능한 예제를 탐색할 수 있습니다.
 

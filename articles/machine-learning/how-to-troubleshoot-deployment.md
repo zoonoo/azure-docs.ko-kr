@@ -1,7 +1,7 @@
 ---
-title: 원격 웹 서비스 배포 문제 해결
+title: 원격 모델 배포 문제 해결
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes Service 및 Azure Container Instances에서 일반적인 Docker 배포 오류를 해결 하 고 해결 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
+description: Azure Kubernetes Service 및 Azure Container Instances에서 몇 가지 일반적인 Docker 배포 오류를 해결 하 고 해결 하 고 해결 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031507"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740626"
 ---
-# <a name="troubleshoot-model-deployment"></a>모델 배포 문제 해결
+# <a name="troubleshooting-remote-model-deployment"></a>원격 모델 배포 문제 해결 
 
-Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)와 함께 일반적인 원격 Docker 배포 오류를 해결 하 고 해결 하는 방법을 알아봅니다.
+Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)에 모델을 배포할 때 발생할 수 있는 일반적인 오류를 해결 하 고 해결 하거나 해결 하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -177,6 +177,16 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 504 상태 코드는 요청 시간이 초과되었음을 나타냅니다. 기본 시간 제한은 1분입니다.
 
 불필요한 호출을 제거하도록 score.py를 수정하여 시간 제한을 늘리거나 서비스 속도를 높일 수 있습니다. 이러한 작업으로도 문제가 해결되지 않으면 이 문서의 정보를 사용하여 score.py 파일을 디버그합니다. 이 코드는 응답성이 아닌 상태나 무한 루프에 있을 수 있습니다.
+
+## <a name="other-error-messages"></a>기타 오류 메시지
+
+다음 오류에 대해이 작업을 수행 합니다.
+
+|오류  | 해결 방법  |
+|---------|---------|
+|웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |
+|FPGA 오류     |  요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.       |
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 

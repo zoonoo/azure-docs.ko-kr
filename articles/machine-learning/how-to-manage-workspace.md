@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447327"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739589"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Azure Machine Learning 작업 영역 만들기 및 관리 
 
@@ -23,7 +23,7 @@ ms.locfileid: "96447327"
 
 변경 사항이 나 automation 증가에 대 한 요구 사항에 따라 [CLI를 사용](reference-azure-machine-learning-cli.md)하거나 [VS Code 확장을 통해](tutorial-setup-vscode-extension.md)작업 영역을 만들고 삭제할 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Python SDK를 사용 하는 경우 [sdk를 설치](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)합니다.
@@ -31,6 +31,8 @@ ms.locfileid: "96447327"
 ## <a name="limitations"></a>제한 사항
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+기본적으로 작업 영역을 만들면 ACR (Azure Container Registry)도 만들어집니다.  ACR은 현재 리소스 그룹 이름에서 유니코드 문자를 지원 하지 않으므로 이러한 문자를 포함 하지 않는 리소스 그룹을 사용 합니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
@@ -129,12 +131,12 @@ ms.locfileid: "96447327"
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
-   필드|설명 
+   필드|Description 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws** 를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
-   Subscription |사용할 Azure 구독을 선택합니다.
-   Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml** 을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
-   Azure 지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
+   구독 |사용할 Azure 구독을 선택합니다.
+   리소스 그룹 | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml** 을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
+   지역 | 사용자의 작업 영역을 만들 사용자 및 데이터 리소스에 가장 가까운 Azure 지역을 선택 합니다.
    | 스토리지 계정 | 작업 영역에 대 한 기본 저장소 계정입니다. 기본적으로 새 항목을 만듭니다. |
    | Key Vault | 작업 영역에서 사용 하는 Azure Key Vault입니다. 기본적으로 새 항목을 만듭니다. |
    | Application Insights | 작업 영역에 대 한 application insights 인스턴스입니다. 기본적으로 새 항목을 만듭니다. |
@@ -154,6 +156,8 @@ ms.locfileid: "96447327"
  1. 새 작업 영역을 보려면 **리소스로 이동** 을 선택합니다.
  
 ---
+
+
 
 ### <a name="networking"></a>네트워킹  
 
@@ -369,6 +373,16 @@ ws.delete(delete_dependent_resources=False, no_wait=False)
 
 ## <a name="troubleshooting"></a>문제 해결
 
+* **Azure Machine Learning studio에서 지원 되는 브라우저**: 운영 체제와 호환 되는 최신 브라우저를 사용 하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
+  * Microsoft Edge (새로운 Microsoft Edge, 최신 버전) Microsoft Edge 레거시 아님)
+  * Safari(최신 버전, Mac만 해당)
+  * Chrome(최신 버전)
+  * Firefox(최신 버전)
+
+* **Azure Portal**: 
+  * SDK 또는 Azure Portal에서 공유 링크를 통해 작업 영역으로 직접 이동 하는 경우 확장에 구독 정보가 포함 된 표준 **개요** 페이지를 볼 수 없습니다. 또한이 시나리오에서는 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 보려면 [Azure Machine Learning studio](https://ml.azure.com) 로 직접 이동 하 여 작업 영역 이름을 검색 합니다.
+  * 모든 자산 (데이터 집합, 실험, 계산 등)은 [Azure Machine Learning studio](https://ml.azure.com)에서만 사용할 수 있습니다. Azure Portal에서 사용할 수 *없습니다* .
+
 ### <a name="resource-provider-errors"></a>리소스 공급자 오류
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
@@ -384,7 +398,7 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 작업 영역을 만드는 예는 다음과 같습니다.
 * Azure Portal를 사용 하 여 [작업 영역 및 계산 인스턴스 만들기](tutorial-1st-experiment-sdk-setup.md)

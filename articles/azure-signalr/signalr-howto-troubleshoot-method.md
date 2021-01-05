@@ -1,17 +1,17 @@
 ---
 title: Azure SignalR Service에 대 한 문제 해결 방법
 description: 연결 및 메시지 배달 문제를 해결 하는 방법을 알아봅니다.
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183960"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707659"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>연결 및 메시지 배달 문제를 해결 하는 방법
 
@@ -28,6 +28,8 @@ ms.locfileid: "96183960"
 * `Classic`모드의 경우 [클래식 모드 문제 해결](#classic_mode_tsg) 을 참조 하세요.
 
 <a name="default_mode_tsg"></a>
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="default-mode-troubleshooting"></a>기본 모드 문제 해결
 
@@ -73,6 +75,7 @@ Azure SignalR Service의 네트워크 불안정 또는 정기 유지 관리 또�
 
 서버 쪽 네트워크 추적을 보고 *서비스* 에서 *서버 연결이* 삭제 되거나 거부 되는 이유 및 오류 정보를 확인 하 고 [문제 해결 가이드](./signalr-howto-troubleshoot-guide.md)내에서 근본 원인을 찾으십시오.
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ### <a name="how-to-add-logs"></a>로그를 추가 하는 방법
 
@@ -166,6 +169,8 @@ Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](.
 
 <a name="serverless_mode_tsg"></a>
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="serverless-mode-troubleshooting"></a>서버를 사용 하지 않는 모드 문제 해결
 
 **Asrs** 가 *서버* 리스 모드에 있으면 **ASP.NET Core SignalR** 만 `Serverless` 모드를 지원 하 고 **ASP.NET SignalR** 는이 모드를 지원 **하지** 않습니다.
@@ -174,11 +179,15 @@ Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](.
 
 <a name="classic_mode_tsg"></a>
 
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="classic-mode-troubleshooting"></a>클래식 모드 문제 해결
 
 `Classic` 모드는 사용 되지 않으며 사용 하지 않는 것이 좋습니다. 이 모드에서 Azure SignalR service는 연결 된 *서버 연결* 을 사용 하 여 현재 서비스가 `default` 모드 또는 모드 인지 확인 `serverless` 합니다. 이로 인해 네트워크 불안정성으로 인 한 모든 연결 된 *서버 연결이* 갑자기 삭제 되는 경우 Azure SignalR가 이제 모드로 전환 된 것으로 간주 하 `serverless` 고이 기간 동안 연결 된 클라이언트는 호스트 된 앱 서버로 라우팅되지 않습니다. [서비스 쪽 로그](#add_logs_server) 를 사용 하도록 설정 하 고, 응용 프로그램 서버를 호스트 하는 것 처럼 기록 된 클라이언트가 있는지 확인 `ServerlessModeEntered` 합니다. 그러나 일부 클라이언트는 앱 서버 쪽에 도달 하지 않습니다. 이 경우 [클라이언트 연결을 중단](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) 하 고 클라이언트를 다시 시작 하는 것이 도움이 될 수 있습니다.
 
 문제 해결 `classic` 모드 연결 및 메시지 배달 문제는 [기본 모드 문제 해결](#default_mode_tsg)과 유사 합니다.
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="service-health"></a>서비스 상태
 
@@ -188,13 +197,15 @@ Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](.
 
 * 응답 상태 코드:
   * 200: 정상입니다.
-  * 503: 서비스가 비정상 상태입니다. 다음을 수행할 수 있습니다.
+  * 503: 서비스가 비정상 상태입니다. 다음 작업을 수행할 수 있습니다.
     * 자동으로 몇 분 정도 기다립니다.
     * Ip 주소가 포털의 ip와 동일한 지 확인 합니다.
     * 또는 인스턴스를 다시 시작 합니다.
     * 위의 모든 옵션이 작동 하지 않는 경우 Azure Portal에서 새로운 지원 요청을 추가 하 여 문의해 주세요.
 
 [재해 복구](./signalr-concept-disaster-recovery.md)에 대 한 자세한 정보.
+
+[문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>다음 단계
 

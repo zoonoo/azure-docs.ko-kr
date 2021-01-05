@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018123"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724700"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault에 대 한 모니터링 및 경고
 
@@ -40,7 +40,7 @@ ms.locfileid: "96018123"
 
 **자격 증명 모음 채도** – 키 자격 증명 모음이 수행할 수 있는 초당 요청 수는 수행 중인 작업 유형에 따라 달라 집니다. 일부 자격 증명 모음 작업에는 초당 낮은 요청 임계값이 있습니다. 이 메트릭은 모든 작업 유형에 서 key vault의 총 사용량을 집계 하 여 현재 주요 자격 증명 모음 사용을 나타내는 백분율 값을 포함 합니다. 주요 자격 증명 모음 서비스 제한의 전체 목록은 다음 문서를 참조 하세요. [Azure Key Vault 서비스 제한](service-limits.md)
 
-**서비스 API 대기 시간** -이 메트릭은 key vault에 대 한 호출의 평균 대기 시간을 보여 줍니다. 키 자격 증명 모음이 서비스 제한 내에 있을 수 있지만 주요 자격 증명 모음 사용률이 높으면 응용 프로그램의 다운스트림에 오류가 발생 하는 대기 시간이 발생할 수 있습니다. 
+**서비스 API 대기 시간** -이 메트릭은 서비스에서 측정 된 key vault에 대 한 호출의 평균 대기 시간을 보여 줍니다. 클라이언트와 서비스 간의 네트워크 또는 클라이언트에서 사용 하는 시간은 포함 되지 않습니다.
 
 **총 API 적중 횟수** -이 메트릭은 키 자격 증명 모음에 대 한 모든 호출을 보여 줍니다. 그러면 주요 자격 증명 모음을 호출 하는 응용 프로그램을 식별 하는 데 도움이 됩니다. 
 

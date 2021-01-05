@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: f221237bee441ec78d726dabf476d1085a27071d
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0a2439f0ed18cf93691a1d0389e049b1b7993d93
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095307"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732066"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객이 관리 하는 저장소 계정 사용
 
@@ -32,11 +32,11 @@ Azure 진단 확장 에이전트 (Windows 및 Linux 에이전트에 대 한 WAD�
 * IIS 로그
 
 ## <a name="using-private-links"></a>개인 링크 사용
-개인 링크를 사용 하 여 Azure Monitor 리소스에 연결 하는 경우 일부 사용 사례에서 고객 관리 저장소 계정이 필요 합니다. 이러한 경우는 사용자 지정 로그 또는 IIS 로그를 수집 하는 것입니다. 이러한 데이터 형식은 먼저 중간 Azure Storage 계정에 blob으로 업로드 된 다음 작업 영역에만 수집 됩니다. 마찬가지로 일부 Azure Monitor 솔루션은 저장소 계정을 사용 하 여 Azure Security Center 솔루션에서 사용 되는 Watson 덤프 파일 등의 많은 파일을 저장할 수 있습니다. 
+개인 링크를 사용 하 여 Azure Monitor 리소스에 연결 하는 경우 일부 사용 사례에서 고객 관리 저장소 계정이 필요 합니다. 이러한 경우는 사용자 지정 로그 또는 IIS 로그를 수집 하는 것입니다. 이러한 데이터 형식은 먼저 중간 Azure Storage 계정에 blob으로 업로드 된 다음 작업 영역에만 수집 됩니다. 마찬가지로 일부 Azure Monitor 솔루션에서는 저장소 계정을 사용 하 여 파일을 업로드 해야 할 수 있는 Azure Security Center (ASC)와 같은 많은 파일을 저장할 수 있습니다. 
 
 ##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>고객이 관리 하는 저장소를 필요로 하는 개인 링크 시나리오
 * 사용자 지정 로그 및 IIS 로그 수집
-* ASC 솔루션이 Watson 덤프 파일을 수집 하도록 허용
+* ASC 솔루션에서 파일 업로드 허용
 
 ### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>개인 링크를 통해 고객이 관리 하는 저장소 계정을 사용 하는 방법
 ##### <a name="workspace-requirements"></a>작업 영역 요구 사항
@@ -45,13 +45,14 @@ Azure 진단 확장 에이전트 (Windows 및 Linux 에이전트에 대 한 WAD�
 저장소 계정이 개인 링크에 성공적으로 연결 하려면 다음을 수행 해야 합니다.
 * VNet 또는 피어 링 네트워크에 있고 개인 링크를 통해 VNet에 연결 되어 있어야 합니다. 이렇게 하면 VNet의 에이전트가 저장소 계정에 로그를 보낼 수 있습니다.
 * 연결 된 작업 영역과 동일한 영역에 있어야 합니다.
-* Azure Monitor에서 저장소 계정에 액세스할 수 있도록 허용 합니다. 선택 네트워크만 저장소 계정에 액세스할 수 있도록 선택한 경우 "신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스할 수 있도록 허용" 예외가 허용 되어야 합니다. 이렇게 하면 Log Analytics이 저장소 계정으로 수집 로그를 읽을 수 있습니다.
+* Azure Monitor에서 저장소 계정에 액세스할 수 있도록 허용 합니다. 선택한 네트워크만 저장소 계정에 액세스할 수 있도록 선택한 경우 "신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스할 수 있도록 허용" 예외를 선택 해야 합니다.
+![저장소 계정 신뢰 MS services 이미지](./media/private-storage/storage-trust.png)
 * 작업 영역에서 다른 네트워크의 트래픽만 처리 하는 경우 관련 네트워크/인터넷에서 들어오는 트래픽을 허용 하도록 저장소 계정을 구성 해야 합니다.
 
 ##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 저장소 계정 연결
 [Azure CLI](/cli/azure/monitor/log-analytics/workspace/linked-storage) 또는 [REST API](/rest/api/loganalytics/linkedstorageaccounts)를 통해 저장소 계정을 작업 영역에 연결할 수 있습니다. 적용 가능한 dataSourceType 값:
 * CustomLogs – 수집 중에 사용자 지정 로그 및 IIS 로그에 저장소를 사용 합니다.
-* AzureWatson – ASC (Azure Security Center) 솔루션에서 업로드 한 Watson 덤프 파일의 저장소를 사용 합니다. 보존 관리, 연결 된 저장소 계정 바꾸기 및 저장소 계정 작업 모니터링에 대 한 자세한 내용은 [연결 된 저장소 계정 관리](#managing-linked-storage-accounts)를 참조 하세요. 
+* AzureWatson – ASC (Azure Security Center) 솔루션에서 업로드 한 파일에 대 한 저장소를 사용 합니다. 보존 관리, 연결 된 저장소 계정 바꾸기 및 저장소 계정 작업 모니터링에 대 한 자세한 내용은 [연결 된 저장소 계정 관리](#managing-linked-storage-accounts)를 참조 하세요. 
 
 ## <a name="encrypting-data-with-cmk"></a>CMK를 사용 하 여 데이터 암호화
 Azure Storage는 저장소 계정에서 미사용 데이터를 모두 암호화 합니다. 기본적으로 Microsoft 관리 키 (MMK)를 사용 하 여 데이터를 암호화 합니다. 그러나 Azure Storage를 사용 하면 Azure Key vault의 CMK (고객 관리 키)를 사용 하 여 저장소 데이터를 암호화할 수 있습니다. 사용자 고유의 키를 Azure Key Vault로 가져오거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다.

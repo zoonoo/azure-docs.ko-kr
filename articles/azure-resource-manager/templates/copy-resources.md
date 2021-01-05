@@ -2,13 +2,13 @@
 title: 리소스의 여러 인스턴스 배포
 description: Azure Resource Manager 템플릿 (ARM 템플릿)의 복사 작업 및 배열을 사용 하 여 리소스 형식을 여러 번 배포 합니다.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/21/2020
+ms.openlocfilehash: c9bcb22ec53129520fd9574d0eb58b1e5777531e
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672834"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724496"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
 
@@ -97,7 +97,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 * storage1
 * storage2
 
-인덱스 값을 오프셋 하려면 함수에 값을 전달 하면 `copyIndex()` 됩니다. 반복 횟수가 copy 요소에 계속 지정 되어 있지만의 값은 `copyIndex` 지정 된 값으로 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
+인덱스 값을 오프셋하려면 `copyIndex()` 함수에 값을 전달하면 됩니다. 반복 횟수가 copy 요소에 계속 지정 되어 있지만의 값은 `copyIndex` 지정 된 값으로 오프셋 됩니다. 따라서 예제는 다음과 같습니다.
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -189,43 +189,6 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 `mode`속성은 기본값 인 **parallel** 도 허용 합니다.
 
-## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
-
-`dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 가상 컴퓨터를 배포 하기 전에 저장소 계정 3 개를 배포 하는 방법을 보여 줍니다. 전체 가상 머신 정의는 표시 되지 않습니다. Copy 요소의 이름이로 설정 되어 `storagecopy` 있고 가상 컴퓨터에 대 한 dependsOn 요소도로 설정 되어 있는지 확인 합니다 `storagecopy` .
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "copy": {
-        "name": "storagecopy",
-        "count": 3
-      },
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2015-06-15",
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
-      "dependsOn": ["storagecopy"],
-      ...
-    }
-  ],
-  "outputs": {}
-}
-```
-
 ## <a name="iteration-for-a-child-resource"></a>자식 리소스에 대한 반복
 
 자식 리소스에 대해 복사 루프를 사용할 수 없습니다. 일반적으로 다른 리소스 내에 중첩된 것으로 정의된 여러 인스턴스를 만들려면 대신 해당 리소스를 최상위 리소스로 만들어야 합니다. 형식 및 이름 속성을 통해 부모 리소스와의 관계를 정의합니다.
@@ -286,11 +249,10 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 |[저장소 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
 |[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |
 |[배열을 사용하여 스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |여러 스토리지 계정을 배포합니다. 이름에는 배열의 값이 포함됩니다. |
-|[가변적인 수의 데이터 디스크를 사용한 VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |가상 머신을 사용하여 여러 데이터 디스크를 배포합니다. |
-|[다중 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |네트워크 보안 그룹에 여러 보안 규칙을 배포합니다. 매개 변수에서 보안 규칙을 구성합니다. 매개 변수는 [여러 NSG 매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
+* 복사 루프에서 만들어진 리소스에 대 한 종속성을 설정 하려면 [ARM 템플릿에서 리소스를 배포 하는 순서 정의](define-resource-dependency.md)를 참조 하세요.
 * 자습서를 진행 하려면 [자습서: ARM 템플릿을 사용 하 여 여러 리소스 인스턴스 만들기](template-tutorial-create-multiple-instances.md)를 참조 하세요.
 * 리소스 복사를 다루는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.
 * Copy 요소의 다른 용도는 다음을 참조 하세요.
