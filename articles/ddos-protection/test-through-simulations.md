@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813788"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900363"
 ---
 # <a name="test-through-simulations"></a>시뮬레이션을 통해 테스트
 
@@ -29,7 +29,7 @@ Microsoft는 Azure 고객이 시뮬레이션을 위해 DDoS Protection 사용 �
 - DDoS 규정 준수 문서화
 - 네트워크 보안 팀을 교육합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 이 자습서의 단계를 완료 하려면 먼저 보호 된 공용 IP 주소를 사용 하 여 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md) 을 만들어야 합니다.
 - 먼저이 [클라우드](http://breakingpoint.cloud/)를 사용 하 여 계정을 만들어야 합니다. 
@@ -42,9 +42,9 @@ Microsoft는 Azure 고객이 시뮬레이션을 위해 DDoS Protection 사용 �
     |---------      |---------                                          |
     |대상 IP 주소           | 테스트 하려는 공용 IP 주소 중 하나를 입력 합니다.                     |
     |포트 번호   | _443_ 을 입력합니다.                       |
-    |DDoS 프로필 | **TCP SYN 홍수** 를 선택 합니다.|
-    |테스트 크기       | **계의 pps, 100 Mbps 및 8 원본 ip를 선택 합니다.**                                  |
-    |테스트 지속 시간 | **10 분** 을 선택 합니다.|
+    |DDoS 프로필 | 가능한 값에는 **DNS 홍수**, **NTPv2 홍수**, **SSDP 홍수**, **TCP SYN 홍수**, **udp 64B 홍수**, udp **128B홍수**, **udp 256b 홍수**, **udp 512B 홍수**, **udp 1024b** 이상, **udp 1514b** 수, udp **조각화** **udp memcached** 가 포함 됩니다.|
+    |테스트 크기       | 가능한 값에는 계의 pps, **50 mbps 및 4** 원본 ip, **Pps, 100 mbps 및 8 원본** ip, **400K pps, 200mbps 및 16 원본 ip**, **800K Pps, 400 Mbps 및 32 원본 ip** 가 포함 됩니다.                                  |
+    |테스트 지속 시간 | 가능한 값에는 **10 분**, **15 분**, **20 분**, **25 분**, **30 분** 이 포함 됩니다.|
 
 이제 다음과 같이 표시 됩니다.
 

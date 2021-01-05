@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95494780"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900895"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
@@ -163,7 +163,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | TimeProcessed 됨             | EBA 엔진에서 작업을 처리 하는 타임 스탬프            |
 | ActivityType              | 활동의 상위 수준 범주                                 |
 | ActionType                | 활동의 정규화 된 이름입니다.                                     |
-| UserName                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
+| 사용자 이름                  | 활동을 시작한 사용자의 사용자 이름입니다.                    |
 | UserPrincipalName         | 활동을 시작한 사용자의 전체 사용자 이름입니다.               |
 | EventSource               | 원래 이벤트를 제공한 데이터 원본                        |
 | Sourceipaddress의 경우           | 작업이 시작 된 IP 주소                        |
@@ -177,6 +177,8 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 | **ActivityInsights**      | 프로 파일링을 기반으로 하는 활동의 상황별 분석              |
 | **InvestigationPriority** | 이상 점수, 0-10 (0 = 양성, 10 = 매우 비정상)         |
 |
+
+[Ueba 강화 참조 문서의](ueba-enrichments.md) **UsersInsights**, **DevicesInsights** 및 **activityinsights** 에서 참조 되는 전체 상황별 강화 집합을 볼 수 있습니다.
 
 ### <a name="querying-behavior-analytics-data"></a>동작 분석 데이터 쿼리
 

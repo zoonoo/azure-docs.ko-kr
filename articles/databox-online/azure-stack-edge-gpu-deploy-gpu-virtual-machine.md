@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 6fa8705221e1f1f9a9143f274a53db21b657988f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0a7f54d991d31594a6ab522dbf9e73958cde3023
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763926"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900147"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에 대 한 GPU Vm
 
@@ -338,7 +338,7 @@ PS C:\Program Files\NVIDIA Corporation\NVSMI>
 
 ### <a name="gpu-extension-for-linux"></a>Linux 용 GPU 확장
 
-기존 VM에 대 한 Nvidia GPU 드라이버를 배포 하려면 `addGPUExtLinuxVM.parameters.json` 매개 변수 파일을 편집한 다음 템플릿을 배포 `addGPUextensiontoVM.json` 합니다.
+기존 VM에 대 한 Nvidia GPU 드라이버를 배포 하려면 매개 변수 파일을 편집한 다음 템플릿을 배포 `addGPUextensiontoVM.json` 합니다. 다음 섹션에서 설명 하는 것 처럼 Ubuntu 및 Red Hat Enterprise Linux (RHEL)에 대 한 특정 매개 변수 파일이 있습니다.
 
 #### <a name="edit-parameters-file"></a>매개 변수 파일 편집
 
@@ -371,8 +371,7 @@ Ubuntu를 사용 하는 경우 `addGPUExtLinuxVM.parameters.json` 파일은 다�
     }
     }
 ```
-Red Hat Enterprise Linux (RHEL)를 사용 하는 경우 파일은 다음 매개 변수를 사용 합니다.
-
+Red Hat Enterprise Linux (RHEL)를 사용 하는 경우 `addGPUExtensionRHELVM.parameters.json` 파일은 다음 매개 변수를 사용 합니다.
 
 ```powershell
 {

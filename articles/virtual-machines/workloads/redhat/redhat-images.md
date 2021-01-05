@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 5cac21046b6b4afdefc4213f6a1fab438d62cca3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957540"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900504"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -22,7 +22,7 @@ ms.locfileid: "94957540"
 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요. 가격 책정에 대 한 자세한 내용은 [Azure 가격 계산기](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조 하세요.
 
 >[!IMPORTANT]
-> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. [Azure 하이브리드 사용 혜택](../../windows/hybrid-use-benefit-licensing.md) 및 byos와 종 량 제 라이선스 간의 동적 전환은 지원 되지 않습니다. 라이선스 모드를 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
+> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. BYOS와 종 량 제 라이선스 간의 동적 전환은 [Azure 하이브리드 사용 혜택](../../linux/azure-hybrid-benefit-linux.md)을 통해 수행할 수 있습니다.
 
 >[!NOTE]
 > Azure Marketplace의 RHEL 이미지와 관련 된 모든 문제에 대해 Microsoft에 지원 티켓을 제출 합니다.

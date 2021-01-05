@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544210"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901541"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
 
@@ -43,8 +43,8 @@ ms.locfileid: "95544210"
 ### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>전용 끝점에 전용 서브넷이 필요 한가요? 
 아니요. 전용 끝점에 전용 서브넷이 필요 하지 않습니다. 서비스가 배포 된 VNet의 모든 서브넷에서 개인 끝점 IP를 선택할 수 있습니다.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>개인 끝점이 Azure Active Directory 테 넌 트 간 개인 링크 서비스에 연결할 수 있나요? 
-예. 개인 끝점은 AD 테 넌 트를 통해 개인 링크 서비스 또는 Azure PaaS에 연결할 수 있습니다.  
+### <a name="can-a-private-endpoint-connect-to-private-link-services-across-azure-active-directory-tenants"></a>개인 끝점이 Azure Active Directory 테 넌 트 간 개인 링크 서비스에 연결할 수 있나요? 
+예. 개인 끝점은 개인 링크 서비스 또는 Azure Active Directory 테 넌 트 간 Azure PaaS에 연결할 수 있습니다. 테 넌 트 간에 연결 하는 개인 끝점은 수동 요청 승인이 필요 합니다. 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>개인 끝점이 Azure 지역에서 Azure PaaS 리소스에 연결할 수 있나요?
 예. 개인 끝점은 Azure 지역에서 Azure PaaS 리소스에 연결할 수 있습니다.

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc3dce8bb51299eb78bd2958eebf7a69594318a4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 3bba64f8c07545107d57f79ae94dab96e517815f
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546474"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900708"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -68,7 +68,6 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 
 다음 예제를 살펴보십시오. 모든 계획을 사용하도록 설정된 Office 365 Enterprise *E1* 의 라이선스가 한 사용자에게 직접 할당되었습니다. 이 사용자는 Office 365 Enterprise *E3* 제품이 할당된 그룹에 추가되었습니다. E3 제품에는 E1에 포함된 계획과 중복될 수 없는 서비스 계획이 포함되어 있으므로 그룹 라이선스 할당은 "서비스 계획 충돌" 오류로 인해 실패합니다. 이 예제에서 충돌하는 서비스 계획은 다음과 같습니다.
 
-- SharePoint Online(계획 2)은 SharePoint Online(계획 1)과 충돌합니다.
 - Exchange Online(계획 2)은 Exchange Online(계획 1)과 충돌합니다.
 
 이 충돌을 해결하려면 계획 중 두 가지를 사용하지 않도록 설정해야 합니다. 사용자에게 직접 할당되지 않은 E1 라이선스를 해제할 수 있습니다. 또는 전체 그룹 라이선스 할당을 수정하고 E3 라이선스에서 계획을 사용하지 않도록 설정해야 합니다. 또는 E1 라이선스가 E3 라이선스의 컨텍스트에서 중복될 경우 사용자에게서 E1 라이선스를 제거하기로 결정할 수 있습니다.

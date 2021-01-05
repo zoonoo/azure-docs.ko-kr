@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 129809a83bcebdcf80b05a7300dd9acf862e5886
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669230"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900402"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "97669230"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -48,10 +48,12 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하�
     1. **API 이름** 
     1. **연락처 전자 메일** -Salesforce에 대 한 연락처 전자 메일
 1. **API (Oauth 설정 사용)** 에서 **OAuth 설정 사용** 을 선택 합니다.
-1. **콜백 URL** 에을 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
-1. **선택한 OAuth 범위** 에서 **기본 정보에 액세스 (id, 프로필, 전자 메일, 주소, 전화)** 를 선택 하 고 **고유 식별자 (openid connect)에** 대 한 액세스를 허용 합니다.
-1. **웹 서버 흐름에 대해 암호 요구를** 선택 합니다.
-1. **ID 토큰 구성** 을 선택한 다음 **표준 클레임 포함** 을 선택 합니다.
+    1. **콜백 URL** 에을 입력 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
+    1. **선택한 OAuth 범위** 에서 **기본 정보에 액세스 (id, 프로필, 전자 메일, 주소, 전화)** 를 선택 하 고 **고유 식별자 (openid connect)에** 대 한 액세스를 허용 합니다.
+    1. **웹 서버 흐름에 대해 암호 요구를** 선택 합니다.
+1. **ID 토큰 구성** 을 선택 합니다. 
+    1. 토큰을 5 분 **동안 유효** 하 게 설정 합니다.
+    1. **표준 클레임 포함** 을 선택 합니다.
 1. **저장** 을 클릭합니다.
 1. **소비자 키** 및 **소비자 암호** 의 값을 복사 합니다. 테 넌 트에서 Salesforce를 id 공급자로 구성 하려면 둘 다 필요 합니다. **클라이언트 암호** 는 중요 한 보안 자격 증명입니다.
 
@@ -63,10 +65,10 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하�
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
 1. **이름** 을 입력합니다. 예를 들어 *Salesforce* 를 입력 합니다.
-1. **메타 데이터 url** 에 대해 Salesforce 조직으로 대체 하는 다음 url을 입력 합니다 `{org}` .
+1. **메타 데이터 url** 에 대해 [Salesforce openid connect CONNECT 구성 문서의](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm)url을 입력 합니다. 샌드박스에서 login.salesforce.com는 test.salesforce.com로 대체 됩니다. 커뮤니티의 경우 login.salesforce.com은 username.force.com/.well-known/openid-configuration과 같은 커뮤니티 URL로 바뀝니다. URL은 HTTPS 여야 합니다.
 
     ```
-    https://{org}.my.salesforce.com/.well-known/openid-configuration
+    https://login.salesforce.com/.well-known/openid-configuration
     ```
 
 1. **Client ID** 에 대해 이전에 기록한 애플리케이션 ID를 입력합니다.
@@ -80,7 +82,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하�
     - **표시 이름**: *name*
     - **지정된 이름**: *given_name*
     - **성**: *family_name*
-    - **전자 메일**: *preferred_username*
+    - **전자 메일**: *전자 메일*
 
 1. **저장** 을 선택합니다.
 ::: zone-end
@@ -121,8 +123,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하�
           <DisplayName>Salesforce</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <!-- Update the {org} below to your Salesforce organization -->
-            <Item Key="METADATA">https://{org}.my.salesforce.com/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.salesforce.com/.well-known/openid-configuration</Item>
             <Item Key="response_types">code</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="scope">openid id profile email</Item>
@@ -154,7 +155,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정을 사용 하�
     </ClaimsProvider>
     ```
 
-4. Salesforce 조직에 **메타 데이터** URI `{org}` 를 설정 합니다.
+4. **메타 데이터** 는 [Salesforce openid connect CONNECT 구성 문서의](https://help.salesforce.com/articleView?id=remoteaccess_using_openid_discovery_endpoint.htm)URL로 설정 됩니다. 샌드박스에서 login.salesforce.com는 test.salesforce.com로 대체 됩니다. 커뮤니티의 경우 login.salesforce.com은 username.force.com/.well-known/openid-configuration과 같은 커뮤니티 URL로 바뀝니다. URL은 HTTPS 여야 합니다.
 5. **client_id** 를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
 6. 파일을 저장합니다.
 

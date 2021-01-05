@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615770"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900929"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -36,7 +36,7 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 
 - [Multi-factor authentication 필요 (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [장치를 규격으로 표시 해야 함 (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [하이브리드 Azure AD 조인 장치 필요](../devices/concept-azure-ad-join-hybrid.md)
+- [하이브리드 Azure AD 조인 디바이스 필요](../devices/concept-azure-ad-join-hybrid.md)
 - [승인된 클라이언트 앱 필요](app-based-conditional-access.md)
 - [앱 보호 정책 필요](app-protection-based-conditional-access.md)
 - [암호 변경 필요](#require-password-change)
@@ -102,6 +102,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Microsoft 365 관리
 
 **주의**
 

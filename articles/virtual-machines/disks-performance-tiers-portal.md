@@ -4,16 +4,16 @@ description: Azure Portal를 사용 하 여 새 관리 디스크 및 기존 관�
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a868d5d236cf4c5a8d29f15490909c2f1a53546f
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 625fb1e3dd0b433da6b60f995aa6b380c23ec9ce
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96016592"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901036"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Azure Portal를 사용 하 여 성능 계층 변경
 
@@ -47,7 +47,7 @@ ms.locfileid: "96016592"
 1. VM의 할당을 취소 하거나 디스크를 분리 합니다.
 1. 디스크 선택
 1. **크기 + 성능** 을 선택 합니다.
-1. **성능 계층** 드롭다운에서 디스크의 현재 기준선과 다른 계층을 선택 합니다.
+1. **성능 계층** 드롭다운에서 디스크의 현재 성능 계층 이외의 계층을 선택 합니다.
 1. **크기 조정** 을 선택합니다.
 
 :::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="크기 + 성능 블레이드의 스크린샷, 성능 계층이 강조 표시 됩니다." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::

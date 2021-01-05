@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: 7904269a8ca87d3d801c7ff78def1b60f242b9ab
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9621f0a933c6102309286505f2c551c5256c5506
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425867"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901558"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>IoT Edge에서 Live Video Analytics를 1.0에서 2.0으로 업그레이드
 
@@ -60,7 +60,7 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
 * `MediaGraphHttpExtension`및 `MediaGraphGrpcExtension` 프로세서에서 다음 변경 내용을 확인 합니다.  
     * **이미지 속성**
         * `MediaGraphImageFormatEncoded`은 더 이상 지원되지 않습니다. 
-        * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예제:
+        * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예를 들면 다음과 같습니다.
         ```
         "image": {
                 "scale": 
@@ -169,7 +169,7 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="이벤트 분류":::
 
-Docker를 사용 하 여 쉽게 사용자 지정 구성을 사용 하 여 Telegraf 이미지를 생성할 수 있습니다. [모니터링 및 로깅](monitoring-logging.md#azure-monitor-collection-using-telegraf) 페이지에서이에 대해 자세히 알아보세요.
+Docker를 사용 하 여 쉽게 사용자 지정 구성을 사용 하 여 Telegraf 이미지를 생성할 수 있습니다. [모니터링 및 로깅](monitoring-logging.md#azure-monitor-collection-via-telegraf) 페이지에서이에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

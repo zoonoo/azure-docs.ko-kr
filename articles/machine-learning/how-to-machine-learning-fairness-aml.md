@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516150"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901150"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
 
@@ -46,7 +46,7 @@ pip install fairlearn==0.4.6
 
 다음 예에서는 공평 패키지를 사용 하는 방법을 보여 줍니다. Azure Machine Learning에 모델 공평 정보를 업로드 하 고 Azure Machine Learning studio의 공평 평가 대시보드를 확인 합니다.
 
-1. Jupyter 노트북에서 샘플 모델을 학습 합니다. 
+1. Jupyter Notebook에서 샘플 모델을 학습 합니다. 
 
     데이터 집합에 대해 잘 알려진 성인 인구 조사 데이터 집합을 사용 합니다 .이 데이터 집합은 OpenML에서 가져옵니다. 개인이 이전 대출을 다시 지불 했는지 여부를 나타내는 레이블에 대출 결정 문제가 있는 것으로 가정 합니다. 이전에 보이지 않는 사람이 대출을 다시 지불할 지를 예측 하는 모델을 학습 합니다. 이러한 모델은 대출 결정을 내리는 데 사용 될 수 있습니다.
 

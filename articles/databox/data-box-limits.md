@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 97d8da86565db73aa9a3866f39f793aaf0905470
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660426"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900164"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box 제한
 
@@ -43,7 +43,7 @@ Microsoft Azure Data Box를 배포하고 운영할 때 이러한 제한을 고�
 
 [!INCLUDE [data-box-data-upload-caveats](../../includes/data-box-data-upload-caveats.md)]
 
-## <a name="for-export-order"></a>내보내기 주문
+### <a name="for-export-order"></a>내보내기 주문
 
 내보내기 주문에 대 한 Data Box 주의 사항은 다음과 같습니다.
 

@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b680c275b92340cc7efba187769cb17602b08b45
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 365c9a990f16e9077450ae15f6677ab716fc45ba
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973289"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900453"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>에이전트 설치 Azure AD Connect Health
 
@@ -64,7 +64,7 @@ ms.locfileid: "95973289"
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
 | 일반 공용 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42; servicebus.windows.net: 5671 (이 끝점은 최신 버전의 에이전트에서 필요 하지 않습니다.)</li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https: \/ /www.office.com (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> |
-| Azure 독일 | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https: \/ /www.office.de (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> |
+| Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https: \/ /www.office.de (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https: \/ /www.office.com (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> |
 
 
@@ -284,6 +284,17 @@ Azure AD Connect를 성공적으로 설치한 후에 동기화 에이전트 등�
 
 ```
 
+> [!NOTE]
+> 소 버린 클라우드에 등록 하려면 다음 명령줄을 사용 합니다.
+>
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
+>
+
+
 이러한 명령은 `Credential` 등록을 비 대화형으로 완료 하거나 Server Core를 실행 하는 컴퓨터에서 등록을 완료 하는 매개 변수로 받아들입니다. 다음 사항에 유의하세요.
 * `Credential`매개 변수로 전달 된 PowerShell 변수에서 캡처할 수 있습니다.
 * 에이전트를 등록할 수 있는 권한이 있는 Azure AD id를 제공할 수 있으며 다단계 인증을 사용 하도록 설정할 *수 없습니다.*
@@ -314,7 +325,7 @@ HTTP 프록시를 사용 하도록 Azure AD Connect Health 에이전트를 구�
 * 기존 프록시 구성의 선택을 취소 합니다.
 
 > [!NOTE]
-> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령 실행:
+> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령을 실행합니다.
 >
 > `Restart-Service AzureADConnectHealth*`
 
@@ -340,11 +351,11 @@ Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 ```
 
-예를 들면 다음과 같습니다. 
+예는 다음과 같습니다. 
 
 `Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443`
 
-이 예제에 대한 설명:
+이 예제에서:
 * `address`설정은 DNS가 확인할 수 있는 서버 이름 또는 IPv4 주소일 수 있습니다.
 * 를 생략할 수 있습니다 `port` . 이렇게 하면 443가 기본 포트입니다.
 

@@ -3,14 +3,14 @@ title: Azure Automation Runbook에서 이메일 보내기
 description: 이 문서에서는 Runbook 내에서 이메일을 보내는 방법에 대해 알아봅니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/15/2019
+ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: a81ae680a5f04eca0a6cc01ee24b474cc5daabea
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 65fa226b368baa3b1d4f376600e610a518c48c02
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005208"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900324"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Runbook에서 이메일 보내기
 
@@ -67,7 +67,7 @@ Azure Key Vault를 만들고 비밀을 저장하는 다른 방법은 [Key Vault 
 
 Runbook 내에서 Azure Key Vault를 사용하려면 Automation 계정으로 다음 모듈을 가져와야 합니다.
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+* [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts)
 * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
 자세한 내용은 [Az 모듈 가져오기](shared-resources/modules.md#import-az-modules)를 참조하세요.
@@ -142,7 +142,7 @@ Runbook이 성공적으로 실행되는지 확인하려면 [Runbook 테스트](m
 
 1. Runbook이 더 이상 필요하지 않은 경우 Runbook 목록에서 선택하고 **삭제** 를 클릭합니다.
 
-2. [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) cmdlet을 사용하여 Key Vault를 삭제합니다.
+2. [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault) cmdlet을 사용하여 Key Vault를 삭제합니다.
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"

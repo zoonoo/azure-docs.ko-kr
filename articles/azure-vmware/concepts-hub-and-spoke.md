@@ -3,12 +3,12 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배
 description: Azure의 허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배포를 통합 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967451"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901388"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
@@ -128,7 +128,7 @@ Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 Azure VMware 솔
 
 Azure DNS 해결에는 다음 두 가지 옵션을 사용할 수 있습니다.
 
--   허브에 배포 된 Azure Active Directory (Azure AD) 도메인 컨트롤러 ( [id 고려 사항](#identity-considerations)참조)를 이름 서버로 사용 합니다.
+-   허브에 배포 된 도메인 컨트롤러 ( [id 고려 사항](#identity-considerations)참조)를 이름 서버로 사용 합니다.
 
 -   Azure DNS 개인 영역을 배포 하 고 구성 합니다.
 
@@ -136,7 +136,7 @@ Azure DNS 해결에는 다음 두 가지 옵션을 사용할 수 있습니다.
 
 일반적인 디자인 권장 사항으로, 기존 Azure DNS 인프라 (이 경우에는 Active Directory 통합 DNS)를 허브 가상 네트워크에 배포 되 고 스포크 가상 네트워크에 구성 된 두 개 이상의 Azure Vm에 배포 하 여 DNS 설정에서 해당 Azure DNS 서버를 사용 합니다.
 
-Azure 사설 DNS 영역을 가상 네트워크에 연결 하는 Azure 사설 DNS를 사용할 수 있습니다.  DNS 서버는 온-프레미스 또는 고객 Azure 사설 DNS 인프라를 활용 하는 DNS를 실행 하는 Azure VMware 솔루션에 조건부 전달이 있는 하이브리드 확인자로 사용 됩니다. 
+Azure 사설 DNS 영역을 가상 네트워크에 연결 하는 Azure 사설 DNS를 사용할 수 있습니다.  DNS 서버는 온-프레미스 또는 고객 Azure 사설 DNS 인프라를 사용 하 여 DNS를 실행 하는 Azure VMware 솔루션에 조건부 전달이 있는 하이브리드 확인자로 사용 됩니다. 
 
 스포크 가상 네트워크 내에 배포 된 Vm에 대 한 DNS 레코드의 수명 주기를 자동으로 관리 하려면 이라고를 사용 하도록 설정 합니다. 사용 하도록 설정 하는 경우 최대 개인 DNS 영역 수는 하나 뿐입니다. 사용 하지 않도록 설정 된 경우 최대 수는 1000입니다.
 
@@ -144,7 +144,7 @@ Azure의 azure 사설 DNS 영역에 대해 Azure의 확인자 Vm에 대 한 조�
 
 ## <a name="identity-considerations"></a>Id 고려 사항
 
-Id를 위해 가장 좋은 방법은 허브에 하나 이상의 AD 도메인 컨트롤러를 배포 하는 것입니다. 영역 분산 방식 또는 VM 가용성 집합에서 두 개의 공유 서비스 서브넷을 사용 합니다. 온-프레미스 AD 도메인을 Azure로 확장 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/identity/adds-extend-domain) 를 참조 하세요.
+Id를 위해 가장 좋은 방법은 허브에 하나 이상의 도메인 컨트롤러를 배포 하는 것입니다. 영역 분산 방식 또는 VM 가용성 집합에서 두 개의 공유 서비스 서브넷을 사용 합니다. 온-프레미스 AD (Active Directory) 도메인을 Azure로 확장 하는 방법에 대 한 자세한 내용은 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/identity/adds-extend-domain)을 참조 하세요.
 
 또한 Azure VMware 솔루션 쪽의 다른 도메인 컨트롤러를 배포 하 여 vSphere 환경 내에서 id 및 DNS 원본으로 작동 합니다.
 

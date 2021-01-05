@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 76aa18c9724d85b1dd3fb8de3d7d033d40ff95ce
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: ab83a3b11aebdc9fed450410aa1f9bee2d25c4bb
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400236"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900674"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>GPT 파티션이 있는 OS 디스크 크기 조정
 
@@ -400,6 +400,8 @@ VM이 다시 시작 되 면 다음 단계를 완료 합니다.
 > 동일한 절차를 사용 하 여 다른 논리 볼륨의 크기를 조정 하려면 12 단계에서 LV 이름을 변경 합니다.
 
 ### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE] 
+>OS 디스크 크기를 늘리려면 항상 VM의 스냅숏을 만듭니다.
 
 RHEL RAW 파티션에서 OS 디스크의 크기를 늘리려면:
 
@@ -407,114 +409,120 @@ RHEL RAW 파티션에서 OS 디스크의 크기를 늘리려면:
 1. 포털에서 OS 디스크의 크기를 늘립니다.
 1. VM을 시작합니다.
 
-VM이 다시 시작 되 면 다음 단계를 완료 합니다.
+VM이 다시 시작되면 다음 단계를 수행합니다.
 
 1. 다음 명령을 사용하여 **루트** 사용자로 VM에 액세스합니다.
-
-   ```bash
-   [root@dd-rhel7vm ~]# sudo -i
+ 
+   ```
+   sudo su
    ```
 
-1. VM이 다시 시작 되 면 다음 단계를 완료 합니다.
+1. OS 디스크의 크기를 늘리는 데 필요한 **gptfdisk** 패키지를 설치합니다.
 
-   - **유틸리티-growpart** 패키지를 설치 하 여 OS 디스크의 크기와 GPT 디스크 레이아웃에 대 한 gdisk 처리기를 늘리는 데 필요한 **growpart** 명령을 제공 합니다. 이 패키지는 대부분의 마켓플레이스 이미지에 미리 설치 되어 있습니다.
-
-   ```bash
-   [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
+   ```
+   yum install gdisk -y
    ```
 
-1. **Lsblk-f** 명령을 사용 하 여 루트 () 파티션을 포함 하는 파티션 및 파일 시스템 유형을 확인 합니다 **/** .
+1.  디스크에서 사용할 수 있는 모든 섹터를 보려면 다음 명령을 실행 합니다.
+    ```
+    gdisk -l /dev/sda
+    ```
 
-   ```bash
-   [root@vm-dd-cent7 ~]# lsblk -f
-   NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
-   sda
-   ├─sda1  xfs          2a7bb59d-6a71-4841-a3c6-cba23413a5d2 /boot
-   ├─sda2  xfs          148be922-e3ec-43b5-8705-69786b522b05 /
-   ├─sda14
-   └─sda15 vfat         788D-DC65                            /boot/efi
-   sdb
-   └─sdb1  ext4         923f51ff-acbd-4b91-b01b-c56140920098 /mnt/resource
+1. 파티션 형식에 대 한 자세한 정보가 표시 됩니다. GPT 인지 확인 합니다. 루트 파티션을 식별 합니다. 부팅 파티션 (BIOS 부팅 파티션) 및 시스템 파티션 (' EFI 시스템 파티션 ')을 변경 하거나 삭제 하지 마십시오.
+
+1. 다음 명령을 사용 하 여 처음으로 분할을 시작 합니다. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. 이제 다음 명령을 요청 하는 메시지가 표시 됩니다 (' Command:? 도움말의 경우). 
+
+   ```
+   w
    ```
 
-1. 확인을 위해 먼저 **gdisk** 를 사용 하 여 sda 디스크의 파티션 테이블을 나열 합니다. 이 예제에는 29.0 GiB에서 파티션 2가 있는 48 GB 디스크가 표시 됩니다. Azure Portal에서 디스크가 30gb에서 48 GB로 확장 되었습니다.
+1. "경고! 보조 헤더가 디스크에 너무 일찍 배치 되었습니다. 이 문제를 해결 하 시겠습니까? (Y/N): " ' Y '를 눌러야 합니다.
 
-   ```bash
-   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
-   GPT fdisk (gdisk) version 0.8.10
-
-   Partition table scan:
-   MBR: protective
-   BSD: not present
-   APM: not present
-   GPT: present
-
-   Found valid GPT with protective MBR; using GPT.
-   Disk /dev/sda: 100663296 sectors, 48.0 GiB
-   Logical sector size: 512 bytes
-   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
-   Partition table holds up to 128 entries
-   First usable sector is 34, last usable sector is 62914526
-   Partitions will be aligned on 2048-sector boundaries
-   Total free space is 6076 sectors (3.0 MiB)
-
-   Number  Start (sector)    End (sector)  Size       Code  Name
-      1         1026048         2050047   500.0 MiB   0700
-      2         2050048        62912511   29.0 GiB    0700
-   14            2048           10239   4.0 MiB     EF02
-   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
+   ```
+   Y
    ```
 
-1. 루트의 파티션을 확장 합니다 .이 경우에는 **growpart** 명령을 사용 하 여 sda2 합니다. 이 명령을 사용 하면 디스크의 모든 연속 공간을 사용 하도록 파티션이 확장 됩니다.
+1. 최종 검사가 완료 되 고 확인을 요청 하는 메시지가 표시 됩니다. ' Y '를 누릅니다.
 
-   ```bash
-   [root@vm-dd-cent7 ~]# growpart /dev/sda 2
-   CHANGED: partition=2 start=2050048 old: size=60862464 end=62912512 new: size=98613214 end=100663262
+   ```
+   Y
    ```
 
-1. 이제 **gdisk** 를 사용 하 여 새 파티션 테이블을 다시 인쇄 합니다.  파티션 2가 47.0 GiB 확장 되었습니다.
+1. Partprobe 명령을 사용 하 여 모든 것이 올바르게 발생 했는지 확인 합니다.
 
-   ```bash
-   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
-   GPT fdisk (gdisk) version 0.8.10
-
-   Partition table scan:
-   MBR: protective
-   BSD: not present
-   APM: not present
-   GPT: present
-
-   Found valid GPT with protective MBR; using GPT.
-   Disk /dev/sda: 100663296 sectors, 48.0 GiB
-   Logical sector size: 512 bytes
-   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
-   Partition table holds up to 128 entries
-   First usable sector is 34, last usable sector is 100663262
-   Partitions will be aligned on 2048-sector boundaries
-   Total free space is 4062 sectors (2.0 MiB)
-
-   Number  Start (sector)    End (sector)  Size       Code  Name
-      1         1026048         2050047   500.0 MiB   0700
-      2         2050048       100663261   47.0 GiB    0700
-   14            2048           10239   4.0 MiB     EF02
-   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
+   ```
+   partprobe
    ```
 
-1. **Xfs_growfs** 를 사용 하 여 파티션의 파일 시스템을 확장 합니다 .이는 표준 Marketplace 생성 RedHat 시스템에 적합 합니다.
+1. 위의 단계에서 보조 GPT 헤더가 끝에 배치 되었는지 확인 했습니다. 다음 단계는 gdisk 도구를 다시 사용 하 여 크기를 조정 하는 프로세스를 시작 하는 것입니다. 다음 명령을 사용합니다.
 
-   ```bash
-   [root@vm-dd-cent7 ~]# xfs_growfs /
-   meta-data=/dev/sda2              isize=512    agcount=4, agsize=1901952 blks
-            =                       sectsz=4096  attr=2, projid32bit=1
-            =                       crc=1        finobt=0 spinodes=0
-   data     =                       bsize=4096   blocks=7607808, imaxpct=25
-            =                       sunit=0      swidth=0 blks
-   naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
-   log      =internal               bsize=4096   blocks=3714, version=2
-            =                       sectsz=4096  sunit=1 blks, lazy-count=1
-   realtime =none                   extsz=4096   blocks=0, rtextents=0
-   data blocks changed from 7607808 to 12326651
    ```
+   gdisk /dev/sda
+   ```
+1. 명령 메뉴에서 ' p '를 눌러 파티션 목록을 표시 합니다. 루트 파티션을 식별 하 고 (단계에서는 sda2가 루트 파티션으로 간주 됨) 부팅 파티션을 식별 합니다 (단계에서는 sda3가 부팅 파티션으로 간주 됨). 
+
+   ```
+   p
+   ```
+    ![루트 파티션 및 부팅 파티션](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. ' D '를 눌러 파티션을 삭제 하 고 부팅에 할당 된 파티션 번호 (이 예제에서는 ' 3 ')를 선택 합니다.
+   ```
+   d
+   3
+   ```
+1. ' D '를 눌러 파티션을 삭제 하 고 부팅에 할당 된 파티션 번호 (이 예제에서는 ' 2 ')를 선택 합니다.
+   ```
+   d
+   2
+   ```
+    ![루트 파티션 및 부팅 파티션 삭제](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. 크기가 증가 된 루트 파티션을 다시 만들려면 ' n '을 누르고 루트에 대해 이전에 삭제 한 파티션 번호 (이 예제의 경우 ' 2 ')를 입력 하 고 첫 번째 섹터를 ' 기본값 '으로, 마지막 섹터를 ' 마지막 섹터 값-부팅 크기 섹터 8300 4096 '로
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. 부팅 파티션을 다시 만들려면 ' n '을 누르고, 이전에 부팅 하기 위해 삭제 한 파티션 번호 (이 예에서는 ' 3 ')를 입력 하 고 첫 번째 섹터를 ' 기본값 '으로, 마지막 섹터를 ' 기본값 '으로, 16 진수 코드를 ' EF02 '로 선택 합니다.
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. ' W ' 명령을 사용 하 여 변경 내용을 작성 하 고 ' Y ' 키를 눌러 확인 합니다.
+   ```
+   w
+   Y
+   ```
+1. ' Partprobe ' 명령을 실행 하 여 디스크 안정성 확인
+   ```
+   partprobe
+   ```
+1. VM을 다시 부팅 하면 루트 파티션 크기가 늘어났습니다.
+   ```
+   reboot
+   ```
+
+   ![새 루트 파티션 및 부팅 파티션](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. 파티션에서 xfs_growfs 명령을 실행 하 여 크기를 조정 합니다.
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS 확장 FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
+
 
 1. **Df** 명령을 사용 하 여 새 크기를 반영 하는지 확인 합니다.
 
