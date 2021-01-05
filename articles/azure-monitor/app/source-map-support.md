@@ -2,16 +2,16 @@
 title: JavaScript 응용 프로그램에 대 한 소스 맵 지원-Azure Monitor Application Insights
 description: Application Insights를 사용 하 여 사용자 고유의 저장소 계정 Blob 컨테이너에 소스 맵을 업로드 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-author: markwolff
-ms.author: marwolff
+author: DavidCBerry13
+ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6403ecd534d17298a10ffcf8f089a2b010fa3a51
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 9326531d9071305ad804e9c60f8ac90bcb5eaee6
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536458"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809635"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 응용 프로그램에 대 한 소스 맵 지원
 

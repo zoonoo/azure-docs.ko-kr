@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608319"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814383"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -170,7 +170,7 @@ ms.locfileid: "96608319"
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications | gallery | 1-80 | 영숫자, 하이픈 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications/versions | 애플리케이션 | 32비트 정수 | 숫자 및 마침표 |
-> | galleries / images | gallery | 1-80 | 영숫자, 하이픈 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
+> | galleries / images | gallery | 1-80 | 영숫자, 밑줄, 하이픈 및 마침표입니다.<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
@@ -537,7 +537,7 @@ ms.locfileid: "96608319"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | clusters | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
-> | workspaces | 리소스 그룹 | 4-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
+> | workspaces | 글로벌 | 4-63 | 영숫자 및 하이픈<br><br>영숫자로 시작하고 끝납니다. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

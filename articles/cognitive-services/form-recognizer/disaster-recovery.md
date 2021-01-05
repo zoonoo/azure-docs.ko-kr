@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359815"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808261"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
 
-Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 합니다. 그런 다음에는 리소스와 모든 작업이 해당 특정 Azure 서버 지역과 연결 된 상태를 유지 합니다. 전체 지역에 도달 하는 네트워크 문제가 드물게 발생 하는 것은 아닙니다. 솔루션을 항상 사용할 수 있어야 하는 경우 다른 지역으로 장애 조치 (failover) 하거나 둘 이상의 지역 간에 작업을 분할 하도록 디자인 해야 합니다. 두 방법 모두 서로 다른 지역에는 두 개 이상의 양식 인식기 리소스가 필요 하 고 여러 지역에서 [사용자 지정 모델](./quickstarts/curl-train-extract.md) 을 동기화 할 수 있어야 합니다.
+Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 합니다. 그런 다음에는 리소스와 모든 작업이 해당 특정 Azure 서버 지역과 연결 된 상태를 유지 합니다. 전체 지역에 도달 하는 네트워크 문제가 드물게 발생 하는 것은 아닙니다. 솔루션을 항상 사용할 수 있어야 하는 경우 다른 지역으로 장애 조치 (failover) 하거나 둘 이상의 지역 간에 작업을 분할 하도록 디자인 해야 합니다. 두 방법 모두 서로 다른 지역에는 두 개 이상의 양식 인식기 리소스가 필요 하 고 여러 지역에서 사용자 지정 모델을 동기화 할 수 있어야 합니다.
 
 복사 API를 사용 하면 하나의 양식 인식기 계정 또는 다른 사용자에 게 사용자 지정 모델을 복사 하 여 지원 되는 모든 지역에 있을 수 있습니다. 이 가이드에서는 REST API 복사를 사용 하는 방법을 보여 줍니다. Postman과 같은 HTTP 요청 서비스를 사용 하 여 요청을 실행할 수도 있습니다.
 
@@ -26,7 +26,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 
 앱 또는 비즈니스가 양식 인식기 사용자 지정 모델 사용에 따라 달라 지는 경우 다른 지역의 다른 폼 인식기 계정으로 모델을 복사 하는 것이 좋습니다. 지역 가동 중단이 발생 하면 복사 된 지역에서 모델에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>사전 요구 사항
+##  <a name="prerequisites"></a>필수 구성 요소
 
 1. 서로 다른 Azure 지역에 있는 두 가지 양식 인식기 Azure 리소스입니다. 없는 경우 Azure Portal로 이동 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" 새 양식 인식기 리소스를 만듭니다 " target="_blank"> . 새 양식 인식기 리소스를 만듭니다 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
 1. 양식 인식기 리소스의 구독 키, 끝점 URL 및 구독 ID입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.
@@ -89,7 +89,7 @@ HTTP/1.1 202 Accepted
 Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 |오류|해결 방법|
 |:--|:--|
@@ -113,7 +113,7 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 |오류|해결 방법|
 |:--|:--|

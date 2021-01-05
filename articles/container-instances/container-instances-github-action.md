@@ -4,12 +4,12 @@ description: 컨테이너 이미지를 빌드, 푸시 및 배포 하기 위한 �
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 7dfa2a66851db760049e7c3dc3446223c7dffad1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609159"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814281"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>GitHub 작업을 구성하여 컨테이너 인스턴스 만들기
 
@@ -56,7 +56,7 @@ GitHub 워크플로에서 Azure CLI에 인증 하려면 Azure 자격 증명을 �
 먼저 리소스 그룹의 리소스 ID를 가져옵니다. 다음 [az group show][az-group-show] 명령에 있는 그룹의 이름을 대체 합니다.
 
 ```azurecli
-$groupId=$(az group show \
+groupId=$(az group show \
   --name <resource-group-name> \
   --query id --output tsv)
 ```

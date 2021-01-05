@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652197"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814468"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>성능을 위해 Azure Data Lake Storage Gen2 최적화
 
@@ -21,11 +21,11 @@ Azure Data Lake Storage Gen2는 I/O 집약적 분석 및 데이터 이동에 대
 
 ![Data Lake Storage Gen2 성능](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-Data Lake Storage Gen2는 모든 분석 시나리오에 필요한 처리량을 제공하도록 크기를 조정할 수 있습니다. 기본적으로 Data Lake Storage Gen2 계정은 다양한 범주의 사용 사례에 대한 요구 사항을 충족할 수 있을 만큼 충분한 처리량을 자동으로 제공합니다. 고객이 기본 제한을 초과하는 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하여 더 많은 처리량을 제공하도록 Data Lake Storage Gen2 계정을 구성할 수 있습니다.
+Data Lake Storage Gen2를 확장 하 여 모든 분석 시나리오에 필요한 처리량을 제공할 수 있습니다. 기본적으로 Data Lake Storage Gen2 계정은 다양 한 사용 사례 범주에 대 한 요구를 충족 하기 위해 기본 구성에서 충분 한 처리량을 제공 합니다. 고객이 기본 제한을 초과하는 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 문의하여 더 많은 처리량을 제공하도록 Data Lake Storage Gen2 계정을 구성할 수 있습니다.
 
 ## <a name="data-ingestion"></a>데이터 수집
 
-원본 시스템의 데이터를 Data Lake Storage Gen2에 수집하는 경우 원본 하드웨어, 원본 네트워크 하드웨어 및 Data Lake Storage Gen2에 대한 네트워크 연결에서 병목 상태가 발생할 수 있다는 점을 고려해야 합니다.  
+원본 시스템의 데이터를 Data Lake Storage Gen2 수집 때 원본 하드웨어, 원본 네트워크 하드웨어 또는 Data Lake Storage Gen2에 대 한 네트워크 연결이 병목이 될 수 있다는 것을 고려 하는 것이 중요 합니다.  
 
 ![원본 시스템의 데이터를 Data Lake Storage Gen2 하는 경우 고려해 야 할 요소를 보여 주는 다이어그램 수집.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -37,7 +37,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 ### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Data Lake Storage Gen2에 대한 네트워크 연결
 
-원본 데이터와 Data Lake Storage Gen2 간의 네트워크 연결에서 병목 상태가 발생하는 경우도 있습니다. 원본 데이터가 온-프레미스인 경우 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)와 함께 전용 링크를 사용하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Storage Gen2 계정과 동일한 Azure 지역에 있을 때 성능이 가장 좋습니다.
+원본 데이터와 Data Lake Storage Gen2 간의 네트워크 연결에서 병목 상태가 발생하는 경우도 있습니다. 원본 데이터가 온-프레미스 인 경우 [Azure express](https://azure.microsoft.com/services/expressroute/)경로와 전용 링크를 사용 하는 것이 좋습니다. 원본 데이터가 Azure에 있는 경우 데이터가 Data Lake Storage Gen2 계정과 동일한 Azure 지역에 있을 때 성능이 가장 좋습니다.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>최대 병렬 처리를 위한 데이터 수집 도구 구성
 
@@ -138,5 +138,5 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

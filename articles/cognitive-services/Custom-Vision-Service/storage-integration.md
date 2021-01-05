@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: f4d9cc4c02ab062c73e9dbd977d9ea9e6ccdb60d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43cd03e8f4a66d18adc33c943481002ff7b326d3
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532784"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813210"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>알림 및 백업을 위해 Azure storage 통합
 
@@ -62,7 +62,7 @@ Azure Portal에서 Custom Vision 교육 리소스로 이동 하 고, **id** 페�
 
 ### <a name="create-new-project"></a>새 프로젝트 만들기
 
-[Createproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API를 호출 하는 경우 선택적 매개 변수 _ExportModelContainerUri_ 및 _notificationqueueuri_를 추가 합니다. 이전 섹션에서 얻은 URL 값을 할당 합니다. 
+[Createproject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) API를 호출 하는 경우 선택적 매개 변수 _ExportModelContainerUri_ 및 _notificationqueueuri_ 를 추가 합니다. 이전 섹션에서 얻은 URL 값을 할당 합니다. 
 
 ```curl
 curl -v -X POST "{endpoint}/customvision/v3.3/Training/projects?exportModelContainerUri={inputUri}&notificationQueueUri={inputUri}&name={inputName}"
@@ -110,7 +110,7 @@ curl -v -X PATCH "{endpoint}/customvision/v3.3/Training/projects/{projectId}"
 --data-ascii "{body}" 
 ```
 
-요청 본문 ()을 `body` 다음 JSON 형식으로 설정 하 고 _ExportModelContainerUri_ 및 _notificationqueueuri_에 적절 한 값을 입력 합니다.
+요청 본문 ()을 `body` 다음 JSON 형식으로 설정 하 고 _ExportModelContainerUri_ 및 _notificationqueueuri_ 에 적절 한 값을 입력 합니다.
 
 ```json
 {
@@ -206,4 +206,5 @@ curl -v -X PATCH "{endpoint}/customvision/v3.3/Training/projects/{projectId}"
 ## <a name="next-steps"></a>다음 단계
 
 이 가이드에서는 Custom Vision 리소스 간에 프로젝트를 복사 하 고 이동 하는 방법을 배웠습니다. 다음으로 API 참조 문서를 탐색 하 여 Custom Vision에서 수행할 수 있는 다른 작업을 확인 하세요.
-* [REST API 참조 설명서](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [REST API 참조 설명서 (학습)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)
+* [REST API 참조 설명서 (예측)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3)

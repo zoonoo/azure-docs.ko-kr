@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492253"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814502"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대 한 Azure 보안 기준
 
@@ -38,7 +38,7 @@ ms.locfileid: "96492253"
 
 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 로그를 보냅니다. 활동 로그는 제어 평면 수준에서 Redis 인스턴스에 대 한 Azure 캐시에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 Azure DDoS Protection 인스턴스에 대 한 제어 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-- [DDoS protection 메트릭에 대 한 경고를 구성 하는 방법](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [DDoS 진단 로깅 보기 및 구성](../../ddos-protection/diagnostic-logging.md)
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 �
 
 **지침**: Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Recovery Services 자격 증명 모음에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공
 
-- [DDoS Protection 표준 서비스에 대 한 원격 분석, 로그 및 공격 분석에 액세스 하는 방법에 대 한 정보](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [DDoS Protection 표준 서비스에 대 한 원격 분석, 로그 및 공격 분석에 액세스 하는 방법에 대 한 정보](../../ddos-protection/telemetry.md)
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
 
@@ -76,7 +76,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 �
 
 Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케스트레이션 자동화 된 응답 (대화 충성도) 솔루션을 제공 합니다. 이를 통해 플레이북(자동화된 솔루션)을 만들어 보안 문제를 수정하는 데 사용할 수 있습니다. 또한 Azure Monitor를 사용 하 여 Log Analytics 작업 영역에서 사용자 지정 로그 경고를 만들 수 있습니다.
 
-- [DDoS 메트릭에 대 한 경고를 구성 하는 방법](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [DDoS 메트릭에 대 한 경고를 구성 하는 방법](../../ddos-protection/alerts.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
@@ -142,7 +142,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure AD를 사용 하 여 클라이언트 응용 프로그램 (서비스 사용자)을 등록 하는 방법](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Azure DDos Protection API 정보](/rest/api/virtual-network/)
+- [Azure DDoS Protection API 정보](/rest/api/virtual-network/)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -384,7 +384,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: 모든 Azure 리소스에 대한 보안 구성 설정
 
-**지침**: Azure Policy을 사용 하 여 Azure DDos Protection에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Recovery Services 자격 증명 모음 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
+**지침**: Azure Policy를 사용 하 여 Azure DDoS Protection에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Recovery Services 자격 증명 모음 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
 - [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
@@ -524,7 +524,7 @@ DDoS 공격을 시뮬레이션 하기 위해 응용 프로그램에 대 한 트�
 
 Azure Monitor 경고 구성을 사용 하 여 공격 중에 활성 완화가 있는 경우 경고를 표시 하려면 사용 가능한 DDoS 보호 메트릭을 선택 합니다. 조건을 충족 하는 경우 지정 된 주소가 경고 전자 메일을 받습니다.
 
-- [DDoS 보호 메트릭에 대한 경고 구성](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [DDoS 보호 메트릭에 대한 경고 구성](../../ddos-protection/alerts.md)
 
 - [연속 내보내기를 구성하는 방법](../../security-center/continuous-export.md)
 
