@@ -2,20 +2,22 @@
 title: Azure의 BareMetal 인스턴스 단위
 description: Azure Portal를 통해 BareMetal 인스턴스 단위를 식별 하 고 상호 작용 하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829191"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861029"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Azure Portal을 통해 BareMetal 인스턴스 관리
  
 이 문서에서는 [Azure Portal](https://portal.azure.com/) [BareMetal 인스턴스](baremetal-overview-architecture.md)를 표시 하는 방법을 보여 줍니다. 또한이 문서에서는 배포 된 BareMetal 인스턴스 단위를 사용 하 여 Azure Portal에서 수행할 수 있는 작업을 보여 줍니다. 
  
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
-BareMetal 인스턴스에 대 한 Azure 리소스 공급자는 현재 공개 미리 보기로 제공 되는 Azure Portal의 인스턴스를 표시 합니다. 기본적으로 BareMetal 인스턴스 배포에 사용 하는 Azure 구독은 *BareMetalInfrastructure* 리소스 공급자를 등록 합니다. 배포 된 BareMetal 인스턴스 단위가 표시 되지 않는 경우 구독에 리소스 공급자를 등록 해야 합니다. BareMetal Instance 리소스 공급자를 등록 하는 방법에는 두 가지가 있습니다.
+BareMetal 인스턴스에 대 한 Azure 리소스 공급자는 현재 공개 미리 보기로 제공 되는 Azure Portal의 인스턴스를 표시 합니다. 기본적으로 BareMetal 인스턴스 배포에 사용 하는 Azure 구독은 *BareMetalInfrastructure* 리소스 공급자를 등록 합니다. 배포 된 BareMetal 인스턴스 단위가 표시 되지 않는 경우 구독에 리소스 공급자를 등록 해야 합니다. 
+
+BareMetal Instance 리소스 공급자를 등록 하는 방법에는 두 가지가 있습니다.
  
 * [Azure CLI](#azure-cli)
  
@@ -85,15 +87,15 @@ BareMetal 인스턴스를 배포 하는 동안 배포 요청에서 사용한 Azu
 오른쪽에는 CPU 스레드 및 메모리의 수를 표시 하는 단위 이름, OS (운영 체제), IP 주소 및 SKU가 표시 됩니다. 또한 전원 상태와 하드웨어 버전 (BareMetal 인스턴스 스탬프의 수정 버전)이 표시 됩니다. 전원 상태는 하드웨어 장치의 전원이 켜 졌는 지 여부를 나타냅니다. 그러나 운영 체제 세부 정보는 실행 여부를 나타내지 않습니다.
  
 가능한 하드웨어 수정 사항은 다음과 같습니다.
+
+* 수정 버전 3 (Rev 3)
+
+* 수정 버전 4 (Rev 4)
  
-* 수정 버전 3
- 
-* 수정 버전 4
- 
-* 수정 버전 4.2
+* 수정 버전 4.2 (Rev 4.2)
  
 >[!NOTE]
->수정 버전 4.2은 수정 버전 4 아키텍처를 사용 하는 최신 리브랜딩 BareMetal 인프라입니다. 수정 버전 4 스탬프 또는 행에 배포 된 Azure Vm과 BareMetal instance 단위 간의 네트워크 대기 시간이 크게 향상 되었습니다. 다른 수정 버전에 대 한 자세한 내용은 [BareMetal Infrastructure In Azure](baremetal-overview-architecture.md)항목을 참조 하세요.
+>Rev 4.2은 기존 수정 버전 4 아키텍처를 사용 하는 최신 리브랜딩 BareMetal 인프라입니다. Rev 4는 Azure VM (가상 컴퓨터) 호스트에 더 근접 하 게 됩니다. Rev 4 스탬프 또는 행에 배포 된 Azure Vm과 BareMetal instance 단위 간의 네트워크 대기 시간이 크게 향상 되었습니다. Azure Portal를 통해 BareMetal 인스턴스에 액세스 하 고 관리할 수 있습니다. 자세한 내용은 [BareMetal Infrastructure In Azure](baremetal-overview-architecture.md)항목을 참조 하세요.
  
 또한 오른쪽에는 배포 된 각 BareMetal 인스턴스 단위에 대해 자동으로 생성 되는 [Azure 근접 배치 그룹](../../../virtual-machines/linux/co-location.md) 이름이 있습니다. 응용 프로그램 계층을 호스트 하는 Azure Vm을 배포할 때 근접 배치 그룹을 참조 합니다. BareMetal 인스턴스 단위와 연결 된 근접 배치 그룹을 사용 하는 경우 Azure Vm이 BareMetal 인스턴스 단위에 가깝게 배포 되도록 합니다.
  

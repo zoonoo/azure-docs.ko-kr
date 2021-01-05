@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 130cd643856b38471eac6d6869cdc1ed8b0bcd2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499155"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857378"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -67,7 +67,7 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 ## <a name="view-logging-data"></a>로깅 데이터 보기
 
-로깅 데이터는 **끝점**  >  **세부 정보** 에서 다운로드할 수 있습니다.
+**배포** 아래의 끝점 페이지로 이동 하면 로깅 데이터를 내보낼 수 있습니다.
 > [!NOTE]
 >Microsoft 소유의 저장소에서 30 일 동안 로깅 데이터를 사용할 수 있습니다. 이후에 제거 됩니다. 고객이 소유한 저장소 계정이 Cognitive Services 구독에 연결 된 경우 로깅 데이터가 자동으로 삭제 되지 않습니다.
 
@@ -75,7 +75,7 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 * [사용자 지정 모델을 사용 하는 방법 알아보기](how-to-specify-source-language.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)

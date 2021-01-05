@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs를 사용 하 여 다중 사�
 ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 7deb6fe04241225f1f97a204cc62b4aefad9f440
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 12ef895c8b16fe18ed02ebf01d17624ac71c2f3e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97804040"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861459"
 ---
 # <a name="multi-site-and-multi-region-federation"></a>다중 사이트 및 다중 지역 페더레이션
 
@@ -196,6 +196,7 @@ Azure Stream Analytics (는)를 복제 하는 동안 이벤트의 페이로드�
 - [Azure Functions의 이벤트 복제기 응용 프로그램][1]
 - [Event Hubs 간 이벤트 복제][2]
 - [Azure Service Bus에 이벤트 복제][3]
+- [Event Hubs에서 Apache Kafka MirrorMaker 사용][11] 
 
 [1]: event-hubs-federation-replicator-functions.md
 [2]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy
@@ -207,3 +208,4 @@ Azure Stream Analytics (는)를 복제 하는 동안 이벤트의 페이로드�
 [8]: event-hubs-federation-patterns.md#log-projection
 [9]: process-data-azure-stream-analytics.md
 [10]: event-hubs-federation-patterns.md#replication
+[11]: event-hubs-kafka-mirror-maker-tutorial.md

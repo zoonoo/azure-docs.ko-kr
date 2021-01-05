@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559882"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858555"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -107,7 +107,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 사용 가능한 구성 옵션은
 
-| 이름 | 유형 | Description
+| Name | 유형 | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -132,7 +132,7 @@ appInsights.trackPageView();
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 여기에는 다음이 해당합니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 이러한 위협은 다음과 같습니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -167,10 +167,10 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
-| 속성 | 기본값 | Description |
+| 속성 | 기본값 | 설명 |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -329,7 +329,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/Azure-Samples?q=applicationinsights-js-demo)을 참조 하세요.
 
@@ -339,7 +339,7 @@ SDK V2 버전의 주요 변경 내용:
 - 더 나은 API 서명을 허용 하기 위해 trackPageView 및 기능 예외와 같은 API 호출 중 일부는 업데이트 되었습니다. Internet Explorer 8 및 이전 버전의 브라우저에서를 실행 하는 것은 지원 되지 않습니다.
 - 데이터 스키마 업데이트로 인해 원격 분석 봉투 (envelope)에 필드 이름 및 구조 변경 내용이 있습니다.
 - `context.operation`로 이동 `context.telemetryTrace` 했습니다. 일부 필드도 변경 되었습니다 ( `operation.id`  -->  `telemetryTrace.traceID` ).
-  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면를 사용 `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` 합니다.
+  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면를 사용 `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` 합니다.
     > [!NOTE]
     > 이전에를 사용 하 여 추적 ID를 고유 하 게 유지 하려면 `Util.newId()` 이제를 사용 `Util.generateW3CId()` 합니다. 결국 모두 작업 ID가 됩니다.
 

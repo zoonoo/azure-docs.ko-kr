@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
-ms.openlocfilehash: 1c0ed7cf38cc01623169216ec45e88d198ede3d2
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.date: 01/03/2021
+ms.openlocfilehash: 3eff23a42a6ac5f5360bdebfcc692e13acb3e8b0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095086"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858786"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -38,6 +38,8 @@ ms.locfileid: "97095086"
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -95,6 +97,14 @@ Azure Synapse Analytics를 싱크 또는 원본으로 사용 하는 경우 PolyB
 모든 자세한 원격 분석 로그를 완전히 기록 하기 위해 데이터 흐름 활동의 모든 파이프라인을 실행할 필요가 없는 경우 필요에 따라 로깅 수준을 "Basic" 또는 "None"으로 설정할 수 있습니다. "자세한 정보" 모드 (기본값)로 데이터 흐름을 실행 하는 경우 데이터 변환 중에 각 개별 파티션 수준에서 전체 로그 작업으로 ADF를 요청 하 게 됩니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결 하는 경우에만 전체 데이터 흐름 및 파이프라인 성능을 향상 시킬 수 있습니다. "기본" 모드에서는 "없음"이 기간 요약만 제공 하는 동안에만 변환 기간을 기록 합니다.
 
 ![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
+
+## <a name="sink-properties"></a>싱크 속성
+
+데이터 흐름의 그룹화 기능을 사용 하면 동일한 그룹 번호를 사용 하 여 싱크의 실행 순서와 그룹 싱크를 함께 설정할 수 있습니다. 그룹을 쉽게 관리할 수 있도록 ADF를 동일한 그룹의 동시에 실행 하도록 요청할 수 있습니다. 싱크 중 하나가 오류를 발견 한 후에도 싱크 그룹을 계속 하도록 설정할 수도 있습니다.
+
+데이터 흐름 싱크의 기본 동작은 직렬 방식으로 각 싱크를 순차적으로 실행 하 고 싱크에서 오류가 발생할 때 데이터 흐름을 실패 하는 것입니다. 또한 데이터 흐름 속성으로 이동 하 여 싱크에 대해 다른 우선 순위를 설정 하지 않는 한 모든 싱크는 동일한 그룹으로 기본 설정 됩니다.
+
+![싱크 속성](media/data-flow/sink-properties.png "싱크 속성 설정")
 
 ## <a name="parameterizing-data-flows"></a>데이터 흐름 매개 변수화
 

@@ -3,14 +3,14 @@
 - name: 개요
   expanded: true
   items:
-    - name: Security Center 정보
+    - name: Azure Security Center란?
+      href: security-center-introduction.md
+    - name: 가용성
       items:
-        - name: Azure Security Center란?
-          href: security-center-introduction.md
-        - name: 지원되는 플랫폼
+        - name: 지원 플랫폼
           displayName: coverage
           href: security-center-os-coverage.md
-        - name: VM에 대한 기능 적용 범위
+        - name: 'OS, 머신 유형 및 클라우드별 검사'
           href: security-center-services.md
         - name: Azure PaaS 리소스에 대한 기능 적용 범위
           href: features-paas.md
@@ -110,6 +110,8 @@
       href: tutorial-security-incident.md
     - name: 규정 준수 개선
       href: security-center-compliance-dashboard.md
+    - name: 보안 정책 관리
+      href: tutorial-security-policy.md
 - name: 개념
   items:
     - name: 클라우드 보안 태세 관리
@@ -120,11 +122,6 @@
           href: secure-score-security-controls.md
         - name: 보안 권장 사항 개요
           href: security-center-recommendations.md
-        - name: 보안 정책 개요
-          href: tutorial-security-policy.md
-        - name: 기본 제공 보안 정책
-          displayName: 'samples, policy'
-          href: ./policy-reference.md
         - name: 권장 사항을 사용하여 보안 강화
           href: security-center-using-recommendations.md
         - name: 보안 기준
@@ -224,14 +221,9 @@
         - name: Docker 호스트 강화
           displayName: containers
           href: harden-docker-hosts.md
-    - name: SQL용 Azure Defender 사용
-      items:
-        - name: Azure VM에 SQL용 Azure Defender 구성
+        - name: SQL용 Azure Defender 사용
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc'
-        - name: SQL 정보 보호 정책 사용자 지정
-          displayName: 'sql, database, data discovery'
-          href: security-center-info-protection-policy.md
     - name: 컨테이너 레지스트리용 Azure Defender 사용
       items:
         - name: 취약성에 대한 레지스트리 이미지 스캔
@@ -281,6 +273,9 @@
       href: security-center-investigation-user-data.md
     - name: 테넌트 전체 가시성 얻기
       href: security-center-management-groups.md
+    - name: SQL 정보 보호 정책 사용자 지정
+      displayName: 'sql, database, data discovery'
+      href: security-center-info-protection-policy.md
 - name: 참조
   items:
     - name: REST API
@@ -297,6 +292,9 @@
           href: faq-vms.md
         - name: Azure Log Analytics 기존 사용자
           href: faq-azure-monitor-logs.md
+    - name: 기본 제공 보안 정책
+      displayName: 'samples, policy'
+      href: policy-reference.md
     - name: Azure 로드맵 블로그
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 엔드포인트 보호 평가 및 권장 사항

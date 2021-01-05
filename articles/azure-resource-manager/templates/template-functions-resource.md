@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 리소스
 description: 리소스에 대 한 값을 검색 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/04/2021
+ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919989"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861424"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -175,7 +175,7 @@ resource myAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-이 함수의 구문은 목록 작업의 이름에 따라 달라집니다. 각 구현은 목록 작업을 지원하는 리소스 종류의 값을 반환합니다. 작업 이름은 `list`로 시작해야 합니다. 몇 가지 일반적인 사용법은 `listKeys` , `listKeyValue` 및 `listSecrets` 입니다.
+이 함수의 구문은 목록 작업의 이름에 따라 달라집니다. 각 구현은 목록 작업을 지원하는 리소스 종류의 값을 반환합니다. 작업 이름은로 시작 해야 `list` 하며 접미사가 있을 수 있습니다. 몇 가지 일반적인 용도는 `list` ,, `listKeys` `listKeyValue` 및 `listSecrets` 입니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -516,7 +516,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 이전 예제의 출력은 세 개의 배열을 반환 합니다.
 
-| 이름 | Type | 값 |
+| Name | 유형 | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | ["1"] |
 | notSupportedRegion | array | [] |
@@ -1344,7 +1344,7 @@ output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | Type | 값 |
+| 속성 | 유형 | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

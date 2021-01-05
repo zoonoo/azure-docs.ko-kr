@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631368"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858810"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Linux 가상 머신에 Azure 하이브리드 혜택 적용 되는 방법
 
@@ -172,7 +172,7 @@ Red Hat 구독 준수, 소프트웨어 업데이트 및 Azure 하이브리드 �
 
 ### <a name="suse"></a>SUSE
 
-SLES Vm에 대 한 Azure 하이브리드 혜택를 사용 하려면 먼저 [SUSE 공용 클라우드 프로그램](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf)에 등록 해야 합니다. SUSE 구독을 구매한 후에는 해당 구독을 사용 하는 Vm을 자체 업데이트 원본에 등록 해야 합니다. SUSE 고객 센터, 구독 관리 도구 서버 또는 SUSE Manager를 사용 하 여이 등록을 사용 합니다.
+SLES Vm에 대 한 Azure 하이브리드 혜택를 사용 하 고 SLES PAYG에서 BYOS로 이동 하거나 SLES BYOS에서 PAYG로 이동 하는 방법에 대 한 자세한 내용은 [SUSE Linux Enterprise and Azure 하이브리드 혜택](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/)를 참조 하세요. 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 *Q: SLES 이미지를 사용 하 여 라이선스 유형을 사용 `RHEL_BYOS` 하거나 그 반대로 사용할 수 있나요?*
@@ -210,12 +210,16 @@ A: 아니요, 할 수 없습니다. 예약 인스턴스는 현재 RHEL 및 SLES�
 *Q: RHEL 이미지에 대해 SQL Server 배포 된 가상 머신에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
 A: 아니요, 할 수 없습니다. 이러한 가상 컴퓨터를 지 원하는 계획은 없습니다.
+
+*Q: 내 RHEL 가상 데이터 센터 구독에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
+
+A: 아니요, 할 수 없습니다. VDC는 AHB을 포함 하 여 Azure에서 지원 되지 않습니다.  
  
 
 ## <a name="common-problems"></a>일반적인 문제
 이 섹션에는 발생할 수 있는 일반적인 문제와 완화 단계를 나열 합니다.
 
-| Error | 완화 방법 |
+| 오류 | 완화 방법 |
 | ----- | ---------- |
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에 대 한 혜택을 사용 하려면 먼저 [Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록](https://access.redhat.com/management/cloud)해야 합니다.
 

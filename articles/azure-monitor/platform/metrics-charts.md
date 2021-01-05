@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562806"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845030"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562806"
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
 [Azure Monitor의 메트릭](data-platform-metrics.md)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트 및 메트릭](../app/api-custom-events-metrics.md),  [WINDOWS Azure 진단 (WAD) 확장](./diagnostics-extension-overview.md)에 대 한 Application Insights API를 사용 하 여 응용 프로그램에서 Azure로 전송 되거나 [REST API Azure Monitor](./metrics-store-custom-rest-api.md)됩니다.
+
+## <a name="resource-scope-picker"></a>리소스 범위 선택
+리소스 범위 선택기를 사용 하 여 단일 및 여러 리소스에서 메트릭을 볼 수 있습니다. 다음은 리소스 범위 선택기를 사용 하는 방법에 대 한 지침입니다. 
+
+### <a name="selecting-a-single-resource"></a>단일 리소스 선택
+**Azure Monitor** 메뉴 또는 리소스 메뉴의 **모니터링** 섹션에서 **메트릭** 를 선택합니다. "범위 선택" 단추를 클릭 하 여 메트릭을 보려는 리소스를 선택할 수 있는 범위 선택기를 엽니다. 리소스의 메뉴에서 메트릭 탐색기를 연 경우에는 이미 채워야 합니다. 
+
+![리소스 범위 선택의 스크린샷](./media/metrics-charts/scope-picker.png)
+
+특정 리소스의 경우 한 번에 하나의 리소스의 메트릭만 볼 수 있습니다. 이러한 리소스는 리소스 종류 드롭다운에서 "모든 리소스 종류" 섹션 아래에 있습니다.
+
+![단일 리소스의 스크린샷](./media/metrics-charts/single-resource-scope.png)
+
+원하는 리소스를 클릭 하면 해당 리소스를 포함 하는 모든 구독과 리소스 그룹이 표시 됩니다.
+
+![사용 가능한 리소스의 스크린샷](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> 동시에 여러 리소스의 메트릭을 보거나 구독 또는 리소스 그룹에서 메트릭을 보려면 Upvote 단추를 클릭 합니다.
+
+선택이 완료 되 면 "적용"을 클릭 합니다.
+
+### <a name="viewing-metrics-across-multiple-resources"></a>여러 리소스에서 메트릭 보기
+일부 리소스 종류는 동일한 구독 및 위치에 있는 한 여러 리소스에 대해 메트릭을 쿼리 하는 기능을 사용 하도록 설정 했습니다. 이러한 리소스 형식은 "리소스 종류" 드롭다운에서 찾을 수 있습니다. 여러 리소스에서 메트릭을 보는 방법에 대 한 자세한 내용은 [이 문서](metrics-dynamic-scope.md#selecting-multiple-resources)를 참조 하세요.
+
+![리소스 간 종류의 스크린샷](./media/metrics-charts/multi-resource-scope.png)
+
+다중 리소스 호환 형식의 경우 구독 또는 여러 리소스 그룹에서 메트릭을 쿼리할 수도 있습니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [이 문서](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription) 를 참조 하세요.
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>여러 메트릭 및 차트를 사용 하 여 뷰 만들기
 
@@ -61,11 +90,25 @@ ms.locfileid: "97562806"
 
 메트릭 탐색기에서 사용할 수 있는 5 가지 기본 통계 집계 유형은 **Sum**, **Count**, **Min**, **Max** 및 **Average** 입니다. **합계** 집계를 **합계** 집계 라고도 합니다. 많은 메트릭에 대해 메트릭 탐색기는 완전히 관련이 없고 사용할 수 없는 집계를 숨깁니다.
 
-- **합계** – 집계 간격에 대해 캡처된 모든 값의 합계입니다.
-- **Count** – 집계 간격에 대해 캡처된 측정 수입니다. 메트릭은 항상 값 1을 **사용 하 여** 캡처되는 경우 **Count** 와 같습니다. 이는 메트릭이 고유 이벤트의 수를 추적할 때 일반적 이며, 각 측정은 하나의 이벤트를 나타냅니다 (즉, 새 요청이 들어올 때마다 메트릭 레코드를 실행 하는 코드를 발생 시키는 경우).
-- **평균** – 집계 간격에 대해 캡처된 메트릭 값의 평균
-- **Min** – 집계 간격에 대해 캡처된 가장 작은 값입니다.
-- **Max** – 집계 간격에 대해 캡처된 가장 큰 값입니다.
+**합계** – 집계 간격에 대해 캡처된 모든 값의 합계입니다.
+
+![요청 합계의 스크린샷](./media/metrics-charts/request-sum.png)
+
+**Count** – 집계 간격에 대해 캡처된 측정 수입니다. 메트릭은 항상 값 1을 **사용 하 여** 캡처되는 경우 **Count** 와 같습니다. 이는 메트릭이 고유 이벤트의 수를 추적할 때 일반적 이며, 각 측정은 하나의 이벤트를 나타냅니다 (즉, 새 요청이 들어올 때마다 메트릭 레코드를 실행 하는 코드를 발생 시키는 경우).
+
+![요청 수의 스크린샷](./media/metrics-charts/request-count.png)
+
+**평균** – 집계 간격에 대해 캡처된 메트릭 값의 평균
+
+![평균 요청 스크린샷](./media/metrics-charts/request-avg.png)
+
+**Min** – 집계 간격에 대해 캡처된 가장 작은 값입니다.
+
+![최소 요청 스크린샷](./media/metrics-charts/request-min.png)
+
+**Max** – 집계 간격에 대해 캡처된 가장 큰 값입니다.
+
+![최대 요청 스크린샷](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>차트에 필터 적용
 

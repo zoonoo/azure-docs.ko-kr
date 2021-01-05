@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022363"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858589"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -68,7 +68,7 @@ ADF UX에서 데이터 흐름을 디자인 하 고 테스트 하는 경우 디�
 
 라운드 로빈은 여러 파티션에 데이터를 균등 하 게 분산 합니다. 견고한 스마트 분할 전략을 구현 하는 데 좋은 핵심 후보가 없는 경우 라운드 로빈을 사용 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-### <a name="hash"></a>Hash
+### <a name="hash"></a>해시
 
 Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 포함 되도록 균일 한 파티션을 생성 하는 열 해시를 생성 합니다. Hash 옵션을 사용 하는 경우 가능한 파티션 오차를 테스트 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
@@ -115,7 +115,7 @@ Spark 클러스터 분리의 유형에 사용할 수 있는 세 가지 옵션이
 
 기본 클러스터 크기는 4 개의 드라이버 노드와 4 개의 작업자 노드입니다.  더 많은 데이터를 처리 하는 경우 더 큰 클러스터를 권장 합니다. 가능한 크기 조정 옵션은 다음과 같습니다.
 
-| 작업자 코어 | 드라이버 코어 | 총 코어 | 참고 |
+| 작업자 코어 | 드라이버 코어 | 총 코어 | 메모 |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | 계산에 최적화 된 경우 사용할 수 없음 |
 | 8 | 8 | 16 | |
@@ -169,7 +169,7 @@ Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse 분석 소스
 
-Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 하면 ADF를 사용 하 여 Synapse를 읽을 수 있으므로 ```Polybase``` 읽기 성능이 크게 향상 됩니다. 을 사용 하도록 설정 ```Polybase``` 하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정 해야 합니다.
+Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 하면 ADF를 사용 하 여 Synapse를 읽을 수 있으므로 ```Staging``` 읽기 성능이 크게 향상 됩니다. 을 사용 하도록 설정 ```Staging``` 하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정 해야 합니다.
 
 ![준비 사용](media/data-flow/enable-staging.png "준비 사용")
 
@@ -216,9 +216,9 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics 싱크
 
-Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF를 사용 하 여 대량의 데이터를 효과적으로 로드 하는 [PolyBase](/sql/relational-databases/polybase/polybase-guide) 를 작성할 수 있습니다. PolyBase를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
+Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF가 데이터를 대량으로 효과적으로 로드 하는 [SQL 복사 명령을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) 사용 하 여 쓸 수 있습니다. 준비를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
 
-PolyBase 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Synapse Analytics에 적용 됩니다.
+스테이징 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Synapse Analytics에 적용 됩니다.
 
 ### <a name="file-based-sinks"></a>파일 기반 싱크 
 
@@ -309,6 +309,14 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 ### <a name="overloading-a-single-data-flow"></a>단일 데이터 흐름 오버 로드
 
 모든 논리를 단일 데이터 흐름 내에 배치 하면 ADF는 단일 Spark 인스턴스에서 전체 작업을 실행 합니다. 이는 비용을 절감 하는 방법 처럼 보일 수도 있지만, 서로 다른 논리적 흐름을 혼합 하 여 모니터링 및 디버깅 하기 어려울 수 있습니다. 한 구성 요소에 오류가 발생 하는 경우 작업의 다른 모든 부분도 실패 합니다. Azure Data Factory 팀에서는 비즈니스 논리의 독립적인 흐름에 따라 데이터 흐름을 구성 하는 것이 좋습니다. 데이터 흐름이 너무 커지면 분리 구성 요소로 분할 하면 모니터링 및 디버깅이 더 쉬워집니다. 데이터 흐름의 변환 수에 대 한 하드 제한은 없지만 너무 많으면 작업이 복잡해 집니다.
+
+### <a name="execute-sinks-in-parallel"></a>병렬로 싱크 실행
+
+데이터 흐름 싱크의 기본 동작은 직렬 방식으로 각 싱크를 순차적으로 실행 하 고 싱크에서 오류가 발생할 때 데이터 흐름을 실패 하는 것입니다. 또한 데이터 흐름 속성으로 이동 하 여 싱크에 대해 다른 우선 순위를 설정 하지 않는 한 모든 싱크는 동일한 그룹으로 기본 설정 됩니다.
+
+데이터 흐름을 사용 하면 UI 디자이너의 데이터 흐름 속성 탭에서 싱크를 그룹으로 묶을 수 있습니다. 동일한 그룹 번호를 사용 하 여 싱크의 실행 순서와 그룹 싱크를 함께 설정할 수 있습니다. 그룹을 관리 하는 데 도움이 되도록 ADF에서 동일한 그룹의 싱크를 실행 하도록 요청 하 여 병렬로 실행할 수 있습니다.
+
+파이프라인 실행 데이터 흐름 작업의 "싱크 속성" 섹션에서 병렬 싱크 로드를 설정 하는 옵션을 선택할 수 있습니다. "병렬로 실행"을 사용 하도록 설정 하는 경우 데이터 흐름은 순차적 방식 대신 동시에 연결 된 싱크에 쓰도록 지시 하 게 됩니다. 병렬 옵션을 사용 하기 위해 싱크는 함께 그룹화 되 고 새 분기 또는 조건부 분할을 통해 동일한 스트림에 연결 되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

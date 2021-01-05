@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f31cc982e5e7f92cfe7e8adf588dd96628f2c6f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: fd36d365eb02819352bc14caf9d8e258a8663c70
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95744044"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861396"
 ---
 # <a name="red-hat-enterprise-linux-rhel-extended-lifecycle-support"></a>RHEL (Red Hat Enterprise Linux) 확장 된 수명 주기 지원
 이 문서에서는 Red Hat Enterprise 이미지에 대 한 연장 된 수명 주기 지원 정보를 제공 합니다.
@@ -38,6 +38,12 @@ ms.locfileid: "95744044"
 
 #### <a name="what-is-the-additional-charge-for-using-red-hat-enterprise-linux-extended-life-cycle-support-els-add-on"></a>Red Hat Enterprise Linux 확장 된 ELS (수명 주기 지원) 추가 기능을 사용 하기 위한 추가 요금은 무엇 인가요?
 연장 된 수명 주기 지원과 관련 된 비용은 [ELS 형식](https://aka.ms/els-form) 으로 찾을 수 있습니다.
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-how-can-i-add-extended-lifecycle-support-to-this-vm"></a>사용자 지정 이미지를 사용 하 여 VM을 배포 했습니다. 이 VM에 연장 된 수명 주기 지원을 추가 하려면 어떻게 해야 하나요?
+Red Hat에 직접 연락 하 여 직접 지원을 받아야 합니다.
+
+#### <a name="ive-deployed-a-vm-by-using-custom-image-can-i-convert-this-vm-to-a-payg-vm"></a>사용자 지정 이미지를 사용 하 여 VM을 배포 했습니다. 이 VM을 PAYG VM으로 변환할 수 있나요?
+아니요, 그럴 수 없습니다. 현재 Azure에서는 변환이 지원 되지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

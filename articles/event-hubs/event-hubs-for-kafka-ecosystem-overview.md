@@ -3,12 +3,12 @@ title: Apache Kafka 앱에서 이벤트 허브 사용 - Azure Event Hubs | Micro
 description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafka에 정보를 제공합니다.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369593"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861335"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
 Event Hubs는 사용자 고유의 Apache Kafka 클러스터를 실행 하는 대신 대부분의 기존 Apache Kafka 클라이언트 응용 프로그램에서 사용할 수 있는 Apache Kafka® 생산자 및 소비자 Api와 호환 되는 끝점을 제공 합니다. Event Hubs는 1.0 이상 버전에서 Apache Kafka의 생산자 및 소비자 Api 클라이언트를 지원 합니다.
@@ -81,7 +81,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 > [!IMPORTANT]
-> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대 한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조 하세요. 구성 예는 다음과 같습니다. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> `{YOUR.EVENTHUBS.CONNECTION.STRING}`을 Event Hubs 네임스페이스의 연결 문자열로 바꿉니다. 연결 문자열을 가져오는 방법에 대한 지침은 [Event Hubs 연결 문자열 가져오기](event-hubs-get-connection-string.md)를 참조하세요. `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";` 구성의 예는 다음과 같습니다.
 
 > [!NOTE]
 > Kafka 클라이언트에서 SAS 인증을 사용 하는 경우 SAS 키가 다시 생성 되 면 설정 된 연결의 연결이 끊깁니다. 
@@ -104,7 +104,7 @@ Apache Kafka에 대 한 Event Hubs의 목표는 Apache Kafka API로 잠긴 응�
 
 [위에서](#is-apache-kafka-the-right-solution-for-your-workload)설명한 것 처럼 Azure Messaging는 수많은 메시징 시나리오에 대 한 풍부 하 고 강력한 검사를 제공 하 고, 다음 기능은 현재 Apache Kafka API에 대 한 Event Hubs 지원을 통해 지원 되지 않지만 원하는 기능을 사용할 수 있는 위치와 방법을 확인 합니다.
 
-### <a name="transactions"></a>트랜잭션
+### <a name="transactions"></a>의
 
 [Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) 에는 메시지 처리에서 발생 하는 아웃 바운드 메시지를 트랜잭션 일관성 보호를 통해 여러 대상 엔터티로 보내는 동시에 메시지 및 세션을 수신 하 고 정착 수 있는 강력한 트랜잭션 지원이 있습니다. 기능 집합은 시퀀스에서 각 메시지를 정확히 한 번만 처리 하도록 허용할 뿐만 아니라 Apache Kafka의 경우와 같이 다른 소비자가 실수로 동일한 메시지를 다시 처리 하는 위험을 방지 합니다. Service Bus은 트랜잭션 메시지 작업에 권장 되는 서비스입니다.
 
@@ -118,9 +118,7 @@ Apache Kafka의 클라이언트 쪽 [압축](https://cwiki.apache.org/confluence
 
 ### <a name="log-compaction"></a>로그 압축
 
-Apache Kafka 로그 압축은 파티션에서 각 키의 마지막 레코드를 제외한 모든 레코드를 제거 하는 기능입니다 .이 기능을 사용 하면 Apache Kafka 항목을 키-값 저장소로 변환 하 여 마지막에 추가한 값이 이전 값을 재정의 합니다. 자주 업데이트 되는 경우에도 키-값 저장소 패턴은 [Azure Cosmos DB](../cosmos-db/introduction.md)같은 데이터베이스 서비스에서 훨씬 더 잘 지원 됩니다.
-
-로그 압축 기능은 Kafka Connect 및 Kafka Stream 클라이언트 프레임 워크에서 사용 됩니다.
+Apache Kafka 로그 압축은 파티션에서 각 키의 마지막 레코드를 제외한 모든 레코드를 제거 하는 기능입니다 .이 기능을 사용 하면 Apache Kafka 항목을 키-값 저장소로 변환 하 여 마지막에 추가한 값이 이전 값을 재정의 합니다. 이 기능은 현재 Azure Event Hubs에 의해 구현 되지 않습니다. 자주 업데이트 되는 경우에도 키-값 저장소 패턴은 [Azure Cosmos DB](../cosmos-db/introduction.md)같은 데이터베이스 서비스에서 훨씬 더 잘 지원 됩니다. 자세한 내용은 Event Hubs 페더레이션 지침의 [로그 프로젝션](event-hubs-federation-overview.md#log-projections) 항목을 참조 하세요. 
 
 ### <a name="kafka-streams"></a>Kafka 스트림
 

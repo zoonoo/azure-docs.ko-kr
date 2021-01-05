@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server Db 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 관리 하 고 모니터링 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: b0df22002521c8148cac1200e79aeb0ae5a60546
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e37e6fc211b34b7e427b66db374a705faafd25f9
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021506"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858741"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -20,7 +20,7 @@ SQL Server 데이터베이스에 대 한 백업을 아직 구성 하지 않은 �
 
 Azure Backup는 포털의 **백업 작업** 에서 예약 된 작업 및 주문형 작업을 모두 표시 합니다. 단, 예약 된 로그 백업은 매우 자주 수행 될 수 있기 때문입니다. 이 포털에 표시 되는 작업에는 데이터베이스 검색 및 등록, 백업 구성, 백업 및 복원 작업이 포함 됩니다.
 
-![백업 작업 포털](./media/backup-azure-sql-database/jobs-list.png)
+![백업 작업 포털](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
 
 모니터링 시나리오에 대 한 자세한 내용은 [Azure Portal의 모니터링](backup-azure-monitoring-built-in-monitor.md) 및 Azure Monitor를 [사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 참조 하세요.  
 
@@ -36,13 +36,9 @@ Azure Backup는 포털의 **백업 작업** 에서 예약 된 작업 및 주문�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 자격 증명 모음 대시보드에서 **경고 및 이벤트** 를 선택합니다.
+2. 자격 증명 모음 대시보드에서 **백업 경고** 를 선택 합니다.
 
-   ![경고 및 이벤트 선택](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
-
-3. **경고 및 이벤트** 에서 **Backup 경고** 를 선택합니다.
-
-   ![백업 경고 선택](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
+   ![백업 경고 선택](./media/backup-azure-sql-database/sql-backup-alerts-list.png)
 
 ## <a name="stop-protection-for-a-sql-server-database"></a>SQL Server 데이터베이스에 대한 보호 중지
 
@@ -83,7 +79,7 @@ Azure Backup는 포털의 **백업 작업** 에서 예약 된 작업 및 주문�
 >
 >데이터 삭제 옵션에 대 한 자세한 내용은 아래 FAQ를 참조 하세요.
 >
->- [Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [자동 보호된 인스턴스에서 데이터베이스를 삭제하면 백업은 어떻게 되나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 >- [Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
@@ -120,7 +116,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 > [!NOTE]
 > 보존 기간의 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 지점에 소급 적용됩니다.
 
-자격 증명 모음 대시보드에서 백업 정책 **관리** 로 이동 하 여  >  **Backup Policies** 편집 하려는 정책을 선택 합니다.
+자격 증명 모음 대시보드에서 백업 정책 **관리** 로 이동 하 여  >   편집 하려는 정책을 선택 합니다.
 
   ![백업 정책 관리](./media/backup-azure-sql-database/modify-backup-policy.png)
 

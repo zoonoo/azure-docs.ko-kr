@@ -3,12 +3,12 @@ title: 이벤트 복제 태스크 패턴-Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 특정 이벤트 복제 태스크 패턴을 구현 하기 위한 자세한 지침을 제공 합니다.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803989"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861368"
 ---
 # <a name="event-replication-tasks-patterns"></a>이벤트 복제 태스크 패턴
 
@@ -20,7 +20,7 @@ ms.locfileid: "97803989"
 
 복제 패턴은 이벤트 허브 간에 이벤트를 복사 하거나 이벤트 허브에서 Service Bus 큐와 같은 다른 대상으로 이벤트를 복사 합니다. 이벤트 페이로드를 수정 하지 않고 이벤트가 전달 됩니다.
 
-이 패턴의 구현은 [Event Hubs와 Service Bus 샘플 간의](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) 이벤트 복제와 [Event Hubs 간의 이벤트 복제](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) 에 적용 됩니다.
+이 패턴의 구현은 Event Hubs broker에서 Apache Kafka로 데이터를 복제 하는 특정 사례에 대 한 [Event Hubs 및 Service Bus](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) [Apache Kafka](event-hubs-kafka-mirror-maker-tutorial.md) 샘플 간의 이벤트 복제와 [Event Hubs 간의](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) 이벤트 복제에 적용 됩니다.
 
 ### <a name="streams-and-order-preservation"></a>스트림 및 순서 유지
 

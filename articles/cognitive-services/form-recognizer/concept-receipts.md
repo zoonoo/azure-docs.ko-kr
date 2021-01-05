@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492213"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845467"
 ---
 # <a name="receipt-concepts"></a>수신 개념
 
@@ -62,7 +62,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 양식 인식기 수신 서비스를 사용해 보려면 온라인 샘플 UI 도구로 이동 합니다.
 
 > [!div class="nextstepaction"]
-> [미리 작성 한 모델 사용해 보기](https://fott-preview.azurewebsites.net/)
+> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
 
 ## <a name="input-requirements"></a>입력 요구 사항
 
@@ -95,7 +95,7 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 분석 작업이 진행 중입니다. |
@@ -456,12 +456,11 @@ Azure 양식 인식기는 미리 작성 된 모델 중 하나를 사용 하 여 
 
 수신 확인에는 소비자 동작 및 쇼핑 추세를 분석 하는 데 사용할 수 있는 유용한 데이터가 포함 되어 있습니다.
 
-수신 API는 또한 [AIBuilder 수신 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
+또한 수신 API는 [AI 작성기 수신 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 양식 인식기 [클라이언트 라이브러리 빠른](quickstarts/client-library.md) 시작을 완료 하 여 선택한 언어로 양식 인식기를 사용 하 여 수신 처리 앱을 작성 하기 시작 합니다.
-- 또는 [확인 API Python 빠른](./quickstarts/python-receipts.md) 시작을 따라 REST API를 사용 하 여 영수증을 인식 합니다.
+- 양식 인식기를 사용 하 여 사용자가 선택한 언어로 수신 처리 앱을 작성 하기 시작 하려면 [양식 인식기 빠른](quickstarts/client-library.md) 시작을 완료 하세요.
 
 ## <a name="see-also"></a>참조
 

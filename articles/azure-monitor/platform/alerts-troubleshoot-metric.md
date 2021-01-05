@@ -4,14 +4,14 @@ description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 �
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: fc54d2ba3ca4e7a150a1602c671b99f58197bc44
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657297"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857344"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -265,6 +265,23 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 -   여러 차원을 모니터링 하는 메트릭 경고 규칙-새 차원 값 조합이 추가 된 경우
 -   여러 리소스를 모니터링 하는 메트릭 경고 규칙-범위에 새 리소스를 추가 하는 경우
 -   연속으로 내보내지 않는 메트릭을 모니터링 하는 메트릭 경고 규칙 (스파스 메트릭) – 시간을 내보내지 않은 24 시간 보다 오래 된 메트릭을 내보내는 경우
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>동적 임계값 테두리가 데이터에 맞지 않는 것 같습니다.
+
+메트릭 동작이 최근에 변경 된 경우에는 변경 내용이 동적 임계값 테두리 (상한 및 하 한 범위)에 즉시 반영 되지 않을 수 있습니다 .이는 지난 10 일 동안의 메트릭 데이터를 기반으로 계산 됩니다. 지정 된 메트릭에 대 한 동적 임계값 테두리를 볼 때 최근 시간 또는 일 뿐만 아니라 지난 주에 메트릭 추세를 확인 해야 합니다.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>동적 임계값으로 매주 계절성 검색 되지 않는 이유는 무엇 인가요?
+
+주간 계절성을 식별 하기 위해 동적 임계값 모델에는 3 주 이상의 기록 데이터가 필요 합니다. 기록 데이터를 충분히 사용할 수 있게 되 면 메트릭 데이터에 있는 주간 계절성 식별 되며 모델은 그에 따라 조정 됩니다. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>메트릭에 항상 양수 값이 있는 경우에도 동적 임계값은 메트릭에 대 한 음수 하한값을 표시 합니다.
+
+메트릭이 큰 변동을을 나타내는 경우 동적 임계값은 메트릭 값을 중심으로 더 넓은 모델을 생성 하며,이로 인해 아래쪽 테두리가 0이 됩니다. 특히 다음과 같은 경우에 이러한 상황이 발생할 수 있습니다.
+1. 민감도를 낮음으로 설정 합니다. 
+2. 중앙값은 0에 가깝습니다.
+3. 메트릭은 분산이 높은 불규칙 한 동작을 보여 주는 것입니다 (데이터에 스파이크 또는 dip가 있는 경우).
+
+하 한 값이 음수 값을 갖는 경우 메트릭이 불규칙 한 동작을 감안 하 여 0 값에 도달 하는 것을 타당 것을 의미 합니다. 모델을 작성 하는 데 사용 되는 기록 데이터에서 최근 irregulaity를 제외 하기 위해 더 높은 민감도 또는 더 큰 집계 세분성 (기간)을 선택 하 여 모델의 중요도를 높이 거 나 더 큰 *집계 세분성 (기간)* 을 선택 *하는 것* 이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

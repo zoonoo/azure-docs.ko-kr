@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: b3a633c1eff6adf2a33b4f3bfc818eb51ff5ee85
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653098"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844964"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>텍스트 분석 API v3 언어 지원 
 
@@ -61,9 +61,9 @@ ms.locfileid: "97653098"
 | 언어               | 언어 코드 | v 2.1 지원 | v3 지원 | V3 모델 버전부터: |       메모        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | 아랍어                |     `ar`      |     ✓      |            |                                 |                    |
-| 체코어                 |     `cs`      |     ✓      |            |                                 |                    |
 | 중국어 간체     |   `zh-hans`   |     ✓      |            |                                 | `zh`도 허용됨 |
 | 중국어 번체   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| 체코어                 |     `cs`      |     ✓      |            |                                 |                    |
 | 덴마크어                |     `da`      |     ✓      |            |                                 |                    |
 | 네덜란드어                 |     `nl`      |     ✓      |            |                                 |                    |
 | 영어                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -77,8 +77,8 @@ ms.locfileid: "97653098"
 | 한국어                |     `ko`      |     ✓      |            |                                 |                    |
 | 노르웨이어(복말)   |     `no`      |     ✓      |            |                                 | `nb`도 허용됨 |
 | 폴란드어                |     `pl`      |     ✓      |            |                                 |                    |
-| 포르투갈어(포르투갈) |    `pt-PT`    |     ✓      |            |                                 | `pt`도 허용됨 |
 | 포르투갈어(브라질)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| 포르투갈어(포르투갈) |    `pt-PT`    |     ✓      |            |                                 | `pt`도 허용됨 |
 | 러시아어              |     `ru`      |     ✓      |            |                                 |                    |
 | 스페인어               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | 스웨덴어               |     `sv`      |     ✓      |            |                                 |                    |
@@ -101,8 +101,8 @@ ms.locfileid: "97653098"
 | 한국어                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | 노르웨이어(복말)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb`도 허용됨 |
 | 폴란드어                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| 포르투갈어(포르투갈) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt`도 허용됨 |
 | 포르투갈어(브라질)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| 포르투갈어(포르투갈) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt`도 허용됨 |
 | 러시아어               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | 스페인어               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | 스웨덴어               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -217,6 +217,6 @@ ms.locfileid: "97653098"
 
 ---
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [텍스트 분석 API 이란?](overview.md)   

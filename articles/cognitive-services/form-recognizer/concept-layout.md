@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 60ef490bbba4dca4f01b82967ad6ea8636e7bd4e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353700"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845556"
 ---
 # <a name="form-recognizer-layout-service"></a>폼 인식기 레이아웃 서비스
 
@@ -54,7 +54,7 @@ Azure 양식 인식기는 레이아웃 서비스를 사용 하 여 문서에서 
 
 두 번째 단계는 [분석 레이아웃 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) 작업을 호출 하는 것입니다. 이 작업은 레이아웃 분석 작업에 의해 생성 된 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. 
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | `notStarted`: 분석 작업이 시작 되지 않았습니다.<br /><br />`running`: 분석 작업이 진행 중입니다.<br /><br />`failed`: 분석 작업이 실패 했습니다.<br /><br />`succeeded`: 분석 작업에 성공 했습니다.|
 
@@ -89,8 +89,7 @@ JSON 출력에는 두 부분이 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [양식 인식기 샘플 UI](https://fott-preview.azurewebsites.net/) 를 사용 하 여 사용자 고유의 레이아웃 추출 시도
-- [양식 인식기 클라이언트 라이브러리 빠른](quickstarts/client-library.md) 시작을 완료 하 여 선택한 언어로 레이아웃 압축을 시작 합니다.
-- 또는 [레이아웃 데이터 추출](./QuickStarts/python-layout.md) 빠른 시작을 따라 Python 및 REST API를 사용 하 여 레이아웃 데이터 추출을 구현 합니다.
+- 선택한 언어로 레이아웃 압축 풀기를 시작 하려면 [폼 인식기 퀵 스타트](quickstarts/client-library.md) 를 완료 하세요.
 
 ## <a name="see-also"></a>참조
 

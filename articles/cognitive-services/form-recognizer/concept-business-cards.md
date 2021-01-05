@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498863"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845612"
 ---
 # <a name="business-card-concepts"></a>명함 개념
 
@@ -62,7 +62,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
@@ -374,7 +374,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 }
 ```
 
-[비즈니스 카드 추출 데이터](./QuickStarts/python-business-cards.md) 빠른 시작을 따라 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
+[빠른](./QuickStarts/client-library.md) 시작 빠른 시작을 따라 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
 
 ## <a name="customer-scenarios"></a>고객 시나리오  
 
@@ -385,11 +385,11 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 * 판매 잠재 고객을 추적 합니다.  
 * 기존 비즈니스 카드 이미지에서 연락처 정보를 대량으로 추출 합니다. 
 
-또한 비즈니스 카드 API는 [AIBuilder 비즈니스 카드 처리 기능](/ai-builder/prebuilt-business-card)을 향상 시킵니다.
+또한 비즈니스 카드 API는 [AI Builder 비즈니스 카드 처리 기능](/ai-builder/prebuilt-business-card)을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 비즈니스 [카드 API Python 빠른](./quickstarts/python-business-cards.md) 시작을 수행 하 여 비즈니스 카드 인식을 시작 하세요.
+- [빠른](./quickstarts/client-library.md) 시작을 따라 비즈니스 카드 인식을 시작 합니다.
 
 ## <a name="see-also"></a>참조
 

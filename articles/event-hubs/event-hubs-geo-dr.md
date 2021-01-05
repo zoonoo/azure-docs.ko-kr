@@ -3,18 +3,27 @@ title: 지리적 재해 복구 - Azure Event Hubs| Microsoft Docs
 description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Event Hubs에서 재해 복구를 수행하는 방법
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6dd2385a6f6e61136a1284171532aedd70a9cc96
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608353"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861477"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
-전체 Azure 지역 또는 데이터 센터([가용성 영역](../availability-zones/az-overview.md)을 사용하지 않는 경우)에서 가동 중지 시간이 발생하면 데이터 처리가 다른 지역 또는 데이터 센터에서 계속 작동되는 것이 중요합니다. 따라서 *지리적 재해 복구* 및 *지리적 복제* 는 기업에 중요한 기능입니다. Azure Event Hubs는 네임스페이스 수준에서 지리적 재해 복구 및 지리적 복제를 둘 다 지원합니다. 
 
-> [!NOTE]
-> 지리적 재해 복구 기능은 [표준 및 전용 SKU](https://azure.microsoft.com/pricing/details/event-hubs/)에만 사용할 수 있습니다.  
+데이터 처리 리소스의 치명적인 가동 중단에 대 한 복원 력을 많은 기업에서 요구 하는 것 이며, 경우에 따라 업계 규정에도 필요 합니다. 
+
+Azure Event Hubs는 이미 개별 컴퓨터의 치명적인 오류에 대 한 위험을 분산 하거나 데이터 센터 내에서 여러 오류 도메인에 걸쳐 있는 클러스터 전체에 대해 완전 한 랙을 분산 하 고 있으며, 서비스가 계속 해 서 보장 되는 서비스 수준 내에서 작업을 계속 수행 하 고 이러한 오류가 발생할 경우 중단 없이 계속 작동 하도록 투명 한 오류 감지 및 장애 조치 메커니즘을 구현 합니다. [가용성 영역](../availability-zones/az-overview.md)에 대해 enabled 옵션을 사용 하 여 Event Hubs 네임 스페이스를 만든 경우 위험 중단 위험은 물리적으로 분리 된 세 가지 기능에 추가로 분산 되 고, 서비스에는 전체 기능의 완전 하 고 심각한 손실을 신속 하 게 처리할 수 있는 충분 한 용량 예약이 있습니다. 
+
+가용성 영역을 지 원하는 모든 활성 Azure Event Hubs 클러스터 모델은 억음 하드웨어 오류에 대 한 복원 력 및 전체 데이터 센터 시설의 심각한 손실을 제공 합니다. 그러나 이러한 측정값이 충분히 방어 될 수 없는 광범위 한 물리적 소멸이 있는 경우에도 매우 많은 상황이 발생할 수 있습니다. 
+
+Event Hubs 지역 재해 복구 기능은 이러한 크기의 재해 로부터 쉽게 복구 하 고, 응용 프로그램 구성을 변경 하지 않고도 실패 한 Azure 지역을 중단 하는 데 사용할 수 있도록 설계 되었습니다. Azure 지역을 포기 하는 것은 일반적으로 여러 서비스를 포함 하며이 기능은 주로 복합 응용 프로그램 구성의 무결성 유지를 목표로 합니다.  
+
+Geo-Disaster 복구 기능을 사용 하면 네임 스페이스 (Event Hubs, 소비자 그룹 및 설정)의 전체 구성이 쌍을 이루는 경우 주 네임 스페이스에서 보조 네임 스페이스로 지속적으로 복제 되 고, 언제 든 지 주 데이터베이스에서 보조 데이터베이스로의 한 번만 장애 조치 (failover)를 시작할 수 있습니다. 장애 조치 (failover) 이동은 네임 스페이스에 대해 선택한 별칭 이름을 보조 네임 스페이스로 다시 가리키고 페어링을 중단 합니다. 장애 조치 (failover)가 시작 된 후에는 거의 즉시 이루어집니다. 
+
+> [!IMPORTANT]
+> 이 기능을 사용 하면 동일한 구성을 사용 하 여 작업을 즉시 연속성 하지만 **이벤트 데이터를 복제 하지** 않습니다. 재해가 발생 한 경우를 제외 하 고 모든 영역 손실이 발생 하지 않으면 이벤트 데이터는 장애 조치 (failover)를 복구할 수 있게 된 후 기본 이벤트 허브에 유지 되 고 액세스를 복원한 후에는 기록 이벤트를 가져올 수 있습니다. 이벤트 데이터를 복제 하 고 능동/능동 구성에서 해당 네임 스페이스를 운영 하 여 중단 및 재해를 처리할 수 있도록 이러한 지역 재해 복구 기능 집합에 대해서는 설명 하지 말고 [복제 지침](event-hubs-federation-overview.md)을 따르세요.  
 
 ## <a name="outages-and-disasters"></a>중단 및 재해
 

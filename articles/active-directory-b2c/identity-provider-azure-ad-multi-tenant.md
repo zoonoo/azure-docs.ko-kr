@@ -8,34 +8,35 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/04/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71e3bf429c7b8d3f4f8fe205c05b0701732fdef9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c9ac92f836e1d0c1210bb16b5c1d6e232fd5c22e
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653812"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858470"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+::: zone pivot="b2c-user-flow"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+::: zone pivot="b2c-custom-policy"
 
 이 문서에서는 Azure Active Directory (Azure AD)에 대 한 다중 테 넌 트 끝점을 사용 하 여 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 이렇게 하면 여러 Azure AD 테 넌 트의 사용자가 각 테 넌 트에 대해 id 공급자를 구성 하지 않고도 Azure AD B2C를 사용 하 여 로그인 할 수 있습니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 이렇게 하려면 [각 테넌트를 개별적으로 구성](identity-provider-azure-ad-single-tenant.md)해야 합니다.
 
+## <a name="prerequisites"></a>필수 구성 요소
+
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="register-an-application"></a>애플리케이션 등록
 
@@ -71,41 +72,6 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 1. **토큰 형식** 에서 **ID** 를 선택 합니다.
 1. 추가할 선택적 클레임을 선택 하 고을 선택 `family_name` `given_name` 합니다.
 1. **추가** 를 클릭합니다.
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="configure-azure-ad-as-an-identity-provider"></a>테넌트에서 Azure AD를 ID 공급자로 구성
-
-1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-1. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
-1. **이름** 을 입력합니다. 예를 들어 *Contoso Azure AD* 를 입력합니다.
-1. **메타데이터 URL** 에 대해 다음 URL을 입력합니다. 여기서 `{tenant}`은 Azure AD 테넌트의 도메인 이름으로 바꿉니다.
-
-    ```
-    https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
-    ```
-
-    예들 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`입니다.
-    예들 들어 `https://login.microsoftonline.com/contoso.com/v2.0/.well-known/openid-configuration`입니다.
-
-1. **Client ID** 에 대해 이전에 기록한 애플리케이션 ID를 입력합니다.
-1. 이전에 기록해 두었던 클라이언트 암호를 **클라이언트 암호** 에 입력합니다.
-1. **범위** 에 `openid profile`을 입력합니다.
-1. **응답 유형**, **응답 모드** 및 **도메인 힌트** 에 대 한 기본값을 그대로 둡니다.
-1. **ID 공급자 클레임 매핑** 에서 다음 클레임을 선택합니다.
-
-    - **사용자 ID**: *oid*
-    - **표시 이름**: *name*
-    - **지정된 이름**: *given_name*
-    - **성**: *family_name*
-    - **전자 메일**: *preferred_username*
-
-1. **저장** 을 선택합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
@@ -243,24 +209,6 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
     **TechnicalProfileReferenceId** 의 값을 이전에 만든 기술 프로필의 **Id** 로 업데이트 합니다. 예들 들어 `Common-AAD`입니다.
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>사용자 흐름에 Azure AD id 공급자 추가 
-
-1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. Azure AD id 공급자에 사용할 사용자 흐름을 클릭 합니다.
-1. **소셜 id 공급자** 에서 **Contoso Azure AD** 를 선택 합니다.
-1. **저장** 을 선택합니다.
-1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
-1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 클릭 합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
 
 ## <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
 

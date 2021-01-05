@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399250"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858504"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **저장소 계정 고려 사항**: 
 
 - 위치: 사용 되는 저장소 계정은 NSG와 동일한 지역에 있어야 합니다.
+- 성능 계층: 현재 표준 계층 저장소 계정만 지원 됩니다.
 - 자체 관리 키 회전: 액세스 키를 저장소 계정으로 변경/회전 하는 경우 NSG 흐름 로그가 작동을 중지 합니다. 이 문제를 해결 하려면 NSG 흐름 로그를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 해야 합니다.
 
 **흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅에서 보존 정책 기능을 사용 하는 것은 오랜 시간 동안 별도의 저장소 비용을 발생 시킵니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격](https://azure.microsoft.com/pricing/details/network-watcher/) 책정 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조 하세요.
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 여러 NSGs를 사용 하는 시나리오에서는 모든 트래픽이 기록 되도록 리소스의 서브넷 또는 네트워크 인터페이스에 적용 된 모든 NSGs에 대해 NSGS 흐름 로그를 사용 하도록 설정 하는 것이 좋습니다. 자세한 내용은 네트워크 보안 그룹에서 [트래픽 평가 방법](../virtual-network/network-security-group-how-it-works.md) 을 참조 하세요. 
 
 몇 가지 일반적인 시나리오는 다음과 같습니다.
-1. **Nic에서 여러 NSG: 여러 nsg** 가 nic에 연결 되는 경우 모든 nsg가 nic에 연결 되어 있어야 합니다.
+1. **VM의 다중 nic**: 가상 머신에 여러 nic가 연결 되는 경우 모든 nic에서 흐름 로깅을 사용 하도록 설정 해야 합니다.
 1. **Nic 및 서브넷 수준에서 NSG** 를 사용 하도록 설정: nsg가 Nic 및 서브넷 수준에서 구성 된 경우에는 두 nsg에서 흐름 로깅을 사용 하도록 설정 해야 합니다. 
 
 **저장소 프로 비전**: 저장소는 예상 흐름 로그 볼륨이 포함 된 튜닝에서 프로 비전 되어야 합니다.

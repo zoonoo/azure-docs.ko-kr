@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000552"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861042"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Face 컨테이너 설치 및 실행 (미리 보기)
 
@@ -28,13 +28,13 @@ Azure Cognitive Services Face API는 이미지에서 인간 얼굴을 검색 하
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Face 서비스 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
 |필수|목적|
 |--|--|
-|Docker 엔진| Docker 엔진이 [호스트 컴퓨터](#the-host-computer)에 설치 되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> Windows에서는 Linux 컨테이너를 지원 하도록 Docker도 구성 해야 합니다.<br><br>|
+|Docker 엔진| Docker 엔진이 [호스트 컴퓨터](#the-host-computer)에 설치 되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> Windows에서는 Linux 컨테이너를 지원 하도록 Docker도 구성 해야 합니다.<br><br>|
 |Docker 사용 경험 | 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념을 기본적으로 이해 해야 합니다. 또한 기본 명령에 대 한 지식이 필요 `docker` 합니다.| 
 |얼굴 리소스 |컨테이너를 사용 하려면 다음이 있어야 합니다.<br><br>Azure **Face** 리소스와 연결 된 API 키 및 끝점 URI입니다. 두 값은 모두 리소스의 **개요** 및 **키** 페이지에서 사용할 수 있습니다. 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공 된 끝점입니다.
 
@@ -137,10 +137,6 @@ Face 서비스 컨테이너는 Azure 계정에서 얼굴 리소스를 사용 하
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](./face-resource-container-config.md)을 참조하세요.
-
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>요약
 

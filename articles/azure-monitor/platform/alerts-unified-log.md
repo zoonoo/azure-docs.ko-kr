@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317557"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857429"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
@@ -62,7 +62,7 @@ ms.locfileid: "96317557"
 
 Log analytics에서와 같이 시간 범위는 쿼리 데이터를 지정 된 범위로 제한 합니다. 쿼리에 이전 **명령이 사용 되 었 더라도 시간** 범위가 적용 됩니다.
 
-예를 들어 쿼리는 시간 범위가 60 분 이면 60 분을 검색 합니다 .이 경우에는 이전 **(1d)** 이 포함 되어 있는 경우에도 마찬가지입니다. 시간 범위와 쿼리 시간 필터링이 일치 해야 합니다. 예제 사례에서 기간을 변경 하면 **Period**  /  **쿼리 시간 범위가** 1 일로 재정의 됩니다.
+예를 들어 쿼리는 시간 범위가 60 분 이면 60 분을 검색 합니다 .이 경우에는 이전 **(1d)** 이 포함 되어 있는 경우에도 마찬가지입니다. 시간 범위와 쿼리 시간 필터링이 일치 해야 합니다. 예제 사례에서 기간을 변경 하면   /  **쿼리 시간 범위가** 1 일로 재정의 됩니다.
 
 ### <a name="measure"></a>측정값
 
@@ -120,6 +120,8 @@ requests
 ### <a name="split-by-alert-dimensions"></a>경고 차원으로 분할
 
 숫자 또는 문자열 열을 기준으로 경고를 고유한 조합으로 그룹화 하 여 개별 경고로 분할 합니다. 확장 (구독 또는 리소스 그룹 범위)에서 리소스 중심 경고를 만들 때 Azure 리소스 ID 열을 기준으로 분할할 수 있습니다. Azure 리소스 ID 열을 분할 하면 경고 대상이 지정 된 리소스로 변경 됩니다.
+
+여러 Azure 리소스에서 동일한 조건을 모니터링 하려는 경우 Azure 리소스 ID 열을 기준으로 분할 하는 것이 좋습니다. 예를 들어 CPU 사용량을 80% 초과 하는 모든 가상 컴퓨터를 모니터링 합니다. 범위에 있는 여러 리소스에 대 한 조건을 원할 때 (예: 리소스 그룹 범위에 있는 최소 5 대의 컴퓨터에서 CPU 사용량이 80%를 초과 하는 경우) 분할 하지 않기로 결정할 수도 있습니다.
 
 작업 영역 및 Application Insights에서는 **메트릭 측정** 측정 유형 에서만 지원 됩니다. 필드를 **Aggregate On에서** 라고 합니다. 3 개의 열로 제한 됩니다. 쿼리에 세 개 이상의 그룹을 추가 하면 예기치 않은 결과가 발생할 수 있습니다. 다른 모든 리소스 유형에 서 조건의 **분할** 섹션에서 구성 됩니다 (분할 6 개로 제한 됨).
 

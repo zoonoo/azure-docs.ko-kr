@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999452"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854947"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -152,6 +152,7 @@ VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 �
 
 > [!NOTE]
 > App Service에서 Docker Compose 시나리오에는 VNET 통합이 지원 되지 않습니다.
+> 개인 끝점이 있으면 Azure Functions 액세스 제한이 무시 됩니다.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: be01309fee3454fbd4be78130f9826b493e7bf7a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033768"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854896"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech란?
 
@@ -43,6 +43,23 @@ Custom Speech를 사용 하 여 모든 작업을 수행 하려면 Azure 계정 �
 ## <a name="set-up-your-azure-account"></a>Azure 계정 설정
 
 [Custom Speech 포털](https://speech.microsoft.com/customspeech) 을 사용 하 여 사용자 지정 모델을 만들려면 먼저 Azure 계정 및 음성 서비스를 구독 해야 합니다. 계정 및 구독이 없는 경우 [음성 서비스 평가판을 사용해 보세요](overview.md#try-the-speech-service-for-free).
+
+오디오 데이터를 사용 하 여 사용자 지정 모델을 학습 하려는 경우 학습에 사용할 수 있는 전용 하드웨어가 있는 다음 지역 중 하나를 선택 합니다. 이렇게 하면 모델을 학습 하는 데 걸리는 시간이 줄어듭니다.
+
+* 오스트레일리아 동부
+* 캐나다 중부
+* 인도 중부
+* 미국 동부
+* 미국 동부 2
+* 미국 중북부
+* 북유럽
+* 미국 중남부
+* 동남아시아
+* 영국 남부
+* US Gov 애리조나
+* US Gov 버지니아
+* 서유럽
+* 미국 서부 2
 
 > [!NOTE]
 > 표준 (S0) 구독을 만들어야 합니다. 무료 (F0) 구독은 지원 되지 않습니다.

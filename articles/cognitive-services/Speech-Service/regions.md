@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972653"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854862"
 ---
 # <a name="speech-service-supported-regions"></a>음성 서비스 지원 지역
 
@@ -44,6 +44,8 @@ ms.locfileid: "95972653"
 
 [SPEECH SDK](speech-sdk.md)를 사용 하는 경우 **지역 식별자** (예:에 대 한 매개 변수로)가 영역을 지정 `SpeechConfig.FromSubscription` 합니다. 지역이 구독의 지역과 일치 하는지 확인 합니다.
 
+오디오 데이터를 사용 하 여 사용자 지정 모델을 학습 하려면 더 빠른 학습을 위해 [전용 하드웨어에서 지역](custom-speech-overview.md#set-up-your-azure-account) 중 하나를 사용 합니다. [REST API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) 를 사용 하 여 나중에 완전히 학습 된 모델을 다른 지역에 복사할 수 있습니다.
+
 ### <a name="intent-recognition"></a>의도 인식
 
 Speech SDK를 통해 **의도 인식** 을 사용할 수 있는 지역은 다음과 같습니다.
@@ -67,17 +69,21 @@ Speech SDK를 통해 **의도 인식** 을 사용할 수 있는 지역은 다음
 
 ### <a name="voice-assistants"></a>음성 도우미
 
-[음성 SDK](speech-sdk.md) 는 이러한 지역에서 **음성 도우미** 기능을 지원 합니다.
+[음성 SDK](speech-sdk.md) 는 이러한 지역에서 [직접 줄 음성을](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) 통해 **음성 도우미** 기능을 지원 합니다.
 
-| 지역         | 영역 식별자 |
-| -------------- | -------------------- |
-| 미국 서부        | `westus`             |
-| 미국 서부 2      | `westus2`            |
-| 미국 동부        | `eastus`             |
-| 미국 동부 2      | `eastus2`            |
-| 서유럽    | `westeurope`         |
-| 북유럽   | `northeurope`        |
-| 동남 아시아 | `southeastasia`      |
+| 글로벌 지역 | 지역           | 영역 식별자    |
+| ------------- | ---------------- | -------------------- |
+| 북아메리카 | 미국 서부          | `westus`             |
+| 북아메리카 | 미국 서부 2        | `westus2`            |
+| 북아메리카 | 미국 동부          | `eastus`             |
+| 북아메리카 | 미국 동부 2        | `eastus2`            |
+| 북아메리카 | 미국 중서부  | `westcentralus`      |
+| 북아메리카 | 미국 중남부 | `southcentralus`     |
+| 유럽        | 서유럽      | `westeurope`         |
+| 유럽        | 북유럽     | `northeurope`        |
+| 아시아          | 동아시아        | `eastasia`           |
+| 아시아          | 동남아시아   | `southeastasia`      |
+| 인도         | 인도 중부    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 

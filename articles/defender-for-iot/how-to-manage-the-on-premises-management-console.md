@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839894"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861437"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
 
@@ -298,6 +298,26 @@ VLAN 이름은 센서와 관리 콘솔 간에 동기화 되지 않습니다. 구
 
 > [!NOTE]
 > 센서는 원래 연결 된 구독에 연결 됩니다. 연결 된 구독과 동일한 구독을 사용 해야만 암호를 복구할 수 있습니다.
+
+## <a name="update-the-software-version"></a>소프트웨어 버전 업데이트
+
+다음 절차에서는 온-프레미스 관리 콘솔 소프트웨어 버전을 업데이트 하는 방법을 설명 합니다. 업데이트 프로세스는 30 분 정도 걸립니다.
+
+1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+
+1. IoT 용 Defender로 이동 합니다.
+
+1. **업데이트** 페이지로 이동 합니다.
+
+1. 온-프레미스 관리 콘솔 섹션에서 버전을 선택 합니다.
+
+1. **다운로드** 를 선택하고 파일을 저장합니다.
+
+1. 온-프레미스 관리 콘솔에 로그인 하 고 측면 메뉴에서 **시스템 설정** 을 선택 합니다.
+
+1. **버전 업데이트** 창에서 **업데이트** 를 선택 합니다.
+
+1. IoT 용 Defender **업데이트** 페이지에서 다운로드 한 파일을 선택 합니다.
 
 ## <a name="see-also"></a>참조
 
