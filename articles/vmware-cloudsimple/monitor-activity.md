@@ -2,19 +2,19 @@
 title: 사설 클라우드 작업 모니터링
 titleSuffix: Azure VMware Solution by CloudSimple
 description: 경고, 이벤트, 작업 및 감사를 포함 하 여 CloudSimple 환경의 Azure VMware 솔루션 작업에서 사용할 수 있는 정보에 대해 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/13/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77019675"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899306"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>CloudSimple 활동 별로 VMware 솔루션 모니터링
 
@@ -42,19 +42,19 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 경고는 CloudSimple 환경에서 중요 한 작업에 대 한 알림입니다.  경고에는 청구 또는 사용자 액세스에 영향을 주는 이벤트가 포함 됩니다.
 
-경고를 승인 하 고 목록에서 제거 하려면 목록에서 하나 이상을 선택 하 고 **승인**을 클릭 합니다.
+경고를 승인 하 고 목록에서 제거 하려면 목록에서 하나 이상을 선택 하 고 **승인** 을 클릭 합니다.
 
 경고에는 다음 정보 열을 사용할 수 있습니다. **열 편집** 을 클릭 하 고 보려는 열을 선택 합니다.
 
-| 열 | Description |
+| 열 | 설명 |
 ------------ | ------------- |
 | 경고 유형 | 경고의 범주입니다.|
-| 시간 | 경고가 발생 한 시간입니다. |
+| Time | 경고가 발생 한 시간입니다. |
 | 심각도 | 경고의 의미입니다.|
 | 리소스 이름 | 리소스에 할당 된 이름입니다 (예: 사설 클라우드 이름). |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
 | 리소스 ID | 리소스의 식별자입니다. |
-| Description | 경고를 트리거한 항목에 대 한 설명입니다. |
+| 설명 | 경고를 트리거한 항목에 대 한 설명입니다. |
 | 승인됨 | 경고가 승인 되었는지 여부를 나타냅니다. |
 
 ## <a name="events"></a>이벤트
@@ -70,7 +70,7 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 | 심각도 | 이벤트 심각도.|
 | 리소스 이름 | 리소스에 할당 된 이름입니다 (예: 사설 클라우드 이름). |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
-| Description | 경고를 트리거한 항목에 대 한 설명입니다. |
+| 설명 | 경고를 트리거한 항목에 대 한 설명입니다. |
 
 ## <a name="tasks"></a>작업
 
@@ -78,7 +78,7 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 
 경고에는 다음 정보 열을 사용할 수 있습니다. **열 편집** 을 클릭 하 고 보려는 열을 선택 합니다.
 
-| 열 | Description |
+| 열 | 설명 |
 ------------ | ------------- |
 | 작업 ID | 태스크에 대 한 고유 식별자입니다. |
 | 작업(Operation) | 태스크에서 수행 하는 작업입니다. |
@@ -88,9 +88,9 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 | 리소스 ID | 리소스의 식별자입니다. |
 | 시작 | 작업의 시작 시간입니다. |
 | 끝 | 작업의 종료 시간입니다. |
-| 상태 | 현재 작업 상태입니다. |
+| Status | 현재 작업 상태입니다. |
 | 경과 시간 | 작업을 완료 하는 데 걸린 시간 (완료 된 경우) 또는 현재 진행 중인 작업 (진행 중인 경우)입니다. |
-| Description | 작업 설명입니다. |
+| 설명 | 작업 설명입니다. |
 
 ## <a name="audit"></a>감사
 
@@ -106,9 +106,9 @@ CloudSimple 활동 로그는 CloudSimple 포털에서 수행 된 작업에 대 �
 | 리소스 이름 | 리소스에 할당 된 이름입니다. |
 | 리소스 종류 | 리소스 범주: 사설 클라우드, 클라우드 랙. |
 | 리소스 ID | 리소스의 식별자입니다. |
-| 결과 | **성공**과 같은 작업의 결과입니다. |
+| 결과 | **성공** 과 같은 작업의 결과입니다. |
 | 걸린 시간 | 작업을 완료 하는 데 걸리는 시간입니다. |
-| Description | 액션에 대한 설명입니다. |
+| 설명 | 액션에 대한 설명입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

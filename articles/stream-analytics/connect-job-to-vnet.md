@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: a2d26689a3036f05d7c8e7f417fbbb447402aedc
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762863"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898150"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Azure Virtual Network (VNet)에서 리소스에 Stream Analytics 작업 연결
 
@@ -41,7 +41,7 @@ Stream Analytics 클러스터에서 개인 끝점을 만드는 [작업은 두 �
 1. [Blob Storage 또는 Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) -작업의 저장소 계정, 스트리밍 입력 또는 출력 일 수 있습니다.
 2. [Azure Event Hubs](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) -작업의 스트리밍 입력 또는 출력 일 수 있습니다.
 
-작업에서 다른 입력 또는 출력 형식에 연결 해야 하는 경우 유일한 옵션은 Stream Analytics 클러스터에서 개인 끝점을 사용 하는 것입니다.
+작업에서 다른 입력 또는 출력 형식에 연결 해야 하는 경우에는 Stream Analytics에서 먼저 Event Hubs 출력으로 작성 한 다음 Azure Functions를 사용 하 여 원하는 대상에 수 있습니다. Stream Analytics에서 VNet 또는 방화벽으로 보호 되는 다른 출력 형식으로 직접 쓰려면 Stream Analytics 클러스터에서 전용 끝점을 사용 하는 것이 유일한 옵션입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

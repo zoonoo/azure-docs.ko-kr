@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-CloudSimple 사설 클라우드에 대 한 DNS 구성
 description: 온-프레미스 워크스테이션에서 CloudSimple 사설 클라우드의 vCenter 서버에 액세스 하기 위해 DNS 이름 확인을 설정 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7a2b2344bbb110cd4b35cc1f6428f61e48552b01
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 63822050512421895b0cfed08fb141f77da20b03
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563010"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899255"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 사설 클라우드 vCenter 액세스의 이름 확인에 대 한 DNS 구성
 
@@ -46,7 +46,7 @@ DNS 구성에 대해 이러한 옵션 중 하나를 사용 합니다.
 예를 들어 기본 바인드 서버 구성의 경우 DNS 서버에서/etc/named.conf 파일을 편집 하 고 다음 영역 정보를 추가 합니다.
 
 > [!NOTE]
->이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 종속 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+>이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ```
 zone "az.cloudsimple.io"

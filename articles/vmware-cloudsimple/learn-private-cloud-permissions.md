@@ -1,19 +1,19 @@
 ---
 title: CloudSimple-사설 클라우드 권한 모델인 Azure VMware 솔루션
 description: CloudSimple 사설 클라우드 권한 모델, 그룹 및 범주에 대해 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77014949"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898048"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 사설 클라우드 권한 모델
 
@@ -43,7 +43,7 @@ CloudSimple은 사설 클라우드 환경에 대 한 모든 관리 액세스를 
 개별 사용자에 게 사설 클라우드를 관리할 수 있는 권한을 부여 하려면 사용자 계정 만들기를 적절 한 그룹에 추가 합니다.
 
 > [!CAUTION]
-> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.
+> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m* i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.
 
 ## <a name="list-of-vcenter-privileges-for-default-roles"></a>기본 역할에 대 한 vCenter 권한 목록
 
