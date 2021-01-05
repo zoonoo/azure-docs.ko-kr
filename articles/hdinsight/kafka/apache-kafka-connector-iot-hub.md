@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, devx-track-azurecli
+ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 66b14e435b777595e23fcf5a98d4820f36d21a1a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742033"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825192"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -118,14 +118,14 @@ SSH 연결에서에 지 노드에 대해 다음 단계를 사용 하 여 독립 
 
 1. 다음과 같이 편집 합니다.
 
-    |현재 값 |새 값 | 의견 |
+    |현재 값 |새 값 | 설명 |
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|값을 `localhost:9092` 이전 단계의 broker 호스트로 바꿉니다.|Kafka broker를 찾기 위해에 지 노드에 대 한 독립 실행형 구성을 구성 합니다.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|이 변경을 통해 Kafka에 포함된 콘솔 생산자를 사용하여 테스트할 수 있습니다. 다른 생산자와 소비자에 대한 다른 변환기가 필요할 수 있습니다. 다른 변환기 값 사용에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|위와 동일합니다.|
     |해당 없음|`consumer.max.poll.records=10`|파일의 끝에를 추가 합니다. 이 변경은 한 번에 10개의 레코드로 제한하여 싱크 커넥터에서 시간 제한을 방지하기 위함입니다. 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)를 참조하세요.|
 
-1. 파일을 저장하려면 __Ctrl + X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+1. 파일을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 1. 커넥터에서 사용하는 항목을 만들려면 다음 명령을 사용합니다.
 
@@ -233,7 +233,7 @@ IoT Hub와 작동하도록 원본을 구성하려면 SSH 연결에서 에지 노
 
     구성 예제는 [Azure IoT Hub에 대 한 Kafka Connect 원본 커넥터](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)를 참조 하세요.
 
-1. 변경을 저장하려면 __Ctrl + X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+1. 변경을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 커넥터 원본을 구성 하는 방법에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
@@ -262,7 +262,7 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
 
     구성 예제는 [Azure IoT Hub에 대 한 Kafka Connect 싱크 커넥터](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)를 참조 하세요.
 
-1. 변경을 저장하려면 __Ctrl + X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+1. 변경을 저장하려면 __Ctrl + X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 커넥터 싱크를 구성 하는 방법에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 

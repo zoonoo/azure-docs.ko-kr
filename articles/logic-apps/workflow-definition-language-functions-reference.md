@@ -3,15 +3,15 @@ title: 식의 함수에 대한 참조 가이드
 description: Azure Logic Apps 및 Power Automate용 식의 함수에 대한 참조 가이드
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: a4646263eeb93a33a03e32107b46bb6dc104ce06
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326304"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825855"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1143,7 +1143,7 @@ bool(<value>)
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | 형식 | 반환 값 |
+| 입력 값 | 유형 | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -1678,7 +1678,7 @@ decodeUriComponent('<value>')
 이 예제는 이 문자열의 이스케이프 문자를 디코딩된 버전으로 바꿉니다.
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 그리고 다음 결과를 반환합니다. `"https://contoso.com"`
@@ -1753,7 +1753,7 @@ encodeUriComponent('<value>')
 encodeUriComponent('https://contoso.com')
 ```
 
-그리고 다음 결과를 반환합니다. `"http%3A%2F%2Fcontoso.com"`
+그리고 다음 결과를 반환합니다. `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -2729,7 +2729,7 @@ lastIndexOf('<text>', '<searchText>')
 
   * 문자열의 길이에서 1을 뺀 값입니다.
 
-*예*
+*예제*
 
 이 예에서는 문자열에서 하위 문자열 부분 문자열의 마지막 항목에 대 한 시작 인덱스 값을 찾습니다 `world` `hello world hello world` . 반환 된 결과는 `18` 다음과 같습니다.
 
@@ -3925,7 +3925,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | 예 | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | 아니요 | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]
@@ -4174,7 +4174,7 @@ triggerFormDataMultiValues('<key>')
 triggerFormDataMultiValues('feedUrl')
 ```
 
-그리고 이 배열을 예제 결과로 반환합니다. `["http://feeds.reuters.com/reuters/topNews"]`
+그리고 이 배열을 예제 결과로 반환합니다. `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4205,7 +4205,7 @@ triggerFormDataValue('<key>')
 triggerFormDataValue('feedUrl')
 ```
 
-그리고 이 문자열을 예제 결과로 반환합니다. `"http://feeds.reuters.com/reuters/topNews"`
+그리고 이 문자열을 예제 결과로 반환합니다. `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4336,7 +4336,7 @@ uriComponent('<value>')
 uriComponent('https://contoso.com')
 ```
 
-그리고 다음 결과를 반환합니다. `"http%3A%2F%2Fcontoso.com"`
+그리고 다음 결과를 반환합니다. `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4363,7 +4363,7 @@ uriComponentToBinary('<value>')
 이 예제는 이 URI 인코딩된 문자열에 대한 이진 버전을 만듭니다.
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 그리고 다음 결과를 반환합니다.
@@ -4398,7 +4398,7 @@ uriComponentToString('<value>')
 이 예제는 이 URI 인코딩된 문자열에 대한 디코딩된 버전을 만듭니다.
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 그리고 다음 결과를 반환합니다. `"https://contoso.com"`
@@ -4458,7 +4458,7 @@ uriPath('<uri>')
 이 예제는 이 URI에 대한 `path` 값을 찾습니다.
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 그리고 다음 결과를 반환합니다. `"/catalog/shownew.htm"`
@@ -4488,7 +4488,7 @@ uriPathAndQuery('<uri>')
 이 예제는 이 URI에 대한 `path` 및 `query`값을 찾습니다.
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 그리고 다음 결과를 반환합니다. `"/catalog/shownew.htm?date=today"`
@@ -4518,7 +4518,7 @@ uriPort('<uri>')
 이 예제는 이 URI에 대한 `port` 값을 반환합니다.
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 그리고 다음 결과를 반환합니다. `8080`
@@ -4548,7 +4548,7 @@ uriQuery('<uri>')
 이 예제는 이 URI에 대한 `query` 값을 반환합니다.
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 그리고 다음 결과를 반환합니다. `"?date=today"`
@@ -4578,7 +4578,7 @@ uriScheme('<uri>')
 이 예제는 이 URI에 대한 `scheme` 값을 반환합니다.
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 그리고 다음 결과를 반환합니다. `"http"`
@@ -4918,16 +4918,16 @@ xpath('<xml>', '<xpath>')
 
 *예제 8*
 
-이 예제에서는 XML 문서 네임 스페이스를 포함 하는 XML 문자열을 가정 합니다 `xmlns="http://contoso.com"` .
+이 예제에서는 XML 문서 네임 스페이스를 포함 하는 XML 문자열을 가정 합니다 `xmlns="https://contoso.com"` .
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-이러한 식은 XPath 식 `/*[name()="file"]/*[name()="location"]` 또는 `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` 를 사용 하 여 노드와 일치 하는 노드를 찾습니다 `<location></location>` . 다음 예에서는 논리 앱 디자이너나 식 편집기에서 사용 하는 구문을 보여 줍니다.
+이러한 식은 XPath 식 `/*[name()="file"]/*[name()="location"]` 또는 `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` 를 사용 하 여 노드와 일치 하는 노드를 찾습니다 `<location></location>` . 다음 예에서는 논리 앱 디자이너나 식 편집기에서 사용 하는 구문을 보여 줍니다.
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 다음은 `<location></location>` 노드와 일치하는 결과 노드입니다. 
 

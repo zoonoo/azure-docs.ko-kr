@@ -3,19 +3,19 @@ title: SQL Managed Instance에서 수동으로 장애 조치 (failover) 시작
 description: Azure SQL Managed Instance에서 기본 및 보조 복제본을 수동으로 장애 조치 (failover) 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 7f30ff70e0219a803051b0f8e1208740c359863a
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605397"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825917"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
 
@@ -46,7 +46,7 @@ ms.locfileid: "97605397"
 - 다음 권한이 있는 사용자 지정 역할:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>PowerShell 사용하기
+### <a name="using-powershell"></a>PowerShell 사용
 
 Az. Sql의 최소 버전은 [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0)여야 합니다. 항상 최신 PowerShell 버전이 있는 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md) 를 사용 하는 것이 좋습니다. 
 

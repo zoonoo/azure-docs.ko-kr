@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: dcf7c8db955b2e85ad7d1c047c714eb2c5968455
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7dd5725e55800034fc3d142ef47c61275dc165d1
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780810"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824619"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 비밀 클라이언트 라이브러리(SDK v4)
 
@@ -159,7 +159,7 @@ var secret = await client.GetSecretAsync(secretName);
 
 ### <a name="delete-a-secret"></a>비밀 삭제
 
-마지막으로, [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) 및 [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient.purgedeletedsecretasync) 메서드를 사용하여 키 자격 증명 모음에서 비밀을 삭제해 보겠습니다.
+마지막으로, [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) 및 [PurgeDeletedSecretAsync](/dotnet/api/azure.security.keyvault.keys.keyclient) 메서드를 사용하여 키 자격 증명 모음에서 비밀을 삭제해 보겠습니다.
 
 ```csharp
 var operation = await client.StartDeleteSecretAsync("mySecret");

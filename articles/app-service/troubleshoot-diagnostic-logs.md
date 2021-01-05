@@ -4,13 +4,13 @@ description: 진단 로그를 사용하도록 설정하는 방법, 애플리케�
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025279"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825382"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | None |
+|**사용 안 함** | 없음 |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -185,7 +185,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |

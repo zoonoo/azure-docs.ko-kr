@@ -8,12 +8,12 @@ author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure 파일
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: db87e61166da87300a5e1fb8433a42f3f47cf832
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fe80698b71ae0ba808991d79b423d49abfacdf7c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493827"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825906"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
 
@@ -52,14 +52,14 @@ az storage account create \
 ## <a name="set-permissions"></a>권한 설정
 ### <a name="set-resource-group-permissions"></a>리소스 그룹 권한 설정
 
-ARO 서비스 주체에는 새 Azure storage 계정 리소스 그룹에 대 한 ' listKeys ' 권한이 있어야 합니다. 이를 위해 ' 참가자 ' 역할을 할당 합니다. 
+ARO 서비스 주체에는 새 Azure storage 계정 리소스 그룹에 대 한 ' listKeys ' 권한이 있어야 합니다. 이를 위해 ' 참가자 ' 역할을 할당 합니다.
 
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
-ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –-query servicePrincipalProfile.clientId -o tsv)
+ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER --query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create –-role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
+az role assignment create --role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### <a name="set-aro-cluster-permissions"></a>ARO 클러스터 권한 설정
@@ -90,7 +90,7 @@ metadata:
 provisioner: kubernetes.io/azure-file
 parameters:
   location: $LOCATION
-  skuName: Standard_LRS 
+  skuName: Standard_LRS
   storageAccount: $AZURE_STORAGE_ACCOUNT_NAME
   resourceGroup: $AZURE_FILES_RESOURCE_GROUP
 reclaimPolicy: Delete
@@ -131,7 +131,7 @@ oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 oc exec $POD -- bash -c "cat /data/test.txt"
 azure file storage
 ```
-test.txt 파일은 Azure Portal의 Storage 탐색기를 통해서도 표시 됩니다. 
+test.txt 파일은 Azure Portal의 Storage 탐색기를 통해서도 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,13 +10,13 @@ author: gvashishtha
 ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.custom: deploy, devx-track-azurecli
-ms.openlocfilehash: b47b8f9d9429f38fb8b5da6d8f9083736f230fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: deploy
+ms.openlocfilehash: c5db04a673c1cdc0c0f24e128f340f4ae55fea81
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458276"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825513"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -32,7 +32,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 > [!TIP]
 > 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://github.com/Azure/azureml-examples/tree/main/tutorials)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Azure Machine Learning를 사용 하 여 [모델을 배포 하는 방법과 위치](how-to-deploy-and-where.md) 에 대해 잘 알고 있어야 합니다.
@@ -47,7 +47,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 유추 요청은 __점수 매기기 URI__ 를 사용 합니다. 예: `https://myserevice.azureml.net/score`.
+* 유추 요청은 __점수 매기기 URI__ 를 사용 합니다. 예들 들어 `https://myserevice.azureml.net/score`입니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 
@@ -67,7 +67,7 @@ env.environment_variables["WORKER_COUNT"] = "1"
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 요청은 **Triton 서버로** 전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myserevice.azureml.net/score`.
+* 클라이언트는 __점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예들 들어 `https://myserevice.azureml.net/score`입니다.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Triton를 사용 하 여 Inferenceconfig 배포":::
 

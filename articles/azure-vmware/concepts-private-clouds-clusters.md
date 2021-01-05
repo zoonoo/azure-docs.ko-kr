@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 및 클러스터
 description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967383"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825099"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념
 
@@ -48,18 +48,8 @@ Azure VMware 솔루션 사설 클라우드 클러스터는 하이퍼 수렴 형 
 
 ## <a name="vmware-software-versions"></a>VMware 소프트웨어 버전
 
-Azure VMware 솔루션 사설 클라우드 클러스터에서 사용 되는 현재 소프트웨어 버전의 VMware 소프트웨어는 다음과 같습니다.
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| 소프트웨어              |    버전   |
-| :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6.7 U3    | 
-| ESXi                  |    6.7 U3    | 
-| vSAN                  |    6.7 U3    |
-| NSX-T                 |      2.5     |
-
-사설 클라우드의 새 클러스터의 경우 소프트웨어 버전은 현재 실행 중인 항목과 일치 합니다. 구독의 새 사설 클라우드의 경우 소프트웨어 스택의 최신 버전이 설치 됩니다.
-
-[사설 클라우드 업데이트 및 업그레이드](concepts-upgrades.md)에 설명 된 Azure VMware 솔루션 플랫폼 소프트웨어에 대 한 일반적인 업그레이드 정책 및 프로세스를 찾을 수 있습니다.
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>호스트 유지 관리 및 수명 주기 관리
 
