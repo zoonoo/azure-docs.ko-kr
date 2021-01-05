@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 9effac182acdea6fcb41ed26faf6c2f6535a5cbf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906168"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763390"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>포털 및 API와 함께 애니메이션 문자 검색 (미리 보기) 사용 
 
@@ -26,9 +26,7 @@ Azure Media Services Video Indexer는 애니메이션 된 콘텐츠에서 문자
 
 ## <a name="use-the-animated-character-detection-with-portal"></a>포털에서 애니메이션 문자 검색 사용 
 
-이 섹션에서는 애니메이션 문자 검색 모델 사용을 시작 하기 위해 수행 해야 하는 단계에 대해 설명 합니다. 
-
-평가판 계정에서 Custom Vision 통합은 Video Indexer에서 관리 되므로, 애니메이션 문자 모델 만들기 및 사용을 시작 하 고 다음 섹션 ("Custom Vision 계정 연결")을 건너뛸 수 있습니다.
+평가판 계정에서 Custom Vision 통합은 Video Indexer에 의해 관리 되며, 애니메이션 문자 모델 만들기 및 사용을 시작할 수 있습니다. 평가판 계정을 사용 하는 경우 다음을 건너뛸 수 있습니다 ("연결 Custom Vision 계정").
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Custom Vision 계정 연결 (유료 계정에만 해당)
 
@@ -37,20 +35,23 @@ Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision
 > [!NOTE]
 > 두 계정 모두 동일한 지역에 있어야 합니다. Custom Vision 통합은 현재 일본 지역에서 지원 되지 않습니다.
 
+Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다.  [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요. 
+
+모델의 교육은 Custom Vision 웹 사이트를 통해가 아니라 Video Indexer을 통해서만 수행 되어야 합니다. 
+
 #### <a name="connect-a-custom-vision-account-with-api"></a>API를 사용 하 여 Custom Vision 계정 연결 
 
 Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer에 연결 된 Custom Vision 계정을 변경 하려면 다음 단계를 수행 합니다.
 
 1. [Www.customvision.ai](https://www.customvision.ai) 으로 이동 하 여 로그인 합니다.
-1. 다음 키를 복사 합니다. 
+1. 학습 및 예측 리소스에 대 한 키를 복사 합니다.
 
-    * 학습 키 (학습 리소스의 경우)
-    * 예측 키 (예측 리소스의 경우)
-    * 엔드포인트 
-    * 예측 리소스 ID
-    
     > [!NOTE]
     > 모든 키를 제공 하려면 두 개의 개별 Custom Vision 리소스를 제공 해야 합니다. 하나는 학습을 위한 것이 고 다른 하나는 예측 용입니다.
+1. 다른 정보를 제공 합니다.
+
+    * 엔드포인트 
+    * 예측 리소스 ID
 1. [Video Indexer](https://vi.microsoft.com/)로 이동 하 여 로그인 합니다.
 1. 페이지의 오른쪽 위 모서리에서 물음표를 클릭 하 고 **API 참조** 를 선택 합니다.
 1. **제품** 탭을 클릭 하 여 API Management를 구독 하는지 확인 합니다. API가 연결 되어 있으면 다음 단계를 계속 진행할 수 있습니다. 그렇지 않으면를 구독 합니다. 
@@ -63,7 +64,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. [Video Indexer](https://vi.microsoft.com/)) 포털을 검색 하 여 연결을 확인 하려면 다음을 수행 합니다.
 1. 오른쪽 위 모서리에서 **콘텐츠 모델 사용자 지정** 단추를 클릭 합니다.
 1. **애니메이션 문자** 탭으로 이동 합니다.
-1. Custom Vision "* *에서 모델 관리를 클릭 하면 방금 연결한 Custom Vision 계정으로 전송 됩니다.
+1. Custom Vision에서 모델 관리를 클릭 하면 방금 연결한 Custom Vision 계정으로 전송 됩니다.
 
 > [!NOTE]
 > 현재 Video Indexer를 통해 생성 된 모델만 지원 됩니다. Custom Vision를 통해 생성 된 모델은 사용할 수 없습니다. 또한 Video Indexer 플랫폼을 통해서만 Video Indexer를 통해 생성 된 모델을 편집 하는 것이 가장 좋습니다. Custom Vision를 통해 변경 하면 의도 하지 않은 결과가 발생할 수 있기 때문입니다.
@@ -71,9 +72,10 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 ### <a name="create-an-animated-characters-model"></a>애니메이션 문자 모델 만들기
 
 1. [Video Indexer](https://vi.microsoft.com/) 웹 사이트로 이동하고 로그인합니다.
-1. 페이지의 오른쪽 위 모퉁이에 있는 콘텐츠 모델 사용자 지정 단추를 클릭 합니다.
+1. 계정에서 모델을 사용자 지정 하려면 페이지 왼쪽에 있는 **콘텐츠 모델 사용자 지정** 단추를 선택 합니다.
 
-    ![오른쪽 위 모서리에서 "콘텐츠 모델 사용자 지정" 단추가 선택 된 "Video Indexer" 페이지를 보여 주는 스크린샷](./media/animated-characters-recognition/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Video Indexer에서 콘텐츠 모델 사용자 지정":::
 1. 모델 사용자 지정 섹션에서 **애니메이션 문자** 탭으로 이동 합니다.
 1. **모델 추가** 를 클릭 합니다.
 1. 모델 이름을 입력 하 고 enter 키를 클릭 하 여 이름을 저장 합니다.
@@ -83,7 +85,9 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 
 ### <a name="index-a-video-with-an-animated-model"></a>애니메이션 모델을 사용 하 여 비디오 인덱싱
 
-1. 상단 메뉴에서 **업로드** 단추를 클릭 합니다.
+초기 교육을 위해 두 개 이상의 비디오를 업로드 합니다. 정상적인 인식 모델이 예상 되기 전에는 각각 15 분 보다 길 수 있습니다. 에피소드가 짧으면 학습 전에 최소한 30 분 이상의 비디오 콘텐츠를 업로드 하는 것이 좋습니다. 이렇게 하면 서로 다른 장면 및 배경의 동일한 문자에 속한 그룹을 병합할 수 있으므로 인덱스를 만든 다음 에피소드에서 문자를 검색할 가능성이 높아집니다. 여러 비디오 (에피소드)에서 모델을 학습 하려면 동일한 애니메이션 모델을 사용 하 여 모델을 모두 인덱싱합니다. 
+
+1. **업로드** 단추를 클릭 합니다.
 1. 업로드할 비디오 (파일 또는 URL에서)를 선택 합니다.
 1. **고급 옵션** 을 클릭 합니다.
 1. **사람/애니메이션 문자** 아래에서 **애니메이션 모델** 을 선택 합니다.
@@ -91,27 +95,39 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. 업로드를 클릭 합니다.
 1. 비디오가 인덱싱되 면 **정보** 창의 **애니메이션 문자** 섹션에 검색 된 문자가 표시 됩니다.
 
-> [!NOTE] 
-> 모델에 태그를 지정 하 고 학습 하기 전에 모든 애니메이션 문자 이름이 "알 수 없는 #X"로 지정 됩니다. 모델을 학습 한 후에도 인식 됩니다.
+모델에 태그를 지정 하 고 학습 하기 전에 모든 애니메이션 문자 이름이 "알 수 없는 #X"로 지정 됩니다. 모델을 학습 한 후에도 인식 됩니다.
 
 ### <a name="customize-the-animated-characters-models"></a>애니메이션 문자 모델 사용자 지정
 
-1. 모델에 태그를 만들고 학습 합니다.
+1. Video Indexer의 문자 이름을로 합니다.
 
-    1. 해당 이름을 편집 하 여 검색 된 문자에 태그를 합니다. 모델에 문자를 학습 한 후에는 해당 모델을 사용 하 여 인덱싱된 다음 비디오가 인식 됩니다. 
-    1. 비디오에서 애니메이션 문자를 태그 하려면 **Insights** 탭으로 이동 하 고 창의 오른쪽 위 모퉁이에 있는 **편집** 단추를 클릭 합니다.
-    1. **정보** 창에서 검색 된 애니메이션 문자 중 하나를 클릭 하 고 "알 수 없는 #X" (또는 이전에 문자에 할당 된 이름)에서 이름을 변경 합니다.
-    1. 새 이름을 입력한 후 새 이름 옆에 있는 확인 아이콘을 클릭합니다. 그러면 새 이름이 Video Indexer 모델에 저장 됩니다.
-    1. 원하는 모든 이름 편집을 마친 후 모델을 학습 해야 합니다.
+    1. 모델에서 문자 그룹을 만든 후 Custom Vision에서 이러한 그룹을 검토 하는 것이 좋습니다. 
+    1. 비디오에서 애니메이션 문자를 태그 하려면 Insights 탭으로 이동 하 ****   고 ****   창의 오른쪽 위 모퉁이에 있는 편집 단추를 클릭 합니다. 
+    1.  **정보**   창에서 검색 된 애니메이션 문자 중 하나를 클릭 하 고 이름을 "Unknown #X"에서 임시 이름 또는 이전에 문자에 할당 된 이름으로 변경 합니다. 
+    1. 새 이름을 입력한 후 새 이름 옆에 있는 확인 아이콘을 클릭합니다. 그러면 새 이름이 Video Indexer 모델에 저장 됩니다. 
+1. 유료 계정만: Custom Vision에서 그룹을 검토 합니다. 
 
-        사용자 지정 페이지를 열고 **애니메이션 문자** 탭을 클릭 한 다음 **학습** 단추를 클릭 하 여 모델을 학습 합니다.
-         
-        유료 계정이 있는 경우 아래와 같이 **고객 비전에서 모델 관리** 링크를 클릭할 수 있습니다. 그런 다음 **Custom Vision** 의 모델 페이지로 전달 됩니다.
- 
-        ![콘텐츠 모델 사용자 지정](./media/animated-characters-recognition/content-model-customization-tab.png)
+    > [!NOTE]
+    > Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다.  [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요. 모델에 대 한 교육은 Custom Vision 웹 사이트를 통해가 아니라 Video Indexer (이 topid에 설명 된 대로)를 통해서만 수행 되어야 합니다. 
 
-     1. 학습 된 후에는 해당 모델을 사용 하 여 인덱싱하거나 인덱싱해야는 학습 된 문자를 인식 합니다. 
-    Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다. [Custom Vision에서 분류자를 개선 하](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)는 방법에 대해 자세히 알아보세요.
+    1. Video Indexer의 **사용자 지정 모델** 페이지로 이동 하 여 [ **애니메이션 문자** ] 탭을 선택 합니다. 
+    1. 작업 중인 모델에 대 한 편집 단추를 클릭 하 여 Custom Vision에서 관리 합니다. 
+    1. 각 문자 그룹을 검토 합니다. 
+
+        * 그룹이 관련 되지 않은 이미지를 포함 하는 경우 Custom Vision 웹 사이트에서 해당 이미지를 삭제 하는 것이 좋습니다. 
+        * 다른 문자에 속하는 이미지가 있는 경우 이미지를 클릭 하 고 오른쪽 태그를 추가 하 고 잘못 된 태그를 삭제 하 여 이러한 특정 이미지의 태그를 변경 합니다. 
+        * 그룹이 잘못 된 경우 (예를 들어, 주로 문자가 아닌 이미지 또는 여러 문자를 포함 하는 이미지를 포함 하는 경우) Custom Vision 웹 사이트 또는 Video Indexer insights에서을 (를) 삭제할 수 있습니다. 
+        * 그룹화 알고리즘에서 문자를 다른 그룹으로 분할 하는 경우도 있습니다. 따라서 같은 문자에 속한 모든 그룹을 동일한 Video Indexer 이름으로 지정 하는 것이 좋습니다 .이 경우에는이 모든 그룹이 Custom Vision 웹 사이트에서 설정 된 것으로 즉시 표시 됩니다. 
+    1. 그룹을 구체화 한 후에는 태그가 지정 된 초기 이름이 그룹의 문자를 반영 하는지 확인 합니다. 
+1. 모델 학습 
+
+    1. 원하는 모든 이름 편집을 마친 후 모델을 학습 해야 합니다. 
+    1. 모델에 문자를 학습 한 후에는 해당 모델을 사용 하 여 인덱싱된 다음 비디오가 인식 됩니다. 
+    1. 사용자 지정 페이지를 열고 **애니메이션 문자** 탭을 클릭 한   다음 **학습** 단추를 클릭 하 여 모델을 학습 합니다. 비디오 간 연결을 유지 하기 위해 
+    
+인덱서 및 모델에서는 Custom Vision 웹 사이트 (유료 계정에 Custom Vision 웹 사이트에 대 한 액세스 권한이 있습니다)에서 모델을 학습 하지 않고 Video Indexer 에서만 학습 합니다. 학습 된 후에는 해당 모델을 사용 하 여 인덱싱하거나 인덱싱해야는 학습 된 문자를 인식 합니다. 
+
+## <a name="delete-an-animated-character-and-the-model"></a>애니메이션 문자 및 모델 삭제
 
 1. 애니메이션 문자를 삭제 합니다.
 
@@ -120,7 +136,6 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 
     > [!NOTE]
     > 이렇게 하면이 비디오에서 정보를 삭제 하지만 모델에는 영향을 주지 않습니다.
-
 1. 모델을 삭제 합니다.
 
     1. 상단 메뉴에서 **콘텐츠 모델 사용자 지정** 단추를 클릭 하 고 [ **애니메이션 문자** ] 탭으로 이동 합니다.

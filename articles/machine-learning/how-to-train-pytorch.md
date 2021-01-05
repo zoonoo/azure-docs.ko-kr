@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: eec53570c542ceb60c937072135fcb70b59e80a6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631043"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795940"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 PyTorch 모델 학습
 
@@ -206,7 +206,7 @@ ScriptRunConfig를 사용 하 여 작업을 구성 하는 방법에 대 한 자�
 [실행 개체](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
 
 ```Python
-run = Experiment(ws, name='pytorch-birds').submit(src)
+run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -314,6 +314,10 @@ src = ScriptRunConfig(source_directory=project_folder,
 분산 학습에 Gloo 백 엔드를 사용 하려는 경우 대신를 지정 `communication_backend='Gloo'` 합니다. 분산 CPU 학습에는 Gloo 백 엔드가 권장 됩니다.
 
 Azure ML에서 distributed PyTorch을 실행 하는 방법에 대 한 전체 자습서는 [DistributedDataParallel로 Distributed PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo)를 참조 하세요.
+
+### <a name="troubleshooting"></a>문제 해결
+
+* **Horovod 종료 되었습니다**. 대부분의 경우 "AbortedError: Horovod가 종료 되었습니다."가 발생 하는 경우 Horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있었습니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 학습의 경우 로그를 쉽게 구별할 수 있도록 로그 이름 뒤에 `_rank`가 붙습니다. Horovod가 종료 되는 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 `Traceback` driver_log 파일의 끝에 있는을 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
 
 ## <a name="export-to-onnx"></a>ONNX로 내보내기
 

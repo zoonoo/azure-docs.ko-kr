@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: afb751e08faea6dabde72b192d246b48735cff53
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4fe22e0dae73df7af4fc24ba508ecbecf72dfd05
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938695"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795379"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
@@ -40,7 +40,8 @@ Azure 방호는 특별히 ***AzureBastionSubnet** _에 배포 됩니다.
 
    * **공용 인터넷에서 수신 되는 트래픽:** Azure 방호는 수신 트래픽에 대 한 공용 IP에서 포트 443를 사용 하도록 설정 해야 하는 공용 IP를 만듭니다. AzureBastionSubnet에서 포트 3389/22을 열 필요는 없습니다.
    * **Azure 방호 제어 평면의 수신 트래픽:** 제어 평면 연결의 경우 **Gmanager** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 그러면 제어 평면, 즉 게이트웨이 관리자가 Azure 방호와 통신할 수 있습니다.
-   * **Azure Load Balancer에서 수신 트래픽:** 상태 프로브의 경우 **Azureloadbalancer** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 이렇게 하면 Azure Load Balancer에서 연결을 검색할 수 있습니다. 
+   * **Azure 방호 데이터 평면의 수신 트래픽:** Azure 방호의 기본 구성 요소 간의 데이터 평면 통신의 경우 **VirtualNetwork** service 태그에서 **VirtualNetwork** service 태그로 포트 8080, 5701 인바운드를 사용 하도록 설정 합니다. 이렇게 하면 Azure 방호 구성 요소가 서로 통신할 수 있습니다.
+   * **Azure Load Balancer에서 수신 트래픽:** 상태 프로브의 경우 **Azureloadbalancer** 서비스 태그에서 포트 443 인바운드를 사용 하도록 설정 합니다. 이렇게 하면 Azure Load Balancer에서 연결을 검색할 수 있습니다.
 
 
    :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 인바운드 보안 규칙을 보여 줍니다.":::
@@ -48,7 +49,9 @@ Azure 방호는 특별히 ***AzureBastionSubnet** _에 배포 됩니다.
 * **송신 트래픽:**
 
    * **대상 vm에 대 한 송신 트래픽:** Azure 방호는 개인 IP를 통해 대상 Vm에 도달 합니다. NSGs는 포트 3389 및 22의 다른 대상 VM 서브넷에 송신 트래픽을 허용 해야 합니다.
+   * **Azure 방호 데이터 평면으로의 송신 트래픽:** Azure 방호의 기본 구성 요소 간의 데이터 평면 통신의 경우 **VirtualNetwork** service 태그에서 **VirtualNetwork** service 태그로 포트 8080, 5701 아웃 바운드를 사용 하도록 설정 합니다. 이렇게 하면 Azure 방호 구성 요소가 서로 통신할 수 있습니다.
    * **Azure의 다른 공용 끝점에 대 한 송신 트래픽:** Azure 방호는 Azure 내에서 다양 한 공용 끝점 (예: 진단 로그 저장 및 계량 로그)에 연결할 수 있어야 합니다. 이러한 이유로 Azure 방호에는 443 ~ **Azurecloud** service 태그의 아웃 바운드가 필요 합니다.
+   * **인터넷으로의 송신 트래픽:** Azure 방호는 세션 및 인증서 유효성 검사를 위해 인터넷과 통신할 수 있어야 합니다. 따라서 인터넷에 대 한 포트 80 아웃 바운드를 사용 하는 것이 좋습니다 **.**
 
 
    :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="스크린샷 Azure 방호 연결에 대 한 아웃 바운드 보안 규칙을 보여 줍니다.":::

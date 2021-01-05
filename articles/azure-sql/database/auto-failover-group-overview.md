@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988547"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792503"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -229,7 +229,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 
 ### <a name="creating-the-secondary-instance"></a>보조 인스턴스 만들기
 
-장애 조치 (failover) 후 주 SQL Managed Instance에 대 한 중단 되지 않은 연결을 보장 하려면 주 인스턴스와 보조 인스턴스가 모두 동일한 DNS 영역에 있어야 합니다. 이는 동일한 SAN (다중 도메인) 인증서를 사용 하 여 장애 조치 (failover) 그룹의 두 인스턴스 중 하나에 대 한 클라이언트 연결을 인증할 수 있도록 보장 합니다. 응용 프로그램이 프로덕션 배포용으로 준비 된 경우 다른 지역에 보조 SQL Managed Instance를 만들고 기본 SQL Managed Instance와 DNS 영역을 공유 하는지 확인 합니다. `DNS Zone Partner`Azure Portal, PowerShell 또는 REST API를 사용 하 여 선택적 매개 변수를 지정 하 여이 작업을 수행할 수 있습니다.
+장애 조치 (failover) 후 주 SQL Managed Instance에 대 한 중단 되지 않은 연결을 보장 하려면 주 인스턴스와 보조 인스턴스가 모두 동일한 DNS 영역에 있어야 합니다. 이는 동일한 SAN (다중 도메인) 인증서를 사용 하 여 장애 조치 (failover) 그룹의 두 인스턴스 중 하나에 대 한 클라이언트 연결을 인증할 수 있도록 보장 합니다. 응용 프로그램이 프로덕션 배포용으로 준비 된 경우 다른 지역에 보조 SQL Managed Instance를 만들고 기본 SQL Managed Instance와 DNS 영역을 공유 하는지 확인 합니다. 생성 중에 선택적 매개 변수를 지정 하 여이 작업을 수행할 수 있습니다. PowerShell 또는 REST API를 사용 하는 경우 선택적 매개 변수의 이름은이 `DNS Zone Partner` 고 Azure Portal에서 해당 하는 선택적 필드의 이름은 기본 Managed Instance입니다.
 
 > [!IMPORTANT]
 > 서브넷에서 만든 첫 번째 관리 되는 인스턴스는 동일한 서브넷에 있는 모든 후속 인스턴스의 DNS 영역을 결정 합니다. 즉, 동일한 서브넷의 두 인스턴스는 서로 다른 DNS 영역에 속할 수 없습니다.

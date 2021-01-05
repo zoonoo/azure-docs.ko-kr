@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919644"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796060"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -91,7 +91,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
         **다음** 을 선택합니다.
 1. 새로 만든 데이터 세트가 표시되면 선택합니다. 또한 데이터 세트 및 샘플 통계 미리 보기도 볼 수 있습니다. 
 
-1. **실행 구성** 양식에서 고유한 실험 이름을 입력합니다.
+1. **실행 구성** 양식에서 **새로 만들기** 를 선택 하 고 실험 이름에 **자습서-automl-deploy** 를 입력 합니다.
 
 1. 대상 열을 선택합니다. 이 열은 예측을 수행하려는 열입니다.
 
@@ -153,7 +153,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 열| 사용자 지정
 ---|---
-포함 | 학습에 포함할 열을 지정 합니다.
+Included | 학습에 포함할 열을 지정 합니다.
 기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
 돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
 
@@ -164,7 +164,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 **마침** 을 선택하여 실험을 실행합니다. 실험 준비 프로세스는 최대 10분 정도 걸릴 수 있습니다. 각 파이프라인에서 실행을 완료하는 데 학습 작업에 2-3분 더 걸릴 수 있습니다.
 
 > [!NOTE]
-> 자동화 된 ML에서 채택 하는 알고리즘에는 정확도와 같은 권장 모델의 최종 메트릭 점수를 약간 변형 시킬 수 있는 내재 된 무작위성이 있습니다. 또한 자동화 된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대 한 작업을 수행 합니다. 따라서 동일한 구성 설정 및 기본 메트릭을 사용 하 여 실험을 여러 번 실행 하는 경우 이러한 요인으로 인해 각 실험 최종 메트릭 점수에 변형이 표시 될 수 있습니다. 
+> 자동화 된 ML의 알고리즘에는 정확도와 같은 권장 모델의 최종 메트릭 점수에 약간의 변형이 발생할 수 있는 내재 된 무작위성이 있습니다. 또한 자동화 된 ML은 필요한 경우 학습-테스트 분할, 학습-유효성 검사 분할 또는 교차 유효성 검사와 같은 데이터에 대 한 작업을 수행 합니다. 따라서 동일한 구성 설정 및 기본 메트릭을 사용 하 여 실험을 여러 번 실행 하는 경우 이러한 요인으로 인해 각 실험 최종 메트릭 점수에 변형이 표시 될 수 있습니다. 
 
 ### <a name="view-experiment-details"></a>실험 세부 정보 보기
 
@@ -172,7 +172,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 **모델** 탭에는 메트릭 점수를 기준으로 정렬하여 만든 모델 목록이 있습니다. 기본적으로 선택한 메트릭에 따라 가장 높은 점수를 획득한 모델이 목록 맨 위에 표시됩니다. 학습 작업에서 더 많은 모델을 시도하면 모델이 목록에 추가됩니다. 이 방법을 사용하여 지금까지 생성된 모델에 대한 메트릭을 신속하게 비교할 수 있습니다.
 
-[![실행 세부 정보 대시보드](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![실행 세부 정보](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>학습 실행 세부 정보 보기
 
@@ -216,10 +216,10 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 1. **배포** 를 선택합니다. 배포가 완료되는 데 약 20분 정도 걸릴 수 있습니다.
     배포가 시작되면 **모델 요약** 탭이 나타납니다. **배포 상태** 섹션에서 배포 진행률을 확인하세요. 
 
-이제 예측을 생성하는 운영 웹 서비스가 있습니다! [Power BI의 기본 제공 Azure Machine Learning 지원](how-to-consume-web-service.md#consume-the-service-from-power-bi)에서 서비스를 쿼리하여 예측을 테스트할 수 있습니다.
+이제 예측을 생성하는 운영 웹 서비스가 있습니다! [Power BI의 기본 제공 Azure Machine Learning 지원](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)에서 서비스를 쿼리하여 예측을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [웹 서비스를 사용하는 방법을 알아봅니다](./how-to-consume-web-service.md).
+* [웹 서비스를 사용하는 방법을 알아봅니다](how-to-consume-web-service.md).
 * [자동화된 Machine Learning 결과를 살펴봅니다](how-to-understand-automated-ml.md).
 * Azure Machine Learning 및 [자동화된 Machine Learning에 대해 자세히 알아봅니다](concept-automated-ml.md).

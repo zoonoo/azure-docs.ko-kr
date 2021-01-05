@@ -4,12 +4,12 @@ description: 여러 메시지 broker를 사용하여 Service Bus 큐 및 항목�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930435"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796638"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
@@ -29,8 +29,9 @@ Azure Service Bus에서는 여러 메시지 broker가 메시지를 처리하고 
 분할 되지 않은 엔터티의 피킹 (peeking) 작업은 항상 가장 오래 된 메시지를 반환 하지만 분할 된 엔터티는 반환 하지 않습니다. 대신, 메시지 브로커가 먼저 응답 한 파티션 중 하나에서 가장 오래 된 메시지를 반환 합니다. 반환 된 메시지가 모든 파티션에서 가장 오래 된 메시지 임을 보장 하지는 않습니다. 
 
 분할된 큐 또는 항목에 메시지를 보내거나 메시지를 받을 때 추가 비용이 없습니다.
->[!NOTE]
-> 피킹 (peeking) 작업은 SequenceNumber를 기반으로 하는 파티션이에서 가장 오래 된 메시지를 반환 합니다. 분할 엔터티의 경우 시퀀스 번호는 파티션에 상대적으로 발급 됩니다. 자세한 내용은 [메시지 시퀀싱 및 타임 스탬프](../service-bus-messaging/message-sequencing.md)를 참조 하세요.
+
+> [!NOTE]
+> 피킹 (peeking) 작업은 시퀀스 번호를 기준으로 파티션에서 가장 오래 된 메시지를 반환 합니다. 분할된 엔터티의 경우 시퀀스 번호는 파티션에 상대적으로 발생됩니다. 자세한 내용은 [메시지 시퀀싱 및 타임 스탬프](../service-bus-messaging/message-sequencing.md)를 참조 하세요.
 
 ## <a name="enable-partitioning"></a>분할 사용
 
@@ -40,7 +41,7 @@ Azure Service Bus로 분할된 큐 및 항목을 사용하려면 Azure SDK 버�
 
 표준 메시징 계층에서 Service Bus 큐 및 토픽은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용 하도록 설정 하면 Service Bus는 엔터티의 16 개 복사본 (16 개 파티션)을 만듭니다. 이때 각각 동일한 크기가 지정 됩니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 \* 16) = 80GB가 됩니다. [Azure Portal][Azure portal]의 해당 엔터티에 대한 **개요** 블레이드에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
-### <a name="premium"></a>프리미엄
+### <a name="premium"></a>Premium
 
 프리미엄 계층 네임 스페이스에서 분할 엔터티는 지원 되지 않습니다. 그러나 Service Bus 큐 및 항목은 1, 2, 3, 4, 5, 10, 20, 40 또는 80GB 크기로 만들 수 있습니다(기본값은 1GB). [Azure Portal][Azure portal]의 해당 엔터티에 대한 **개요** 블레이드에서 해당 항목을 보면 큐 또는 토픽의 크기를 확인할 수 있습니다.
 

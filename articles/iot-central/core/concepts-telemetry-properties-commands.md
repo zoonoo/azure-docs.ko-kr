@@ -3,17 +3,17 @@ title: Azure IoT Central에서 원격 분석, 속성 및 명령 페이로드 Mic
 description: Azure IoT Central 장치 템플릿을 사용 하면 장치에서를 구현 해야 하는 원격 분석, 속성 및 명령을 지정할 수 있습니다. 장치가 IoT Central 교환할 수 있는 데이터의 형식을 이해 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121758"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795346"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>원격 분석, 속성 및 명령 페이로드
 

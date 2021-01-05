@@ -3,17 +3,17 @@ title: Azure IoT Central의 장치 템플릿 이란? Microsoft Docs
 description: Azure IoT Central 장치 템플릿을 사용 하면 응용 프로그램에 연결 된 장치의 동작을 지정할 수 있습니다. 장치 템플릿은 장치에서 구현 해야 하는 원격 분석, 속성 및 명령을 지정 합니다. 또한 장치 템플릿은 운영자가 사용 하는 양식 및 대시보드와 같은 IoT Central에서 장치에 대 한 UI를 정의 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 04c2330ffee396f5fc30b85640e992df77c08263
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750699"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795431"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
 

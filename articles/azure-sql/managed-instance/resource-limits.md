@@ -1,5 +1,5 @@
 ---
-title: 리소스 한계
+title: 리소스 제한
 titleSuffix: Azure SQL Managed Instance
 description: 이 문서에서는 Azure SQL Managed Instance에 대 한 리소스 제한에 대 한 개요를 제공 합니다.
 services: sql-database
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 47c837e7a2ee859c7805d6b2e11058bcc02e6c22
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
+ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400576"
+ms.lasthandoff: 12/25/2020
+ms.locfileid: "97770964"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,7 +84,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 | 최대 세션 | 30000 | 30000 |
 | 최대 동시 작업자(요청) | Gen4: 210 * vCore 수 + 800<br>Gen5: 105 * vCore 수 + 800 | Gen4: 210 * vCore 수 + 800<br>Gen5: 105 * vCore 수 + 800 |
 | [읽기 전용 복제본](../database/read-scale-out.md) | 0 | 1 (가격에 포함 됨) |
-| 계산 격리 | Gen5:<br/>-80 vCores에 지원 됨<br/>-다른 크기에 대해서는 지원 되지 않습니다.<br/><br/>Gen4는 사용 중단으로 인해 지원 되지 않습니다.|Gen5:<br/>-60, 64, 80 vCores에 지원 됨<br/>-다른 크기에 대해서는 지원 되지 않습니다.<br/><br/>Gen4는 사용 중단으로 인해 지원 되지 않습니다.|
+| 계산 격리 | 범용 인스턴스가 다른 인스턴스와 실제 하드웨어를 공유할 수 있으므로 Gen5은 지원 되지 않습니다.<br/>Gen4는 사용 중단으로 인해 지원 되지 않습니다.|Gen5:<br/>-40, 64, 80 vCores에 지원 됨<br/>-다른 크기에 대해서는 지원 되지 않습니다.<br/><br/>Gen4는 사용 중단으로 인해 지원 되지 않습니다.|
 
 
 몇 가지 추가 고려 사항: 
@@ -150,7 +150,7 @@ SQL Managed Instance는 현재 다음 유형의 구독에 대 한 배포만 지�
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|
 
-\* 배포 계획에서 중요 비즈니스용 (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 SQL Managed Instance 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수** 와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
+\* 배포 계획에서 중요 비즈니스용 (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 SQL Managed Instance 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수** 와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
 
 \*\* 더 큰 서브넷 및 vCore 제한은 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
 

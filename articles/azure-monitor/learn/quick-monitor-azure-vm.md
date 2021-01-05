@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: ef0e3a451a5687278acaf1e857012027a5e657a3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bf38291e26c46d26bbf8cb110d18e9526fb3f777
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186765"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797182"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링을 참조하세요.
 [Azure Monitor](../overview.md)는 생성되는 순간부터 Azure 가상 머신에서 데이터 수집을 시작합니다. 이 빠른 시작에서는 Azure VM에 대해 자동으로 수집되는 데이터의 종류와 이러한 데이터를 Azure Portal에서 살펴보는 방법을 간단하게 연습합니다. 그런 다음, VM에 [VM용 Azure Monitor](../insights/vminsights-overview.md)를 사용하도록 설정합니다. 그러면 VM의 에이전트는 프로세스 및 프로세스의 종속성을 포함하여 게스트 운영 체제에서 데이터를 수집하고 분석할 수 있습니다.
@@ -73,7 +73,7 @@ Azure 리소스에서 수집된 데이터 모니터링에 대한 자세한 내�
 
 ### <a name="data-collection-from-linux-vm"></a>Linux VM에서 데이터 수집
 
-1. **Syslog** 를 선택합니다.  
+1. **데이터** 를 선택한 다음, **Syslog** 를 선택합니다.
 
 2. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **Syslog** 을 입력한 다음, 더하기 기호(**+**)를 선택합니다.  
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/17/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654747"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796995"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -111,7 +111,7 @@ ms.locfileid: "97654747"
 | 서비스/기능 | US Gov | 중국 정부 |
 |------|:----:|:----:|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)(1)|✔|✔|
-|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)(1)|✔|-|
+|[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)(1)|✔|✔|
 |[적응 애플리케이션 제어](security-center-adaptive-application.md)(1)|✔|✔|
 |[적응형 네트워크 강화](security-center-adaptive-network-hardening.md)(1)|-|-|
 |[Docker 호스트 강화](harden-docker-hosts.md)(1)|✔|✔|
@@ -119,19 +119,19 @@ ms.locfileid: "97654747"
 |[엔드포인트용 Microsoft Defender](harden-docker-hosts.md)(1)|✔|-|
 |[AWS 계정 연결](quickstart-onboard-aws.md)(1)|-|-|
 |[GCP 계정 연결](quickstart-onboard-gcp.md)(1)|-|-|
-|[연속 내보내기](continuous-export.md)|✔|✔|
+|[연속 내보내기](continuous-export.md)|✔|✔(2)|
 |[워크플로 자동화](workflow-automation.md)|✔|✔|
 |[권장 사항 제외 규칙](exempt-resource.md)|-|-|
 |[경고 비표시 규칙](alerts-suppression-rules.md)|✔|✔|
 |[보안 경고에 대한 이메일 알림](security-center-provide-security-contact-details.md)|✔|✔|
-|[자산 인벤토리](asset-inventory.md)|-|-|
+|[자산 인벤토리](asset-inventory.md)|✔|✔|
 |[App Service용 Azure Defender](defender-for-app-service-introduction.md)|-|-|
-|[스토리지용 Azure Defender](defender-for-storage-introduction.md)|✔|-|
+|[스토리지용 Azure Defender](defender-for-storage-introduction.md)|✔(2)|-|
 |[Azure Defender for SQL](defender-for-sql-introduction.md)|✔|✔(2)|
 |[Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
-|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔(2)|✔|
 |[컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)|✔(2)|-|
 |||
 

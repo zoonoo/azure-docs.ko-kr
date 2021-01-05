@@ -6,16 +6,18 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2482a26987ec142880acc51bf470d844655b6e3f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212595"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763519"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Azure Functions에 대 한 SignalR Service 트리거 바인딩
 
 *SignalR* 트리거 바인딩을 사용 하 여 Azure SignalR Service에서 보낸 메시지에 응답 합니다. 함수가 트리거되면 함수에 전달 된 메시지는 json 개체로 구문 분석 됩니다.
+
+SignalR 서비스 서버 리스 모드에서 SignalR Service는 [업스트림](../azure-signalr/concept-upstream.md) 기능을 사용 하 여 클라이언트에서 함수 앱로 메시지를 보냅니다. 및 함수 앱 SignalR Service 트리거 바인딩을 사용 하 여 이러한 메시지를 처리 합니다. 일반적인 아키텍처는 아래와 같습니다. :::image type="content" source="media/functions-bindings-signalr-service/signalr-trigger.png" alt-text="SignalR 트리거 아키텍처":::
 
 설정 및 구성 세부 정보에 관한 내용은 [개요](functions-bindings-signalr-service.md)를 참조하세요.
 
@@ -163,7 +165,7 @@ def main(invocation) -> None:
 
 ---
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="signalrtrigger"></a>SignalRTrigger
 
@@ -191,27 +193,34 @@ InvocationContext는 SignalR 서비스에서 보내는 메시지의 모든 콘�
 |InvocationContext의 속성 | Description|
 |------------------------------|------------|
 |인수| *메시지* 범주에 사용할 수 있습니다. [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) 의 *인수* 를 포함 합니다.|
-|Error| *연결* 되지 않은 이벤트에 사용할 수 있습니다. 오류가 없는 연결을 닫거나 오류 메시지를 포함 하는 경우 비워 둘 수 있습니다.|
+|오류| *연결* 되지 않은 이벤트에 사용할 수 있습니다. 오류가 없는 연결을 닫거나 오류 메시지를 포함 하는 경우 비워 둘 수 있습니다.|
 |허브| 메시지가 속한 허브 이름입니다.|
 |범주| 메시지의 범주입니다.|
 |이벤트| 메시지의 이벤트입니다.|
 |ConnectionId| 메시지를 보내는 클라이언트의 연결 ID입니다.|
 |UserId| 메시지를 보내는 클라이언트의 사용자 id입니다.|
-|headers| 요청의 헤더입니다.|
+|헤더| 요청의 헤더입니다.|
 |쿼리| 클라이언트가 서비스에 연결 하는 경우 요청에 대 한 쿼리입니다.|
 |클레임| 클라이언트의 클레임입니다.|
 
 ## <a name="using-parameternames"></a>`ParameterNames` 사용
 
-의 속성 `ParameterNames` 을 `SignalRTrigger` 사용 하면 호출 메시지의 인수를 함수의 매개 변수에 바인딩할 수 있습니다. 이렇게 하면의 인수에 보다 편리 하 게 액세스할 수 있습니다 `InvocationContext` .
+의 속성 `ParameterNames` 을 `SignalRTrigger` 사용 하면 호출 메시지의 인수를 함수의 매개 변수에 바인딩할 수 있습니다. 사용자가 정의한 이름은 다른 바인딩에서 [바인딩 식](../azure-functions/functions-bindings-expressions-patterns.md) 의 일부로 사용 하거나 코드에서 매개 변수로 사용할 수 있습니다. 이렇게 하면의 인수에 보다 편리 하 게 액세스할 수 있습니다 `InvocationContext` .
 
-`broadcast`두 개의 인수를 사용 하 여 Azure Function에서 메서드를 호출 하려고 하는 JavaScript SignalR client가 있다고 가정해 보겠습니다.
+`broadcast`두 개의 인수를 사용 하 여 Azure Function에서 메서드를 호출 하려고 하는 JavaScript SignalR client가 있다고 가정해 보겠습니다 `message1` `message2` .
 
 ```javascript
 await connection.invoke("broadcast", message1, message2);
 ```
 
-을 사용 하 여 매개 변수에서 이러한 두 인수에 액세스할 수 있을 뿐만 아니라 매개 변수의 형식을 할당할 수 있습니다 `ParameterNames` .
+를 설정한 후에 `parameterNames` 는 사용자가 정의한 이름이 클라이언트 쪽에서 전송 된 인수와 일치 합니다. 
+
+```cs
+[SignalRTrigger(parameterNames: new string[] {"arg1, arg2"})]
+```
+
+그런 다음에는의 `arg1` 내용이 포함 되며 `message1` `arg2` 의 내용이 포함 됩니다 `message2` .
+
 
 ### <a name="remarks"></a>설명
 
@@ -219,20 +228,28 @@ await connection.invoke("broadcast", message1, message2);
 
 `ParameterNames` 및 특성은 동시 `[SignalRParameter]` 에 사용할 수 **없습니다** . 그렇지 않으면 예외가 발생 합니다.
 
-## <a name="send-messages-to-signalr-service-trigger-binding"></a>SignalR Service 트리거 바인딩에 메시지 보내기
+## <a name="signalr-service-integration"></a>SignalR 서비스 통합
 
-Azure Function은 SignalR Service 트리거 바인딩의 URL을 생성 하 고 다음과 같이 형식이 지정 됩니다.
+SignalR Service 트리거 바인딩을 사용 하는 경우 SignalR 서비스에 함수 앱 액세스 하기 위한 URL이 필요 합니다. URL은 SignalR 서비스 측의 **업스트림 설정** 에서 구성 해야 합니다. 
+
+:::image type="content" source="../azure-signalr/media/concept-upstream/upstream-portal.png" alt-text="업스트림 포털":::
+
+SignalR Service 트리거를 사용 하는 경우 URL은 다음과 같이 단순 하 고 형식이 지정 될 수 있습니다.
 
 ```http
-https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>
+<Function_App_URL>/runtime/webhooks/signalr?code=<API_KEY>
 ```
 
-는 `API_KEY` Azure Function에 의해 생성 됩니다. `API_KEY`SignalR Service 트리거 바인딩을 사용 하는 Azure Portal에서를 가져올 수 있습니다.
+는 `Function_App_URL` 함수 앱의 개요 페이지에서 찾을 수 있으며 `API_KEY` Azure Function에 의해 생성 됩니다. `API_KEY` `signalr_extension` 함수 앱의 **앱 키** 블레이드에서에서을 (를) 가져올 수 있습니다.
 :::image type="content" source="media/functions-bindings-signalr-service/signalr-keys.png" alt-text="API 키":::
 
-SignalR Service의 업스트림 설정에서이 URL을 설정 해야 합니다 `UrlTemplate` .
+하나 이상의 함수 앱를 하나의 SignalR 서비스와 함께 사용 하려는 경우 업스트림은 복잡 한 라우팅 규칙도 지원할 수 있습니다. [업스트림 설정](../azure-signalr/concept-upstream.md)에서 자세한 내용을 확인 하세요.
+
+## <a name="step-by-step-sample"></a>단계별 샘플
+
+GitHub의 샘플을 따라 SignalR 서비스 트리거 바인딩 및 업스트림 기능을 사용 하 여 함수 앱에 대화방을 배포할 수 있습니다. [양방향 채팅 대화방 샘플](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성](../azure-signalr/signalr-concept-serverless-development-config.md)
-* [SignalR Service 트리거 바인딩 샘플](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples/bidirectional-chat)
+* [SignalR Service 트리거 바인딩 샘플](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
