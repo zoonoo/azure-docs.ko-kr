@@ -28,14 +28,6 @@
       href: tutorial-sync-data-factory.md
     - name: SQL 데이터 동기화로 데이터 동기화
       href: tutorial-sync-data-sync.md
-    - name: SQL Edge로 엔드투엔드 IoT 솔루션 빌드
-      items:
-        - name: Azure 리소스 설정
-          href: tutorial-deploy-azure-resources.md
-        - name: IoT Edge 모듈 설정
-          href: tutorial-set-up-iot-edge-modules.md
-        - name: SQL Edge에 모델 배포
-          href: tutorial-run-ml-model-on-sql-edge.md
 - name: 개념
   items:
     - name: 배포
@@ -138,6 +130,18 @@
       href: create-stream-analytics-job.md
     - name: 배포 문제 해결
       href: troubleshoot.md
+- name: 샘플
+  items:
+    - name: 철광석 실리카 예측
+      items:
+        - name: Azure 리소스 설정
+          href: tutorial-deploy-azure-resources.md
+        - name: IoT Edge 모듈 설정
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: SQL Edge에 모델 배포
+          href: tutorial-run-ml-model-on-sql-edge.md
+    - name: 재생 에너지 - 풍력 터빈 분석
+      href: tutorial-renewable-energy-demo.md
 - name: 참조
   items:
     - name: Transact-SQL(T-SQL) 참조

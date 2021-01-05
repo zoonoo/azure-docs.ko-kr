@@ -255,7 +255,7 @@
           items:
             - name: 개요
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 최선의 구현 방법
+            - name: 모범 사례
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
@@ -502,7 +502,7 @@
               items:
                 - name: Azure Stream Analytics 작업 추가
                   href: ./sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Synapse 작업 영역에 연결하기 위한 도구
+        - name: 도구 및 애플리케이션과 연결
           items:
             - name: 개요
               href: sql/connect-overview.md
@@ -510,14 +510,20 @@
               href: sql/get-started-azure-data-studio.md
             - name: 연결 문자열
               href: sql/connection-strings.md
-            - name: sqlcmd를 사용하여 쿼리
-              href: sql/get-started-connect-sqlcmd.md
             - name: SSMS를 사용하여 쿼리
               href: sql/get-started-ssms.md
-            - name: Visual Studio를 사용하여 쿼리
-              href: sql/get-started-visual-studio.md
             - name: Power BI Desktop에 연결
               href: sql/get-started-power-bi-professional.md
+            - name: Visual Studio SSDT를 사용하여 쿼리
+              href: sql/get-started-visual-studio.md
+            - name: .NET Core를 사용하여 쿼리
+              href: ../azure-sql/database/connect-query-dotnet-core.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Visual Studio .NET을 사용하여 쿼리
+              href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Python을 사용하여 쿼리
+              href: ../azure-sql/database/connect-query-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: sqlcmd를 사용하여 쿼리
+              href: sql/get-started-connect-sqlcmd.md
 - name: Apache Spark
   items:
     - name: 개요
@@ -1107,6 +1113,10 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Azure Synapse에 맞게 Cognitive Services 구성
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: 방법
+  items:
+    - name: 비용 계획 및 관리
+      href: plan-manage-costs.md
 - name: 참조
   items:
     - name: Azure CLI

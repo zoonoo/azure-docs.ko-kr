@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작하기
+        - name: 시작
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -213,14 +213,20 @@
               href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
             - name: VM 배포 - 템플릿
               href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
+            - name: VM 배포 - GPU
+              href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md
             - name: VM 배포 - Azure PowerShell cmdlet
-              href: azure-stack-edge-j-series-deploy-virtual-machine-powershell.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md
             - name: VM 배포 - Azure PowerShell 스크립트
-              href: azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md
+              href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md
             - name: VM 배포 - Azure CLI/Python
               href: azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md
+            - name: VM에 사용자 지정 스크립트 확장 배포
+              href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
             - name: VM 이미지 만들기
-              href: azure-stack-edge-j-series-create-virtual-machine-image.md
+              href: azure-stack-edge-gpu-create-virtual-machine-image.md
+            - name: '지원되는 VM 크기, 형식'
+              href: azure-stack-edge-gpu-virtual-machine-sizes.md
         - name: 인증서 관리
           items:
             - name: 요구 사항
@@ -265,7 +271,7 @@
               href: azure-stack-edge-gpu-prepare-device-failure.md
             - name: 디바이스 오류 복구
               href: azure-stack-edge-gpu-recover-device-failure.md
-        - name: Monitor
+        - name: 모니터
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
@@ -293,8 +299,6 @@
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: 공유 참조
       items:
-        - name: 'API, SDK, PowerShell을 통한 IoT Edge 역할'
-          href: azure-stack-edge-gpu-iot-edge-api-update.md
         - name: Azure PowerShell
           href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
         - name: REST API
@@ -389,6 +393,10 @@
           href: /rest/api/databoxedgegateway
         - name: .NET SDK
           href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+- name: 보안
+  items:
+    - name: 보안 기준
+      href: security-baseline.md
 - name: 리소스
   items:
     - name: Azure Stack Edge Pro C# 모듈 샘플(.NET)

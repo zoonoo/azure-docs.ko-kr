@@ -11,48 +11,58 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 18f3f2f14d4e04c523a355f699eaf24b8c93bb81
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: 00cef8a146a84c4261dde46785f2ea9bb1c03173
+  ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92090015"
+  ms.lasthandoff: 12/31/2020
+  ms.locfileid: "97832338"
 landingContent:
-- title: Azure Defender for IoT 정보
+- title: Azure Defender for IoT 시작
   linkLists:
   - linkListType: overview
     links:
     - text: Azure Defender for IoT란?
       url: overview.md
-    - text: Azure RTOS용 보안 모듈
-      url: iot-security-azure-rtos.md
-    - text: 솔루션 계획
-      url: service-prerequisites.md
-  - linkListType: architecture
-    links:
-    - text: Azure Defender for IoT 아키텍처 이해
+    - text: 솔루션 아키텍처
       url: architecture.md
-    - text: Azure Defender for IoT Agents
-      url: security-agent-architecture.md
+    - text: 설치 개요
+      url: getting-started.md
+- title: 설정 및 온보드 - 에이전트 없는 솔루션
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 네트워크 설정
+      url: how-to-set-up-your-network.md
+    - text: 필수 어플라이언스 식별
+      url: how-to-identify-required-appliances.md
+    - text: 소프트웨어 설치
+      url: how-to-install-software.md
+- title: 네트워크 모니터링 - 에이전트 없는 솔루션
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 연결된 디바이스 보기
+      url: how-to-work-with-the-sensor-device-map.md
+    - text: 디바이스 인벤토리 보기
+      url: how-to-investigate-sensor-detections-in-a-device-inventory.md
+    - text: 경고 조사
+      url: how-to-work-with-alerts-on-your-sensor.md
+    - text: 보고서 생성
+      url: how-to-generate-reports.md
+    - text: 검색된 트래픽 제어
+      url: how-to-control-what-traffic-is-monitored.md
+    - text: Azure Sentinel에 연결
+      url: how-to-configure-with-sentinel.md
+- title: Azure Defender for IoT - 에이전트 기반 솔루션
+  linkLists:
+  - linkListType: overview
+    links:
     - text: Edge 보안 모듈
       url: security-edge-architecture.md
-- title: Azure Defender for IoT를 IoT Hub에 온보딩
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: Azure Defender for IoT 시작
-      url: getting-started.md
-    - text: IoT Hub
-      url: iot-hub-integration.md
-    - text: Azure RTOS용 보안 모듈 시작
-      url: concept-rtos-security-module.md
-    - text: 보안 에이전트
-      url: security-agents.md
-- title: 솔루션 구성
-  linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure Defender for IoT를 IoT Hub에서 사용
+    - text: IoT Hub 사용 - 에이전트 기반 솔루션
       url: quickstart-onboard-iot-hub.md
     - text: IoT 보안 솔루션 구성
       url: quickstart-configure-your-solution.md
@@ -64,40 +74,6 @@ landingContent:
       url: quickstart-create-custom-alerts.md
     - text: 보안 경고 조사
       url: quickstart-investigate-security-alerts.md
-- title: 솔루션 사용자 지정
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Azure RTOS용 보안 모듈 사용자 지정
-      url: how-to-azure-rtos-security-module.md
-    - text: 에이전트 선택
-      url: how-to-deploy-agent.md
-    - text: Windows용 Azure Defender for IoT C# 기반 보안 에이전트 배포
-      url: how-to-deploy-windows-cs.md
-    - text: Linux용 Azure Defender for IoT C# 기반 보안 에이전트 배포
-      url: how-to-deploy-linux-cs.md
-    - text: Linux용 Azure Defender for IoT C 기반 보안 에이전트 배포
-      url: how-to-deploy-linux-c.md
-    - text: Edge 보안 모듈 배포
-      url: how-to-deploy-edge.md
-    - text: 보안 에이전트 구성
-      url: how-to-agent-configuration.md
-    - text: 사용자 고유의 보안 메시지 보내기
-      url: how-to-send-security-messages.md
-    - text: 원시 보안 데이터 액세스
-      url: how-to-security-data-access.md
-    - text: 디바이스 조사
-      url: how-to-investigate-device.md
-- title: 보안 에이전트 문제 해결
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: 보안 에이전트 문제 해결 가이드(Linux)
-      url: troubleshoot-agent.md
-    - text: LocalConfiguration. json 파일 이해 - C 에이전트
-      url: azure-iot-security-local-configuration-c.md
-    - text: Local 구성 파일 이해 - C# 에이전트
-      url: azure-iot-security-local-configuration-csharp.md
 - title: Azure Defender for IoT 솔루션 리소스
   linkLists:
   - linkListType: video

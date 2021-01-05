@@ -142,7 +142,7 @@
           items:
             - name: 동의어 추가
               href: search-synonyms.md
-            - name: 동의어 예제
+            - name: 동의어 C# 예
               href: search-synonyms-tutorial-sdk.md
         - name: 복합 데이터 형식 모델링
           href: search-howto-complex-data-types.md

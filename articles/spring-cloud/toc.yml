@@ -95,6 +95,10 @@
           href: diagnostic-services.md
         - name: 실시간으로 로그 스트림
           href: spring-cloud-howto-log-streaming.md
+        - name: Java In-Process 에이전트를 사용하는 Application Insights
+          href: spring-cloud-howto-application-insights.md
+        - name: Resilience4J 회로 차단기 메트릭
+          href: spring-cloud-howto-circuit-breaker-metrics.md
     - name: 안전
       items:
         - name: 시스템이 할당한 관리 ID 사용

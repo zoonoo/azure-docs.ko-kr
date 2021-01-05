@@ -10,12 +10,12 @@ metadata:
   ms.service: ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection
-  ms.openlocfilehash: cfc0a8c4856711c4f011805322e2b28942866573
-  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.openlocfilehash: 50f871b08e2a945c599f7217ce680669da39af40
+  ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92904723"
+  ms.lasthandoff: 12/30/2020
+  ms.locfileid: "97813975"
 landingContent:
 - title: Azure DDoS Protection 표준에 대한 자세한 정보
   linkLists:
@@ -40,9 +40,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: DDoS 보호 원격 분석 보기 및 구성
-      url: telemetry-monitoring-alerting.md
-    - text: DDoS 공격 완화 보고서 및 흐름 로그 구성
-      url: reports-and-flow-logs.md
+      url: telemetry.md
+    - text: DDoS 진단 로깅 보기 및 구성
+      url: diagnostic-logging.md
+    - text: DDoS 보호 경고 보기 및 구성
+      url: alerts.md
 - title: DDoS 공격에 대응
   linkLists:
   - linkListType: concept

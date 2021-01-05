@@ -25,6 +25,28 @@
   items:
     - name: 보안
       items:
+        - name: 리소스에 대한 외부 액세스 보호
+          items:
+            - name: 외부 액세스 개요 보호
+              href: secure-external-access-resources.md
+            - name: 1 보안 상태 결정
+              href: 1-secure-access-posture.md
+            - name: 2 현재 상태 결정
+              href: 2-secure-access-current-state.md
+            - name: 3 보안 계획 만들기
+              href: 3-secure-access-plan.md
+            - name: 4 그룹을 통한 보안 액세스
+              href: 4-secure-access-groups.md
+            - name: 5 B2B 협업을 통한 보안 액세스
+              href: 5-secure-access-b2b.md
+            - name: 6 권한 관리를 통한 보안 액세스
+              href: 6-secure-access-entitlement-managment.md
+            - name: 7 조건부 액세스를 통한 보안 액세스
+              href: 7-secure-access-conditional-access.md
+            - name: 8 민감도 레이블을 통한 보안 액세스
+              href: 8-secure-access-sensitivity-labels.md
+            - name: '9 Teams, SharePoint 및 OneDrive에 대한 보안 액세스'
+              href: 9-secure-access-teams-sharepoint.md
         - name: MFA 사용
           href: concept-fundamentals-mfa-get-started.md
         - name: 보안 기본값

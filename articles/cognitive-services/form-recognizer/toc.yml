@@ -7,45 +7,13 @@
       href: overview.md
     - name: 새로운 기능
       href: whats-new.md
-- name: 빠른 시작
+- name: Form Recognizer 시작
   expaned: true
   items:
-    - name: 클라이언트 라이브러리 사용
+    - name: 클라이언트 라이브러리 또는 REST API 사용
       href: quickstarts/client-library.md
     - name: 샘플 레이블 지정 도구 사용
-      items:
-        - name: 레이블로 사용자 지정 모델 학습
-          href: quickstarts/label-tool.md
-    - name: REST API 사용
-      items:
-        - name: 레이블 없이 사용자 지정 모델 사용 및 학습
-          items:
-            - name: cURL
-              href: quickstarts/curl-train-extract.md
-            - name: Python
-              href: quickstarts/python-train-extract.md
-        - name: 레이블로 사용자 지정 모델 사용 및 학습
-          items:
-            - name: Python
-              href: quickstarts/python-labeled-data.md
-        - name: 미리 빌드된 수신 모델 사용
-          items:
-            - name: cURL
-              href: quickstarts/curl-receipts.md
-            - name: Python
-              href: quickstarts/python-receipts.md
-        - name: 미리 빌드된 명함 모델 사용
-          items:
-            - name: Python
-              href: quickstarts/python-business-cards.md
-        - name: 미리 빌드된 송장 모델 사용
-          items:
-            - name: Python
-              href: quickstarts/python-invoices.md
-        - name: 텍스트 레이아웃 정보 가져오기
-          items:
-            - name: Python
-              href: quickstarts/python-layout.md
+      href: quickstarts/label-tool.md
 - name: 자습서
   items:
     - name: Cognitive Search와 함께 Form Recognizer 사용
@@ -77,7 +45,8 @@
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: 컨테이너 인스턴스 사용
-          href: deploy-form-recognizer-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
     - name: 모델 백업 및 복구

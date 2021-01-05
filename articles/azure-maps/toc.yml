@@ -9,6 +9,8 @@
   items:
     - name: 웹앱 만들기
       href: quick-demo-map-app.md
+    - name: Android 앱 만들기
+      href: quick-android-map.md
 - name: 자습서
   items:
     - name: 웹 SDK 자습서
@@ -21,6 +23,10 @@
           href: tutorial-prioritized-routes.md
         - name: 저장소 로케이터 만들기
           href: tutorial-create-store-locator.md
+    - name: Android SDK 자습서
+      items:
+        - name: 맵으로 GeoJSON 데이터 로드
+          href: tutorial-load-geojson-file-android.md
     - name: REST API 자습서
       items:
         - name: 실내 맵 만들기
@@ -238,16 +244,28 @@
           href: how-to-use-android-map-control-library.md
         - name: 맵 스타일 변경
           href: set-android-map-styles.md
+        - name: 데이터 소스 만들기
+          href: create-data-source-android-sdk.md
         - name: 기호 레이어 추가
           href: how-to-add-symbol-to-android-map.md
+        - name: 거품형 레이어 추가
+          href: map-add-bubble-layer-android.md
         - name: 셰이프 추가
           href: how-to-add-shapes-to-android-map.md
+        - name: 열 지도 계층 추가
+          href: map-add-heat-map-layer-android.md
+        - name: 선 계층 추가
+          href: android-map-add-line-layer.md
         - name: 기능 정보 표시
           href: display-feature-information-android.md
         - name: 타일 레이어 추가
           href: how-to-add-tile-layer-android-map.md
         - name: 트래픽 데이터 표시
           href: how-to-show-traffic-android.md
+        - name: 데이터 기반 식 사용
+          href: data-driven-style-expressions-android-sdk.md
+        - name: 이벤트에 반응
+          href: android-map-events.md
     - name: Power BI에서 Azure Maps 사용
       items:
         - name: 시작

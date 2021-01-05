@@ -54,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: 업스트림 설정
           href: concept-upstream.md
+    - name: 가용성
+      items:
+        - name: 앱 서버를 정상적으로 종료합니다.
+          href: server-graceful-shutdown.md
+    - name: 보안
+      items:
+        - name: 권한 부여
+          items:
+            - name: Azure Active Directory를 사용하여 액세스 권한 부여
+              href: authorize-access-azure-active-directory.md
+        - name: 인증
+          items:
+            - name: 애플리케이션에서 인증
+              href: authenticate-application.md
+            - name: 관리 ID로 인증
+              href: authenticate-managed-identity.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구

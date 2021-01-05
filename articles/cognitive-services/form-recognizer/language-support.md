@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: erhopf
-ms.openlocfilehash: 818ea89822b67c9bca99a4b8934a08d9b384f8b6
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 3814f52034922c7814b1d45822ca1e9d5f248825
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736445"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844990"
 ---
 # <a name="language-support-for-form-recognizer"></a>Form Recognizer에 대한 언어 지원
 
@@ -24,12 +24,12 @@ ms.locfileid: "95736445"
 
 |언어| 언어 코드 | Form Recognizer v2.0 | Form Recognizer v2.1 미리 보기|
 |:-----|:----:|:-----:|:---:|
-|영어(인쇄 및 필기) | `en` | ✔ | ✔|
 |중국어(간체) | `zh-Hans`| | ✔ |
-|일본어 | `ja` |  | ✔|
 |네덜란드어 | `nl` | | ✔ |
+|영어(인쇄 및 필기) | `en` | ✔ | ✔|
 |프랑스어 | `fr` | | ✔ |
 |독일어 | `de` | | ✔ |
 |이탈리아어 | `it` | | ✔ |
+|일본어 | `ja` |  | ✔|
 |포르투갈어 | `pt` | | ✔ |
 |스페인어 | `es` | | ✔ |

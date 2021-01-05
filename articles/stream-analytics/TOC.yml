@@ -30,16 +30,17 @@
           href: create-cluster.md
 - name: 자습서
   items:
-    - name: 1 - 작업 만들기/관리
-      href: stream-analytics-manage-job.md
-    - name: 2 - Azure Functions 실행
+    - name: Power BI에서 사기성 호출 시각화
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: Azure Functions 실행
       href: stream-analytics-with-azure-functions.md
-    - name: 3 - Azure Pipelines에서 CI/CD를 사용하여 배포
-      href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: 4 - C# UDF 실행
+    - name: C# UDF 실행
       href: stream-analytics-edge-csharp-udf.md
-    - name: 5 - 사용자 지정 .NET 역직렬 변환기 만들기
+    - name: 사용자 지정 .NET 역직렬 변환기 만들기
       href: custom-deserializer.md
+    - name: IoT Edge 작업 만들기
+      href: /azure/iot-edge/tutorial-deploy-stream-analytics?view=iotedge-2018-06
+      maintainContext: true
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -56,6 +57,8 @@
       href: develop-locally.md
     - name: 보안
       items:
+        - name: Azure Virtual Network(VNet)에 작업 연결
+          href: connect-job-to-vnet.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
@@ -129,6 +132,8 @@
           href: repartition.md
         - name: 작업 처리량 증가
           href: stream-analytics-scale-jobs.md
+    - name: IoT Edge
+      href: stream-analytics-edge.md
     - name: 작업 상태
       href: job-states.md
     - name: 창 함수
@@ -181,35 +186,31 @@
           href: stream-analytics-job-reliability.md
         - name: SQL 참조 데이터 사용
           href: sql-reference-data.md
-        - name: 관리 ID를 사용하여 인증
-          items:
-            - name: ADLS Gen 1
-              href: stream-analytics-managed-identities-adls.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Blob Storage
-              href: blob-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Event Hubs
-              href: event-hubs-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Power BI
-              href: powerbi-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
-            - name: Azure SQL 및 Azure Synapse
-              href: sql-database-output-managed-identity.md
-              displayName: 'managed identity, identities, authenticate'
         - name: 데이터 암호화
           href: data-protection.md
         - name: 지리적 중복
           href: geo-redundancy.md
+    - name: 관리 ID를 사용하여 인증
+      items:
+        - name: ADLS Gen 1
+          href: stream-analytics-managed-identities-adls.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Blob Storage
+          href: blob-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Event Hubs
+          href: event-hubs-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Power BI
+          href: powerbi-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
+        - name: Azure SQL 및 Azure Synapse
+          href: sql-database-output-managed-identity.md
+          displayName: 'managed identity, identities, authenticate'
     - name: 솔루션 빌드
       items:
         - name: Twitter 감정 분석
           href: stream-analytics-twitter-sentiment-analysis-trends.md
-        - name: 실시간 사기 감지
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: IoT Edge에서 작업 실행
-          href: stream-analytics-edge.md
         - name: Azure Stack에서 작업 실행
           href: on-azure-stack.md
         - name: 요금 창구 센서 데이터 분석
@@ -287,6 +288,8 @@
           href: debug-locally-using-job-diagram-vs-code.md
         - name: 작업 탐색
           href: visual-studio-code-explore-jobs.md
+        - name: .NET 사용자 지정 역직렬 변환기 만들기 및 디버그
+          href: visual-studio-code-custom-deserializer.md
         - name: JobConfig.json 필드
           href: job-config-json.md
     - name: 문제 해결

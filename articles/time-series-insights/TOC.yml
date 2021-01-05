@@ -85,6 +85,8 @@
       href: ./how-to-ingest-data-event-hub.md
     - name: IoT Hub에 연결
       href: ./how-to-ingest-data-iot-hub.md
+    - name: Azure Time Series Insights 모니터링
+      href: ./how-to-monitor-tsi.md
     - name: 템플릿을 사용하여 리소스 관리
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
     - name: Azure Time Series Insights Gen2
@@ -171,6 +173,8 @@
       items:
         - name: JavaScript 클라이언트 SDK
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
+    - name: 데이터 참조 모니터링
+      href: how-to-monitor-tsi-reference.md
     - name: Azure CLI
       href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
 - name: 리소스

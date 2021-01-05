@@ -297,6 +297,9 @@
         - name: Git 통합
           displayName: github gitlab
           href: concept-train-model-git-integration.md
+        - name: 환경 문제 해결 방법
+          displayName: 'troubleshoot, envrionment, debug, image'
+          href: how-to-troubleshoot-environments.md
     - name: 데이터 작업
       items:
         - name: 레이블 데이터
@@ -354,14 +357,6 @@
         - name: hyperparameters 조정
           displayName: 'parameter, hyperparameter, hyperdrive'
           href: how-to-tune-hyperparameters.md
-        - name: MLflow 작업
-          items:
-            - name: MLflow로 실험 추적
-              displayName: 'log, monitor, deploy, metrics,  model registry, register'
-              href: how-to-use-mlflow.md
-            - name: MLflow를 사용하여 Azure Databricks 실행 추적
-              displayName: 'log, monitor, deploy, metrics, databricks'
-              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -404,6 +399,17 @@
           href: how-to-use-secrets-in-runs.md
         - name: 보충 학습
           href: how-to-use-reinforcement-learning.md
+    - name: MLflow 작업
+      items:
+        - name: MLflow로 실험 추적
+          displayName: 'log, monitor, metrics, model registry, register'
+          href: how-to-use-mlflow.md
+        - name: MLflow를 사용하여 Azure Databricks 실행 추적
+          displayName: 'log, monitor, deploy, metrics, databricks'
+          href: how-to-use-mlflow-azure-databricks.md
+        - name: MLflow 모델 배포
+          displayName: 'log, monitor, deploy, metrics, databricks'
+          href: how-to-deploy-models-with-mlflow.md
     - name: 자동화된 기계 학습
       displayName: 'automl, auto ml'
       items:
@@ -468,9 +474,9 @@
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: FPGA 유추
               href: how-to-deploy-fpga-web-service.md
-        - name: 문제 해결 및 디버그
+        - name: 배포 문제 해결
           href: how-to-troubleshoot-deployment.md
-        - name: 문제 해결 및 디버그(로컬)
+        - name: 배포 문제 해결(로컬)
           href: how-to-troubleshoot-deployment-local.md
         - name: 웹 서비스 사용
           displayName: create client consume request response synchronous
@@ -536,12 +542,12 @@
             - name: Python 코드 실행
               displayName: 'feature extraction, feature engineering'
               href: how-to-designer-python.md
-        - name: 파이프라인 디버그 및 문제 해결
+        - name: 파이프라인 문제 해결
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Application Insights에 파이프라인 데이터 기록
           href: how-to-log-pipelines-application-insights.md
-        - name: 병렬 실행 단계 디버그 및 문제 해결
+        - name: ParallelRunStep 문제 해결
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
     - name: CI/CD용 Azure Pipelines
@@ -601,11 +607,10 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: 서비스 제한
+      href: resource-limits-quotas-capacity.md
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 알려진 문제
-      displayName: 'bugs, errors, troubleshoot'
-      href: resource-known-issues.md
     - name: 사용자 포럼
       href: 'https://docs.microsoft.com/answers/topics/azure-machine-learning.html'
     - name: Stack Overflow

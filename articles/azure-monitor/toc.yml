@@ -253,7 +253,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -544,18 +544,40 @@
           href: platform/alerts-resource-move.md
         - name: IT 서비스 관리
           items:
-            - name: IT Service Management Connector
+            - name: ITSM 커넥터 개요
               href: platform/itsmc-overview.md
-            - name: IT Service Management 연결
-              href: platform/itsmc-connections.md
-            - name: IT Service Management Connector 정의
+            - name: ITSM 커넥터 파트너 설치
+              items:
+                - name: 개요
+                  href: platform/itsmc-connections.md
+                - name: ServiceNow
+                  href: platform/itsmc-connections-servicenow.md
+                - name: System Center Service Manager
+                  items:
+                    - name: 설치 프로그램
+                      href: platform/itsmc-connections-scsm.md
+                    - name: Service Manager 웹앱 만들기
+                      href: platform/itsmc-service-manager-script.md
+                - name: Cherwell
+                  href: platform/itsmc-connections-cherwell.md
+                - name: Provance
+                  href: platform/itsmc-connections-provance.md
+            - name: ITSM 커넥터 Azure Configuration
               href: platform/itsmc-definition.md
-            - name: Service Manager 웹앱 만들기
-              href: platform/itsmc-service-manager-script.md
+            - name: ITSM 제품에서 동기화된 데이터
+              href: platform/itsmc-synced-data.md
             - name: ITSM 커넥터의 문제 해결
               href: platform/itsmc-resync-servicenow.md
             - name: 보안 내보내기와 통합
-              href: platform/it-service-management-connector-secure-webhook-connections.md
+              items:
+                - name: 개요
+                  href: platform/it-service-management-connector-secure-webhook-connections.md
+                - name: Azure Configuration 보안 내보내기
+                  href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
+                - name: BMC
+                  href: platform/itsmc-secure-webhook-connections-bmc.md
+                - name: ServiceNow
+                  href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: 클래식 경고 규칙 마이그레이션
           items:
             - name: 클래식 경고 정보
@@ -790,6 +812,8 @@
               href: app/snapshot-debugger.md
             - name: App Service의 스냅샷 디버거를 사용하도록 설정
               href: app/snapshot-debugger-appservice.md
+            - name: 함수 앱에 대해 스냅샷 디버거 사용
+              href: app/snapshot-debugger-function-app.md
             - name: 다른 환경의 스냅샷 디버거를 사용하도록 설정
               href: app/snapshot-debugger-vm.md
             - name: 스냅샷 디버거 업그레이드

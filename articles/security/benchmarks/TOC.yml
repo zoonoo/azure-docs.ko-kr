@@ -153,6 +153,8 @@
       href: ../../azure-signalr/security-baseline.md
     - name: Azure SQL Database 보안 기준
       href: ../../azure-sql/database/security-baseline.md
+    - name: Azure Stack Edge 보안 기준
+      href: ../../databox-online/security-baseline.md
     - name: Azure Storage 보안 기준
       href: ../../storage/common/security-baseline.md
     - name: Azure Web Application Firewall 보안 기준

@@ -15,9 +15,11 @@
 - name: 자습서
   items:
     - name: DDoS 보호 원격 분석 보기 및 구성
-      href: telemetry-monitoring-alerting.md
-    - name: DDoS 공격 완화 보고서 및 흐름 로그 구성
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: DDoS 진단 로깅 보기 및 구성
+      href: diagnostic-logging.md
+    - name: DDoS 보호 경고 보기 및 구성
+      href: alerts.md
 - name: 개념
   items:
     - name: 공격 유형
@@ -58,7 +60,7 @@
       href: 'https://azure.microsoft.com/develop/python/'
     - name: REST (영문)
       href: /rest/api/virtualnetwork/ddosprotectionplans
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
