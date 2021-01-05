@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: f27cb217b60c23f3cf89f48effb933837269000e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960328"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858640"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Network Watcher의 리소스 문제 해결 소개
 
@@ -54,11 +54,11 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 아니요 |
 | VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니요 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 예|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 예|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
-| ConnectionsNotConnected | 연결이 연결되지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
-| GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
+| PlatformInActive | 플랫폼에 문제가 있습니다. | No|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | No|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| No|
+| ConnectionsNotConnected | 연결이 연결되지 않습니다. 이 오류는 단지 경고일 뿐입니다.| Yes|
+| GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | Yes |
 
 ### <a name="connection"></a>연결
 
@@ -68,15 +68,15 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
 | PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
 | UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 아니요 |
-| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 예 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 예 |
-| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |예|
-| ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
-| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
-| 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
-| PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | 예|
-| IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|
-| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
+| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | No |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | No |
+| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |No|
+| ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | Yes |
+| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| Yes|
+| 인증 | 미리 공유한 키가 일치하지 않습니다. | Yes|
+| PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | Yes|
+| IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | Yes|
+| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |Yes|
 
 ## <a name="supported-gateway-types"></a>지원되는 게이트웨이 유형
 
@@ -207,6 +207,9 @@ Elapsed Time            330 sec
 |         6    ikeext               ike_sa_management_c3162  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
+
+## <a name="considerations"></a>고려 사항 
+* CLI 버그: Azure CLI을 사용 하 여 명령을 실행 하는 경우 VPN Gateway와 저장소 계정이 동일한 리소스 그룹에 있어야 합니다. 다른 리소스 그룹의 리소스를 사용 하는 고객은 PowerShell 또는 Azure Portal를 대신 사용할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
