@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 854926c64b50cf4b8e7df9fa82da58b924ddbd83
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510423"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955266"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -28,6 +28,122 @@ ms.locfileid: "96510423"
 - 새로운 기능
 - 버그 수정
 - 사용되지 않는 기능
+
+
+## <a name="july-2020"></a>2020년 7월
+
+7월의 업데이트는 다음과 같습니다.
+- [이제 가상 머신에 대한 취약성 평가를 비 마켓플레이스 이미지에 사용할 수 있음](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Azure Storage에 대한 위협 방지 기능이 Azure Files 및 Azure Data Lake Storage Gen2(미리 보기)로 확장됨](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [위협 방지 기능을 사용하도록 설정하기 위한 새로운 8가지 추천 사항](#eight-new-recommendations-to-enable-threat-protection-features)
+- [컨테이너 보안이 향상됨 - 더 빠른 레지스트리 검사 및 새로 고친 설명서](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [적응형 애플리케이션 제어가 새 추천 사항 및 경로 규칙의 와일드카드 지원으로 업데이트됨](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
+- [SQL Advanced Data Security에 대한 6가지 정책이 더 이상 사용되지 않음](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>이제 가상 머신에 대한 취약성 평가를 비 마켓플레이스 이미지에 사용할 수 있음
+
+이전에는 취약성 평가 솔루션을 배포할 때 Security Center에서 배포하기 전에 유효성 검사를 수행했습니다. 이 검사는 대상 가상 머신의 마켓플레이스 SKU를 확인하는 것이었습니다. 
+
+이 업데이트에서는 검사가 제거되었으며, 이제 취약성 평가 도구를 '사용자 지정' Windows 및 Linux 컴퓨터에 배포할 수 있습니다. 사용자 지정 이미지는 마켓플레이스 기본값에서 수정한 이미지입니다.
+
+이제 통합 취약성 평가 확장(Qualys에서 제공)을 더 많은 컴퓨터에 배포할 수 있지만, 지원은 [표준 계층 VM에 통합 취약성 스캐너 배포](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)에 나열된 OS를 사용하는 경우에만 지원을 사용할 수 있습니다.
+
+[가상 머신용 통합 취약성 스캐너(Azure Defender 필요)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)에 대해 자세히 알아보세요.
+
+개인적으로 사용이 허가된 Qualys 또는 Rapid7의 취약성 평가 솔루션을 사용하는 방법은 [파트너 취약성 검사 솔루션 배포](deploy-vulnerability-assessment-vm.md)에서 자세히 알아보세요.
+
+
+### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Azure Storage에 대한 위협 방지 기능이 Azure Files 및 Azure Data Lake Storage Gen2(미리 보기)로 확장됨
+
+Azure Storage에 대한 위협 방지는 Azure Storage 계정에서 잠재적으로 유해한 활동을 탐지합니다. Security Center는 스토리지 계정에 액세스하거나 이를 악용하려는 시도를 탐지하면 경고를 표시합니다. 
+
+Blob 컨테이너, 파일 공유 또는 데이터 레이크로 저장되는지에 관계없이 데이터를 보호할 수 있습니다.
+
+
+
+
+### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>위협 방지 기능을 사용하도록 설정하기 위한 새로운 8가지 추천 사항
+
+가상 머신, App Service 요금제, Azure SQL Database 서버, 컴퓨터의 SQL 서버, Azure Storage 계정, Azure Kubernetes Service 클러스터, Azure Container Registry 레지스트리 및 Azure Key Vault 자격 증명 모음과 같은 리소스 종류에 대해 Azure Security Center의 위협 방지 기능을 사용하도록 설정하는 간단히 방법을 제공하기 위해 8가지 추천 사항이 새로 추가되었습니다.
+
+새 추천 사항은 다음과 같습니다.
+
+- **Azure SQL Database 서버에서 Advanced Data Security를 사용하도록 설정해야 함**
+- **머신의 SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 함**
+- **Azure App Service 계획에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Virtual Machines에서 Advanced Threat Protection을 사용하도록 설정해야 함**
+
+이러한 새 추천 사항은 **Azure Defender 사용** 보안 제어에 속합니다.
+
+추천 사항에는 빠른 수정 기능도 포함됩니다. 
+
+> [!IMPORTANT]
+> 이러한 추천 사항 중 하나를 수정하면 관련 리소스를 보호하는 데 드는 요금이 청구됩니다. 현재 구독에 관련 리소스가 있는 경우 이러한 청구가 즉시 시작됩니다. 또는 나중에 추가하는 경우가 있습니다.
+> 
+> 예를 들어 구독에 Azure Kubernetes Service 클러스터가 없고 위협 방지를 사용하도록 설정하면 요금이 발생하지 않습니다. 나중에 클러스터를 동일한 구독에 추가하면 해당 클러스터가 자동으로 보호되고 해당 시간에 요금이 청구됩니다.
+
+이러한 리소스 각각에 대해 [보안 추천 사항 참조 페이지](recommendations-reference.md)에서 자세히 알아보세요.
+
+[Azure Security Center의 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.
+
+
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>컨테이너 보안이 향상됨 - 더 빠른 레지스트리 검사 및 새로 고친 설명서
+
+컨테이너 보안 도메인에 대한 지속적인 투자의 일환으로, Azure Container Registry에 저장된 컨테이너 이미지에 대한 Security Center의 동적 검사에서 상당히 향상된 성능을 공유할 수 있습니다. 이제 검사는 일반적으로 약 2분 안에 완료됩니다. 경우에 따라 최대 15분이 걸릴 수 있습니다.
+
+Azure Security Center의 컨테이너 보안 기능에 대한 명확성과 지침을 향상시키기 위해 컨테이너 보안 문서 페이지도 새로 고쳤습니다. 
+
+Security Center의 컨테이너 보안에 대해 다음 문서에서 자세히 알아보세요.
+
+- [Security Center의 컨테이너 보안 기능에 대한 개요](container-security.md)
+- [Azure Container Registry와의 통합에 대한 세부 정보](defender-for-container-registries-introduction.md)
+- [Azure Kubernetes Service와의 통합에 대한 세부 정보](defender-for-kubernetes-introduction.md)
+- [레지스트리를 검사하고 Docker 호스트를 강화하는 방법](container-security.md)
+- [Azure Kubernetes Service 클러스터에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-akscluster)
+- [Azure Kubernetes Service 호스트에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-containerhost)
+- [컨테이너에 대한 보안 추천 사항](recommendations-reference.md#recs-containers)
+
+
+
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>적응형 애플리케이션 제어가 새 추천 사항 및 경로 규칙의 와일드카드 지원으로 업데이트됨
+
+적응형 애플리케이션 제어 기능에는 다음과 같은 두 가지 중요한 업데이트가 제공되었습니다.
+
+* 새 추천 사항은 이전에 허용되지 않은 잠재적으로 합법적인 동작을 식별합니다. **적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 합니다.** 라는 새 추천 사항은 적응형 애플리케이션 제어 위반 경고의 가양성의 수를 줄이기 위해 새 규칙을 기존 정책에 추가하도록 요청합니다.
+
+* 경로 규칙에서 이제 와일드카드를 지원합니다. 이 업데이트에서는 와일드카드를 사용하여 허용되는 경로 규칙을 구성할 수 있습니다. 지원되는 두 가지 시나리오는 다음과 같습니다.
+
+    * 와일드카드를 경로 끝에 사용하여 이 폴더 및 하위 폴더에 있는 모든 실행 파일 허용
+
+    * 경로 중간에 와일드 카드를 사용 하 여 변경 된 폴더 이름 (예: 알려진 실행 파일이 있는 개인 사용자 폴더, 자동으로 생성 된 폴더 이름 등)이 있는 알려진 실행 파일 이름을 사용할 수 있습니다.
+
+
+[적응형 애플리케이션 제어에 대해 자세히 알아봅니다](security-center-adaptive-application.md).
+
+
+
+### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>SQL Advanced Data Security에 대한 6가지 정책이 더 이상 사용되지 않음
+
+SQL 컴퓨터의 고급 데이터 보안과 관련된 6가지 정책은 더 이상 사용되지 않습니다.
+
+- SQL Managed Instance Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
+- SQL Server Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
+- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+
+[기본 제공 정책](./policy-reference.md)에 대해 자세히 알아보세요.
+
 
 
 ## <a name="june-2020"></a>2020년 6월

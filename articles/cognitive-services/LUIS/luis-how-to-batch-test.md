@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: a6f4b0a503e942b79dff28212863831055892246
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916561"
+ms.locfileid: "97955215"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -168,7 +168,7 @@ LUIS 포털의 차트에서는 다음 작업을 수행할 수 있습니다.
 
 LUIS를 사용 하면 LUIS 포털을 사용 하 여 테스트를 일괄 처리 하 고 REST API 수 있습니다. REST API에 대 한 끝점은 다음과 같습니다. LUIS 포털을 사용한 일괄 처리 테스트에 대 한 자세한 내용은 [자습서: 일괄 처리 테스트 데이터 집합](luis-tutorial-batch-testing.md)을 참조 하세요. 아래 전체 Url을 사용 하 여 자리 표시자 값을 고유한 LUIS 예측 키 및 끝점으로 바꿉니다. 
 
-헤더의에 LUIS 키를 추가 하 `Apim-Subscription-Id` 고를로 설정 해야 `Content-Type` `application/json` 합니다.
+헤더의에 LUIS 키를 추가 하 `Ocp-Apim-Subscription-Key` 고를로 설정 해야 `Content-Type` `application/json` 합니다.
 
 ### <a name="start-a-batch-test"></a>일괄 처리 테스트 시작
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 01/05/2021
 ms.author: alkohli
-ms.openlocfilehash: f622d6e752b658172bce115cde4f30d555e2ed3a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763855"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955555"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 실행 되는 Vm에 사용자 지정 스크립트 확장 배포
 
@@ -45,7 +45,7 @@ Linux 용 사용자 지정 스크립트 확장은 다음 OSs에서 실행 됩니
 | 배포 | 버전 |
 |---|---|
 | Linux: Ubuntu | 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.4 |
+| Linux: Red Hat Enterprise Linux | 7.4, 7.5, 7.7 |
 
 <!--### Script location
 
@@ -60,7 +60,7 @@ If your script is on a local server, then you may still need additional firewall
 > [!NOTE]
 > Before you install the Custom Script extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. -->
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. 클라이언트 컴퓨터에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates) 합니다. 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
 

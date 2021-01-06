@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 0b4cf72622df78e13add723853d935fc97649b4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 19451fb09919238a04ac953c9c38fc70b4744d16
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358999"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955300"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>을 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -271,12 +271,12 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 Azure Red Hat OpenShift에서 데이터 컨트롤러를 만들기 전에 특정 SCC (보안 컨텍스트 제약 조건)를 적용 해야 합니다. 미리 보기 릴리스의 경우 보안 제약 조건이 완화 됩니다. 이후 릴리스에서는 업데이트 된 SCC를 제공 합니다.
 
 1. 사용자 지정 SCC (보안 컨텍스트 제약 조건)를 다운로드 합니다. 다음 중 하나를 사용합니다. 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
+   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
    - `curl` 다음 명령은 arc-데이터를 다운로드 합니다.
 
       ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
+      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
       ```
 
 1. SCC를 만듭니다.
@@ -329,12 +329,12 @@ azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --
 Red Hat OCP에서 데이터 컨트롤러를 만들기 전에 특정 SCC (보안 컨텍스트 제약 조건)를 적용 해야 합니다. 미리 보기 릴리스의 경우 보안 제약 조건이 완화 됩니다. 이후 릴리스에서는 업데이트 된 SCC를 제공 합니다.
 
 1. 사용자 지정 SCC (보안 컨텍스트 제약 조건)를 다운로드 합니다. 다음 중 하나를 사용합니다. 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml))
+   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
+   - ([Raw](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
    - `curl` 다음 명령은 arc-데이터를 다운로드 합니다.
 
       ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
+      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
       ```
 
 1. SCC를 만듭니다.

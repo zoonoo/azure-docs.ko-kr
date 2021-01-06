@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ba64f5972d77637ec830fe6b872af66363d6c1bd
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 708e6351350a1925d58cd4da6b71427a98633362
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740048"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954960"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Blob 저장소 및 Azure Data Lake Gen2 출력
 
-Data Lake Storage Gen2는 Azure에서 Azure Storage를 엔터프라이즈 데이터 레이크를 구축하기 위한 기반으로 만듭니다. Data Lake Storage Gen2는 처음부터 수백 기가비트의 처리량을 유지하면서 수 페타바이트의 정보에 대한 서비스를 제공하도록 설계되어 대량의 데이터를 쉽게 관리할 수 있습니다. Data Lake Storage Gen2의 기본 부분은 Blob 스토리지에 대한 계층 구조 네임스페이스를 추가하는 것입니다.
+Data Lake Storage Gen2는 Azure에서 Azure Storage를 엔터프라이즈 데이터 레이크를 구축하기 위한 기반으로 만듭니다. 처음부터 수백 기가비트의 처리량을 유지하면서 수 페타바이트의 정보에 대한 서비스를 제공하도록 설계된 Data Lake Storage Gen2는 방대한 양의 데이터를 쉽게 관리할 수 있습니다. Data Lake Storage Gen2의 기본적인 부분은 계층 구조 네임스페이스를 Blob 스토리지에 추가하는 것입니다.
 
 Azure Blob Storage는 클라우드에서 대량의 비정형 데이터를 저장하기 위한 비용 효율적이고 확장성 있는 솔루션을 제공합니다. Blob 스토리지 및 이를 사용하는 방법에 대한 소개는 [Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
 

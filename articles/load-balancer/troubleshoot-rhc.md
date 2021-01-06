@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696322"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955623"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>리소스 상태, 프런트 엔드 및 백 엔드 가용성 문제 해결 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>리소스 상태 및 인바운드 가용성 문제 해결 
 
 이 문서는 부하 분산 장치 프런트 엔드 IP 및 백 엔드 리소스의 가용성에 영향을 주는 문제를 조사 하는 가이드입니다. 
+
+Load Balancer에 대 한 Resource Health 검사 (RHC)는 부하 분산 장치의 상태를 확인 하는 데 사용 됩니다. **2 분** 간격에 걸쳐 데이터 경로 가용성 메트릭을 분석 하 여 부하 분산 규칙을 사용 하 여 부하 분산 끝점, 프런트 엔드 IP 및 프런트 엔드 포트 조합을 사용할 수 있는지 여부를 확인 합니다.
+
+아래 표에서는 부하 분산 장치의 상태를 확인 하는 데 사용 되는 RHC 논리에 대해 설명 합니다.
+
+| Resource Health 상태 | 설명 |
+| --- | --- |
+| 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
+| 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 성능이 심각 하 게 저하 될 수 있습니다. 
+| 사용할 수 없음 | 표준 부하 분산 장치 리소스가 정상이 아닙니다. 데이터 경로 가용성 메트릭이 2 분 이상 25% 상태를 보고 했습니다. 인바운드 연결의 성능에 큰 영향을 주거나 가용성이 부족 합니다. 사용할 수 없는 사용자 또는 플랫폼 이벤트가 있을 수 있습니다. |
+| 알 수 없음 | 표준 부하 분산 장치 리소스에 대 한 리소스 상태가 아직 업데이트 되지 않았거나 지난 10 분 동안 데이터 경로 가용성 정보를 수신 하지 않았습니다. 이 상태는 일시적이어야 하며 데이터가 수신되는 즉시 올바른 상태를 반영합니다. |
+
 
 ## <a name="about-the-metrics-well-use"></a>사용할 메트릭 정보
 사용 되는 두 개의 메트릭은 *데이터 경로 가용성* 및 *상태 프로브 상태* 이며 올바른 정보를 얻기 위해 해당 의미를 이해 하는 것이 중요 합니다. 

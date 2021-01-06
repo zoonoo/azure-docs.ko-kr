@@ -1,5 +1,5 @@
 ---
-title: Arc enabled Kubernetes cluster (Preview)에서 GitOps를 사용 하 여 구성 배포
+title: Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/19/2020
@@ -8,14 +8,14 @@ author: mlearned
 ms.author: mlearned
 description: GitOps를 사용 하 여 Azure Arc 사용 Kubernetes 클러스터 구성 (미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, 컨테이너
-ms.openlocfilehash: 85771824a6cecd10346937220e400028a4570377
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653455"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955334"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster (Preview)에서 GitOps를 사용 하 여 구성 배포
+# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 
 Kubernetes와 관련 된 GitOps는 Git 리포지토리에서 Kubernetes 구성 (배포, 네임 스페이스 등)의 desired 상태를 선언 하 고 연산자를 사용 하 여 이러한 구성의 폴링 및 끌어오기 기반 배포를 수행 하는 방법입니다. 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에서 이러한 워크플로의 설정에 대해 설명 합니다.
 
@@ -150,7 +150,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 `--helm-operator-chart-version` : Helm 연산자(사용 설정된 경우)에 대한 선택적 차트 버전입니다. 기본값: ' 1.2.0 '.
 
-`--operator-namespace` : 연산자 네임스페이스의 선택적 이름입니다. 기본값: 'default'
+`--operator-namespace` : 연산자 네임스페이스의 선택적 이름입니다. 기본값: ' default '. 최대 23 자.
 
 `--operator-params` : 연산자에 대한 선택적 매개 변수입니다. 작은따옴표 안에 지정해야 합니다. 예를 들어 ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
 
@@ -169,12 +169,6 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 | --git-email  | Git 커밋에 사용할 전자 메일입니다. |
 
 * '--git-user' 또는 '--git-email'이 설정되지 않은 경우(즉, Flux가 리포지토리에 쓰지 않게 하려는 경우) --git-readonly가 자동으로 설정됩니다(아직 설정되지 않은 경우).
-
-* enableHelmOperator가 true인 경우 operatorInstanceName + operatorNamespace 문자열이 총 47자를 초과할 수 없습니다.  이 한도를 준수 하지 않으면 다음과 같은 오류가 표시 됩니다.
-
-   ```console
-   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-   ```
 
 자세한 내용은 [Flux 설명서](https://aka.ms/FluxcdReadme)를 참조 하세요.
 
@@ -251,7 +245,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>개인 Git 리포지토리에서 구성 적용
 
-개인 Git 리포지토리를 사용 하는 경우 리포지토리에서 SSH 공개 키를 구성 해야 합니다. 리포지토리에 대 한 액세스 권한이 있는 git 리포지토리 또는 Git 사용자에서 공개 키를 구성할 수 있습니다. SSH 공개 키는 사용자가 제공 하는 키 또는 Flux에서 생성 하는 키 중 하나입니다.
+개인 Git 리포지토리를 사용 하는 경우 리포지토리에서 SSH 공개 키를 구성 해야 합니다. 특정 Git 리포지토리 또는 리포지토리에 대 한 액세스 권한이 있는 Git 사용자에서 공개 키를 구성할 수 있습니다. SSH 공개 키는 사용자가 제공 하는 키 또는 Flux에서 생성 하는 키 중 하나입니다.
 
 **사용자 고유의 공개 키 가져오기**
 
@@ -260,7 +254,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 **Azure CLI를 사용 하 여 공개 키 가져오기 (Flux에서 키를 생성 하는 경우에 유용)**
 
 ```console
-$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --query 'repositoryPublicKey'
+$ az k8sconfiguration show --resource-group <resource group name> --cluster-name <connected cluster name> --name <configuration name> --cluster-type connectedClusters --query 'repositoryPublicKey' 
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAREDACTED"
 ```

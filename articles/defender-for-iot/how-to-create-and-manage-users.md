@@ -4,15 +4,15 @@ description: 센서의 사용자 및 온-프레미스 관리 콘솔을 만들고
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840966"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955109"
 ---
 # <a name="about-defender-for-iot-console-users"></a>IoT 콘솔 사용자를 위한 Defender 정보
 
@@ -20,7 +20,7 @@ ms.locfileid: "97840966"
 
 기능을 사용 하 여 사용자 활동을 추적 하 고 Active Directory 로그인 할 수도 있습니다.
 
-기본적으로 각 센서 및 온-프레미스 관리 콘솔은 *cyberx 및 지원* 사용자와 함께 설치 됩니다. 이러한 사용자는 문제 해결 및 설치를 위한 고급 도구에 액세스할 수 있습니다. 관리자는 이러한 사용자 자격 증명을 사용 하 여 로그인 하 고, 관리자 사용자를 만든 다음, 보안 분석가 및 읽기 전용 사용자에 대 한 추가 사용자를 만들어야 합니다.
+기본적으로 각 센서 및 온-프레미스 관리 콘솔은 *cyberx 및 지원* 사용자와 함께 설치 됩니다. 이러한 사용자는 문제 해결 및 설치를 위한 고급 도구에 액세스할 수 있습니다. 관리자 사용자는 이러한 사용자 자격 증명을 사용 하 여 로그인 하 고, 관리자 사용자를 만든 후 보안 분석가 및 읽기 전용 사용자를 위한 추가 사용자를 만들어야 합니다.
 
 ## <a name="role-based-permissions"></a>역할 기반 권한
 사용할 수 있는 사용자 역할은 다음과 같습니다.
@@ -89,8 +89,8 @@ ms.locfileid: "97840966"
 사용자를 정의 하려면:
 
 1. 센서 또는 온-프레미스 관리 콘솔의 왼쪽 창에서 **사용자** 를 선택 합니다.
-2. **사용자** 창에서 **사용자 만들기** 를 선택 합니다.
-3. **사용자 만들기** 창에서 다음 매개 변수를 정의 합니다.
+1. **사용자** 창에서 **사용자 만들기** 를 선택 합니다.
+1. **사용자 만들기** 창에서 다음 매개 변수를 정의 합니다.
 
    - **사용자 이름**: 사용자 이름을 입력 합니다.
    - **전자 메일**: 사용자의 이메일 주소를 입력 합니다.
@@ -122,7 +122,7 @@ ms.locfileid: "97840966"
 
 1. IoT 관리 자격 증명에 대해 Defender를 사용 하 여 센서 또는 온-프레미스 관리 콘솔에 대 한 CLI에 로그인 합니다.
 
-2. `sudo nano /var/cyberx/properties/authentication`를 입력합니다.
+1. `sudo nano /var/cyberx/properties/authentication`를 입력합니다.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ ms.locfileid: "97840966"
 기능을 사용 하지 않도록 설정 하려면 `infinity_session_expiration = true` 을로 변경 `infinity_session_expiration = false` 합니다.
 
 로그 아웃 계산 기간을 업데이트 하려면 `= <number>` 값을 필요한 시간으로 조정 합니다.
-
 
 ## <a name="track-user-activity"></a>사용자 활동 추적 
 
@@ -171,11 +170,11 @@ Active Directory를 구성 하려면:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Active Directory 시스템 설정을 봅니다.":::
 
-2. **시스템 설정** 창에서 **Active Directory** 을 선택 합니다.
+1. **시스템 설정** 창에서 **Active Directory** 을 선택 합니다.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Active Directory 구성을 편집 합니다.":::
 
-3. **Active Directory 구성 편집** 대화 상자에서 **통합 사용**  >  **저장** Active Directory을 선택 합니다. **Active Directory 구성 편집** 대화 상자가 확장 되 고 이제 Active Directory를 구성 하는 매개 변수를 입력할 수 있습니다.
+1. **Active Directory 구성 편집** 대화 상자에서 **통합 사용**  >  **저장** Active Directory을 선택 합니다. **Active Directory 구성 편집** 대화 상자가 확장 되 고 이제 Active Directory를 구성 하는 매개 변수를 입력할 수 있습니다.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Active Directory를 구성 하는 매개 변수를 입력 합니다.":::
 
@@ -184,9 +183,9 @@ Active Directory를 구성 하려면:
     > - 모든 Active Directory 매개 변수에 대해서는 소문자만 사용 합니다. Active Directory의 구성이 대문자를 사용 하는 경우에도 소문자를 사용 합니다.
     > - 동일한 도메인에 대해 LDAP와 LDAPS를 모두 구성할 수는 없습니다. 그러나 여러 도메인에 대해 동시에 둘 다 사용할 수 있습니다.
 
-4. 다음과 같이 Active Directory 서버 매개 변수를 설정 합니다.
+1. 다음과 같이 Active Directory 서버 매개 변수를 설정 합니다.
 
-   | 서버 매개 변수 | Description |
+   | 서버 매개 변수 | 설명 |
    |--|--|
    | 도메인 컨트롤러 FQDN | FQDN (정규화 된 도메인 이름)은 LDAP 서버에 표시 된 대로 정확 하 게 설정 합니다. 예를 들어 다음과 같이 입력합니다. `host1.subdomain.domain.com` |
    | 도메인 컨트롤러 포트 | LDAP가 구성 된 포트를 정의 합니다. |
@@ -194,9 +193,79 @@ Active Directory를 구성 하려면:
    | Active Directory 그룹 | LDAP 서버의 Active Directory 구성에 정의 된 그룹 이름을 입력 합니다. |
    | 트러스트 된 도메인 | 트러스트 된 도메인을 추가 하려면 트러스트 된 도메인의 도메인 이름 및 연결 유형을 추가 합니다. <br />사용자에 정의 된 사용자에 대해서만 트러스트 된 도메인을 구성할 수 있습니다. |
 
-5. **저장** 을 선택합니다.
+1. **저장** 을 선택합니다.
 
-6. 트러스트 된 서버를 추가 하려면 **서버 추가** 를 선택 하 고 다른 서버를 구성 합니다.
+1. 트러스트 된 서버를 추가 하려면 **서버 추가** 를 선택 하 고 다른 서버를 구성 합니다.
+
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>센서 또는 온-프레미스 관리 콘솔에 대 한 사용자 암호 재설정
+
+### <a name="cyberx-or-support-user"></a>CyberX 또는 지원 사용자
+
+**CyberX** 및 **지원** 사용자만 **암호 복구** 기능에 액세스할 수 있습니다. **CyberX** 또는 **지원** 사용자가 암호를 잊은 경우 Defender for IoT 로그인 페이지의 **암호 복구** 옵션을 통해 암호를 다시 설정할 수 있습니다.
+
+CyberX 또는 지원 사용자에 대 한 암호를 다시 설정 하려면:
+
+1. IoT 용 Defender 로그인 화면에서  **암호 복구** 를 선택 합니다. **암호 복구** 화면이 열립니다.
+
+1. **CyberX** 또는 **Support** 를 선택 하 고 고유한 식별자를 복사 합니다.
+
+1. Azure Portal로 이동 하 여 **사이트 및 센서** 를 선택 합니다.  
+
+1. 상단 도구 모음에서 **구독 필터** 아이콘 :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  을 선택 하 고 센서가 연결 된 구독을 선택 합니다.
+
+1. **온-프레미스 관리 콘솔 암호 복구** 탭을 선택 합니다.
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="복구 파일을 다운로드 하려면 온-프레미스 관리 관리 단추를 선택 합니다.":::
+
+1. **암호 복구** 화면에서 받은 고유 식별자를 입력 하 고 **복구** 를 선택 합니다. `password_recovery.zip`파일이 다운로드 됩니다.
+
+    > [!NOTE]
+    > 암호 복구 파일을 변경 하지 마세요. 서명 된 파일이 며 변조 하는 경우 작동 하지 않습니다.
+
+1. **암호 복구** 화면에서 **업로드** 를 선택 합니다. **암호 복구 파일 업로드** 창이 열립니다.
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="복구 파일을 업로드 하 여 새 암호를 가져옵니다.":::
+
+1. **찾아보기** 를 선택 하 여 `password_recovery.zip` 파일을 찾거나를 `password_recovery.zip` 창으로 끌어 놓습니다.
+
+    > [!NOTE]
+    > 파일이 잘못 되었음을 나타내는 오류 메시지가 표시 될 수 있습니다. 이 오류 메시지를 해결 하려면를 다운로드 하기 전에 올바른 구독을 선택 했는지 확인 하 `password_recovery.zip` 고 다시 다운로드 합니다.  
+
+1. 다음 **을 선택 하면** 관리 콘솔에 대 한 사용자 및 시스템 생성 암호가 표시 됩니다.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>관리자, 보안 분석가 및 읽기 전용 사용자
+
+읽기 전용 및 보안 분석가는 자신의 암호를 재설정할 수 없으며 관리자, 지원 또는 CyberX 역할을 사용 하 여 사용자에 게 연락 하 여 암호를 재설정 해야 합니다. 관리자는 **CyberX** 또는 **지원** 사용자에 게 문의 하 여 암호를 재설정 해야 합니다.
+
+센서에 대 한 사용자의 암호를 재설정 하려면:
+
+1. 관리자, 지원 또는 CyberX 역할 사용자가 센서에 로그인 해야 합니다.
+
+1. 왼쪽 패널에서 **사용자** 를 선택 합니다.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="왼쪽 창에서 사용자 옵션을 선택 합니다.":::
+
+1. 사용자를 찾고 **작업** 드롭다운 메뉴에서 **편집** 을 선택 합니다.
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="작업 드롭다운 메뉴에서 편집을 선택 합니다.":::
+
+1. **새 암호 및** **새 암호 확인** 필드에 새 암호를 입력 합니다.
+
+1. **업데이트** 를 선택합니다.
+
+온-프레미스 관리 콘솔에서 사용자의 암호를 다시 설정 하려면 다음을 수행 합니다.
+
+1. 관리자, 지원 또는 CyberX 역할 사용자가 센서에 로그인 해야 합니다.
+
+1. 왼쪽 패널에서 **사용자** 를 선택 합니다.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="왼쪽 패널에서 사용자의 옵션을 선택 합니다.":::
+
+1. 사용자를 찾고 편집 아이콘을 선택 :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: 합니다.
+
+1. **새 암호 및** **새 암호 확인** 필드에 새 암호를 입력 합니다.
+
+1. **업데이트** 를 선택합니다.
 
 ## <a name="see-also"></a>참조
 

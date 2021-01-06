@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460482"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954280"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상용 marketplace 분석의 고객 대시보드
 
 이 문서에서는 파트너 센터의 고객 대시보드에 대 한 정보를 제공 합니다. 이 대시보드에서 그래픽 및 다운로드 가능한 형식으로 제공되는 증가 추세를 비롯한 고객 정보를 볼 수 있습니다.
 
-파트너 센터의 고객 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 고객 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  **Customers** 합니다.
+파트너 센터의 고객 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 고객 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  합니다.
 
 >[!NOTE]
 > 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
@@ -144,7 +144,7 @@ _**표 1: 데이터 용어 사전**_
 
 | 열 이름 | 특성 이름 | 정의 |
 | ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. |
+| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. |
 | 가져온 날짜 | 취득일 | 사용자가 게시 한 제품을 처음 구입한 날짜입니다. |
 | DateLost | 취소일 | 고객이 이전에 구매한 모든 제품의 마지막 날짜를 취소 한 마지막 날짜입니다. |
 | Provider Name | Provider Name | Microsoft와 고객 간의 관계와 관련 된 공급자의 이름입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. |

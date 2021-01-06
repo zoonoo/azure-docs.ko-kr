@@ -4,15 +4,15 @@ description: 센서 및 온-프레미스 관리 콘솔 문제를 해결 하 여 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840695"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955436"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>센서 및 온-프레미스 관리 콘솔 문제 해결
 
@@ -28,22 +28,33 @@ ms.locfileid: "97840695"
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>초기 로그인 시 암호 오류 조사
 
-미리 구성 된 화살표 센서에 처음으로 로그인 하는 경우 다음 암호 복구를 수행 해야 합니다.
+미리 구성 된 화살표 센서에 처음으로 로그인 할 때 암호 복구를 수행 해야 합니다.
 
-1. IoT 용 Defender 로그인 화면에서 **암호 복구** 옵션을 선택 합니다. 
+암호를 복구 하려면:
 
-   **암호 복구** 화면이 열립니다. 여기서 사용자 및 구독을 선택 하 라는 메시지가 표시 되 고 사용자에 게 고유한 식별자가 제공 됩니다.
+1. IoT 용 Defender 로그인 화면에서  **암호 복구** 를 선택 합니다. **암호 복구** 화면이 열립니다.
 
-1. IoT **사이트 및 센서** 용 Defender 페이지로 이동 하 여 **암호 복구** 탭을 선택 합니다.
+1. **CyberX** 또는 **Support** 를 선택 하 고 고유한 식별자를 복사 합니다.
+
+1. Azure Portal로 이동 하 여 **사이트 및 센서** 를 선택 합니다.  
+
+1. **온-프레미스 관리 콘솔 암호 복구** 탭을 선택 합니다.
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="복구 파일을 다운로드 하려면 온-프레미스 관리 관리 단추를 선택 합니다.":::
 
 1. **암호 복구** 화면에서 받은 고유 식별자를 입력 하 고 **복구** 를 선택 합니다. `password_recovery.zip`파일이 다운로드 됩니다.
 
-   > [!NOTE]
-   > 활성화 파일을 변경 하지 마세요. 서명 된 파일이 며 변조 하는 경우 작동 하지 않습니다.
+    > [!NOTE]
+    > 암호 복구 파일을 변경 하지 마세요. 서명 된 파일이 며 변조 하는 경우 작동 하지 않습니다.
 
-1. **암호 복구** 화면에서 파일을 업로드 `password_recovery.zip` 하 고 **다음** 을 선택 합니다.
+1. **암호 복구** 화면에서 **업로드** 를 선택 합니다. **암호 복구 파일 업로드** 창이 열립니다.
 
-그런 다음 관리 콘솔에 대 한 시스템 생성 암호를 수신 합니다. 
+1. **찾아보기** 를 선택 하 여 `password_recovery.zip` 파일을 찾거나를 `password_recovery.zip` 창으로 끌어 놓습니다.
+
+1. 다음 **을 선택 하면** 관리 콘솔에 대 한 사용자 및 시스템 생성 암호가 표시 됩니다.
+
+    > [!NOTE]
+    > 처음으로 센서 또는 온-프레미스 관리 콘솔에 로그인 하면 연결 된 구독에 연결 됩니다. CyberX 또는 지원 사용자에 대 한 암호를 다시 설정 해야 하는 경우 해당 구독을 선택 해야 합니다. CyberX 또는 지원 사용자 암호를 복구 하는 방법에 대 한 자세한 내용은 [센서 또는 온-프레미스 관리 콘솔에 대 한 사용자 암호 다시 설정](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console) 을 참조 하세요.
 
 ### <a name="investigate-a-lack-of-traffic"></a>트래픽 부족 조사
 
@@ -65,35 +76,35 @@ ms.locfileid: "97840695"
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="샘플 대시보드의 스크린샷"::: 
 
-2. 측면 메뉴에서 **장치** 를 선택 합니다.
+1. 측면 메뉴에서 **장치** 를 선택 합니다.
 
-3. **장치** 창에서 장치를 검색 하는지 확인 합니다.
+1. **장치** 창에서 장치를 검색 하는지 확인 합니다.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="장치가 검색 되는지 확인 합니다.":::
 
-4. 측면 메뉴에서 **데이터 마이닝** 을 선택 합니다.
+1. 측면 메뉴에서 **데이터 마이닝** 을 선택 합니다.
 
-5. **데이터 마이닝** 창에서 **모두** 를 선택 하 고 보고서를 생성 합니다.
+1. **데이터 마이닝** 창에서 **모두** 를 선택 하 고 보고서를 생성 합니다.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="데이터 마이닝을 사용 하 여 새 보고서를 생성 합니다.":::
 
-6. 보고서에 데이터가 포함 되어 있는지 확인 합니다.
+1. 보고서에 데이터가 포함 되어 있는지 확인 합니다.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="보고서에 데이터가 포함 되어 있는지 확인 합니다.":::
 
-7. 측면 메뉴에서 **추세 & 통계** 를 선택 합니다.
+1. 측면 메뉴에서 **추세 & 통계** 를 선택 합니다.
 
-8. **추세 & 통계** 창에서 **위젯 추가** 를 선택 합니다.
+1. **추세 & 통계** 창에서 **위젯 추가** 를 선택 합니다.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="위젯을 선택 하 여 추가 합니다.":::
 
-9. 위젯을 추가 하 고 데이터를 표시 하는지 확인 합니다.
+1. 위젯을 추가 하 고 데이터를 표시 하는지 확인 합니다.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="위젯이 데이터를 표시 하는지 확인 합니다.":::
 
-10. 측면 메뉴에서 **경고** 를 선택 합니다. **경고** 창이 표시 됩니다.
+1. 측면 메뉴에서 **경고** 를 선택 합니다. **경고** 창이 표시 됩니다.
 
-11. 경고가 생성 되었는지 확인 합니다.
+1. 경고가 생성 되었는지 확인 합니다.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="경고가 생성 되었는지 확인 합니다.":::
 
@@ -154,9 +165,9 @@ ms.locfileid: "97840695"
 
 1. 장치 맵의 클라우드 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **IP 주소 내보내기** 를 선택 합니다. 비공개 인 공용 범위를 복사 하 여 서브넷 목록에 추가 합니다. 자세한 내용은 [서브넷 구성](how-to-control-what-traffic-is-monitored.md#configure-subnets)을 참조 하세요.
 
-2. 인터넷 연결에 대 한 새 데이터 마이닝 보고서를 생성 합니다.
+1. 인터넷 연결에 대 한 새 데이터 마이닝 보고서를 생성 합니다.
 
-3. 데이터 마이닝 보고서에서 :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: 관리자 모드를 입력 하 고 ICS 장치의 IP 주소를 삭제 하려면 선택 합니다.
+1. 데이터 마이닝 보고서에서 :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: 관리자 모드를 입력 하 고 ICS 장치의 IP 주소를 삭제 하려면 선택 합니다.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>센서의 서비스 품질 조정
 
@@ -179,7 +190,7 @@ ms.locfileid: "97840695"
    > [!NOTE]
    > 실제 어플라이언스의 경우 em1 인터페이스를 사용 합니다.
 
-2. 인터페이스 제한 사항을 취소 하려면을 입력 `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` 합니다.
+1. 인터페이스 제한 사항을 취소 하려면을 입력 `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` 합니다.
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>온-프레미스 관리 콘솔 문제 해결 도구
 
@@ -203,7 +214,7 @@ ms.locfileid: "97840695"
 
 1. IoT 사용자에 대 한 Defender로 로그인 합니다. 
 
-2. 기본값을 확인 합니다.
+1. 기본값을 확인 합니다.
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ ms.locfileid: "97840695"
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. 기본 설정을 편집 합니다.
+1. 기본 설정을 편집 합니다.
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. 다음 줄의 설정을 편집 합니다.
+1. 다음 줄의 설정을 편집 합니다.
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. 변경 내용을 저장합니다. 다시 시작하지 않아도 됩니다.
+1. 변경 내용을 저장합니다. 다시 시작하지 않아도 됩니다.
 
 ## <a name="export-information-for-troubleshooting"></a>문제 해결을 위한 정보 내보내기
 
@@ -239,15 +250,15 @@ ms.locfileid: "97840695"
 
 1. 왼쪽 창에서 **시스템 설정** 을 선택 합니다.
 
-2. **로그 내보내기** 를 선택합니다.
+1. **로그 내보내기** 를 선택합니다.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="시스템 지원으로 로그를 내보냅니다.":::
 
-3. **파일 이름** 상자에 로그 내보내기에 사용할 파일 이름을 입력 합니다. 기본값은 현재 날짜입니다.
+1. **파일 이름** 상자에 로그 내보내기에 사용할 파일 이름을 입력 합니다. 기본값은 현재 날짜입니다.
 
-4. 내보낼 데이터를 정의 하려면 데이터 범주를 선택 합니다.  
+1. 내보낼 데이터를 정의 하려면 데이터 범주를 선택 합니다.  
 
-    | 범주 내보내기 | Description |
+    | 범주 내보내기 | 설명 |
     |--|--|
     | **운영 체제 로그** | 운영 체제 상태에 대 한 정보를 가져오려면이 옵션을 선택 합니다. |
     | **설치/업그레이드 로그** | 설치 및 업그레이드 구성 매개 변수를 조사 하려면이 옵션을 선택 합니다. |
@@ -261,12 +272,12 @@ ms.locfileid: "97840695"
     | **웹 응용 프로그램 로그** | 응용 프로그램의 웹 인터페이스에서 보낸 모든 요청에 대 한 정보를 가져오려면이 옵션을 선택 합니다. |
     | **시스템 백업** | 시스템의 정확한 상태를 조사 하기 위해 모든 시스템 데이터의 백업을 내보내려면이 옵션을 선택 합니다. |
     | **Dissection 통계** | 프로토콜 통계의 고급 검사를 허용 하려면이 옵션을 선택 합니다. |
-    | **데이터베이스 로그** | 시스템 데이터베이스에서 로그를 내보내려면이 옵션을 선택 합니다. 시스템 로그를 조사 하면 시스템 문제를 파악 하는 데 도움이 됩니다. |
+    | **데이터베이스 로그** | 시스템 데이터베이스에서 로그를 내보내려면이 옵션을 선택 합니다. 시스템 로그를 조사 하면 시스템 문제를 식별 하는 데 도움이 됩니다. |
     | **Configuration** | 모든 구성 가능한 매개 변수에 대 한 정보를 내보내 모든 구성 요소가 올바르게 구성 되었는지 확인 하려면이 옵션을 선택 합니다. |
 
-5. 모든 옵션을 선택 하려면 **범주** 선택 옆에 있는 **모두 선택** 을 선택 합니다.
+1. 모든 옵션을 선택 하려면 **범주** 선택 옆에 있는 **모두 선택** 을 선택 합니다.
 
-6. **로그 내보내기** 를 선택합니다.
+1. **로그 내보내기** 를 선택합니다.
 
 내보낸 로그가 **보관 된 로그** 목록에 추가 됩니다. 지원 팀에 OTP를 별도의 메시지 및 내보낸 로그에서 중간으로 보냅니다. 지원 팀에서는 로그를 암호화 하는 데 사용 되는 고유 OTP를 사용 하 여 내보낸 로그를 추출할 수 있습니다.
 

@@ -78,7 +78,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 :::image type="content" source="./media/confirm-packages.png" alt-text="패키지 가져오기 확인":::
 
-패키지가 로드되지 않으면 Unity 콘솔에서 오류가 있는지 확인합니다. 오류가 없지만 패키지가 여전히 **Packages** 폴더 아래에 표시되지 않으면 패키지 표시 유형 설정/해제 단추를 선택합니다.
+패키지가 로드되지 않으면 Unity 콘솔에서 오류가 있는지 확인합니다. 오류가 없지만 패키지가 여전히 **Packages** 폴더 아래에 표시되지 않으면 패키지 표시 유형 설정/해제 단추를 선택합니다.\
 ![패키지 표시 유형 토글 단추를 가리키는 화살표가 있는 스크린샷.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>최신 버전의 패키지가 있는지 확인
@@ -87,10 +87,10 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 
 1. Unity 편집기의 위쪽 메뉴에서 *Window(창) -> Package Manager(패키지 관리자)* 를 차례로 엽니다.
 1. **Microsoft Azure Remote Rendering** 패키지를 선택합니다.
-1. **Microsoft Azure Remote Rendering** 패키지에 대한 패키지 관리자 페이지에서 **Update(업데이트)** 단추를 사용할 수 있는지 확인합니다. 사용할 수 있는 경우 해당 패키지를 클릭하여 패키지를 사용 가능한 최신 버전으로 업데이트합니다.
+1. **Microsoft Azure Remote Rendering** 패키지에 대한 패키지 관리자 페이지에서 **Update(업데이트)** 단추를 사용할 수 있는지 확인합니다. 사용할 수 있는 경우 해당 패키지를 클릭하여 패키지를 사용 가능한 최신 버전으로 업데이트합니다.\
 ![패키지 관리자의 ARR 패키지](./media/package-manager.png)
 1. 패키지를 업데이트하면 경우에 따라 콘솔 오류가 발생할 수 있습니다. 이 경우 프로젝트를 닫고 다시 열어 보세요.
-1. 패키지가 최신 상태이면 Package Manager에서 Update 단추 대신 **Up to date(최신)** 를 표시합니다.
+1. 패키지가 최신 상태이면 Package Manager에서 Update 단추 대신 **Up to date(최신)** 를 표시합니다.\
 ![최신 패키지](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>카메라 구성
 
@@ -119,9 +119,9 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
     ![프로젝트 품질 설정 변경](./media/settings-quality.png)
 
 1. 왼쪽 목록 메뉴에서 **Graphics(그래픽)** 를 선택합니다.
-1. **Scriptable Rendering Pipeline(스크립트 가능한 렌더링 파이프라인)** 설정을 *HybridRenderingPipeline* 으로 변경합니다.
+1. **Scriptable Rendering Pipeline(스크립트 가능한 렌더링 파이프라인)** 설정을 *HybridRenderingPipeline* 으로 변경합니다.\
     ![스크립트 가능한 렌더링 파이프라인 설정을 HybridRenderingPipeline으로 변경하는 위치를 가리키는 스크린샷.](./media/settings-graphics-render-pipeline.png)\
-    경우에 따라 UI는 패키지에서 사용 가능한 파이프라인 유형 목록을 채우지 않습니다. 이 경우 *HybridRenderingPipeline* 자산을 필드로 수동으로 끌어야 합니다.
+    경우에 따라 UI는 패키지에서 사용 가능한 파이프라인 유형 목록을 채우지 않습니다. 이 경우 *HybridRenderingPipeline* 자산을 필드로 수동으로 끌어야 합니다.\
     ![프로젝트 그래픽 설정 변경](./media/hybrid-rendering-pipeline.png)
 
     > [!NOTE]
@@ -150,7 +150,7 @@ Unity 프로젝트 폴더에 있는 `Packages/manifest.json` 파일을 수정해
 1. *File(파일) -> Build Settings(빌드 설정)* 를 차례로 엽니다.
 1. **Universal Windows Platform(유니버설 Windows 플랫폼)** 을 선택합니다.
 1. 아래에 있는 설정과 일치하도록 설정을 구성합니다.
-1. **Switch Platform(플랫폼 전환)** 단추를 누릅니다.
+1. **Switch Platform(플랫폼 전환)** 단추를 누릅니다.\
 ![빌드 설정](./media/build-settings.png)
 1. Unity에서 플랫폼이 변경되면 빌드 패널을 닫습니다.
 
@@ -537,7 +537,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 원격 렌더링 코디네이터 및 해당 필수 스크립트(*ARRServiceUnity*)는 모두 장면에서 GameObject에 연결해야 하는 MonoBehaviour입니다. 원격 세션에 연결하고 관리하는 ARR의 많은 기능을 공개하기 위해 ARR에서 *ARRServiceUnity* 스크립트를 제공합니다.
 
 1. 장면에서 새 GameObject를 만들고(Ctrl+Shift+N 또는 *GameObject -> Create Empty(빈 항목 만들기)* ), 이름을 **RemoteRenderingCoordinator** 로 지정합니다.
-1. *RemoteRenderingCoordinator* 스크립트를 **RemoteRenderingCoordinator** GameObject에 추가합니다.
+1. *RemoteRenderingCoordinator* 스크립트를 **RemoteRenderingCoordinator** GameObject에 추가합니다.\
 ![RemoteRenderingCoordinator 구성 요소 추가](./media/add-coordinator-script.png)
 1. 검사기에서 *Service(서비스)* 로 표시되는 *ARRServiceUnity* 스크립트가 GameObject에 자동으로 추가되는지 확인합니다. 이는 **RemoteRenderingCoordinator** 스크립트의 위쪽에 `[RequireComponent(typeof(ARRServiceUnity))]`가 있는 결과입니다.
 1. Azure Remote Rendering 자격 증명 및 계정 도메인을 코디네이터 스크립트에 추가합니다.
@@ -594,9 +594,9 @@ public async void InitializeSessionService()
 1. **RemoteRenderingCoordinator** GameObject를 선택하고, **RemoteRenderingCoordinator** 구성 요소의 검사기에 공개되는 **OnRequestingAuthorization** Unity 이벤트를 찾습니다.
 
 1. 오른쪽 아래에서 '+'를 눌러 새 이벤트를 추가합니다.
-1. 직접 참조할 수 있도록 구성 요소를 자체 이벤트로 끕니다.
+1. 직접 참조할 수 있도록 구성 요소를 자체 이벤트로 끕니다.\
 ![인증 무시](./media/bypass-authorization-add-event.png)\
-1. 드롭다운에서 **RemoteRenderingCoordinator -> BypassAuthorization** 을 차례로 선택합니다.
+1. 드롭다운에서 **RemoteRenderingCoordinator -> BypassAuthorization** 을 차례로 선택합니다.\
 ![선택된 RemoteRenderingCoordinator.BypassAuthorization 옵션을 보여주는 스크린샷.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>원격 세션 만들기 또는 조인

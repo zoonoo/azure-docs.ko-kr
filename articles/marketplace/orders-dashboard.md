@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 943f1361a2a9d6bf8d891f8b4f2137b8738f0836
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 31216db98cc02724ac3625eb1a8fa18b0f75c6ee
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450756"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955028"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
 이 문서에서는 파트너 센터의 주문 대시보드에 대한 정보를 제공합니다. 이 대시보드에는 그래픽 및 다운로드 가능한 형식으로 제공 되는 증가 추세를 비롯 하 여 주문에 대 한 정보가 표시 됩니다.
 
-파트너 센터의 주문 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 주문 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  **Orders** 합니다.
+파트너 센터의 주문 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 주문 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 을 선택  >  합니다.
 
 >[!NOTE]
 > 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
@@ -109,14 +109,13 @@ SaaS 제품은 각 계획에 대 한 두 가지 가격 책정 모델 중 하나�
 - 데이터를로 추출할 수 있습니다. CSV 또는 레코드 수가 1000 보다 작은 경우 TSV 파일입니다.
 - 1000를 초과 하는 레코드를 기록 하는 경우 내보낸 데이터는 다음 30 일 동안 비동기적으로 다운로드 페이지에 배치 됩니다.
 - **주문 정보** 테이블에 필터를 적용 하 여 관심 있는 데이터만 표시 합니다. 국가/지역, Azure 라이선스 유형, 상업적 마켓플레이스 라이선스 유형, 제안 유형, 주문 상태, 무료 내역, 상업적 marketplace 구독 ID, 고객 ID 및 회사 이름으로 필터링 합니다.
-- SaaS는 Azure Marketplace 또는 Microsoft AppSource를 통해 구매한 경우 Azure 구독이 필요 하지 않으므로 마켓플레이스 구독 ID는 **자세한 주문 데이터** 섹션의 00000000-0000-0000-0000-000000000000 형식으로 표시 됩니다.
 - 보호 된 고객이 주문을 구매 하면 **자세한 데이터 주문** 정보가 마스킹 됩니다 (* * * * * * * * * * * *).
 
 **_표 1: 데이터 용어 _ 사전_*
 
 | 열 이름 | 특성 이름 | 정의 |
 | ------------ | ------------- | ------------- |
-| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. ID는 이전에 Azure 구독 GUID였습니다. |
+| Marketplace 구독 Id | Marketplace 구독 ID | 고객이 상용 마켓플레이스 제품을 구매 하는 데 사용한 Azure 구독과 연결 된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. Saas 제품의 경우 SaaS 구매에는 Azure 구독이 필요 하지 않으므로 0으로 표시 됩니다. |
 | MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. |
 | 제품 유형 | 제품 유형 | 상용 marketplace 제품의 유형입니다. |
 | Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>클라우드 솔루션 공급자</li><li>Enterprise</li><li>대리점을 통해 엔터프라이즈</li><li>종 량 제</li></ul> |

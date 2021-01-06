@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169937"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955589"
 ---
-# <a name="public-ip-addresses"></a>공용 IP 주소
+# <a name="public-ip-addresses"></a>퍼블릿 IP 주소
 
 공용 IP 주소를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 공용 IP 주소를 사용 하면 Azure 리소스가 인터넷 및 공용 Azure 서비스와 통신할 수 있습니다. 주소는 사용자가 할당을 해제 하기 전까지 리소스 전용입니다. 공용 IP가 할당 되지 않은 리소스는 아웃 바운드 통신할 수 있습니다. Azure는 리소스 전용으로 사용 가능한 IP 주소를 동적으로 할당 합니다. Azure에서 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -46,7 +46,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 >[!IMPORTANT]
 > 부하 분산 장치 및 공용 IP 리소스에 대해 일치 하는 Sku가 필요 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
-### <a name="standard"></a>Standard
+### <a name="standard"></a>표준
 
 표준 SKU 공용 IP 주소:
 
@@ -55,6 +55,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 - 기본적으로 안전 하 게 보호 하 고 인바운드 트래픽에 대해 닫힘. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용 하 여 인바운드 트래픽 나열을 허용 합니다.
 - 네트워크 인터페이스, 표준 공용 부하 분산 장치 또는 응용 프로그램 게이트웨이에 할당 됩니다. 표준 부하 분산 장치에 대 한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
 - 영역 중복 (모든 3 개 영역에서 advertized) 또는 영역 (특정 가용성 영역에서 영역을 만들고 보장할 수 있음) 일 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 Ip는 [3 개의 가용성 영역이 있는 지역](https://docs.microsoft.com/azure/availability-zones/az-region) 에서만 만들 수 있습니다.** 영역을 라이브 상태로 만들기 전에 만들어진 Ip는 영역 중복이 아닙니다.
+- [영역 간 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) (미리 보기 기능)의 애니캐스트 프런트 엔드 ip로 사용할 수 있습니다.
  
 > [!NOTE]
 > [네트워크 보안 그룹](security-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.

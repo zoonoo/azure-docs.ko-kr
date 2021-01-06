@@ -5,12 +5,12 @@ ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 746ec7aa3ee41204e051e843ff94ed0771a9d244
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: e37a14b2634395d7f31565d6d5a6f6ec96a4a2f1
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326185"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954529"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure Portal에서 첫 번째 Azure Function을 만듭니다.
 
@@ -61,7 +61,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
     ![Azure Portal에서 함수 URL 복사](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `?name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<your_name>` 쿼리 문자열 값을 이 URL의 마지막에 추가하고 Enter 키를 눌러 요청을 실행합니다. 
 
     다음 예에서는 브라우저의 응답을 보여 줍니다.
 

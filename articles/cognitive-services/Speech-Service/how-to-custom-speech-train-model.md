@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857378"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955198"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -48,6 +48,11 @@ ms.locfileid: "97857378"
 
 Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-to-custom-speech-evaluate-data.md) 참조 하세요. 정확도를 테스트 하도록 선택 하는 경우 모델에서 사용 하는 것과 다른 음향 데이터 집합을 선택 하 여 모델의 성능을 사실적으로 파악 하는 것이 중요 합니다.
 
+> [!NOTE]
+> 기본 모델과 사용자 지정 모델은 모두 특정 날짜 까지만 사용할 수 있습니다 ( [모델 수명 주기](custom-speech-overview.md#model-lifecycle)참조). Speech Studio는 각 모델 및 끝점에 대 한 **만료** 열에이 날짜를 표시 합니다. 끝점 또는 일괄 처리에 대 한 해당 날짜 요청이 실패 하거나 기본 모델로 대체 될 수 있습니다.
+>
+> 가장 최근의 기본 모델을 사용 하 여 모델을 다시 학습 하 여 정확성 향상을 활용 하 고 모델이 만료 되는 것을 방지 합니다.
+
 ## <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
 데이터를 업로드 및 검사 하 고 정확도를 평가 하 고 사용자 지정 모델을 학습 한 후에는 앱, 도구 및 제품과 함께 사용할 사용자 지정 끝점을 배포할 수 있습니다. 
@@ -63,7 +68,7 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 다음 **만들기** 를 선택합니다. 이 작업을 수행 하면 **배포** 페이지로 돌아갑니다. 이제 테이블에 사용자 지정 끝점에 해당 하는 항목이 포함 됩니다. 끝점의 상태는 현재 상태를 표시 합니다. 사용자 지정 모델을 사용 하 여 새 끝점을 인스턴스화하는 데 최대 30 분 정도 걸릴 수 있습니다. 배포 상태가 **완료** 로 변경 되 면 끝점을 사용할 준비가 된 것입니다.
 
-끝점이 배포 된 후에는 끝점 이름이 링크로 표시 됩니다. 끝점 키, 끝점 URL 및 샘플 코드와 같이 끝점과 관련 된 정보를 보려면 링크를 선택 합니다.
+끝점이 배포 된 후에는 끝점 이름이 링크로 표시 됩니다. 끝점 키, 끝점 URL 및 샘플 코드와 같이 끝점과 관련 된 정보를 보려면 링크를 선택 합니다. 만료 날짜를 기록 하 고이 날짜 이전에 끝점의 모델을 업데이트 하 여 중단 없는 서비스를 확인 합니다.
 
 ## <a name="view-logging-data"></a>로깅 데이터 보기
 
@@ -75,7 +80,7 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 * [사용자 지정 모델을 사용 하는 방법 알아보기](how-to-specify-source-language.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)

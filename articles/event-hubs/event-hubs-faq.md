@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96002796"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955419"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -153,7 +153,7 @@ Event Hubs 전용 클러스터를 설정 하는 방법에 대 한 단계별 지�
 ## <a name="partitions"></a>파티션
 
 ### <a name="how-many-partitions-do-i-need"></a>얼마나 많은 파티션이 필요한가요?
-파티션 수는 생성 시 지정 되며 1에서 32 사이 여야 합니다. 파티션 수는 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
+파티션 수는 만들 때 지정되며 1과 32 사이여야 합니다. [전용 계층](event-hubs-dedicated-overview.md)을 제외 하 고 모든 계층에서 파티션 수를 변경할 수 없으므로 파티션 수를 설정할 때 장기적인 규모를 고려해 야 합니다. 파티션은 애플리케이션을 사용하는 데 필요한 다운스트림 병렬 처리와 관련된 데이터 구성 메커니즘입니다. Event Hub의 파티션 수는 예상되는 동시 판독기의 수와 직접적으로 관련이 있습니다. 파티션에 대한 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
 
 만들 때 가장 높은 값(32)으로 설정할 수 있습니다. 두 개 이상의 파티션이 있는 경우 전송자가 32개 중에서 단일 파티션으로만 전송하도록 구성하여 나머지 31개 파티션이 중복되도록 하지 않는 한, 두 개 이상의 파티션이 순서를 유지하지 않으면서 여러 파티션으로 이벤트가 전송됩니다. 전자의 경우에는 모든 32개 파티션에서 이벤트를 읽어야 합니다. 후자의 경우에는 이벤트 프로세서 호스트에서 수행해야 하는 추가 구성에 대한 명확한 추가 비용이 발생하지 않습니다.
 

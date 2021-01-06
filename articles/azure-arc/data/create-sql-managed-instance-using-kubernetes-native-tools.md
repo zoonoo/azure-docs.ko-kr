@@ -9,18 +9,18 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2902274cfff11ac256459abd4fe0378146ee067b
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: dde2794e459e9375a231b7792bc1bd5ab21561bf
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280180"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955232"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Kubernetes tools를 사용 하 여 Azure SQL 관리 되는 인스턴스 만들기
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Arc data controller](./create-data-controller.md)를 이미 만들어야 합니다.
 
@@ -34,7 +34,7 @@ SQL 관리 되는 인스턴스를 만들려면 시스템 관리자 로그인 및
 
 ## <a name="create-a-yaml-file"></a>Yaml 파일 만들기
 
-[템플릿 yaml](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/sqlmi.yaml) 파일을 시작 지점으로 사용 하 여 사용자 지정 SQL 관리 되는 인스턴스 yaml 파일을 만들 수 있습니다.  이 파일을 로컬 컴퓨터에 다운로드 하 여 텍스트 편집기에서 엽니다.  Lint 등의 텍스트 [VS Code](https://code.visualstudio.com/download) 편집기를 사용 하 여 구문 강조 표시를 지원 하 고 yaml 파일에 대해를 사용 하는 것이 유용 합니다.
+[템플릿 yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/sqlmi.yaml) 파일을 시작 지점으로 사용 하 여 사용자 지정 SQL 관리 되는 인스턴스 yaml 파일을 만들 수 있습니다.  이 파일을 로컬 컴퓨터에 다운로드 하 여 텍스트 편집기에서 엽니다.  Lint 등의 텍스트 [VS Code](https://code.visualstudio.com/download) 편집기를 사용 하 여 구문 강조 표시를 지원 하 고 yaml 파일에 대해를 사용 하는 것이 유용 합니다.
 
 예제 yaml 파일입니다.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895641"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954144"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용 하 여 공용 IP 주소 만들기
 
@@ -36,6 +36,7 @@ ms.locfileid: "95895641"
     | ---                     | ---                         |
     | IP 버전              | IPv4 선택                 |    
     | SKU                     | **표준** 선택         |
+    | 계층 (표시 된 경우)                  | **지역** 선택         |
     | Name                    | *Mystandardzrpublicip* 를 입력 합니다.          |
     | IP 주소 할당   | 이는 "정적"으로 잠깁니다.                                        |
     | 유휴 시간 제한 (분)  | 값을 4로 그대로 둡니다.        |
@@ -46,6 +47,8 @@ ms.locfileid: "95895641"
     | 가용성 영역       | **영역 중복** 을 선택 하거나 특정 영역을 선택 합니다 (아래 참고 참조). |
 
 이러한 항목은 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones)있는 지역 에서만 유효 합니다.  이러한 지역에서 특정 영역을 선택할 수도 있지만 영역 오류에 대 한 복원 력이는 없습니다.
+
+\* = 계층은 현재 미리 보기로 제공 되는 [지역 간 Load Balancer](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) 기능과 관련이 있습니다.
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-create-public-ip-basic)
 
