@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 7dbaa8712e09de9084e2bcb66d43f2181af292a0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033037"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936841"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -113,7 +113,7 @@ Application Insights를 사용 하 여 원격 분석 데이터를 장기 저장�
 
 ‘이 기능은 미리 보기로 제공됩니다.’ 
 
-[Azure Functions 크기 조정 컨트롤러](./functions-scale.md#runtime-scaling) 는 앱이 실행 되는 Azure Functions 호스트의 인스턴스를 모니터링 합니다. 이 컨트롤러는 현재 성능에 따라 인스턴스를 추가 하거나 제거할 시기에 대 한 결정을 내립니다. 크기 조정 컨트롤러는 함수 앱에 대 한 크기 조정 컨트롤러의 결정을 보다 잘 이해 하기 위해 Application Insights 하기 위해 로그를 내보낼 수 있습니다. 다른 서비스에서 분석을 위해 생성 된 로그를 Blob 저장소에 저장할 수도 있습니다. 
+[Azure Functions 크기 조정 컨트롤러](./event-driven-scaling.md#runtime-scaling) 는 앱이 실행 되는 Azure Functions 호스트의 인스턴스를 모니터링 합니다. 이 컨트롤러는 현재 성능에 따라 인스턴스를 추가 하거나 제거할 시기에 대 한 결정을 내립니다. 크기 조정 컨트롤러는 함수 앱에 대 한 크기 조정 컨트롤러의 결정을 보다 잘 이해 하기 위해 Application Insights 하기 위해 로그를 내보낼 수 있습니다. 다른 서비스에서 분석을 위해 생성 된 로그를 Blob 저장소에 저장할 수도 있습니다. 
 
 이 기능을 사용 하도록 설정 하려면 라는 응용 프로그램 설정을 `SCALE_CONTROLLER_LOGGING_ENABLED` 함수 앱 설정에 추가 합니다. 방법을 알아보려면 [크기 조정 컨트롤러 로그 구성](configure-monitoring.md#configure-scale-controller-logs)을 참조 하세요.
 

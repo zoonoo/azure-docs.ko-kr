@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: ca5f237585f74225a04091b5694dbfad12864332
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 555709776c88dd3003e400bbcefe2ec1cfa0f4af
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656039"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934172"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
@@ -68,9 +68,9 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 ## <a name="language-analyzer-list"></a>언어 분석기 목록 
  다음은 Lucene 및 Microsoft 분석기 이름으로 지원되는 언어의 목록입니다.  
 
-| 언어 | Microsoft 분석기 이름 | Lucene 분석기 이름 |  |
-|--|--|--|--|
-| 아랍어 | ar.microsoft | ar.lucene |  |
+| 언어 | Microsoft 분석기 이름 | Lucene 분석기 이름 |
+|--|--|--|
+| 아랍어 | ar.microsoft | ar.lucene |
 | 아르메니아어 |  | hy.lucene |  |
 | 벵골어 | bn.microsoft |  |  |
 | 바스크어 |  | eu.lucene |  |
@@ -129,7 +129,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 + [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](/rest/api/searchservice/create-index)  
 

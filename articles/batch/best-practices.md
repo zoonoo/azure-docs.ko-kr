@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694182"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934291"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -24,6 +24,9 @@ ms.locfileid: "97694182"
 ### <a name="pool-configuration-and-naming"></a>풀 구성 및 이름 지정
 
 - **풀 할당 모드** Batch 계정을 만들 때 **Batch 서비스** 및 **사용자 구독** 의 두 가지 풀 할당 모드 중에서 선택할 수 있습니다. 대부분의 경우 풀이 Batch 관리형 구독에서 내부적으로 할당되는 기본 Batch 서비스를 사용해야 합니다. 대체 사용자 구독 모드인 경우 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. 사용자 구독 계정은 주로 시나리오의 중요하지만 작은 하위 세트를 사용하도록 설정하는 데 사용됩니다. 사용자 구독 모드에 대한 자세한 내용은 [사용자 구독 모드에 대한 추가 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)에서 확인할 수 있습니다.
+
+- **' cloudServiceConfiguration ' 또는 ' virtualMachineConfiguration '입니다.**
+    ' virtualMachineConfiguration '을 사용 해야 합니다. 모든 Batch 기능은 ' virtualMachineConfiguration ' 풀에서 지원 됩니다. 모든 기능이 ' cloudServiceConfiguration ' 풀에 대해 지원 되는 것은 아니므로 새 기능을 계획 하 고 있지 않습니다.
 
 - **작업-풀 매핑을 결정할 때 작업 및 태스크 실행 시간을 고려합니다.**
     주로 단기 실행 태스크로 구성된 작업이 있고 예상 총 태스크 수가 작으므로 전체 예상 작업 실행 시간이 길지 않은 경우 새 풀을 각 작업에 할당하지 않습니다. 노드의 할당 시간은 작업 실행 시간을 줄입니다.

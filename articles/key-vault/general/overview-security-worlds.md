@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21deea13aac3d40c452a183c340d3108a1a01f4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81428954"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936331"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault 보안 권역 및 지리적 경계
 
@@ -43,6 +43,3 @@ Azure Key Vault는 다중 테넌트 서비스이며, 각 Azure 위치의 HSM(하
 >예외로, 미국 국방부 동부 및 미국 국방부 중부에는 자체 보안 권역이 있습니다. 
 
 마찬가지로, **유럽** 탭에는 북유럽 및 서유럽이 둘 다 유럽 지역에 매핑되어 있습니다. **아시아 태평양** 탭에서도 마찬가지입니다.
-
-
-

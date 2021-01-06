@@ -3,12 +3,12 @@ title: Azure Batch의 노드 및 풀
 description: 컴퓨팅 노드 및 풀에 대해 살펴보고 개발 관점에서 Azure Batch 워크플로에서 이들을 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243072"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934648"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Azure Batch의 노드 및 풀
 
@@ -63,6 +63,9 @@ Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 컴퓨팅 노�
 ## <a name="configurations"></a>구성
 
 Batch에서 사용할 수 있는 풀 구성에는 두 가지 유형이 있습니다.
+
+> [!IMPORTANT]
+> ' Cloud Services 구성 '이 아니라 ' 가상 컴퓨터 구성 '을 사용 하 여 풀을 구성 해야 합니다. 모든 Batch 기능은 ' 가상 머신 구성 ' 풀에서 지원 되며 새로운 기능이 추가 됩니다. ' Cloud Services 구성 ' 풀은 모든 기능을 지원 하지 않으며 새로운 기능이 계획 되지 않았습니다.
 
 ### <a name="virtual-machine-configuration"></a>가상 머신 구성
 

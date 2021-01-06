@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835077"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935821"
 ---
 # <a name="develop-custom-commands-applications"></a>사용자 지정 명령 응용 프로그램 개발
 
@@ -58,7 +58,7 @@ ms.locfileid: "97835077"
 
 다음 표에서는 명령의 구성 속성에 대해 설명 합니다. 자세한 내용은 [사용자 지정 명령 개념 및 정의](./custom-commands-references.md)를 참조 하세요.
 
-| 구성            | Description                                                                                                                 |
+| 구성            | 설명                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 예제 문장 | 예 길이 발언 사용자가이 명령을 트리거할 수 있습니다.                                                                 |
 | 매개 변수       | 명령을 완료 하는 데 필요한 정보입니다.                                                                                |
@@ -93,7 +93,7 @@ ms.locfileid: "97835077"
 1. 기본 완료 규칙 **완료** 를 선택 합니다. 그런 다음 다음과 같이 편집 합니다.
 
     
-    | 설정    | 제안 값                          | Description                                        |
+    | 설정    | 제안 값                          | 설명                                        |
     | ---------- | ---------------------------------------- | -------------------------------------------------- |
     | **이름**       | `ConfirmationResponse`                  | 규칙의 용도를 설명 하는 이름입니다.          |
     | **조건** | 없음                                     | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
@@ -178,12 +178,12 @@ ms.locfileid: "97835077"
    1. **업데이트** 를 선택합니다.
 
        > [!div class="mx-imgBorder"]
-       > ![필수 매개 변수 응답을 만들 위치를 보여 주는 스크린샷](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![' 단순 편집기 ' 탭이 선택 된 ' 필수 매개 변수에 대 한 응답 추가 ' 섹션을 보여 주는 스크린샷](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. 다음 표를 사용 하 여 매개 변수의 속성을 구성 합니다. 명령의 모든 구성 속성에 대 한 자세한 내용은 [사용자 지정 명령 개념 및 정의](./custom-commands-references.md)를 참조 하세요.
       
 
-       | Configuration      | 제안 값     | Description                                                      |
+       | 구성      | 제안 값     | 설명                                                      |
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **이름**               | `OnOff`           | 매개 변수에 대 한 설명이 포함 된 이름입니다.                                                                           |
        | **전역**          | 선택 취소       | 이 매개 변수의 값이 응용 프로그램의 모든 명령에 전역적으로 적용 되는지 여부를 나타내는 확인란입니다.|
@@ -279,7 +279,7 @@ turn something
 
 `Temperature`매개 변수를 추가 합니다. 다음 구성을 사용합니다.
 
-| Configuration      | 제안 값     |
+| 구성      | 제안 값     |
 | ------------------ | ----------------|
 | **이름**               | `Temperature`           |
 | **필수**           | 선택됨         |
@@ -298,7 +298,7 @@ change the temperature
 
 기존 완료 규칙을 편집 합니다. 다음 구성을 사용 합니다.
 
-| Configuration      | 제안 값     |
+| 구성      | 제안 값     |
 | ------------------ | ----------------|
 | **조건**         | **필수 매개 변수**  >  **온도**           |
 | **actions**           | **음성 응답 보내기** > `Ok, setting temperature to {Temperature} degrees` |
@@ -425,7 +425,7 @@ URL에 대해 제안 된 값이 작동 하지 않으면 제어할 수 있는 장
 1. **새 유효성 검사** 창에서 다음 표와 같이 유효성 검사를 구성 합니다. 그런 다음 **만들기** 를 선택합니다.
 
 
-    | 매개 변수 구성 | 제안 값 | Description |
+    | 매개 변수 구성 | 제안 값 | 설명 |
     | ---- | ---- | ---- |
     | **최소 값** | `60` | Number 매개 변수의 경우이 매개 변수에서 가정할 수 있는 최소 값입니다. |
     | **최 댓 값** | `80` | Number 매개 변수의 경우이 매개 변수에서 가정할 수 있는 최대 값입니다. |

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f7a0190d664e3330d2a6205014c00c61c1183dd3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445186"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936246"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
@@ -41,7 +41,7 @@ Azure RBAC 모델은 관리 그룹, 구독, 리소스 그룹 또는 개별 리�
 
 Azure Key Vault 관리 지침에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Azure Key Vault 모범 사례](best-practices.md)
+- [Azure Key Vault 보안 개요](security-overview.md)
 - [Azure Key Vault 서비스 제한 사항](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Key Vault 데이터 평면 작업을 위한 Azure 기본 제공 역할 (미리 보기)

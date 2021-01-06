@@ -3,12 +3,12 @@ title: 템플릿의 매개 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 매개 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 4ac1aeb579040b35b2a9b4cb90fb5687f91ebd3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 929d871bc0087d4fda585773b349dee4e0945c7c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353513"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934716"
 ---
 # <a name="parameters-in-arm-templates"></a>ARM 템플릿의 매개 변수
 
@@ -20,7 +20,7 @@ ms.locfileid: "96353513"
 
 ## <a name="define-parameter"></a>매개 변수 정의
 
-다음 예제에서는 간단한 매개 변수 정의를 보여 줍니다. **StorageSKU** 라는 매개 변수를 정의 합니다. 매개 변수는 문자열 값 이며 원래 용도에 적합 한 값만 허용 합니다. 배포 중에 값이 제공 되지 않는 경우 매개 변수는 기본값을 사용 합니다.
+다음 예제에서는 간단한 매개 변수 정의를 보여 줍니다. 이라는 매개 변수를 정의 `storageSKU` 합니다. 매개 변수는 문자열 값 이며 원래 용도에 적합 한 값만 허용 합니다. 배포 중에 값이 제공 되지 않는 경우 매개 변수는 기본값을 사용 합니다.
 
 ```json
 "parameters": {

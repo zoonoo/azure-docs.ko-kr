@@ -3,12 +3,12 @@ title: 템플릿의 사용자 정의 함수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용자 정의 함수를 정의 하 고 사용 하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 12199aca788438e4558ed2c607b866f0dc723e2a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436966"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934682"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>ARM 템플릿의 사용자 정의 함수
 
@@ -44,7 +44,7 @@ ms.locfileid: "96436966"
 
 ## <a name="use-the-function"></a>함수 사용
 
-다음 예에서는 사용자 정의 함수를 포함 하는 템플릿을 보여 줍니다. 이 함수는 해당 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 가져옵니다. 템플릿에는 함수에 매개 변수로 전달 되는 **storageNamePrefix** 라는 매개 변수가 있습니다.
+다음 예에서는 사용자 정의 함수를 포함 하는 템플릿을 보여 줍니다. 이 함수는 해당 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 가져옵니다. 템플릿에는 `storageNamePrefix` 함수에 매개 변수로 전달 하는 라는 매개 변수가 있습니다.
 
 ```json
 {

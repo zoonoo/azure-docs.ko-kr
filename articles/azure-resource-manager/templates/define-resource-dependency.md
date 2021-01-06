@@ -1,24 +1,24 @@
 ---
 title: 리소스의 배포 순서 설정
-description: 배포 중에 다른 리소스에 종속 되는 리소스를 설정 하는 방법을 설명 합니다. 종속성은 리소스를 올바른 순서로 배포 하는지 확인 합니다.
+description: 배포 중에 다른 리소스에 종속 된 Azure 리소스를 설정 하는 방법을 설명 합니다. 종속성은 리소스를 올바른 순서로 배포 하는지 확인 합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722014"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934750"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에서 리소스를 배포 하는 순서 정의
 
-리소스를 배포할 때 일부 리소스가 다른 리소스 보다 먼저 존재 하는지 확인 해야 할 수 있습니다. 예를 들어 데이터베이스를 배포 하기 전에 논리 SQL server가 필요 합니다. 한 리소스를 다른 리소스에 종속 된 것으로 표시 하 여이 관계를 설정 합니다. **DependsOn** 요소를 사용 하 여 명시적 종속성을 정의 합니다. **참조** 또는 **목록** 함수를 사용 하 여 암시적 종속성을 정의 합니다.
+리소스를 배포할 때 일부 리소스가 다른 리소스 보다 먼저 존재 하는지 확인 해야 할 수 있습니다. 예를 들어 데이터베이스를 배포 하기 전에 논리 SQL server가 필요 합니다. 한 리소스를 다른 리소스에 종속 된 것으로 표시 하 여이 관계를 설정 합니다. 요소를 사용 `dependsOn` 하 여 명시적 종속성을 정의 합니다. **참조** 또는 **목록** 함수를 사용 하 여 암시적 종속성을 정의 합니다.
 
-Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 동일한 템플릿에 배포되는 리소스에 대한 종속성만 정의하면 됩니다.
+Azure Resource Manager는 리소스 간의 종속성을 평가 하 고 종속 순서로 배포 합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 동일한 템플릿에 배포되는 리소스에 대한 종속성만 정의하면 됩니다.
 
 ## <a name="dependson"></a>dependsOn
 
-템플릿 내에서 dependsOn 요소를 사용하면 하나의 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 해당 값은 각각 리소스 이름 또는 ID 인 문자열의 JSON 배열입니다. 배열에는 [조건부로 배포](conditional-resource-deployment.md)되는 리소스가 포함 될 수 있습니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
+Azure Resource Manager 템플릿 (ARM 템플릿) 내에서 요소를 사용 하 여 하나 이상의 `dependsOn` 리소스에 종속 된 하나의 리소스를 정의할 수 있습니다. 해당 값은 각각 리소스 이름 또는 ID 인 문자열의 JavaScript Object Notation (JSON) 배열입니다. 배열에는 [조건부로 배포](conditional-resource-deployment.md)되는 리소스가 포함 될 수 있습니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
 
 다음 예제에서는 가상 네트워크, 네트워크 보안 그룹 및 공용 IP 주소에 따라 달라 지는 네트워크 인터페이스를 보여 줍니다. 전체 템플릿은 [LINUX VM에 대 한 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json)을 참조 하세요.
 
@@ -37,11 +37,11 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 }
 ```
 
-dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 수 있지만 왜 그렇게 하는지에 대한 이유를 이해하는 것이 중요합니다. 예를 들어, 리소스가 상호 연결되는 방식을 문서화하려면, dependsOn은 올바른 접근 방법이 아닙니다. 배포 후 dependsOn 요소에 어떤 리소스가 정의되었는지 쿼리할 수 없습니다. 리소스 관리자은 해당 리소스를 병렬로 배포할 수 없으므로 불필요 한 종속성을 설정 하면 배포 시간이 느려집니다.
+쉬운데를 사용 하 여 리소스 간의 관계를 매핑하는 것은 아니지만 `dependsOn` 이 작업을 수행 하는 이유를 이해 하는 것이 중요 합니다. 예를 들어 리소스를 상호 연결 하는 방법을 문서화 하려면 `dependsOn` 적절 한 방법이 아닙니다. 배포 후 요소에 정의 된 리소스는 쿼리할 수 없습니다 `dependsOn` . 리소스 관리자은 해당 리소스를 병렬로 배포할 수 없으므로 불필요 한 종속성을 설정 하면 배포 시간이 느려집니다.
 
 ## <a name="child-resources"></a>자식 리소스
 
-[자식 리소스](child-resource-name-type.md) 와 부모 리소스 간에는 암시적 배포 종속성이 자동으로 생성 되지 않습니다. 부모 리소스 뒤에 자식 리소스를 배포 해야 하는 경우 dependsOn 속성을 설정 합니다.
+[자식 리소스](child-resource-name-type.md) 와 부모 리소스 간에는 암시적 배포 종속성이 자동으로 생성 되지 않습니다. 부모 리소스 뒤에 자식 리소스를 배포 해야 하는 경우 속성을 설정 `dependsOn` 합니다.
 
 다음 예에서는 논리 SQL server 및 데이터베이스를 보여 줍니다. 데이터베이스가 서버의 자식인 경우에도 데이터베이스와 서버 간에 명시적 종속성이 정의 되어 있는지 확인 합니다.
 
@@ -85,13 +85,13 @@ dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 �
 
 암시적 종속성을 적용 하려면 리소스 ID가 아닌 이름별로 리소스를 참조 하세요. 리소스 ID를 reference 또는 list 함수로 전달하는 경우 암시적 참조가 생성되지 않습니다.
 
-reference 함수의 일반 형식은 다음과 같습니다.
+함수의 일반적인 형식은 `reference` 다음과 같습니다.
 
 ```json
 reference('resourceName').propertyPath
 ```
 
-listKeys 함수의 일반 형식은 다음과 같습니다.
+함수의 일반적인 형식은 `listKeys` 다음과 같습니다.
 
 ```json
 listKeys('resourceName', 'yyyy-mm-dd')
@@ -165,7 +165,7 @@ listKeys('resourceName', 'yyyy-mm-dd')
 }
 ```
 
-다음 예제에서는 가상 컴퓨터를 배포 하기 전에 저장소 계정 3 개를 배포 하는 방법을 보여 줍니다. Copy 요소의 이름이로 설정 되어 `storagecopy` 있고 가상 컴퓨터에 대 한 dependsOn 요소도로 설정 되어 있는지 확인 합니다 `storagecopy` .
+다음 예제에서는 가상 컴퓨터를 배포 하기 전에 저장소 계정 3 개를 배포 하는 방법을 보여 줍니다. `copy`요소가 `name` 로 설정 되어 `storagecopy` 있고 `dependsOn` 가상 컴퓨터의 요소도로 설정 되어 있는지 확인 `storagecopy` 합니다.
 
 ```json
 {
@@ -213,10 +213,9 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자습서를 살펴보려면 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](template-tutorial-create-templates-with-dependent-resources.md)를 참조하세요.
+* 자습서를 진행 하려면 [자습서: 종속 리소스를 사용 하 여 ARM 템플릿 만들기](template-tutorial-create-templates-with-dependent-resources.md)를 참조 하세요.
 * 리소스 종속성을 포함 하는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.
-* 종속성을 설정할 때의 권장 사항은 [Azure Resource Manager 템플릿 모범 사례](template-best-practices.md)를 참조하세요.
+* 종속성 설정 시 권장 사항은 [ARM 템플릿 모범 사례](template-best-practices.md)를 참조 하세요.
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
-* Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](template-syntax.md)을 참조하세요.
-* 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](template-functions.md)를 참조하세요.
-
+* Azure Resource Manager 템플릿을 만드는 방법에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 템플릿에서 사용할 수 있는 함수 목록은 [ARM 템플릿 함수](template-functions.md)를 참조 하세요.

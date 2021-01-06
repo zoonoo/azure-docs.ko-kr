@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837541"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935770"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>조건부 액세스: 보안 정보 등록 보호
 
@@ -61,7 +61,7 @@ ms.locfileid: "94837541"
 
 > [!WARNING]
 > 정책에서 디바이스 상태를 조건으로 사용하는 경우 디렉터리의 게스트 사용자에게 영향을 줄 수 있습니다. [보고서 전용 모드](concept-conditional-access-report-only.md)를 사용하면 정책 결정의 영향을 확인하는 데 도움이 됩니다.
-> "사용자 작업" 범위의 CA 정책에는 보고서 전용 모드를 적용할 수 없습니다.
+> 보고서 전용 모드는 "사용자 작업" 범위를 사용 하는 조건부 액세스 정책에는 적용 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

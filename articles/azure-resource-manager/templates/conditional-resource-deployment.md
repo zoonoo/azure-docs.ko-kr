@@ -3,12 +3,12 @@ title: 템플릿을 사용한 조건부 배포
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672851"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934784"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>ARM 템플릿의 조건부 배포
 
@@ -19,7 +19,7 @@ ms.locfileid: "97672851"
 
 ## <a name="new-or-existing-resource"></a>신규 또는 기존 리소스
 
-조건부 배포를 사용 하 여 새 리소스를 만들거나 기존 리소스를 사용할 수 있습니다. 다음 예제에서는 조건을 사용 하 여 새 저장소 계정을 배포 하거나 기존 저장소 계정을 사용 하는 방법을 보여 줍니다.
+조건부 배포를 사용 하 여 새 리소스를 만들거나 기존 리소스를 사용할 수 있습니다. 다음 예에서는를 사용 하 여 `condition` 새 저장소 계정을 배포 하거나 기존 저장소 계정을 사용 하는 방법을 보여 줍니다.
 
 ```json
 {
@@ -36,7 +36,7 @@ ms.locfileid: "97672851"
 }
 ```
 
-**Neworexisting** 매개 변수가 **new** 로 설정 된 경우 조건은 true로 평가 됩니다. 저장소 계정이 배포 됩니다. 그러나 **Neworexisting** 이 **기존** 으로 설정 된 경우 조건이 false로 평가 되 고 저장소 계정이 배포 되지 않습니다.
+매개 변수가 `newOrExisting` **new** 로 설정 되 면 조건이 true로 평가 됩니다. 저장소 계정이 배포 됩니다. 그러나 `newOrExisting` 이 (가) **기존** 으로 설정 된 경우 조건이 false로 평가 되 고 저장소 계정이 배포 되지 않습니다.
 
 `condition` 요소를 사용하는 전체 예제 템플릿은 [신규 또는 기존 가상 네트워크, 스토리지 및 공용 IP를 사용하는 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)을 참조하세요.
 
@@ -80,13 +80,13 @@ ms.locfileid: "97672851"
 
 조건부로 배포 되는 리소스에 [참조](template-functions-resource.md#reference) 또는 [목록](template-functions-resource.md#list) 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다.
 
-[If](template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. If 및 reference를 조건부로 배포된 리소스와 함께 사용하는 샘플 템플릿에 대해서는 [if 함수](template-functions-logical.md#if)를 참조하세요.
+[If](template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. [](template-functions-logical.md#if) `if` `reference` 조건적으로 배포 된 리소스와 함께 및를 사용 하는 샘플 템플릿은 if 함수를 참조 하세요.
 
 리소스를 다른 리소스와 동일 하 게 조건부 리소스에 [종속 된 것으로](define-resource-dependency.md) 설정 합니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
 
 ## <a name="complete-mode"></a>전체 모드
 
-[전체 모드](deployment-modes.md) 를 사용 하 여 템플릿을 배포 하 고 조건이 false로 평가 되므로 리소스가 배포 되지 않은 경우 결과는 템플릿을 배포 하는 데 사용 하는 REST API 버전에 따라 달라 집니다. 2019-05-10 이전 버전을 사용 하는 경우 리소스는 **삭제 되지 않습니다**. 2019-05-10 이상에서는 리소스가 **삭제 됩니다**. 최신 버전의 Azure PowerShell 하 고 조건이 false 인 경우 리소스를 삭제 Azure CLI.
+[전체 모드](deployment-modes.md) 를 사용 하 여 템플릿을 배포 하는 경우가 false로 평가 되므로 리소스가 배포 되지 않은 경우에 `condition` 는 템플릿을 배포 하는 데 사용 하는 REST API 버전에 따라 결과가 달라 집니다. 2019-05-10 이전 버전을 사용 하는 경우 리소스는 **삭제 되지 않습니다**. 2019-05-10 이상에서는 리소스가 **삭제 됩니다**. 최신 버전의 Azure PowerShell 하 고 조건이 false 인 경우 리소스를 삭제 Azure CLI.
 
 ## <a name="next-steps"></a>다음 단계
 

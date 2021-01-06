@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924427"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936127"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
 
@@ -148,7 +148,7 @@ Azure Logic Apps 미리 보기에는 다음과 같은 많은 최신 기능과 �
 
 Azure Portal에서 새 논리 앱 유형을 만들거나 Visual Studio Code에서 배포 하는 경우 논리 앱에서 사용할 호스팅 계획 ( [App Service 또는 프리미엄](../azure-functions/functions-scale.md))을 선택 해야 합니다. 이 계획은 논리 앱 실행에 적용 되는 가격 책정 모델을 결정 합니다. App Service 계획을 선택 하는 경우 [가격 책정 계층](../app-service/overview-hosting-plans.md)도 선택 해야 합니다.
 
-*상태 저장* 워크플로는 [외부 저장소](../azure-functions/functions-scale.md#storage-account-requirements)를 사용 하므로 Azure Logic Apps 미리 보기 런타임에서 수행 하는 저장소 트랜잭션에 [Azure Storage 가격이](https://azure.microsoft.com/pricing/details/storage/) 적용 됩니다. 예를 들어 큐는 일정에 사용 되는 반면 테이블 및 blob은 워크플로 상태를 저장 하는 데 사용 됩니다.
+*상태 저장* 워크플로는 [외부 저장소](../azure-functions/storage-considerations.md#storage-account-requirements)를 사용 하므로 Azure Logic Apps 미리 보기 런타임에서 수행 하는 저장소 트랜잭션에 [Azure Storage 가격이](https://azure.microsoft.com/pricing/details/storage/) 적용 됩니다. 예를 들어 큐는 일정에 사용 되는 반면 테이블 및 blob은 워크플로 상태를 저장 하는 데 사용 됩니다.
 
 > [!NOTE]
 > 공개 미리 보기 중에 App Service에서 논리 앱을 실행 하면 선택한 계획 위에 *추가* 요금이 발생 하지 않습니다.
@@ -172,7 +172,7 @@ Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 
   > [!NOTE]
   > Visual Studio Code에서 로컬로 실행 하려면 웹 후크 기반 트리거 및 작업에 추가 설정이 필요 합니다. 자세한 내용은 [Visual Studio Code에서 상태 저장 및 상태 비저장 워크플로 만들기](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup)를 참조 하세요.
 
-  * *상태 비저장 워크플로의* 경우 트리거가 [아니라 관리 되는 커넥터 *actions*](../connectors/apis-list.md#managed-api-connectors)작업만 선택할 수 있으므로 트리거를 선택 하면 **Azure** 탭이 나타나지 않습니다. 상태 비저장 워크플로에 대해 Azure에서 배포 된 관리 되는 커넥터를 사용 하도록 설정할 수 있지만, 사용자가 추가할 수 있는 관리 되는 커넥터 트리거가 디자이너에 표시 되지 않습니다.
+  * *상태 비저장 워크플로의* 경우 트리거가 [아니라 관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)작업만 선택할 수 있으므로 트리거를 선택 하면 **Azure** 탭이 나타나지 않습니다. 상태 비저장 워크플로에 대해 Azure에서 배포 된 관리 되는 커넥터를 사용 하도록 설정할 수 있지만, 사용자가 추가할 수 있는 관리 되는 커넥터 트리거가 디자이너에 표시 되지 않습니다.
 
   * 아래에서 사용할 수 없는 것으로 표시 된 트리거 및 작업 외에도 *상태 저장 워크플로의* 경우에 [는 관리 되는 커넥터 트리거와 작업](../connectors/apis-list.md#managed-api-connectors) 을 모두 사용할 수 있습니다.
 

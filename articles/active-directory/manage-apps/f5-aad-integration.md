@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e011417b936ed83b4658e6dad25bf8e8ee88aed
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: b5c960c7fbcc29d0aaea7511ba2187c916e84ab3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96318029"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935243"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위한 F5 빅 IP 액세스 정책 관리자 및 Azure Active Directory 통합
 
@@ -37,7 +37,7 @@ Azure AD에서 대규모 IP 게시 된 서비스에 대 한 사전 인증 액세
 
 - [누출 자격 증명 검색](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks)
 
-- [SSPR(셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
+- [SSPR (셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
 
 - [파트너 공동 작업](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users) -관리 되는 게스트 액세스를 위한 자격 관리
 
@@ -67,11 +67,11 @@ Azure AD와 통합 하는 데 필요한 큰 IP의 기능을 통해 [암호 없�
 
 ![상위 수준 아키텍처를 보여 주는 이미지](./media/f5-aad-integration/integration-flow-diagram.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |:------|:-----------|
 | 1. | 사용자가 포털에서 응용 프로그램 아이콘을 선택 하 여 SAML SP (빅 IP)에 대 한 URL을 확인 합니다. |
 | 2. | 사전 인증을 위해 사용자를 SAML IDP (Azure AD)로 리디렉션하는 대규모 IP|
-| 3. | Azure AD는 권한 부여를 위해 CA 정책 및 [세션 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) 을 처리 합니다.|
+| 3. | Azure AD는 권한 부여에 대 한 조건부 액세스 정책 및 [세션 컨트롤](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) 을 처리 합니다.|
 | 4. | 사용자가 Azure AD에서 발급 한 SAML 클레임을 제공 하는 빅 IP로 다시 리디렉션됩니다. |
 | 5. | 큰 IP는 [SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) 및 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 에 포함 될 추가 세션 정보를 게시 된 서비스에 요청 합니다. |
 | 6. | 빅 IP는 클라이언트 요청을 백 엔드 서비스에 전달 합니다.
@@ -100,7 +100,7 @@ Azure AD와 통합 하는 데 필요한 큰 IP의 기능을 통해 [암호 없�
 
 ![이미지에 모니터링 흐름이 표시 됩니다.](media/f5-aad-integration/azure-sentinel.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 F i s h i p s를 Azure AD와 통합 하는 데에는 다음과 같은 필수 구성 요소가 있습니다.
 

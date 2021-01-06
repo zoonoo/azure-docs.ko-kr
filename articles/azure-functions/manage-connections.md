@@ -4,12 +4,12 @@ description: 정적 연결 클라이언트를 사용하여 Azure Functions에서
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 53848e6273cf59439d44b431652981b18bdd5ba6
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: ec16ce3e7f9793be2a012a029bcca31c9a7ea4cf
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755959"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936705"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "97755959"
 
 함수 앱은 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)에서 실행 되므로 사용 가능한 연결 수는 부분적으로 제한 됩니다. 샌드박스에서 코드에 적용 하는 제한 사항 중 하나는 현재 인스턴스당 600 활성 (총 1200) 연결 인 아웃 바운드 연결 수에 대 한 제한입니다. 이 한도에 도달 하면 함수 런타임에서는 로그에 다음 메시지를 기록 합니다 `Host thresholds exceeded: Connections` . 자세한 내용은 [함수 서비스 제한](functions-scale.md#service-limits)을 참조 하세요.
 
-이 제한은 인스턴스당입니다. [크기 조정 컨트롤러에서 함수 앱 인스턴스를 추가](functions-scale.md#how-the-consumption-and-premium-plans-work) 하 여 더 많은 요청을 처리 하면 각 인스턴스에 독립적인 연결 제한이 있습니다. 즉, 전역 연결 제한이 없으며 모든 활성 인스턴스에서 600 개가 넘는 활성 연결을 가질 수 있습니다.
+이 제한은 인스턴스당입니다. [크기 조정 컨트롤러에서 함수 앱 인스턴스를 추가](event-driven-scaling.md) 하 여 더 많은 요청을 처리 하면 각 인스턴스에 독립적인 연결 제한이 있습니다. 즉, 전역 연결 제한이 없으며 모든 활성 인스턴스에서 600 개가 넘는 활성 연결을 가질 수 있습니다.
 
 문제를 해결 하려면 함수 앱에 대 한 Application Insights를 사용 하도록 설정 했는지 확인 합니다. Application Insights를 사용 하 여 실행 같은 함수 앱에 대 한 메트릭을 볼 수 있습니다. 자세한 내용은 [Application Insights에서 원격 분석 보기](analyze-telemetry-data.md#view-telemetry-in-application-insights)를 참조 하세요.  
 

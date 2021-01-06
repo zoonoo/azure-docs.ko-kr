@@ -4,19 +4,19 @@ description: 뛰어난 성능과 부하가 뛰어난 Python을 사용 하 여 Az
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3383ec322903d15c6090630890d14ce6d90bc96f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899403"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935872"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Azure Functions에서 Python 앱의 처리량 성능 향상
 
 Python을 사용 하 여 Azure Functions를 개발 하는 경우 함수에서 수행 하는 방식과 함수 앱의 크기를 조정 하는 방법에 대 한 성능 영향을 이해 해야 합니다. 고성능 앱을 디자인할 때 요구 사항이 더 중요 합니다. 함수 앱을 디자인, 작성 및 구성할 때 고려해 야 할 주요 요소는 수평적 크기 조정 및 처리량 성능 구성입니다.
 
 ## <a name="horizontal-scaling"></a>수평 크기 조정
-기본적으로 Azure Functions는 애플리케이션의 부하를 자동으로 모니터링하면서 필요에 따라 Python에 사용할 추가 호스트 인스턴스를 만듭니다. Azure Functions는 여러 트리거 유형에 대해 기본 제공 임계값을 사용 하 여 QueueTrigger의 메시지 보존 기간 및 큐 크기와 같은 인스턴스를 추가할 시기를 결정 합니다. 이러한 임계값은 사용자가 구성할 수 없습니다. 자세한 내용은 [사용 계획 및 프리미엄 계획의 작동 방식](functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조하세요.
+기본적으로 Azure Functions는 애플리케이션의 부하를 자동으로 모니터링하면서 필요에 따라 Python에 사용할 추가 호스트 인스턴스를 만듭니다. Azure Functions는 여러 트리거 유형에 대해 기본 제공 임계값을 사용 하 여 QueueTrigger의 메시지 보존 기간 및 큐 크기와 같은 인스턴스를 추가할 시기를 결정 합니다. 이러한 임계값은 사용자가 구성할 수 없습니다. 자세한 내용은 [Azure Functions 이벤트 기반 크기 조정](event-driven-scaling.md)을 참조 하세요.
 
 ## <a name="improving-throughput-performance"></a>처리량 성능 향상
 

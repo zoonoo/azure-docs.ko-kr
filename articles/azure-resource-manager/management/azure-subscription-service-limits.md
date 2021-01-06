@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4d56c5c3fd33d1cda05e23d5bc53e7540428671b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547851"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934472"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -132,7 +132,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
-자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md#hosting-plans-comparison)를 참조 하세요.
+자세한 내용은 [함수 호스팅 계획 비교](../../azure-functions/functions-scale.md)를 참조 하세요.
 
 ## <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 서비스 제한
 

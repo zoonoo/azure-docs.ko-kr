@@ -3,12 +3,12 @@ title: Azure Backup 용어집
 description: 이 문서에서는 Azure Backup와 함께 사용 하는 데 도움이 되는 용어를 정의 합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 8baa47667e86b99ebbbf273610809814e768c077
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733380"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935073"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
 
@@ -172,7 +172,7 @@ GFS (조부) 백업 정책은 매일 백업 일정 외에 매주, 매월 및 매
 
 ## <a name="instant-restore"></a>즉시 복원
 
-즉시 복원에는 자격 증명 모음에 있는 스냅숏의 복사본이 아니라 백업 스냅숏에서 직접 컴퓨터를 복원 하는 작업이 포함 됩니다. 즉시 복원은 자격 증명 모음에서 복원 하는 것 보다 빠릅니다. 사용 가능한 즉시 복원 지점의 수는 스냅숏에 대해 구성 된 보존 기간에 따라 달라 집니다.
+(작업 관련 용어) 즉시 복원에는 자격 증명 모음에 있는 스냅숏의 복사본이 아니라 백업 스냅숏에서 직접 컴퓨터를 복원 하는 작업이 포함 됩니다. 즉시 복원은 자격 증명 모음에서 복원 하는 것 보다 빠릅니다. 사용 가능한 즉시 복원 지점의 수는 스냅숏에 대해 구성 된 보존 기간에 따라 달라 집니다. 현재 Azure VM 백업에만 적용 됩니다.
 
 ## <a name="iops"></a>IOPS
 
@@ -192,7 +192,7 @@ GFS (조부) 백업 정책은 매일 백업 일정 외에 매주, 매월 및 매
 
 (워크 로드 관련 용어)
 
-Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md)
+Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다. DPM에서 많은 워크 로드 백업 기능을 상속 하지만 몇 가지 차이점이 있습니다. [자세한 정보](backup-azure-microsoft-azure-backup.md)
 
 ## <a name="managed-disks"></a>관리 디스크
 
@@ -226,23 +226,19 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 암호는 MARS 에이전트를 사용 하 여 온-프레미스 또는 로컬 컴퓨터를 백업 또는 복원 하는 동안 데이터를 암호화 하 고 암호 해독 하는 데 사용 됩니다.
 
-## <a name="point-in-time-restore"></a>특정 시점 복원
-
-특정 시점 (PIT)의 상태로 항목 복원
-
 ## <a name="private-endpoint"></a>프라이빗 엔드포인트
 
 [개인 끝점 설명서](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)를 참조 하세요.
 
 ## <a name="protected-instance"></a>보호 된 인스턴스
 
-보호 된 인스턴스는 Azure에 백업을 구성 하는 데 사용 하는 컴퓨터, 물리적 또는 가상 서버를 나타냅니다.  **청구 관점** 에서 컴퓨터에 대 한 보호 된 인스턴스 수는 프런트 엔드 크기의 함수입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/backup/).
+보호 된 인스턴스는 Azure에 백업을 구성 하는 데 사용 하는 컴퓨터, 물리적 또는 가상 서버를 나타냅니다.  **청구 관점** 에서 컴퓨터에 대 한 보호 된 인스턴스 수는 프런트 엔드 크기의 함수입니다. 따라서 단일 백업 인스턴스 (예: Azure에 백업 된 VM)는 프런트 엔드 크기에 따라 여러 보호 된 인스턴스에 해당할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (역할 기반 액세스 제어)
 
 [RBAC 설명서](https://docs.microsoft.com/azure/role-based-access-control/overview)를 참조 하세요.
 
-## <a name="recovery-point-restore-point-retention-point"></a>복구 지점/복원 지점/보존 지점
+## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>복구 지점/복원 지점/보존 지점/지정 시간 (PIT)
 
 백업 중인 원본 데이터의 복사본입니다. 보존 지점은 타임 스탬프와 연결 되므로이를 사용 하 여 특정 시점으로 항목을 복원할 수 있습니다.
 
@@ -250,7 +246,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 *Microsoft RecoveryServices/* vault 형식의 Azure Resource Manager 리소스입니다. 현재 Recovery Services 자격 증명 모음을 사용 하 여 azure vm, azure vm의 SQL, Azure Vm의 SAP HANA 및 Azure 파일 공유와 같은 작업을 백업 합니다. MARS, Azure Backup Server (MABS) 및 System Center DPM을 사용 하 여 온-프레미스 워크 로드를 백업 하는 데도 사용 됩니다. [Recovery Services 자격 증명 모음에 대해 자세히 알아보세요](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>리소스 그룹
+## <a name="resource-group"></a>Resource group
 
 [Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group)를 참조 하세요.
 
@@ -264,11 +260,11 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 ## <a name="rpo-recovery-point-objective"></a>RPO (복구 지점 목표)
 
-RPO는 데이터 손실 시나리오에서 허용 되는 최대 데이터 손실을 나타냅니다. 이는 백업 빈도에 따라 결정 됩니다.
+RPO는 데이터 손실 시나리오에서 가능한 최대 데이터 손실을 나타냅니다. 이는 백업 빈도에 따라 결정 됩니다.
 
 ## <a name="rto-recovery-time-objective"></a>RTO (복구 시간 목표)
 
-RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으로 데이터를 복원할 수 있는 최대 허용 시간을 나타냅니다.
+RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으로 데이터를 복원할 수 있는 최대 시간을 나타냅니다.
 
 ## <a name="scheduled-backup"></a>예약 된 백업
 
@@ -284,13 +280,13 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 ## <a name="snapshot"></a>스냅샷
 
-스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+스냅숏은 VHD (가상 하드 드라이브) 또는 Azure 파일 공유의 완전 한 읽기 전용 복사본입니다. [디스크 스냅숏](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) 및 [파일 스냅숏에](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files)대해 자세히 알아보세요.
 
 ## <a name="storage-account"></a>스토리지 계정
 
 [저장소 계정 설명서](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조 하세요.
 
-## <a name="subscription"></a>구독
+## <a name="subscription"></a>Subscription
 
 Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 논리적 컨테이너입니다. Vm (가상 머신), 데이터베이스 등의 모든 리소스에 대 한 세부 정보를 포함 합니다.
 
@@ -314,7 +310,7 @@ Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 
 
 ## <a name="vault-credentials"></a>자격 증명 모음 자격 증명
 
-자격 증명 모음 자격 증명 파일은 포털에서 각 자격 증명 모음에 대해 생성 하는 인증서입니다. 서버를 자격 증명 모음에 등록 하는 동안 사용 됩니다. [자세히 알아보기](backup-azure-dpm-introduction.md).
+자격 증명 모음 자격 증명 파일은 포털에서 각 자격 증명 모음에 대해 생성 하는 인증서입니다. 이는 온-프레미스 서버를 자격 증명 모음에 등록 하는 동안 사용 됩니다. [자세히 알아보기](backup-azure-dpm-introduction.md).
 
 ## <a name="vnet-virtual-network"></a>VNET (Virtual Network)
 

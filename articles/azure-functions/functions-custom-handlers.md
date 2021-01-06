@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: 099f90ba8c5d9dabb6c4c505e50d8c077e3eaf0f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746032"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936994"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions 사용자 지정 처리기
 
@@ -60,7 +60,7 @@ ms.locfileid: "96746032"
 | handler.exe
 ```
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 응용 프로그램은 *host.js* 를 통해 구성 되 고 파일 *에local.settings.js* 됩니다.
 
@@ -191,9 +191,9 @@ ms.locfileid: "96746032"
 
 | <nobr>페이로드 키</nobr>   | 데이터 형식 | 설명                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. *function.json*<br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
+| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. <br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
 | `Logs`        | array     | 메시지는 함수 호출 로그에 표시 됩니다.<br /><br />Azure에서 실행 하는 경우 메시지가 Application Insights 표시 됩니다. |
-| `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` . *function.json* |
+| `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` .  |
 
 이는 응답 페이로드의 예입니다.
 
@@ -216,7 +216,7 @@ ms.locfileid: "96746032"
 }
 ```
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 사용자 지정 처리기는 HTTP 이벤트 수신을 지 원하는 모든 언어로 구현할 수 있습니다. 다음 예제에서는 Go 프로그래밍 언어를 사용 하 여 사용자 지정 처리기를 구현 하는 방법을 보여 줍니다.
 
@@ -407,7 +407,7 @@ func main() {
 추가 바인딩이나 출력이 없는 HTTP 트리거 함수의 경우 처리기가 사용자 지정 처리기 [요청](#request-payload) 및 [응답](#response-payload) 페이로드 대신 http 요청 및 응답과 함께 직접 작동 하도록 할 수 있습니다. 이 동작은 설정을 사용 하 여 *host.js* 에서 구성할 수 있습니다 `enableForwardingHttpRequest` .
 
 > [!IMPORTANT]
-> 사용자 지정 처리기 기능의 주요 목적은 현재 Azure Functions에 대 한 최고 수준의 지원을 제공 하지 않는 언어와 런타임을 사용 하도록 설정 하는 것입니다. 사용자 지정 처리기를 사용 하 여 웹 응용 프로그램을 실행할 수는 있지만 Azure Functions 표준 역방향 프록시가 아닙니다. 응답 스트리밍, HTTP/2 및 Websocket과 같은 일부 기능은 사용할 수 없습니다. 특정 헤더 및 경로와 같은 HTTP 요청의 일부 구성 요소가 제한 될 수 있습니다. 응용 프로그램에 과도 한 [콜드 시작](functions-scale.md#cold-start)이 발생할 수도 있습니다.
+> 사용자 지정 처리기 기능의 주요 목적은 현재 Azure Functions에 대 한 최고 수준의 지원을 제공 하지 않는 언어와 런타임을 사용 하도록 설정 하는 것입니다. 사용자 지정 처리기를 사용 하 여 웹 응용 프로그램을 실행할 수는 있지만 Azure Functions 표준 역방향 프록시가 아닙니다. 응답 스트리밍, HTTP/2 및 Websocket과 같은 일부 기능은 사용할 수 없습니다. 특정 헤더 및 경로와 같은 HTTP 요청의 일부 구성 요소가 제한 될 수 있습니다. 응용 프로그램에 과도 한 [콜드 시작](event-driven-scaling.md#cold-start)이 발생할 수도 있습니다.
 >
 > 이러한 상황을 해결 하려면 [Azure App Service](../app-service/overview.md)에서 웹 앱을 실행 하는 것이 좋습니다.
 
@@ -572,7 +572,7 @@ Azure에서 [Application Insights 추적을 쿼리하여](analyze-telemetry-data
 
 ### <a name="test-custom-handler-in-isolation"></a>격리에서 사용자 지정 처리기 테스트
 
-사용자 지정 처리기 앱은 웹 서버 프로세스 이므로,이를 자체적으로 시작 하 고 함수 호출을 [테스트 하는](#request-payload) 것이 도움이 될 수 [있습니다.](https://www.postman.com/) [cURL](https://curl.haxx.se/)
+사용자 지정 처리기 앱은 웹 서버 프로세스 이므로,이를 자체적으로 시작 하 고 함수 호출을 [테스트 하는](#request-payload) 것이 도움이 될 수 [있습니다.](https://www.postman.com/) [](https://curl.haxx.se/)
 
 CI/CD 파이프라인에서이 전략을 사용 하 여 사용자 지정 처리기에서 자동화 된 테스트를 실행할 수도 있습니다.
 

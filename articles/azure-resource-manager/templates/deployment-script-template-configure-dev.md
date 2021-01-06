@@ -1,26 +1,26 @@
 ---
 title: 템플릿에서 배포 스크립트에 대 한 개발 환경 구성 | Microsoft Docs
-description: Azure Resource Manager 템플릿에서 배포 스크립트에 대 한 개발 환경을 구성 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 배포 스크립트에 대 한 개발 환경을 구성 합니다.
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734184"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936399"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>템플릿에서 배포 스크립트에 대 한 개발 환경 구성
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트에 대 한 개발 환경 구성
 
 배포 스크립트 이미지를 사용 하 여 배포 스크립트를 개발 하 고 테스트 하기 위한 개발 환경을 만드는 방법에 대해 알아봅니다. [Azure container instance](../../container-instances/container-instances-overview.md) 를 만들거나 [Docker](https://docs.docker.com/get-docker/)를 사용할 수 있습니다. 이 문서에서는 둘 다 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-배포 스크립트가 없으면 다음 콘텐츠를 사용 하 여 **hello.ps1** 파일을 만들 수 있습니다.
+배포 스크립트가 없으면 다음 콘텐츠를 사용 하 여 _hello.ps1_ 파일을 만들 수 있습니다.
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ $DeploymentScriptOutputs['text'] = $output
 
 ### <a name="create-an-azure-container-instance"></a>Azure 컨테이너 인스턴스 만들기
 
-다음 ARM 템플릿은 컨테이너 인스턴스 및 파일 공유를 만든 다음 컨테이너 이미지에 파일 공유를 탑재 합니다.
+다음 Azure Resource Manager 템플릿 (ARM 템플릿)은 컨테이너 인스턴스 및 파일 공유를 만든 다음 컨테이너 이미지에 파일 공유를 탑재 합니다.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,12 +153,13 @@ $DeploymentScriptOutputs['text'] = $output
   ]
 }
 ```
-탑재 경로의 기본값은 **Deploymentscript** 입니다.  이 경로는 컨테이너 인스턴스에서 파일 공유에 탑재 된 경로입니다.
 
-템플릿에 지정 된 기본 컨테이너 이미지는 **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3 "** 입니다.   [지원 되는 Azure PowerShell 버전](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list)목록을 참조 하세요. [지원 되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list)목록을 참조 하세요.
+탑재 경로의 기본값은 `deploymentScript` 입니다. 이 경로는 컨테이너 인스턴스에서 파일 공유에 탑재 된 경로입니다.
+
+템플릿에 지정 된 기본 컨테이너 이미지는 `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` 입니다. [지원 되는 Azure PowerShell 버전](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list)목록을 참조 하세요. [지원 되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list)목록을 참조 하세요.
 
   >[!IMPORTANT]
-  > 배포 스크립트는 MCR(Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용합니다. 배포 스크립트의 CLI 이미지를 인증하는 데 약 한 달이 걸립니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요. 지원되지 않는 버전을 사용하는 경우 오류 메시지에 지원되는 버전이 나열됩니다.
+  > 배포 스크립트는 MCR (Microsoft Container Registry)에서 사용 가능한 CLI 이미지를 사용 합니다. 배포 스크립트의 CLI 이미지를 인증하는 데 약 한 달이 걸립니다. 30일 이내에 릴리스된 CLI 버전은 사용하지 마세요. 이미지의 릴리스 날짜를 확인하려면 [Azure CLI 릴리스 정보](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요. 지원 되지 않는 버전을 사용 하는 경우 오류 메시지에 지원 되는 버전이 나열 됩니다.
 
 템플릿은 컨테이너 인스턴스 1800 초를 일시 중단 합니다. 컨테이너 인스턴스가 터미널 상태가 되 고 세션이 종료 되기까지 30 분이 소요 됩니다.
 
@@ -196,7 +197,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
 
 1. Azure Portal에서 컨테이너 인스턴스 및 저장소 계정을 배포한 리소스 그룹을 엽니다.
 1. 컨테이너 그룹을 엽니다. 기본 컨테이너 그룹 이름은 **cg** 이 추가 된 프로젝트 이름입니다. 컨테이너 인스턴스가 **실행 중** 상태에 있는 것을 볼 수 있습니다.
-1. 왼쪽 메뉴에서 **컨테이너** 를 선택 합니다. 컨테이너 인스턴스가 표시 되어야 합니다.  컨테이너 인스턴스 이름은 **컨테이너가** 추가 된 프로젝트 이름입니다.
+1. 왼쪽 메뉴에서 **컨테이너** 를 선택 합니다. 컨테이너 인스턴스가 표시 되어야 합니다. 컨테이너 인스턴스 이름은 **컨테이너가** 추가 된 프로젝트 이름입니다.
 
     ![배포 스크립트 연결 컨테이너 인스턴스](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    **&lt;host driver letter>** 및 **&lt;host directory name>** 을 공유 드라이브의 기존 폴더로 바꿉니다.  폴더가 컨테이너의 **/data** 폴더에 매핑됩니다. 예를 들어 D:\docker를 매핑하려면 다음을 수행합니다.
+    **&lt;host driver letter>** 및 **&lt;host directory name>** 을 공유 드라이브의 기존 폴더로 바꿉니다. 폴더가 컨테이너의 _/data_ 폴더에 매핑됩니다. 예를 들어 _D:\docker_ 를 매핑하려면 다음을 수행 합니다.
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. 다음 스크린샷은 공유 드라이브에 helloworld.ps1 파일이 있는 경우 PowerShell 스크립트를 실행 하는 방법을 보여 줍니다.
+1. 다음 스크린샷은 공유 드라이브에 _helloworld.ps1_ 파일이 있는 경우 PowerShell 스크립트를 실행 하는 방법을 보여 줍니다.
 
     ![Resource Manager 템플릿 배포 스크립트 Docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Azure Portal 및 Azure CLI를 사용 하 여 파일을 업로드할 수도 있�
 이 문서에서는 배포 스크립트를 사용하는 방법을 알아보았습니다. 배포 스크립트 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Resource Manager 템플릿에서 배포 스크립트 사용](./template-tutorial-deployment-script.md)
+> [자습서: ARM 템플릿에서 배포 스크립트 사용](./template-tutorial-deployment-script.md)

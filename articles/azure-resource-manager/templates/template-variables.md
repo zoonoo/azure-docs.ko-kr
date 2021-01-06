@@ -3,12 +3,12 @@ title: 템플릿의 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353462"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934665"
 ---
 # <a name="variables-in-arm-template"></a>ARM 템플릿의 변수
 
@@ -28,7 +28,7 @@ ms.locfileid: "96353462"
 },
 ```
 
-Variables 섹션에는 [reference](template-functions-resource.md#reference) 함수 또는 [list](template-functions-resource.md#list) 함수를 사용할 수 없습니다. 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
+[참조](template-functions-resource.md#reference) 함수 또는 섹션의 [목록](template-functions-resource.md#list) 함수는 사용할 수 없습니다 `variables` . 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
 
 ## <a name="use-variable"></a>변수 사용
 
@@ -63,7 +63,7 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 },
 ```
 
-매개 변수에서 사용할 구성 값을 나타내는 값을 만듭니다.
+에서는 `parameters` 사용할 구성 값을 나타내는 값을 만듭니다.
 
 ```json
 "parameters": {
@@ -87,7 +87,7 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 
 다음 예에서는 변수를 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |설명  |
+|템플릿  |Description  |
 |---------|---------|
 | [변수 정의](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 다양한 변수 형식을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
 | [구성 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 구성 값을 정의하는 변수의 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |

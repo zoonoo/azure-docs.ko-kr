@@ -6,21 +6,21 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c9ecb670cea022988efda8ec690c0724310cdb4b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020435"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934852"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Java 및 Gradle를 사용 하 여 Azure에 함수 만들기 및 게시
 
-이 문서에서는 Gradle 명령줄 도구를 사용 하 여 Azure Functions 위해 Java 함수 프로젝트를 빌드하고 게시 하는 방법을 보여 줍니다. 완료되면 함수 코드는 [서버리스 호스팅 계획](functions-scale.md#consumption-plan)의 Azure에서 실행되고 HTTP 요청에 의해 트리거됩니다. 
+이 문서에서는 Gradle 명령줄 도구를 사용 하 여 Azure Functions 위해 Java 함수 프로젝트를 빌드하고 게시 하는 방법을 보여 줍니다. 완료되면 함수 코드는 [서버리스 호스팅 계획](consumption-plan.md)의 Azure에서 실행되고 HTTP 요청에 의해 트리거됩니다. 
 
 > [!NOTE]
 > Gradle가 권장 되 개발 도구가 아닌 경우 [Maven](./create-first-function-cli-java.md), [IntelliJ 아이디어](/azure/developer/java/toolkit-for-intellij/quickstart-functions) 및 [VS Code](./create-first-function-vs-code-java.md)를 사용 하 여 Java 개발자를 위한 유사한 자습서를 확인 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 

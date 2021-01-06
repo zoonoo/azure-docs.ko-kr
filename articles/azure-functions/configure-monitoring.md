@@ -4,12 +4,12 @@ description: 모니터링을 위해 함수 앱을 Application Insights에 연결
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825751"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937283"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -28,7 +28,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| 범주 | 테이블 | Description |
+| 범주 | 테이블 | 설명 |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|
@@ -197,7 +197,7 @@ Application Insights에는 최대 부하 시 실행이 완료될 때 원격 분�
 
 ‘이 기능은 미리 보기로 제공됩니다.’ 
 
-크기 조정 컨트롤러에서 함수 앱에 대해 수행 하는 결정을 더 잘 이해할 수 있도록 Application Insights 또는 Blob 저장소에 [Azure Functions scale controller](./functions-scale.md#runtime-scaling) 로그를 내보낼 수 있습니다.
+크기 조정 컨트롤러에서 함수 앱에 대해 수행 하는 결정을 더 잘 이해할 수 있도록 Application Insights 또는 Blob 저장소에 [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) 로그를 내보낼 수 있습니다.
 
 이 기능을 사용 하도록 설정 하려면 라는 응용 프로그램 설정을 `SCALE_CONTROLLER_LOGGING_ENABLED` 함수 앱 설정에 추가 합니다. 이 설정의 값은 다음을 기반으로 하는 형식 이어야 합니다 `<DESTINATION>:<VERBOSITY>` .
 

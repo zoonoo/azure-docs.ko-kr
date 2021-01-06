@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9cc19548f0b969421974afe3e274fc5334590cb0
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805620"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935202"
 ---
 Azure Functions를 사용 하 여 미리 작성 된 진입점에 대 한 구성 전용 복제 작업을 만들 수 있습니다. [Azure Functions에 대 한 구성 기반 복제 샘플](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) 에서는 [미리 작성 된 도우미](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) 를 사용자 코드에서 활용 하거나 코드를 모두 처리 하지 않고 구성을 사용 하는 방법을 보여 줍니다.
 
@@ -166,7 +166,7 @@ Service Bus 큐에 이벤트를 전달 하려면를 설정 하는 "바인딩" �
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "queueName": "queue-b",
             "name": "output" 
         }
     ...
@@ -190,7 +190,7 @@ Service Bus 토픽으로 이벤트를 전달 하려는 경우 "바인딩" 내의
             "direction": "out",
             "type": "serviceBus",
             "connection": "functionname-target-connection",
-            "eventHubName": "queue-b",
+            "topicName": "topic-b",
             "name": "output" 
         }
     ...

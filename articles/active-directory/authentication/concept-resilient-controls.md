@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f70005f2c7f53833163dcd5f0d2ee89b3db37c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d7e4d0c41990fcc23dd19b5682997f6381bfdb20
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861292"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937096"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -38,8 +38,8 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 이 문서의 4가지 핵심 사항은 다음과 같습니다.
 
 * 응급 액세스 계정을 사용하여 관리자 잠금을 방지합니다.
-* 사용자 단위 MFA 대신 CA (조건부 액세스)를 사용 하 여 MFA를 구현 합니다.
-* 여러 가지 CA (조건부 액세스) 컨트롤을 사용 하 여 사용자 잠금을 완화 합니다.
+* 사용자 단위 MFA 대신 조건부 액세스를 사용 하 여 MFA를 구현 합니다.
+* 여러 조건부 액세스 제어를 사용 하 여 사용자 잠금을 완화 합니다.
 * 각 사용자에 대해 여러 인증 방법 또는 이와 동등한 기능을 프로비전하여 사용자 잠금을 완화합니다.
 
 ## <a name="before-a-disruption"></a>중단 전
@@ -120,7 +120,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 도메인 가입을 제어로 사용 하는 보고서 전용 상태의 정책을 타사 MFA 공급자가 필요한 활성 정책에 대 한 백업으로 구성 합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](./tutorial-enable-sspr.md) 및 [Azure AD 암호 보호](./howto-password-ban-bad-on-premises-deploy.md)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어:
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들면 다음과 같습니다.
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
@@ -138,9 +138,9 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-다음 예: **중요 업무용 공동 작업 앱에 대 한 액세스를 복원 하는-대체 CA 정책의 예** 는 일반적인 회사의 대책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에 대해 MFA를 요구 하며,이 경우에는 고객에 대 한 MFA 공급자에 중단 (Azure AD MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)이 있습니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
+다음 예: **중요 업무용 공동 작업 앱에 대 한 액세스를 복원 하는-대체 조건부 액세스 정책 예제** 는 일반적인 회사의 대책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에 대해 MFA를 요구 하며,이 경우에는 고객에 대 한 MFA 공급자에 중단 (Azure AD MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)이 있습니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
 
-**예제 A - 중요 업무용 협업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
+**예: 중요 업무용 공동 작업 앱에 대 한 액세스를 복원 하는 대체 조건부 액세스 정책:**
 
 * 정책 1: Exchange 및 SharePoint에 대해 도메인에 가입 된 장치 필요
   * 이름: EM001-응급에서 사용: MFA 중단 [1/4]-Exchange SharePoint-하이브리드 Azure AD 조인 필요
@@ -180,9 +180,9 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 5. 정책 4 사용: 모든 사용자가 모바일 장치의 네이티브 메일 응용 프로그램에서 Exchange Online을 가져올 수 있는지 확인 합니다.
 6. SharePoint Online 및 Exchange Online에 대한 기존 MFA 정책을 사용하지 않도록 설정합니다.
 
-**예제 B - Salesforce에 대한 모바일 액세스를 허용하는 대응 CA 정책** 예제에서는 비즈니스 앱의 액세스가 복원됩니다. 이 시나리오에서 고객은 일반적으로 판매 직원이 모바일 디바이스에서 Salesforce(Azure AD를 통한 Single Sign-On으로 구성됨)에 액세스하여 규정 준수 디바이스에서만 허용되도록 요구합니다. 이 경우 중단이 발생하면 디바이스의 규정 준수를 평가하는 데 문제가 있으며, 판매 팀이 거래를 성사시키기 위해 Salesforce에 액세스해야 하는 중요한 시점에 중단이 발생하는 것입니다. 이러한 대응 정책을 통해 중요한 사용자는 모바일 디바이스에서 Salesforce에 액세스할 수 있으므로 거래를 계속 성사시키고 비즈니스를 중단하지 않을 수 있습니다. 이 예제에서 **SalesforceContingency** 에는 액세스를 유지해야 하는 모든 판매 직원이 포함되며, **SalesAdmins** 에는 Salesforce의 필수 관리자가 포함됩니다.
+다음 예에서는 **예제 B-대체 조건부 액세스 정책을 사용 하 여 Salesforce에 대 한 모바일 액세스를 허용 하** 고 비즈니스 앱의 액세스가 복원 됩니다. 이 시나리오에서 고객은 일반적으로 판매 직원이 모바일 디바이스에서 Salesforce(Azure AD를 통한 Single Sign-On으로 구성됨)에 액세스하여 규정 준수 디바이스에서만 허용되도록 요구합니다. 이 경우 중단이 발생하면 디바이스의 규정 준수를 평가하는 데 문제가 있으며, 판매 팀이 거래를 성사시키기 위해 Salesforce에 액세스해야 하는 중요한 시점에 중단이 발생하는 것입니다. 이러한 대응 정책을 통해 중요한 사용자는 모바일 디바이스에서 Salesforce에 액세스할 수 있으므로 거래를 계속 성사시키고 비즈니스를 중단하지 않을 수 있습니다. 이 예제에서 **SalesforceContingency** 에는 액세스를 유지해야 하는 모든 판매 직원이 포함되며, **SalesAdmins** 에는 Salesforce의 필수 관리자가 포함됩니다.
 
-**예제 B - 대응 CA 정책:**
+**예 B-대체 조건부 액세스 정책:**
 
 * 정책 1: SalesContingency 팀에 없는 모든 사용자 차단
   * 이름: EM001-응급에서 사용: 장치 준수 중단 [1/2]-Salesforce-SalesforceContingency를 제외한 모든 사용자 차단

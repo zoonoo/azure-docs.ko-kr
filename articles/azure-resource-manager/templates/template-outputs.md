@@ -3,12 +3,12 @@ title: 템플릿의 출력
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353530"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934733"
 ---
 # <a name="outputs-in-arm-templates"></a>ARM 템플릿의 출력
 
@@ -47,7 +47,7 @@ ms.locfileid: "96353530"
 
 ## <a name="dynamic-number-of-outputs"></a>동적 출력 수
 
-일부 시나리오에서는 템플릿을 만들 때 반환 해야 하는 값의 인스턴스 수를 알 수 없습니다. **Copy** 요소를 사용 하 여 변수 수의 값을 반환할 수 있습니다.
+일부 시나리오에서는 템플릿을 만들 때 반환 해야 하는 값의 인스턴스 수를 알 수 없습니다. 요소를 사용 하 여 변수 수의 값을 반환할 수 있습니다 `copy` .
 
 ```json
 "outputs": {
@@ -61,7 +61,7 @@ ms.locfileid: "96353530"
 }
 ```
 
-자세한 내용은 [Azure Resource Manager 템플릿에서 출력 반복](copy-outputs.md)을 참조 하세요.
+자세한 내용은 [ARM 템플릿의 출력 반복](copy-outputs.md)을 참조 하세요.
 
 ## <a name="linked-templates"></a>연결된 템플릿
 
@@ -112,7 +112,7 @@ az deployment group show \
 
 다음 예제에서는 출력을 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |설명  |
+|템플릿  |Description  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
 |[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |

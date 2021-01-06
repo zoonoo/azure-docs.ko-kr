@@ -4,12 +4,12 @@ description: 에서 수집 하 고 Azure 애플리케이션 Insights에 저장 �
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1d8d9cc9a7a4111e98b1d9141957769d6f157d45
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027733"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937300"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Application Insights에서 Azure Functions 원격 분석 분석 
 
@@ -108,7 +108,7 @@ traces
 
 ## <a name="consumption-plan-specific-metrics"></a>소비 계획 별 메트릭
 
-[소비 계획](functions-scale.md#consumption-plan)에서 실행 하는 경우 단일 함수 실행의 실행 *비용은* *GB 초* 단위로 측정 됩니다. 실행 비용은 메모리 사용량과 실행 시간을 결합 하 여 계산 됩니다. 자세히 알아보려면 [소비 계획 비용 예측](functions-consumption-costs.md)을 참조 하세요.
+[소비 계획](consumption-plan.md)에서 실행 하는 경우 단일 함수 실행의 실행 *비용은* *GB 초* 단위로 측정 됩니다. 실행 비용은 메모리 사용량과 실행 시간을 결합 하 여 계산 됩니다. 자세히 알아보려면 [소비 계획 비용 예측](functions-consumption-costs.md)을 참조 하세요.
 
 다음 원격 분석 쿼리는 소비 계획에서 함수를 실행 하는 비용에 영향을 주는 메트릭에만 적용 됩니다.
 

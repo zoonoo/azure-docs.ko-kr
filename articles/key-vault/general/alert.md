@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724700"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934597"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault에 대 한 모니터링 및 경고
 
@@ -25,8 +25,8 @@ ms.locfileid: "97724700"
 주요 자격 증명 모음을 사용 하 여 프로덕션 비밀을 저장 하기 시작한 후에는 주요 자격 증명 모음의 상태를 모니터링 하 여 서비스가 의도 한 대로 작동 하는지 확인 하는 것이 중요 합니다. 서비스의 크기를 조정하기 시작하면 키 자격 증명 모음으로 전송되는 요청 수가 증가합니다. 이로 인해 요청 대기 시간이 길어질 수 있으며 극단적인 경우에는 서비스의 성능에 영향을 줄 수 있는 요청이 정체됩니다. 키 자격 증명 모음이 비정상적인 수의 오류 코드를 전송 하는 경우에도 경고 해야 하므로 액세스 정책 또는 방화벽 구성 문제를 신속 하 게 알릴 수 있습니다. 이 문서에서는 다음 항목을 다룹니다.
 
 + 모니터링할 기본 Key Vault 메트릭
-+ 메트릭을 구성 하 고 대시보드를 만드는 방법 
-+ 지정 된 임계값에 대 한 경고를 만드는 방법 
++ 메트릭을 구성 하 고 대시보드를 만드는 방법
++ 지정 된 임계값에 대 한 경고를 만드는 방법
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>모니터링할 기본 Key Vault 메트릭
 

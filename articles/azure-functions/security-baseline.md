@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 86e13c0f57b30d2c53d9194e89ec89e7abdf1574
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 707c69efddeda364f0c62e9719ae1a6073dfe9ad
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187054"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935736"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -80,7 +80,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment 소개](../app-service/environment/intro.md)
 
@@ -124,7 +124,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment 소개](../app-service/environment/intro.md)
 
@@ -146,7 +146,7 @@ Azure Functions 구현에서 NSGs (네트워크 보안 그룹)를 사용 하는 
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment 소개](../app-service/environment/intro.md)
 
@@ -551,7 +551,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [개인 끝점 이해](../private-link/private-endpoint-overview.md)
 
@@ -827,7 +827,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Functions 네트워킹 옵션](./functions-networking-options.md)
 
-- [Azure Functions 프리미엄 계획](./functions-scale.md#premium-plan)
+- [Azure Functions 프리미엄 계획](./functions-premium-plan.md)
 
 - [App Service Environment에 대한 네트워킹 고려 사항](../app-service/environment/network-info.md)
 
@@ -1175,7 +1175,7 @@ Microsoft 맬웨어 방지는 Azure 서비스 (예: Azure Functions)를 지 원�
 
 - [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

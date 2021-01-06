@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: aa75d1d57f44bb1a4d6513823ac97ac9917b260f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027191"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934471"
 ---
-| 리소스 |[사용 계획](../articles/azure-functions/functions-scale.md#consumption-plan)|[프리미엄 계획](../articles/azure-functions/functions-scale.md#premium-plan)|[전용 계획](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| 리소스 |[사용 계획](../articles/azure-functions/consumption-plan.md)|[프리미엄 계획](../articles/azure-functions/functions-premium-plan.md)|[전용 계획](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |기본 [시간 제한 기간](../articles/azure-functions/functions-scale.md#timeout)(분) |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |최대 [시간 제한 기간](../articles/azure-functions/functions-scale.md#timeout)(분) |10 | 무제한<sup>7</sup> | 무제한<sup>2</sup> | unbounded | unbounded |
@@ -28,10 +28,10 @@ ms.locfileid: "96027191"
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/configure-ssl-bindings.md) |무제한 SNI SSL 연결 포함 | 무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 | 무제한 SNI SSL 및 1개의 IP SSL 연결 포함 | 해당 없음 |
 
 <sup>1</sup> 기본적으로 App Service 요금제의 Functions 1.x 런타임에 대한 제한 시간은 무제한입니다.  
-<sup>2</sup> App Service 요금제를 [Always On](../articles/azure-functions/functions-scale.md#always-on)으로 설정해야 합니다. 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제하세요.  
+<sup>2</sup> App Service 요금제를 [Always On](../articles/azure-functions/dedicated-plan.md#always-on)으로 설정해야 합니다. 표준 [요금](https://azure.microsoft.com/pricing/details/app-service/)으로 결제하세요.  
 <sup>3</sup> 이러한 한도는 [호스트에 설정](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config)됩니다.  
 <sup>4</sup> 호스트할 수 있는 함수 앱의 실제 수는 앱의 활동, 머신 인스턴스의 크기 및 해당 리소스 사용률에 따라 달라집니다.  
 <sup>5</sup> 스토리지 제한은 동일한 App Service 요금제에 있는 모든 앱에서 임시 스토리지의 총 콘텐츠 크기입니다. 소비 계획은 임시 스토리지에 Azure Files를 사용합니다.  
-<sup>6</sup> [소비 계획](../articles/azure-functions/functions-scale.md#consumption-plan)에서 함수 앱이 호스트되는 경우 CNAME 옵션만 지원됩니다. [프리미엄 플랜](../articles/azure-functions/functions-scale.md#premium-plan) 또는 [App Service 요금제](../articles/azure-functions/functions-scale.md#app-service-plan)에서 호스트되는 함수 앱의 경우 CNAME 또는 A 레코드 중 하나를 사용하여 사용자 지정 도메인을 매핑할 수 있습니다.  
+<sup>6</sup> [소비 계획](../articles/azure-functions/consumption-plan.md)에서 함수 앱이 호스트되는 경우 CNAME 옵션만 지원됩니다. [프리미엄 플랜](../articles/azure-functions/functions-premium-plan.md) 또는 [App Service 요금제](../articles/azure-functions/dedicated-plan.md)에서 호스트되는 함수 앱의 경우 CNAME 또는 A 레코드 중 하나를 사용하여 사용자 지정 도메인을 매핑할 수 있습니다.  
 <sup>7</sup> 최대 60분까지 보장됩니다.  
 <sup>8</sup> 작업자는 고객 앱을 호스트하는 역할입니다. 작업자는 3가지 고정된 크기로 사용할 수 있습니다. vCPU/3.5GB RAM 1개, vCPU/7GB RAM 2개, vCPU/14GB RAM 4개

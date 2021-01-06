@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486660"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936484"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Azure의 linux용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -37,7 +37,7 @@ ms.locfileid: "96486660"
 - Azure Database for MySQL (버전: 8.0.15)
 - MySQL C API 커넥터-Libmysqlclient (버전: 6.1.11)
 
-| 파일 시스템        | 설명                                                                                                               | 크기(GB)             | 소유자  | 그룹화  | Storage                    |
+| 파일 시스템        | 설명                                                                                                               | 크기(GB)             | 소유자  | 그룹  | 스토리지                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | SAP BOBI 인스턴스, 기본 Tomcat 웹 응용 프로그램 및 데이터베이스 드라이버 (필요한 경우)를 설치 하기 위한 파일 시스템 | SAP 크기 조정 지침 | bl1adm | sapsys | 관리 되는 프리미엄 디스크-SSD |
 | /usr/sap/frsinput  | 탑재 디렉터리는 입력 파일 리포지토리 디렉터리로 사용 되는 모든 BOBI 호스트에서 공유 파일에 대 한 것입니다.  | 비즈니스 요구 사항         | bl1adm | sapsys | Azure NetApp Files         |
@@ -317,8 +317,9 @@ Azure Portal에 로그인 하 고이 [빠른 시작 가이드 Azure Database for
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
-4. Create user account to connect to schema
+   ```
+   
+4. 스키마에 연결할 사용자 계정 만들기
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -585,7 +586,7 @@ SAP BusinessObjects BI 플랫폼에는 특정 작업 및 작업에 최적화 된
 
 고가용성은 동일한 데이터 센터 내의 중복성, 내결함성 또는 장애 조치 (failover) 보호 구성 요소를 통해 응용 프로그램/서비스의 비즈니스 연속성을 제공 함으로써 IT 중단을 최소화할 수 있는 기술 집합을 말합니다. 이 경우 데이터 센터는 하나의 Azure 지역 내에 있습니다. [Sap 용 고가용성 아키텍처 및 시나리오](sap-high-availability-architecture-scenarios.md) 문서에서는 Sap 응용 프로그램용 Azure에서 제공 되는 다양 한 고가용성 기술 및 권장 사항에 대 한 초기 정보를 제공 하며,이 섹션의 지침을 보완 합니다.
 
-SAP BOBI 플랫폼의 크기 조정 결과에 따라, 가로를 디자인 하 고 Azure Virtual Machines 및 서브넷에 걸쳐 BI 구성 요소의 배포를 결정 해야 합니다. 분산 아키텍처의 중복성 수준은 비즈니스에 필요한 RTO (복구 시간 목표) 및 RPO (복구 지점 목표)에 따라 달라 집니다. SAP BOBI 플랫폼에는 여러 계층이 포함 되며 각 계층의 구성 요소는 중복성을 얻기 위해 설계 되어야 합니다. 따라서 한 구성 요소에 오류가 발생 하는 경우 SAP BOBI 응용 프로그램에 대 한 중단이 거의 없습니다. 예제:
+SAP BOBI 플랫폼의 크기 조정 결과에 따라, 가로를 디자인 하 고 Azure Virtual Machines 및 서브넷에 걸쳐 BI 구성 요소의 배포를 결정 해야 합니다. 분산 아키텍처의 중복성 수준은 비즈니스에 필요한 RTO (복구 시간 목표) 및 RPO (복구 지점 목표)에 따라 달라 집니다. SAP BOBI 플랫폼에는 여러 계층이 포함 되며 각 계층의 구성 요소는 중복성을 얻기 위해 설계 되어야 합니다. 따라서 한 구성 요소에 오류가 발생 하는 경우 SAP BOBI 응용 프로그램에 대 한 중단이 거의 없습니다. 예를 들면 다음과 같습니다.
 
 - BI 응용 프로그램 서버 및 웹 서버와 같은 중복 응용 프로그램 서버
 - CMS 데이터베이스, 파일 리포지토리 서버, Load Balancer 등의 고유한 구성 요소

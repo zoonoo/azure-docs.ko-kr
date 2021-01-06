@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107433"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935090"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -143,8 +143,8 @@ ms.locfileid: "97107433"
 
 **A:** 조건부 액세스 상태는 다음과 같은 값을 가질 수 있습니다.
 
-* **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
-* **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
+* **적용 되지 않음**: 범위 내 사용자 및 앱에 대 한 조건부 액세스 정책이 없음을 의미 합니다. 
+* **성공**:이는 범위 내에서 사용자와 앱에 대 한 조건부 액세스 정책이 있고 조건부 액세스 정책이 성공적으로 충족 되었음을 의미 합니다. 
 * **실패**: 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
     
 **Q: 조건부 액세스 정책 결과에 사용할 수 있는 모든 값은 무엇 인가요?**
@@ -158,7 +158,7 @@ ms.locfileid: "97107433"
     
 **Q: 모든 로그인 보고서의 정책 이름이 CA의 정책 이름과 일치 하지 않습니다. 이유는 무엇입니까?**
 
-**A:** 모든 로그인 보고서의 정책 이름은 로그인 시점의 CA 정책 이름을 기준으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
+**A:** 모든 로그인 보고서의 정책 이름은 로그인 시의 조건부 액세스 정책 이름을 기반으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
 
 **Q: 조건부 액세스 정책으로 인해 로그인이 차단 되었지만 로그인 활동 보고서에 로그인이 성공 했음을 표시 합니다. 굳이?**
 
