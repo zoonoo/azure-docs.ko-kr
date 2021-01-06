@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2e670525840b801df874e3f8dcbdbadc0955a12
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746306"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932438"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -333,9 +333,9 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 > [!NOTE]
 > 그룹을 만드는 방법을 정의 하는 비즈니스 정책을 정의 하 여 멤버 자격에 대 한 정기적인 검토를 위해 그룹 소유권과 책임이 명확 하 게 유지 되도록 하는 것이 좋습니다. 
 
-### <a name="review-membership-of-exclusion-groups-in-ca-policies"></a>CA 정책에서 제외 그룹의 멤버 자격 검토 
+### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>조건부 액세스 정책에서 제외 그룹의 멤버 자격 검토 
 
-네트워크 보안을 유지 하도록 설계 된 조건부 액세스 (CA) 정책이 모든 사용자에 게 적용 되지 않아야 하는 경우가 있습니다. 예를 들어 회사 네트워크에서 사용자만 로그인 할 수 있도록 허용 하는 CA 정책은 광범위 하 게 이동 하는 영업 팀에 적용 되지 않을 수 있습니다. 이 경우 영업 팀 구성원이 그룹에 추가 되 고 해당 그룹이 CA 정책에서 제외 됩니다. 
+네트워크 보안을 유지 하도록 설계 된 조건부 액세스 정책이 모든 사용자에 게 적용 되는 것은 아닙니다. 예를 들어 회사 네트워크에서 사용자만 로그인 할 수 있도록 허용 하는 조건부 액세스 정책은 광범위 하 게 이동 하는 영업 팀에 적용 되지 않을 수 있습니다. 이 경우 영업 팀 구성원은 그룹에 추가 되 고 해당 그룹은 조건부 액세스 정책에서 제외 됩니다. 
 
 잘못 된 구성원이 요구 사항에서 제외 되는 경우 예외는 잠재적 위험을 나타내며 이러한 그룹 멤버 자격은 정기적으로 확인 합니다.
 
@@ -419,7 +419,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 관리자는 부실 액세스의 위험을 줄이기 위해 액세스 패키지에 대 한 활성 할당을 가진 사용자를 정기적으로 검토할 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](entitlement-management-access-reviews-create.md)| 액세스 패키지의 검토를 사용 하도록 설정 합니다. |
 | [액세스 검토 수행](entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -433,7 +433,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 직원 및 게스트의 그룹 및 응용 프로그램에 대 한 액세스는 시간이 지남에 따라 변경 될 수 있습니다. 오래 된 액세스 할당과 관련 된 위험을 줄이기 위해 관리자는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 만들 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](create-access-review.md)| 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만듭니다. |
 | [액세스 검토 수행](perform-access-review.md)| 응용 프로그램에 대 한 액세스 권한이 있는 그룹 구성원 또는 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -450,7 +450,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서 | Description |
+| 방법 문서 | 설명 |
 | - | - |
  [액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure AD 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
@@ -465,7 +465,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서| Description |
+| 방법 문서| 설명 |
 | - | -|
 | [액세스 검토 만들기](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure 리소스 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |

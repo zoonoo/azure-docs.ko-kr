@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401732"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930823"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -35,7 +35,7 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 >[!NOTE]
 > Service Fabric는 영역에 걸쳐 있는 단일 가상 머신 확장 집합을 지원 하지 않으므로 가상 머신 확장 집합 단일 배치 그룹 속성을 true로 설정 해야 합니다.
 
- ![Azure Service Fabric 가용성 영역 아키텍처][sf-architecture]
+ ![Azure Service Fabric 가용성 영역 아키텍처를 보여 주는 다이어그램입니다.][sf-architecture]
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 ### <a name="public-ip-and-load-balancer-resource"></a>공용 IP 및 Load Balancer 리소스

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5894a57e6495ca02002c8f32b893e696c7f5679b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350707"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897297"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "96350707"
 
 1. ServiceNow 인스턴스 이름을 식별합니다. ServiceNow에 액세스하는 데 사용하는 URL에서 인스턴스 이름을 찾을 수 있습니다. 아래 예제에서 인스턴스 이름은 dev35214입니다.
 
-   ![ServiceNow 인스턴스](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow 인스턴스](media/servicenow-provisioning-tutorial/servicenow-instance.png)
 
 2. ServiceNow에서 관리자에 대한 자격 증명을 가져옵니다. ServiceNow의 사용자 프로필로 이동하여 사용자에게 관리자 역할이 있는지 확인합니다. 
 
@@ -94,7 +94,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션에서 ServiceNow 관리자 자격 증명 및 사용자 이름을 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 ServiceNow에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
-    ![스크린샷은 관리자 자격 증명을 입력할 수 있는 서비스 프로비저닝 페이지를 보여 줍니다.](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![스크린샷은 관리자 자격 증명을 입력할 수 있는 서비스 프로비저닝 페이지를 보여 줍니다.](./media/servicenow-provisioning-tutorial/servicenow-provisioning.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
@@ -142,11 +142,16 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
   
   `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
 
-   이 오류는 ServiceNow 인스턴스와 통신하는 데 문제가 있음을 나타냅니다. ServiceNow에서 다음 설정이 *사용 안 함* 으로 설정되어 있는지 두 번 확인합니다.
+   이 오류는 ServiceNow 인스턴스와 통신하는 데 문제가 있음을 나타냅니다. 
+   
+   테스트 연결 문제가 있는 경우 ServiceNow에서 다음 설정을 **사용 안 함** 으로 설정해 봅니다.
    
    1. **시스템 보안** > **높은 보안 설정** > **들어오는 SCHEMA 요청에 대한 기본 인증 요구** 를 선택합니다.
    2. **시스템 속성** > **웹 서비스** > **들어오는 SOAP 요청에 대한 기본 권한 부여 요구** 를 선택합니다.
 
+   ![SOAP 요청 권한 부여](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
+
+   문제가 해결되면 ServiceNow 지원에 문의하여 문제 해결에 도움이 되도록 SOAP 디버깅을 켜도록 요청합니다. 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)

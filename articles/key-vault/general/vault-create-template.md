@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704523"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933934"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure key vault 및 자격 증명 모음 액세스 정책을 만드는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "97704523"
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음을 수행합니다.
 
@@ -213,7 +213,7 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Azure Key Vault 개요](../general/overview.md)를 참조 하세요.
 - [Azure Resource Manager](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아보세요.
-- [Azure Key Vault 모범 사례](../general/best-practices.md)를 검토 합니다.
+- [Azure Key Vault 보안 개요](security-overview.md) 를 검토 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

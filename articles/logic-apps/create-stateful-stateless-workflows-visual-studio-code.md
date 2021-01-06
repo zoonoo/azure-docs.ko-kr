@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: be8d00d795c19399d494db21578e9a7ba8dd9711
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632063"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934019"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Azure Logic Apps (미리 보기) 확장을 사용 하 여 Visual Studio Code에 상태 저장 및 상태 비저장 워크플로 만들기
 
@@ -47,7 +47,7 @@ Visual Studio Code에서 Azure Logic Apps (미리 보기) 확장을 사용 하 �
 > [!NOTE]
 > 현재 알려진 문제에 대 한 자세한 내용은 [GitHub에서 공개 미리 보기의 알려진 문제 Logic Apps 페이지](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="access-and-connectivity"></a>액세스 및 연결
 
@@ -598,7 +598,7 @@ Visual Studio Code에서 webhook 기반 트리거와 작업을 로컬로 실행 
 
    ![실행 상태 및 기록이 포함 된 워크플로의 개요 페이지를 보여 주는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단 되거나 Azure 구독이 중단 된 등의 외부 문제로 인해 실행이 중지 되었거나 완료 되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작 되었지만 취소 요청이 수신 되었습니다. |
@@ -742,7 +742,7 @@ Visual Studio Code에서 새 **논리 앱 (미리 보기)** 리소스 형식을 
 
       !["Azure: Logic Apps (미리 보기)" 창을 표시 하는 스크린샷 및 만들 새 논리 앱의 이름을 입력 하 라는 메시지가 표시 됩니다.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. 새 논리 앱에 대 한 호스팅 계획을 선택 합니다 ( [**App Service 계획**](../azure-functions/functions-scale.md#app-service-plan) 또는 [**프리미엄**](../azure-functions/functions-scale.md#premium-plan)). 이 예에서는 **App Service 계획** 을 선택 합니다.
+   1. 새 논리 앱에 대 한 호스팅 계획을 선택 합니다 ( [**App Service 계획**](../azure-functions/dedicated-plan.md) 또는 [**프리미엄**](../azure-functions/functions-premium-plan.md)). 이 예에서는 **App Service 계획** 을 선택 합니다.
 
       !["Azure: Logic Apps (미리 보기)" 창을 표시 하 고 "App Service Plan" 또는 "Premium"을 선택 하 라는 메시지를 표시 하는 스크린샷](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
@@ -817,7 +817,7 @@ Visual Studio Code에서 새 **논리 앱 (미리 보기)** 리소스 형식을 
          |----------------|------------|
          | 위험 | 논리 앱에서 복구할 수 없는 오류를 설명 하는 로그입니다. |
          | 디버그 | 인바운드 및 아웃 바운드 HTTP 호출과 같은 개발 중에 조사에 사용할 수 있는 로그입니다. |
-         | Error | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
+         | 오류 | 워크플로 실행 오류를 나타내지만 논리 앱에서 일반적인 실패가 아닌 로그입니다. |
          | 정보 | 논리 앱 또는 워크플로의 일반 활동을 추적 하는 로그입니다. 예를 들면 다음과 같습니다. <p><p>-트리거, 동작 또는 실행이 시작 되 고 끝나는 경우 <br>-논리 앱이 시작 되거나 종료 되는 경우 |
          | 추적 | 저장소 요청 또는 디스패처 활동과 같은 가장 자세한 메시지와 워크플로 실행 작업과 관련 된 모든 메시지를 포함 하는 로그입니다. |
          | 경고 | 논리 앱에서 비정상 상태를 강조 표시 하지만 실행을 방해 하지 않는 로그입니다. |

@@ -10,16 +10,16 @@ ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/21/2020
-ms.openlocfilehash: 132c4b223b99f7110cd4553bb0dd93f1e58f4cdd
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: b675e72df4f128d0ce096b3ac398fab63c20557e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733326"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930806"
 ---
 # <a name="service-limits-in-azure-machine-learning"></a>Azure Machine Learning의 서비스 제한
 
-이 섹션에는 Azure Machine Learning의 기본 할당량 및 제한 임계값이 나열 됩니다.
+이 섹션에는 Azure Machine Learning의 기본 할당량 및 제한 임계값이 나열 됩니다. 리소스 할당량을 늘리는 방법에 [대 한 자세한 내용은 "리소스에 대 한 할당량 관리 및 증가"](how-to-manage-quotas.md) 를 참조 하십시오.
 
 ## <a name="workspaces"></a>작업 영역
 | 제한 | 값 |
@@ -73,3 +73,5 @@ ms.locfileid: "97733326"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Machine Learning 환경 구성](how-to-configure-environment.md)
+- ["리소스에 대 한 할당량 관리 및 증가"](how-to-manage-quotas.md)에서 리소스 할당량을 늘리는 방법에 대해 알아봅니다.
+

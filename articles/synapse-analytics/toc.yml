@@ -255,7 +255,7 @@
           items:
             - name: 개요
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 모범 사례
+            - name: 최선의 구현 방법
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
@@ -1113,6 +1113,16 @@
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Azure Synapse에 맞게 Cognitive Services 구성
           href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
+- name: Data Catalog 및 거버넌스
+  items:
+    - name: 빠른 시작
+      items:
+        - name: Azure Purview 계정 연결
+          href: ./catalog-and-governance/quickstart-connect-azure-purview.md
+    - name: 방법 가이드
+      items:
+        - name: 'Azure Purview를 사용하여 Synapse에서 데이터 검색, 연결 및 탐색'
+          href: ./catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md
 - name: 방법
   items:
     - name: 비용 계획 및 관리

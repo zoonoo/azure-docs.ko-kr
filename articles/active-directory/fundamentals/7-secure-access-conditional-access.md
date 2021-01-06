@@ -13,22 +13,22 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c34135a59521eca361c59a1c82854469626616
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 8dd570a31813ef12ee8a007c84facb8aa5e7aca4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744100"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933135"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>조건부 액세스 정책을 사용 하 여 외부 액세스 관리 
 
-[조건부 액세스](../conditional-access/overview.md) 는 Azure AD에서 신호를 보내고 정책을 적용 하며 사용자가 리소스에 대 한 액세스를 허용 해야 하는지 여부를 결정 하는 데 사용 하는 도구입니다. 조건부 액세스 정책 (CA 정책)을 만들고 사용 하는 방법에 대 한 자세한 내용은 [조건부 액세스 배포 계획](../conditional-access/plan-conditional-access.md)을 참조 하세요. 
+[조건부 액세스](../conditional-access/overview.md) 는 Azure AD에서 신호를 보내고 정책을 적용 하며 사용자가 리소스에 대 한 액세스를 허용 해야 하는지 여부를 결정 하는 데 사용 하는 도구입니다. 조건부 액세스 정책 (조건부 액세스 정책)을 만들고 사용 하는 방법에 대 한 자세한 내용은 [조건부 액세스 배포 계획](../conditional-access/plan-conditional-access.md)을 참조 하세요. 
 
 ![조건부 액세스 신호 및 결정 다이어그램](media/secure-external-access//7-conditional-access-signals.png)
 
 
 
-이 문서에서는 외부 사용자에 게 CA 정책을 적용 하는 방법을 설명 하며 [권한 관리](../governance/entitlement-management-overview.md) 기능에 대 한 액세스 권한이 없는 것으로 가정 합니다. CA 정책은 자격 관리와 함께 사용 될 수 있습니다.
+이 문서에서는 외부 사용자에 게 조건부 액세스 정책을 적용 하는 방법을 설명 하며 [권한 관리](../governance/entitlement-management-overview.md) 기능에 대 한 액세스 권한이 없는 것으로 가정 합니다. 조건부 액세스 정책은 자격 관리와 함께 사용 될 수 있습니다.
 
 이 문서 집합의 앞부분에서 설명한 [보안 계획을 만들었습니다](3-secure-access-plan.md) .
 
@@ -36,27 +36,27 @@ ms.locfileid: "97744100"
 
 * 외부 사용자에 대 한 로그인 요구 사항
 
-이 계획을 사용 하 여 외부 액세스를 위한 CA 정책을 만듭니다. 
+이 계획을 사용 하 여 외부 액세스에 대 한 조건부 액세스 정책을 만듭니다. 
 
 > [!IMPORTANT]
 > 일부 외부 사용자 테스트 계정을 만들어 모든 외부 사용자에 게 적용 하기 전에 만든 정책을 테스트할 수 있습니다.
 
 ## <a name="conditional-access-policies-for-external-access"></a>외부 액세스에 대 한 조건부 액세스 정책
 
-다음은 CA 정책으로 외부 액세스를 관리 하는 것과 관련 된 모범 사례입니다.
+다음은 조건부 액세스 정책을 사용 하 여 외부 액세스를 관리 하는 것과 관련 된 모범 사례입니다.
 
-* 자격 관리에서 연결 된 조직을 사용할 수 없는 경우 작업 하는 각 파트너 조직에 대해 Azure AD 보안 그룹 또는 Microsoft 365 그룹을 만듭니다. 해당 파트너의 모든 사용자를 그룹에 할당 합니다. 그런 다음 CA 정책에서 해당 그룹을 사용할 수 있습니다.
+* 자격 관리에서 연결 된 조직을 사용할 수 없는 경우 작업 하는 각 파트너 조직에 대해 Azure AD 보안 그룹 또는 Microsoft 365 그룹을 만듭니다. 해당 파트너의 모든 사용자를 그룹에 할당 합니다. 그런 다음 조건부 액세스 정책에서 이러한 그룹을 사용할 수 있습니다.
 
-* 가능한 한 적은 수의 CA 정책을 만듭니다. 동일한 액세스 요구 사항이 있는 응용 프로그램의 경우 모두 동일한 정책에 추가 합니다.  
+* 가능 하면 몇 가지 조건부 액세스 정책을 만듭니다. 동일한 액세스 요구 사항이 있는 응용 프로그램의 경우 모두 동일한 정책에 추가 합니다.  
 ‎ 
    > [!NOTE]
-   > CA 정책은 최대 250 응용 프로그램에 적용할 수 있습니다. 250 개 이상의 앱에 동일한 액세스 요구 사항이 있는 경우 중복 된 정책을 만듭니다. 정책 A는 앱 1-250에 적용 되 고, 정책 B는 앱 251-500 등에 적용 됩니다.
+   > 조건부 액세스 정책은 최대 250 응용 프로그램에 적용할 수 있습니다. 250 개 이상의 앱에 동일한 액세스 요구 사항이 있는 경우 중복 된 정책을 만듭니다. 정책 A는 앱 1-250에 적용 되 고, 정책 B는 앱 251-500 등에 적용 됩니다.
 
 * 명명 규칙을 사용 하 여 외부 액세스와 관련 된 정책 이름을 명확 하 게 지정 합니다. 하나의 명명 규칙을 *ExternalAccess_actiontaken_AppGroup* 합니다. 예를 ExternalAccess_Block_FinanceApps 합니다.
 
 ## <a name="block-all-external-users-from-resources"></a>리소스에서 모든 외부 사용자 차단
 
-외부 사용자가 CA 정책을 사용 하 여 특정 리소스 집합에 액세스 하지 못하도록 차단할 수 있습니다. 액세스를 차단 하려는 리소스 집합을 결정 했으면 정책을 만듭니다.
+외부 사용자가 조건부 액세스 정책을 사용 하 여 특정 리소스 집합에 액세스 하지 못하도록 차단할 수 있습니다. 액세스를 차단 하려는 리소스 집합을 결정 했으면 정책을 만듭니다.
 
 응용 프로그램 집합에 대 한 외부 사용자의 액세스를 차단 하는 정책을 만들려면 다음을 수행 합니다.
 

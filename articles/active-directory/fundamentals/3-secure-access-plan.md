@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08a4f4a31893fc93789d019ea87dff390552f6a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744197"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932523"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. 외부 액세스를 위한 보안 계획 만들기 
 
@@ -175,7 +175,7 @@ Azure AD P2 및 Microsoft 365 E5에는 전체 보안 및 거 버 넌 스 도구 
 | 자격 관리| **할당 또는 셀프 서비스 액세스를 통해 사용자 추가**| **액세스 패키지**| **액세스 패키지**|  |
 | Office 365 그룹| | 그룹에 포함 된 사이트 및 관련 내용에 대 한 액세스| 그룹에 포함 된 팀 (및 관련 콘텐츠)에 대 한 액세스|  |
 | 민감도 레이블| | **수동 및 자동으로 액세스를 분류 하 고 제한**| **수동 및 자동으로 액세스를 분류 하 고 제한**| **수동 및 자동으로 액세스를 분류 하 고 제한** |
-| Azure AD 보안 그룹| **액세스 패키지에 포함 되지 않은 액세스에 대 한 CA 정책**| | |  |
+| Azure AD 보안 그룹| **액세스 패키지에 포함 되지 않은 액세스에 대 한 조건부 액세스 정책**| | |  |
 
 
 ### <a name="entitlement-management"></a>자격 관리 
@@ -195,7 +195,7 @@ Azure AD P1 및 Microsoft 365 E3을 사용 하 여 강력한 거 버 넌 스를 
 | Azure AD B2B 공동 작업| **전자 메일, OTP, 셀프 서비스를 통한 초대**| 직접 B2B 페더레이션| **파트너 당 정기적으로 검토**| 계정 제거<br>로그인 제한 |
 | Microsoft 또는 Office 365 그룹| | | | 그룹이 만료 되었거나 삭제 되었습니다.<br>그룹에서 제거 합니다. |
 | 보안 그룹| | **외부 사용자를 보안 그룹 (조직, 팀, 프로젝트 등)에 추가 합니다.**| |  |
-| 조건부 액세스 정책| | **외부 사용자에 대 한 로그인 CA 정책**| |  |
+| 조건부 액세스 정책| | **외부 사용자에 대 한 조건부 액세스 정책 로그인**| |  |
 
 
  ### <a name="access-to-resources"></a>리소스에 대 한 액세스.
@@ -204,7 +204,7 @@ Azure AD P1 및 Microsoft 365 E3을 사용 하 여 강력한 거 버 넌 스를 
 | - |-|-|-|-|
 | Microsoft 또는 Office 365 그룹| | **그룹에 포함 된 사이트에 대 한 액세스 (및 관련 콘텐츠)**|**Microsoft 365 그룹 및 관련 콘텐츠를 포함 하는 팀에 대 한 액세스**|  |
 | 민감도 레이블| | 수동 분류 및 액세스 제한| 액세스를 수동으로 분류 하 고 제한 합니다.| 수동으로 분류 하 여 제한 및 암호화 |
-| 조건부 액세스 정책| 액세스 제어를 위한 CA 정책| | |  |
+| 조건부 액세스 정책| 액세스 제어에 대 한 조건부 액세스 정책| | |  |
 | 추가 방법| | SharePoint 사이트 액세스 세부적으로을 보안 그룹으로 제한 합니다.<br>직접 공유를 허용 하지 않습니다.| **팀 내에서 외부 초대 제한**|  |
 
 

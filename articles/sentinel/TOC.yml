@@ -211,6 +211,8 @@
       href: /rest/api/securityinsights/
     - name: 네트워크 정규화 스키마
       href: normalization-schema.md
+    - name: UEBA 보강
+      href: ueba-enrichments.md
 - name: 리소스
   items:
     - name: 유용한 리소스

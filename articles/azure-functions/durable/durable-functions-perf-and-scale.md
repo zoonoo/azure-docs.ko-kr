@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854991"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931741"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -51,7 +51,7 @@ ms.locfileid: "96854991"
 최대 폴링 지연은 `maxQueuePollingInterval` [ 파일의host.js](../functions-host-json.md#durabletask)에 있는 속성을 통해 구성할 수 있습니다. 이 속성을 더 큰 값으로 설정 하면 메시지 처리 대기 시간이 더 길어질 수 있습니다. 대기 시간이 길수록 비활성 기간 후에만 예상 됩니다. 이 속성을 더 낮은 값으로 설정 하면 저장소 트랜잭션이 증가 하 여 저장소 비용이 높아질 수 있습니다.
 
 > [!NOTE]
-> Azure Functions 소비 및 프리미엄 계획에서 실행 하는 경우 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-and-premium-plans-work) 는 각 제어 및 작업 항목 큐를 10 초 마다 한 번씩 폴링합니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 결정을 내리는 시기를 결정 하는 데 필요 합니다. 작성 시이 10 초 간격은 일정 하므로 구성할 수 없습니다.
+> Azure Functions 소비 및 프리미엄 계획에서 실행 하는 경우 [Azure Functions 크기 조정 컨트롤러](../event-driven-scaling.md) 는 각 제어 및 작업 항목 큐를 10 초 마다 한 번씩 폴링합니다. 이 추가 폴링은 함수 앱 인스턴스를 활성화 하 고 크기 결정을 내리는 시기를 결정 하는 데 필요 합니다. 작성 시이 10 초 간격은 일정 하므로 구성할 수 없습니다.
 
 ### <a name="orchestration-start-delays"></a>오케스트레이션 시작 지연
 오케스트레이션 인스턴스는 `ExecutionStarted` 작업 허브의 제어 큐 중 하나에 메시지를 추가 하 여 시작 됩니다. 특정 조건에서는 오케스트레이션이 실행 되도록 예약 된 시간과 실제로 실행이 시작 될 때 사이에 여러 초 지연이 발생할 수 있습니다. 이 시간 간격 동안 오케스트레이션 인스턴스는 상태로 유지 됩니다 `Pending` . 이러한 지연의 두 가지 가능한 원인은 다음과 같습니다.
@@ -138,7 +138,7 @@ Durable Functions에서 사용 되는 큐, 테이블 및 blob은 구성 된 Azur
 
 ## <a name="auto-scale"></a>자동 크기 조정
 
-소비 및 탄력적 프리미엄 계획에서 실행 되는 모든 Azure Functions와 마찬가지로 Durable Functions는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#runtime-scaling)를 통해 자동 크기 조정을 지원 합니다. 크기 조정 컨트롤러는 _peek_ 명령을 주기적으로 실행하여 모든 큐의 대기 시간을 모니터링합니다. 확인된 메시지의 대기 시간에 따라, 크기 조정 컨트롤러는 VM을 추가할지 또는 제거할지를 결정합니다.
+소비 및 탄력적 프리미엄 계획에서 실행 되는 모든 Azure Functions와 마찬가지로 Durable Functions는 [Azure Functions 크기 조정 컨트롤러](../event-driven-scaling.md#runtime-scaling)를 통해 자동 크기 조정을 지원 합니다. 크기 조정 컨트롤러는 _peek_ 명령을 주기적으로 실행하여 모든 큐의 대기 시간을 모니터링합니다. 확인된 메시지의 대기 시간에 따라, 크기 조정 컨트롤러는 VM을 추가할지 또는 제거할지를 결정합니다.
 
 크기 조정 컨트롤러는 제어 큐 메시지 대기 시간이 너무 높다고 판단되면 메시지 대기 시간이 적절한 수준까지 감소하거나, 제어 큐 파티션 수에 도달할 때까지 VM 인스턴스를 추가합니다. 마찬가지로, 파티션 수에 관계없이 작업 항목 큐 대기 시간이 높으면 크기 조정 컨트롤러는 VM 인스턴스를 계속 추가합니다.
 

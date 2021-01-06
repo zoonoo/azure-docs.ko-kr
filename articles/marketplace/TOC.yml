@@ -205,8 +205,16 @@
           href: partner-center-portal/create-iot-edge-module-asset.md
     - name: 관리되는 서비스 제품
       items:
+        - name: 관리되는 서비스 제품 계획
+          href: plan-managed-service-offer.md
         - name: 관리되는 서비스 제품 만들기
-          href: partner-center-portal/create-new-managed-service-offer.md
+          href: create-managed-service-offer.md
+        - name: 관리되는 서비스 목록 구성
+          href: create-managed-service-offer-listing.md
+        - name: 미리 보기 대상 추가
+          href: create-managed-service-offer-preview.md
+        - name: 플랜 만들기
+          href: create-managed-service-offer-plans.md
     - name: Power BI 앱 제품
       items:
         - name: Power BI 앱 제품 계획

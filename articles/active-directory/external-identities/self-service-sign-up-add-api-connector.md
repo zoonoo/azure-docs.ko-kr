@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f34ca47d5ff6c809eef40f89ee0049285cfd7d42
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa6726bb5c60dceab0a58632da99c04361183246
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355396"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932693"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
 [Api 커넥터](api-connectors-overview.md)를 사용 하려면 먼저 api 커넥터를 만든 다음 사용자 흐름에서 사용 하도록 설정 합니다.
 
 > [!IMPORTANT]
->Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+>**2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
 
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
@@ -319,7 +319,7 @@ Azure Functions의 HTTP 트리거와 같은 서버 리스 함수는 API 커넥�
 * API 커넥터의 **끝점 URL** 은 올바른 api 끝점을 가리킵니다.
 * API는 수신 된 클레임의 null 값을 명시적으로 확인 합니다.
 * API는 유연 하 게 사용자 환경을 보장 하기 위해 최대한 신속 하 게 응답 합니다.
-    * 서버를 사용 하지 않는 함수 또는 확장 가능한 웹 서비스를 사용 하는 경우 API를 "활성" 또는 "웜" 상태로 유지 하는 호스팅 계획을 사용 합니다. Azure Functions의 경우 [프리미엄 요금제](../../azure-functions/functions-scale.md#premium-plan)를 사용 하는 것이 좋습니다. 
+    * 서버를 사용 하지 않는 함수 또는 확장 가능한 웹 서비스를 사용 하는 경우 API를 "활성" 또는 "웜" 상태로 유지 하는 호스팅 계획을 사용 합니다. Azure Functions의 경우 [프리미엄 요금제](../../azure-functions/functions-premium-plan.md)를 사용 하는 것이 좋습니다. 
 
 
 ### <a name="use-logging"></a>로깅 사용

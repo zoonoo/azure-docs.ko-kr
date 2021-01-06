@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b346a23ccde6abd0f76982a4d19e00e28e8511a7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655275"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930874"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
 
@@ -63,7 +63,7 @@ CMK를 프로비저닝하려면 다음 단계를 수행합니다.
     > [!NOTE]
     >  키와 액세스를 보호하기 위해 Azure Key Vault를 복구 가능으로 구성해야 합니다.
 
-1.  [복구 옵션 설정:](../key-vault/general/best-practices.md#turn-on-recovery-options)
+1.  [복구 옵션 설정:](../key-vault/general/key-vault-recovery.md)
 
     -   [일시 삭제](../key-vault/general/soft-delete-overview.md)가 설정되어 있는지 확인합니다.
 

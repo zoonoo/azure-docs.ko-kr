@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425848"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930789"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>MSIX 앱 연결 (미리 보기)에 대 한 파일 공유 설정
 
@@ -64,6 +64,12 @@ MSIX 앱 연결 성능을 최적화 하기 위해 수행 하는 몇 가지 다�
 MSIX 앱 첨부 파일 공유에 대 한 설치 프로세스는 대부분 [FSLogix 프로필 파일 공유에 대 한 설치](create-host-pools-user-profile.md)프로세스와 동일 합니다. 그러나 사용자에 게 다른 권한을 할당 해야 합니다. MSIX 앱 연결에는 파일 공유에 액세스 하기 위한 읽기 전용 권한이 필요 합니다.
 
 Azure Files에서 MSIX 응용 프로그램을 저장 하는 경우 세션 호스트의 경우 모든 세션 호스트 Vm을 할당 해야 합니다. 저장소 계정 역할 기반 액세스 제어 (RBAC)와 공유에 대 한 파일 공유 새 기술 파일 시스템 (NTFS) 권한을 모두 할당 해야 합니다.
+
+| Azure 개체                      | 필수 역할                                     | Role 함수                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| 세션 호스트 (VM 컴퓨터 개체)| 스토리지 파일 데이터 SMB 공유 Contributor          | 읽기 및 실행, 읽기, 폴더 내용 보기  |
+| 파일 공유의 관리자              | 스토리지 파일 데이터 SMB 공유 관리자 권한 Contributor | 모든 권한                                  |
+| 파일 공유의 사용자               | 스토리지 파일 데이터 SMB 공유 Contributor          | 읽기 및 실행, 읽기, 폴더 내용 보기  |
 
 저장소 계정 및 파일 공유에 대 한 세션 호스트 Vm 권한을 할당 하려면:
 

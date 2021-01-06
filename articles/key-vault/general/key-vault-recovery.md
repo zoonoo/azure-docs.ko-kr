@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a783333d8edd40556b7744eb7cf7dfb52953a7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704217"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933985"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하 여 복구 관리 Azure Key Vault
 
@@ -23,7 +23,7 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
 - [Key Vault 개요](overview.md)
 - [Azure Key Vault 키, 암호 및 인증서 개요](about-keys-secrets-certificates.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
 * [PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps)입니다.
@@ -394,4 +394,4 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
 - [키 자격 증명 모음 로깅을 사용하는 방법](howto-logging.md)
 - [Key vault에 대한 액세스 보안](secure-your-key-vault.md)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)
-- [주요 자격 증명 모음을 사용 하는 모범 사례](best-practices.md)
+- [주요 자격 증명 모음을 사용 하는 모범 사례](security-overview.md)
