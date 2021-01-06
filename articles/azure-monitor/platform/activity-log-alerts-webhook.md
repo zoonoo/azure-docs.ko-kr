@@ -4,12 +4,12 @@ description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901439"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916639"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -40,6 +40,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 > 작업 규칙, 웹 후크, 논리 앱 또는 기타 구성에 대 한 조건이 현재 활동 로그 경고에 대 한 **"설명"** 속성을 기반으로 하는 경우 **"활동 로그 이벤트 설명"** 속성을 기반으로 수정 해야 할 수 있습니다.
 >
 > 새 **"설명"** 속성을 채우기 위해 경고 규칙 정의에 설명을 추가할 수 있습니다.
+> ![발생 한 활동 로그 경고](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>일반
 
