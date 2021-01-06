@@ -75,7 +75,7 @@
         - name: FAQ-Recovery Services 자격 증명 모음
           href: backup-azure-backup-faq.md
         - name: FAQ 백업 센터
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: FAQ-Azure VM 백업
           href: backup-azure-vm-backup-faq.md
         - name: FAQ-MARS 에이전트

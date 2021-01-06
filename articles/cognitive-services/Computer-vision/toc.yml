@@ -139,7 +139,7 @@
         - name: 이미지 처리 앱 검색
           href: Tutorials/CSharpTutorial.md
         - name: 기타 Computer Vision 예제
-          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+          href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=computer-vision'
     - name: FAQ
       href: FAQ.md
     - name: 범주 분류

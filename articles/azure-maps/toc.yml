@@ -306,6 +306,8 @@
       items:
         - name: 데이터 서비스
           href: /rest/api/maps/data
+        - name: 권한 상승 서비스
+          href: /rest/api/maps/elevation
         - name: 지리적 위치 서비스
           href: /rest/api/maps/geolocation
         - name: 모바일 서비스
