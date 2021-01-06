@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1b43a1ceb1f9e098e4932b405553ae8f33e27262
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034040"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937351"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -29,7 +29,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 > + 할당량을 늘리는 중입니다.
 > + 개인 끝점 및 DNS 할당량.
 
-할당량 관리와 함께 [Azure Machine Learning에 대 한 비용을 계획 하 고 관리](concept-plan-manage-cost.md)하는 방법을 배울 수 있습니다.
+할당량 관리와 함께 [Azure Machine Learning에 대 한 비용을 계획 하 고 관리](concept-plan-manage-cost.md) 하는 방법과 [Azure Machine Learning의 서비스 제한](resource-limits-quotas-capacity.md)에 대해 알아볼 수 있습니다.
 
 ## <a name="special-considerations"></a>특별 고려 사항
 
@@ -53,7 +53,9 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 + Azure Storage
 
 > [!IMPORTANT]
-> 한도는 변경될 수 있습니다. 최신 정보는 azure [구독 및 서비스 제한, 할당량 및](../azure-resource-manager/management/azure-subscription-service-limits.md) 모든 azure에 대 한 제약 조건을 참조 하세요.
+> 한도는 변경될 수 있습니다. 최신 정보는  [Azure Machine Learning의 서비스 제한](resource-limits-quotas-capacity.md)을 참조 하세요.
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Azure Machine Learning 자산
 자산에 대 한 다음 제한은 작업 영역 별로 적용 됩니다. 
@@ -210,3 +212,4 @@ Azure Machine Learning는 (고객) 구독에 리소스를 만들지만 일부 �
 ## <a name="next-steps"></a>다음 단계
 
 + [Azure Machine Learning에 대 한 비용 계획 및 관리](concept-plan-manage-cost.md)
++ [Azure Machine Learning의 서비스 제한](resource-limits-quotas-capacity.md)
