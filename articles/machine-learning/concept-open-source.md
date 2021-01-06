@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675879"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914113"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Azure Machine Learning 프로젝트와의 오픈 소스 통합
 
@@ -52,7 +52,7 @@ Machine learning 모델을 학습 하려면 데이터가 필요 합니다. 데�
 
 보충 learning은 작업, 상태 및 보상을 사용 하 여 모델을 학습 하는 인공 지능 기술입니다. 보충 학습 에이전트는 환경의 현재 상태에 따라 지정 된 보상을 최대화 하는 미리 정의 된 작업 집합을 사용 하는 방법을 알아봅니다. 
 
-[광선 RLLib](https://github.com/ray-project/ray) 프로젝트에는 학습 프로세스 전반에 걸쳐 높은 확장성을 허용 하는 설정 된 기능이 있습니다. 반복적인 프로세스는 보충 학습 에이전트에서 작업을 수행 하는 최적의 방법을 배울 수 있는 시간 및 리소스 집약적입니다.  또한 레이 RLLib는 TensorFlow 및 PyTorch와 같은 심층 학습 프레임 워크를 기본적으로 지원 합니다.  
+[광선 RLLib](https://github.com/ray-project/ray) 프로젝트에는 학습 프로세스 전체에서 확장성을 높일 수 있는 기능 집합이 있습니다. 반복적인 프로세스는 보충 학습 에이전트에서 작업을 수행 하는 최적의 방법을 배울 수 있는 시간 및 리소스 집약적입니다.  또한 레이 RLLib는 TensorFlow 및 PyTorch와 같은 심층 학습 프레임 워크를 기본적으로 지원 합니다.  
 
 Azure Machine Learning에서 광선 RLLib를 사용 하는 방법을 알아보려면 [보충 학습 모델을 학습](how-to-use-reinforcement-learning.md)하는 방법을 참조 하세요.
 
@@ -101,4 +101,4 @@ Docker와 같은 컨테이너 기술은 모델을 웹 서비스로 배포 하는
 
 CI (지속적인 통합) 및 CD (지속적인 배포)와 같은 DevOps 관행을 사용 하 여 종단 간 기계 학습 수명 주기를 자동화 하 고이를 중심으로 거 버 넌 스 데이터를 캡처할 수 있습니다. [GitHub 작업에서 기계 학습 CI/CD 파이프라인](./how-to-github-actions-machine-learning.md) 을 정의 하 여 Azure Machine Learning 교육 및 배포 작업을 실행할 수 있습니다. 
 
-소프트웨어 종속성, 메트릭, 메타 데이터, 데이터 및 모델 버전 관리는 투명 하 고 재현 가능 하며 감사할 수 있는 파이프라인을 빌드하기 위해 MLOps 프로세스의 중요 한 부분입니다. 이 작업의 경우 [Azure Databricks에서 기계 학습 모델을 학습](./how-to-use-mlflow-azure-databricks.md)하는 경우 뿐만 아니라 [Azure Machine Learning에서 mlflow를 사용할](how-to-use-mlflow.md) 수 있습니다.
+소프트웨어 종속성, 메트릭, 메타 데이터, 데이터 및 모델 버전 관리는 투명 하 고 재현 가능 하며 감사할 수 있는 파이프라인을 빌드하기 위해 MLOps 프로세스의 중요 한 부분입니다. 이 작업의 경우 [Azure Databricks에서 기계 학습 모델을 학습](./how-to-use-mlflow-azure-databricks.md)하는 경우 뿐만 아니라 [Azure Machine Learning에서 mlflow를 사용할](how-to-use-mlflow.md) 수 있습니다. [MLflow 모델을 Azure 웹 서비스로 배포할](how-to-deploy-mlflow-models.md)수도 있습니다. 

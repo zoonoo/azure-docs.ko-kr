@@ -6,24 +6,24 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 959070ca431c3397779a2a22c16f03b3adebbb35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: be2657d9606f260fcea06d2535be87fc6976577c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444506"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915677"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀 (미리 보기)을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB에 대 한 Synapse 링크를 통해 서버 리스 SQL 풀 데이터베이스 및 뷰를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos DB 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 Power BI를 사용 하 여 모델을 작성 합니다.
 
-이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
+이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
 
 > [!IMPORTANT]
 > Azure Cosmos DB에 대 한 Azure Synapse 링크에 대 한 Synapse 서버 리스 SQL 풀 지원은 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 다음 리소스를 만들어야 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "96444506"
 
 * Azure Cosmos 계정 내에서 데이터베이스를 만들고 [분석 저장소가 사용 하도록 설정](configure-synapse-link.md#create-analytical-ttl) 된 두 개의 컨테이너를 만듭니다.
 
-* 이 [batch 데이터](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) 수집 노트북에 설명 된 대로 제품 데이터를 Azure Cosmos 컨테이너에 로드 합니다.
+* 이 [batch 데이터](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) 수집 노트북에 설명 된 대로 제품 데이터를 Azure Cosmos 컨테이너에 로드 합니다.
 
 * **SynapseLinkBI** 라는 [Synapse 작업 영역을 만듭니다](../synapse-analytics/quickstart-create-workspace.md) .
 
@@ -127,7 +127,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 1. **모델** 을 선택 하 여 **storeId** 열을 통해 두 뷰 간의 관계를 만듭니다.
 
-1. **RetailSales** 뷰에서 **StoreId** 열을 **StoreId** 열로 끌어다 놓습니다. **StoreDemographics**
+1. **RetailSales** 뷰에서 **StoreId** 열을 **StoreId** 열로 끌어다 놓습니다. 
 
 1. **RetailSales** 보기에 동일한 저장소 ID를 가진 여러 행이 있으므로 다 대 일 (*: 1) 관계를 선택 합니다. 저장소 **인구 통계** 에는 하나의 저장소 ID 행만 있습니다 (차원 테이블).
 

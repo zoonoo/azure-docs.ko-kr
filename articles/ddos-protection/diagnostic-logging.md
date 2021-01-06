@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: dd350cc5fa0c3b30b4f0d57938348a8328af311a
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827396"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915167"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
@@ -36,11 +36,11 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 > * 정의 된 범위의 모든 공용 Ip에 대해 진단 로깅을 사용 하도록 설정 합니다.
 > * 통합 문서에서 로그 데이터를 봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하려면 먼저 [Azure DDoS standard 보호 계획](manage-ddos-protection.md) 을 만들고 가상 네트워크에서 DDoS Protection standard를 사용 하도록 설정 해야 합니다.
-- DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경 및 Azure VPN Gateway를 제외 하 고 [azure 서비스용 가상 네트워크](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (가상 네트워크에 있는 Azure 부하 분산 장치 포함)에 나열 된 리소스 관리자 (클래식이 아님)를 통해 배포 된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.    
+- DDoS는 가상 네트워크 내의 리소스에 할당된 공용 IP 주소를 모니터링합니다. 가상 네트워크에 공용 IP 주소가 있는 리소스가 없으면 먼저 공용 IP 주소를 사용하여 리소스를 만들어야 합니다. Azure App Service 환경을 제외 하 고 [azure 서비스](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (가상 네트워크에 있는 Azure 부하 분산 장치를 포함 하는 Azure 부하 분산 장치)에 나열 된 리소스 관리자 (클래식이 아님)를 통해 배포 된 모든 리소스의 공용 IP 주소를 모니터링할 수 있습니다. 이 자습서를 계속 진행하려면 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신을 빠르게 만들면 됩니다.    
 
 ## <a name="configure-ddos-diagnostic-logs"></a>DDoS 진단 로그 구성
 
@@ -163,4 +163,4 @@ DDoS 공격을 시뮬레이션 하 여 로그의 유효성을 검사 하려면 [
 공격 경고를 구성 하는 방법을 알아보려면 다음 자습서를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [DDoS protection 경고 보기 및 구성](alerts.md)
+> [DDoS 보호 경고 보기 및 구성](alerts.md)

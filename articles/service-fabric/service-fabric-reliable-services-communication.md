@@ -4,12 +4,12 @@ description: 서비스에서 수신기 열기, 엔드포인트 확인 및 서비
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e7dc10055633c8e6dd2c645f28b774d5d5f3ac3f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3436d29446e963faea9bda47f5a5247b7de7d859
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574329"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912617"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Reliable Services 통신 API를 사용하는 방법
 플랫폼인 Azure 서비스 패브릭은 서비스 간에 이루어지는 통신을 전혀 알 수 없습니다. UDP에서 HTTP까지 모든 프로토콜 및 스택이 허용됩니다. 서비스 개발자가 서비스가 통신하는 방법을 선택합니다. Reliable Services 애플리케이션 프레임워크는 사용자 지정 통신 구성 요소를 빌드하는 데 사용할 수 있는 API 뿐만 아니라 기본 제공 통신 스택을 제공합니다.
@@ -206,7 +206,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 다음은 그 예입니다. 
+다른 클러스터의 서비스에 연결하면 일련의 클러스터 게이트웨이 엔드포인트로 ServicePartitionResolver를 만들 수 있습니다. 게이트웨이 엔드포인트는 동일한 클러스터에 연결하기 위한 다른 엔드포인트입니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -288,7 +288,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-클라이언트 팩터리는 주로 통신 클라이언트를 만드는 작업을 담당합니다. HTTP 클라이언트와 같은 영구 연결을 유지하지 않는 클라이언트의 경우 팩터리는 클라이언트를 만들고 반환해야 합니다. 또한 일부 이진 프로토콜과 같은 영구 연결을 유지하는 다른 프로토콜은 팩터리를 통해 유효성을 검사하여 연결을 다시 만들어야 하는지 여부를 결정해야 합니다.  
+클라이언트 팩터리는 주로 통신 클라이언트를 만드는 작업을 담당합니다. HTTP 클라이언트와 같은 영구 연결을 유지하지 않는 클라이언트의 경우 팩터리는 클라이언트를 만들고 반환해야 합니다. 또한 일부 이진 프로토콜과 같은 영구 연결을 유지 하는 다른 프로토콜은 팩터리를 통해 유효성을 검사 `ValidateClient(string endpoint, MyCommunicationClient client)` 하 여 연결을 다시 만들어야 하는지 여부를 결정 해야 합니다.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>

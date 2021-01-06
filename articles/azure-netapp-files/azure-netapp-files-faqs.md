@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 1537a87999f9a8eecf83a2431b2f53d3ceaedacb
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854702"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913501"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -137,6 +137,16 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 예, 할 수 있습니다. 그러나 다른 구독 또는 다른 지역에서 파일 경로를 사용 해야 합니다.   
 
 예를 들어 라는 볼륨을 만듭니다 `vol1` . 그런 다음 다른 `vol1` 용량 풀에 있지만 동일한 구독 및 지역에 있는 다른 볼륨을 만듭니다. 이 경우 동일한 볼륨 이름을 사용 하면 오류가 발생 `vol1` 합니다. 동일한 파일 경로를 사용 하려면 이름이 다른 지역 또는 구독에 있어야 합니다.
+
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Windows 클라이언트를 통해 NFS 볼륨에 액세스 하려고 할 때 클라이언트에서 폴더와 하위 폴더를 검색 하는 데 시간이 오래 걸리는 이유는 무엇 인가요?
+
+`CaseSensitiveLookup`Windows 클라이언트에서를 사용 하 여 폴더 및 하위 폴더의 조회 속도를 높일 수 있는지 확인 합니다.
+
+1. 다음 PowerShell 명령을 사용 하 여 CaseSensitiveLookup를 사용 하도록 설정 합니다.   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Windows 서버에 볼륨을 탑재 합니다.   
+    예제:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ## <a name="smb-faqs"></a>SMB FAQ
 

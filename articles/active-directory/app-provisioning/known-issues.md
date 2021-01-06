@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509549"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914351"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -64,7 +64,7 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 ## <a name="service-issues"></a>서비스 문제 
 
-**지원 되지 않는 시나리오**
+**지원되지 않는 시나리오**
 
 - 프로 비전 암호는 지원 되지 않습니다. 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 
@@ -82,6 +82,10 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 **대상 앱에서 Azure AD로 이동 하지 않는 변경 내용**
 
 앱 프로 비전 서비스는 외부 앱에서 변경한 내용을 인식 하지 못합니다. 따라서 롤백하는 동작이 수행 되지 않습니다. 앱 프로 비전 서비스는 Azure AD에서 변경 된 내용을 따릅니다. 
+
+**모두 동기화에서 할당 되지 않은 동기화로 전환**
+
+' 동기화 모두 '에서 ' 동기화 할당 됨 '으로 범위를 변경한 후에도 다시 시작을 수행 하 여 변경 내용이 적용 되는지 확인 하세요. UI에서 다시 시작할 수 있습니다.
 
 **프로 비전 주기는 완료 될 때까지 계속 됩니다.**
 

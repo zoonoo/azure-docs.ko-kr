@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 1c28b4e9821f31f927ef4f640aa664d330cf8792
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570997"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914963"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성으로 설정 끌어오기
 
 [Azure 앱 구성](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task) 작업은 앱 구성 저장소에서 키-값을 끌어오고 Azure 파이프라인 변수로 설정 합니다 .이 변수는 후속 작업에서 사용 될 수 있습니다. 이 작업은 구성 파일의 키-값을 앱 구성 저장소로 푸시하는 [Azure 앱 구성 푸시](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) 작업을 보완 합니다. 자세한 내용은 [Azure Pipelines를 사용 하 여 앱 구성에 설정 밀어넣기](push-kv-devops-pipeline.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 앱 구성 저장소- [Azure Portal](https://portal.azure.com)에서 무료로 무료로 만듭니다.
@@ -60,7 +60,7 @@ ms.locfileid: "96570997"
 
 이 섹션에서는 Azure DevOps 빌드 파이프라인에서 Azure 앱 구성 작업을 사용 하는 방법을 설명 합니다.
 
-1. **파이프라인** 파이프라인을 클릭 하 여 빌드 파이프라인 페이지로 이동  >  **Pipelines** 합니다. 빌드 파이프라인 설명서는  [첫 번째 파이프라인 만들기](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)를 참조 하세요.
+1. **파이프라인** 파이프라인을 클릭 하 여 빌드 파이프라인 페이지로 이동  >  합니다. 빌드 파이프라인 설명서는  [첫 번째 파이프라인 만들기](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)를 참조 하세요.
       - 새 빌드 파이프라인을 만드는 경우 **새 파이프라인** 을 클릭 하 고 파이프라인에 대 한 리포지토리를 선택 합니다. 파이프라인의 오른쪽에서 **보조자 표시** 를 선택 하 고 **Azure 앱 구성** 작업을 검색 합니다.
       - 기존 빌드 파이프라인을 사용 하는 경우 **편집** 을 선택 하 여 파이프라인을 편집 합니다. **작업** 탭에서 **Azure 앱 구성** 작업을 검색 합니다.
 1. 작업에 필요한 매개 변수를 구성 하 여 앱 구성 저장소에서 키-값을 끌어옵니다. 매개 변수에 대 한 설명은 아래의 **매개 변수** 섹션 및 각 매개 변수 옆에 있는 도구 설명에서 사용할 수 있습니다.
@@ -73,7 +73,7 @@ ms.locfileid: "96570997"
 
 이 섹션에서는 Azure DevOps 릴리스 파이프라인에서 Azure 앱 구성 작업을 사용 하는 방법을 설명 합니다.
 
-1. **파이프라인** 릴리스를 선택 하 여 릴리스 파이프라인 페이지로 이동  >  **Releases** 합니다. 릴리스 파이프라인 설명서는 [릴리스 파이프라인](/azure/devops/pipelines/release?view=azure-devops)을 참조 하세요.
+1. **파이프라인** 릴리스를 선택 하 여 릴리스 파이프라인 페이지로 이동  >  합니다. 릴리스 파이프라인 설명서는 [릴리스 파이프라인](/azure/devops/pipelines/release?view=azure-devops)을 참조 하세요.
 1. 기존 릴리스 파이프라인을 선택 합니다. 없는 경우 **새 파이프라인** 을 클릭 하 여 새 파이프라인을 만듭니다.
 1. 오른쪽 위 모서리에서 **편집** 단추를 선택 하 여 릴리스 파이프라인을 편집 합니다.
 1. **단계** 를 선택 하 여 작업을 추가 합니다. 단계에 대 한 자세한 내용은 [단계, 종속성, & 조건 추가](/azure/devops/pipelines/release/environments?view=azure-devops)를 참조 하세요.
@@ -103,6 +103,9 @@ ms.locfileid: "96570997"
 echo "$env:myBuildSetting"
 ```
 그리고 값이 콘솔에 출력 됩니다.
+
+> [!NOTE]
+> 앱 구성 내의 Azure Key Vault 참조는 확인 되 고 [비밀 변수로](/azure/devops/pipelines/process/variables#secret-variables)설정 됩니다. Azure 파이프라인에서 비밀 변수는 로그에서 마스킹할 수 있습니다. 이러한 작업은 환경 변수로 작업에 전달 되지 않으며 대신 입력으로 전달 되어야 합니다. 
 
 ## <a name="troubleshooting"></a>문제 해결
 

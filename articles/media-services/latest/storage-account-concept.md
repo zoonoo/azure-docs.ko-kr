@@ -1,5 +1,5 @@
 ---
-title: Azure Storage 계정
+title: Azure 스토리지 계정
 titleSuffix: Azure Media Services
 description: Azure Media Services와 함께 사용할 Azure 저장소 계정을 만드는 방법에 대해 알아봅니다.
 services: media-services
@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291197"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916323"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage 계정
 
@@ -27,7 +27,7 @@ Azure에서 미디어 콘텐츠 관리, 암호화, 인코딩, 분석 및 스트�
 
 Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용을 방지 하기 위해 Media Services 계정과 동일한 위치에 저장소 계정을 사용 하는 것이 좋습니다.
 
-하나의 **기본** 저장소 계정이 있어야 하며, Media Services 계정에 연결 된 **보조** 저장소 계정을 개수에 제한 없이 사용할 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **주**로 허용 되지 않습니다.
+**기본** 스토리지 계정은 하나 있어야 하며 Media Services 계정과 연결된 **보조** 스토리지 계정은 여러 개 사용할 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **주** 로 허용 되지 않습니다.
 
 최신 기능과 성능을 활용할 수 있도록 GPv2를 사용 하는 것이 좋습니다. 저장소 계정에 대해 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조 하세요.
 
@@ -51,9 +51,12 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>(1)</sup>|
 |[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
-|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않습니다.|
+|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원 안 됨|
 
 <sup>1</sup> Media Services v3에서 저장소 암호화 (AES-256 암호화)는 이전 버전과의 호환성을 위해서만 지원 됩니다. 즉, v 2를 Media Services 사용 하 여 자산을 만든 경우에만 v3에서 기존 저장소 암호화 된 자산을 사용할 수 있지만 새로 만들 수는 없습니다.
+
+## <a name="double-encryption"></a>이중 암호화
+Media Services는 이중 암호화를 지원 합니다.  이중 암호화에 대해 자세히 알아보려면 [Azure 이중 암호화](https://docs.microsoft.com/azure/security/fundamentals/double-encryption)를 참조 하세요.
 
 ## <a name="storage-account-errors"></a>저장소 계정 오류
 

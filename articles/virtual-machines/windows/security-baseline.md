@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: af7cc9d83b87c8a772a190c431d6946eec4dda86
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9e5f7d4e3c358c05713301ac1b1b896062f12bee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483133"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914759"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
 
@@ -893,7 +893,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [ARM 템플릿 만들기에 대 한 정보](./ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910&preserve-view=true)
 
 **Azure Security Center 모니터링**: 예
 

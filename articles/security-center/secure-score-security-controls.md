@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2020
+ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 283dbf152778b5ef58e298444058f619356ef241
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756112"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916374"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -72,7 +72,7 @@ Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표�
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
 
-보안 점수 API (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 [보안 점수 API](/rest/api/securitycenter/securescores) 를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 [점수 컨트롤 API](/rest/api/securitycenter/securescorecontrols) 를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+보안 점수 API를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 [보안 점수 API](/rest/api/securitycenter/securescores) 를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 [점수 컨트롤 API](/rest/api/securitycenter/securescorecontrols) 를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
 
 ![API를 통해 단일 보안 점수 검색](media/secure-score-security-controls/single-secure-score-via-api.png)
 

@@ -6,21 +6,18 @@ ms.subservice: sizes
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 01/05/2021
 ms.author: vikancha
-ms.openlocfilehash: 2de6cceb1e3b85060a146b18a689b57573bc932e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6463e54fb7f0a2cc03ffa043c00048c1131899ce
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585431"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913433"
 ---
-# <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 시리즈 (미리 보기) 
+# <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
 
 NCasT4_v3 시리즈 가상 머신은 [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU 및 AMD Epyc 7V12 (로마) cpu로 구동 됩니다. Vm은 각각 16gb의 메모리를 포함 하는 최대 4 개의 NVIDIA T4 Gpu를 포함 하 고 있으며,이는 최대 64 비 다중 스레드 AMD EPYC 7V12 (로마) 프로세서 코어 및 440 GiB의 시스템 메모리입니다. 이러한 가상 머신은 AI 서비스를 배포 하는 데 적합 합니다. 예를 들어 사용자가 생성 한 요청의 실시간 추론 NVIDIA의 그리드 드라이버 및 가상 GPU 기술을 사용 하는 대화형 그래픽 및 시각화 작업에 적합 합니다. TensorRT, Caffe, ONNX 및 기타 프레임 워크를 기반으로 하는 표준 GPU 계산 워크 로드 또는 GPU 가속 그래픽 응용 프로그램을 기반으로 하는 OpenGL 및 DirectX는 NCasT4_v3 시리즈에서 사용자에 게 근접 한 경제적으로 배포할 수 있습니다.
-
-> [!NOTe]
-> 미리 보기 프로그램의 일부가 될 [요청을 제출](https://aka.ms/NCT4v3Preview) 합니다.
 
 <br>
 

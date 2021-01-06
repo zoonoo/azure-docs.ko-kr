@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/13/2019
+ms.date: 01/05/2020
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a33c7e7d637b519b249c250481a73d04c661d4d5
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819893"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915847"
 ---
 # <a name="microsoft-global-network"></a>Microsoft 글로벌 네트워크
 
@@ -71,4 +71,5 @@ Microsoft는 다음과 같은 강력한 운영 원칙을 준수합니다.
 Azure와 해당 네트워크가 폭발적으로 성장하면서 사람의 직관으로는 더 이상 글로벌 네트워크 운영을 관리할 수 없는 시점에 도달했습니다. 네트워크에서 장기, 중기 및 단기 변경 사항의 유효성을 검사하기 위해 당사는 프로덕션 네트워크를 종합적으로 미러링하고 에뮬레이트하는 플랫폼을 개발했습니다. 미러링 환경을 만들어서 수백만 개의 시뮬레이션을 실행하는 기능을 사용하면 소프트웨어 및 하드웨어의 변경 내용과 그 영향을 프로덕션 플랫폼 및 네트워크에 커밋하기 전에 미리 테스트할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
+- [Microsoft가 지능형 소프트웨어를 통해 글로벌 네트워크 안정성을 이동 하는 방법에 대해 알아봅니다.](https://azure.microsoft.com/blog/advancing-global-network-reliability-through-intelligent-software-part-1-of-2/)
 - [Azure에서 제공하는 네트워킹 서비스에 대한 자세한 정보](https://azure.microsoft.com/product-categories/networking/)

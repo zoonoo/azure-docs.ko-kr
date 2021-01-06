@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/15/2020
+ms.date: 01/05/2021
 ms.author: radeltch
-ms.openlocfilehash: d2cc8487f9864a27c1a2b02ef6e846bc43727e27
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 8dfbdb338416511de403733ce61b7b2472190963
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608540"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916272"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃 시스템 배포 
 
@@ -370,11 +370,13 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     # Add the following entries in the configuration file
     net.ipv6.conf.all.disable_ipv6 = 1
     net.ipv4.tcp_max_syn_backlog = 16348
-    net.ipv4.ip_local_port_range = 40000 65300
     net.ipv4.conf.all.rp_filter = 0
     sunrpc.tcp_slot_table_entries = 128
     vm.swappiness=10
     </code></pre>
+
+> [!TIP]
+> Sysctl 구성 파일에서 net.ipv4.ip_local_port_range 및 net.ipv4.ip_local_reserved_ports를 명시적으로 설정 하지 마십시오 .이를 통해 SAP 호스트 에이전트가 포트 범위를 관리할 수 있습니다. 자세한 내용은 SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)을 참조 하세요.  
 
 5. **[A]** [Azure NetApp Files를 사용 하 여 Microsoft Azure에서 Netapp SAP 응용 프로그램][anf-sap-applications-azure]에 권장 되는 대로 sunrpc 설정을 조정 합니다.  
 

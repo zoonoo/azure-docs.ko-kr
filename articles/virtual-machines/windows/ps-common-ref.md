@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f7f2adb5c3e154c3910ee1082e9afad70de9758
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bf73e7c907c6d464fb6b6bfb3b507e6d12e0788
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010081"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914878"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Azure Virtual Machines를 만들고 관리하기 위한 공통 PowerShell 명령
 
@@ -40,7 +40,7 @@ ms.locfileid: "96010081"
 | Task | 명령 |
 | ---- | ------- |
 | VM 구성 만들기 |$vm = [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) -VMName $myVM -VMSize "Standard_D1_v1"<BR></BR><BR></BR>VM 구성은 VM에 대한 설정을 정의하거나 업데이트하는 데 사용 됩니다. 구성은 VM의 이름 및 [크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하여 초기화합니다. |
-| 구성 설정 추가 |$vm = [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>[자격 증명](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 포함하는 운영 체제 설정은 New-AzVMConfig를 사용하여 이전에 만든 구성 개체에 추가됩니다. |
+| 구성 설정 추가 |$vm = [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) -VM $vm -Windows -ComputerName $myVM -Credential $cred -ProvisionVMAgent -EnableAutoUpdate<BR></BR><BR></BR>[자격 증명](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 포함하는 운영 체제 설정은 New-AzVMConfig를 사용하여 이전에 만든 구성 개체에 추가됩니다. |
 | 네트워크 인터페이스 추가 |$vm = [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface) -VM $vm -Id $nic.Id<BR></BR><BR></BR>VM은 가상 네트워크에서 통신하도록 [네트워크 인터페이스](./quick-create-powershell.md?toc=/azure/virtual-machines/windows/toc.json)가 있어야 합니다. 또한 기존 네트워크 인터페이스 개체를 검색하는 데 [Get-AzNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)를 사용할 수도 있습니다. |
 | 플랫폼 이미지 지정 |$vm = [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage) -VM $vm -PublisherName "publisher_name" -Offer "publisher_offer" -Skus "product_sku" -Version "latest"<BR></BR><BR></BR>[이미지 정보](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)는 New-AzVMConfig를 사용하여 이전에 만든 구성 개체에 추가됩니다. 이 명령에서 반환되는 개체는 플랫폼 이미지를 사용하도록 OS 디스크를 설정할 때에만 사용됩니다. |
 | VM 만들기 |[New-AzVM](/powershell/module/az.compute/new-azvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>모든 리소스는 [리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-powershell.md)에서 생성됩니다. 이 명령을 실행하기 전에 New-AzVMConfig, Set-AzVMOperatingSystem, Set-AzVMSourceImage, Add-AzVMNetworkInterface 및 Set-AzVMOSDisk를 실행합니다. |

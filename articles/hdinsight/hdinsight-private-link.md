@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352544"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915626"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -29,7 +29,7 @@ ARM (Azure Resource Manager) 템플릿에서 특정 네트워크 속성을 구�
 
 기본 가상 네트워크 아키텍처에서 사용 되는 기본 부하 분산 장치는 자동으로 공용 NAT (네트워크 주소 변환)를 제공 하 여 HDInsight RP와 같은 필요한 아웃 바운드 종속성에 액세스 합니다. 공용 인터넷에 대 한 아웃 바운드 연결을 제한 하려는 경우 방화벽을 [구성할](./hdinsight-restrict-outbound-traffic.md)수 있지만 반드시 필요한 것은 아닙니다.
 
-`resourceProviderConnection`아웃 바운드를 구성 하면 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2 또는 외부 metastore 같은 클러스터 특정 리소스에도 액세스할 수 있습니다. 이러한 리소스에 대해 개인 끝점을 사용 하는 것은 mandetory 않지만 이러한 리소스에 대 한 개인 끝점을 사용 하려는 경우에는 HDInsight 클러스터를 만드는 개인 끝점 및 DNS 항목을 구성 해야 합니다 `before` . 클러스터를 만들 때 Apache 레인저, Ambari, Oozie 및 Hive metastore와 같은 필요한 모든 외부 SQL 데이터베이스를 만들고 제공 하는 것이 좋습니다. 요구 사항은 해당 하는 모든 리소스를 자체 개인 끝점을 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다. 그렇지 않으면입니다.
+`resourceProviderConnection`아웃 바운드를 구성 하면 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2 또는 외부 metastore 같은 클러스터 특정 리소스에도 액세스할 수 있습니다. 이러한 리소스에 대해 개인 끝점을 사용 하는 것은 필수가 아니지만 이러한 리소스에 대해 개인 끝점을 사용 하려는 경우에는 HDInsight 클러스터를 만드는 개인 끝점 및 DNS 항목을 구성 해야 합니다 `before` . 클러스터를 만들 때 Apache 레인저, Ambari, Oozie 및 Hive metastore와 같은 필요한 모든 외부 SQL 데이터베이스를 만들고 제공 하는 것이 좋습니다. 요구 사항은 해당 하는 모든 리소스를 자체 개인 끝점을 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다. 그렇지 않으면입니다.
 
 Azure Key Vault에 대 한 전용 끝점 사용은 지원 되지 않습니다. 미사용 CMK 암호화에 Azure Key Vault를 사용 하는 경우 개인 끝점이 없는 HDInsight 서브넷 내에서 Azure Key Vault 끝점에 액세스할 수 있어야 합니다.
 

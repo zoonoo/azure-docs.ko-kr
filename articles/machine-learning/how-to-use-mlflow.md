@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 085ba4d9d4e78acec4505ddb0e9e89d4e0b5c4a3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ed9d41a84e455241ed3cfc41b905a671f2a2d499
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881483"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912957"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 ML 모델 학습 및 추적 (미리 보기)
 
@@ -211,7 +211,7 @@ run.get_metrics()
 
 MLflow 모델 레지스트리를 지 원하는 [Azure Machine Learning model registry](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) 를 사용 하 여 모델을 등록 하 고 추적 합니다. Azure Machine Learning 모델은 MLflow 모델 스키마를 사용 하 여 다양 한 워크플로를 통해 이러한 모델을 쉽게 내보내고 가져올 수 있습니다. 실행 ID와 같은 MLflow 관련 메타 데이터에는 추적 가능성을 위한 등록 된 모델만 태그가 지정 되어 있습니다. 사용자는 MLflow 실행에서 생성 된 학습 실행, 등록 및 배포 모델을 제출할 수 있습니다. 
 
-프로덕션 준비 모델을 한 번에 배포 하 고 등록 하려면 [MLflow 모델 배포 및 등록](how-to-deploy-models-with-mlflow.md)을 참조 하세요.
+프로덕션 준비 모델을 한 번에 배포 하 고 등록 하려면 [MLflow 모델 배포 및 등록](how-to-deploy-mlflow-models.md)을 참조 하세요.
 
 실행에서 모델을 등록 하 고 보려면 다음 단계를 사용 합니다.
 
@@ -260,7 +260,7 @@ MLflow 모델 레지스트리를 지 원하는 [Azure Machine Learning model reg
 
 ## <a name="next-steps"></a>다음 단계
 
-* [MLflow를 사용 하 여 모델을 배포](how-to-deploy-models-with-mlflow.md)합니다.
+* [MLflow를 사용 하 여 모델을 배포](how-to-deploy-mlflow-models.md)합니다.
 * [데이터 드리프트](./how-to-enable-data-collection.md)를 위한 프로덕션 모델 모니터링.
 * [MLflow를 사용 하 여 실행 Azure Databricks 추적](how-to-use-mlflow-azure-databricks.md)합니다.
 * [모델 관리](concept-model-management-and-deployment.md).

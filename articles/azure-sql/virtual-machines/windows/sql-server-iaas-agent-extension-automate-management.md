@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359254"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914249"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,20 +42,21 @@ SQL Server IaaS 에이전트 확장은 Azure Vm의 SQL Server에 대 한 다양 
 
 - **무료**: 세 가지 관리 효율성 모드 모두에서 확장은 완전히 무료로 제공 됩니다. 확장과 관련 된 추가 비용이 나 관리 모드를 변경 하는 것은 없습니다. 
 
-- **간소화 된 라이선스 관리**: 확장 SQL Server 라이선스 관리를 간소화 하 고 [Azure Portal](manage-sql-vm-portal.md), Azure CLI 또는 PowerShell을 사용 하 여 Azure 하이브리드 혜택 사용 하도록 설정 된 SQL Server vm을 빠르게 식별할 수 있습니다. 
-
-   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-   ```azurecli-interactive
-   $vms = az sql vm list | ConvertFrom-Json
-   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
-   ```
+- **간소화 된 라이선스 관리**: 확장 SQL Server 라이선스 관리를 간소화 하 고 [Azure Portal](manage-sql-vm-portal.md), PowerShell 또는 Azure CLI를 사용 하 여 Azure 하이브리드 혜택 사용 하도록 설정 된 SQL Server vm을 신속 하 게 식별할 수 있습니다. 
 
    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
    ```
+
+   # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+   ```azurecli-interactive
+   $ az sql vm list --query "[?sqlServerLicenseType=='AHUB']"
+   ```
+
+
 
    ---
 

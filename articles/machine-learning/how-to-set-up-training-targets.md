@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: d8918181024715a57c6029d3ad0a36ea75140fcb
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: a3427be85314f06b5408c4450e0415768122879f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739946"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913008"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
@@ -26,7 +26,7 @@ ms.locfileid: "97739946"
 
 **스크립트 실행 구성** 내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
@@ -204,6 +204,18 @@ run.wait_for_completion(show_output=True)
     ```
 
     내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속된 목록에 연결합니다.
+
+* **실행 실패 `jwt.exceptions.DecodeError`**: 정확한 오류 메시지: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
+    
+    최신 버전의 azureml-코어로 업그레이드 하는 것이 `pip install -U azureml-core` 좋습니다.
+    
+    로컬 실행에 대해이 문제가 발생 하는 경우 실행을 시작 하는 환경에 설치 된 PyJWT의 버전을 확인 합니다. 지원 되는 버전의 PyJWT는 < 2.0.0입니다. 버전이 >= 2.0.0 인 경우 환경에서 PyJWT를 제거 합니다. PyJWT의 버전을 확인 하 고, 다음과 같이 올바른 버전을 제거 하 고 설치할 수 있습니다.
+    1. 명령 셸을 시작 하 고 azureml-core가 설치 된 conda 환경을 활성화 합니다.
+    2. 을 입력 `pip freeze` 하 고 검색 `PyJWT` 하는 경우 나열 된 버전 < 2.0.0 여야 합니다.
+    3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall PyJWT` 명령 셸에서 y를 입력 하 여 확인 합니다.
+    4. `pip install 'PyJWT<2.0.0'`를 사용하여 설치
+    
+    사용자가 만든 환경을 실행 하 여 제출 하는 경우 해당 환경에서 최신 버전의 azureml-코어를 사용 하는 것이 좋습니다. 버전 >= 1.18.0 PyJWT < 2.0.0의 azureml가 이미 고정 되어 있습니다. 제출 하는 환경에서 azureml 1.18.0 < 버전을 사용 해야 하는 경우 pip 종속성에서 PyJWT < 2.0.0를 지정 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

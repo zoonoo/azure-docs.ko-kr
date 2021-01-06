@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: e188c74c6eba5e4182f7b72277db8dd8e08db8d4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821488"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913937"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -156,7 +156,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 
 다음 예에서는 Azure Portal의 제품 목록을 보여 줍니다.
 
-![Azure Portal의 제품 목록을 보여 줍니다.](./media/example-managed-services.png)
+![Azure Portal의 제품 목록을 보여 줍니다.](./media/example-managed-service-azure-portal.png)
 
 **호출 설명**
 
@@ -202,7 +202,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - Name
+  - 이름
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 

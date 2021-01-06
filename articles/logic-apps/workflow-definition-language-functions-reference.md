@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825855"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914487"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -1143,7 +1143,7 @@ bool(<value>)
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | 유형 | 반환 값 |
+| 입력 값 | 형식 | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -2072,7 +2072,7 @@ formatNumber(1234567890, '0,0.00', 'is-is')
 숫자 `17.35`의 서식을 지정하려고 한다고 가정하겠습니다. 이 예제에서는 이 숫자의 서식을 문자열 "$17.35"로 지정합니다.
 
 ```
-formatNumber(17.36, 'C2')
+formatNumber(17.35, 'C2')
 ```
 
 *예제 4*
@@ -2080,7 +2080,7 @@ formatNumber(17.36, 'C2')
 숫자 `17.35`의 서식을 지정하려고 한다고 가정하겠습니다. 이 예제에서는 이 숫자의 서식을 문자열 "17,35 kr"로 지정합니다.
 
 ```
-formatNumber(17.36, 'C2', 'is-is')
+formatNumber(17.35, 'C2', 'is-is')
 ```
 
 <a name="getFutureTime"></a>
@@ -2719,15 +2719,11 @@ lastIndexOf('<text>', '<searchText>')
 
 문자열이 나 부분 문자열 값이 비어 있으면 다음과 같은 동작이 발생 합니다.
 
-* 문자열 값이 비어 있으면 `-1` 이 반환 됩니다.
+* 문자열 값만 비어 있는 경우이 함수는를 반환 `-1` 합니다.
 
-* 문자열과 부분 문자열 값이 모두 비어 있으면 `0` 이 반환 됩니다.
+* 문자열과 부분 문자열 값이 모두 비어 있으면 함수는를 반환 `0` 합니다.
 
-* 부분 문자열 값만 비어 있는 경우 다음 두 값 중 더 큰 값이 반환 됩니다.
-
-  * `0`
-
-  * 문자열의 길이에서 1을 뺀 값입니다.
+* Substring 값만 비어 있는 경우 함수는 문자열 길이에서 1을 뺀 값을 반환 합니다.
 
 *예제*
 
@@ -3925,7 +3921,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | String | 해당 문자를 원하는 문자열 |
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
-| <*length*> | 아니요 | 정수 | 하위 문자열에 원하는 문자의 양수 |
+| <*length*> | No | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
 
 > [!NOTE]

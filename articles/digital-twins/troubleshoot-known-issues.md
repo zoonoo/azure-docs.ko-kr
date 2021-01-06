@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: db29fbda404900c29f85fa876e9427994ee9a093
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862457"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915915"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -47,11 +47,11 @@ ms.locfileid: "97862457"
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Azure에서 기본 Azure 자격 증명 인증에 문제가 있습니다. Identity 1.3.0
 
-**문제 설명:** Azure **1.3.0** **[](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) 라이브러리** 의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 이러한 문서 전체에서 많은 샘플에 사용 된 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) 메서드와 관련 된 문제가 발생할 수 있습니다. 이는 코드에서 인증을 시도할 때 "AuthenticationFailedException: SharedTokenCacheCredential authentication failed"의 오류 응답으로 표시 됩니다.
+**문제 설명:** **1.3.0** 라이브러리의 버전을 사용 하 여 인증 **[](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** 코드를 작성 하는 경우 일부 사용자는 이러한 azure 디지털 쌍 문서 전체에서 많은 샘플에서 사용 되는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) 방법과 관련 된 문제가 발생 했습니다. 이는 코드에서 인증을 시도할 때 "AuthenticationFailedException: SharedTokenCacheCredential authentication failed"의 오류 응답으로 표시 됩니다.
 
 | 이는 영향을 미칩니까? | 원인 | 해결 방법 |
 | --- | --- | --- |
-| DefaultAzureCredential는 인증을 포함 하는 대부분의 설명서 예제에서 사용 됩니다. DefaultAzureCredential를 사용 하 고 라이브러리의 버전 1.3.0를 사용 하 여 인증 코드를 작성 하는 경우 `Azure.Identity` 영향을 받을 수 있습니다. | 이 문제는 라이브러리의 버전 **1.3.0** 과 함께 DefaultAzureCredential를 사용 하는 경우에 나타납니다 `Azure.Identity` . | 이 문제를 해결 하려면 [1.2.2의 버전](https://www.nuget.org/packages/Azure.Identity/1.2.2) 을 사용 하도록 응용 프로그램을 전환 `Azure.Identity` 합니다. 라이브러리 버전을 변경한 후에는 인증이 정상적으로 완료 되어야 합니다. |
+| `DefaultAzureCredential` 는 인증을 포함 하는이 서비스에 대 한 대부분의 설명서 예제에서 사용 됩니다. 라이브러리의 버전 1.3.0을 사용 하 여 인증 코드를 작성 하 `DefaultAzureCredential` `Azure.Identity` 고이 오류 메시지가 표시 되 면이에 영향을 줍니다. | 이는의 일부 구성 문제로 인해 발생할 수 있습니다 `Azure.Identity` . | 이 문제를 해결 하는 한 가지 전략은에 `SharedTokenCacheCredential` 대해 현재 열려 있는이 [DefaultAzureCredential 문제](https://github.com/Azure/azure-sdk/issues/1970) 에 설명 된 대로 자격 증명에서 제외 하는 것입니다 `Azure.Identity` .<br>또 다른 옵션은 `Azure.Identity` [버전 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3)등의 이전 버전을 사용 하도록 응용 프로그램을 변경 하는 것입니다. 이는 Azure Digital Twins에 기능에 영향을 주지 않으므로 수락 된 솔루션 이기도 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

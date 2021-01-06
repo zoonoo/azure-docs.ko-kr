@@ -1,15 +1,15 @@
 ---
 title: Azure CLI를 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure CLI를 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
-ms.date: 11/20/2020
+ms.date: 01/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3fa8273b15518c182aefa038e67d85773d500b30
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6edb7d55e542f963c75693d535fa3b50dc5b827b
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991454"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916204"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure VM 확장을 사용 하도록 설정
 
@@ -27,12 +27,12 @@ az extension add --name connectedmachine
 
 ## <a name="enable-extension"></a>확장 사용
 
-Arc 사용 서버에서 VM 확장을 사용 하도록 설정 하려면, [az connectedmachine extension create](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_create) , `--machine-name` ,, `--extension-name` `--location` `--type` `settings` 및 `--publisher` 매개 변수와 함께 az connectedmachine extension create를 사용 합니다.
+Arc 사용 서버에서 VM 확장을 사용 하도록 설정 하려면, [](/cli/azure/ext/connectedmachine/connectedmachine/extension#ext_connectedmachine_az_connectedmachine_extension_create) , `--machine-name` ,, `--extension-name` `--location` `--type` `settings` 및 `--publisher` 매개 변수와 함께 az connectedmachine extension create를 사용 합니다.
 
-다음 예제에서는 Arc 사용 Linux 서버에서 Log Analytics VM 확장을 사용 하도록 설정 합니다.
+다음 예에서는 Arc 사용 서버에서 Log Analytics VM 확장을 사용 하도록 설정 합니다.
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentforLinux" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.EnterpriseCloud.Monitoring" --settings "{\"workspaceId\":\"workspaceId"}" --protected-settings "{\workspaceKey\":"\workspaceKey"} --type-handler-version "1.10" --resource-group "myResourceGroup"
+az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "eastus" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
 ```
 
 다음 예에서는 Arc 사용 서버에서 사용자 지정 스크립트 확장을 사용 하도록 설정 합니다.
@@ -79,7 +79,7 @@ Arc 사용 서버에서 설치 된 VM 확장을 제거 하려면, 및 매개 변
 예를 들어 Linux 용 Log Analytics VM 확장을 제거 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
-az connectedmachine extension delete --machine-name "myMachineName" --name "OmsAgentforLinux" --resource-group "myResourceGroup"
+az connectedmachine extension delete --machine-name "myMachineName" --name "OmsAgentForLinux" --resource-group "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>다음 단계
