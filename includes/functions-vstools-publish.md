@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ef617b9ed6c35d33350b173efe6189b5b79b6ae6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008208"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97956535"
 ---
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
@@ -25,14 +25,14 @@ ms.locfileid: "96008208"
 
 1. **함수 인스턴스** 에서 **새 Azure 함수 만들기...** 를 선택한 후 다음 표에 지정된 값을 사용합니다.
 
-    | 설정      | 값  | Description                                |
+    | 설정      | 값  | 설명                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **이름** | 전역적으로 고유한 이름 | 새 함수 앱을 고유하게 식별하는 이름입니다. 이 이름을 수락하거나 새 이름을 입력합니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | **구독** | 사용자의 구독 | 사용할 Azure 구독입니다. 이 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다. |
     | **[리소스 그룹](../articles/azure-resource-manager/management/overview.md)** | 리소스 그룹의 이름 |  함수 앱을 만들 리소스 그룹입니다. 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하여 새 리소스 그룹을 만듭니다.|
-    | **[계획 유형](../articles/azure-functions/functions-scale.md)** | Consumption | 프로젝트를 [사용량 요금제](../articles/azure-functions/functions-scale.md#consumption-plan)에서 실행되는 함수 앱에 게시하는 경우 함수 앱의 실행에 대한 비용만 지불합니다. 다른 호스팅 계획에는 비용이 더 많이 듭니다. |
+    | **[계획 유형](../articles/azure-functions/functions-scale.md)** | Consumption | 프로젝트를 [사용량 요금제](../articles/azure-functions/consumption-plan.md)에서 실행되는 함수 앱에 게시하는 경우 함수 앱의 실행에 대한 비용만 지불합니다. 다른 호스팅 계획에는 비용이 더 많이 듭니다. |
     | **위치** | App Service의 위치 | 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치** 를 선택합니다. |
-    | **[Azure Storage](../articles/storage/common/storage-account-create.md)** | 범용 스토리지 계정 | Functions 런타임에는 Azure Storage 계정이 필요합니다. **새로 만들기** 를 선택하여 범용 스토리지 계정을 구성합니다. [스토리지 계정 요구 사항](../articles/azure-functions/functions-scale.md#storage-account-requirements)을 충족하는 기존 계정을 선택할 수도 있습니다.  |
+    | **[Azure Storage](../articles/azure-functions/storage-considerations.md)** | 범용 스토리지 계정 | Functions 런타임에는 Azure Storage 계정이 필요합니다. **새로 만들기** 를 선택하여 범용 스토리지 계정을 구성합니다. [스토리지 계정 요구 사항](../articles/azure-functions/storage-considerations.md#storage-account-requirements)을 충족하는 기존 계정을 선택할 수도 있습니다.  |
 
     ![App Service 만들기 대화 상자](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
