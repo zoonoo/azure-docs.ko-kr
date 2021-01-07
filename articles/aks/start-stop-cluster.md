@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다 `Stopped` .
+[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` `Stopped` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다.
 
 ```json
 {
