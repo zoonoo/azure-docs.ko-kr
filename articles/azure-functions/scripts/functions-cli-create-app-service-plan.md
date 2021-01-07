@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 67efb5cc146b10b7e8194b7de4f6e0f0d6c08de9
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 020bd064628554703bb375c06c72e68d4536a2a3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565452"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934444"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 함수 앱 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "94565452"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 스크립트는 전용 [App Service 계획](../functions-scale.md#app-service-plan)을 사용하는 Azure 함수 앱을 만듭니다.
+이 스크립트는 전용 [App Service 계획](../dedicated-plan.md)을 사용하는 Azure 함수 앱을 만듭니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
 

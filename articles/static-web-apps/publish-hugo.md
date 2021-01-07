@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 5f511a898b3b2964f954ba150b05f02486456dcf
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171484"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900776"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
 
@@ -115,7 +115,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _SKU_ 에 대해 **무료** 를 선택합니다.
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
+   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="세부 정보 입력":::
 
 1. **GitHub로 로그인** 단추를 클릭합니다.
 
@@ -125,7 +125,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. _분기_ 에 대해 **마스터** 를 선택합니다.
 
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
+   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="완료된 GitHub 정보":::
 
 ### <a name="build"></a>빌드
 
@@ -149,7 +149,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. 새로 만든 Azure Static Web Apps 리소스의 Azure Portal _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
 
-   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
+   :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="배포된 애플리케이션":::
 
 #### <a name="custom-hugo-version"></a>사용자 지정 Hugo 버전
 
@@ -176,7 +176,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
           api_location: "api" # Api source code path - optional
-          app_artifact_location: "public" # Built app content directory - optional
+          output_location: "public" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
           HUGO_VERSION: 0.58.0

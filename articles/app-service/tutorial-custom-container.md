@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: b3507e22c691f3e3ca9f9e6562a313e95e42f080
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558609"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900198"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service(미리 보기)에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](../container-registry/index.yml)로 배포한 다음, App Service에서 실행합니다.
+[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](../container-registry/index.yml)로 배포한 다음, App Service에서 실행합니다.
 
 ![Windows 컨테이너에서 실행 중인 웹앱을 표시합니다.](media/tutorial-custom-container/app-running.png)
 

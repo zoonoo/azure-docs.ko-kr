@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 072abffcc74b8b060d98c07d1f310413c7b323ef
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: fc0f148da518c718dafaab082f9598ccd4372a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954943"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963813"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ITSM 도구에 Azure 연결
 
@@ -140,15 +140,15 @@ ITSM 연결을 만든 후에는 Azure 경고를 기반으로 ITSM 도구에서 �
             예를 들면 다음과 같습니다.
             1) 3 개 구성 항목을 포함 하는 경고 1: A, B, C-는 3 개의 작업 항목을 만듭니다.
             2) 1 개 구성 항목을 포함 하는 경고 2: A-작업 항목 1 개를 만듭니다.
-
-        * **"각 구성 항목에 대 한 개별 작업 항목 만들기"** 확인란의 선택을 취소 하면 itsm 커넥터에서 각 경고 규칙에 대 한 단일 작업 항목을 만들고 영향을 받는 모든 구성 항목에 추가 합니다. 이전 작업 항목이 닫히면 새 작업 항목이 생성 됩니다.
-        >[!NOTE]
+       >[!NOTE]
         > 이 경우 발생 한 일부 경고는 ITSM 도구에 새 작업 항목을 생성 하지 않습니다.
 
-            For example:
-            1) Alert 1 with 3 Configuration Items: A, B, C - will create 1 work item.
-            2) Alert 2 for the same alert rule as phase 1 with 1 Configuration Item: D - will be merged to the work item in phase 1.
-            3) Alert 3 for a different alert rule with 1 Configuration Item: E - will create 1 work item.
+        * **"각 구성 항목에 대 한 개별 작업 항목 만들기"** 확인란의 선택을 취소 하면 itsm 커넥터에서 각 경고 규칙에 대 한 단일 작업 항목을 만들고 영향을 받는 모든 구성 항목에 추가 합니다. 이전 작업 항목이 닫히면 새 작업 항목이 생성 됩니다.
+
+            예를 들면 다음과 같습니다.
+             1) 3 개의 구성 항목을 포함 하는 경고 1: A, B, C-1 개의 작업 항목을 만듭니다.
+             2) 1 단계와 동일한 경고 규칙에 대 한 경고 2 (구성 항목 1 개 포함): D-1 단계의 작업 항목으로 병합 됩니다.
+             3) 1 개 구성 항목을 포함 하는 다른 경고 규칙에 대 한 경고 3: E-작업 항목 1 개를 만듭니다.
 
        ![ITSM 인시던트 창을 보여 주는 스크린샷](media/itsmc-overview/itsm-action-configuration.png)
 

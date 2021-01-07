@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881245"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963522"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure AD Multi-Factor Authentication의 세션 수명 이해
 
@@ -121,7 +121,7 @@ Azure AD Premium 1 라이선스를 사용 하는 경우 *영구 브라우저 세
 1. **보안**, **조건부 액세스** 를 차례로 선택 합니다.
 1. 이 문서에 설명 된 권장 세션 관리 옵션을 사용 하 여 정책을 구성 합니다.
 
-토큰 수명을 검토 하려면 [AZURE Ad PowerShell을 사용 하 여 AZURE ad 정책을 쿼리](../develop/configure-token-lifetimes.md#prerequisites)합니다. 현재 보유 하 고 있는 모든 정책을 사용 하지 않도록 설정 합니다.
+토큰 수명을 검토 하려면 [AZURE Ad PowerShell을 사용 하 여 AZURE ad 정책을 쿼리](../develop/configure-token-lifetimes.md#get-started)합니다. 현재 보유 하 고 있는 모든 정책을 사용 하지 않도록 설정 합니다.
 
 테 넌 트에서 둘 이상의 설정을 사용 하는 경우 사용 가능한 라이선스에 따라 설정을 업데이트 하는 것이 좋습니다. 예를 들어 Azure AD premium 라이선스가 있는 경우 *로그인 빈도* 및 *영구 브라우저 세션* 의 조건부 액세스 정책만 사용 해야 합니다. Microsoft 365 앱 또는 Azure AD 무료 라이선스를 사용 하는 경우 *로그인 상태 유지?* 구성을 사용 해야 합니다.
 

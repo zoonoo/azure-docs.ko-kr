@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936797"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963505"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -135,7 +135,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 | **StartWith()** | 입력이 지정된 값으로 끝나는 경우 특성 또는 상수를 출력합니다. 그렇지 않고 일치하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 끝나는 경우 값이 사용자의 직원 ID에 해당하는 클레임을 내보내려고 하고, 그렇지 않으면 확장 특성을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>*매개 변수 1(입력)* : user.country<br/>*값*: "US"<br/>매개 변수 2(출력): user.employeeid<br/>매개 변수 3(일치 항목이 없는 경우 출력): user.extensionattribute1 |
 | **Extract() - 일치 후** | 지정된 값과 일치하면 부분 문자열을 반환합니다.<br/>예를 들어, 입력 값이 "Finance_BSimon"이면 일치하는 값은 "Finance_"이고 클레임의 출력은 "BSimon"입니다. |
 | **Extract() - 일치 전** | 지정된 값과 일치할 때까지 부분 문자열을 반환합니다.<br/>예를 들어, 입력 값이 "BSimon_US"이면 일치하는 값은 "_US"이고 클레임의 출력은 "BSimon"입니다. |
-| **Extract() - 일치 사이** | 지정된 값과 일치할 때까지 부분 문자열을 반환합니다.<br/>예를 들어, 입력 값이 "Finance_BSimon_US"이면 첫 번째 일치하는 값은 "Finance_"이고, 두 번째 일치하는 값은 "_US"이고 클레임의 출력은 "BSimon"입니다. |
+| **Extract() - 일치 사이** | 지정된 값과 일치할 때까지 부분 문자열을 반환합니다.<br/>예를 들어 입력 값이 "Finance_BSimon_US" 이면 첫 번째 일치 하는 값은 "재무"이 고, \_ 두 번째 일치 값은 " \_ US"이 고, 클레임의 출력은 "따르면"입니다. |
 | **ExtractAlpha() - 접두사** | 문자열의 접두사 알파벳 부분을 반환합니다.<br/>예를 들어 입력 값이 "BSimon_123"이면 "BSimon"을 반환합니다. |
 | **ExtractAlpha() - 접미사** | 문자열의 접미사 알파벳 부분을 반환합니다.<br/>예를 들어 입력 값이 "123_Simon"이면 "Simon"을 반환합니다. |
 | **ExtractNumeric() - 접두사** | 문자열의 접두사 숫자 부분을 반환합니다.<br/>예를 들어 입력 값이 "123_BSimon"이면 "123"을 반환합니다. |

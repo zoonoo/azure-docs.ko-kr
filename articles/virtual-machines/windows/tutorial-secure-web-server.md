@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3b65d04b383fdc0a409e23ab6b6649604be502c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d6c992023eeb4b17fe3c83de20b49c73476a54d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525590"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912719"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 TLS/SSL 인증서로 Azure에서 Windows 가상 머신의 웹 서버 보호
 
@@ -34,7 +34,7 @@ ms.locfileid: "86525590"
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 
 ## <a name="overview"></a>개요
@@ -44,7 +44,7 @@ Azure Key Vault는 암호화 키 및 비밀 정보(인증서 또는 암호)를 �
 
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
-Key Vault 및 인증서를 만들려면 먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 동부* 위치에 *myResourceGroupSecureWeb*이라는 리소스 그룹을 만듭니다.
+Key Vault 및 인증서를 만들려면 먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *미국 동부* 위치에 *myResourceGroupSecureWeb* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroupSecureWeb"
@@ -80,13 +80,13 @@ Add-AzKeyVaultCertificate `
 
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
-[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 사용하여 VM의 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 보안 웹 트래픽을 허용하기 위해 cmdlet에서 *443* 포트도 엽니다.
+이제 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 *EastUS* 위치에 *myVM* 이라는 VM을 만듭니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 보안 웹 트래픽을 허용하기 위해 cmdlet에서 *443* 포트도 엽니다.
 
 ```azurepowershell-interactive
 # Create a VM
@@ -156,7 +156,7 @@ Set-AzVMExtension -ResourceGroupName $resourceGroup `
 Get-AzPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-이제 웹 브라우저를 열고 주소 표시줄에 `https://<myPublicIP>`를 입력할 수 있습니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동**을 차례로 선택합니다.
+이제 웹 브라우저를 열고 주소 표시줄에 `https://<myPublicIP>`를 입력할 수 있습니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동** 을 차례로 선택합니다.
 
 ![웹 브라우저 보안 경고 허용](./media/tutorial-secure-web-server/browser-warning.png)
 

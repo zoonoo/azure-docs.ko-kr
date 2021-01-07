@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/01/2020
-ms.openlocfilehash: a77f9c8f7e37d2c5a040a48b6bd96bef11d51f14
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 183d8b415ccb35d22dcc23ccf11d0707ad0778dd
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533483"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963658"
 ---
 # <a name="monitor-azure-machine-learning"></a>Azure Machine Learning 모니터링
 
@@ -68,7 +68,7 @@ Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는
 
 Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -91,6 +91,8 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 참조를 위해 [Azure Monitor에서 지원 되는 모든 리소스 메트릭의](../azure-monitor/platform/metrics-supported.md)목록을 볼 수 있습니다.
 
+> [!TIP]
+> Azure Monitor 메트릭 데이터는 90 일 동안 사용할 수 있습니다. 그러나 차트를 만들 때 30 일간만 시각화할 수 있습니다. 예를 들어 90 일을 시각화 하려는 경우 90 일 기간 내에 30 일 동안 3 개의 차트로 분리 해야 합니다.
 ### <a name="filtering-and-splitting"></a>필터링 및 분할
 
 차원을 지 원하는 메트릭의 경우 차원 값을 사용 하 여 필터를 적용할 수 있습니다. 예를 들어 **클러스터 이름** 에 대 한 **활성 코어** 를 필터링 `cpu-cluster` 합니다. 
@@ -106,7 +108,7 @@ Azure Monitor Log Analytics를 사용 하려면 진단 구성을 만들고 __Log
 
 Azure Monitor 로그의 데이터는 테이블에 저장 되 고 각 테이블에는 고유한 속성 집합이 있습니다. Azure Machine Learning은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | Description |
+| 테이블 | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -162,7 +164,7 @@ Azure Machine Learning 리소스를 모니터링 하는 데 사용할 수 있는
 
 다음 표에서는 Azure Machine Learning에 대 한 일반적인 메트릭 경고 규칙과 권장 메트릭을 보여 줍니다.
 
-| 경고 유형 | 조건 | Description |
+| 경고 유형 | 조건 | 설명 |
 |:---|:---|:---|
 | 모델 배포 실패 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 하나 이상의 모델 배포에 실패 한 경우 |
 | 할당량 사용률 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률 백분율이 90% 보다 큰 경우 |

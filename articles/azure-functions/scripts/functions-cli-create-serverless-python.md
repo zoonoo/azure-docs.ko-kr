@@ -5,12 +5,12 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 21c8476bd76a591b7bd7ba7cae41e3c64d06b329
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 65ea6513046cd0372720e5a9438941dda2a74877
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565106"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934359"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Azure CLI를 사용하여 서버리스 Python 함수 앱 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "94565106"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 스크립트는 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 Azure 함수 앱을 만듭니다.
+이 스크립트는 [소비 계획](../consumption-plan.md)을 사용하는 Azure 함수 앱을 만듭니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 

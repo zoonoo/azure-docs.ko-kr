@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963366"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963796"
 ---
 # <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
 
@@ -24,11 +24,11 @@ ms.locfileid: "91963366"
 
 ## <a name="eviction-policy"></a>제거 정책
 
-Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수 있습니다. 스폿 VM을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제*로 설정할 수 있습니다. 
+Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수 있습니다. 스폿 VM을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제* 로 설정할 수 있습니다. 
 
 *할당* 취소 정책은 VM을 중지 된 할당 취소 상태로 전환 하 여 나중에 다시 배포할 수 있도록 합니다. 그러나 할당이 성공하리라는 보장은 없습니다. 할당 취소 된 Vm은 할당량에 따라 계산 되며 기본 디스크에 대 한 저장소 비용이 청구 됩니다. 
 
-제거 될 때 VM을 삭제 하려는 경우 *삭제*하도록 제거 정책을 설정할 수 있습니다. 제거 된 Vm은 기본 디스크와 함께 삭제 되므로 저장소에 대 한 요금이 계속 청구 되지 않습니다. 
+제거 될 때 VM을 삭제 하려는 경우 *삭제* 하도록 제거 정책을 설정할 수 있습니다. 제거 된 Vm은 기본 디스크와 함께 삭제 되므로 저장소에 대 한 요금이 계속 청구 되지 않습니다. 
 
 [Azure Scheduled Events](./linux/scheduled-events.md)를 통해 VM 내 알림을 받도록 옵트인 (opt in) 할 수 있습니다. 이렇게 하면 Vm을 제거 하는 경우에 알림이 표시 되며, 제거 되기 전에 작업을 완료 하 고 종료 작업을 수행 하는 데 30 초 정도 걸립니다. 
 
@@ -81,7 +81,7 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 
 **테이블**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="가격 책정 및 제거 비율 차이가 차트로 포함 된 지역 옵션의 스크린샷":::
+:::image type="content" source="./media/spot-table.png" alt-text="가격 책정과 제거 비율의 차이가 테이블로 포함 된 지역 옵션의 스크린샷":::
 
 
 
@@ -110,6 +110,11 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 **Q:** 어디에서 질문을 게시할 수 있나요?
 
 **A:** `azure-spot` [Q&A](/answers/topics/azure-spot.html)를 사용 하 여 질문을 게시 하 고 태그를 지정할 수 있습니다. 
+
+
+**Q:** 지점 VM의 최대 가격을 어떻게 변경할 수 있나요?
+
+**A:** 최대 가격을 변경 하려면 먼저 VM의 할당을 취소 해야 합니다. 그런 다음, VM에 대 한 **구성** 섹션에서 포털의 최대 가격을 변경할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [CLI](./linux/spot-cli.md), [포털](spot-portal.md), [ARM 템플릿](./linux/spot-template.md)또는 [PowerShell](./windows/spot-powershell.md) 을 사용 하 여 스폿 vm을 배포 합니다.

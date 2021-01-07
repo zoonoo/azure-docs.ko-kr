@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 8e657386c417ce3407aea9b3765419e1d2b70bb9
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858691"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962451"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
 
@@ -126,7 +126,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 클라이언트에서 NTLMv1 통신이 사용될 경우 시스템 오류 53 또는 시스템 오류 87이 발생할 수 있습니다. Azure Files는 NTLMv2 인증만 지원합니다. NTLMv1을 사용하도록 설정하면 클라이언트 보안이 약화됩니다. 따라서 Azure Files에 대한 통신이 차단됩니다. 
 
-이것이 오류의 원인인지 확인하려면 다음 레지스트리 하위 키가 3의 값으로 설정되어 있는지 확인합니다.
+오류의 원인 인지 확인 하려면 다음 레지스트리 하위 키가 3 보다 작은 값으로 설정 되지 않았는지 확인 합니다.
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 

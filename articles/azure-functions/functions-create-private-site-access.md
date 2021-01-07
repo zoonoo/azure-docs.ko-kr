@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182509"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937045"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>자습서: Azure Functions 프라이빗 사이트 액세스 설정
 
@@ -130,7 +130,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-azure-functions-app"></a>Azure Functions 앱 만들기
 
-다음 단계는 [사용 계획](functions-scale.md#consumption-plan)을 사용하여 Azure에서 함수 앱을 만드는 것입니다. 자습서의 뒷부분에서 함수 코드를 이 리소스에 배포합니다.
+다음 단계는 [사용 계획](consumption-plan.md)을 사용하여 Azure에서 함수 앱을 만드는 것입니다. 자습서의 뒷부분에서 함수 코드를 이 리소스에 배포합니다.
 
 1. 포털에서 리소스 그룹 보기의 위쪽에 있는 **추가** 를 선택합니다.
 1. **컴퓨팅 > 함수 앱** 을 차례로 선택합니다.
@@ -149,7 +149,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     | 설정      | 제안 값  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | _스토리지 계정_ | 전역적으로 고유한 이름 | 함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](./functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
+    | _스토리지 계정_ | 전역적으로 고유한 이름 | 함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 충족해야 합니다. |
     | _운영 체제_ | 기본 설정 운영 체제 | 운영 체제는 런타임 스택 선택에 따라 미리 선택되지만 필요한 경우 설정을 변경할 수 있습니다. |
     | _계획_ | Consumption | [호스팅 계획](./functions-scale.md)은 함수 앱의 크기를 조정하는 방법과 각 인스턴스에서 사용할 수 있는 리소스를 지정합니다. |
 1. **검토 + 만들기** 를 선택하여 앱 구성 선택을 검토합니다.

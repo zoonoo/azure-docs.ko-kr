@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2020
-ms.openlocfilehash: 8b9a79ee32d7a81fee64e40b85272877b7d87589
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/17/2020
+ms.openlocfilehash: 2a23f7bad45a45d629a45da82b09458f79121d1f
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674201"
+ms.locfileid: "97679559"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -142,7 +142,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:|
-| 시작                                      | X | X | X | X |
+| Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
@@ -158,13 +158,10 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X |   |   |
-| CentOS Linux 7                                           | X | X |   | X |
-| CentOS Linux 7.8                                         | X | X | X | X |
-| CentOS Linux 7.6                                         | X | X | X | X |
+| CentOS Linux 8                                           |   | X | X |   |
+| CentOS Linux 7                                           | X | X | X | X |
 | CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5 이상                                        |   | X |   | X |
-| Debian 10                                                | X |   |   |   |
+| CentOS Linux 6.5 이상                                        |   | X | X | X |
 | Debian 9                                                 | X | X | x | X |
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
@@ -173,14 +170,14 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4 이상                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 이상                     |   | X | X | X |
 | SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
-| SUSE Linux Enterprise Server 15                          | X | X |   |   |
+| SUSE Linux Enterprise Server 15                          | X | X | X |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X |   |   |
+| Ubuntu 20.04 LTS                                         |   | X | X |   |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
 | Ubuntu 14.04 LTS                                         |   | X |   | X |
@@ -191,17 +188,31 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 배포 | OS 버전 | 커널 버전 |
 |:---|:---|:---|
-|  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
+|  Red Hat Linux 8   | 8.2     | 4.18.0 -193. .> el8_2. x86_64 |
+|                    | 8.1     | 4.18.0 -147. .> el8_1. x86_64 |
+|                    | 8.0     | 4.18.0-80 \* el8.x86_64<br>4.18.0 -80. .> el8_0. x86_64 |
+|  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+|                    | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOSPlus         | 6.10    | 2.6.32 커널을-754.3.5<br>2.6.32 커널을-696.30.1 |
+| CentOS Linux 8     | 8.2     | 4.18.0 -193. .> el8_2. x86_64 |
+|                    | 8.1     | 4.18.0 -147. .> el8_1. x86_64 |
+|                    | 8.0     | 4.18.0-80 \* el8.x86_64<br>4.18.0 -80. .> el8_0. x86_64 |
+| CentOS Linux 7     | 7.9     | 3.10.0-1160 |
+|                    | 7.8     | 3.10.0-1136 |
+|                    | 7.7     | 3.10.0-1062 |
+| CentOS Linux 6     | 6.10    | 2.6.32 커널을-754.3.5<br>2.6.32 커널을-696.30.1 |
 |                    | 6.9     | 2.6.32 커널을-696.30.1<br>2.6.32 커널을-696.18.7 |
-| Ubuntu Server      | 18.04   | 5.3.0-1020<br>5.0 (Azure 조정 커널 포함)<br>4.18 *<br> 4.15* |
-|                    | 16.04.3 | 4.15. * |
+| Ubuntu Server      | 20.04   | 5.4\* |
+|                    | 18.04   | 5.3.0-1020<br>5.0 (Azure 조정 커널 포함)<br>4.18 *<br> 4.15* |
+|                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 12 SP4 | 4.12. * (Azure 조정 커널 포함) |
+| SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
+|                                 | 12 SP4 | 4.12. * (Azure 조정 커널 포함) |
 |                                 | 12 SP3 | 4.4.* |
 |                                 | 12 SP2 | 4.4.* |
 | Debian                          | 9      | 4.9  | 

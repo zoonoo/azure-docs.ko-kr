@@ -3,12 +3,12 @@ title: 시작 쿼리 샘플
 description: Azure Resource Graph를 사용하여 리소스 개수 계산, 리소스 정렬 또는 특정 태그를 포함한 일부 시작 쿼리를 실행합니다.
 ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 013e865f543f966d88132d2dc6aca6102d52d20c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 287de47fff8c76bf05aeacd9ddfca0c48e55f5a0
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057113"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882928"
 ---
 # <a name="starter-resource-graph-query-samples"></a>스타터 Resource Graph 쿼리 샘플
 
@@ -27,8 +27,6 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 - [구독에 의해 IP 주소가 구성된 리소스 개수 계산](#count-resources-by-ip)
 - [특정 태그 값이 있는 리소스 나열](#list-tag)
 - [특정 태그 값이 있는 모든 스토리지 계정 나열](#list-specific-tag)
-- [가상 머신 리소스에 대한 별칭 표시](#show-aliases)
-- [특정 별칭에 대한 고유 값 표시](#distinct-alias-values)
 - [연결되지 않은 네트워크 보안 그룹 표시](#unassociated-nsgs)
 - [Azure Advisor에서 비용 절감 요약 가져오기](#advisor-savings)
 - [게스트 구성 정책 범위에 있는 머신 수](#count-gcmachines)
@@ -462,72 +460,6 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 > [!NOTE]
 > 이 예제에서는 일치를 위해 `=~` 조건 대신 `==`을 사용합니다. `==`은 대/소문자 구분 일치입니다.
-
-## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases"></a>가상 머신 리소스에 대한 별칭 표시
-
-[Azure Policy 별칭](../../policy/concepts/definition-structure.md#aliases)은 Azure Policy에서 리소스 규정 준수를 관리하는 데 사용됩니다. Azure Resource Graph는 리소스 종류의 _별칭_ 을 반환할 수 있습니다. 이러한 값은 사용자 지정 정책 정의를 만들 때 별칭의 현재 값을 비교하는 데 유용합니다. _별칭_ 배열은 쿼리의 결과에 기본적으로 제공되지 않습니다. 결과에 명시적으로 추가하려면 `project aliases`를 사용합니다.
-
-```kusto
-Resources
-| where type =~ 'Microsoft.Compute/virtualMachines'
-| limit 1
-| project aliases
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | limit 1 | project aliases" | ConvertTo-Json
-```
-
-# <a name="portal"></a>[포털](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Azure Resource Graph Explorer에서 이 쿼리를 사용해 보세요.
-
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Azure China 21Vianet Portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%20%3D~%20%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20limit%201%0D%0A%7C%20project%20aliases" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
----
-
-## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values"></a>특정 별칭에 대한 고유 값 표시
-
-단일 리소스에 별칭의 값을 표시하는 것이 유용하지만 구독 간에 쿼리할 때 Azure Resource Graph를 사용하는 실제 값은 표시되지 않습니다. 이 예제에서는 특정 별칭의 모든 값을 찾고 고유 값을 반환합니다.
-
-```kusto
-Resources
-| where type=~'Microsoft.Compute/virtualMachines'
-| extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType']
-| distinct tostring(alias)
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachines' | extend alias = aliases['Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType'] | distinct tostring(alias)"
-```
-
-# <a name="portal"></a>[포털](#tab/azure-portal)
-
-:::image type="icon" source="../media/resource-graph-small.png"::: Azure Resource Graph Explorer에서 이 쿼리를 사용해 보세요.
-
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- Azure China 21Vianet Portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%0D%0A%7C%20where%20type%3D~%27Microsoft.Compute%2FvirtualMachines%27%0D%0A%7C%20extend%20alias%20%3D%20aliases%5B%27Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType%27%5D%0D%0A%7C%20distinct%20tostring%28alias%29" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
----
 
 ## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs"></a>연결되지 않은 네트워크 보안 그룹 표시
 

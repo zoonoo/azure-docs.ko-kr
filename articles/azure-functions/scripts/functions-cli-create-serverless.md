@@ -6,16 +6,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e5fa6b5a25b07585e3c0ea07fb4a361ab82a9815
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3a52d7ea8c940a33f4fbd2b9ad69f4f889615e7f
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565101"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934342"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>무서버 코드 실행을 위한 함수 앱 만들기 
 
-이 Azure Functions 샘플 스크립트는 함수의 컨테이너인 함수 앱을 만듭니다. 함수 앱은 이벤트 기반 서버리스 워크로드에 이상적인 [소비 계획](../functions-scale.md#consumption-plan)을 사용하여 생성됩니다.
+이 Azure Functions 샘플 스크립트는 함수의 컨테이너인 함수 앱을 만듭니다. 함수 앱은 이벤트 기반 서버리스 워크로드에 이상적인 [소비 계획](../consumption-plan.md)을 사용하여 생성됩니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "94565101"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 스크립트는 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 Azure 함수 앱을 만듭니다.
+이 스크립트는 [소비 계획](../consumption-plan.md)을 사용하는 Azure 함수 앱을 만듭니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a Consumption plan")]
 

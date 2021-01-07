@@ -3,12 +3,12 @@ title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
 ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: 24058a2c8428d306c5e53a73393b0d98785831cf
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 817e6f494b024b9a789f39a4101236f64d8fa0cd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876297"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882894"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -122,11 +122,11 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 ...
 ```
 
-**속성** 아래를 보면 **supportsHttpsTrafficOnly**라는 값이 **false**로 설정되어 있습니다. 이 속성이 우리가 찾는 속성일 가능성이 있습니다. 그리고 리소스 **형식**은 **Microsoft.Storage/storageAccounts**입니다. 이 형식은 정책을 이 형식의 리소스에만 적용하도록 제한할 수 있습니다.
+**속성** 아래를 보면 **supportsHttpsTrafficOnly** 라는 값이 **false** 로 설정되어 있습니다. 이 속성이 우리가 찾는 속성일 가능성이 있습니다. 그리고 리소스 **형식** 은 **Microsoft.Storage/storageAccounts** 입니다. 이 형식은 정책을 이 형식의 리소스에만 적용하도록 제한할 수 있습니다.
 
 #### <a name="create-a-resource-in-the-portal"></a>포털에서 리소스 만들기
 
-포털을 이용하는 또 다른 방법은 리소스 만들기 환경입니다. 포털을 통해 스토리지 계정을 만들 때 **고급** 탭 아래를 보면 **보안 전송 필요**라는 옵션이 있습니다. 이 속성은 _사용 안 함_ 및 _사용_ 옵션을 제공합니다. 정보 아이콘에는 이 옵션이 우리가 찾는 속성일 확률이 높다는 것을 확인해주는 추가 텍스트가 있습니다. 그러나 포털의 이 화면에는 속성 이름이 표시되지 않습니다.
+포털을 이용하는 또 다른 방법은 리소스 만들기 환경입니다. 포털을 통해 스토리지 계정을 만들 때 **고급** 탭 아래를 보면 **보안 전송 필요** 라는 옵션이 있습니다. 이 속성은 _사용 안 함_ 및 _사용_ 옵션을 제공합니다. 정보 아이콘에는 이 옵션이 우리가 찾는 속성일 확률이 높다는 것을 확인해주는 추가 텍스트가 있습니다. 그러나 포털의 이 화면에는 속성 이름이 표시되지 않습니다.
 
 **검토 + 만들기** 탭에서 페이지 하단을 보면 **자동화 템플릿 다운로드** 링크가 있습니다. 이 링크를 선택하면 우리가 구성한 리소스를 만드는 템플릿이 열립니다. 이 예에서는 다음과 같은 두 가지 핵심 정보가 보입니다.
 
@@ -143,7 +143,7 @@ Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니�
 ...
 ```
 
-이 정보는 속성 형식을 알려줄 뿐 아니라 우리가 찾는 속성이 **supportsHttpsTrafficOnly**라는 것을 확인해 줍니다.
+이 정보는 속성 형식을 알려줄 뿐 아니라 우리가 찾는 속성이 **supportsHttpsTrafficOnly** 라는 것을 확인해 줍니다.
 
 #### <a name="quickstart-templates-on-github"></a>GitHub의 빠른 시작 템플릿
 
@@ -151,7 +151,7 @@ GitHub의 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickst
 
 #### <a name="resource-reference-docs"></a>리소스 참조 문서
 
-**supportsHttpsTrafficOnly**가 올바른 속성인지 확인하려면 스토리지 공급자의 [스토리지 계정 리소스](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)에 대한 ARM 템플릿 참조를 확인하세요. 속성 개체는 유효한 매개 변수 목록을 갖고 있습니다. [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 링크를 선택하면 허용되는 속성 표가 표시됩니다. **supportsHttpsTrafficOnly**가 있으며 해당 설명을 보면 우리가 비즈니스 요구 사항을 충족하기 위해 찾고 있는 속성과 일치합니다.
+**supportsHttpsTrafficOnly** 가 올바른 속성인지 확인하려면 스토리지 공급자의 [스토리지 계정 리소스](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)에 대한 ARM 템플릿 참조를 확인하세요. 속성 개체는 유효한 매개 변수 목록을 갖고 있습니다. [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 링크를 선택하면 허용되는 속성 표가 표시됩니다. **supportsHttpsTrafficOnly** 가 있으며 해당 설명을 보면 우리가 비즈니스 요구 사항을 충족하기 위해 찾고 있는 속성과 일치합니다.
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 
@@ -168,7 +168,6 @@ Azure 리소스의 별칭을 확인하는 몇 가지 방법이 있습니다. 이
 - VS Code용 Azure Policy 확장
 - Azure CLI
 - Azure PowerShell
-- Azure Resource Graph
 
 ### <a name="get-aliases-in-vs-code-extension"></a>VS Code 확장에서 별칭 가져오기
 
@@ -188,7 +187,7 @@ Azure CLI에서 `az provider` 명령 그룹은 리소스 별칭을 검색하는 
 az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
 ```
 
-결과를 보면 스토리지 계정에서 **supportsHttpsTrafficOnly**라는 별칭을 지원하는 것을 알 수 있습니다. 이 별칭이 있다는 것은 비즈니스 요구 사항을 적용하는 정책을 작성할 수 있다는 의미입니다.
+결과를 보면 스토리지 계정에서 **supportsHttpsTrafficOnly** 라는 별칭을 지원하는 것을 알 수 있습니다. 이 별칭이 있다는 것은 비즈니스 요구 사항을 적용하는 정책을 작성할 수 있다는 의미입니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -201,126 +200,7 @@ Azure PowerShell에서 `Get-AzPolicyAlias` cmdlet은 리소스 별칭을 검색�
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
 ```
 
-Azure CLI와 마찬가지로, 결과를 보면 스토리지 계정에서 **supportsHttpsTrafficOnly**라는 별칭을 지원하는 것을 알 수 있습니다.
-
-### <a name="azure-resource-graph"></a>Azure Resource Graph
-
-[Azure Resource Graph](../../resource-graph/overview.md)는 Azure 리소스의 속성을 찾을 수 있는 다른 방법을 제공하는 서비스입니다. 다음은 Resource Graph를 사용하여 단일 스토리지 계정을 찾는 샘플 쿼리입니다.
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
-```
-
-ARM 템플릿 및 Azure Resource Explorer를 사용할 때와 비슷한 결과가 표시됩니다. 그러나 _aliases_ 배열을 _프로젝션_하여 Azure Resource Graph 결과에 [별칭](../concepts/definition-structure.md#aliases) 세부 정보를 포함할 수도 있습니다.
-
-```kusto
-Resources
-| where type=~'microsoft.storage/storageaccounts'
-| limit 1
-| project aliases
-```
-
-```azurecli-interactive
-az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
-```
-
-다음은 별칭에 대한 스토리지 계정의 출력 예제입니다.
-
-```json
-"aliases": {
-    "Microsoft.Storage/storageAccounts/accessTier": null,
-    "Microsoft.Storage/storageAccounts/accountType": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/enableBlobEncryption": true,
-    "Microsoft.Storage/storageAccounts/enableFileEncryption": true,
-    "Microsoft.Storage/storageAccounts/encryption": {
-        "keySource": "Microsoft.Storage",
-        "services": {
-            "blob": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            },
-            "file": {
-                "enabled": true,
-                "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-            }
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.keySource": "Microsoft.Storage",
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyname": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyvaulturi": null,
-    "Microsoft.Storage/storageAccounts/encryption.keyvaultproperties.keyversion": null,
-    "Microsoft.Storage/storageAccounts/encryption.services": {
-        "blob": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        },
-        "file": {
-            "enabled": true,
-            "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-        }
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.blob.enabled": true,
-    "Microsoft.Storage/storageAccounts/encryption.services.file": {
-        "enabled": true,
-        "lastEnabledTime": "2018-06-04T17:59:14.4970000Z"
-    },
-    "Microsoft.Storage/storageAccounts/encryption.services.file.enabled": true,
-    "Microsoft.Storage/storageAccounts/networkAcls": {
-        "bypass": "AzureServices",
-        "defaultAction": "Allow",
-        "ipRules": [],
-        "virtualNetworkRules": []
-    },
-    "Microsoft.Storage/storageAccounts/networkAcls.bypass": "AzureServices",
-    "Microsoft.Storage/storageAccounts/networkAcls.defaultAction": "Allow",
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*]": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].action": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id": [],
-    "Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].state": [],
-    "Microsoft.Storage/storageAccounts/primaryEndpoints": {
-        "blob": "https://mystorageaccount.blob.core.windows.net/",
-        "file": "https://mystorageaccount.file.core.windows.net/",
-        "queue": "https://mystorageaccount.queue.core.windows.net/",
-        "table": "https://mystorageaccount.table.core.windows.net/"
-    },
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.blob": "https://mystorageaccount.blob.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.file": "https://mystorageaccount.file.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.queue": "https://mystorageaccount.queue.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.table": "https://mystorageaccount.table.core.windows.net/",
-    "Microsoft.Storage/storageAccounts/primaryEndpoints.web": null,
-    "Microsoft.Storage/storageAccounts/primaryLocation": "eastus2",
-    "Microsoft.Storage/storageAccounts/provisioningState": "Succeeded",
-    "Microsoft.Storage/storageAccounts/sku.name": "Standard_LRS",
-    "Microsoft.Storage/storageAccounts/sku.tier": "Standard",
-    "Microsoft.Storage/storageAccounts/statusOfPrimary": "available",
-    "Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly": false
-}
-```
-
-Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용할 수 있으며, 리소스 속성을 쉽고 빠르게 검색할 수 있습니다.
+Azure CLI와 마찬가지로, 결과를 보면 스토리지 계정에서 **supportsHttpsTrafficOnly** 라는 별칭을 지원하는 것을 알 수 있습니다.
 
 ## <a name="determine-the-effect-to-use"></a>사용할 효과 결정
 
@@ -355,7 +235,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 
 ### <a name="metadata"></a>메타데이터
 
-처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 **모드**의 값으로 _all_ 을 사용하겠습니다.
+처음 세 개 구성 요소는 정책 메타데이터입니다. 이러한 구성 요소는 우리가 값을 만들 대상을 알고 있기 때문에 값을 쉽게 제공할 수 있습니다. [모드](../concepts/definition-structure.md#mode)는 주로 태그 및 리소스 위치와 관련이 있습니다. 평가 범위를 태그 지원 리소스로 제한할 필요가 없으므로 **모드** 의 값으로 _all_ 을 사용하겠습니다.
 
 ```json
 "displayName": "Deny storage accounts not using only HTTPS",
@@ -365,7 +245,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 
 ### <a name="parameters"></a>매개 변수
 
-평가 변경에 매개 변수를 사용하지는 않았지만, 매개 변수를 사용하여 문제 해결을 위한 **효과** 변경을 허용할 것입니다. **effectType** 매개 변수를 정의하고 **Deny** 및 **Disabled**로 제한하겠습니다. 이러한 두 옵션은 비즈니스 요구 사항과 일치합니다. 완성된 매개 변수 블록은 다음 예제와 비슷합니다.
+평가 변경에 매개 변수를 사용하지는 않았지만, 매개 변수를 사용하여 문제 해결을 위한 **효과** 변경을 허용할 것입니다. **effectType** 매개 변수를 정의하고 **Deny** 및 **Disabled** 로 제한하겠습니다. 이러한 두 옵션은 비즈니스 요구 사항과 일치합니다. 완성된 매개 변수 블록은 다음 예제와 비슷합니다.
 
 ```json
 "parameters": {
@@ -388,8 +268,8 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 
 [정책 규칙](../concepts/definition-structure.md#policy-rule) 작성은 사용자 지정 정책 정의를 빌드하는 최종 단계입니다. 다음 내용을 테스트하는 두 개의 명령문이 식별되었습니다.
 
-- 스토리지 계정 **형식**이 **Microsoft.Storage/storageAccounts**입니다.
-- 스토리지 계정 **supportsHttpsTrafficOnly**는 **true**가 아닙니다.
+- 스토리지 계정 **형식** 이 **Microsoft.Storage/storageAccounts** 입니다.
+- 스토리지 계정 **supportsHttpsTrafficOnly** 는 **true** 가 아닙니다.
 
 이러한 두 명령문이 모두 true여야 하므로 **allOf** [논리 연산자](../concepts/definition-structure.md#logical-operators)를 사용하겠습니다. 정적 선언을 만드는 대신 **effectType** 매개 변수를 효과로 전달하겠습니다. 완성된 규칙은 다음 예제와 비슷합니다.
 
@@ -462,7 +342,7 @@ Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용�
 
 이 자습서의 리소스를 모두 마쳤으면 다음 단계를 사용하여 위에서 만든 할당 또는 정의를 삭제합니다.
 
-1. Azure Policy 페이지의 왼쪽 창에 있는 **작성** 아래에서 **정의**(또는 할당을 삭제하려는 경우 **할당**을 선택)를 선택합니다.
+1. Azure Policy 페이지의 왼쪽 창에 있는 **작성** 아래에서 **정의**(또는 할당을 삭제하려는 경우 **할당** 을 선택)를 선택합니다.
 
 1. 제거할 새 이니셔티브 또는 정책 정의(또는 할당)를 검색합니다.
 

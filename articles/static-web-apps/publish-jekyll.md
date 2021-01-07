@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3bad12362358620d0f2dc105bb2820dfb691d00
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 673852f8f9aa81c838a7c1db68681bb9ee0b7e0b
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000222"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862025"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Jekyll 사이트 게시
 
@@ -68,7 +68,7 @@ Jekyll CLI(명령줄 인터페이스)를 사용하여 Jekyll 앱을 만듭니다
 
 Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다. 다음 단계에서는 GitHub 리포지토리를 만드는 방법을 보여줍니다.
 
-1. **jekyll-azure-static**이라는 [https://github.com/new](https://github.com/new)에서 빈 GitHub 리포지토리(추가 정보를 만들지 않음)를 만듭니다.
+1. **jekyll-azure-static** 이라는 [https://github.com/new](https://github.com/new)에서 빈 GitHub 리포지토리(추가 정보를 만들지 않음)를 만듭니다.
 
 1. 로컬 리포지토리에 GitHub 리포지토리를 원격으로 추가합니다. 다음 명령에서 `<YOUR_USER_NAME>` 자리 표시자 대신 GitHub 사용자 이름을 추가해야 합니다.
 
@@ -90,35 +90,35 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-1. **리소스 만들기**를 클릭합니다.
+1. **리소스 만들기** 를 클릭합니다.
 
-1. **Static Web Apps**를 검색합니다.
+1. **Static Web Apps** 를 검색합니다.
 
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 
-1. **구독**의 경우 나열된 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다.
+1. **구독** 의 경우 나열된 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다.
 
-1. _리소스 그룹_에서 **새로 만들기**를 선택합니다. _새 리소스 그룹 이름_에서 **jekyll-static-app**을 입력하고 **확인**을 선택합니다.
+1. _리소스 그룹_ 에서 **새로 만들기** 를 선택합니다. _새 리소스 그룹 이름_ 에서 **jekyll-static-app** 을 입력하고 **확인** 을 선택합니다.
 
 1. 그런 다음, _이름_ 상자에 있는 앱 이름을 입력합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다.
 
-1. _지역_에 대해 가까운 사용 가능한 지역을 선택합니다.
+1. _지역_ 에 대해 가까운 사용 가능한 지역을 선택합니다.
 
-1. _SKU_에 대해 **무료**를 선택합니다.
+1. _SKU_ 에 대해 **무료** 를 선택합니다.
 
     :::image type="content" source="./media/publish-jekyll/basic-app-details.png" alt-text="세부 정보 입력":::
 
 1. **GitHub로 로그인** 단추를 클릭합니다.
 
-1. 리포지토리를 만든 **조직**을 선택합니다.
+1. 리포지토리를 만든 **조직** 을 선택합니다.
 
-1. **jekyll-static-app**을 _리포지토리_로 선택합니다.
+1. **jekyll-static-app** 을 _리포지토리_ 로 선택합니다.
 
-1. _분기_에 대해 **마스터**를 선택합니다.
+1. _분기_ 에 대해 **마스터** 를 선택합니다.
 
-    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="세부 정보 입력":::
+    :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="완료된 GitHub 정보":::
 
 ### <a name="build"></a>빌드
 
@@ -126,17 +126,17 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
 
-1. _앱 위치_를 **/_site**로 설정합니다.
+1. _앱 위치_ 를 **/_site** 로 설정합니다.
 
-1. _앱 아티팩트 위치_를 비워 둡니다.
+1. _앱 아티팩트 위치_ 를 비워 둡니다.
 
-   현재 API를 배포하지 않으므로 _API 위치_에 대한 값이 필요하지 않습니다.
+   현재 API를 배포하지 않으므로 _API 위치_ 에 대한 값이 필요하지 않습니다.
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
 1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
 
-1. **만들기**를 클릭하여 Azure Static Web Apps 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
+1. **만들기** 를 클릭하여 Azure Static Web Apps 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
 
 1. 워크플로 파일에는 Jekyll 관련 설정이 필요하므로 먼저 배포가 실패합니다. 이러한 설정을 추가하려면 터미널로 이동하여 GitHub Action을 통해 커밋을 머신으로 가져옵니다.
 
@@ -150,7 +150,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
     ```yml
     - name: Set up Ruby
-      uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
+      uses: ruby/setup-ruby@v1.59.1
       with:
         ruby-version: 2.6
     - name: Install dependencies
@@ -171,7 +171,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. Azure Portal의 _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
 
-   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="세부 정보 입력":::
+   :::image type="content" source="./media/publish-jekyll/deployed-app.png" alt-text="배포된 애플리케이션":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

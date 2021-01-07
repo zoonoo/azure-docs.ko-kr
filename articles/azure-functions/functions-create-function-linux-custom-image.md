@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: f270f74f97a9b9306d7b23dacec12c38f418dbd1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fb85920b04e3cd457dc36d1ba1fd0f18dcd7abb6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921822"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937062"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "96921822"
 Azure Functions는 [사용자 지정 처리기](functions-custom-handlers.md)를 사용하여 모든 언어 또는 런타임을 지원합니다. 이 자습서에서 사용되는 R 프로그래밍 언어와 같은 일부 언어의 경우 사용자 지정 컨테이너를 사용해야 하는 종속성으로 런타임 또는 추가 라이브러리를 설치해야 합니다.
 ::: zone-end
 
-사용자 지정 Linux 컨테이너에 함수 코드를 배포하려면 [프리미엄 플랜](functions-premium-plan.md#features) 또는 [전용(App Service) 플랜](functions-scale.md#app-service-plan) 호스팅이 필요합니다. 이 자습서를 완료하면 Azure 계정에 몇 달러(미국)의 비용이 발생하며, 이 비용은 완료될 때 [리소스 정리](#clean-up-resources)를 통해 최소화할 수 있습니다.
+사용자 지정 Linux 컨테이너에 함수 코드를 배포하려면 [프리미엄 플랜](functions-premium-plan.md) 또는 [전용(App Service) 플랜](dedicated-plan.md) 호스팅이 필요합니다. 이 자습서를 완료하면 Azure 계정에 몇 달러(미국)의 비용이 발생하며, 이 비용은 완료될 때 [리소스 정리](#clean-up-resources)를 통해 최소화할 수 있습니다.
 
 또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](./create-first-function-cli-csharp.md?pivots=programming-language-python)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
 

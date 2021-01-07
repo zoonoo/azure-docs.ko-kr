@@ -4,16 +4,16 @@ description: 함수 앱을 만들고 Azure Functions를 사용하여 GitHub 리�
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 752d8a729c56fc2e0e110fcedc263eab4ba7a96b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565316"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934393"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 앱 만들기
 
-이 Azure Functions 샘플 스크립트는 관련 리소스와 함께 [소비 계획](../functions-scale.md#consumption-plan)을 사용하여 함수 앱을 만듭니다. 이 스크립트는 GitHub 리포지토리에서 지속적으로 배포하기 위한 함수 코드도 구성합니다. 
+이 Azure Functions 샘플 스크립트는 관련 리소스와 함께 [소비 계획](../consumption-plan.md)을 사용하여 함수 앱을 만듭니다. 이 스크립트는 GitHub 리포지토리에서 지속적으로 배포하기 위한 함수 코드도 구성합니다. 
 
 이 샘플에서는 다음이 필요합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "94565316"
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 스토리지 계정을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버리스 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만들어 Git 또는 Mercurial 리포지토리와 연결합니다. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 서버리스 [소비 계획](../consumption-plan.md)에서 함수 앱을 만들어 Git 또는 Mercurial 리포지토리와 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

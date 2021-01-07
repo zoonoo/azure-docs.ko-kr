@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7fe1c01542df2fcc38982fe2a30f9e94c712eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2617308d342be19f74e1f3145a1137fadb04d073
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065258"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914691"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -41,13 +41,13 @@ Azure 내에서 신뢰할 수 있는 VM 기반 솔루션을 배포하려면 항�
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-한 위치의 하드웨어는 여러 개의 업데이트 도메인 및 장애 도메인으로 구분됩니다. **업데이트 도메인**은 동시에 다시 부팅할 수 있는 VM 그룹과 기본 물리적 하드웨어입니다. 동일한 **장애 도메인**의 VM은 공통의 스토리지뿐만 아니라 공통의 전원 및 네트워크 스위치를 공유합니다.  
+한 위치의 하드웨어는 여러 개의 업데이트 도메인 및 장애 도메인으로 구분됩니다. **업데이트 도메인** 은 동시에 다시 부팅할 수 있는 VM 그룹과 기본 물리적 하드웨어입니다. 동일한 **장애 도메인** 의 VM은 공통의 스토리지뿐만 아니라 공통의 전원 및 네트워크 스위치를 공유합니다.  
 
-[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서 업데이트 및 장애 도메인의 수는 모두 *2*이며 가용성 집합의 이름은 *myAvailabilitySet*입니다.
+[New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서 업데이트 및 장애 도메인의 수는 모두 *2* 이며 가용성 집합의 이름은 *myAvailabilitySet* 입니다.
 
 리소스 그룹을 만듭니다.
 
@@ -75,7 +75,7 @@ VM이 하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용
 
 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 때 `-AvailabilitySetName` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
 
-먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
+먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -101,7 +101,7 @@ for ($i=1; $i -le 2; $i++)
 
 두 VM을 만들고 구성하는 데 몇 분 정도 소요됩니다. 완료되면 기본 하드웨어에 2개의 가상 머신이 배포되어 있습니다. 
 
-**리소스 그룹** > **myResourceGroupAvailability** > **myAvailabilitySet**으로 차례로 이동하여 포털에서 가용성 집합을 살펴보면 VM이 2개의 장애 및 업데이트 도메인에 배포되는 방식을 확인할 수 있습니다.
+**리소스 그룹** > **myResourceGroupAvailability** > **myAvailabilitySet** 으로 차례로 이동하여 포털에서 가용성 집합을 살펴보면 VM이 2개의 장애 및 업데이트 도메인에 배포되는 방식을 확인할 수 있습니다.
 
 ![포털의 가용성 집합](./media/tutorial-availability-sets/fd-ud.png)
 
@@ -119,7 +119,7 @@ Get-AzVMSize `
 
 또한 Azure Advisor를 사용하여 VM의 가용성을 개선하는 방법에 대한 자세한 정보를 볼 수 있습니다. Azure Advisor는 구성 및 사용량 원격 분석을 수행한 다음, Azure 리소스의 비용 효율성, 성능, 가용성 및 보안을 향상시키는 데 도움이 되는 해결 방법을 권장합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인하고, **모든 서비스**를 선택하고, **Advisor**를 입력합니다. Advisor 대시보드에 선택한 구독에 대해 맞춤형 추천이 표시됩니다. 자세한 내용은 [Azure Advisor 시작](../../advisor/advisor-get-started.md)을 참조하세요.
+[Azure Portal](https://portal.azure.com)에 로그인하고, **모든 서비스** 를 선택하고, **Advisor** 를 입력합니다. Advisor 대시보드에 선택한 구독에 대해 맞춤형 추천이 표시됩니다. 자세한 내용은 [Azure Advisor 시작](../../advisor/advisor-get-started.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

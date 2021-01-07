@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: references_regions
+ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746592"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962179"
 ---
 # <a name="soft-delete-for-containers-preview"></a>컨테이너에 대 한 일시 삭제 (미리 보기)
 
@@ -53,11 +53,9 @@ Azure Storage REST API 버전 2019-12-12 이상에서는 컨테이너 일시 삭
 
 컨테이너 일시 삭제는 다음과 같은 유형의 저장소 계정에 사용할 수 있습니다.
 
-- 범용 v2 저장소 계정
+- 범용 v2 및 v1 저장소 계정
 - Blob storage 계정 차단
 - Blob Storage 계정
-
-저장소 계정이 범용 v1 계정인 경우 Azure Portal를 사용 하 여 범용 v2 계정으로 업그레이드 합니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 Azure Data Lake Storage Gen2 사용 하도록 설정 된 계층적 네임 스페이스를 사용 하는 저장소 계정도 지원 됩니다.
 

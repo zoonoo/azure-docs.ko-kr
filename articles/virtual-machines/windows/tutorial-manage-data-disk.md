@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 528fe5dea533faf9447e03dd901568d783891ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d81bfaba572361304224932fadb7da5b1cc3f8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718937"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912890"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -32,7 +32,7 @@ Azure 가상 머신은 디스크를 사용하여 VM 운영 체제, 애플리케�
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 
@@ -50,9 +50,9 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 Azure는 두 가지 형식의 디스크를 제공합니다.
 
-**표준 디스크**는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
+**표준 디스크** 는 HDD에 의해 지원되며 성능은 그대로이면서 비용 효율적인 스토리지를 제공합니다. 표준 디스크는 비용 효율적인 개발 및 테스트 워크로드에 적합합니다.
 
-**프리미엄 디스크** - SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. [크기 이름](../vm-naming-conventions.md)에 **S**가 있는 VM 크기는 일반적으로 Premium Storage를 지원합니다. 예를 들어 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM은 Premium Storage를 지원합니다. 디스크 크기를 선택하면 값이 다음 형식으로 반올림됩니다. 예를 들어 디스크 크기가 64GB 이상 128GB 미만인 경우 디스크 유형은 P10입니다. 
+**프리미엄 디스크** - SSD 기반 고성능의 대기 시간이 짧은 디스크에서 지원합니다. 프로덕션 워크로드를 실행하는 VM에 완벽한 디스크입니다. [크기 이름](../vm-naming-conventions.md)에 **S** 가 있는 VM 크기는 일반적으로 Premium Storage를 지원합니다. 예를 들어 DS 시리즈, DSv2 시리즈, GS 시리즈 및 FS 시리즈 VM은 Premium Storage를 지원합니다. 디스크 크기를 선택하면 값이 다음 형식으로 반올림됩니다. 예를 들어 디스크 크기가 64GB 이상 128GB 미만인 경우 디스크 유형은 P10입니다. 
 <br>
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
@@ -64,7 +64,7 @@ Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, �
 
 이 자습서의 예제를 완료하려면 기존 가상 머신이 있어야 합니다. 필요한 경우 다음 명령을 사용하여 가상 머신을 만듭니다.
 
-[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
 
 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 가상 머신을 만듭니다. VM에서 관리자 계정의 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다.
