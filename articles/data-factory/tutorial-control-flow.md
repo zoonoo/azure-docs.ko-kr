@@ -2,8 +2,8 @@
 title: Azure Data Factory 파이프라인 분기
 description: 분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다.
 services: data-factory
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496945"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 현재 Data Factory를 사용할 수 있는 Azure 지역의 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요. 데이터 저장소와 컴퓨팅은 다른 지역에 있을 수 있습니다. 저장소에는 Azure Storage 및 Azure SQL Database가 포함됩니다. 컴퓨팅에는 Data Factory에서 사용하는 HDInsight가 포함됩니다.
 
-[Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 설명한 대로 애플리케이션을 만듭니다. 동일한 문서의 지침에 따라 애플리케이션을 " **기여자** " 역할에 할당합니다. 이 자습서의 이후 부분에는 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 와 같은 몇 가지 값이 필요합니다.
+[Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 설명한 대로 애플리케이션을 만듭니다. 동일한 문서의 지침에 따라 애플리케이션을 "**기여자**" 역할에 할당합니다. 이 자습서의 이후 부분에는 **애플리케이션(클라이언트) ID** 및 **디렉터리(테넌트) ID** 와 같은 몇 가지 값이 필요합니다.
 
 ### <a name="create-a-blob-table"></a>Blob 테이블 만들기
 
@@ -234,7 +234,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 지원되는 Azure Storage 연결된 서비스를 참조합니다. Blob 데이터 세트는 복사할 원본 Blob의 위치( *FolderPath* 및 *FileName* )를 설명합니다.
+Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 지원되는 Azure Storage 연결된 서비스를 참조합니다. Blob 데이터 세트는 복사할 원본 Blob의 위치(*FolderPath* 및 *FileName*)를 설명합니다.
 
 *FolderPath* 에 매개 변수를 사용하는지 확인합니다. `sourceBlobContainer`는 매개 변수의 이름이고, 식은 파이프라인 실행에서 전달된 값으로 바뀝니다. 매개 변수를 정의하는 구문은 `@pipeline().parameters.<parameterName>`입니다.
 

@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f58fe342d66c328bdadf41fc965c2952605aea8e
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5f149dd6db82b66b45a4c995e2004936481af786
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376578"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352425"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 [QnA Maker 서비스를 만드는](./set-up-qnamaker-service-azure.md)동안 Application Insights를 사용 하도록 설정한 경우 모든 채팅 로그 및 기타 원격 분석을 QnA Maker 저장 합니다. 샘플 쿼리를 실행 하 여 Application Insights에서 채팅 로그를 가져옵니다.
 
@@ -48,11 +48,11 @@ ms.locfileid: "94376578"
 
     [![쿼리를 실행 하 여 사용자의 질문, 답변 및 점수를 확인 합니다.](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 QnA Maker 관리 (미리 보기)는 Azure 진단 로깅을 사용 하 여 원격 분석 데이터와 채팅 로그를 저장 합니다. 아래 단계에 따라 샘플 쿼리를 실행 하 여 QnA Maker 기술 자료의 사용에 대 한 분석을 받으세요.
 
-1. QnA Maker 관리 (미리 보기) 서비스에 대 한 [진단 로깅을 사용 하도록 설정](https://docs.microsoft.com/azure/cognitive-services/diagnostic-logging) 합니다.
+1. QnA Maker 관리 (미리 보기) 서비스에 대 한 [진단 로깅을 사용 하도록 설정](../../diagnostic-logging.md) 합니다.
 
 2. 이전 단계에서 로깅에 대 한 **감사, RequestResponse 및 AllMetrics** 외에 **추적** 을 선택 합니다.
 
@@ -62,7 +62,7 @@ QnA Maker 관리 (미리 보기)는 Azure 진단 로깅을 사용 하 여 원격
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>QnA Maker 기술 자료에 대한 다른 분석에 대해 쿼리 실행
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 ### <a name="total-90-day-traffic"></a>총 90일 트래픽
 
@@ -132,7 +132,7 @@ traces | extend id = operation_ParentId
 | order  by timestamp  desc
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 ### <a name="all-qna-chat-log"></a>모든 QnA 채팅 로그
 

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980686"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346217"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>자습서: 커넥티드 물류 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -37,13 +37,13 @@ ms.locfileid: "90980686"
 
 다음 단계를 사용하여 애플리케이션을 만듭니다.
 
-1. [Azure IoT Central 빌드](https://aka.ms/iotcentral) 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. 왼쪽 탐색 모음에서 **빌드**를 선택한 다음, **소매** 탭을 선택합니다.
+1. [Azure IoT Central 빌드](https://aka.ms/iotcentral) 사이트로 이동합니다. 그런 다음, Microsoft 개인, 회사 또는 학교 계정으로 로그인합니다. 왼쪽 탐색 모음에서 **빌드** 를 선택한 다음, **소매** 탭을 선택합니다.
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="연결된 물류 템플릿":::
 
-2. **커넥티드 물류 애플리케이션**에서 **앱 만들기**를 선택합니다.
+1. **커넥티드 물류 애플리케이션** 에서 **앱 만들기** 를 선택합니다.
 
-3. **앱 만들기**에서 **새 애플리케이션** 양식이 열립니다. 다음 세부 정보를 입력합니다.
+1. **앱 만들기** 에서 **새 애플리케이션** 양식이 열립니다. 다음 세부 정보를 입력합니다.
 
 
     * **애플리케이션 이름**: 제안된 기본 이름을 사용하거나 친숙한 애플리케이션 이름을 입력할 수 있습니다.
@@ -51,9 +51,9 @@ ms.locfileid: "90980686"
     * **청구 정보**: 리소스를 프로비저닝하려면 디렉터리, Azure 구독 및 지역 세부 정보가 필요합니다.
     * **만들기**: 페이지 맨 아래에서 만들기를 선택하여 애플리케이션을 배포합니다.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="연결된 물류 템플릿":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="연결된 물류 앱 템플릿":::
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="연결된 물류 템플릿":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="연결된 물류 청구 정보":::
 
 ## <a name="walk-through-the-application"></a>애플리케이션 살펴보기
 
@@ -81,25 +81,25 @@ ms.locfileid: "90980686"
 * 트럭 배송에 대한 물류 경로 및 해상 배송의 위치 세부 정보를 확인합니다.
 * 게이트웨이 상태 및 기타 관련 정보를 확인합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png" alt-text="연결된 물류 대시보드":::
 
 * 게이트웨이, 활성 및 알 수 없는 태그의 총 수를 추적할 수 있습니다.
 * 펌웨어 업데이트, 센서 사용 안 함, 센서 사용, 센서 임계값 업데이트, 원격 분석 간격 업데이트, 디바이스 서비스 계약 업데이트 등의 디바이스 관리 작업을 수행할 수 있습니다.
 * 디바이스 배터리 사용량을 확인합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png" alt-text="연결된 물류 대시보드 상태":::
 
 #### <a name="device-template"></a>디바이스 템플릿
 
-**디바이스 템플릿**을 선택하여 게이트웨이 기능 모델을 확인합니다. 기능 모델은 **게이트웨이 원격 분석 및 속성** 및 **게이트웨이 명령** 인터페이스를 통해 구성됩니다.
+**디바이스 템플릿** 을 선택하여 게이트웨이 기능 모델을 확인합니다. 기능 모델은 **게이트웨이 원격 분석 및 속성** 및 **게이트웨이 명령** 인터페이스를 통해 구성됩니다.
 
 **게이트웨이 원격 분석 및 속성** - 이 인터페이스는 센서, 위치 및 디바이스 정보와 관련된 모든 원격 분석을 정의합니다. 또한 이 인터페이스는 센서 임계값 및 업데이트 간격과 같은 디바이스 쌍 속성 기능을 정의합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png" alt-text="원격 분석 및 속성 인터페이스":::
 
 **게이트웨이 명령** - 이 인터페이스는 모든 게이트웨이 명령 기능을 구성합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png" alt-text="게이트웨이 명령 인터페이스":::
 
 ### <a name="rules"></a>규칙
 
@@ -109,13 +109,13 @@ ms.locfileid: "90980686"
 
 **응답하지 않는 게이트웨이**: 이 규칙은 게이트웨이가 장기간 클라우드에 보고하지 않는 경우에 트리거됩니다. 배터리 부족, 연결 손실 또는 디바이스 손상으로 인해 게이트웨이가 응답하지 않을 수 있습니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png" alt-text="규칙 정의":::
 
 ### <a name="jobs"></a>작업
 
 **작업** 탭을 선택하여 이 애플리케이션의 작업을 표시합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png" alt-text="실행할 작업":::
 
 작업을 사용하여 애플리케이션 전체 작업을 수행할 수 있습니다. 이 애플리케이션의 작업은 디바이스 명령 및 쌍 기능을 사용하여 모든 게이트웨이에서 특정 센서를 사용하지 않도록 설정하거나 배송 모드 및 경로에 따라 센서 임계값을 수정하는 등의 작업을 수행합니다.
 
@@ -125,9 +125,9 @@ ms.locfileid: "90980686"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 애플리케이션을 계속 사용하지 않으려면 **관리** > **애플리케이션 설정**을 방문하여 애플리케이션 템플릿을 삭제하고 **삭제**를 선택합니다.
+이 애플리케이션을 계속 사용하지 않으려면 **관리** > **애플리케이션 설정** 을 방문하여 애플리케이션 템플릿을 삭제하고 **삭제** 를 선택합니다.
 
-:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="연결된 물류 템플릿":::
+:::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="템플릿 정리":::
 
 ## <a name="next-steps"></a>다음 단계
 * 자세한 정보 

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 9d1759e5b809bc40e63fb6024fb7f107ad347da6
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094355"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484382"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
 
@@ -137,7 +138,7 @@ BI 플랫폼은 CMS 및 감사 데이터 저장소에 대해 데이터베이스�
 
 - MaxDB
 
-이 문서에서는 **Azure Database for MySQL를 사용 하 여 Linux에서 Azure SQL Database 및 SAP Bobi 플랫폼**을 **사용 하 여 WINDOWS에 Sap bobi 플랫폼** 을 배포 하는 지침을 설명 합니다. Azure에서 SAP BusinessObjects BI 플랫폼을 실행 하기 위한 권장 접근 방법 이기도 합니다.
+이 문서에서는 **Azure Database for MySQL를 사용 하 여 Linux에서 Azure SQL Database 및 SAP Bobi 플랫폼** 을 **사용 하 여 WINDOWS에 Sap bobi 플랫폼** 을 배포 하는 지침을 설명 합니다. Azure에서 SAP BusinessObjects BI 플랫폼을 실행 하기 위한 권장 접근 방법 이기도 합니다.
 
 ## <a name="sizing"></a>크기 조정
 
@@ -183,7 +184,7 @@ Azure SQL Database는 다음과 같은 세 가지 구매 모델을 제공 합니
 
 Azure Database for MySQL는 세 가지 가격 책정 계층으로 제공 됩니다. Vcores의 계산 용량, Vcores 당 메모리 및 날짜를 저장 하는 데 사용 되는 저장소 기술로 구분 됩니다. 다음은 옵션에 대 한 개략적인 정보 이며 다양 한 특성에 대 한 자세한 내용은 Azure Database for MySQL [가격 책정 계층](../../../mysql/concepts-pricing-tiers.md) 을 참조 하세요.
 
-- Basic
+- 기본
 
   간단한 계산 및 i/o 성능이 필요한 대상 워크 로드에 사용 됩니다.
 
@@ -235,7 +236,7 @@ Azure는 모든 응용 프로그램 요구 사항에 맞는 다양 한 가상 �
 
 SAP BI 플랫폼 크기 조정에 따라 azure에서 SAP 제품에 대해 지원 되는 Azure Virtual Machine에 요구 사항을 매핑해야 합니다. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) 는 Windows 및 LINUX에서 sap 제품에 대해 지원 되는 Azure VM 유형을 나열 하는 좋은 출발점입니다. 또한 지원 되는 VM 유형을 선택 하는 것 외에도 특정 지역에서 해당 VM 유형을 사용할 수 있는지 여부도 확인 해야 합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에서 VM 유형의 가용성을 확인할 수 있습니다. 가격 책정 모델을 선택 하는 경우 [SAP 워크 로드에 대 한 Azure virtual machines](planning-guide.md#azure-virtual-machines-for-sap-workload) 를 참조할 수 있습니다.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 Azure Storage는 고가용성, 보안, 내구성, 확장성 및 중복성을 제공 하는 저장소를 제공 하는 Azure로 관리 되는 클라우드 서비스입니다. 일부 저장소 유형은 SAP 시나리오에 대해 제한적으로 사용 됩니다. 하지만 몇 가지 Azure Storage 형식이 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 자세한 내용은 sap에 적합 한 다양 한 저장소 옵션을 강조 표시 하는 [Sap 워크 로드 가이드에 대 한 Azure Storage 유형을](planning-guide-storage.md) 참조 하세요.
 
@@ -266,4 +267,4 @@ SAP BOBI는 비즈니스 데이터를 포함 하지 않는 보고 및 분석 BI 
 - [Linux에서 SAP BusinessObjects BI 플랫폼 배포](businessobjects-deployment-guide-linux.md)
 - [SAP용 Azure Virtual Machines 계획 및 구현](planning-guide.md)
 - [SAP용 Azure Virtual Machines 배포](deployment-guide.md)
-- [SAP용 Azure Virtual Machines DBMS 배포](dbms-guide.md)
+- [SAP용 Azure Virtual Machines DBMS 배포](./dbms_guide_general.md)

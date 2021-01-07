@@ -11,30 +11,30 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438452"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461253"
 ---
 # <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure Data Factory의 **유효성 검사**, **데이터 복사**및 **노트북** 작업을 포함 하는 종단 간 파이프라인을 만듭니다.
+이 자습서에서는 Azure Data Factory의 **유효성 검사**, **데이터 복사** 및 **노트북** 작업을 포함 하는 종단 간 파이프라인을 만듭니다.
 
 - **유효성 검사** 를 사용 하면 복사 및 분석 작업을 트리거하기 전에 원본 데이터 집합이 다운스트림 사용에 대해 준비 됩니다.
 
 - **데이터 복사** 는 Azure Databricks 노트북에서 dbfs로 탑재 된 싱크 저장소로 원본 데이터 집합을 복제 합니다. 이러한 방식으로 Spark에서 데이터 집합을 직접 사용할 수 있습니다.
 
-- **노트북** 은 데이터 집합을 변환 하는 Databricks 노트북을 트리거합니다. 또한 처리 된 폴더 또는 Azure Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터 집합을 추가 합니다.
+- **노트북** 은 데이터 집합을 변환 하는 Databricks 노트북을 트리거합니다. 또한 처리 된 폴더 또는 Azure Azure Synapse Analytics에 데이터 집합을 추가 합니다.
 
 간단히 하기 위해이 자습서의 템플릿은 예약 된 트리거를 만들지 않습니다. 필요한 경우 하나를 추가할 수 있습니다.
 
 ![파이프라인 다이어그램](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 싱크로 사용 하기 위해 라는 컨테이너가 있는 Azure Blob storage 계정 `sinkdata` .
 
@@ -46,9 +46,9 @@ ms.locfileid: "89438452"
 
 Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을 수행 합니다.
 
-1. Azure Databricks 작업 영역에 로그인 하 고 **가져오기**를 선택 합니다.
+1. Azure Databricks 작업 영역에 로그인 하 고 **가져오기** 를 선택 합니다.
        ![작업 영역을 가져오는 메뉴 명령 ](media/solution-template-Databricks-notebook/import-notebook.png) 작업 영역 경로는 표시 된 것과 다를 수 있지만 나중에 사용할 수 있습니다.
-1. **다음에서 가져오기: URL**을 선택 합니다. 텍스트 상자에을 입력 `https://adflabstaging1.blob.core.windows.net/share/Transformations.html` 합니다.
+1. **다음에서 가져오기: URL** 을 선택 합니다. 텍스트 상자에을 입력 `https://adflabstaging1.blob.core.windows.net/share/Transformations.html` 합니다.
 
    ![노트북 가져오기에 대 한 선택 항목](media/solution-template-Databricks-notebook/import-from-url.png)
 
@@ -56,37 +56,37 @@ Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을
 
    가져온 노트북에서 다음 코드 조각과 같이 **명령 5** 로 이동 합니다.
 
-   - `<storage name>`및를 `<access key>` 사용자 고유의 저장소 연결 정보로 바꿉니다.
+   - `<storage name>`및를 `<access key>` 사용자 고유의 저장소 연결 정보로 바꿉니다.
    - 컨테이너에 저장소 계정을 사용 합니다 `sinkdata` .
 
     ```python
-    # Supply storageName and accessKey values  
-    storageName = "<storage name>"  
-    accessKey = "<access key>"  
+    # Supply storageName and accessKey values  
+    storageName = "<storage name>"  
+    accessKey = "<access key>"  
 
-    try:  
-      dbutils.fs.mount(  
-        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
-        mount_point = "/mnt/Data Factorydata",  
-        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
+    try:  
+      dbutils.fs.mount(  
+        source = "wasbs://sinkdata\@"+storageName+".blob.core.windows.net/",  
+        mount_point = "/mnt/Data Factorydata",  
+        extra_configs = {"fs.azure.account.key."+storageName+".blob.core.windows.net": accessKey})  
 
-    except Exception as e:  
-      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
+    except Exception as e:  
+      # The error message has a long stack track. This code tries to print just the relevant line indicating what failed.
 
-    import re
-    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
-    if result:
-      print result[-1] \# Print only the relevant error message
-    else:  
-      print e \# Otherwise print the whole stack trace.  
+    import re
+    result = re.findall(r"\^\s\*Caused by:\s*\S+:\s\*(.*)\$", e.message, flags=re.MULTILINE)
+    if result:
+      print result[-1] \# Print only the relevant error message
+    else:  
+      print e \# Otherwise print the whole stack trace.  
     ```
 
-1. Databricks에 액세스할 Data Factory에 대해 **Databricks 액세스 토큰**을 생성합니다.
+1. Databricks에 액세스할 Data Factory에 대해 **Databricks 액세스 토큰** 을 생성합니다.
    1. Databricks 작업 영역에서 오른쪽 위에 있는 사용자 프로필 아이콘을 선택 합니다.
-   1. **사용자 설정**을 선택 합니다.
+   1. **사용자 설정** 을 선택 합니다.
     ![사용자 설정에 대 한 메뉴 명령](media/solution-template-Databricks-notebook/user-setting.png)
    1. **액세스 토큰** 탭에서 **새 토큰 생성** 을 선택 합니다.
-   1. **생성**을 선택합니다.
+   1. **생성** 을 선택합니다.
 
     !["생성" 단추](media/solution-template-Databricks-notebook/generate-new-token.png)
 
@@ -118,7 +118,7 @@ Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을
 
         ![클러스터에 연결 하기 위한 선택 항목](media/solution-template-Databricks-notebook/databricks-connection.png)
 
-1. **이 템플릿 사용**을 선택합니다. 파이프라인이 생성 된 것을 볼 수 있습니다.
+1. **이 템플릿 사용** 을 선택합니다. 파이프라인이 생성 된 것을 볼 수 있습니다.
 
     ![파이프라인 만들기](media/solution-template-Databricks-notebook/new-pipeline.png)
 
@@ -126,23 +126,23 @@ Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을
 
 새 파이프라인에서 대부분의 설정은 기본값을 사용 하 여 자동으로 구성 됩니다. 파이프라인의 구성을 검토 하 고 필요한 변경 작업을 수행 합니다.
 
-1. **유효성 검사** 작업 **가용성 플래그**에서 원본 **데이터 집합** 값이 이전에 만든으로 설정 되어 있는지 확인 합니다 `SourceAvailabilityDataset` .
+1. **유효성 검사** 작업 **가용성 플래그** 에서 원본 **데이터 집합** 값이 이전에 만든으로 설정 되어 있는지 확인 합니다 `SourceAvailabilityDataset` .
 
    ![원본 데이터 집합 값](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1. **데이터 복사** 작업 **파일-blob**에서 **원본** 및 **싱크** 탭을 선택 합니다. 필요한 경우 설정을 변경 합니다.
+1. **데이터 복사** 작업 **파일-blob** 에서 **원본** 및 **싱크** 탭을 선택 합니다. 필요한 경우 설정을 변경 합니다.
 
    - **원본** 탭 ![ 원본 탭](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
    - **싱크** 탭 ![ 싱크 탭](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1. **노트북** 활동 **변환**에서 필요에 따라 경로와 설정을 검토 하 고 업데이트 합니다.
+1. **노트북** 활동 **변환** 에서 필요에 따라 경로와 설정을 검토 하 고 업데이트 합니다.
 
    **Databricks 연결 된 서비스** ![ 는 Databricks 연결 된 서비스에 대해 채워진 값과 같이 이전 단계의 값으로 미리 채워야 합니다.](media/solution-template-Databricks-notebook/notebook-activity.png)
 
    **노트북** 설정을 확인 하려면:
   
-    1. **설정** 탭을 선택 합니다. **전자 필기장 경로**의 경우 기본 경로가 올바른지 확인 합니다. 올바른 전자 필기장 경로를 찾아서 선택 해야 할 수 있습니다.
+    1. **설정** 탭을 선택 합니다. **전자 필기장 경로** 의 경우 기본 경로가 올바른지 확인 합니다. 올바른 전자 필기장 경로를 찾아서 선택 해야 할 수 있습니다.
 
        ![전자 필기장 경로](media/solution-template-Databricks-notebook/notebook-settings.png)
 

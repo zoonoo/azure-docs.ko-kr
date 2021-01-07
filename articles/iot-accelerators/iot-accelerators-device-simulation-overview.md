@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be0278fd8870395b8495168eb9723780eba4b26
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "65464892"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852373"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>디바이스 시뮬레이션 솔루션 가속기 개요
 
@@ -36,7 +36,7 @@ IoT Hub에 연결된 디바이스 한 대에서 수천 대에 대한 시뮬레�
 
 ## <a name="sample-simulations"></a>샘플 시뮬레이션
 
-디바이스 시뮬레이션을 배포하면 몇 가지 샘플 시뮬레이션 및 샘플 디바이스가 제공됩니다. 이러한 샘플을 사용하여 디바이스 시뮬레이션 사용 방법을 배울 수 있습니다. 시작하려면 [트럭 10대를 시뮬레이트하는 샘플 시뮬레이션](quickstart-device-simulation-deploy.md)을 실행합니다. [제공된 많은 샘플 디바이스 중 하나를 사용하여 사용자 고유의 시뮬레이션을 만들](iot-accelerators-device-simulation-create-simulation.md) 수도 있습니다.
+디바이스 시뮬레이션을 배포하면 몇 가지 샘플 시뮬레이션 및 샘플 디바이스가 제공됩니다. 이러한 샘플을 사용하여 디바이스 시뮬레이션 사용 방법을 배울 수 있습니다. 시작 하려면 [샘플 시뮬레이션](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)을 실행 합니다. [제공된 많은 샘플 디바이스 중 하나를 사용하여 사용자 고유의 시뮬레이션을 만들](iot-accelerators-device-simulation-create-simulation.md) 수도 있습니다.
 
 ![시뮬레이션 구성](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
@@ -60,7 +60,7 @@ IoT Hub에 연결된 디바이스 한 대에서 수천 대에 대한 시뮬레�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 디바이스 시뮬레이션 솔루션 가속기 및 해당 기능에 대해 알아보았습니다. 솔루션 가속기를 사용하려면 빠른 시작:
+이 문서에서는 디바이스 시뮬레이션 솔루션 가속기 및 해당 기능에 대해 알아보았습니다. 솔루션 가속기를 배포 하려면 GitHub 리포지토리를 방문 하세요.
 
 > [!div class="nextstepaction"]
-> [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md)
+> [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)

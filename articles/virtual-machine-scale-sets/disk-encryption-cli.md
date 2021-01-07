@@ -9,30 +9,30 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 4d8e6d225e02006683166de73a0b66f795bc3993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6edfa1beb568bb05bd0f3f1ef9e7792ac3c3cbe2
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321980"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515747"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 가상 머신 확장 집합을 만들고 암호화하는 방법을 보여줍니다. 가상 머신 확장 집합에 Azure Disk Encryption을 적용하는 방법에 대한 자세한 내용은 [Virtual Machine Scale Sets를 위한 Azure Disk Encryption](disk-encryption-overview.md)을 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.31 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
-확장 집합을 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+확장 집합을 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 변경 내용이 적용될 때 자동으로 업데이트하도록 설정된 *myScaleSet*이라는 확장 집합을 만들고, *~/.ssh/id_rsa*에 없는 경우 SSH 키를 생성합니다. 32Gb 데이터 디스크가 각 VM 인스턴스에 연결되며, Azure [사용자 지정 스크립트 확장](../virtual-machines/extensions/custom-script-linux.md)을 사용하여 [az vmss extension set](/cli/azure/vmss/extension)로 데이터 디스크를 준비합니다.
+이제 [az vmss create](/cli/azure/vmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 변경 내용이 적용될 때 자동으로 업데이트하도록 설정된 *myScaleSet* 이라는 확장 집합을 만들고, *~/.ssh/id_rsa* 에 없는 경우 SSH 키를 생성합니다. 32Gb 데이터 디스크가 각 VM 인스턴스에 연결되며, Azure [사용자 지정 스크립트 확장](../virtual-machines/extensions/custom-script-linux.md)을 사용하여 [az vmss extension set](/cli/azure/vmss/extension)로 데이터 디스크를 준비합니다.
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -61,7 +61,7 @@ az vmss extension set \
 
 Azure Key Vault는 애플리케이션 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다.
 
-사용자 고유의 *keyvault_name*을 정의합니다. 그런 다음, [az keyvault create](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create)를 사용하여 확장 집합과 동일한 구독 및 영역에 KeyVault를 만들고 *--enabled-for-disk-encryption*액세스 정책을 설정합니다.
+사용자 고유의 *keyvault_name* 을 정의합니다. 그런 다음, [az keyvault create](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create)를 사용하여 확장 집합과 동일한 구독 및 영역에 KeyVault를 만들고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 이 단계는 디스크 암호화로 사용하려는 기존 Key Vault가 있는 경우에만 필요합니다. 이전 섹션에서 Key Vault를 만든 경우 이 단계를 건너뜁니다.
 
-사용자 고유의 *keyvault_name*을 정의합니다. 그런 다음, [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update)를 사용하여 KeyVault를 업데이트하고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
+사용자 고유의 *keyvault_name* 을 정의합니다. 그런 다음, [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update)를 사용하여 KeyVault를 업데이트하고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -139,7 +139,7 @@ az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 
 VM 인스턴스가 암호화되어 있으면 다음 예제 출력에 나온 것처럼 “EncryptionState/encrypted”가 보고됩니다.
 
-```bash
+```console
 [
   {
     "disks": [

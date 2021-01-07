@@ -6,18 +6,18 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: e756e033c8e5b2508dca9bde76ad16be26a940fa
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 42bbe1c9f4056ae0dae0ccd59b452db90a7c63c5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505787"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493664"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용 하 여 PostgreSQL 데이터베이스 업그레이드
 
 다음 방법을 사용 하 여 데이터베이스를 더 높은 주 버전 서버로 마이그레이션하여 Azure Database for PostgreSQL 단일 서버에 배포 된 PostgreSQL 서버를 업그레이드할 수 있습니다.
 * PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 및 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 를 사용 하는 **오프 라인 방법으로** 데이터 마이그레이션에 대 한 가동 중지 시간이 발생 합니다. 이 문서에서는이 업그레이드/마이그레이션 방법에 대해 다룹니다.
-* [Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) (DMS)를 사용 하는 **온라인** 메서드입니다. 이 방법을 사용 하면 가동 중지 시간을 줄일 수 있으며 대상 데이터베이스를 원본과 동기화 상태로 유지 하 고,이를 잘라낼 시기를 선택할 수 있습니다. 그러나 DMS를 사용 하기 위해 몇 가지 필수 구성 요소 및 제한 사항을 해결 해야 합니다. 자세한 내용은 [DMS 설명서](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal)를 참조 하세요. 
+* [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS)를 사용 하는 **온라인** 메서드입니다. 이 방법을 사용 하면 가동 중지 시간을 줄일 수 있으며 대상 데이터베이스를 원본과 동기화 상태로 유지 하 고,이를 잘라낼 시기를 선택할 수 있습니다. 그러나 DMS를 사용 하기 위해 몇 가지 필수 구성 요소 및 제한 사항을 해결 해야 합니다. 자세한 내용은 [DMS 설명서](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)를 참조 하세요. 
 
  다음 표에서는 데이터베이스 크기 및 시나리오에 따른 몇 가지 권장 사항을 제공 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "94505787"
 | 중소 Db (10gb – 100 g b) | X | X |
 | 대량 데이터베이스 (> 100 GB) |  | X |
 | 데이터베이스 크기와 관계 없이 업그레이드 하는 데 가동 중지 시간을 감당할 수 있습니다. | X |  |
-| 다시 부팅을 포함 하 여 DMS [필수](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal#prerequisites)구성 요소를 처리할 수 있나요? |  | X |
+| 다시 부팅을 포함 하 여 DMS [필수](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md#prerequisites)구성 요소를 처리할 수 있나요? |  | X |
 | 업그레이드 프로세스 중에 DDLs 및 기록 되지 않은 테이블을 피할 수 있나요? | |  X |
 
 이 가이드에는 원본 서버에서 더 높은 버전의 PostgreSQL를 실행 하는 대상 서버로 마이그레이션하는 방법을 보여 주는 몇 가지 오프 라인 마이그레이션 방법과 예제가 나와 있습니다.
@@ -103,7 +103,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell를 사용 하려는 �
     pg_dump -Fc -v --mySourceServer --port=5432 --username=myUser --dbname=mySourceDB | pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB
     ```
 
-    예를 들면 다음과 같습니다.
+    예제:
 
     ```azurecli-interactive
     pg_dump -Fc -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb | pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb
@@ -117,7 +117,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell를 사용 하려는 �
 | ----- | ------ |
 | 1GB  | 1-2 분 |
 | 5GB | 8-10 분 |
-| 10 GB | 15-20분 |
+| 10GB | 15-20분 |
 | 50GB | 1-1.5 시간 |
 | 100GB | 2.5-3 시간|
    
@@ -131,7 +131,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell를 사용 하려는 �
     psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
     postgresl> create database myDB;
    ```
-   예를 들면 다음과 같습니다.
+   예제:
     ```bash
     psql "host=pg-11.postgres.database.azure.com port=5432 dbname=postgres user=pg@pg-11 password=###### sslmode=require"
 
@@ -144,7 +144,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell를 사용 하려는 �
     ```bash
     pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
     ```
-    예를 들면 다음과 같습니다.
+    예제:
     ```bash
     pg_dump -Fd -v --host=pg-95.postgres.database.azure.com --port=5432 --username=pg@pg-95 --dbname=bench5gb -j 4 -f dump.dir
     ```
@@ -153,7 +153,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell를 사용 하려는 �
     ```bash
     $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
     ```
-    예를 들면 다음과 같습니다.
+    예제:
     ```bash
     $ pg_restore -v --no-owner --host=pg-11.postgres.database.azure.com --port=5432 --username=pg@pg-11 --dbname=bench5gb -j 4 dump.dir
     ```

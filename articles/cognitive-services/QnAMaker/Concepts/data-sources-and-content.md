@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 285e9e2c3187ea78898b53f27f953fc182cdb344
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a6488d2c7611513528ff02d4e620124763912730
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128467"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353258"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
@@ -18,7 +18,7 @@ ms.locfileid: "92128467"
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 
-콘텐츠는 데이터 원본에서 기술 자료로 가져옵니다. 데이터 원본 위치는 인증이 필요 하지 않은 **공용 url 또는 파일**입니다.
+콘텐츠는 데이터 원본에서 기술 자료로 가져옵니다. 데이터 원본 위치는 인증이 필요 하지 않은 **공용 url 또는 파일** 입니다.
 
 인증으로 보안이 설정 된 [SharePoint 파일](../how-to/add-sharepoint-datasources.md)은 예외입니다. SharePoint 리소스는 웹 페이지가 아닌 파일 이어야 합니다. URL은 .ASPX와 같은 웹 확장명으로 끝나는 경우 SharePoint에서 QnA Maker로 가져오지 않습니다.
 
@@ -42,7 +42,7 @@ Chit-채팅 콘텐츠 집합은 여러 언어 및 대화형 스타일로 전체 
 > [!div class="mx-imgBorder"]
 > ![3 수준의 다중 전환 질문에 대 한 개념적 모델](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-다중 전환에 대 한 열에는 다중 전환에 대 한 `.tsv` **메시지가 표시**됩니다. `.tsv`Excel에 표시 된 예제는 다중 턴 자식을 정의 하기 위해 포함할 정보를 표시 합니다.
+다중 전환에 대 한 열에는 다중 전환에 대 한 `.tsv` **메시지가 표시** 됩니다. `.tsv`Excel에 표시 된 예제는 다중 턴 자식을 정의 하기 위해 포함할 정보를 표시 합니다.
 
 ```JSON
 [
@@ -71,7 +71,7 @@ Chit-채팅 콘텐츠 집합은 여러 언어 및 대화형 스타일로 전체 
 
 |원본 유형|콘텐츠 유형| 예|
 |--|--|--|
-|URL|FAQ<br> (플랫, 섹션 또는 토픽 홈페이지 포함)<br>지원 페이지 <br> (단일 페이지 방법 문서, 문제 해결 문서 등)|[일반 FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[하이퍼링크가 있는 FAQ](https://www.microsoft.com/en-us/software-download/faq),<br> [토픽 홈페이지가 있는 FAQ](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[지원 문서](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|FAQ(질문과 대답)<br> (플랫, 섹션 또는 토픽 홈페이지 포함)<br>지원 페이지 <br> (단일 페이지 방법 문서, 문제 해결 문서 등)|[일반 FAQ](../troubleshooting.md), <br>[하이퍼링크가 있는 FAQ](https://www.microsoft.com/en-us/software-download/faq),<br> [토픽 홈페이지가 있는 FAQ](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[지원 문서](./best-practices.md)|
 |PDF/DOC|FAQ,<br> 제품 설명서,<br> 브로슈어,<br> 페이퍼,<br> 전단 정책,<br> 지원 가이드,<br> 구조화된 QnA,<br> 기타|**다중 전환 하지 않음**<br>[구조화 된 QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [샘플 semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)<br> [샘플 흰색 paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br><br>**다중 전환**:<br>[.Docx (Surface Pro)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso 이점 (.docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso 이점 (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
 |* Excel|구조화된 QnA 파일<br> (RTF, HTML 지원 포함)|**다중 전환 하지 않음**:<br>[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)<br><br>**다중 전환**:<br>[구조적 단순 FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx)<br>[Surface 노트북 FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-Surface-Pro.xlsx)|
 |* TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|

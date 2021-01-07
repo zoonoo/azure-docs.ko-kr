@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056031"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834169"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>2단계 인증 방법을 사용하여 회사 또는 학교 계정에 로그인
 
 > [!NOTE]
-> 이 문서의 목적은 일반적인 로그인 환경을 연습해보는 것입니다. 로그인 관련 지원을 얻거나 문제를 해결하려면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)를 참조하세요.
+> 이 문서의 목적은 일반적인 로그인 환경을 연습해보는 것입니다. 로그인에 대 한 도움말 또는 문제 해결에 대 한 자세한 내용은 [AZURE AD Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md)문제 해결을 참조 하세요.
 
 ## <a name="what-will-your-sign-in-experience-be"></a>어떤 로그인 환경이 제공되나요?
 두 번째 단계로 사용하도록 선택하는 항목(예: 전화 통화, 인증 앱 또는 문자)에 따라 로그인 환경이 달라집니다. 수행하는 작업을 가장 잘 설명하는 옵션을 선택합니다.
@@ -77,13 +77,13 @@ Microsoft Authenticator 앱을 사용하여 확인 코드를 가져오는 경우
 경우에 따라 기본 확인 방법으로 설정한 휴대폰이나 디바이스가 없는 경우도 있습니다. 계정에 대해 백업 방법을 설정하도록 권장하는 것도 이 때문입니다. 다음 섹션에서는 기본 방법을 사용할 수 없을 때 대체 방법을 사용하여 로그인하는 방법을 보여 줍니다.
 
 1. 사용자 이름 및 암호를 사용 하 여 Microsoft 365와 같은 응용 프로그램 또는 서비스에 로그인 합니다.
-2. **다른 확인 옵션 사용**을 선택합니다. 설정한 수에 따라 다른 확인 옵션이 표시됩니다.
+2. **다른 확인 옵션 사용** 을 선택합니다. 설정한 수에 따라 다른 확인 옵션이 표시됩니다.
 3. 대체 방법을 선택하고 로그인합니다.
 
    ![대체 방법 사용](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>다음 단계
-- 2단계 확인을 사용하여 로그인하는 동안 문제가 발생하면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)에서 자세한 정보를 확인하세요.
+- 2 단계 인증을 사용 하 여 로그인 하는 데 문제가 있는 경우 [AZURE AD Multi-Factor Authentication 문제](multi-factor-authentication-end-user-troubleshoot.md)에 대 한 자세한 정보를 확인 하세요.
 
 - [2단계 확인 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 방법 알아보기
 

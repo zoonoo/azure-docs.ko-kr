@@ -9,11 +9,11 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107286"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95998773"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>자습서: 포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 
@@ -63,27 +63,27 @@ ms.locfileid: "92107286"
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/express-route-circuit.png" alt-text="ExpressRoute 회로 스크린샷":::
 
-1. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가**를 선택하여 **연결 추가** 페이지를 엽니다.
+1. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가** 를 선택하여 **연결 추가** 페이지를 엽니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="연결 추가 스크린 샷":::
 
 1. 연결 이름을 입력하고 **다음: 설정 >** 을 선택합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="연결 기본 페이지 만들기":::
 
-1. 회로에 연결할 가상 네트워크에 속하는 게이트웨이를 선택하고 **검토 + 만들기**를 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택합니다.
+1. 회로에 연결할 가상 네트워크에 속하는 게이트웨이를 선택하고 **검토 + 만들기** 를 선택합니다. 유효성 검사가 완료되면 **만들기** 를 선택합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="연결 설정 만들기 페이지":::
 
 1. 연결이 성공적으로 구성되면 연결 개체가 연결에 대한 정보를 표시합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="연결 개체 스크린 샷":::
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>회로에 VNet 연결 - 다른 구독
 
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="ExpressRoute 회로 스크린샷":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="구독 간 연결":::
 
 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서에서 자체 구독을 사용하여 서비스를 배포하지만, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크에 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 다른 구독은 ExpressRoute 회로를 사용할 수 있습니다.
 
@@ -107,23 +107,23 @@ ms.locfileid: "92107286"
 > 각 연결에는 별도의 권한이 필요합니다.
 >
 
-1. ExpressRoute 페이지에서 **권한 부여**를 선택한 다음, 권한 부여에 대한 **이름**을 입력하고 **저장**을 선택합니다.
+1. ExpressRoute 페이지에서 **권한 부여** 를 선택한 다음, 권한 부여에 대한 **이름** 을 입력하고 **저장** 을 선택합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png" alt-text="권한 부여":::
 
-2. 구성이 저장되면 **리소스 ID** 및 **권한 부여 키**를 복사합니다.
+2. 구성이 저장되면 **리소스 ID** 및 **권한 부여 키** 를 복사합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="권한 부여 키":::
 
 **연결 권한 부여를 삭제하려면**
 
 연결에 대한 권한 부여 키에서 **삭제** 아이콘을 선택하여 연결을 삭제할 수 있습니다.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="ExpressRoute 회로 스크린샷":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="권한 부여 키 삭제":::
 
 연결을 삭제하지만 권한 부여 키를 유지하려는 경우 회로의 연결 페이지에서 연결을 삭제할 수 있습니다.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="ExpressRoute 회로 스크린샷":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="연결 소유 회로 삭제":::
 
 ### <a name="circuit-user-operations"></a>회로 사용자 작업
 
@@ -131,33 +131,33 @@ ms.locfileid: "92107286"
 
 **연결 권한 부여를 사용하려면**
 
-1. **+ 리소스 만들기** 단추를 선택합니다. **연결**을 검색한 다음, **만들기**를 선택합니다.
+1. **+ 리소스 만들기** 단추를 선택합니다. **연결** 을 검색한 다음, **만들기** 를 선택합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="새 리소스 만들기":::
 
-1. *연결 유형*이 **ExpressRoute**로 설정되어 있는지 확인합니다. *리소스 그룹* 및 *위치*를 선택한 다음, 기본 사항 페이지에서 **확인**을 선택합니다.
+1. *연결 유형* 이 **ExpressRoute** 로 설정되어 있는지 확인합니다. *리소스 그룹* 및 *위치* 를 선택한 다음, 기본 사항 페이지에서 **확인** 을 선택합니다.
 
     > [!NOTE]
-    > 위치는 연결을 만들 가상 네트워크 게이트웨이 위치와 일치*해야 합니다*.
+    > 위치는 연결을 만들 가상 네트워크 게이트웨이 위치와 일치 *해야 합니다*.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="기본 페이지":::
 
-1. **설정** 페이지에서 *가상 네트워크 게이트웨이*를 선택하고 **권한 부여 사용** 확인란을 선택합니다. *권한 부여 키* 및 *피어 회로 URI*를 입력한 후 연결 이름을 지정합니다. **확인**을 선택합니다. 
+1. **설정** 페이지에서 *가상 네트워크 게이트웨이* 를 선택하고 **권한 부여 사용** 확인란을 선택합니다. *권한 부여 키* 및 *피어 회로 URI* 를 입력한 후 연결 이름을 지정합니다. **확인** 을 선택합니다. 
  
     > [!NOTE]
-    > *피어 회로 URI*는 ExpressRoute 회로의 리소스 ID입니다(ExpressRoute 회로의 속성 설정 창에서 찾을 수 있습니다).
+    > *피어 회로 URI* 는 ExpressRoute 회로의 리소스 ID입니다(ExpressRoute 회로의 속성 설정 창에서 찾을 수 있습니다).
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="설정 페이지":::
 
-1. **요약** 페이지에서 정보를 검토하고 **확인**을 선택합니다.
+1. **요약** 페이지에서 정보를 검토하고 **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="ExpressRoute 회로 스크린샷":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="요약 페이지":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 연결에 대한 페이지에서 **삭제** 아이콘을 선택하여 연결을 삭제하고 ExpressRoute 회로에 대한 VNet 연결을 해제할 수 있습니다.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="ExpressRoute 회로 스크린샷":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="연결 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 

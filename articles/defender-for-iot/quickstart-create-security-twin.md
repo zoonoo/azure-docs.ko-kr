@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 822e9dc237dd6f4d73e1860c6a0b240fb94c3105
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e48ed870bf405a82441678b5e8c01d199e7ebff
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945608"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835009"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 
@@ -31,9 +31,9 @@ Azure에 구축된 IoT 솔루션의 경우 디바이스 쌍은 디바이스 관�
 Defender for IoT는 기존 IoT 디바이스 관리 플랫폼과 완벽하게 통합되어 디바이스 보안 상태를 관리하고 기존 디바이스 제어 기능을 활용할 수 있도록 지원합니다.
 Defender for IoT 통합은 IoT Hub 쌍 메커니즘을 사용하여 구현됩니다.
 
-Azure IoT Hub에 있는 모듈 쌍의 일반적인 개념에 대한 자세한 내용은 [IoT Hub 모듈 쌍](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)을 참조하세요.
+Azure IoT Hub에 있는 모듈 쌍의 일반적인 개념에 대한 자세한 내용은 [IoT Hub 모듈 쌍](../iot-hub/iot-hub-devguide-module-twins.md)을 참조하세요.
 
-Defender for IoT는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 대한 _azureiotsecurity_라는 보안 모듈 쌍을 유지 관리합니다.
+Defender for IoT는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 대한 _azureiotsecurity_ 라는 보안 모듈 쌍을 유지 관리합니다.
 
 보안 모듈 쌍에는 각 디바이스에 대한 디바이스 보안과 관련된 모든 정보가 포함되어 있습니다.
 
@@ -54,21 +54,21 @@ _azureiotsecurity_ 모듈 쌍은 두 가지 방법으로 만들 수 있습니다
 디바이스에 대한 새 _azureiotsecurity_ 모듈 쌍을 수동으로 만들려면 다음 지침을 사용합니다.
 
 1. IoT Hub에서 만들려는 보안 모듈 쌍의 디바이스를 찾아서 선택합니다.
-1. 디바이스를 클릭한 후 **모듈 ID 추가**를 클릭합니다.
-1. **모듈 ID 이름** 필드에 **azureiotsecurity**를 입력합니다.
+1. 디바이스를 클릭한 후 **모듈 ID 추가** 를 클릭합니다.
+1. **모듈 ID 이름** 필드에 **azureiotsecurity** 를 입력합니다.
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 ## <a name="verify-creation-of-a-module-twin"></a>만든 모듈 쌍 확인
 
 특정 디바이스에 대한 보안 모듈 쌍이 있는지 확인하려면 다음을 수행합니다.
 
-1. Azure IoT Hub의 **탐색기** 메뉴에서 **IoT 디바이스**를 선택합니다.
-1. **디바이스 쿼리 필드**에서 디바이스 ID를 입력하거나 옵션을 선택하고, **디바이스 쿼리**를 클릭합니다.
-    ![디바이스 쿼리](./media/quickstart/verify-security-module-twin.png)
+1. Azure IoT Hub의 **탐색기** 메뉴에서 **IoT 디바이스** 를 선택합니다.
+1. **디바이스 쿼리 필드** 에서 디바이스 ID를 입력하거나 옵션을 선택하고, **디바이스 쿼리** 를 클릭합니다.
+    :::image type="content" source="./media/quickstart/verify-security-module-twin.png" alt-text="디바이스 쿼리":::
 1. 디바이스를 선택하거나 두 번 클릭하여 디바이스 세부 정보 페이지를 엽니다.
 1. **모듈 ID** 메뉴를 선택하고, 디바이스와 연결된 모듈 ID 목록에서 **azureiotsecurity** 모듈이 있는지 확인합니다.
-    ![디바이스에 연결된 모듈](./media/quickstart/verify-security-module-twin-3.png)
+    :::image type="content" source="./media/quickstart/verify-security-module-twin-3.png" alt-text="디바이스에 연결된 모듈":::
 
 Defender for IoT 모듈 쌍의 속성을 사용자 지정하는 방법에 대한 자세한 내용은 [에이전트 구성](how-to-agent-configuration.md)을 참조하세요.
 

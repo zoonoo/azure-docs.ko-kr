@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2b4ac8f87e8e19d3487859849ba37272c501751d
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992827"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744383"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -44,7 +44,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 ![비즈니스용 Windows Hello에서 사용자 로그인에 관련 된 단계를 간략하게 설명 하는 다이어그램입니다.](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
-1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자*라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
+1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자* 라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
 1. 클라우드 AP 공급자는 Azure AD에서 nonce (한 번만 사용할 수 있는 임의의 임의 숫자)를 요청 합니다.
 1. Azure AD는 5 분 동안 유효한 nonce를 반환 합니다.
 1. 클라우드 AP 공급자는 사용자의 개인 키를 사용 하 여 nonce에 서명 하 고 서명 된 nonce를 Azure AD에 반환 합니다.
@@ -62,7 +62,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 (터치 또는 얼굴) 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 할 수 있습니다. 설치에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](../user-help/user-help-auth-app-download-install.md) 를 참조 하세요.
 
-Azure AD에 대 한 Microsoft Authenticator 앱의 passwordless 로그인은 현재 미리 보기로 제공 됩니다. Azure Multi-Factor Authentication에 대 한 보조 인증에 Microsoft Authenticator 앱 사용, SSPR (셀프 서비스 암호 재설정) 또는 OATH 소프트웨어 토큰은 GA입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+Azure AD에 대 한 Microsoft Authenticator 앱의 passwordless 로그인은 현재 미리 보기로 제공 됩니다. Azure AD Multi-Factor Authentication, SSPR (셀프 서비스 암호 재설정) 또는 OATH 소프트웨어 토큰에 대 한 보조 인증에 Microsoft Authenticator 앱을 사용 하는 것은 GA입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windows Hello와 동일한 기본 패턴을 따릅니다. Azure AD가 사용 되는 Microsoft Authenticator 앱 버전을 찾을 수 있도록 사용자를 식별 해야 하기 때문에 좀 더 복잡 합니다.
 
@@ -135,7 +135,11 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 | Gemalto (Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
 | OneSpan i n c. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon 기술 Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) | 
+| IDmelon 기술 Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
+| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
+| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
+| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
+| Excel | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
 
 > [!NOTE]
 > 를 구매 하 고 NFC 기반 보안 키를 사용 하려는 경우 보안 키에 대해 지원 되는 NFC 판독기가 필요 합니다. NFC 판독기는 Azure 요구 사항이 나 제한 사항이 아닙니다. 지원 되는 NFC 판독기 목록은 NFC 기반 보안 키에 대 한 공급 업체에 문의 하세요.

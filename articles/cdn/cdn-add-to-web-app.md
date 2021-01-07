@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3f1dacb57931913edfb181f023bdf98717777d50
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779547"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562245"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
 
@@ -91,7 +91,7 @@ Azure에서는 프로필 및 엔드포인트를 만듭니다. 새 엔드포인�
    - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
    - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 90분 이내에 전파가 완료됩니다. 
 
-샘플 앱에는 *index.html* 파일 및 다른 정적 자산을 포함하는 *css* , *img* 및 *js* 폴더가 있습니다. 이러한 파일에 대한 콘텐츠 경로는 CDN 엔드포인트와 동일합니다. 예를 들어 다음 URL은 모두 *css* 폴더의 *bootstrap.css* 파일에 액세스합니다.
+샘플 앱에는 *index.html* 파일 및 다른 정적 자산을 포함하는 *css*, *img* 및 *js* 폴더가 있습니다. 이러한 파일에 대한 콘텐츠 경로는 CDN 엔드포인트와 동일합니다. 예를 들어 다음 URL은 모두 *css* 폴더의 *bootstrap.css* 파일에 액세스합니다.
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -135,7 +135,7 @@ CDN은 TTL(time-to-live) 구성을 기반으로 원본 웹앱의 자원을 주�
 
 ```bash
 git commit -am "version 2"
-git push azure master
+git push azure main
 ```
 
 배포가 완료되면 웹앱 URL을 찾아 변경 사항을 확인합니다.
@@ -230,7 +230,7 @@ Azure CDN은 제목에 *V2* 를 포함하는 현재 웹앱 콘텐츠를 반환�
 
 ```bash
 git commit -am "version 3"
-git push azure master
+git push azure main
 ```
 
 브라우저에서 `q=2`과 같은 새 쿼리 문자열이 있는 CDN 엔드포인트 URL로 이동합니다. Azure CDN은 현재 *index.html* 파일을 가져오고 *V3* 를 표시합니다. 그러나 `q=1` 쿼리 문자열을 사용하여 CDN 엔드포인트로 이동하는 경우 *V2* 를 참조하세요.

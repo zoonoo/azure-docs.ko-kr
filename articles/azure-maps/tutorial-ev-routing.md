@@ -1,20 +1,20 @@
 ---
-title: '자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python) | Microsoft Azure Maps'
+title: '자습서: Microsoft Azure Maps에서 Azure Notebooks(Python)를 사용하여 전기 차량 라우팅'
 description: Microsoft Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅하는 방법에 대한 자습서
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/12/2019
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 6dde7abef1769b9441c037f3727e7fd9d83ab172
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896821"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905743"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
@@ -171,9 +171,9 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Azure Maps 데이터 서비스에 도달 가능한 범위 및 충전 지점 업로드
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service-preview"></a>Azure Maps 데이터 서비스(미리 보기)에 도달 가능한 범위 및 충전 지점 업로드
 
-맵에서 전기 차량의 최대 도달 가능한 범위에 대한 충전소와 경계를 시각화할 수 있습니다. 이렇게 하려면 경계 데이터와 충전소 데이터를 geojson 개체로 Azure Maps Data Service에 업로드합니다. [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용합니다. 
+맵에서 전기 차량의 최대 도달 가능한 범위에 대한 충전소와 경계를 시각화할 수 있습니다. 이렇게 하려면 경계 데이터와 충전소 데이터를 geojson 개체로 Azure Maps 데이터 서비스(미리 보기)에 업로드합니다. [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용합니다. 
 
 경계 및 충전 지점 데이터를 Azure Maps 데이터 서비스에 업로드하려면 다음 두 셀을 실행합니다.
 
@@ -194,7 +194,7 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data Service.
+# Upload the range data to Azure Maps Data service (Preview).
 uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -223,7 +223,7 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data Service.
+# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
 uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
@@ -336,12 +336,12 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>경로 시각화
 
-경로를 시각화하려면 먼저 경로 데이터를 geojson 개체로 Azure Maps 데이터 서비스에 업로드합니다. 이렇게 하려면 Azure Maps [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용합니다. 그런 다음, 렌더링 서비스인 [Map Image 가져오기 API](/rest/api/maps/render/getmapimage)를 호출하여 경로를 지도에 렌더링하고 시각화합니다.
+경로를 시각화하려면 먼저 경로 데이터를 geojson 개체로 Azure Maps 데이터 서비스(미리 보기)에 업로드합니다. 이렇게 하려면 Azure Maps [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용합니다. 그런 다음, 렌더링 서비스인 [Map Image 가져오기 API](/rest/api/maps/render/getmapimage)를 호출하여 경로를 지도에 렌더링하고 시각화합니다.
 
 지도에서 렌더링된 경로 이미지를 가져오려면 다음 스크립트를 실행합니다.
 
 ```python
-# Upload the route data to Azure Maps Data Service.
+# Upload the route data to Azure Maps Data service (Preview).
 routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)

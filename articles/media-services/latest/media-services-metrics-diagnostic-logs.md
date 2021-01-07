@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309070"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685191"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Media Services 메트릭 및 진단 로그 모니터링
 
@@ -67,8 +67,8 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
 |SuccessE2ELatency|성공 엔드투엔드 대기 시간|스트리밍 끝점이 응답의 마지막 바이트를 보낸 시점에서 요청을 받은 시간입니다.|
-|CPU 사용량| 프리미엄 스트리밍 끝점에 대 한 CPU 사용량입니다. 표준 스트리밍 끝점에는이 데이터를 사용할 수 없습니다. |
-|송신 대역폭 | 초당 송신 대역폭 (비트)입니다.|
+|CPU 사용량| | 프리미엄 스트리밍 끝점에 대 한 CPU 사용량입니다. 표준 스트리밍 끝점에는이 데이터를 사용할 수 없습니다. |
+|송신 대역폭 | | 초당 송신 대역폭 (비트)입니다.|
 
 ### <a name="metrics-are-useful"></a>메트릭이 유용 합니다.
 
@@ -98,7 +98,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 

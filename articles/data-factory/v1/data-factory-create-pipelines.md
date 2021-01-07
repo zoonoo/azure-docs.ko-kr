@@ -3,20 +3,20 @@ title: Data Factory에서 파이프라인 만들기/예약, 작업 체인
 description: Azure Data Factory에서 데이터 파이프라인을 만들어 데이터를 이동하고 변환하는 방법을 배웁니다. 데이터 기반 워크플로를 만들어 정보를 사용하도록 준비합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 15b61653fcd9428abe41f61ac89b2a37302983c7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 83b4d14d46677c731b7fb9faae2217492368d4b2
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369247"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496061"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,7 +34,7 @@ ms.locfileid: "92369247"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 파이프라인의 작업은 데이터에 대해 수행할 동작을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server 데이터베이스에서 Azure Blob Storage 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 Blob Storage의 데이터를 처리/변환함으로써 출력 데이터를 생성합니다. 마지막으로 두 번째 복사 작업을 사용 하 여 BI (비즈니스 인텔리전스) 보고 솔루션을 기반으로 하는 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 출력 데이터를 복사 합니다.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 파이프라인의 작업은 데이터에 대해 수행할 동작을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server 데이터베이스에서 Azure Blob Storage 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 Blob Storage의 데이터를 처리/변환함으로써 출력 데이터를 생성합니다. 마지막으로 두 번째 복사 작업을 사용 하 여 BI (비즈니스 인텔리전스) 보고 솔루션을 기반으로 하는 Azure Synapse Analytics에 출력 데이터를 복사 합니다.
 
 활동은 0 개 이상의 입력 [데이터 집합](data-factory-create-datasets.md) 을 사용 하 고 하나 이상의 출력 [데이터 집합](data-factory-create-datasets.md)을 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
 
@@ -62,7 +62,7 @@ Data Factory는 데이터 이동 활동 및 데이터 변환 활동이라는 두
 자세한 내용은 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서를 참조하세요.
 
 ### <a name="custom-net-activities"></a>사용자 지정 .NET 활동
-복사 작업에서 지원하지 않는 데이터 저장소에서/로 데이터를 이동해야 하거나 사용자 고유한 논리를 사용하여 데이터를 변환해야 하는 경우 **사용자 지정 .NET 활동**을 만듭니다. 사용자 지정 활동을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 활동 사용](data-factory-use-custom-activities.md)을 참조하세요.
+복사 작업에서 지원하지 않는 데이터 저장소에서/로 데이터를 이동해야 하거나 사용자 고유한 논리를 사용하여 데이터를 변환해야 하는 경우 **사용자 지정 .NET 활동** 을 만듭니다. 사용자 지정 활동을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory 파이프라인에서 사용자 지정 활동 사용](data-factory-use-custom-activities.md)을 참조하세요.
 
 ## <a name="schedule-pipelines"></a>파이프라인 예약
 파이프라인은 **시작** 시간과 **종료** 시간 사이 에서만 활성화 됩니다. 시작 시간 이전 또는 종료 시간 이후에 실행되지 않습니다. 파이프라인이 일시 중지된 경우 시작 및 종료 시간에 관계없이 실행되지 않습니다. 실행될 파이프라인의 경우 일시 중지되지 않아야 합니다. Azure 데이터 팩터리에서 예약 및 실행의 작동 방식을 이해하려면 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요.
@@ -97,8 +97,8 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 | name |파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |예 |
 | description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. |예 |
 | 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 활동 JSON 요소에 대한 자세한 내용은 다음 섹션을 참조하세요. | 예 |
-| 시작 | 파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: `2016-10-14T16:32:41Z` <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예제: `2016-02-27T06:00:00-05:00`”(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |아니요<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 파이프라인을 만들 때 시작 및 종료 시간을 지정 하지 않으면 나중에 Set-AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
-| end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. `2016-10-14T17:32:41Z` <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00-05:00`(오전 6시 동부 표준시)<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. <br/><br/> 파이프라인은 시작 시간과 종료 시간 사이에서만 활성화됩니다. 시작 시간 이전 또는 종료 시간 이후에 실행되지 않습니다. 파이프라인이 일시 중지된 경우 시작 및 종료 시간에 관계없이 실행되지 않습니다. 실행될 파이프라인의 경우 일시 중지되지 않아야 합니다. Azure 데이터 팩터리에서 예약 및 실행의 작동 방식을 이해하려면 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. |아니요 <br/><br/>시작 속성에 대한 값을 지정하는 경우 반드시 끝 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다. |
+| start | 파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예를 들어 `2016-10-14T16:32:41Z`을 참조하십시오. <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예제: `2016-02-27T06:00:00-05:00`”(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |아니요<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 파이프라인을 만들 때 시작 및 종료 시간을 지정 하지 않으면 나중에 Set-AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
+| end | 파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예: `2016-10-14T17:32:41Z` <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00-05:00`(오전 6시 동부 표준시)<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. <br/><br/> 파이프라인은 시작 시간과 종료 시간 사이에서만 활성화됩니다. 시작 시간 이전 또는 종료 시간 이후에 실행되지 않습니다. 파이프라인이 일시 중지된 경우 시작 및 종료 시간에 관계없이 실행되지 않습니다. 실행될 파이프라인의 경우 일시 중지되지 않아야 합니다. Azure 데이터 팩터리에서 예약 및 실행의 작동 방식을 이해하려면 [예약 및 실행](data-factory-scheduling-and-execution.md) 을 참조하세요. |아니요 <br/><br/>시작 속성에 대한 값을 지정하는 경우 반드시 끝 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다. |
 | isPaused | true로 설정하면 파이프라인이 실행되지 않습니다. 일시 중지된 상태를 유지합니다. 기본값 = false입니다. 이 속성을 사용하여 파이프라인을 사용하거나 사용하지 않도록 설정할 수 있습니다. |아니요 |
 | pipelineMode | 파이프라인에 대한 실행을 예약하는 메서드입니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 시간 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. 일회성 설정에 대한 세부 정보는 [일회성 파이프라인](#onetime-pipeline)을 참조하세요. |아니요 |
 | expirationTime | 생성 후에 [일회성 파이프라인](#onetime-pipeline)이 유효하고 프로비전된 상태로 유지해야 하는 시간입니다. 활성 실행, 실패한 실행 또는 보류 중인 실행이 없는 경우 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. 기본값: `"expirationTime": "3.00:00:00"`|아니요 |
@@ -203,9 +203,9 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 
 다음 사항에 유의하세요.
 
-* 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다.
-* 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](data-factory-create-datasets.md) 문서를 참조하세요.
-* **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. [데이터 이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭하여 해당 데이터 저장소로/부터 데이터를 이동하는 방법을 알아봅니다.
+* 작업 섹션에는 **형식** 이 **복사** 로 설정된 작업만 있습니다.
+* 작업에 대한 입력을 **InputDataset** 으로 설정하고 작업에 대한 출력을 **OutputDataset** 으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](data-factory-create-datasets.md) 문서를 참조하세요.
+* **typeProperties** 섹션에서 **BlobSource** 를 원본 유형으로 지정하고 **SqlSink** 를 싱크 유형으로 지정합니다. [데이터 이동 활동](#data-movement-activities) 섹션에서 원본 또는 싱크로 사용할 데이터 저장소를 클릭하여 해당 데이터 저장소로/부터 데이터를 이동하는 방법을 알아봅니다.
 
 이 파이프라인을 만드는 전체 연습은 [자습서: Blob Storage의 데이터를 SQL Database에 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
@@ -259,8 +259,8 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 
 다음 사항에 유의하세요.
 
-* activities 섹션에는 **type**이 **HDInsightHive**로 설정된 작업만 있습니다.
-* Hive 스크립트 파일 **partitionweblogs.hql**은 Azure Storage 계정(**AzureStorageLinkedService**라고 하는 scriptLinkedService에 의해 지정됨)과 **adfgetstarted** 컨테이너에 있는 **스크립트** 폴더에 저장됩니다.
+* activities 섹션에는 **type** 이 **HDInsightHive** 로 설정된 작업만 있습니다.
+* Hive 스크립트 파일 **partitionweblogs.hql** 은 Azure Storage 계정(**AzureStorageLinkedService** 라고 하는 scriptLinkedService에 의해 지정됨)과 **adfgetstarted** 컨테이너에 있는 **스크립트** 폴더에 저장됩니다.
 * `defines` 섹션은 하이브 스크립트에 하이브 구성 값(예: `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`)으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
 **typeProperties** 섹션은 각 변환 활동마다 다릅니다. 변환 활동에 대해 지원되는 형식 속성에 대해 알아보려면 [데이터 변환 활동](#data-transformation-activities) 표에서 변환 활동을 클릭합니다.
@@ -306,7 +306,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 - [모니터 및 관리 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)
 
 ## <a name="onetime-pipeline"></a>일회성 파이프라인
-파이프라인 정의 내에 지정한 시작 및 종료 시간 내에서 정기적(예: 매시간 또는 매일)으로 실행되도록 파이프라인을 만들고 일정을 예약할 수 있습니다. 자세한 내용은 활동 예약을 참조하세요. 한 번만 실행되는 파이프라인을 만들 수도 있습니다. 이렇게 하려면 다음 JSON 샘플에서 보여 주듯이 파이프라인 정의에서 **pipelineMode** 속성을 **onetime**으로 설정합니다. 이 속성의 기본값은 **scheduled**입니다.
+파이프라인 정의 내에 지정한 시작 및 종료 시간 내에서 정기적(예: 매시간 또는 매일)으로 실행되도록 파이프라인을 만들고 일정을 예약할 수 있습니다. 자세한 내용은 활동 예약을 참조하세요. 한 번만 실행되는 파이프라인을 만들 수도 있습니다. 이렇게 하려면 다음 JSON 샘플에서 보여 주듯이 파이프라인 정의에서 **pipelineMode** 속성을 **onetime** 으로 설정합니다. 이 속성의 기본값은 **scheduled** 입니다.
 
 ```json
 {

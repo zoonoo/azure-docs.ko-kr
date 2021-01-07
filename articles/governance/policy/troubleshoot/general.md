@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 SDK 및 추가 기능 만들기와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
-ms.date: 10/30/2020
+ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 74b622dd41fb28e845a35780e5d06588189ec029
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146282"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882979"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -36,7 +36,7 @@ Azure Policy [별칭](../concepts/definition-structure.md#aliases) 을 사용 �
 
 #### <a name="resolution"></a>해결 방법
 
-먼저 리소스 관리자 속성에 별칭이 있는지 확인 합니다. Visual Studio Code, [Azure 리소스 그래프](../../resource-graph/samples/starter.md#distinct-alias-values)또는 SDK [에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md)을 사용 하 여 사용 가능한 별칭을 조회 합니다. 리소스 관리자 속성에 대 한 별칭이 없으면 지원 티켓을 만듭니다.
+먼저 리소스 관리자 속성에 별칭이 있는지 확인 합니다. Visual Studio Code 또는 SDK [에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md) 을 사용 하 여 사용 가능한 별칭을 조회 합니다. 리소스 관리자 속성에 대 한 별칭이 없으면 지원 티켓을 만듭니다.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>시나리오: 평가 세부 정보가 최신 상태가 아님
 
@@ -95,7 +95,7 @@ Azure Policy에 의해 처리 될 것으로 예상 되는 리소스는 [Azure �
 정책 할당의 적용 문제를 해결 하려면 다음 단계를 따르세요.
 
 1. 먼저 평가를 완료 하는 데 적절 한 시간을 기다린 후 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 합니다. Azure PowerShell 또는 REST API를 사용 하 여 새 평가 검색을 시작 하려면 [주문형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조 하세요.
-1. 할당 매개 변수 및 할당 범위를 올바르게 설정 하 고 **enforcementMode** 를 _사용 하도록_ 설정 했는지 확인 합니다. 
+1. 할당 매개 변수 및 할당 범위를 올바르게 설정 하 고 **enforcementMode** 를 _사용 하도록_ 설정 했는지 확인 합니다.
 1. [정책 정의 모드](../concepts/definition-structure.md#mode)를 확인합니다.
    - 모든 리소스 종류의 ' 모두 ' 모드입니다.
    - 정책 정의가 태그나 위치를 확인 하는 경우 ' 인덱싱된 ' 모드입니다.
@@ -190,24 +190,6 @@ Azure Policy는 정책 정의 에서만 사용할 수 있는 여러 가지 Azure
 
 ## <a name="add-on-for-kubernetes-general-errors"></a>Kubernetes 일반 오류에 대 한 추가 기능
 
-### <a name="scenario-add-on-doesnt-work-with-aks-clusters-on-version-119-preview"></a>시나리오: 버전 1.19 (미리 보기)의 AKS 클러스터에서 추가 기능이 작동 하지 않음
-
-#### <a name="issue"></a>문제
-
-버전 1.19 클러스터는 게이트 키퍼 컨트롤러 및 정책 webhook pod을 통해이 오류를 반환 합니다.
-
-```
-2020/09/22 20:06:55 http: TLS handshake error from 10.244.1.14:44282: remote error: tls: bad certificate
-```
-
-#### <a name="cause"></a>원인
-
-버전 1.19 (미리 보기)의 AKS clusers는 아직 Azure Policy 추가 기능과 호환 되지 않습니다.
-
-#### <a name="resolution"></a>해결 방법
-
-Azure Policy 추가 기능을 사용 하 여 Kubernetes 1.19 (미리 보기)를 사용 하지 마십시오. 추가 기능은 1.16, 1.17 또는 1.18와 같이 지원 되는 일반 버전에서 사용할 수 있습니다.
-
 ### <a name="scenario-add-on-is-unable-to-reach-the-azure-policy-service-endpoint-due-to-egress-restrictions"></a>시나리오: 추가 기능에서 송신 제한으로 인해 Azure Policy 서비스 끝점에 연결할 수 없습니다.
 
 #### <a name="issue"></a>문제
@@ -277,10 +259,19 @@ spec:
 
 #### <a name="issue"></a>문제
 
-추가 기능이 Azure Policy 서비스 끝점에 도달할 수 있지만 다음과 같은 오류가 표시 됩니다.
+추가 기능이 Azure Policy 서비스 끝점에 연결할 수 있지만 추가 기능 로그에서 다음 오류 중 하나가 표시 됩니다.
 
 ```
-The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See https://aka.ms/policy-register-subscription for how to register subscriptions.
+The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
+https://aka.ms/policy-register-subscription for how to register subscriptions.
+```
+
+또는
+
+```
+policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
+StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+Code="InternalServerError" Message="Encountered an internal server error."
 ```
 
 #### <a name="cause"></a>원인
@@ -289,9 +280,9 @@ The resource provider 'Microsoft.PolicyInsights' is not registered in subscripti
 
 #### <a name="resolution"></a>해결 방법
 
-`Microsoft.PolicyInsights` 리소스 공급자를 등록합니다. 지침은 [리소스 공급자 등록](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조 하세요.
+`Microsoft.PolicyInsights`클러스터 구독에 리소스 공급자를 등록 합니다. 지침은 [리소스 공급자 등록](../../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조 하세요.
 
-### <a name="scenario-the-subscript-is-disabled"></a>시나리오: 첨자를 사용할 수 없습니다.
+### <a name="scenario-the-subscription-is-disabled"></a>시나리오: 구독이 사용 하지 않도록 설정 됨
 
 #### <a name="issue"></a>문제
 
@@ -307,7 +298,7 @@ The subscription '{subId}' has been disabled for azure data-plane policy. Please
 
 #### <a name="resolution"></a>해결 방법
 
-`azuredg@microsoft.com`이 문제를 조사 하 고 해결 하려면 기능 팀에 문의 하세요. 
+`azuredg@microsoft.com`이 문제를 조사 하 고 해결 하려면 기능 팀에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀(미리 보기) 만들기'
+title: '빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀 만들기'
 description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 서버리스 Apache Spark 풀을 만듭니다.
 services: synapse-analytics
 author: saveenr
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d280e96b354f38a86545ed5f6bcaa6c9a314c46b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324187"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462029"
 ---
-# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀(미리 보기) 만들기
+# <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 제공하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. Apache Spark 풀은 오픈 소스 빅 데이터 컴퓨팅 기능을 제공합니다. Synapse 작업 영역에서 Apache Spark 풀을 만든 후에는 데이터를 로드, 모델링, 처리 및 제공하여 인사이트를 얻을 수 있습니다.  
 
@@ -100,7 +100,7 @@ Synapse Studio를 사용하여 작업 영역에서 Apache Spark 풀을 삭제하
 Apache Spark 풀을 삭제하려면 다음을 수행합니다.
 
 1. Synapse Studio에서 관리 허브의 Apache Spark 풀로 이동합니다.
-1. 삭제할 Apache 풀(이 경우 **contosospark** ) 옆에 있는 줄임표를 선택하여 Apache Spark 풀에 대한 명령을 표시합니다.
+1. 삭제할 Apache 풀(이 경우 **contosospark**) 옆에 있는 줄임표를 선택하여 Apache Spark 풀에 대한 명령을 표시합니다.
 
     ![최근에 만든 풀이 선택된 Apache Spark 풀 목록](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 

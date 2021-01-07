@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317072"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980381"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -72,6 +72,11 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 ![관리 되는 개인 끝점 승인](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 승인된 상태의 관리형 프라이빗 엔드포인트만이 지정된 프라이빗 링크 리소스에 트래픽을 보낼 수 있습니다.
+
+## <a name="interactive-authoring"></a>대화형 제작
+대화형 제작 기능은 연결 테스트, 폴더 목록 및 테이블 목록 찾아보기, 스키마 가져오기, 데이터 미리 보기 등의 기능에 사용 됩니다. ADF로 관리 되는 가상 네트워크에 있는 Azure Integration Runtime을 만들거나 편집할 때 대화형 작성을 사용 하도록 설정할 수 있습니다. 백 엔드 서비스는 대화형 제작 기능을 위해 계산을 미리 할당 합니다. 그렇지 않은 경우에는 더 많은 시간이 소요 되는 대화형 작업이 수행 될 때마다 계산이 할당 됩니다. 대화형 작성에 대 한 TTL (Time To Live)은 60 분입니다. 즉, 마지막 대화형 작성 작업의 60 분 후에 자동으로 사용 하지 않도록 설정 됩니다.
+
+![대화형 작성](./media/managed-vnet/interactive-authoring.png)
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 ### <a name="supported-data-sources"></a>지원되는 데이터 원본

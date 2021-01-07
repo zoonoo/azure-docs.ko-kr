@@ -1,5 +1,5 @@
 ---
-title: SQL Managed Instance에 SQL Server-성능 분석
+title: 'SQL Managed Instance SQL Server: 성능 분석'
 description: SQL Server 데이터베이스를 Azure SQL Managed Instance로 마이그레이션할 때 성능 기준선을 만들고 비교 하는 방법에 대해 알아봅니다.
 ms.service: sql-database
 ms.subservice: migration
@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: e9fb004df5fdf8a955312ebcf16b8b60fd7c9b6a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 2b6f9bef445cc07a3aa00377b41010a536855935
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592195"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358863"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>마이그레이션 성능: SQL Server SQL Managed Instance 성능 분석
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,4 +86,4 @@ SQL Managed Instance는 모니터링 및 문제 해결을 위한 고급 도구�
 - [Azure SQL Managed Instance의 워크 로드 성능이 SQL Server와 다른 이유를 확인 하는 방법](https://medium.com/azure-sqldb-managed-instance/what-to-do-when-azure-sql-managed-instance-is-slower-than-sql-server-dd39942aaadd)
 - [SQL Managed Instance와 SQL Server 간 성능 차이의 주요 원인](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)
 - [저장소 성능 모범 사례 및 Azure SQL Managed Instance에 대 한 고려 사항 (범용)](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)
-- [Azure SQL Managed Instance에 대 한 실시간 성능 모니터링 (보관 됨, 의도 한 대상)](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)
+- [Azure SQL Managed Instance에 대 한 실시간 성능 모니터링 (보관 됨, 의도 한 대상)](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance)

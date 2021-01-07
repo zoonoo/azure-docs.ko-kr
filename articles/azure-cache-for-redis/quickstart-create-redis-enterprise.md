@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127988"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95795682"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>빠른 시작: Enterprise 계층 캐시 만들기(미리 보기)
 
@@ -22,7 +22,7 @@ Azure Cache for Redis Enterprise 계층은 Azure에서 완전히 통합되고 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 Azure 구독이 필요합니다. 아직 없는 경우 먼저 [체험 계정](https://azure.microsoft.com/free/)을 만드세요.
+시작하려면 Azure 구독이 필요합니다. 계정이 없는 경우 [계정](https://azure.microsoft.com/)을 만들 수 있습니다. 자세한 내용은 [엔터프라이즈 계층 요구 사항](cache-overview.md#enterprise-tier-requirements)을 참조하세요.
 
 ## <a name="create-a-cache"></a>캐시 만들기
 1. 캐시를 만들려면 미리 보기 초대 링크를 사용하여 Azure Portal에 로그인하여 **리소스 만들기** 를 선택합니다.

@@ -1,0 +1,116 @@
+### YamlMime:Landing
+title: Azure Purview 설명서
+summary: 조직에서 데이터 원본을 찾고, 이해하고, 사용할 수 있도록 Azure Purview를 사용하는 방법을 알아봅니다.
+metadata:
+  title: Azure Purview 설명서
+  description: 조직에서 데이터 원본을 찾고, 이해하고, 사용할 수 있는 Azure Purview를 사용하는 방법을 알아봅니다. 자습서, REST API 참조 및 기타 설명서에서는 데이터 소비자가 사용 가능한 데이터 원본을 검색하고 문제의 전문가가 제공하는 지식을 얻을 수 있는 데이터 리포지토리를 계획하고 구성하는 방법을 보여줍니다.
+  ms.service: purview
+  ms.topic: landing-page
+  author: hrasheed-msft
+  ms.author: hrasheed
+  ms.date: 11/29/2020
+  ms.openlocfilehash: 378a335653acf31275c312bcf4fa53b36bfa614e
+  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96549439"
+landingContent:
+- title: Azure Purview 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Purview란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 배포 모범 사례
+      url: deployment-best-practices.md
+    - text: 데이터 카탈로그 권한
+      url: catalog-permissions.md
+    - text: 지원되는 데이터 원본 및 파일 형식
+      url: sources-and-scans.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Purview 계정 만들기 - Portal
+      url: create-catalog-portal.md
+    - text: Purview 계정 만들기 - PowerShell/CLI
+      url: create-catalog-powershell.md
+  - linkListType: tutorial
+    links:
+    - text: 시작 키트 다운로드
+      url: https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip
+    - text: 시작 키트 실행 및 데이터 검사
+      url: tutorial-scan-data.md
+    - text: Purview 홈 페이지 탐색 및 검색
+      url: tutorial-asset-search.md
+    - text: 자산 찾아보기 및 계보 보기
+      url: tutorial-browse-and-view-lineage.md
+    - text: 리소스 집합, 자산, 스키마, 분류 살펴보기
+      url: tutorial-schemas-and-classifications.md
+    - text: 용어집 용어 만들기
+      url: tutorial-import-create-glossary-terms.md
+- title: Azure 데이터 원본 검사
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 시작 키트 실행 및 데이터 검사
+      url: tutorial-scan-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure SQL Database 검사
+      url: register-scan-azure-sql-database.md
+    - text: Azure Data Lake Storage Gen 2 검사
+      url: register-scan-adls-gen2.md
+    - text: Azure Cosmos DB 검사
+      url: register-scan-azure-cosmos-database.md
+    - text: Power BI 테넌트
+      url: register-scan-power-bi-tenant.md
+    - text: Azure Blob Storage 등록 및 검사
+      url: register-scan-azure-blob-storage-source.md
+- title: 비 Azure 데이터 원본 검사
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: SQL Server 온-프레미스 검사
+      url: register-scan-on-premises-sql-server.md
+- title: 데이터 자산 이해
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 자산 인사이트 보기
+      url: asset-insights.md
+    - text: 용어집 인사이트 보기
+      url: glossary-insights.md
+    - text: 검사 인사이트 보기
+      url: scan-insights.md
+    - text: 분류 인사이트 보기
+      url: classification-insights.md
+- title: 데이터 큐레이팅
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 리소스 집합, 자산, 스키마, 분류
+      url: tutorial-schemas-and-classifications.md
+    - text: 용어집 용어
+      url: tutorial-import-create-glossary-terms.md
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 분류 및 규칙 만들기, 편집 및 삭제
+      url: create-a-custom-classification-and-classification-rule.md
+    - text: 용어집 만들기, 가져오기 및 내보내기
+      url: how-to-create-import-export-glossary.md
+- title: 데이터 검색
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 찾아보기 및 계보
+      url: tutorial-browse-and-view-lineage.md
+  - linkListType: how-to-guide
+    links:
+    - text: 자산 유형별 찾아보기
+      url: how-to-browse-catalog.md
+    - text: 자산, 용어, 주석 및 연락처 검색
+      url: how-to-search-catalog.md

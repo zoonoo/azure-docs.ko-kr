@@ -1,19 +1,19 @@
 ---
 title: Express 경로를 사용 하 여 CloudSimple 온-프레미스 연결을 통한 Azure VMware 솔루션
 description: CloudSimple 영역 네트워크에서 Express 경로를 사용 하 여 온-프레미스 연결을 요청 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0dd5ede110255b6e53bbc397e683e66b3beffc65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77019624"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899238"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "77019624"
 
 온-프레미스에서 Global Reach 연결을 설정 하려면 **/29** 네트워크 주소 블록이 필요 합니다.  /29 주소 공간은 Express 경로 회로 간의 전송 네트워크에 사용 됩니다.  전송 네트워크는 Azure 가상 네트워크, 온-프레미스 네트워크 또는 CloudSimple 사설 클라우드 네트워크와 겹치면 안 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 회로와 CloudSimple 사설 클라우드 네트워크 간의 연결을 설정 하려면 Azure Express 경로 회로가 필요 합니다.
 * 사용자는 Express 경로 회로에서 인증 키를 만들 수 있는 권한이 필요 합니다.
@@ -49,12 +49,12 @@ Express 경로 연결을 설정 하려면 Express 경로 회로에 대 한 권�
 
 1. Azure Portal에 로그인합니다.
 
-2. 위쪽 검색 창에서 **express 경로 회로** 를 검색 하 고 **서비스**아래에서 **express 경로 회로** 를 클릭 합니다.
+2. 위쪽 검색 창에서 **express 경로 회로** 를 검색 하 고 **서비스** 아래에서 **express 경로 회로** 를 클릭 합니다.
     [![Express 경로 회로](media/azure-expressroute-transit-search.png)](media/azure-expressroute-transit-search.png)
 
 3. CloudSimple 네트워크에 연결 하려는 Express 경로 회로를 선택 합니다.
 
-4. Express 경로 페이지 **에서 권한 부여를 클릭 하**고 권한 부여에 대 한 이름을 입력 한 다음 **저장**을 클릭 합니다.
+4. Express 경로 페이지 **에서 권한 부여를 클릭 하** 고 권한 부여에 대 한 이름을 입력 한 다음 **저장** 을 클릭 합니다.
     [![Express 경로 회로 권한 부여](media/azure-expressroute-transit-authorizations.png)](media/azure-expressroute-transit-authorizations.png)
 
 5. 복사 아이콘을 클릭 하 여 리소스 ID와 권한 부여 키를 복사 합니다. ID와 키를 텍스트 파일에 붙여 넣습니다.

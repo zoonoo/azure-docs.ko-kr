@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629328"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695897"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -34,7 +34,7 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
 -   **Azure AD(Azure Active Directory)**
 
-    Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호가 하나의 솔루션으로 결합되어 있습니다. Azure AD에 가입 된 Windows Vm (가상 머신)은 azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
+    Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호가 하나의 솔루션으로 결합되어 있습니다. Azure AD에 가입 된 Windows Vm (가상 머신)은 azure AD 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 없습니다. 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
 
 -   **Azure AD DS(Azure Active Directory Domain Services)**
 
@@ -92,7 +92,7 @@ Azure Files에 대 한 id 기반 인증은 공유 키 인증 사용에 대 한 �
 -   **데이터와 함께 Windows Acl (NTFS 라고도 함) 백업**  
     Azure 파일 공유를 사용 하 여 기존 온-프레미스 파일 공유를 백업할 수 있습니다. Azure Files은 SMB를 통해 Azure 파일 공유에 파일 공유를 백업할 때 데이터와 함께 Acl을 유지 합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 Azure 파일 공유는 온-프레미스 AD DS 또는 Azure AD DS를 사용 하 여 인증 하기 위해 Kerberos 프로토콜을 활용 합니다. 클라이언트에서 실행 되는 사용자 또는 응용 프로그램과 연결 된 id가 Azure 파일 공유의 데이터에 액세스 하려고 하면 요청은 AD DS 또는 Azure AD DS에서 id를 인증 하는 도메인 서비스로 전송 됩니다. 인증에 성공 하면 Kerberos 토큰을 반환 합니다. 클라이언트는 Kerberos 토큰을 포함 하는 요청을 보내고, Azure 파일 공유는 해당 토큰을 사용 하 여 요청에 권한을 부여 합니다. Azure 파일 공유는 액세스 자격 증명이 아닌 Kerberos 토큰만 받습니다.
 

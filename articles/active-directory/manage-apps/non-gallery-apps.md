@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 262c3a7c8a668ef25d092b5d523743e0ece89cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3483701d34b8fef5b40a411e22b33a73db2de44b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641146"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658743"
 ---
 # <a name="using-azure-ad-for-applications-not-listed-in-the-app-gallery"></a>앱 갤러리에 나열 되지 않은 응용 프로그램에 Azure AD 사용
 
 [앱 추가](add-application-portal.md) 빠른 시작에서 Azure AD 테 넌 트에 앱을 추가 하는 방법을 알아봅니다.
 
-[Azure AD 애플리케이션 갤러리](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에서 선택하는 것 외에도 **비갤러리 애플리케이션**를 추가하는 옵션이 있습니다. 
+[Azure AD 애플리케이션 갤러리](../saas-apps/tutorial-list.md)에서 선택하는 것 외에도 **비갤러리 애플리케이션** 를 추가하는 옵션이 있습니다. 
 
 ## <a name="capabilities-for-apps-not-listed-in-the-azure-ad-gallery"></a>Azure AD 갤러리에 나열 되지 않은 앱에 대 한 기능
 
@@ -33,9 +33,8 @@ ms.locfileid: "88641146"
 - [사용자 프로비저닝에 SCIM(System for Cross-Domain Identity Management) 프로토콜](../app-provisioning/use-scim-to-provision-users-and-groups.md)을 사용하는 애플리케이션의 셀프 서비스 연결
 - [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [내 앱](sso-options.md#linked-sign-on) 의 응용 프로그램에 링크를 추가 하는 기능
 
-사용자 지정 앱을 Azure AD와 통합 하는 방법에 대 한 개발자 가이드를 찾고 있는 경우 [AZURE ad에 대 한 인증 시나리오](../develop/authentication-scenarios.md)를 참조 하세요. [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md)와 같은 최신 프로토콜을 사용하여 사용자를 인증하는 앱을 개발할 때 Azure Portal에서 [앱 등록](../develop/quickstart-register-app.md) 경험을 사용하여 Microsoft ID 플랫폼에 등록할 수 있습니다.
+사용자 지정 앱을 Azure AD와 통합 하는 방법에 대 한 개발자 가이드를 찾고 있는 경우 [AZURE ad에 대 한 인증 시나리오](../develop/authentication-vs-authorization.md)를 참조 하세요. [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md)와 같은 최신 프로토콜을 사용하여 사용자를 인증하는 앱을 개발할 때 Azure Portal에서 [앱 등록](../develop/quickstart-register-app.md) 경험을 사용하여 Microsoft ID 플랫폼에 등록할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [앱 관리에 대 한 빠른 시작 시리즈](view-applications-portal.md)
-

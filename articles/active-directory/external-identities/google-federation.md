@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff8912794169cf61f394a097248a8476b2e0c0f3
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 53d2369e93052ef28191dd1862034c1aaa488add
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926238"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355599"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -25,6 +25,9 @@ Google을 사용 하 여 페더레이션을 설정 하면 초대 된 사용자�
 
 > [!NOTE]
 > Google 페더레이션은 Gmail 사용자를 위해 특별히 설계되었습니다. G Suite 도메인과 페더레이션 하려면 [직접 페더레이션을](direct-federation.md)사용 합니다.
+
+> [!IMPORTANT]
+> Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google 사용자를 위한 환경이란?
 Google Gmail 사용자에 게 초대를 보낼 때 게스트 사용자는 테 넌 트 컨텍스트를 포함 하는 링크를 사용 하 여 공유 앱 또는 리소스에 액세스 해야 합니다. 환경은 Google에 이미 로그인했는지 여부에 따라 달라집니다.
@@ -35,7 +38,35 @@ Google Gmail 사용자에 게 초대를 보낼 때 게스트 사용자는 테 �
 
 ![Google 로그인 페이지를 보여 주는 스크린샷](media/google-federation/google-sign-in.png)
 
-## <a name="limitations"></a>제한 사항
+## <a name="deprecation-of-webview-sign-in-support"></a>웹 보기 로그인 지원 중단
+
+Google은 2021 년 1 월 4 일부 터 [사용 중단 Embedded 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 [셀프 서비스 등록](identity-providers.md)을 사용 하는 경우 lob (기간 업무) 네이티브 응용 프로그램의 호환성을 테스트 해야 합니다. 앱이 인증을 요구 하는 웹 보기 콘텐츠를 포함 하는 경우 Google Gmail 사용자는 인증할 수 없습니다. Gmail 사용자에 게 영향을 주는 알려진 시나리오는 다음과 같습니다.
+
+- 이전 버전의 Windows에서 포함 된 웹 보기 또는 WebAccountManager (WAM)를 사용 하는 windows 앱입니다.
+- 인증을 위해 포함 된 브라우저 프레임 워크를 사용 하는 다른 네이티브 앱을 개발 했습니다.
+
+이 변경 내용은 영향을 주지 않습니다.
+
+- 최신 버전의 Windows에서 포함 된 웹 보기 또는 WebAccountManager (WAM)를 사용 하는 windows 앱
+- Microsoft iOS 앱
+- G suite id (예: G Suite와 SAML 기반 [직접 페더레이션을](direct-federation.md) 사용 하는 경우)
+
+Microsoft는 다양 한 플랫폼과 시나리오를 계속 해 서 테스트 하 고 있으며 그에 따라이 문서를 업데이트 합니다.
+### <a name="to-test-your-apps-for-compatibility"></a>응용 프로그램의 호환성을 테스트 하려면
+
+1. [Google의 지침](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html) 에 따라 앱이 영향을 받는지 확인 합니다.
+2. Fiddler 또는 다른 테스트 도구를 사용 하 여 로그인 하는 동안 헤더를 삽입 하 고 Google external identity를 사용 하 여 로그인을 테스트 합니다.
+
+   1. Accounts.google.com에 요청을 보낼 때 Google-Check-OAuth-Login: true를 HTTP 요청 헤더에 추가 합니다.
+   1. Accounts.google.com 로그인 페이지에서 Gmail 주소를 입력 하 여 앱에 로그인을 시도 합니다.
+   1. 로그인이 실패 하 고 "이 브라우저 또는 앱이 안전 하지 않을 수 있습니다."와 같은 오류가 표시 되 면 Google external id가 로그인 하지 못하도록 차단 됩니다.
+
+3. 다음 중 하나를 수행 하 여 문제를 해결 합니다.
+
+   - Windows 앱에서 이전 버전의 Windows에 포함 된 웹 보기 또는 WebAccountManager (WAM)를 사용 하는 경우 최신 버전의 Windows로 업데이트 합니다.
+   - 로그인에 시스템 브라우저를 사용 하도록 앱을 수정 합니다. 자세한 내용은 MSAL.NET 설명서의 [Embedded Vs System WEB UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) 를 참조 하십시오.  
+
+## <a name="sign-in-endpoints"></a>로그인 끝점
 
 팀은 모든 디바이스에서 Google 게스트 사용자를 완벽하게 지원합니다. Google 사용자는 `https://teams.microsoft.com`과 같은 일반 엔드포인트에서 팀에 로그인할 수 있습니다.
 
@@ -47,12 +78,11 @@ Google Gmail 사용자에 게 초대를 보낼 때 게스트 사용자는 테 �
    Google 게스트 사용자가 또는와 같은 링크를 사용 하려고 하면 `https://myapps.microsoft.com` `https://portal.azure.com` 오류가 발생 합니다.
 
 링크가 테 넌 트 정보를 포함 하는 한 응용 프로그램 또는 리소스에 대 한 직접 링크를 Google 게스트 사용자에 게 제공할 수도 있습니다. 예: `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
-
 ## <a name="step-1-configure-a-google-developer-project"></a>1단계: Google 개발자 프로젝트 구성
 먼저 Google 개발자 콘솔에서 새 프로젝트를 만들어 나중에 Azure Active Directory (Azure AD)에 추가할 수 있는 클라이언트 ID 및 클라이언트 암호를 가져옵니다. 
 1. https://console.developers.google.com 에서 Google API로 이동하고, Google 계정으로 로그인합니다. 공유 팀 Google 계정을 사용하는 것이 좋습니다.
 2. 이 작업을 수행 하 라는 메시지가 표시 되 면 서비스 약관에 동의 합니다.
-3. 새 프로젝트 만들기: 대시보드에서 **프로젝트 만들기** 를 선택 하 고 프로젝트에 이름 (예: **Azure AD B2B** )을 지정한 다음, **만들기** 를 선택 합니다. 
+3. 새 프로젝트 만들기: 대시보드에서 **프로젝트 만들기** 를 선택 하 고 프로젝트에 이름 (예: **Azure AD B2B**)을 지정한 다음, **만들기** 를 선택 합니다. 
    
    ![새 프로젝트 페이지를 보여 주는 스크린샷](media/google-federation/google-new-project.png)
 
@@ -112,13 +142,13 @@ Google Gmail 사용자에 게 초대를 보낼 때 게스트 사용자는 테 �
    > "1 단계: Google developer 프로젝트 구성"에서 만든 앱의 클라이언트 ID 및 클라이언트 암호를 사용 합니다. 자세한 내용은 [AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview)를 참조 하세요. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Google 페더레이션은 어떻게 제거하나요?
-Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 이미 초대를 받은 Google 게스트 사용자는 로그인 할 수 없습니다. 하지만 디렉터리에서 리소스를 삭제 하 고 다시 초대 하 여 리소스에 대 한 액세스 권한을 다시 부여할 수 있습니다. 
+Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 이미 초대를 받은 Google 게스트 사용자는 로그인 할 수 없습니다. 그러나 디렉터리에서 리소스를 삭제하고 다시 초대하여 리소스에 대한 액세스 권한을 다시 부여할 수 있습니다. 
  
 **Azure AD 포털에서 Google 페더레이션을 삭제 하려면**
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. 
 2. **외부 ID** 를 선택합니다.
 3. **모든 ID 공급자** 를 선택합니다.
-4. **Google** line에서 줄임표 단추 ( **...** )를 선택 하 고 **삭제** 를 선택 합니다. 
+4. **Google** line에서 줄임표 단추 (**...**)를 선택 하 고 **삭제** 를 선택 합니다. 
    
    ![소셜 id 공급자에 대 한 삭제 단추를 보여 주는 스크린샷](media/google-federation/google-social-identity-providers.png)
 

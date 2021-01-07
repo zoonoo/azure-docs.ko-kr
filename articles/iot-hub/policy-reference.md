@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub에 대한 기본 제공 정책 정의
 description: Azure IoT Hub에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: reference
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fae56b1f1c8f6439548f6acd51a553b873e20196
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f93ad8aae72f7a66015470f1e0930e6857d5ef4f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316716"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989030"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure IoT Hub에 대한 Azure Policy 기본 제공 정의
 

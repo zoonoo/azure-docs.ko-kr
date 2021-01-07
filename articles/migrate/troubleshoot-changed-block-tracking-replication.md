@@ -2,16 +2,16 @@
 title: 에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 description: 복제 주기 오류에 대 한 도움말 보기
 author: anvar-ms
-ms.manager: bsiva
 ms.author: anvar
+ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377225"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753538"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -139,7 +139,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
     이 명령은 TCP 연결을 시도 하 고 출력을 반환 합니다.
     
-     - 출력에서 " _Tcptestsucceeded_ " 필드를 확인 합니다. 값이 " _True_ " 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
+     - 출력에서 "_Tcptestsucceeded_" 필드를 확인 합니다. 값이 "_True_" 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
     
     **해결 방법:** 이 테스트에 실패 하면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 있습니다. 연결 문제를 확인 하기 위해 로컬 네트워킹 팀에 참여 합니다. 일반적으로 오류를 발생 시키는 일부 방화벽 설정이 있을 수 있습니다.
     
@@ -225,7 +225,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
     이 명령은 TCP 연결을 시도 하 고 출력을 반환 합니다.
     
-    1. 출력에서 " _Tcptestsucceeded_ " 필드를 확인 합니다. 값이 " _True_ " 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
+    1. 출력에서 "_Tcptestsucceeded_" 필드를 확인 합니다. 값이 "_True_" 이면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 없습니다. 값이 "False" 이면 연결 문제가 있는 것입니다.
     
     **해결 방법:** 이 테스트에 실패 하면 Azure Migrate 어플라이언스와 Azure Key Vault 간에 연결 문제가 있습니다. 연결 문제를 확인 하기 위해 로컬 네트워킹 팀에 참여 합니다. 일반적으로 오류를 발생 시키는 일부 방화벽 설정이 있을 수 있습니다.
     
@@ -276,7 +276,7 @@ _오류 메시지: 내부 오류가 발생 했습니다. [오류 메시지]_
 
 이 문제는 스냅숏 생성이 응답 하지 않을 때 발생 합니다. 이 문제가 발생 하면 95% 또는 99%에서 스냅숏 만들기 작업 중지를 확인할 수 있습니다. 이 문제를 해결 하려면이 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138969) 를 참조 하십시오.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_ ]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_]
 
 복제 주기 끝에 디스크를 통합 하면 작업이 실패 합니다. 적절 한 _이유_ 를 선택 하 여 문제를 해결 하는 [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) 의 지침을 따르세요.
 

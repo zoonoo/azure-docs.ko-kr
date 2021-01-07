@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca24a781f4f3ad5c210813dabbb896de35056ed6
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090215"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588712"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
@@ -25,11 +25,11 @@ ms.locfileid: "87090215"
 
 Azure DevOps는 Azure Boards 사용자 스토리 또는 작업 작업 항목을 Azure Repos Git 리포지토리 분기에 연결 하는 편리한 방법을 제공 합니다. 사용자 스토리 또는 작업을 연결 된 코드에 직접 연결할 수 있습니다. 
 
-작업 항목을 새 분기에 연결 하려면 작업 항목 옆에 있는 **동작** 줄임표 (**...**)를 선택 하 고 상황에 맞는 메뉴에서를 스크롤하여 **새 분기**를 선택 합니다.  
+작업 항목을 새 분기에 연결 하려면 작업 항목 옆에 있는 **동작** 줄임표 (**...**)를 선택 하 고 상황에 맞는 메뉴에서를 스크롤하여 **새 분기** 를 선택 합니다.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-**분기 만들기** 대화 상자에서 새 분기 이름과 기본 Azure Repos Git 리포지토리 및 분기를 제공 합니다. 기본 리포지토리는 작업 항목과 동일한 Azure DevOps 프로젝트에 있어야 합니다. 기본 분기는 모든 기존 분기가 될 수 있습니다. **분기 만들기**를 선택 합니다. 
+**분기 만들기** 대화 상자에서 새 분기 이름과 기본 Azure Repos Git 리포지토리 및 분기를 제공 합니다. 기본 리포지토리는 작업 항목과 동일한 Azure DevOps 프로젝트에 있어야 합니다. 기본 분기는 모든 기존 분기가 될 수 있습니다. **분기 만들기** 를 선택 합니다. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -39,7 +39,7 @@ Windows 또는 Linux에서 다음 Git bash 명령을 사용 하 여 새 분기�
 git checkout -b <new branch name> <base branch name>
 
 ```
-을 지정 하지 않으면 \<base branch name> 새 분기는을 기반으로 `master` 합니다. 
+을 지정 하지 않으면 \<base branch name> 새 분기는을 기반으로 `main` 합니다. 
 
 작업 분기로 전환 하려면 다음 명령을 실행 합니다. 
 
@@ -47,7 +47,7 @@ git checkout -b <new branch name> <base branch name>
 git checkout <working branch name>
 ```
 
-작업 분기로 전환한 후에는 코드 또는 문서 아티팩트 개발을 시작 하 여 작업 항목을 완료할 수 있습니다. 를 실행 `git checkout master` 하면 분기로 다시 전환 `master` 됩니다.
+작업 분기로 전환한 후에는 코드 또는 문서 아티팩트 개발을 시작 하 여 작업 항목을 완료할 수 있습니다. 를 실행 `git checkout main` 하면 분기로 다시 전환 `main` 됩니다.
 
 각 사용자 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 (Task) 작업 항목에 대해 사용자 스토리 분기를 기반으로 분기를 만들 수 있습니다. 동일한 프로젝트에 대해 여러 사용자 스토리에서 작업 하는 사용자가 여러 명 이거나 동일한 사용자 스토리에 대해 다른 작업을 수행 하는 경우 사용자 Story-Task 관계에 해당 하는 계층의 분기를 구성 합니다. 분기를 공유 하는 경우 각 팀 멤버가 다른 분기 또는 다른 코드 또는 다른 아티팩트에 대해 작업을 수행 하 여 충돌을 최소화할 수 있습니다. 
 
@@ -55,7 +55,7 @@ git checkout <working branch name>
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
-또한 작업 항목을 기존 분기에 연결할 수도 있습니다. 작업 항목의 **세부 정보** 페이지에서 **링크 추가**를 선택 합니다. 그런 다음 작업 항목을 연결할 기존 분기를 선택 하 고 **확인**을 선택 합니다. 
+또한 작업 항목을 기존 분기에 연결할 수도 있습니다. 작업 항목의 **세부 정보** 페이지에서 **링크 추가** 를 선택 합니다. 그런 다음 작업 항목을 연결할 기존 분기를 선택 하 고 **확인** 을 선택 합니다. 
 
 ![4](./media/collaborative-coding-with-git/4-link-to-an-existing-branch.png)
 
@@ -80,7 +80,7 @@ Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있�
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-**새 끌어오기 요청** 화면에서 필요한 경우 변경 내용을 병합할 Git 리포지토리 및 분기로 이동 합니다. 원하는 다른 정보를 추가 하거나 변경 합니다. **검토자**에서 검토자의 이름을 추가 하 고 **만들기**를 선택 합니다. 
+**새 끌어오기 요청** 화면에서 필요한 경우 변경 내용을 병합할 Git 리포지토리 및 분기로 이동 합니다. 원하는 다른 정보를 추가 하거나 변경 합니다. **검토자** 에서 검토자의 이름을 추가 하 고 **만들기** 를 선택 합니다. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -90,11 +90,11 @@ Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있�
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-검토자가 변경 내용을 승인한 후에는 사용자나 병합 권한을 가진 다른 사용자가 작업 분기를 기본 분기에 병합할 수 있습니다. **완료**를 선택 하 고 **끌어오기 요청 완료** 대화 상자에서 **전체 병합** 을 선택 합니다. 병합 한 후에 작업 분기를 삭제 하도록 선택할 수 있습니다. 
+검토자가 변경 내용을 승인한 후에는 사용자나 병합 권한을 가진 다른 사용자가 작업 분기를 기본 분기에 병합할 수 있습니다. **완료** 를 선택 하 고 **끌어오기 요청 완료** 대화 상자에서 **전체 병합** 을 선택 합니다. 병합 한 후에 작업 분기를 삭제 하도록 선택할 수 있습니다. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
-요청이 **완료**된 것으로 표시 되는지 확인 합니다. 
+요청이 **완료** 된 것으로 표시 되는지 확인 합니다. 
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
@@ -105,7 +105,7 @@ Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있�
 다음 Git bash 명령을 사용 하 여 `script` 작업 분기를 기본 분기에 병합 하 고 병합 후에 작업 분기를 삭제할 수도 있습니다.
 
 ```bash
-git checkout master
+git checkout main
 git merge script
 git branch -d script
 ```

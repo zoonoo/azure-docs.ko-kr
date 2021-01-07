@@ -12,11 +12,11 @@ ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-js
 ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268624"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994981"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>앱에 Video Indexer 위젯을 포함 합니다.
 
@@ -78,9 +78,9 @@ ms.locfileid: "91268624"
 ### <a name="public-content"></a>공용 콘텐츠
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에 로그인 합니다.
-1. 작업 하려는 비디오를 선택 하 고 **재생**을 누릅니다.
-1. 원하는 위젯 유형 (**인지 정보**, **플레이어**또는 **편집기**)을 선택 합니다.
-1. ** &lt; / &gt; Embed**를 클릭 합니다.
+1. 작업 하려는 비디오를 선택 하 고 **재생** 을 누릅니다.
+1. 원하는 위젯 유형 (**인지 정보**, **플레이어** 또는 **편집기**)을 선택 합니다.
+1. **&lt; / &gt; Embed** 를 클릭 합니다.
 5. Embed 태그를 복사 합니다 ( **공유 & embed** 대화 상자에 **포함 된 코드 복사** 에 표시).
 6. 앱에 코드를 추가 합니다.
 
@@ -208,7 +208,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
     ```
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예를 들면 다음과 같습니다.
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예들 들어 다음과 같습니다.
 
     ```javascript
     <script>
@@ -271,7 +271,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예들 들어 다음과 같습니다.
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
@@ -291,7 +291,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) 리포지토리를 참조 하세요.
 
-| 파일/폴더                       | 설명                                |
+| 파일/폴더                       | Description                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오를 로드 합니다.                        |
 | `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보를 포함 합니다.                             |

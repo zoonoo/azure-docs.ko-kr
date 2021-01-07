@@ -9,16 +9,16 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6a7301fd878eb65e4c1dd540275611bcf9348afc
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365502"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241746"
 ---
 # <a name="what-is-custom-translator"></a>Custom Translator란?
 
-[Custom Translator](https://portal.customtranslator.azure.ai)는 Translator 엔터프라이즈, 앱 개발자 및 언어 서비스 공급자가 사용자 지정 NMT(인공신경망 기계 번역)를 빌드할 수 있게 해주는 Microsoft Translator 서비스의 기능입니다. 사용자 지정된 번역 시스템은 중단 없이 기존 애플리케이션, 워크플로 및 웹 사이트에 통합됩니다. [Custom Translator](https://portal.customtranslator.azure.ai/)는 [Microsoft Translator Hub](https://hub.microsofttranslator.com/)가 SMT(통계 기계 번역)에 제공하는 것과 비슷한 기능을 제공하지만, NMT(인공신경망 기계 번역) 시스템에만 단독으로 제공합니다.
+[Custom Translator](https://portal.customtranslator.azure.ai)는 Translator 엔터프라이즈, 앱 개발자 및 언어 서비스 공급자가 사용자 지정 NMT(인공신경망 기계 번역)를 빌드할 수 있게 해주는 Microsoft Translator 서비스의 기능입니다. 사용자 지정된 번역 시스템은 중단 없이 기존 애플리케이션, 워크플로 및 웹 사이트에 통합됩니다.
 
 [Custom Translator](https://portal.customtranslator.azure.ai)를 사용하여 빌드된 번역 시스템은 매일 수십억 건을 번역할 수 있는 동일한 클라우드 기반의 [안전하고](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) 성능과 확장성이 우수한 Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl)를 통해 사용할 수 있습니다.
 

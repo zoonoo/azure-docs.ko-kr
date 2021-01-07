@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886484"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422130"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>IoT Edge 모듈 및 연결 설정
 
@@ -36,11 +36,11 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
 1. 리소스 그룹에서 만든 IoT 허브로 이동합니다.
 
-2. **자동 디바이스 관리**에 있는 **IoT Edge** 섹션에서 **디바이스 ID**를 클릭합니다. 이 자습서에서는 ID가 `IronOrePredictionDevice`입니다.
+2. **자동 디바이스 관리** 에 있는 **IoT Edge** 섹션에서 **디바이스 ID** 를 클릭합니다. 이 자습서에서는 ID가 `IronOrePredictionDevice`입니다.
 
 3. **모듈 설정** 섹션을 선택합니다.
 
-4. **컨테이너 레지스트리 자격 증명**에서 다음 값을 입력합니다.
+4. **컨테이너 레지스트리 자격 증명** 에서 다음 값을 입력합니다.
 
    _필드_|_값_
    -------|-------
@@ -49,35 +49,38 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
    사용자 이름|사용자 이름
    암호|암호
   
-## <a name="deploy-the-data-generator-module"></a>데이터 생성기 모듈 배포
+## <a name="build-push-and-deploy-the-data-generator-module"></a>데이터 생성기 모듈 빌드, 푸시 및 배포
 
-1. **자동 디바이스 관리**에 있는 **IoT Edge** 섹션에서 **디바이스 ID**를 클릭합니다. 이 자습서의 경우 ID는 `IronOrePredictionDevice`입니다. 그런 다음, **모듈 설정**을 클릭합니다.
-
-2.  **디바이스에서 모듈 설정**의 **IoT Edge 모듈** 섹션 아래에서 **+추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
-
-3. IoT Edge 모듈의 올바른 이름과 이미지 URI를 제공합니다.
-   이미지 URI는 이 자습서의 1부에서 만든 리소스 그룹의 컨테이너 레지스트리에서 찾을 수 있습니다. **서비스**에서 **리포지토리** 섹션을 선택합니다. 이 자습서에서는 `silicaprediction`이라는 리포지토리를 선택합니다. 적절한 태그를 선택합니다. 이미지 URI는 다음과 같은 형식입니다.
-
-   *컨테이너 레지스트리의 로그인 서버*/*리포지토리 이름*:*태그 이름*
-
-   다음은 그 예입니다.
-
+1. [프로젝트 파일](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica)을 머신에 복제합니다.
+2. Visual Studio 2019를 사용하여 **IronOre_Silica_Predict.sln** 파일을 엽니다.
+3. **deployment.template.json** 에서 컨테이너 레지스트리 세부 정보를 업데이트합니다. 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. **modules.json** 파일을 업데이트하여 대상 컨테이너 레지스트리(또는 모듈의 리포지토리)를 지정합니다.
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. *다시 시작 정책* 및 *원하는 상태* 필드를 그대로 둡니다.
-
-5. **추가**를 클릭합니다.
-
+5. 디버그 또는 릴리스 모드에서 프로젝트를 실행하여 프로젝트가 문제 없이 실행되도록 합니다. 
+6. 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 모듈 빌드 및 푸시** 를 선택하여 프로젝트를 컨테이너 레지스트리에 푸시합니다.
+7. 데이터 생성기 모듈을 IoT Edge 모듈로 Edge 디바이스에 배포합니다. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Azure SQL Edge 모듈 배포
 
-1. **+ 추가**를 클릭한 다음, **Marketplace 모듈**을 클릭하여 Azure SQL Edge 모듈을 배포합니다. 
+1. **+ 추가** 를 클릭한 다음, **Marketplace 모듈** 을 클릭하여 Azure SQL Edge 모듈을 배포합니다. 
 
-2. **IoT Edge Module Marketplace** 블레이드에서 *Azure SQL Edge*를 검색하고 *Azure SQL Edge Developer*를 선택합니다. 
+2. **IoT Edge Module Marketplace** 블레이드에서 *Azure SQL Edge* 를 검색하고 *Azure SQL Edge Developer* 를 선택합니다. 
 
-3. **IoT Edge 모듈**에서 새로 추가된 *Azure SQL Edge* 모듈을 클릭하여 Azure SQL Edge 모듈을 구성합니다. 구성 옵션에 대한 자세한 내용은 [Azure SQL Edge 배포](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal)를 참조하세요.
+3. **IoT Edge 모듈** 에서 새로 추가된 *Azure SQL Edge* 모듈을 클릭하여 Azure SQL Edge 모듈을 구성합니다. 구성 옵션에 대한 자세한 내용은 [Azure SQL Edge 배포](./deploy-portal.md)를 참조하세요.
 
 4. *Azure SQL Edge* 모듈 배포에 `MSSQL_PACKAGE` 환경 변수를 추가하고, 이 자습서의 [1부](tutorial-deploy-azure-resources.md)의 8단계에서 만든 데이터베이스 dacpac 파일의 SAS URL을 지정합니다.
 
@@ -101,7 +104,7 @@ Azure SQL Edge에서 철광석 불순물 예측을 위해 세 부분으로 구�
 
 7. **디바이스에서 모듈 설정** 페이지에서 **다음: 검토 + 만들기 >** 를 클릭합니다.
 
-8. **디바이스에서 모듈 설정** 페이지에서 **만들기**를 클릭합니다.
+8. **디바이스에서 모듈 설정** 페이지에서 **만들기** 를 클릭합니다.
 
 ## <a name="create-and-start-the-t-sql-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 T-SQL 스트리밍 작업을 만들고 시작합니다.
 

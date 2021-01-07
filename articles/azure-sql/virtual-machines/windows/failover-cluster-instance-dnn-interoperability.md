@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272619"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358217"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI와의 기능 상호 운용성 & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +72,7 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 
 복제에는 게시자, 배포자, 구독자의 세 가지 구성 요소가 있습니다. 이러한 구성 요소는 장애 조치 (failover) 클러스터 인스턴스일 수 있습니다. FCI VNN은 복제 구성에서 강력 하 고 암시적으로 사용 되기 때문에 복제 작업을 수행 하려면 DNN에 VNN을 매핑하는 네트워크 별칭이 필요할 수 있습니다. 
 
-복제 내에서 FCI 이름으로 VNN 이름을 계속 사용 하지만 *복제를 구성 하기 전에*다음과 같은 원격 상황에서 네트워크 별칭을 만듭니다.
+복제 내에서 FCI 이름으로 VNN 이름을 계속 사용 하지만 *복제를 구성 하기 전에* 다음과 같은 원격 상황에서 네트워크 별칭을 만듭니다.
 
 | **복제 구성 요소 (DNN를 사용 하는 FCI)** | **원격 구성 요소** | **네트워크 별칭 맵** | **네트워크 맵이 있는 서버**| 
 |---------|---------|---------|-------- | 
@@ -86,7 +87,7 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 
 다음 이미지 예제와 같이 명명 된 인스턴스에 대 한 전체 인스턴스 이름을 사용 합니다. 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="SQL Server 구성 관리자를 사용 하 여 DNN DNS 이름을 네트워크 별칭으로 구성 합니다." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="명명 된 인스턴스에 대 한 네트워크 별칭을 구성할 때 전체 인스턴스 이름을 사용 합니다." :::
 
 ## <a name="database-mirroring"></a>데이터베이스 미러링
 

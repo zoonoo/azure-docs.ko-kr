@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5e76c87da1dc9ab7d4adeb0e964ae5a3248b8431
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743649"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347662"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 앱 빌드
 
@@ -47,11 +47,12 @@ ms.locfileid: "92743649"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-1. [Git 설치](https://git-scm.com/)
-2. [Node.js 및 NPM 설치](https://nodejs.org/)
-3. [ 설치](https://bower.io/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
-4. [Gulp.js 설치](https://gulpjs.com/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
-5. [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/) 
+- [Git 설치](https://git-scm.com/)
+- [Node.js 및 NPM 설치](https://nodejs.org/)
+- [ 설치](https://bower.io/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
+- [Gulp.js 설치](https://gulpjs.com/)([MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started)에 필요)
+- [MongoDB Community Edition 설치 및 실행](https://docs.mongodb.com/manual/administration/install-community/)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)] 
 
 ## <a name="test-local-mongodb"></a>로컬 MongoDB 테스트
 
@@ -112,8 +113,6 @@ MEAN.js 샘플 애플리케이션은 데이터베이스에 사용자 데이터�
 
 언제든지 Node.js를 중지하려면 터미널에서 `Ctrl+C`를 입력합니다. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="create-production-mongodb"></a>프로덕션 MongoDB 만들기
 
 이 단계에서는 Azure에 MongoDB 데이터베이스를 만듭니다. Azure에 앱을 배포하면 이 클라우드 데이터베이스가 사용됩니다.
@@ -130,7 +129,7 @@ MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)�
 > 이 자습서에서는 사용자의 Azure 구독에 Azure Cosmos DB 데이터베이스를 만드는 비용이 발생합니다. 7일 동안 체험판 Azure Cosmos DB 계정을 사용하려면 [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/) 경험을 사용하면 됩니다. MongoDB 타일에서 **만들기** 단추를 클릭하고 Azure에서 체험판 MongoDB 데이터베이스를 만들면 됩니다. 데이터베이스를 만든 후에는 포털에서 **연결 문자열** 로 이동하여 이 자습서의 뒷부분에서 사용할 Azure Cosmos DB 연결 문자열을 검색합니다.
 >
 
-Cloud Shell에서 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 명령을 사용하여 Cosmos DB 계정을 만듭니다.
+Cloud Shell에서 [`az cosmosdb create`](/cli/azure/cosmosdb#az_cosmosdb_create) 명령을 사용하여 Cosmos DB 계정을 만듭니다.
 
 다음 명령에서 *\<cosmosdb-name>* 자리 표시자를 고유한 Cosmos DB 이름으로 바꿉니다. 이 이름은 Cosmos DB 엔드포인트(`https://<cosmosdb-name>.documents.azure.com/`)의 일부로 사용되므로 Azure의 모든 Cosmos DB 계정에서 고유해야 합니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-50자 사이여야 합니다.
 
@@ -164,7 +163,7 @@ Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를
 
 ### <a name="retrieve-the-database-key"></a>데이터베이스 키 검색
 
-Cosmos DB 데이터베이스에 연결하려면 데이터베이스 키가 필요합니다. Cloud Shell에서 [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) 명령을 사용하여 기본 키를 검색합니다.
+Cosmos DB 데이터베이스에 연결하려면 데이터베이스 키가 필요합니다. Cloud Shell에서 [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az-cosmosdb-list-keys) 명령을 사용하여 기본 키를 검색합니다.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
@@ -277,7 +276,7 @@ MEAN.JS
 
 기본적으로 MEAN.js 프로젝트는 _config/env/local-production.js_ 를 Git 리포지토리 외부에 둡니다. 따라서 Azure 앱의 경우 앱 설정을 사용하여 MongoDB 연결 문자열을 정의합니다.
 
-앱 설정을 지정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 
+앱 설정을 지정하려면 Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) 명령을 사용합니다. 
 
 다음 예제에서는 Azure 앱에 `MONGODB_URI` 앱 설정을 구성합니다. *\<app-name>* , *\<cosmosdb-name>* 및 *\<primary-master-key>* 자리 표시자를 바꿉니다.
 
@@ -287,7 +286,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 Node.js 코드에서는 다른 환경 변수에 액세스할 때와 마찬가지로 `process.env.MONGODB_URI`를 사용하여 [이 앱 설정에 액세스](configure-language-nodejs.md#access-environment-variables)합니다. 
 
-로컬 MEAN.js 리포지토리에서 _config/env/production.js_ ( _config/env/local-production.js_ 아님)를 엽니다. 여기에는 프로덕션 환경 특정 구성이 있습니다. 기본 MEAN.js 앱은 만든 `MONGODB_URI` 환경 변수를 사용하도록 이미 구성되어 있습니다.
+로컬 MEAN.js 리포지토리에서 _config/env/production.js_(_config/env/local-production.js_ 아님)를 엽니다. 여기에는 프로덕션 환경 특정 구성이 있습니다. 기본 MEAN.js 앱은 만든 `MONGODB_URI` 환경 변수를 사용하도록 이미 구성되어 있습니다.
 
 ```javascript
 db: {
@@ -483,7 +482,7 @@ git push azure master
 
 Node.js 애플리케이션이 Azure App Service에서 실행되는 동안 콘솔 로그를 터미널에 파이프할 수 있습니다. 이 방법으로 애플리케이션 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
 
-로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 명령을 사용합니다.
+로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) 명령을 사용합니다.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

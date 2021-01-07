@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4f5328bbe21bb5f4a7947d5a495f4a0c8759c8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41aec98c2a8776ae128389679ad0acb324596ec4
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87315640"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546831"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -58,12 +58,12 @@ Azure App Service에 대한 앱 설정을 만들어 Application Insights Profile
 
 |앱 설정    | 미국 정부 값| 중국 클라우드 |   
 |---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | `https://agent.serviceprofiler.azure.us`    | `https://profiler.applicationinsights.azure.cn` |
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ## <a name="disable-profiler"></a>Profiler 사용 안 함
 
-개별 앱 인스턴스에서 Profiler를 중지하거나 다시 시작하려면 **WebJobs**에서 ApplicationInsightsProfiler3라는 webjob을 중지합니다. 위에서 설명한 대로 Application Insights 페이지에서 스위치를 사용하여 프로파일러를 사용하지 않도록 설정하더라도 프로파일러 프로세스는 계속 실행됩니다. 프로파일러가 설정 여부를 확인합니다. 사용하지 않도록 설정하면 다시 확인하기 전에 일정 시간 동안 절전 모드로 전환됩니다. 사용하지 않도록 설정하면 프로파일링을 수행하지 않습니다. 이 webjob을 사용하지 않도록 설정하면 프로파일러 프로세스가 전혀 실행되지 않으며, 설정 여부도 확인하지 않습니다.
+개별 앱 인스턴스에서 Profiler를 중지하거나 다시 시작하려면 **WebJobs** 에서 ApplicationInsightsProfiler3라는 webjob을 중지합니다. 위에서 설명한 대로 Application Insights 페이지에서 스위치를 사용하여 프로파일러를 사용하지 않도록 설정하더라도 프로파일러 프로세스는 계속 실행됩니다. 프로파일러가 설정 여부를 확인합니다. 사용하지 않도록 설정하면 다시 확인하기 전에 일정 시간 동안 절전 모드로 전환됩니다. 사용하지 않도록 설정하면 프로파일링을 수행하지 않습니다. 이 webjob을 사용하지 않도록 설정하면 프로파일러 프로세스가 전혀 실행되지 않으며, 설정 여부도 확인하지 않습니다.
 
   ![웹 작업에 대한 Profiler 사용 안 함][disable-profiler-webjob]
 

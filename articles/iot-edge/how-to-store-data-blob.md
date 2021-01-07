@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e1031df9f305015048de7f708123a51875776e1b
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219737"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760591"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -53,7 +53,7 @@ Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전�
 * Blob이 자동으로 삭제 되는 시간 (분)을 지정 합니다 (deleteAfterMinutes).
 * DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure IoT Edge 디바이스:
 
@@ -71,7 +71,7 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>deviceToCloudUpload 및 deviceAutoDelete 속성
 
-모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. `reported configuration`값이 올바르게 전파 되도록 및의 "모듈 쌍"을 확인 하는 것이 좋습니다 `configurationValidation` .
+모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties** 를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. `reported configuration`값이 올바르게 전파 되도록 및의 "모듈 쌍"을 확인 하는 것이 좋습니다 `configurationValidation` .
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
@@ -81,7 +81,7 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 | ----- | ----- | ---- |
 | uploadOn | true, false | `false`기본적으로로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 설정 `true` 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. `OldestFirst`기본적으로로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key` ,를 지정 `End point suffix` 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` 데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key` ,를 지정 `End point suffix` 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. SAS 권한에는 컨테이너에 대 한 만들기 액세스 권한 및 blob에 대 한 만들기, 쓰기 및 추가 권한이 포함 될 수 있습니다.  <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 자동 할당 됩니다 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>` . 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15 자로 트리밍됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | `false`기본적으로로 설정 됩니다. 로 설정 되 면 `true` 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> **주의**: 추가 blob을 사용 하는 경우이 설정은 성공적으로 업로드 한 후 로컬 저장소에서 추가 blob을 삭제 하 고 나중에 해당 blob에 대 한 추가 블록 작업이 실패 하 게 됩니다. 응용 프로그램이 드물게 추가 작업을 수행 하거나 연속 추가 작업을 지원 하지 않는 경우이 설정을 사용 하지 않도록 주의 하십시오.<br><br> 환경 `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` 변수: |
 
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```powershell
 $creds = Get-Credential
@@ -121,7 +121,7 @@ New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -
 
 IoT 장치의 사용자가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
 
-배포의 경우 값은 `<storage mount>` **G:/ContainerData: C:/BlobRoot**일 수 있습니다.
+배포의 경우 값은 `<storage mount>` **G:/ContainerData: C:/BlobRoot** 일 수 있습니다.
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Linux에서 컨테이너 사용자에 게 디렉터리 액세스 권한 부여
 
@@ -136,14 +136,14 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
 sudo chmod -R 700 /srv/containerdata
 ```
 
-**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이러한 경우에는 기본 또는 루트 그룹 ID를 사용 해야 `0` 합니다.
+**Absie** 이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이러한 경우에는 기본 또는 루트 그룹 ID를 사용 해야 `0` 합니다.
 
 ```json
 "createOptions": {
@@ -175,7 +175,7 @@ sudo chmod -R 700 <blob-dir>
   * `http://<fully qualified domain name>:11002/<account name>`
  
  > [!IMPORTANT]
- > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge 대/소문자를 구분 하 고, 저장소 SDK도 기본값인 소문자로 설정 합니다. [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) 모듈의 이름은 **Azureblobstorageoniotedge**이지만 이름을 소문자로 변경 하면 IoT Edge 모듈의 Azure Blob Storage에 대 한 연결이 중단 되지 않도록 할 수 있습니다.
+ > 모듈에 대 한 호출을 수행할 때 Azure IoT Edge 대/소문자를 구분 하 고, 저장소 SDK도 기본값인 소문자로 설정 합니다. [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) 모듈의 이름은 **Azureblobstorageoniotedge** 이지만 이름을 소문자로 변경 하면 IoT Edge 모듈의 Azure Blob Storage에 대 한 연결이 중단 되지 않도록 할 수 있습니다.
  
 ## <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob Storage 빠른 시작 샘플
 

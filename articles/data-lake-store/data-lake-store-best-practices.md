@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a5c5f9a4033b70a664071d6077a69f38c905093
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667744"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452230"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -37,7 +37,7 @@ Data Lake Storage Gen1에서 빅 데이터로 작업할 때는 대부분의 경�
 
 ### <a name="security-for-groups"></a>그룹에 대한 보안
 
-설명한 대로 사용자가 Data Lake Storage Gen1에 액세스해야 하는 경우 Azure Active Directory 보안 그룹을 사용하는 것이 가장 좋습니다. 시작하는 데 권장되는 몇 가지 그룹은 계정의 루트에 대해 **ReadOnlyUsers**, **WriteAccessUsers** 및 **FullAccessUsers**이고, 키 하위 폴더에 대해서는 별도의 그룹일 수도 있습니다. 나중에 추가될 수 있지만 아직은 확인되지 않은 것으로 예상되는 다른 사용자 그룹이 있는 경우, 특정 폴더에 대한 액세스 권한이 있는 더미 보안 그룹을 만드는 것을 고려할 수 있습니다. 보안 그룹을 사용하면 나중에 수천 개의 파일에 새 권한을 할당하는 데 긴 처리 시간이 필요하지 않습니다.
+설명한 대로 사용자가 Data Lake Storage Gen1에 액세스해야 하는 경우 Azure Active Directory 보안 그룹을 사용하는 것이 가장 좋습니다. 시작하는 데 권장되는 몇 가지 그룹은 계정의 루트에 대해 **ReadOnlyUsers**, **WriteAccessUsers** 및 **FullAccessUsers** 이고, 키 하위 폴더에 대해서는 별도의 그룹일 수도 있습니다. 나중에 추가될 수 있지만 아직은 확인되지 않은 것으로 예상되는 다른 사용자 그룹이 있는 경우, 특정 폴더에 대한 액세스 권한이 있는 더미 보안 그룹을 만드는 것을 고려할 수 있습니다. 보안 그룹을 사용하면 나중에 수천 개의 파일에 새 권한을 할당하는 데 긴 처리 시간이 필요하지 않습니다.
 
 ### <a name="security-for-service-principals"></a>서비스 사용자에 대한 보안
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스
 
 ![Data Lake Storage Gen1 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Data Lake Storage Gen1 방화벽 설정")
 
-방화벽이 사용 하도록 설정 되 면 HDInsight, Data Factory, Azure Synapse Analytics (이전의 SQL Data Warehouse) 등의 Azure 서비스만 Data Lake Storage Gen1에 액세스할 수 있습니다. Azure에서 사용하는 내부 네트워크 주소 변환으로 인해 Data Lake Storage Gen1 방화벽에서는 IP를 통해 특정 서비스를 제한할 수 없으며, 온-프레미스와 같은 Azure 외부 엔드포인트에 대한 제한에만 사용됩니다.
+방화벽이 사용 하도록 설정 되 면 HDInsight, Data Factory, Azure Synapse Analytics 등의 Azure 서비스만 Data Lake Storage Gen1에 액세스할 수 있습니다. Azure에서 사용하는 내부 네트워크 주소 변환으로 인해 Data Lake Storage Gen1 방화벽에서는 IP를 통해 특정 서비스를 제한할 수 없으며, 온-프레미스와 같은 Azure 외부 엔드포인트에 대한 제한에만 사용됩니다.
 
 ## <a name="performance-and-scale-considerations"></a>성능 및 크기 조정 고려 사항
 
@@ -72,7 +72,7 @@ Data Lake Storage Gen1의 POSIX 권한 및 감사에는 수많은 작은 파일�
 
 ### <a name="large-file-sizes-and-potential-performance-impact"></a>큰 파일 크기 및 성능에 대한 잠재적 영향
 
-Data Lake Storage Gen1은 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp**를 사용하여 위치 또는 다른 스토리지 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.
+Data Lake Storage Gen1은 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp** 를 사용하여 위치 또는 다른 스토리지 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.
 
 고려해야 할 또 다른 예는 Data Lake Storage Gen1에서 Azure Data Lake Analytics를 사용하는 경우입니다. 추출기에서 수행되는 처리에 따라 분할할 수 없는 일부 파일(예: XML, JSON)은 2GB보다 큰 경우 성능이 저하될 수 있습니다. 추출기에서 파일(예: CSV)을 분할할 수 있는 경우 큰 파일을 사용하도록 기본 설정됩니다.
 
@@ -104,7 +104,7 @@ Data Lake Storage Gen1을 사용하여 데이터를 복원하는 경우 HA/DR �
 |**델타 복사 지원**     |   예      | 아니요         | 아니요         |
 |**기본 제공 오케스트레이션**     |  아니요(Oozie Airflow 또는 cron 작업 사용)       | 예        | 아니요(Azure Automation 또는 Windows 작업 스케줄러 사용)         |
 |**지원되는 파일 시스템**     | ADL, HDFS, WASB, S3, GS, CFS        |많음, [커넥터](../data-factory/connector-azure-blob-storage.md) 참조         | ADL 간, WASB 및 ADL 간(동일한 지역에만 해당)        |
-|**OS 지원**     |Hadoop을 실행하는 모든 OS         | N/A          | 윈도우 10         |
+|**OS 지원**     |Hadoop을 실행하는 모든 OS         | 해당 없음          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>두 위치 간 데이터 이동에 Distcp 사용
 
@@ -114,7 +114,7 @@ Distcp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 �
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Azure Data Factory를 사용하여 복사 작업 예약
 
-Azure Data Factory 복사 **작업**을 사용 하 여 복사 작업을 예약 하는 데 사용할 수도 있으며, **복사 마법사**를 통해 빈도로 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Storage Gen1 계정 간에 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 폴더에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [복사 활동 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요.
+Azure Data Factory 복사 **작업** 을 사용 하 여 복사 작업을 예약 하는 데 사용할 수도 있으며, **복사 마법사** 를 통해 빈도로 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Storage Gen1 계정 간에 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 폴더에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [복사 활동 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요.
 
 ### <a name="adlcopy"></a>AdlCopy
 
@@ -132,13 +132,13 @@ hdfs dfs -du -s -h adl://<adlsg1_account_name>.azuredatalakestore.net:443/
 
 ### <a name="export-data-lake-storage-gen1-diagnostics"></a>Data Lake Storage Gen1 진단 내보내기
 
-Data Lake Storage Gen1에서 검색 가능한 로그에 액세스하는 가장 빠른 방법 중 하나는 Data Lake Storage Gen1 계정에 대한 **진단** 블레이드 아래에서 **Log Analytics**로 로그를 전달하도록 설정하는 것입니다. 이렇게 하면 15분 간격으로 트리거되는 경고 옵션(이메일/웹후크)과 함께 시간 및 콘텐츠 필터를 사용하여 들어오는 로그에 즉시 액세스할 수 있습니다. 지침은 [Azure Data Lake Storage Gen1에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)를 참조하세요.
+Data Lake Storage Gen1에서 검색 가능한 로그에 액세스하는 가장 빠른 방법 중 하나는 Data Lake Storage Gen1 계정에 대한 **진단** 블레이드 아래에서 **Log Analytics** 로 로그를 전달하도록 설정하는 것입니다. 이렇게 하면 15분 간격으로 트리거되는 경고 옵션(이메일/웹후크)과 함께 시간 및 콘텐츠 필터를 사용하여 들어오는 로그에 즉시 액세스할 수 있습니다. 지침은 [Azure Data Lake Storage Gen1에 대한 진단 로그 액세스](data-lake-store-diagnostic-logs.md)를 참조하세요.
 
 실시간으로 더 많이 경고하고 로그를 기록할 위치를 더 많이 제어하려면 개별적으로 또는 시간 범위에 대해 콘텐츠를 분석하여 실시간 알림을 큐에 전송할 수 있는 Azure EventHub로 로그를 내보내는 것이 좋습니다. [Logic App](../connectors/connectors-create-api-azure-event-hubs.md)과 같은 별도의 애플리케이션에서 적절한 채널로 경고를 사용하고 전달할 수 있을 뿐만 아니라 NewRelic, Datadog 또는 AppDynamics와 같은 모니터링 도구에 메트릭을 제출할 수도 있습니다. 또는 ElasticSearch와 같은 타사 도구를 사용하는 경우, 로그를 Blob Storage로 내보내고 [Azure Logstash 플러그 인](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)을 사용하여 데이터를 ELK(Elasticsearch, Kibana 및 Logstash) 스택으로 사용할 수 있습니다.
 
 ### <a name="turn-on-debug-level-logging-in-hdinsight"></a>HDInsight에서 디버그 수준 로깅 설정
 
-Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4j를 통해 [Data Lake Storage Gen1에 대한 클라이언트 쪽 로깅](data-lake-store-performance-tuning-mapreduce.md)을 사용하도록 설정하는 방법을 제공합니다. **Ambari**  >  **YARN**  >  **Config**  >  **Advanced YARN-log4j 구성**에서 다음 속성을 설정 해야 합니다.
+Data Lake Storage Gen1 로그 전달이 켜져 있지 않으면 Azure HDInsight는 log4j를 통해 [Data Lake Storage Gen1에 대한 클라이언트 쪽 로깅](data-lake-store-performance-tuning-mapreduce.md)을 사용하도록 설정하는 방법을 제공합니다. **Ambari**  >  **YARN**  >  **Config**  >  **Advanced YARN-log4j 구성** 에서 다음 속성을 설정 해야 합니다.
 
 `log4j.logger.com.microsoft.azure.datalake.store=DEBUG`
 

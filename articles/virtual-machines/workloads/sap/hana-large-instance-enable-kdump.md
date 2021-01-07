@@ -7,18 +7,19 @@ author: prtyag
 manager: hrushib
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379267"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654475"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>HLI (Azure의 SAP HANA(대규모 인스턴스) 용 kdump)
 
@@ -28,11 +29,11 @@ Kdump를 구성 하 고 사용 하도록 설정 하는 것은 명백한 원인�
 
 ## <a name="enable-kdump-service"></a>Kdump 서비스 사용
 
-이 문서에서는 Azure HANA Large Instance에서 Kdump 서비스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용 ( **유형 I 및 유형 II** )을 설명 합니다.
+이 문서에서는 Azure HANA Large Instance에서 Kdump 서비스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용 (**유형 I 및 유형 II**)을 설명 합니다.
 
 ## <a name="supported-skus"></a>지원되는 SKU
 
-|  Hana Large Instance 유형   |  OS 공급 업체   |  OS 패키지 버전   |  SKU        |
+|  Hana Large Instance 유형   |  OS 공급 업체   |  OS 패키지 버전   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   입력 I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   입력 I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
@@ -61,7 +62,7 @@ Kdump를 구성 하 고 사용 하도록 설정 하는 것은 명백한 원인�
 |   형식 II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   형식 II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Kdump 서비스는 디렉터리를 사용 하 여 `/var/crash` 덤프를 쓰고,이 디렉터리에 해당 하는 파티션에 덤프를 수용할 수 있는 충분 한 공간이 있는지 확인 합니다.
 

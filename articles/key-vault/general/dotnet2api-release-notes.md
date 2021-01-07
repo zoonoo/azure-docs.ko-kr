@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189841"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013958"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - 릴리스 정보 및 마이그레이션 가이드
-다음 정보는 C# 및 .NET용 Azure Key Vault 라이브러리 2.0 버전으로 마이그레이션하는 데 도움이됩니다.  이전 버전용으로 작성된 앱은 최신 버전을 지원하도록 업데이트해야 합니다.  이러한 변경 사항은 **Key Vault 인증서**와 같이 새롭고 향상된 기능을 완벽하게 지원하는 데 필요합니다.
+다음 정보는 C# 및 .NET용 Azure Key Vault 라이브러리 2.0 버전으로 마이그레이션하는 데 도움이됩니다.  이전 버전용으로 작성된 앱은 최신 버전을 지원하도록 업데이트해야 합니다.  이러한 변경 사항은 **Key Vault 인증서** 와 같이 새롭고 향상된 기능을 완벽하게 지원하는 데 필요합니다.
 
 ## <a name="key-vault-certificates"></a>Key Vault 인증서
 
@@ -32,40 +32,40 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 ## <a name="net-support"></a>.NET 지원
 
-* **.NET 4.0**은 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
-* **.NET Framework 4.5.2**는 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
-* **.NET Standard 1.4**는 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
+* **.NET 4.0** 은 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
+* **.NET Framework 4.5.2** 는 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
+* **.NET Standard 1.4** 는 Azure Key Vault .NET 라이브러리의 2.0 버전에서 지원되지 않습니다.
 
 ## <a name="namespaces"></a>네임스페이스
 
-* **모델**의 네임스페이스는 **Microsoft.Azure.KeyVault**에서 **Microsoft.Azure.KeyVault.Models**로 변경됩니다.
+* **모델** 의 네임스페이스는 **Microsoft.Azure.KeyVault** 에서 **Microsoft.Azure.KeyVault.Models** 로 변경됩니다.
 * **Microsoft.Azure.KeyVault.Internal** 네임스페이스는 삭제됩니다.
 * 다음 Azure SDK 종속성 네임스페이스가 있습니다. 
 
-    - **Hyak.Common**은 이제 **Microsoft.Rest**입니다.
-    - **Hyak.Common.Internals**는 이제 **Microsoft.Rest.Serialization**입니다.
+    - **Hyak.Common** 은 이제 **Microsoft.Rest** 입니다.
+    - **Hyak.Common.Internals** 는 이제 **Microsoft.Rest.Serialization** 입니다.
 
 ## <a name="type-changes"></a>유형 변경
 
-* *비밀*을 *SecretBundle*로 변경
-* *사전*을 *IDictionary*로 변경
+* *비밀* 을 *SecretBundle* 로 변경
+* *사전* 을 *IDictionary* 로 변경
 * *목록\<T>, string []* 을 *IList\<T>* 로 변경
-* *NextList*를 *NextPageLink*로 변경
+* *NextList* 를 *NextPageLink* 로 변경
 
 ## <a name="return-types"></a>반환 형식
 
-* 이제 **KeyList** 및 **SecretList**는 *ListKeysResponseMessage* 대신 *IPage\<T>* 를 반환합니다.
-* 생성된 **BackupKeyAsync**는 *값*(백업 blob)을 포함하는 *BackupKeyResult*를 반환합니다. 이전에는 메서드가 래핑되고 해당 값만 반환되었습니다.
+* 이제 **KeyList** 및 **SecretList** 는 *ListKeysResponseMessage* 대신 *IPage\<T>* 를 반환합니다.
+* 생성된 **BackupKeyAsync** 는 *값*(백업 blob)을 포함하는 *BackupKeyResult* 를 반환합니다. 이전에는 메서드가 래핑되고 해당 값만 반환되었습니다.
 
 ## <a name="exceptions"></a>예외
 
-* *KeyVaultClientException*를 *KeyVaultErrorException*로 변경합니다.
-* 서비스 오류는 *exception.Error*에서 *exception.Body.Error.Message*로 변경되었습니다.
+* *KeyVaultClientException* 를 *KeyVaultErrorException* 로 변경합니다.
+* 서비스 오류는 *exception.Error* 에서 *exception.Body.Error.Message* 로 변경되었습니다.
 * **[JsonExtensionData]** 에 대한 오류 메시지에서 추가 정보를 제거합니다.
 
 ## <a name="constructors"></a>생성자
 
-* *HttpClient*를 생성자 인수로 적용하는 대신 생성자는 *HttpClientHandler* 또는 *DelegatingHandler*만 허용합니다.
+* *HttpClient* 를 생성자 인수로 적용하는 대신 생성자는 *HttpClientHandler* 또는 *DelegatingHandler* 만 허용합니다.
 
 ## <a name="downloaded-packages"></a>다운로드한 패키지
 
@@ -91,7 +91,7 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 ## <a name="class-changes"></a>클래스 변경
 
 * 가 수 **Xepoch** 클래스가 제거 되었습니다.
-* **Base64UrlConverter** 클래스의 이름이 **Base64UrlJsonConverter**로 바뀌었습니다.
+* **Base64UrlConverter** 클래스의 이름이 **Base64UrlJsonConverter** 로 바뀌었습니다.
 
 ## <a name="other-changes"></a>기타 변경 내용
 
@@ -99,11 +99,11 @@ Key Vault 인증서는 x509 인증서를 관리하고 다음 동작을 지원합
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* *자격 증명 모음*을 반환 하는 작업의 경우 반환 형식은 **자격 증명 모음** 속성을 포함 하는 클래스 였습니다. 반환 유형은 이제 *자격 증명 모음*입니다.
-* *PermissionsToKeys* 및 *PermissionsToSecrets*는 이제 *Permissions.Keys* 및 *Permissions.Secrets*입니다.
+* *자격 증명 모음* 을 반환 하는 작업의 경우 반환 형식은 **자격 증명 모음** 속성을 포함 하는 클래스 였습니다. 반환 유형은 이제 *자격 증명 모음* 입니다.
+* *PermissionsToKeys* 및 *PermissionsToSecrets* 는 이제 *Permissions.Keys* 및 *Permissions.Secrets* 입니다.
 * 특정 반환 형식 변경 내용은 제어 평면에도 적용됩니다.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 
-* 패키지는 암호화 작업에 대해 **Microsoft.Azure.KeyVault.Extensions** 및 **Microsoft.Azure.KeyVault.Cryptography**로 나눠집니다.
+* 패키지는 암호화 작업에 대해 **Microsoft.Azure.KeyVault.Extensions** 및 **Microsoft.Azure.KeyVault.Cryptography** 로 나눠집니다.
 

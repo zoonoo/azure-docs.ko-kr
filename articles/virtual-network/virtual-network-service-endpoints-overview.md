@@ -14,17 +14,17 @@ ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
 ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004945"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
 VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 최적화 된 경로를 통해 Azure 서비스에 대 한 안전한 직접 연결을 제공 합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 서비스 끝점을 통해 vnet의 개인 IP 주소는 VNet에서 공용 IP 주소가 없어도 Azure 서비스의 끝점에 연결할 수 있습니다.
 
-이 기능은 다음과 같은 Azure 서비스 및 지역에서 사용할 수 있습니다. *Microsoft. \* * 리소스는 괄호 안에 있습니다. 서비스에 대 한 서비스 끝점을 구성 하는 동안 서브넷 쪽에서이 리소스를 사용 하도록 설정 합니다.
+이 기능은 다음과 같은 Azure 서비스 및 지역에서 사용할 수 있습니다. *Microsoft. \** 리소스는 괄호 안에 있습니다. 서비스에 대 한 서비스 끝점을 구성 하는 동안 서브넷 쪽에서이 리소스를 사용 하도록 설정 합니다.
 
 **일반 공급**
 
@@ -77,11 +77,11 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
   기본적으로 가상 네트워크에 대해 보호 된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute의 공용 IP 주소(일반적으로 NAT)도 허용해야 합니다. Azure 서비스 리소스에 대 한 IP 방화벽 구성을 통해 이러한 IP 주소를 추가할 수 있습니다.
 
-  Express 경로: 공용 피어 링 또는 온-프레미스의 Microsoft 피어 링에 대해 [express](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 경로를 사용 하는 경우 사용 중인 NAT IP 주소를 식별 해야 합니다. 공용 피어 링의 경우 각 Express 경로 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용 되는 두 개의 NAT IP 주소를 기본적으로 사용 합니다. Microsoft 피어 링의 경우 NAT IP 주소는 서비스 공급자가 제공 하거나 제공 하는 고객입니다.서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다.ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Express 경로 공용 및 Microsoft 피어 링의 NAT에 대 한 자세한 내용은 [express 경로 nat 요구 사항](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)을 참조 하세요.
+  Express 경로: 공용 피어 링 또는 온-프레미스의 Microsoft 피어 링에 대해 [express](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 경로를 사용 하는 경우 사용 중인 NAT IP 주소를 식별 해야 합니다. 공용 피어 링의 경우 각 Express 경로 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용 되는 두 개의 NAT IP 주소를 기본적으로 사용 합니다. Microsoft 피어 링의 경우 NAT IP 주소는 서비스 공급자가 제공 하거나 제공 하는 고객입니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Express 경로 공용 및 Microsoft 피어 링의 NAT에 대 한 자세한 내용은 [express 경로 nat 요구 사항](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)을 참조 하세요.
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 - 가상 네트워크의 서브넷에서 서비스 끝점을 구성 합니다. 엔드포인트는 해당 서브넷 내에서 실행되는 모든 컴퓨팅 인스턴스를 사용합니다.
 - 모든 지원 되는 Azure 서비스 (예: 서브넷에 대해 지원 되는 모든 Azure 서비스 Azure Storage 또는 Azure SQL Database)에 대해 여러 서비스 끝점을 구성할 수 있습니다.
@@ -114,7 +114,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 - 서비스 진단에서 모든 서비스 요청의 원본 IP 주소 유효성을 검사합니다. 서비스 엔드포인트에서 모든 새로운 요청은 요청의 원본 IP 주소를 가상 네트워크 개인 IP 주소로 표시하고 가상 네트워크에서 요청한 클라이언트에 할당됩니다. 엔드포인트가 없는 경우 주소는 Azure 공용 IP 주소입니다.
 - 서브넷의 모든 네트워크 인터페이스에서 유효 경로를 볼 수 있습니다. 서비스에 대한 경로:
   - 각 서비스의 주소를 지정하는 구체적인 기본 경로를 표시합니다.
-  - *VirtualNetworkServiceEndpoint*의 nextHopType이 있습니다.
+  - *VirtualNetworkServiceEndpoint* 의 nextHopType이 있습니다.
   - 강제 터널링 경로에 비해 서비스에 대 한 직접 연결이 적용 됨을 나타냅니다.
 
 >[!NOTE]
@@ -140,7 +140,7 @@ Azure Storage 계정과 같은 특정 Azure 서비스는 리소스를 보호 하
 
 VNet 서비스 끝점 정책을 통해 Azure 서비스에 대 한 가상 네트워크 트래픽을 필터링 할 수 있습니다. 이 필터는 서비스 끝점에 대 한 특정 Azure 서비스 리소스만 허용 합니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 내용은 [Virtual Network 서비스 끝점 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)을 참조 하세요.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 Faq는 [Virtual Network 서비스 끝점 faq](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)를 참조 하세요.
 

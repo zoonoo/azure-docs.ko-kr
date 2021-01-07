@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130768"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025262"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -236,7 +236,7 @@ ms.locfileid: "93130768"
 
     ![오른쪽 상단 메뉴의 엔드포인트 단추에 LUIS 게시 스크린샷](./media/howto-publish/publish-button.png)
 
-1. **프로덕션** 슬롯, **설정 변경** , **감정 분석** , **완료** 를 차례로 선택합니다.
+1. **프로덕션** 슬롯, **설정 변경**, **감정 분석**, **완료** 를 차례로 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > ![엔드포인트에 LUIS 게시 스크린샷](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
@@ -297,7 +297,7 @@ ms.locfileid: "93130768"
 
 ## <a name="related-information"></a>관련 정보
 
-* [자습서 - 의도](luis-quickstart-intents-only.md)
+* [자습서 - 의도](./tutorial-intents-only.md)
 * [개념 - 엔터티](luis-concept-entity-types.md) 개념 정보
 * [개념 - 기능](luis-concept-feature.md) 개념 정보
 * [학습 방법](luis-how-to-train.md)
@@ -309,4 +309,4 @@ ms.locfileid: "93130768"
 이 자습서에서 앱은 기계 학습 엔터티를 사용하여 사용자의 발화 의도를 찾고 해당 발화에서 세부 정보를 추출합니다. 기계 학습 엔터티를 사용하면 엔터티의 세부 정보를 분해할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [미리 작성된 keyphrase 엔터티 추가](luis-quickstart-intent-and-key-phrase.md)
+> [미리 작성된 keyphrase 엔터티 추가](./luis-reference-prebuilt-keyphrase.md)

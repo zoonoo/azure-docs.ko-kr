@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357457"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024520"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "91357457"
 
 ## <a name="core-features"></a>핵심 기능
 
-* 음성 합성-표준, 신경망 또는 사용자 지정 음성을 사용 하 여 텍스트를 음성으로 변환 하려면 [음성 SDK](quickstarts/text-to-speech-audio-file.md) 또는 [REST API](rest-text-to-speech.md) 을 사용 합니다.
+* 음성 합성-표준, 신경망 또는 사용자 지정 음성을 사용 하 여 텍스트를 음성으로 변환 하려면 [음성 SDK](./get-started-text-to-speech.md) 또는 [REST API](rest-text-to-speech.md) 을 사용 합니다.
 
 * 긴 오디오의 비동기 합성- [긴 오디오 API](long-audio-api.md) 를 사용 하 여 10 분 (예: 오디오 서적 또는 강의) 보다 긴 텍스트 음성 변환 파일을 비동기적으로 합성 합니다. 음성 SDK 또는 음성-텍스트 REST API를 사용 하 여 수행 하는 합성과 달리 응답은 실시간으로 반환 되지 않습니다. 요청이 비동기적으로 전송 되 고, 응답이 폴링 되며, 서비스에서 사용할 수 있게 되 면 합성 오디오가 다운로드 됩니다. 사용자 지정 신경망만 지원 됩니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "91357457"
 
 * SSML (speech 합성 Markup Language)-음성 텍스트 출력을 사용자 지정 하는 데 사용 되는 XML 기반 태그 언어입니다. SSML를 사용 하면 피치를 조정 하 고, 일시 중지를 추가 하 고, 발음을 높이고, 속도를 높이 거 나 낮출 수 있으며, 볼륨을 늘리거나 줄일 수 있으며, 여러 음성 특성을 단일 문서로 사용할 수 있습니다. [SSML](speech-synthesis-markup.md)을 참조 하십시오.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 텍스트 음성 변환 시작을 위한 [빠른](get-started-text-to-speech.md) 시작을 참조 하세요. 텍스트 음성 변환 서비스는 [음성 SDK](speech-sdk.md), [REST API](rest-text-to-speech.md)및 [음성 CLI](spx-overview.md) 를 통해 사용할 수 있습니다.
 

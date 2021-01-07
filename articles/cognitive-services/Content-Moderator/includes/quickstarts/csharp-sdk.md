@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 793dc6d210751d0605ab756cd1c72b1dc5dd308f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8a715c23900ac0d5a16ff4a0a8ade5ea9458cfed
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918748"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561497"
 ---
 .NET용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 NuGet 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -24,9 +24,9 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 
 .NET용 Content Moderator 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
-* [텍스트 조정](#moderate-text)
-* [이미지 조정](#moderate-images)
-* [검토 만들기](#create-a-review)
+* 텍스트 조정
+* 이미지 조정
+* 검토 만들기
 
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](../../samples-dotnet.md)
 

@@ -8,11 +8,11 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322430"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000354"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -37,7 +37,7 @@ ms.locfileid: "91322430"
 
 ## <a name="how-we-solved-the-problem"></a>문제를 해결한 방법
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 를 로그 및 오류 레코드에 대 한 리포지토리로 선택 했습니다 (Cosmos DB 레코드를 문서로 참조). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리**에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") 를 로그 및 오류 레코드에 대 한 리포지토리로 선택 했습니다 (Cosmos DB 레코드를 문서로 참조). Azure Logic Apps에 모든 응답에 대한 표준 템플릿이 있으므로 사용자 지정 스키마를 만들 필요가 없습니다. 오류 및 로그 기록에 대한 **삽입** 및 **쿼리** 에 API 앱을 만들 수 있습니다. API 앱 내에서 각각에 대한 스키마를 정의할 수도 있습니다.  
 
 다른 요구 사항은 특정 날짜 이후 기록을 제거하는 것입니다. Cosmos DB에는 TTL ( [time To live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Ttl (Time to Live)") ) 이라는 속성이 있으며,이 속성을 통해 각 레코드 또는 컬렉션의 Ttl ( **time to live** ) 값을 설정할 수 있었습니다. 이 기능 덕분에 Cosmos DB에서 레코드를 수동으로 삭제할 필요가 없어졌습니다.
 
@@ -96,8 +96,8 @@ Dynamics CRM Online 포털에서 환자 기록의 원본(요청)을 로깅해야
 
 1. 먼저 Dynamics CRM Online에서 새 예약 기록을 가져와야 합니다.
 
-   CRM에서 오는 트리거는 **CRM PatentId**, **기록 종류**, **신규 또는 업데이트된 기록**(새로운 또는 업데이트된 부울 값) 및 **SalesforceId**를 제공합니다. 업데이트를 위해서만 사용되기 때문에 **SalesforceId** 는 null일 수 있습니다.
-   CRM **PatientID** 및 **기록 종류**를 사용하여 CRM 기록을 얻게 됩니다.
+   CRM에서 오는 트리거는 **CRM PatentId**, **기록 종류**, **신규 또는 업데이트된 기록**(새로운 또는 업데이트된 부울 값) 및 **SalesforceId** 를 제공합니다. 업데이트를 위해서만 사용되기 때문에 **SalesforceId** 는 null일 수 있습니다.
+   CRM **PatientID** 및 **기록 종류** 를 사용하여 CRM 기록을 얻게 됩니다.
 
 2. 다음으로 논리 앱 디자이너에서 Azure Cosmos DB SQL API 앱 **InsertLogEntry** 작업을 여기에 나온 것처럼 추가해야 합니다.
 
@@ -422,8 +422,8 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 오픈 소스 Azure Logic Apps 예외 관리 API 앱은 여기에서 설명한 기능을 제공합니다. 두 개의 컨트롤러가 있습니다.
 
-* **ErrorController**는 Azure Cosmos DB 컬렉션에 오류 레코드(문서)를 삽입합니다.
-* **LogController**는 Azure Cosmos DB 컬렉션에 로그 레코드(문서)를 삽입합니다.
+* **ErrorController** 는 Azure Cosmos DB 컬렉션에 오류 레코드(문서)를 삽입합니다.
+* **LogController** 는 Azure Cosmos DB 컬렉션에 로그 레코드(문서)를 삽입합니다.
 
 > [!TIP]
 > 두 컨트롤러 모두 `async Task<dynamic>` 작업을 사용하여 작업이 런타임에 해결되도록 하므로 작업의 본문에서 Azure Cosmos DB 스키마를 만들 수 있습니다. 
@@ -466,7 +466,7 @@ Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `Patien
  }
 ```
 
-위의 코드 예제에서 식은 *Create_NewPatientRecord* 상태, **Failed**를 확인합니다.
+위의 코드 예제에서 식은 *Create_NewPatientRecord* 상태, **Failed** 를 확인합니다.
 
 ## <a name="summary"></a>요약
 

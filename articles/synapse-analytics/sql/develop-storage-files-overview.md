@@ -1,22 +1,22 @@
 ---
-title: 서버리스 SQL 풀의 스토리지에 있는 파일 액세스(미리 보기)
-description: Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀의 스토리지에 있는 파일 액세스
+description: Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일을 쿼리하는 방법을 설명합니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 82a4ded3a64a8a8bbc62f99a8854eb6d2b5f0d0b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315927"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446580"
 ---
-# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 외부 스토리지에 액세스
+# <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 외부 스토리지에 액세스
 
 이 문서에서는 사용자가 서버리스 SQL 풀의 Azure Storage에 저장된 파일에서 데이터를 읽을 수 있는 방법을 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
 

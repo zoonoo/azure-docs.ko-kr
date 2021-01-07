@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305747"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725023"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소 버린 클라우드 패리티
 
@@ -56,7 +56,7 @@ ms.locfileid: "93305747"
 | 작업 영역 노트북 및 파일 공유                                        | GA                   | YES                | YES         |
 | R 및 Python 지원                                                       | GA                   | YES                | YES         |
 | Virtual Network 지원                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
-| **컴퓨팅 인스턴스** |   |  | | 
+| **계산 인스턴스** |   |  | | 
 | 통합 전자 필기장에 대 한 관리 되는 계산 인스턴스                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab 통합                                            | GA                   | YES                | YES         |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기       | YES                | YES         |
@@ -92,7 +92,7 @@ ms.locfileid: "93305747"
 | ML 지원 레이블 지정 (이미지 분류 및 개체 검색)           | 공개 미리 보기       | YES                | YES         |
 | **Responsible ML** |   | | |
 | UI의 Explainability                                                       | 공개 미리 보기       | 아니요                 | 아니요          |
-| 차등 개인 정보 WhiteNoise 도구 키트                                    | .OSS                  | 아니요                 | 아니요          |
+| 차등 개인 정보 SmartNoise 도구 키트                                    | .OSS                  | 아니요                 | 아니요          |
 | 데이터 시트를 구현 하 Azure Machine Learning의 사용자 지정 태그              | GA                   | 아니요                 | 아니요          |
 | 공평 AzureML 통합                                               | 공개 미리 보기       | 아니요                 | 아니요          |
 | Interpretability SDK                                                      | GA                   | YES                | YES         |
@@ -169,7 +169,7 @@ ms.locfileid: "93305747"
 | 작업 영역 노트북 및 파일 공유                                        | GA               | YES       | 해당 없음        |
 | R 및 Python 지원                                                       | GA               | YES       | 해당 없음        |
 | Virtual Network 지원                                                    | 공개 미리 보기   | 아니요        | 해당 없음        |
-| **컴퓨팅 인스턴스** |    | | |
+| **계산 인스턴스** |    | | |
 | 통합 전자 필기장에 대 한 관리 되는 계산 인스턴스                         | GA               | 아니요        | 해당 없음        |
 | Jupyter, JupyterLab 통합                                            | GA               | YES       | 해당 없음        |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기   | YES       | 해당 없음        |
@@ -205,7 +205,7 @@ ms.locfileid: "93305747"
 | ML 지원 레이블 지정 (이미지 분류 및 개체 검색)           | 공개 미리 보기   | YES       | 해당 없음        |
 | **Responsible ML** |    | | |
 | UI의 Explainability                                                       | 공개 미리 보기   | 아니요        | 해당 없음        |
-| 차등 개인 정보 WhiteNoise 도구 키트                                    | .OSS              | 아니요        | 해당 없음        |
+| 차등 개인 정보 SmartNoise 도구 키트                                    | .OSS              | 아니요        | 해당 없음        |
 | 데이터 시트를 구현 하 Azure Machine Learning의 사용자 지정 태그              | GA               | 아니요        | 해당 없음        |
 | 공평 AzureML 통합                                               | 공개 미리 보기   | 아니요        | 해당 없음        |
 | Interpretability SDK                                                      | GA               | YES       | 해당 없음        |

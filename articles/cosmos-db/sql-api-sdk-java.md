@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 12/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 87ff11c33c909c7398ebced54ec81907dab2d991
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 59acbc545e6bb37ebd090ec458d98586de882133
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080535"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696276"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ ms.locfileid: "93080535"
 이는 동기화 작업을 지원하는 SQL API용 원본 Azure Cosmos DB Sync Java SDK v2입니다.
 
 > [!IMPORTANT]  
-> Azure Cosmos DB의 최신 Java SDK가 *아닙니다* . 프로젝트에 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)를 사용하는 것이 좋습니다. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션하기](migrate-java-v4-sdk.md) 안내서 및 [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) 안내서의 지침을 따르세요. 
+> Azure Cosmos DB의 최신 Java SDK가 *아닙니다*. 프로젝트에 [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md)를 사용하는 것이 좋습니다. 업그레이드하려면 [Azure Cosmos DB Java SDK v4로 마이그레이션하기](migrate-java-v4-sdk.md) 안내서 및 [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) 안내서의 지침을 따르세요. 
 >
 
 | |  |
@@ -53,6 +53,12 @@ ms.locfileid: "93080535"
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="261"></a><a name="2.6.1"></a>2.6.1
+* 서비스 interop를 통해 쿼리를 처리 하는 버그를 수정 했습니다.
+
+### <a name="260"></a><a name="2.6.0"></a>2.6.0
+* 특정 시점에서 변경 피드를 쿼리 하는 지원이 추가 되었습니다.
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * DocumentCollection 쿼리의 주 파티션 캐시 문제를 수정 합니다.
@@ -175,7 +181,7 @@ ms.locfileid: "93080535"
 * 컬렉션을 만든 후 즉시 요청에 대한 "소유자 리소스를 찾을 수 없습니다." 예외를 일으킬 수 있는 세션 컨테이너에 몇 가지 버그가 수정되었습니다.
 
 ### <a name="195"></a><a name="1.9.5"></a>1.9.5
-* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-query-aggregates.md)을 참조하세요.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-query-aggregate-functions.md)을 참조하세요.
 * 변경 피드에 대한 지원이 추가되었습니다.
 * RequestOptions.setPopulateQuotaInfo를 통한 컬렉션 할당량 정보에 대한 지원이 추가되었습니다.
 * RequestOptions.setScriptLoggingEnabled를 통한 저장 프로시저 스크립트에 대한 지원이 추가되었습니다.
@@ -271,6 +277,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
+| [2.6.0](#2.6.0) |2020년 7월 16일 |--- |
 | [2.5.1](#2.5.1) |June 03, 2020 |--- |
 | [2.5.0](#2.5.0) |2020년 5월 12일 |--- |
 | [2.4.7](#2.4.7) |2020년 2월 20일 |--- |

@@ -1,29 +1,29 @@
 ---
-title: SSPR 및 Azure Multi-Factor Authentication에 대 한 결합 된 등록-Azure Active Directory
-description: 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록할 수 있도록 하 Azure Active Directory에 대 한 결합 된 등록 환경에 대해 알아봅니다.
+title: SSPR 및 Azure AD Multi-Factor Authentication에 대 한 결합 된 등록-Azure Active Directory
+description: 사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록할 수 있도록 하 Azure Active Directory에 대 한 결합 된 등록 환경에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/04/2020
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378009"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96743907"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
-결합된 등록 전에는 사용자가 Azure Multi-Factor Authentication 및 SSPR(셀프 서비스 암호 재설정)에 대한 인증 방법을 별도로 등록했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
+결합 된 등록 전에 사용자는 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
 
 > [!NOTE]
-> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
+> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 12 월 14 일 2020부터 한 사용자가 있는 모든 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
 
 이 문서에서는 결합 된 보안 등록을 간략하게 설명 합니다. 결합 된 보안 등록을 시작 하려면 다음 문서를 참조 하세요.
 
@@ -51,18 +51,18 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-| 방법 | 등록 | 변경 | 삭제 |
+| 메서드 | 레지스터 | 변경 | 삭제 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 예 | yes |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 예 | yes |
-| 하드웨어 토큰 | 예 | 예 | yes |
-| 전화 | yes | yes | yes |
-| 대체 전화 | yes | yes | yes |
-| 사무실 전화 | yes | yes | yes |
-| Email | yes | yes | yes |
-| 본인 확인 질문 | yes | 예 | yes |
-| 앱 암호 | yes | 예 | yes |
-| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| yes | yes | yes |
+| Microsoft Authenticator | 예 (최대 5 개) | 아니요 | 예 |
+| 기타 authenticator 앱 | 예 (최대 5 개) | 아니요 | 예 |
+| 하드웨어 토큰 | 아니요 | 아니요 | 예 |
+| 전화 | 예 | 예 | 예 |
+| 대체 전화 | 예 | 예 | 예 |
+| 사무실 전화 | 예 | 예 | 예 |
+| 전자 메일 | 예 | 예 | 예 |
+| 본인 확인 질문 | 예 | 아니요 | 예 |
+| 앱 암호 | 예 | 아니요 | 예 |
+| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |
 
 > [!NOTE]
 > 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.
@@ -142,8 +142,8 @@ SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 �
 
 ## <a name="next-steps"></a>다음 단계
 
-시작 하려면 [셀프 서비스 암호 재설정을 사용](tutorial-enable-sspr.md) 하도록 설정 하 고 [Azure Multi-Factor Authentication를 사용](tutorial-enable-azure-mfa.md)하도록 설정 하는 자습서를 참조 하세요.
+시작 하려면 [셀프 서비스 암호 재설정을 사용 하도록 설정](tutorial-enable-sspr.md) 하 고 [Azure AD Multi-Factor Authentication를 사용](tutorial-enable-azure-mfa.md)하도록 설정 하는 자습서를 참조 하세요.
 
 [테 넌 트에서 결합 된 등록을 사용 하도록 설정](howto-registration-mfa-sspr-combined.md) 하거나 [사용자가 인증 방법을 다시 등록](howto-mfa-userdevicesettings.md#manage-user-authentication-options)하도록 하는 방법에 대해 알아봅니다.
 
-[Azure Multi-Factor Authentication 및 SSPR에 사용할 수 있는 방법](concept-authentication-methods.md)을 검토할 수도 있습니다.
+[AZURE AD Multi-Factor Authentication 및 SSPR에 대해 사용 가능한 방법을](concept-authentication-methods.md)검토할 수도 있습니다.

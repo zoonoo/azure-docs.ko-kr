@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: ba63358347cf9722d2cafa35598b9b3b37f49dc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 67e28e8c5092f2b52a3a34053f81d8a00afb24ed
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129459"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683228"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
 
@@ -37,8 +37,6 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
     프로젝트를 선택 하 고 현재 작업 영역에 추가 된 폴더로 내보냅니다.
 
-    ![Visual Studio Code에서이 작업 내보내기](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
-
 3. 다른 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 하려면 쿼리 편집기 (. script.asaql)에서 **게시할 구독에서 선택을** 선택 하 \* 고 지침을 따릅니다.
 
     ![Visual Studio Code에서 Azure에 게시](./media/quick-create-visual-studio-code/submit-job.png)
@@ -53,4 +51,3 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 * [빠른 시작: Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)
 * [빠른 시작: Visual Studio를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)

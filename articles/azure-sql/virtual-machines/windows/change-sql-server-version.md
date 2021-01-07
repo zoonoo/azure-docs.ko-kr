@@ -7,6 +7,7 @@ author: ramakoni1
 manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5dbd5725c666afe04d57d4432f0a4798fcb34c03
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556457"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358846"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치의 변경
 
@@ -27,7 +28,7 @@ ms.locfileid: "94556457"
 
 이 문서에서는 Microsoft Azure의 Windows VM (가상 머신)에서 Microsoft SQL Server 버전을 변경 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Server에 대 한 전체 업그레이드를 수행 하려면 다음 조건이 적용 됩니다.
 
@@ -66,7 +67,7 @@ SQL Server 버전을 업그레이드 하려면 SQL Server의 [업그레이드 �
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="SQL Server 버전을 업그레이드 하기 위한 선택 항목":::
 
-1. **제품 키** 페이지에서 무료 버전의 SQL Server로 업그레이드할지 아니면 제품의 프로덕션 버전에 대 한 PID 키가 있는지를 나타내는 옵션을 선택 합니다. 자세한 내용은 [버전 및 지원 되는 기능 SQL Server 2019 ()](/sql/sql-server/editions-and-components-of-sql-server-version-155) 및 지원 [되는 버전 및 버전 업그레이드 (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades)를 참조 하세요.
+1. **제품 키** 페이지에서 무료 버전의 SQL Server로 업그레이드할지 아니면 제품의 프로덕션 버전에 대 한 PID 키가 있는지를 나타내는 옵션을 선택 합니다. 자세한 내용은 [버전 및 지원 되는 기능 SQL Server 2019 ()](/sql/sql-server/editions-and-components-of-sql-server-version-15) 및 지원 [되는 버전 및 버전 업그레이드 (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades)를 참조 하세요.
 1. **업그레이드 준비 완료** 페이지가 표시 될 때까지 **다음** 을 선택 하 고 **업그레이드** 를 선택 합니다. 변경 내용을 적용 하는 동안 몇 분 동안 설치 창이 응답 하지 않을 수 있습니다. **전체** 페이지에서 업그레이드가 완료 되었음을 확인할 수 있습니다. 업그레이드 하는 단계별 절차는 [전체 절차](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure)를 참조 하세요.
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="완료 페이지":::

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 19ad45eec78d53261bf1781808339152c69a0136
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638838"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660783"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Azure Sentinel로 위협 인텔리전스 가져오기
 
@@ -44,7 +44,7 @@ Azure 센티널의 다른 모든 이벤트 데이터와 마찬가지로 위협 �
 
 ### <a name="adding-threat-indicators-to-azure-sentinel-with-the-threat-intelligence-platforms-data-connector"></a>위협 인텔리전스 플랫폼 데이터 커넥터를 사용 하 여 Azure 센티널에 위협 표시기 추가
 
-많은 조직에서는 TIP (위협 인텔리전스 플랫폼) 솔루션을 활용 하 여 다양 한 원본에서 위협 지표 피드를 집계 하 고, 플랫폼 내에서 데이터를 만든 다음, 네트워크 장치, advanced threat protection 솔루션 또는 SIEMs (예: Azure 센티널)와 같은 다양 한 보안 솔루션에 적용할 위협 지표를 선택 합니다. 조직에서 잘못 된 팁 솔루션 (예: Anomali ThreatStream, ThreatConnect, EclecticIQ Platform, ThreatQ Threat Intelligence Platform 또는 Palo Alto Networks ' MineMeld)을 활용 하는 경우 **위협 인텔리전스 플랫폼 데이터 커넥터** 를 사용 하 여 Azure 센티널에 위협 지표를 가져올 수 있습니다. 커넥터는 [Microsoft Graph Security tiIndicators api](https://docs.microsoft.com/graph/api/resources/tiindicator) 와 함께 작동 하므로이를 위해 사용자 지정 위협 인텔리전스 플랫폼에서 커넥터를 사용 하 여 Azure 센티널 (및 다른 Microsoft 보안 솔루션 (예: Defender ATP)에 지표를 전송 하는 TIINDICATORS API를 활용할 수도 있습니다.
+많은 조직에서는 TIP (위협 인텔리전스 플랫폼) 솔루션을 활용 하 여 다양 한 원본에서 위협 지표 피드를 집계 하 고, 플랫폼 내에서 데이터를 만든 다음, 네트워크 장치, advanced threat protection 솔루션 또는 SIEMs (예: Azure 센티널)와 같은 다양 한 보안 솔루션에 적용할 위협 지표를 선택 합니다. 조직에서 잘못 된 팁 솔루션 (예: Anomali ThreatStream, ThreatConnect, EclecticIQ Platform, ThreatQ Threat Intelligence Platform 또는 Palo Alto Networks ' MineMeld)을 활용 하는 경우 **위협 인텔리전스 플랫폼 데이터 커넥터** 를 사용 하 여 Azure 센티널에 위협 지표를 가져올 수 있습니다. 커넥터는 [Microsoft Graph Security tiIndicators api](/graph/api/resources/tiindicator) 와 함께 작동 하므로이를 위해 사용자 지정 위협 인텔리전스 플랫폼에서 커넥터를 사용 하 여 Azure 센티널 (및 다른 Microsoft 보안 솔루션 (예: Defender ATP)에 지표를 전송 하는 TIINDICATORS API를 활용할 수도 있습니다.
 
 :::image type="content" source="media/import-threat-intelligence/threat-intel-import-path.png" alt-text="위협 인텔리전스 가져오기 경로":::
 
@@ -285,7 +285,7 @@ TAXII 서버에서 Azure 센티널로 위협 지표를 가져오려면 다음 �
 
 1. 메뉴에서 **데이터 커넥터** 를 선택 하 고 커넥터 갤러리에서 **위협 인텔리전스-TAXII** 를 선택한 다음 **커넥터 페이지 열기** 단추를 클릭 합니다.
 
-1. 이 TAXII 서버 컬렉션, **API 루트 URL** , **컬렉션 ID** , **사용자 이름** (필요한 경우) 및 **암호** (필요한 경우)에 대 한 **이름을** 입력 하 고 **추가** 단추를 클릭 합니다.
+1. 이 TAXII 서버 컬렉션, **API 루트 URL**, **컬렉션 ID**, **사용자 이름** (필요한 경우) 및 **암호** (필요한 경우)에 대 한 **이름을** 입력 하 고 **추가** 단추를 클릭 합니다.
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-configure-taxii-servers.png" alt-text="TAXII 서버 구성":::
  
@@ -336,7 +336,7 @@ Azure 센티널 메뉴에서 액세스할 수 있는 새 **위협 인텔리전�
 
 Azure 센티널에 위협 지표를 공급 했습니다. 이러한 항목을 보고 관리 하는 방법을 살펴보았습니다. 이제 사용자가 수행할 수 있는 작업을 확인 하세요. Azure 센티널과 같은 SIEM 솔루션에서 위협 표시기의 가장 중요 한 사용 사례는 전원 분석 규칙에 대 한 것입니다.  이러한 표시기 기반 규칙은 데이터 원본의 원시 이벤트를 위협 표시기와 비교 하 여 조직에서 보안 위협을 검색 합니다. Azure 센티널 **분석** 에서 일정에 따라 실행 되 고 보안 경고를 생성 하는 분석 규칙을 만듭니다. 규칙은 쿼리를 실행 하는 빈도를 결정 하는 구성, 보안 경고를 생성 하는 쿼리 결과의 종류 및 경고가 생성 될 때 트리거할 자동화 된 응답을 결정 하는 구성에 따라 결정 됩니다.
 
-언제 든 지 새 분석 규칙을 처음부터 새로 만들 수 있지만, Azure 센티널은 Microsoft 보안 엔지니어가 만든 기본 제공 규칙 템플릿 집합을 제공 하며,이를 그대로 사용 하거나 필요에 맞게 수정할 수 있습니다. 위협 지표를 사용 하는 규칙 템플릿은 모두 " **TI map**..."로 시작 하는 것 이므로 쉽게 식별할 수 있습니다. 이러한 모든 규칙 템플릿은 유사 하 게 작동 하며, 위협 표시기의 유형 (도메인, 전자 메일, 파일 해시, IP 주소 또는 URL)과 일치 시킬 이벤트 유형을 유일 하 게 다릅니다. 각 템플릿에는 규칙이 작동 하는 데 필요한 데이터 원본이 나열 되어 있으므로 Azure 센티널에서 필요한 이벤트를 이미 가져왔는지 확인할 수 있습니다.
+언제 든 지 새 분석 규칙을 처음부터 새로 만들 수 있지만, Azure 센티널은 Microsoft 보안 엔지니어가 만든 기본 제공 규칙 템플릿 집합을 제공 하며,이를 그대로 사용 하거나 필요에 맞게 수정할 수 있습니다. 위협 지표를 사용 하는 규칙 템플릿은 모두 "**TI map**..."로 시작 하는 것 이므로 쉽게 식별할 수 있습니다. 이러한 모든 규칙 템플릿은 유사 하 게 작동 하며, 위협 표시기의 유형 (도메인, 전자 메일, 파일 해시, IP 주소 또는 URL)과 일치 시킬 이벤트 유형을 유일 하 게 다릅니다. 각 템플릿에는 규칙이 작동 하는 데 필요한 데이터 원본이 나열 되어 있으므로 Azure 센티널에서 필요한 이벤트를 이미 가져왔는지 확인할 수 있습니다.
 
 이러한 규칙 템플릿 중 하나를 살펴보고 Azure 센티널로 가져온 위협 지표를 사용 하 여 보안 경고를 생성 하는 규칙을 사용 하도록 설정 하 고 구성 하는 방법을 살펴보겠습니다. 이 예에서는 **TI MAP IP entity To AzureActivity** 라는 규칙 템플릿을 사용 합니다. 이 규칙은 모든 Azure 활동 이벤트와 IP 주소 유형 위협 표시기를 일치 시킵니다. 일치 항목이 발견 되 면 **경고가** 생성 되 고 보안 운영 팀에서 조사 하기 위한 해당 **인시던트가** 생성 됩니다. 이 분석 규칙은 위협 지표를 가져오는 **위협 인텔리전스** 데이터 커넥터 중 하나 또는 둘 다를 사용 하도록 설정 하 고 azure **활동** 데이터 커넥터 (azure 구독 수준 이벤트를 가져오기 위해)를 사용 하도록 설정한 경우에만 정상적으로 작동 합니다.
 

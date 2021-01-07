@@ -9,17 +9,17 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotga
 ms.openlocfilehash: b9fc37c6589cdd0bc6a5cdce7b7ebebe2c6e9a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531613"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019449"
 ---
 # <a name="iot-hub-device-provisioning-service-dps-terminology"></a>IoT Hub Device Provisioning Service (DPS) 용어
 
 IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. 장치 프로 비전 서비스를 사용 하 여 안전 하 고 확장 가능한 방식으로 수백만 대의 장치를 [프로 비전](about-iot-dps.md#provisioning-process) 할 수 있습니다.
 
-디바이스 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 장치를 *등록* 하 여 장치와 IoT 솔루션 간의 초기 연결을 설정 하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 *구성*을 적용하는 것입니다. 두 단계가 수행되고 나면 디바이스가 완벽히 *프로비전된* 것입니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
+디바이스 프로비전은 두 부분의 프로세스로 구성됩니다. 첫 번째 부분은 장치를 *등록* 하 여 장치와 IoT 솔루션 간의 초기 연결을 설정 하는 것입니다. 두 번째 부분은 솔루션의 특정 요구 사항에 따라 디바이스에 적절한 *구성* 을 적용하는 것입니다. 두 단계가 수행되고 나면 디바이스가 완벽히 *프로비전된* 것입니다. Device Provisioning Service는 두 단계를 모두 자동화하여 디바이스에 원활한 프로비전 환경을 제공합니다.
 
 이 문서는 *서비스* 관리에 가장 적합한 프로비전 개념의 개요를 제공합니다. 이 문서는 배포를 위해 디바이스를 준비하는 [클라우드 설치 단계](about-iot-dps.md#cloud-setup-step)에 관련된 사람에게 가장 적합합니다.
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/02/2020
-ms.openlocfilehash: 9cd1a6059360c948229a1da00780cd6cb40b7f35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3956f8d91793367f7200d2f349a8713aff3d2f59
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91666537"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016227"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>빠른 시작: Azure Time Series Insights Gen2 데모 환경 탐색
 
@@ -38,24 +38,24 @@ Azure Time Series Insights Gen2 탐색기는 기록 데이터 및 근본 원인 
 
 ## <a name="work-with-historical-data"></a>기록 데이터 사용
 
-1. **Contoso Plant 1**에서 풍력 터빈 **W7**을 살펴봅니다.  
+1. **Contoso Plant 1** 에서 풍력 터빈 **W7** 을 살펴봅니다.  
 
    1. 보기 범위를 **1/1/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
-   1. 센서를 선택하려면 **Contoso Plant 1** > **W7** > **발전기 시스템** > **GeneratorSpeed**를 선택합니다. 그런 다음, 표시되는 값을 검토합니다.
+   1. 센서를 선택하려면 **Contoso Plant 1** > **W7** > **발전기 시스템** > **GeneratorSpeed** 를 선택합니다. 그런 다음, 표시되는 값을 검토합니다.
 
       [![Contoso Plant 1의 W7](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. 최근에 Contoso는 풍력 터빈 **W7**에서 화재를 발견했습니다. 화재 원인에 대한 여러 의견이 있습니다. Azure Time Series Insights Gen2에는 화재 발생 시 활성화된 화재 경고 센서가 표시됩니다.
+1. 최근에 Contoso는 풍력 터빈 **W7** 에서 화재를 발견했습니다. 화재 원인에 대한 여러 의견이 있습니다. Azure Time Series Insights Gen2에는 화재 발생 시 활성화된 화재 경고 센서가 표시됩니다.
 
    1. 보기 범위를 **3/9/17 20:00:00.00 - 3/10/17 20:00:00.00(UTC)** 로 변경합니다.
-   1. **안전 시스템** > **FireAlert**를 선택합니다.
+   1. **안전 시스템** > **FireAlert** 를 선택합니다.
 
       [![Contoso는 풍력 터빈 W7에서 화재를 발견함](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. 문제 발생 시에 나타난 다른 이벤트를 검토하여 상황을 이해하세요. 화재 직전에 유압 및 활성 경고가 최대로 높아졌습니다.
 
-   1. **피치 시스템** > **HydraulicOilPressure**를 선택합니다.
-   1. **피치 시스템** > **ActiveWarning**을 선택합니다.
+   1. **피치 시스템** > **HydraulicOilPressure** 를 선택합니다.
+   1. **피치 시스템** > **ActiveWarning** 을 선택합니다.
 
       [![같은 시간에 발생한 다른 이벤트 검토](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
@@ -79,18 +79,18 @@ Azure Time Series Insights Gen2 및 센서 원격 분석을 사용하여 기록 
 
 ## <a name="root-cause-analysis"></a>근본 원인 분석
 
-1. 일부 시나리오에서는 데이터의 미묘한 단서를 파악하기 위해 정교한 분석이 필요합니다. 날짜 **6/25** 풍차 **W6**을 선택합니다.
+1. 일부 시나리오에서는 데이터의 미묘한 단서를 파악하기 위해 정교한 분석이 필요합니다. 날짜 **6/25** 풍차 **W6** 을 선택합니다.
 
     1. 보기 범위를 **6/1/17 20:00:00.00 - 7/1/17 20:00:00.00(UTC)** 로 변경합니다.
-    1. **Contoso Plant 1** > **W6** > **안전 시스템** > **VoltageActuatorSwitchWarning**을 선택합니다.
+    1. **Contoso Plant 1** > **W6** > **안전 시스템** > **VoltageActuatorSwitchWarning** 을 선택합니다.
 
        [![보기 범위를 변경하고 W6 선택](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. 경고는 발전기의 전압에 문제가 있음을 나타냅니다. 발전기의 전체 전력 출력은 현재 간격의 정상 범위 내에 있습니다. 이 간격을 늘리면 다른 패턴이 나타납니다. 감소가 발생하는 것이 분명합니다.
 
     1. **VoltageActuatorSwitchWarning** 센서를 분리합니다.
-    1. **발전기 시스템** > **ActivePower**를 선택합니다.
-    1. 간격을 **3일**로 변경합니다.
+    1. **발전기 시스템** > **ActivePower** 를 선택합니다.
+    1. 간격을 **3일** 로 변경합니다.
 
        [![간격을 3일로 변경](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
@@ -102,7 +102,7 @@ Azure Time Series Insights Gen2 및 센서 원격 분석을 사용하여 기록 
 
 1. 다른 센서 데이터를 추가하면 유용한 상황 정보를 제공할 수 있습니다. 더 많은 센서를 확인할수록 문제에 대한 이해의 폭이 넓어집니다. 실제 값을 표시하기 위해 표식을 놓겠습니다.
 
-    1. **발전기 시스템**를 선택하고, **GridVoltagePhase1**, **GridVoltagePhase2** 및 **GridVoltagePhase3** 센서를 선택합니다.
+    1. **발전기 시스템** 를 선택하고, **GridVoltagePhase1**, **GridVoltagePhase2** 및 **GridVoltagePhase3** 센서를 선택합니다.
     1. 표시 영역의 마지막 데이터 요소에 마커를 놓습니다.
 
        [![마커 삭제](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
@@ -119,17 +119,17 @@ Azure Time Series Insights Gen2 및 센서 원격 분석을 사용하여 기록 
 
 이제 이 빠른 시작을 완료했으므로 만든 리소스를 정리합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고 Azure Time Series Insights Gen2 리소스 그룹을 찾습니다.
-1. **삭제**를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스** 를 선택하고 Azure Time Series Insights Gen2 리소스 그룹을 찾습니다.
+1. **삭제** 를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 여러분만의 Azure Time Series Insights Gen2 환경을 만들 준비가 되었습니다. 시작하려면 다음을 수행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen2 환경 계획](time-series-insights-update-plan.md)
+> [Azure Time Series Insights Gen2 환경 계획](./how-to-plan-your-environment.md)
 
 데모 및 해당 기능을 사용하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Gen2 탐색기](time-series-insights-update-explorer.md)
+> [Azure Time Series Insights Gen2 탐색기](./concepts-ux-panels.md)

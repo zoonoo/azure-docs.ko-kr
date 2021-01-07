@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e72784dbdcf08d672a8498609ca3a5bbd11e632d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9e0102cdb7e8494a8540b1970932f0d9f7f39fde
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319034"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912920"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 Azure Databricks ML 실험 추적 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "93319034"
 
 [MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다. [Azure Databricks 및 MLflow](/azure/databricks/applications/mlflow/)에 대해 자세히 알아보세요. 
 
-추가 MLflow 및 Azure Machine Learning 기능 통합의 경우 [실험 실행 추적 및 MLflow를 사용 하 여 끝점 만들기 및 Azure Machine Learning](how-to-use-mlflow.md) 를 참조 하세요.
+MLflow를 [사용 하 여 실험 실행 추적 및](how-to-use-mlflow.md) 추가 mlflow 및 Azure Machine Learning 기능 통합에 대 한 Azure Machine Learning를 참조 하세요.
 
 >[!NOTE]
 > 오픈 소스 라이브러리로 MLflow는 자주 변경 됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공 되는 기능은 미리 보기로 간주 해야 하며 Microsoft에서 완벽 하 게 지원 되지 않습니다.
@@ -32,18 +32,19 @@ ms.locfileid: "93319034"
 > [!TIP]
 > 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링하려는 데이터 과학자와 개발자를 위한 것입니다. 할당량, 완료된 학습 실행 또는 완료된 모델 배포와 같이 Azure Machine Learning의 리소스 사용과 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * `azureml-mlflow` 패키지를 설치합니다. 
     * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)를 자동으로 가져옵니다.
 * [Azure Databricks 작업 영역 및 클러스터](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).
+    * [작업 영역을 사용 하 여 MLflow 작업을 수행 하는 데 필요한 액세스 권한을](how-to-assign-roles.md#mlflow-operations)확인 하세요.
 
 ## <a name="track-azure-databricks-runs"></a>Azure Databricks 실행 추적
 
 Azure Machine Learning를 사용한 MLflow 추적을 사용 하면 Azure Databricks 실행 되는 로그 된 메트릭과 아티팩트를 모두에 저장할 수 있습니다. 
 
-* Azure Databricks 작업 영역.
+* Azure Databricks 작업 영역입니다.
 * Azure Machine Learning 작업 영역
 
 Azure Databricks 작업 영역 및 클러스터를 만든 후 
@@ -180,8 +181,8 @@ ML 모델에 대 한 끝점을 만들 준비가 된 경우 을로 배포할 수 
 [Mlflow. azureml](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) API를 활용 하 여 Azure Machine Learning 작업 영역에 모델을 배포할 수 있습니다. [MLflow를 사용 하 여 모델 등록](#register-models-with-mlflow) 섹션에 설명 된 대로 Azure Databricks 작업 영역에만 모델을 등록 한 경우 `model_name` 매개 변수를 지정 하 여 모델을 Azure Machine Learning 작업 영역에 등록 합니다. 
 
 다음 끝점에 Azure Databricks 실행을 배포할 수 있습니다. 
-* [Azure Container Instance](how-to-use-mlflow.md#deploy-to-aci)
-* [Azure Kubernetes Service](how-to-use-mlflow.md#deploy-to-aks)
+* [Azure 컨테이너 인스턴스](how-to-deploy-mlflow-models.md#deploy-to-azure-container-instance-aci)
+* [Azure Kubernetes Service](how-to-deploy-mlflow-models.md#deploy-to-azure-kubernetes-service-aks)
 
 ### <a name="deploy-models-to-adb-endpoints-for-batch-scoring"></a>일괄 처리 점수 매기기를 위해 ADB 끝점에 모델 배포 
 
@@ -231,7 +232,7 @@ display(preds)
 [Azure Machine Learning 노트북을 사용 하는 Mlflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) 는이 문서에 나와 있는 개념을 시연 하 고 확장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
+* [MLflow 모델을 Azure 웹 서비스로 배포](how-to-deploy-mlflow-models.md)합니다. 
 * [모델 관리](concept-model-management-and-deployment.md).
-* [MLflow 및 Azure Machine Learning를 사용 하 여 실험 실행을 추적 하 고 끝점을 만듭니다](how-to-use-mlflow.md). 
+* [MLflow 및 Azure Machine Learning를 사용 하 여 실험 실행을 추적](how-to-use-mlflow.md)합니다. 
 * [Azure Databricks 및 MLflow](/azure/databricks/applications/mlflow/)에 대해 자세히 알아보세요.

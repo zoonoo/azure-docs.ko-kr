@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 61c21aed76cfaac5621b234b32c90877ef6faa9f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966324"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842620"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -83,7 +83,7 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 - 글로벌 이미지 복제
 - 보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화
 - 가용성 영역을 지원하는 지역의 ZRS(영역 중복 스토리지)가 포함된 고가용성 이미지. ZRS는 영역 장애 발생 시 보다 나은 복원력을 제공합니다.
-- RBAC를 사용하여 구독 간에, 심지어 AD(Active Directory) 테넌트 간에 공유
+- Azure RBAC를 사용하여 구독 간은 물론 AD(Active Directory) 테넌트 간에도 공유합니다.
 - 각 지역에서 이미지 복제본으로 배포 스케일링
 
 대략적으로 SIG를 만들고 다음을 구성합니다.

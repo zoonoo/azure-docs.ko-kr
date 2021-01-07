@@ -3,19 +3,20 @@ title: FAQ-SAP 솔루션에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 SAP 솔루션에 대 한 Azure Monitor FAQ (질문과 대답)에 대해 알아봅니다.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f872264d5f7bdf4abded516412fe55c417a92e1e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 204b809966fbf63a48f6d1ce1d80f87f706c9a56
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566115"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968573"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>SAP 솔루션에 대 한 Azure Monitor FAQ (미리 보기)
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 이 문서에서는 SAP 솔루션에 대 한 Azure Monitor FAQ (질문과 대답)를 제공 합니다.  
 

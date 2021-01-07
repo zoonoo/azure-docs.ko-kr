@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ab8eac97a6b02377d38653a990a2f0d5ff81ba
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: bea6f4161bcca063cd2c58d4c463473426f159ba
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334961"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96859134"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Azure Active Directory에서 사용 하는 인증 기관
 
@@ -98,4 +98,4 @@ TLS/SSL 프로토콜을 통해 Azure Active Directory (Azure AD) id 서비스에
 | DigiCert 기본 RSA CN CA G2| 02f7e1f982bad 009aff47dc95741b2f6| 2020 년 3 월 4 일<br>2030 년 3 월 4 일| 4d1fa5d1fb1ac3917c08e 43f65015e6aea571179| [AIA](http://cacerts.digicert.cn/DigiCertBasicRSACNCAG2.crt)<br>[CDP](http://crl.digicert.cn/DigiCertBasicRSACNCAG2.crl)<br>[OCSP](http://ocsp.digicert.cn/) |
 
 ## <a name="next-steps"></a>다음 단계
-[Microsoft 365 암호화 체인에 대해 알아보기](https://docs.microsoft.com/microsoft-365/compliance/encryption-office-365-certificate-chains?view=o365-worldwide)
+[Microsoft 365 암호화 체인에 대해 알아보기](/microsoft-365/compliance/encryption-office-365-certificate-chains)

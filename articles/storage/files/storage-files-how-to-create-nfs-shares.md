@@ -4,16 +4,16 @@ description: 네트워크 파일 시스템 프로토콜을 사용 하 여 탑재
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 7680e251d8411ce154e1f7dfb8af1d66514dd579
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 3cf22ee22c35b850aff33290a59a7043bb57c984
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629464"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620950"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 
@@ -64,7 +64,7 @@ az feature register --name AllowNfsFileShares \
 az provider register --namespace Microsoft.Storage
 ```
 
-## <a name="verify-that-the-feature-is-registered"></a>기능이 등록 되어 있는지 확인 합니다.
+## <a name="verify-feature-registration"></a>기능 등록 확인
 
 등록 승인은 최대 한 시간까지 걸릴 수 있습니다. 등록이 완료 되었는지 확인 하려면 다음 명령을 사용 합니다.
 
@@ -80,6 +80,34 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfs
 az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
 ```
 
+## <a name="verify-storage-account-kind"></a>저장소 계정 종류 확인
+
+현재 FileStorage 계정만 NFS 공유를 만들 수 있습니다. 
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+저장소 계정의 종류를 확인 하려면 Azure Portal으로 이동 합니다. 그런 다음 저장소 계정에서 **속성** 을 선택 합니다. 속성 블레이드에서 **계정 종류** 아래의 값을 검사 하 고 값을 **FileStorage** 해야 합니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+FileStorage 계정을 확인 하려면 다음 명령을 사용할 수 있습니다.
+
+```azurepowershell
+$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
+$accountKind.Kind
+```
+
+출력은 **FileStorage** 이어야 합니다. 그렇지 않으면 저장소 계정이 잘못 된 유형입니다. **FileStorage** 계정을 만들려면 [Azure premium 파일 공유를 만드는 방법](storage-how-to-create-premium-fileshare.md)을 참조 하세요.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+FileStorage 계정을 확인 하려면 다음 명령을 사용할 수 있습니다.
+
+```azurecli
+az storage account show -g yourResourceGroup -n yourStorageAccountName
+```
+
+출력에 **"kind": "FileStorage"** 가 포함 되어야 합니다. 그렇지 않으면 저장소 계정이 잘못 된 유형입니다. **FileStorage** 계정을 만들려면 [Azure premium 파일 공유를 만드는 방법](storage-how-to-create-premium-fileshare.md)을 참조 하세요.
+
+---
 ## <a name="create-an-nfs-share"></a>NFS 공유 만들기
 
 # <a name="portal"></a>[포털](#tab/azure-portal)

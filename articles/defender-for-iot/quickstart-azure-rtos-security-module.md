@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: rkarlin
-ms.openlocfilehash: 38e78b80fd14aec7557b563b2b33faf7d51bd114
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 321c8d2b9e58aba943c5bf19adf54d6359c5be96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759735"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351779"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>빠른 시작: Azure RTOS용 보안 모듈(미리 보기)
 
-이 문서에서는 시작하기 전에 필수 구성 요소에 대해 설명하고 IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 활성화하는 방법을 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)를 참조하세요.
+이 문서에서는 시작하기 전에 필수 구성 요소에 대해 설명하고 IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 활성화하는 방법을 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
 
 > [!NOTE]
 > Azure RTOS용 보안 모듈은 표준 계층 IoT Hub에서만 지원됩니다.
@@ -45,11 +45,11 @@ ms.locfileid: "91759735"
 
 시작하려면 IoT Hub 연결이 필요합니다. 
 
-1. Azure Portal에서 **IoT Hub**를 엽니다.
+1. Azure Portal에서 **IoT Hub** 를 엽니다.
 1. IoT 연결 문자열을 [구성 파일](how-to-azure-rtos-security-module.md)에 복사합니다.
 
 
-연결 자격 증명은 사용자 애플리케이션 구성 **HOST_NAME**, **DEVICE_ID** 및 **DEVICE_SYMMETRIC_KEY**에서 가져옵니다.
+연결 자격 증명은 사용자 애플리케이션 구성 **HOST_NAME**, **DEVICE_ID** 및 **DEVICE_SYMMETRIC_KEY** 에서 가져옵니다.
 
 Azure RTOS용 보안 모듈은 **MQTT** 프로토콜을 기반으로 하는 Azure IoT 미들웨어 연결을 사용합니다.
 
@@ -58,15 +58,15 @@ Azure RTOS용 보안 모듈은 **MQTT** 프로토콜을 기반으로 하는 Azur
 
 IoT Hub의 Log Analytics 수집은 기본적으로 Defender for IoT 솔루션이 해제되어 있습니다. Azure RTOS용 보안 모듈을 사용하도록 설정하려면 다음을 수행합니다. 
 1. Azure Portal에서 IoT Hub로 이동합니다.
-1. **보안** 메뉴에서 **설정**을 선택합니다.
+1. **보안** 메뉴에서 **설정** 을 선택합니다.
    :::image type="content" source="media/quickstart/azure-rtos-hub-settings.png" alt-text="Azure RTOS에 대한 액세스 데이터 수집 옵션"::: 
-1. **데이터 수집**을 선택합니다. 
-1. **작업 영역 구성** 옵션에서 토글을 **껴기**로 전환합니다. 
+1. **데이터 수집** 을 선택합니다. 
+1. **작업 영역 구성** 옵션에서 토글을 **껴기** 로 전환합니다. 
 1. 새 Log Analytics 작업 영역을 만들거나 기존 작업 영역을 선택합니다. **원시 보안 데이터에 대한 액세스** 옵션이 선택되어 있는지 확인합니다. 
- :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="Azure RTOS에 대한 액세스 데이터 수집 옵션":::
-1. **저장**을 선택합니다.
+ :::image type="content" source="media/quickstart/azure-rtos-data-collection-on.png" alt-text="데이터 수집 옵션과 원시 보안 데이터 옵션이 모두 선택되어 표시되는 Azure RTOS 구성":::
+1. **저장** 을 선택합니다.
 1. Azure 리소스 목록으로 돌아가서 사용자가 만들었거나 연결한 Log Analytics 작업 영역이 IoT Hub에 대해 사용하도록 설정되어 있는지 확인합니다.
-    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Azure RTOS에 대한 액세스 데이터 수집 옵션"::: 
+    :::image type="content" source="media/quickstart/verify-azure-resource-list.png" alt-text="Azure 리소스 목록을 확인하여 IoT Hub에 대해 추가된 올바른 Log Analytics 작업 영역이 추가되었는지 확인"::: 
 
 ## <a name="next-steps"></a>다음 단계
 

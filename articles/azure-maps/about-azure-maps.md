@@ -3,30 +3,31 @@ title: Microsoft Azure Maps 개요
 description: Microsoft Azure Maps의 서비스 및 기능으로 무엇이 있으며 애플리케이션에서 어떻게 사용할 수 있는지 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/31/2020
+ms.date: 12/07/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 082695069a66efb3919be0667407ba73d963c572
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92889955"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680822"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
 Azure Maps는 최신 매핑 데이터를 사용하여 웹 및 모바일 애플리케이션에 지리적 컨텍스트를 제공하는 지리 공간적 서비스 및 SDK 컬렉션입니다. Azure Maps는 다음을 제공합니다.
 
 * 벡터 및 래스터 맵을 여러 스타일과 위성 이미지로 렌더링하는 REST API
-* 프라이빗 실내 맵 데이터를 기반으로 맵을 만들고 렌더링하는 작성자 서비스
+* 프라이빗 실내 맵 데이터를 기반으로 맵을 만들고 렌더링하는 Creator 서비스(미리 보기).
 * 전 세계의 주소, 장소 및 관심 지점을 찾는 검색 서비스
 * 지점 간, 다중 지점, 다중 지점 최적화, 등시선, 전기차, 상용차, 교통 영향, 매트릭스 등의 다양한 라우팅 옵션
 * 실시간 트래픽 정보가 필요한 애플리케이션을 위한 트래픽 흐름 보기 및 인시던트 보기
-* 대중 교통 정보를 요청하고 다양한 이동 모드와 실시간 도착 정보를 혼합하여 경로를 계획하는 Mobility Service
-* 표준 시간대 및 지리적 위치 서비스
+* 대중 교통 정보를 요청하고 다양한 이동 모드와 실시간 도착 정보를 혼합하여 경로를 계획하는 Mobility Services(미리 보기).
+* 표준 시간대 및 지리적 위치(미리 보기) 서비스.
+* 디지털 권한 상승 모델을 사용한 권한 상승 서비스(미리 보기)
 * 위치 정보가 Azure에서 호스팅되는 지오펜싱 서비스 및 매핑 데이터 스토리지
 * 지리 공간 분석을 통한 위치 인텔리전스.
 
@@ -36,9 +37,9 @@ Azure Maps는 최신 매핑 데이터를 사용하여 웹 및 모바일 애플�
 
 다음 비디오는 Azure Maps를 자세히 설명합니다.
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
 ## <a name="map-controls"></a>맵 컨트롤
 
@@ -52,33 +53,33 @@ Azure Maps 웹 SDK를 사용하면 고유한 콘텐츠와 이미지를 사용하
 
 Azure Maps Android SDK를 사용하여 모바일 매핑 애플리케이션을 만듭니다.
 
-:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="모바일 디바이스의 맵 예제":::
 
 ## <a name="services-in-azure-maps"></a>Azure Maps의 서비스
 
 Azure Maps는 Azure 애플리케이션에 지리적 컨텍스트를 제공할 수 있는 다음과 같은 서비스로 구성됩니다.
 
-### <a name="data-service"></a>데이터 서비스
+### <a name="data-service-preview"></a>데이터 서비스(미리 보기)
 
 데이터는 맵에 필수적입니다. Data Service를 사용하여 공간 작업 또는 이미지 구성에 사용할 지리 공간 데이터를 업로드하고 저장합니다.  고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 새 시나리오를 만들 수 있습니다. 이 서비스에 대해 자세히 알아보려면 [Data Service 설명서](/rest/api/maps/data)를 참조하세요.
 
-### <a name="geolocation-service"></a>지리적 위치 서비스
+### <a name="geolocation-service-preview"></a>지리적 위치 서비스(미리 보기)
 
 Geolocation Service를 사용하여 IP 주소에 대해 검색된 2자 길이의 국가/지역 코드를 미리 볼 수 있습니다. 이 서비스는 지리적 위치를 기반으로 사용자 지정된 애플리케이션 콘텐츠를 제공하여 사용자 환경을 개선하는 데 도움을 줄 수 있습니다.
 
 자세한 내용은 [Geolocation Service 설명서](/rest/api/maps/geolocation)를 참조하세요.
 
-### <a name="mobility-service"></a>모바일 서비스
+### <a name="mobility-services-preview"></a>Mobility Services(미리 보기) 
 
-Azure Maps Mobility Service는 교통 라우팅, 가까운 대중 교통 정류장 등의 대중 교통 기능을 사용하여 애플리케이션 개발 시간을 단축합니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 사용자는 Mobility Service를 통해 정류장 및 노선 기하학, 정류장/노선/서비스 영역 알림, 실시간 대중 교통 도착 및 서비스 알림을 검색할 수 있습니다. 뿐만 아니라 Mobility Service는 다중 모달 이동 계획 옵션이 있는 라우팅 기능을 제공합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
+Azure Maps Mobility Services는 교통 라우팅, 가까운 대중 교통 정류장 등의 대중 교통 기능을 사용하여 애플리케이션 개발 시간을 단축합니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 사용자는 Mobility Service를 통해 정류장 및 노선 기하학, 정류장/노선/서비스 영역 알림, 실시간 대중 교통 도착 및 서비스 알림을 검색할 수 있습니다. 또한 Mobility Services는 다중 모달 이동 계획 옵션이 있는 라우팅 기능을 제공합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
 
-이 서비스에 대한 자세한 내용은 [Mobility Service 설명서](/rest/api/maps/mobility)를 참조하세요.
+이 서비스에 대한 자세한 내용은 [Mobility Services 설명서](/rest/api/maps/mobility)를 참조하세요.
 
 ### <a name="render-service"></a>Render Service
 
-현재 미리 보기로 제공되는 [Render Service V2](/rest/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
+[Render Service V2(미리 보기)](/rest/api/maps/renderv2)에는 새 버전의 [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview)가 도입되었습니다. 이제 고객은 Get Map Tile V2 API에서 Azure Maps Creator를 사용하여 만들어진 Azure Maps 도로 타일, 날씨 타일 또는 맵 타일을 요청할 수 있습니다. 새 Get Map Tile V2 API를 사용하는 것이 좋습니다.  
 
-:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Render Service V2의 맵 예제":::
 
 자세한 내용은 [Render Service V2 설명서](/rest/api/maps/renderv2)를 참조하세요.
 
@@ -88,7 +89,7 @@ Azure Maps Mobility Service는 교통 라우팅, 가까운 대중 교통 정류�
 
 경로 서비스를 사용하여 요청된 각 경로의 ETA(예상 도착 시간)를 계산할 수 있습니다. Route API는 요청된 요일 및 시간의 일반적인 도로 통행 속도와 같은 실시간 교통 정보, 과거의 교통 데이터 같은 요소를 고려합니다. 이 API는 시간 또는 거리를 기준으로 차례대로 또는 최적화된 순서대로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환합니다. 이 서비스를 통해 개발자는 자동차, 트럭, 자전거, 도보, 전기차 등의 다양한 이동 모드로 방향을 계산할 수 있습니다. 이 서비스는 출발 시간, 무게 제한, 위해 물질 운송 등의 입력도 고려합니다.
 
-:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Route Service의 맵 예제":::
 
 Route Service는 다음과 같은 고급 기능 세트를 제공합니다.
 
@@ -102,7 +103,7 @@ Route Service는 다음과 같은 고급 기능 세트를 제공합니다.
 
 Search Service는 개발자가 주소, 장소, 비즈니스 목록을 이름이나 범주 및 기타 지리 정보 기준으로 검색하는 데 유용합니다. 또한 Search Service는 위도 및 경도를 기반으로 주소 및 교차로를 [역방향으로 지오코딩](https://en.wikipedia.org/wiki/Reverse_geocoding)할 수 있습니다.
 
-:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="맵에서 검색 예제":::
 
 또한 Search Service는 다음과 같은 고급 기능을 제공합니다.
 
@@ -168,9 +169,9 @@ Traffic Service는 교통 정보가 필요한 웹 및 모바일 애플리케이�
 
 자세한 내용은 [Traffic Service 설명서](/rest/api/maps/traffic)를 참조하세요.
 
-### <a name="weather-service"></a>Weather Service
+### <a name="weather-services-preview"></a>Weather Services(미리 보기) 
 
-Weather Service는 개발자가 특정 위치의 날씨 정보를 검색하는 데 사용할 수 있는 API를 제공합니다. 이 정보에는 관측 날짜 및 시간, 기후 조건에 대한 간단한 설명, 날씨 아이콘, 강수량 지표 플래그, 온도, 바람 속도 정보 등의 세부 정보가 포함됩니다. RealFeel™ 온도 및 자외선 지수 같은 추가 세부 정보도 반환됩니다.
+Weather Services는 개발자가 특정 위치의 날씨 정보를 검색하는 데 사용할 수 있는 API를 제공합니다. 이 정보에는 관측 날짜 및 시간, 기후 조건에 대한 간단한 설명, 날씨 아이콘, 강수량 지표 플래그, 온도, 바람 속도 정보 등의 세부 정보가 포함됩니다. RealFeel™ 온도 및 자외선 지수 같은 추가 세부 정보도 반환됩니다.
 
 개발자는 [Get Weather along route API](/rest/api/maps/weather/getweatheralongroutepreview)를 사용하여 특정 경로를 따라 날씨 정보를 검색할 수 있습니다. 또한 이 서비스는 홍수나 장마 같은 기후 재난의 영향을 받는 중간 지점에 대한 날씨 알림 생성을 지원합니다.
 
@@ -178,7 +179,7 @@ Weather Service는 개발자가 특정 위치의 날씨 정보를 검색하는 �
 
 ![실시간 날씨 레이더 타일이 포함된 맵의 예](media/about-azure-maps/intro_weather.png)
 
-### <a name="maps-creator-service"></a>Maps Creator 서비스
+### <a name="maps-creator-service-preview"></a>Maps Creator 서비스(미리 보기) 
 
 Maps Creator Service는 개발자가 실내 맵 데이터 기반의 맵 기능을 통해 애플리케이션을 만드는 데 사용할 수 있는 웹 서비스 모음입니다.
 
@@ -194,17 +195,34 @@ Maps Creator Service는 다음과 같은 세 가지 주요 서비스를 제공�
 
 * [WFS 서비스](/rest/api/maps/featurestate) WFS 서비스를 사용하여 실내 맵 데이터를 쿼리할 수 있습니다. WFS 서비스는 단일 데이터 세트 쿼리에 대한 [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) 표준을 따릅니다.
 
+### <a name="elevation-service-preview"></a>권한 상승 서비스(미리 보기)
+
+Azure Maps Elevation Service는 개발자가 지구 표면 어디에서나 권한 상승 데이터를 검색하는 데 사용할 수 있는 웹 서비스입니다.
+
+Elevation Service를 사용하면 다음 두 가지 형식으로 권한 상승 데이터를 검색할 수 있습니다.
+
+* **GeoTIFF 래스터 형식**. [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하여 타일 형식의 권한 상승 데이터를 검색합니다.
+
+* **GeoJSON 형식**. [Elevation API](/rest/api/maps/elevation)를 사용하여 정의된 경계 상자 내 또는 특정 좌표에서 경로를 따라 샘플링된 권한 상승 데이터를 요청합니다. 
+
+:::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="권한 상승 데이터를 포함하는 맵의 예제":::
+
+
 ## <a name="programming-model"></a>프로그래밍 모델
 
 Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케이션을 개발하는 데 유용할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](/rest/api/maps/)를 통해 JSON 출력을 지원합니다.
 
 또한 Azure Maps는 간단한 프로그래밍 모델을 사용하는 간편한 [JavaScript 맵 컨트롤](/javascript/api/azure-maps-control)을 제공합니다. 웹 및 모바일 애플리케이션을 쉽고 빠르게 개발할 수 있습니다.
 
+
+
+
+
 ## <a name="power-bi-visual"></a>Power BI 시각적 개체
 
 Power BI용 Azure Maps 시각적 개체는 지도 위에 공간 데이터에 대한 다양한 데이터 시각화 세트를 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure Maps 시각적 개체는 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻을 수 있는 코드 없는 솔루션을 제공합니다.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Azure Maps 웹 SDK를 사용하여 만든 채우기 변경 맵 예제":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="비즈니스 데이터를 표시하는 Azure Maps 시각적 개체가 포함된 Power BI 데스크톱":::
 
 자세한 내용은 [Azure Maps Power BI 시각적 개체](power-bi-visual-getting-started.md) 시작 설명서를 참조하세요.
 

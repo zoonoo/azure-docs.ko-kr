@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet, contperfq2
-ms.openlocfilehash: ab9fc4f08b96fc10a20125c30af2d6b8050c7606
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.custom: devx-track-dotnet, contperf-fy21q2
+ms.openlocfilehash: f503f132794f6d04b587a78b8f838acba26f9ac3
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341742"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032017"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,9 +45,9 @@ ServiceInterop.dll를 사용할 수 없는 Linux 및 기타 지원 되지 않는
 
 - **Vstest.console.exe 기반 테스트 프로젝트의 경우** Visual Studio **테스트** 메뉴 **에서 테스트**  >  **테스트 설정** 을 선택 하 고 **기본 프로세서 아키텍처** 를 x **64** 로 설정 합니다.
 
-- **ASP.NET 웹 응용 프로그램을 로컬로 배포 하는 경우** : **도구**  >  **옵션**  >  **프로젝트 및 솔루션**  >  **웹 프로젝트** 를 선택 하 고 **웹 사이트 및 프로젝트에 64 비트 버전 IIS Express 사용** 을 선택 합니다.
+- **ASP.NET 웹 응용 프로그램을 로컬로 배포 하는 경우**: **도구**  >  **옵션**  >  **프로젝트 및 솔루션**  >  **웹 프로젝트** 를 선택 하 고 **웹 사이트 및 프로젝트에 64 비트 버전 IIS Express 사용** 을 선택 합니다.
 
-- **Azure에 배포 된 ASP.NET 웹 응용 프로그램의 경우** : Azure Portal의 **응용 프로그램 설정** 에서 **64 비트** 플랫폼을 선택 합니다.
+- **Azure에 배포 된 ASP.NET 웹 응용 프로그램의 경우**: Azure Portal의 **응용 프로그램 설정** 에서 **64 비트** 플랫폼을 선택 합니다.
 
 > [!NOTE] 
 > 기본적으로 새 Visual Studio 프로젝트는 **모든 CPU** 로 설정 됩니다. **X 86** 으로 전환 되지 않도록 프로젝트를 x **64** 로 설정 하는 것이 좋습니다. **모든 CPU** 로 설정 된 프로젝트는 x86 전용 종속성이 추가 된 경우 **x86** 으로 쉽게 전환할 수 있습니다.<br/>
@@ -156,13 +156,13 @@ SQL .NET SDK는 병렬 쿼리를 지원 하므로 분할 된 컨테이너를 병
 
 병렬 쿼리는 요구 사항에 맞게 튜닝할 수 있는 두 가지 매개 변수를 제공 합니다. 
 
-- **Maxconcurrency** : 병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다.
+- **Maxconcurrency**: 병렬로 쿼리할 수 있는 최대 파티션 수를 제어 합니다.
 
    병렬 쿼리는 여러 파티션을 병렬로 쿼리 하는 방식으로 작동 합니다. 하지만 개별 파티션의 데이터는 쿼리와 관련 하 여 순차적으로 인출 됩니다. `MaxConcurrency` [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) 에서 파티션 수로 설정 하면 다른 모든 시스템 조건을 동일 하 게 유지 하는 가장 뛰어난 쿼리를 달성할 수 있습니다. 파티션 수를 모르는 경우 병렬 처리 수준을 높은 값으로 설정할 수 있습니다. 시스템은 병렬 처리 수준으로 최소 (파티션 수, 사용자가 제공한 입력)를 선택 합니다.
 
     병렬 쿼리는 데이터를 쿼리와 관련 하 여 모든 파티션에 균등 하 게 분산 하는 경우 가장 많은 이점을 생성 합니다. 쿼리에서 반환 하는 모든 데이터 또는 대부분의 데이터가 일부 파티션에서 집중 되도록 분할 된 컬렉션이 분할 된 경우 (하나의 파티션이 최악의 경우) 이러한 파티션이 쿼리 성능에 병목 상태가 됩니다.
    
-- **MaxBufferedItemCount** : 미리 인출 된 결과의 수를 제어 합니다.
+- **MaxBufferedItemCount**: 미리 인출 된 결과의 수를 제어 합니다.
 
    병렬 쿼리는 클라이언트에서 현재 결과 일괄 처리를 처리하는 동안 결과를 프리페치하도록 설계되었습니다. 이 미리 페치를 통해 쿼리의 전체 대기 시간을 향상 시킬 수 있습니다. `MaxBufferedItemCount`매개 변수는 미리 인출 된 결과의 수를 제한 합니다. `MaxBufferedItemCount`반환 되는 결과의 예상 개수 (또는 더 높은 수)로 설정 하 여 쿼리가 사전 페치를 최대한 활용할 수 있도록 합니다.
 
@@ -215,7 +215,7 @@ Azure Cosmos DB는 다양 한 데이터베이스 작업 집합을 제공 합니�
 
 쿼리의 복잡성은 작업에 사용 되는 요청 단위 수에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 파일 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
-모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) `RequestCharge` `ResourceResponse\<T>` `FeedResponse\<T>` 작업에서 사용 하는 요청 단위 수를 측정 하려면 X-Y 요청 (또는 .net SDK의 또는 해당 하는 속성)을 검사 합니다.
+모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 [](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) `RequestCharge` `ResourceResponse\<T>` `FeedResponse\<T>` 작업에서 사용 하는 요청 단위 수를 측정 하려면 X-Y 요청 (또는 .net SDK의 또는 해당 하는 속성)을 검사 합니다.
 
 ```csharp
 // Measure the performance (Request Units) of writes

@@ -1,6 +1,6 @@
 ---
 title: 공유 메타데이터 모델
-description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 및 전용 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
+description: Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 및 전용 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,18 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b10b6f011fa7daee4094f0cc7b819d36127fedcd
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324661"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460347"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics 공유 메타데이터
 
-Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀(미리 보기)과 서버리스 SQL 풀(미리 보기) 간에 데이터베이스와 테이블을 공유할 수 있습니다.
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+Azure Synapse Analytics를 사용하면 여러 작업 영역 컴퓨팅 엔진이 서버리스 Spark Apache 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다.
 
 이러한 공유는 최신 데이터 웨어하우스 패턴을 지원하며, Spark로 만든 데이터베이스 및 테이블에 대한 액세스 권한을 작업 영역 SQL 엔진에 제공합니다. 또한 SQL 엔진이 다른 엔진과 공유되지 않는 고유한 개체를 만들 수 있게 해줍니다.
 

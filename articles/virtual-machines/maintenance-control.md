@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4b9dec0fe684e002fadbac2db375c354db2b6d01
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978614"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981173"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리 
 
@@ -23,12 +23,13 @@ ms.locfileid: "91978614"
 유지 관리 제어를 사용 하 여 다음을 수행할 수 있습니다.
 - 업데이트를 하나의 업데이트 패키지로 일괄 처리 합니다.
 - 업데이트를 적용 하려면 최대 35 일 동안 기다립니다. 
-- [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler)를 사용 하 여 유지 관리 기간에 대 한 플랫폼 업데이트를 자동화 합니다.
+- 유지 관리 일정을 구성 하거나 [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler)를 사용 하 여 플랫폼 업데이트를 자동화 합니다.
 - 유지 관리 구성은 구독 및 리소스 그룹에 걸쳐 작동 합니다. 
 
 ## <a name="limitations"></a>제한 사항
 
 - Vm은 [전용 호스트](./dedicated-hosts.md)에 있거나 [격리 된 VM 크기](isolation.md)를 사용 하 여 만들어야 합니다.
+- 유지 관리 일정을 선언 하는 경우 최소 2 시간 이어야 합니다.
 - 35 일 후 업데이트가 자동으로 적용 됩니다.
 - 사용자에 게 **리소스 참여자** 액세스 권한이 있어야 합니다.
 

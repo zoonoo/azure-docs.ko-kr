@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: f8233e9974964e5d760d6b0b388278ff4eee7b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 452ef4787812dbdf88eb541cf5a164f2888dddcc
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534486"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905437"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Azure Database for MariaDB 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -72,6 +72,7 @@ Microsoft Azure Database for MariaDB 서버 서비스에 대한 액세스가 예
 
    예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
+* **방화벽 규칙을 IPv6 형식에 사용할 수 없습니다.** 방화벽 규칙은 IPv4 형식 이어야 합니다. IPv6 형식으로 방화벽 규칙을 지정 하는 경우 유효성 검사 오류가 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal을 사용한 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-portal.md)

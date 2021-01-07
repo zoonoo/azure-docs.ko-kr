@@ -4,12 +4,12 @@ description: 클러스터 운영자 및 개발자가 AKS(Azure Kubernetes Servic
 services: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.openlocfilehash: 1278a03d3ffc7ccb11b0e3c4c84f6c213648440b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008783"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686262"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 클러스터 운영자 및 개발자의 모범 사례
 
@@ -30,7 +30,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 * [고급 스케줄러 기능에 대한 모범 사례](operator-best-practices-advanced-scheduler.md)
     * 흔적 및 허용 오차, 노드 선택기 및 선호도, Pod 간 선호도 및 선호도 방지를 사용합니다.
 * [인증 및 권한 부여에 대한 모범 사례](operator-best-practices-identity.md)
-    * 에는 RBAC (역할 기반 액세스 제어) 및 pod id를 사용 하는 Azure Active Directory와의 통합이 포함 되어 있습니다.
+    * Kubernetes Azure Active Directory와의 통합, Kubernetes RBAC (역할 기반 액세스 제어), Azure RBAC 사용, pod id 사용 등이 포함 됩니다.
 
 **보안**
 

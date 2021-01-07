@@ -3,12 +3,12 @@ title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Micr
 description: Application Insights에 데이터를 파이프 하는 Azure 진단 구성을 자동화 합니다.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd69b90ce6329041f96b8e3173f1f17270f68ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320360"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699732"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
 
@@ -40,7 +40,7 @@ ms.locfileid: "87320360"
 * `myWebAppName` - 웹앱의 ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
-`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 예를 들면 다음과 같습니다.
+`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 다음은 그 예입니다.
 
 ```azurepowershell
 $service_package = "CloudService.cspkg"
@@ -123,8 +123,8 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 * [Application Insights로 Azure Cloud Services 앱 모니터링](./cloudservices.md)
 * [Application Insights에 Azure Diagnostics 보내기](../platform/diagnostics-extension-to-application-insights.md)
-* [구성 경고 자동화](powershell-alerts.md)
+
 

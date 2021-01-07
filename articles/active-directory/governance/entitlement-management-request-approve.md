@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fddb3b171e5a26273cb2e0045f11e3a4dbb48c5f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537665"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655104"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
@@ -57,11 +57,11 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 1. **요청 정보** 를 클릭 합니다.
 
-     ![내 액세스 포털-액세스 요청-클릭 요청 세부 정보](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+    ![내 액세스 포털-액세스 요청-클릭 요청 세부 정보](./media/entitlement-management-request-approve/requestor-information-request-details.png)
 
 1. 요청자에 의해 제공 되는 정보는 패널의 맨 아래에 있습니다.
 
-     ![요청에 대 한 세부 정보를 보여 주는 스크린샷](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+    ![요청에 대 한 세부 정보를 보여 주는 스크린샷](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. 요청자는 제공 된 정보에 따라 요청을 승인 하거나 거부할 수 있습니다. 지침은 요청 승인 또는 거부의 단계를 참조 하세요.
 

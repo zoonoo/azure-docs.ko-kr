@@ -4,11 +4,11 @@ description: Recovery Services 자격 증명 모음에 대 한 개요입니다.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093670"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017324"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -20,9 +20,9 @@ ms.locfileid: "92093670"
 
 - Azure **rbac (역할 기반 액세스 제어)**: azure Rbac는 azure에서 세분화 액세스 관리 제어를 제공 합니다. [Azure는 다양한 기본 제공 역할을 제공](../role-based-access-control/built-in-roles.md)하고 Azure Backup에는 3가지 [복구 지점을 관리하는 기본 제공 역할](backup-rbac-rs-vault.md)이 포함됩니다. Recovery Services 자격 증명 모음은 Azure RBAC와 호환 되며,이를 통해 정의 된 사용자 역할 집합에 대 한 백업 및 복원 액세스를 제한 합니다. [자세한 정보](backup-rbac-rs-vault.md)
 
-- **일시 삭제**: 일시 삭제를 사용 하면 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존 기간은 아무런 비용이 들지 않습니다. [자세히 알아봅니다](backup-azure-security-feature-cloud.md).
+- **일시 삭제**: 일시 삭제를 사용 하면 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존 기간은 아무런 비용이 들지 않습니다. [자세한 정보를 알아보세요](backup-azure-security-feature-cloud.md).
 
-- **지역 간 복원**: crr (지역 간 복원)을 사용 하면 azure 쌍을 이루는 지역에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. Azure가 주 지역에서 재해를 선언 하는 경우 보조 지역에서 복제 된 데이터를 보조 지역에서 복원 하 여 환경에 대 한 기본 지역의 실제 가동 중지 시간을 완화할 수 있습니다. [자세히 알아봅니다](backup-azure-arm-restore-vms.md#cross-region-restore).
+- **지역 간 복원**: crr (지역 간 복원)을 사용 하면 azure 쌍을 이루는 지역에 있는 보조 지역에서 azure vm을 복원할 수 있습니다. Azure가 주 지역에서 재해를 선언 하는 경우 보조 지역에서 복제 된 데이터를 보조 지역에서 복원 하 여 환경에 대 한 기본 지역의 실제 가동 중지 시간을 완화할 수 있습니다. [자세한 정보를 알아보세요](backup-azure-arm-restore-vms.md#cross-region-restore).
 
 ## <a name="storage-settings-in-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 저장소 설정
 

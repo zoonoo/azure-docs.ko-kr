@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: dd0ed78c56e4d656a2ecee6395d831ed093e85b5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677372"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001612"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Azure FarmBeats 문제 해결
 
@@ -54,7 +54,7 @@ ms.locfileid: "92677372"
 
 ### <a name="cant-view-telemetry-data"></a>원격 분석 데이터를 볼 수 없음
 
-**증상** : 디바이스 또는 센서가 배포되고 디바이스 파트너와 FarmBeats를 연결했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+**증상**: 디바이스 또는 센서가 배포되고 디바이스 파트너와 FarmBeats를 연결했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
 
 **정정 작업**
 
@@ -69,7 +69,7 @@ ms.locfileid: "92677372"
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집한 후 원격 분석 데이터를 볼 수 없음
 
-**증상** : 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+**증상**: 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
 
 **정정 작업**
 
@@ -117,7 +117,7 @@ ms.locfileid: "92677372"
 
 ### <a name="device-appears-offline"></a>디바이스가 오프라인으로 표시됨
 
-**증상** : 디바이스가 설치되고 디바이스 파트너와 FarmBeats를 연결했습니다. 디바이스가 온라인 상태이고 원격 분석 데이터를 전송하지만 오프라인으로 표시됩니다.
+**증상**: 디바이스가 설치되고 디바이스 파트너와 FarmBeats를 연결했습니다. 디바이스가 온라인 상태이고 원격 분석 데이터를 전송하지만 오프라인으로 표시됩니다.
 
 **정정 작업** 이 디바이스에 대해 보고 간격이 구성되지 않았습니다. 보고 간격을 설정하려면 디바이스 제조업체에 문의하세요. 
 
@@ -125,9 +125,9 @@ ms.locfileid: "92677372"
 
 디바이스를 삭제하는 동안 다음과 같은 일반적인 오류 시나리오 중 하나가 발생할 수 있습니다.  
 
-**메시지** : “디바이스가 센서에서 참조됩니다. 디바이스와 연결된 센서가 하나 이상 있습니다. 센서를 삭제한 다음 디바이스를 삭제합니다.”  
+**메시지**: “디바이스가 센서에서 참조됩니다. 디바이스와 연결된 센서가 하나 이상 있습니다. 센서를 삭제한 다음 디바이스를 삭제합니다.”  
 
-**의미** : 디바이스는 농장에 배포된 여러 센서와 연결되어 있습니다.
+**의미**: 디바이스는 농장에 배포된 여러 센서와 연결되어 있습니다.
 
 **정정 작업**  
 
@@ -135,9 +135,9 @@ ms.locfileid: "92677372"
 2. 센서를 다른 디바이스에 연결하려면 디바이스 파트너에게 동일한 작업을 수행하도록 요청합니다.  
 3. `DELETE API` 호출을 사용하여 디바이스를 삭제하고 force 매개 변수를 *true* 로 설정합니다.  
 
-**메시지** : “디바이스는 디바이스에서 ParentDeviceId로 참조됩니다. 이 디바이스와 자식 디바이스로 연결된 디바이스가 하나 이상 있습니다. 해당 디바이스를 삭제한 다음 이 디바이스를 삭제합니다.”  
+**메시지**: “디바이스는 디바이스에서 ParentDeviceId로 참조됩니다. 이 디바이스와 자식 디바이스로 연결된 디바이스가 하나 이상 있습니다. 해당 디바이스를 삭제한 다음 이 디바이스를 삭제합니다.”  
 
-**의미** : 디바이스에 다른 디바이스가 연결되어 있습니다.  
+**의미**: 디바이스에 다른 디바이스가 연결되어 있습니다.  
 
 **정정 작업**
 
@@ -152,7 +152,7 @@ ms.locfileid: "92677372"
 
 ### <a name="farmbeats-internal-error"></a>FarmBeats 내부 오류
 
-**메시지** : “FarmBeats 내부 오류입니다. 자세한 내용은 문제 해결 가이드를 참조하세요.”
+**메시지**: “FarmBeats 내부 오류입니다. 자세한 내용은 문제 해결 가이드를 참조하세요.”
 
 **정정 작업** 이 문제는 데이터 파이프라인의 일시적인 실패로 인해 발생할 수 있습니다. 작업을 다시 만듭니다. 오류가 계속 발생하면 오류 메시지/로그를 사용하여 문의해주세요.
 
@@ -160,15 +160,15 @@ ms.locfileid: "92677372"
 
 ### <a name="access-control"></a>Access Control
 
-**문제** : 역할 할당을 추가하는 동안 오류가 발생합니다.
+**문제**: 역할 할당을 추가하는 동안 오류가 발생합니다.
 
-**메시지** : “일치하는 사용자를 찾을 수 없습니다.”
+**메시지**: “일치하는 사용자를 찾을 수 없습니다.”
 
 **정정 작업** 역할 할당을 추가하려는 메일 ID를 확인합니다. 메일 ID는 Active Directory에서 해당 사용자에 대해 등록된 ID와 정확히 일치해야 합니다. 오류가 계속 발생하면 오류 메시지/로그를 사용하여 문의해주세요.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>가속기에 로그인할 수 없음
 
-**메시지** : "오류: 서비스를 호출할 수 있는 권한이 없습니다. 관리자에게 권한 부여를 문의하세요.”
+**메시지**: "오류: 서비스를 호출할 수 있는 권한이 없습니다. 관리자에게 권한 부여를 문의하세요.”
 
 **정정 작업** FarmBeats 배포에 대한 액세스 권한을 부여하도록 관리자에게 요청합니다. 이 작업은 RoleAssignment API의 POST를 수행하거나 가속기의 **설정** 창에 있는 액세스 제어를 통해 수행할 수 있습니다.  
 
@@ -178,13 +178,13 @@ ms.locfileid: "92677372"
 
 ### <a name="accelerator-issues"></a>가속기 문제  
 
-**문제** : 결정되지 않은 원인의 가속기 오류를 발생했습니다.
+**문제**: 결정되지 않은 원인의 가속기 오류를 발생했습니다.
 
-**메시지** : "오류: 알 수 없는 오류가 발생했습니다.”
+**메시지**: "오류: 알 수 없는 오류가 발생했습니다.”
 
 **정정 작업** 이 오류는 페이지를 유휴 상태로 너무 오래 둘 경우 발생합니다. 페이지를 새로 고칩니다. 오류가 계속 발생하면 오류 메시지/로그를 사용하여 문의해주세요.
 
-**문제** : FarmBeatsDeployment를 업그레이드한 후에도 FarmBeats 가속기에 최신 버전을 표시되지 않습니다.
+**문제**: FarmBeatsDeployment를 업그레이드한 후에도 FarmBeats 가속기에 최신 버전을 표시되지 않습니다.
 
 **정정 작업** 이 오류는 브라우저에서 서비스 작업자 지속성으로 인해 발생합니다. 다음을 수행합니다.
 
@@ -195,9 +195,9 @@ ms.locfileid: "92677372"
 
 ### <a name="wrong-username-or-password"></a>잘못된 사용자 이름 또는 암호
 
-**작업 실패 메시지** : “이 리소스에 액세스하려면 전체 인증이 필요합니다.”
+**작업 실패 메시지**: “이 리소스에 액세스하려면 전체 인증이 필요합니다.”
 
-**정정 작업** : 다음 중 하나를 수행합니다.
+**정정 작업**: 다음 중 하나를 수행합니다.
 
 - 아래 단계를 사용하여 FarmBeats를 올바른 사용자 이름/암호로 업데이트한 후 작업을 다시 시도하세요.
 
@@ -226,9 +226,9 @@ ms.locfileid: "92677372"
 
 ### <a name="sentinel-hub-wrongurlor-site-not-accessible"></a>Sentinel 허브: 잘못된 URL 또는 사이트에 액세스할 수 없음
 
-**작업 실패 메시지** : “문제가 발생했습니다. 액세스하려는 페이지를 일시적으로 사용할 수 없습니다.”
+**작업 실패 메시지**: “문제가 발생했습니다. 액세스하려는 페이지를 일시적으로 사용할 수 없습니다.”
 
-**정정 작업** :
+**정정 작업**:
 
 1. 브라우저에서 [Sentinel](https://scihub.copernicus.eu/dhus/)을 열어 웹 사이트에 액세스할 수 있는지 확인합니다.
 2. 웹 사이트에 액세스할 수 없는 경우 방화벽, 회사 네트워크 또는 기타 차단 소프트웨어에서 웹 사이트에 대한 액세스를 막고 있는지 확인한 다음 필요한 단계를 수행하여 Sentinel URL을 허용합니다. 
@@ -236,9 +236,9 @@ ms.locfileid: "92677372"
 
 ### <a name="sentinel-server-down-for-maintenance"></a>Sentinel 서버: 유지 관리를 위한 작동 중지
 
-**작업 실패 메시지** : “Copernicus Open Access Hub가 곧 다시 출시될 예정입니다. 불편을 드려 죄송합니다. 지금은 몇 가지 유지 관리 작업을 수행하고 있습니다. 곧 다시 온라인 상태가 될 예정입니다.” 
+**작업 실패 메시지**: “Copernicus Open Access Hub가 곧 다시 출시될 예정입니다. 불편을 드려 죄송합니다. 지금은 몇 가지 유지 관리 작업을 수행하고 있습니다. 곧 다시 온라인 상태가 될 예정입니다.” 
 
-**정정 작업** :
+**정정 작업**:
 
 이 문제는 Sentinel 서버에서 유지 관리 작업을 수행하는 경우 발생할 수 있습니다.
 
@@ -250,20 +250,20 @@ ms.locfileid: "92677372"
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: 최대 연결 수 도달
 
-**작업 실패 메시지** : "사용자 ' '이 (가) 달성 하는 최대 두 개의 동시 흐름 수 \<username> 입니다."
+**작업 실패 메시지**: "사용자 ' '이 (가) 달성 하는 최대 두 개의 동시 흐름 수 \<username> 입니다."
 
-**의미** : 최대 연결 수에 도달하여 작업이 실패하는 경우 여러 작업에서 동일한 Sentinel 계정이 사용되고 있는 것입니다.
+**의미**: 최대 연결 수에 도달하여 작업이 실패하는 경우 여러 작업에서 동일한 Sentinel 계정이 사용되고 있는 것입니다.
 
-**정정 작업** : 다음 중 하나를 수행합니다.
+**정정 작업**: 다음 중 하나를 수행합니다.
 
 * 실패한 작업을 다시 실행하기 전에 다른 작업이 완료될 때까지 기다립니다.
 * 새 Sentinel 계정을 만든 다음 FarmBeats에서 Sentinel 사용자 이름 및 암호를 업데이트합니다.
 
 ### <a name="sentinel-server-refused-connection"></a>Sentinel 서버: 연결 거부됨
 
-**작업 실패 메시지** : “서버 http://172.30.175.69:8983/solr/dhus 에서 연결을 거부했습니다.”
+**작업 실패 메시지**: “서버 http://172.30.175.69:8983/solr/dhus 에서 연결을 거부했습니다.”
 
-**정정 작업** : 이 문제는 Sentinel 서버에서 유지 관리 작업을 수행하는 경우 발생할 수 있습니다.
+**정정 작업**: 이 문제는 Sentinel 서버에서 유지 관리 작업을 수행하는 경우 발생할 수 있습니다.
 
 1. 유지 관리를 수행하기 때문에 작업 또는 파이프라인이 실패할 경우 일정 시간 후에 작업을 다시 제출합니다.
 
@@ -273,9 +273,9 @@ ms.locfileid: "92677372"
 
 ### <a name="soil-moisture-map-has-white-areas"></a>Soil Moisture 지도에 흰색 영역이 있음
 
-**문제** : **Soil Moisture 지도** 가 생성되었지만 지도가 대부분 흰색 영역입니다.
+**문제**: **Soil Moisture 지도** 가 생성되었지만 지도가 대부분 흰색 영역입니다.
 
-**정정 작업** : 지도가 요청된 시간에 대해 생성된 위성 인덱스에 0.3보다 작은 NDVI 값이 있는 경우 이 문제가 발생할 수 있습니다. 자세한 내용은 [Sentinel의 기술 가이드](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)를 참조하세요.
+**정정 작업**: 지도가 요청된 시간에 대해 생성된 위성 인덱스에 0.3보다 작은 NDVI 값이 있는 경우 이 문제가 발생할 수 있습니다. 자세한 내용은 [Sentinel의 기술 가이드](https://earth.esa.int/web/sentinel/technical-guides/sentinel-2-msi/level-2a/algorithm)를 참조하세요.
 
 1. 다른 날짜 범위에 대해 작업을 다시 실행하고 위성 인덱스의 NDVI 값이 0.3보다 큰지 확인합니다.
 
@@ -307,9 +307,9 @@ ms.locfileid: "92677372"
 
 ## <a name="high-cpu-usage"></a>높은 CPU 사용량
 
-**오류** : **높은 CPU 사용량 경고** 를 참조하는 메일 경고를 받게 됩니다.
+**오류**: **높은 CPU 사용량 경고** 를 참조하는 메일 경고를 받게 됩니다.
 
-**정정 작업** :
+**정정 작업**:
 
 1. FarmBeats Datahub 리소스 그룹으로 이동합니다.
 2. **App Service** 를 선택합니다.  
@@ -317,7 +317,7 @@ ms.locfileid: "92677372"
 
 ## <a name="weather-data-job-failures"></a>날씨 데이터 작업 실패
 
-**오류** : 날씨 데이터를 가져오기 위해 작업을 실행 하지만 작업이 실패 합니다.
+**오류**: 날씨 데이터를 가져오기 위해 작업을 실행 하지만 작업이 실패 합니다.
 
 ### <a name="collect-logs-to-troubleshoot-weather-data-job-failures"></a>날씨 데이터 작업 오류 문제를 해결 하기 위한 로그 수집
 
@@ -331,22 +331,22 @@ ms.locfileid: "92677372"
 
 3. 데이터 팩터리의 개요 페이지에서 **작성자 및 모니터** 를 클릭 합니다. 브라우저에서 새 탭이 열립니다. **모니터** 를 클릭 합니다.
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="모니터 메뉴 옵션을 강조 표시 하는 스크린샷":::
 
 4. 날씨 작업 실행의 일부인 파이프라인 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업을 클릭 합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="파이프라인 실행 메뉴 옵션 및 선택한 작업을 강조 표시 하는 스크린샷":::
 
 5. 파이프라인 개요 페이지에서 작업 실행 목록이 표시 됩니다. 로그를 수집 하려는 작업의 실행 Id를 적어 둡니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="활동 실행 목록을 보여 주는 스크린샷":::
 
 6. Azure Portal에서 FarmBeats 리소스 그룹으로 돌아가서 이름이 **datahublogs-XXXX** 인 저장소 계정을 클릭 합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="이름이 datahublogs-XXXX 인 저장소 계정을 강조 표시 하는 스크린샷":::
 
 7. **컨테이너**  ->  **adfjobs** 를 클릭 합니다. 검색 상자에 위의 5 단계에서 적어둔 작업 실행 ID를 입력 합니다.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Sku: Datahub 태그를 강조 표시 하는 스크린샷":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="프로젝트 FarmBeats":::
 
 8. 검색 결과에는 작업과 관련 된 로그가 있는 폴더가 포함 됩니다. 로그를 다운로드 하 여 문제를 디버깅 하는 데 도움이 되도록에 보냅니다 farmbeatssupport@microsoft.com .

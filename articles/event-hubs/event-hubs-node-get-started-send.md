@@ -1,21 +1,21 @@
 ---
 title: JavaScript(최신)를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
-description: 이 문서에서는 최신 azure/event-hubs 버전 5 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 JavaScript 애플리케이션을 만드는 과정을 연습할 수 있습니다.
+description: 이 문서에서는 최신 azure/event-hubs 패키지를 사용하여 Azure Event Hubs와 이벤트를 주고 받는 JavaScript 애플리케이션을 만드는 과정을 연습할 수 있습니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 01516f29e727b5be2a81d3d8dd473808b6ea60f7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 2e5f297d5edb9a271843db060f948209dd076074
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728950"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106090"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>JavaScript(azure/event-hubs 버전 5)를 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
-이 빠른 시작에서는 **azure/event-hubs 버전 5** JavaScript 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs"></a>JavaScript(azure/event-hubs)를 사용하여 이벤트 허브에서 이벤트 보내기 또는 받기
+이 빠른 시작에서는 **azure/event-hubs** JavaScript 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
@@ -29,10 +29,10 @@ Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기
    1. 네임스페이스 및 이벤트 허브를 만들려면 [빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 지침을 수행합니다.
    1. 이 빠른 시작의 지침에 따라 계속 진행합니다. 
    1. 이벤트 허브 네임스페이스에 대한 연결 문자열을 가져오려면 [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)의 지침을 따릅니다. 이 빠른 시작의 뒷부분에서 사용할 수 있도록 연결 문자열을 기록해 둡니다.
-- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **Event Hubs 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **Event Hubs 네임스페이스에 대한 연결 문자열** 을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
 
 ### <a name="install-the-npm-package"></a>npm 패키지 설치
-[Event Hubs용 npm(Node 패키지 관리자) 패키지](https://www.npmjs.com/package/@azure/event-hubs)를 설치하려면 경로에 *npm*이 있는 명령 프롬프트를 열고, 샘플을 저장하려는 폴더로 디렉터리를 변경하고, 다음 명령을 실행합니다.
+[Event Hubs용 npm(Node 패키지 관리자) 패키지](https://www.npmjs.com/package/@azure/event-hubs)를 설치하려면 경로에 *npm* 이 있는 명령 프롬프트를 열고, 샘플을 저장하려는 폴더로 디렉터리를 변경하고, 다음 명령을 실행합니다.
 
 ```shell
 npm install @azure/event-hubs
@@ -55,7 +55,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 이 섹션에서는 이벤트 허브로 이벤트를 보내는 JavaScript 애플리케이션을 만듭니다.
 
 1. 선호하는 편집기(예: [Visual Studio Code](https://code.visualstudio.com))를 엽니다.
-1. *send.js*라는 파일을 만들고, 그 안에 다음 코드를 붙여넣습니다.
+1. *send.js* 라는 파일을 만들고, 그 안에 다음 코드를 붙여넣습니다.
 
     ```javascript
     const { EventHubProducerClient } = require("@azure/event-hubs");
@@ -105,7 +105,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 이 섹션에서는 JavaScript 애플리케이션에서 Azure Blob 스토리지 검사점 저장소를 사용하여 이벤트 허브에서 이벤트를 수신합니다. 이 스토리지는 Azure Storage BLOB에서 일정한 간격으로 수신된 메시지의 메타데이터에 검사점을 적용합니다. 이러한 방식이 사용되므로 메시지 수신이 중지된 이후 중지된 시점부터 계속해서 쉽게 메시지를 수신할 수 있습니다.
 
 > [!WARNING]
-> Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hubs SDK가 Azure Stack Hub 플랫폼에서는 사용할 수 없는 Azure에서 사용 가능한 최신 Azure Storage API를 사용하기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
+> Azure Stack Hub에서 이 코드를 실행하는 경우 특정 Storage API 버전을 대상으로 하지 않는 한 런타임 오류가 발생합니다. 이는 Event Hub SDK가 Azure에서 사용할 수 있는 최신 Azure Storage API를 사용하지만 Azure Stack Hub 플랫폼에서는 사용할 수 없기 때문입니다. Azure Stack Hub는 Azure에서 일반적으로 사용할 수 있는 것과 다른 버전의 Storage Blob SDK를 지원할 수도 있습니다. Azure Blog Storage를 검사점 저장소로 사용하는 경우 [Azure Stack Hub 빌드에 대해 지원되는 Azure Storage API 버전](/azure-stack/user/azure-stack-acs-differences?#api-version)을 확인하고 코드에서 해당 버전을 대상으로 지정합니다. 
 >
 > 예를 들어 Azure Stack Hub 버전 2005에서 실행 중인 경우 스토리지 서비스에 사용할 수 있는 가장 높은 버전은 2019-02-02입니다. 기본적으로 Event Hubs SDK 클라이언트 라이브러리는 Azure에서 사용 가능한 가장 높은 버전을 사용합니다(SDK 릴리스 당시 2019-07-07). 이 경우 이 섹션의 다음 단계 외에도 스토리지 서비스 API 버전 2019-02-02를 대상으로 하는 코드를 추가해야 합니다. 특정 Storage API 버전을 대상으로 지정하는 방법에 대한 예제는 GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 샘플을 참조하세요. 
 
@@ -122,7 +122,7 @@ Azure 스토리지 계정 및 BLOB 컨테이너를 만들려면 다음 단계를
 ### <a name="write-code-to-receive-events"></a>이벤트를 받는 코드 작성
 
 1. 선호하는 편집기(예: [Visual Studio Code](https://code.visualstudio.com))를 엽니다.
-1. *receive.js*라는 파일을 만들고, 그 안에 다음 코드를 붙여넣습니다.
+1. *receive.js* 라는 파일을 만들고, 그 안에 다음 코드를 붙여넣습니다.
 
     ```javascript
     const { EventHubConsumerClient } = require("@azure/event-hubs");

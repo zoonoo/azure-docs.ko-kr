@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 전용 SQL 풀(미리 보기) 만들기'
+title: '빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기'
 description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 새 전용 SQL 풀을 만듭니다.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c9dcb2fa8be22c21cc2b005cce1bf8bb1c614381
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324255"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462010"
 ---
-# <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀(미리 보기) 만들기
+# <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기
 
 Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하는 데 도움이 되는 다양한 분석 엔진을 제공합니다. 전용 SQL 풀은 T-SQL 기반 컴퓨팅 및 스토리지 기능을 제공합니다. Synapse 작업 영역에서 전용 SQL 풀을 만든 후 보다 빠른 인사이트를 위해 데이터를 로드, 모델링, 처리 및 전달할 수 있습니다.
 
@@ -59,6 +59,9 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 3. 완료되면 **다음: 추가 설정** 을 선택하여 사용자 지정 설정을 더 많이 구성합니다.
 4. **없음** 을 선택하여 데이터 없이 전용 SQL 풀을 프로비저닝합니다. 기본 데이터 정렬을 선택한 상태로 둡니다.
+
+    복원 지점에서 전용 SQL 풀을 복원하려면 **복원 지점** 을 선택합니다. 복원을 수행하는 방법에 대한 자세한 내용은 [방법: 기존 전용 SQL 풀 복원](backuprestore/restore-sql-pool.md)을 참조하세요.
+
 ![전용 SQL 풀 만들기 흐름 - 추가 설정 탭.](media/quickstart-create-sql-pool/create-sql-pool-portal-03.png)
 
 5. **검토 + 만들기** 를 선택합니다.
@@ -72,7 +75,6 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
  ![SQL 풀 만들기 흐름 - 리소스 프로비저닝](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
 
 
-
 전용 SQL 풀이 생성되면 작업 영역에서 데이터를 로드하고, 스트림을 처리하고, 레이크에서 읽기 등에 사용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -84,7 +86,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 전용 SQL 풀을 삭제하려면 다음 단계를 완료합니다.
 
 1. 작업 영역에서 SQL 풀 블레이드로 이동합니다.
-1. 삭제할 전용 SQL 풀을 선택합니다(이 경우 **contosowdw** ).
+1. 삭제할 전용 SQL 풀을 선택합니다(이 경우 **contosowdw**).
 1. 선택했으면 **삭제** 를 누릅니다.
 1. 삭제를 확인하고 **삭제** 단추 ![전용 SQL 풀 개요 - 삭제 확인 강조 표시](media/quickstart-create-sql-pool/create-sql-pool-portal-11.png)를 누릅니다.
 1. 프로세스가 성공적으로 완료되면 전용 SQL 풀이 작업 영역 리소스에 더 이상 나열되지 않습니다.

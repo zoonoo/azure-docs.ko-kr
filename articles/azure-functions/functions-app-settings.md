@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505889"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937113"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -49,7 +49,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 |키|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 기본값입니다. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 이것은 기본값입니다. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -131,7 +131,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsSecretStorageType|Files|
+|AzureWebJobsSecretStorageType|파일|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -185,6 +185,14 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 |키|샘플 값|
 |---|------------|
 |함수 \_ 작업자 \_ 프로세스 \_ 수|2|
+
+## <a name="python_threadpool_thread_count"></a>PYTHON \_ THREADPOOL \_ 스레드 \_ 수
+
+Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 최대 스레드 수를 지정 합니다 .이 값은 `1` python 버전 및 아래에 대 한 기본값입니다 `3.8` . Python 버전 `3.9` 이상의 경우 값은로 설정 됩니다 `None` . 이 설정은 실행 중에 설정 되는 스레드 수를 보장 하지 않습니다. 설정은 Python이 스레드 수를 지정 된 값으로 확장할 수 있도록 합니다. 설정은 Python 함수 앱에만 적용 됩니다. 또한이 설정은 동기 함수 호출에 적용 되 고 코 루틴에는 적용 되지 않습니다.
+
+|키|샘플 값|최댓값|
+|---|------------|---------|
+|PYTHON \_ THREADPOOL \_ 스레드 \_ 수|2|32|
 
 
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
@@ -248,7 +256,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 함수 앱이 확장할 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
 
 > [!IMPORTANT]
-> 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./functions-scale.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
+> 이 설정은 미리 보기로 제공 됩니다.  [Function max scale out에 대 한 응용 프로그램 속성이](./event-driven-scaling.md#limit-scale-out) 추가 되었으며 확장을 제한 하는 데 권장 되는 방법입니다.
 
 |키|샘플 값|
 |---|------------|

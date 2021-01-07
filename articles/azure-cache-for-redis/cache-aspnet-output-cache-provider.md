@@ -8,11 +8,11 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
 ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544633"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993394"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 
@@ -22,7 +22,7 @@ Redis 출력 캐시 공급자를 사용하려면 먼저 캐시를 구성한 다�
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>ASP.NET 페이지 출력을 캐시에 저장
 
-Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자** , **패키지 관리자 콘솔** 을 차례로 클릭합니다.
+Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 클라이언트 애플리케이션을 구성하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔** 을 차례로 클릭합니다.
 
 `Package Manager Console` 창에서 다음 명령을 실행합니다.
 
@@ -52,7 +52,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
-| attribute | Type | 기본값 | 설명 |
+| attribute | Type | 기본값 | Description |
 | --------- | ---- | ------- | ----------- |
 | *호스팅하기* | 문자열 | 호스트 | Redis 서버 IP 주소 또는 호스트 이름 |
 | *port* | 양의 정수 | 6379 (TLS/SSL 아님)<br/>6380 (TLS/SSL) | Redis 서버 포트 |
@@ -61,7 +61,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 | *databaseIdNumber* | 양의 정수 | 0 | *이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>사용할 Redis 데이터베이스를 지정 합니다. |
 | *connectionTimeoutInMilliseconds* | 양의 정수 | StackExchange에서 제공 합니다. | Redis를 만들 때 *Connecttimeout* 을 설정 하는 데 사용 됩니다. |
 | *operationTimeoutInMilliseconds* | 양의 정수 | StackExchange에서 제공 합니다. | Redis를 만들 때 *Synctimeout* 을 설정 하는 데 사용 됩니다. |
-| *connectionString* (올바른 stackexchange 연결 문자열) | 문자열 | *해당 없음* | AppSettings 또는 web.config에 대 한 매개 변수 참조 또는 유효한 StackExchange 연결 문자열입니다. 이 특성은 *호스트* , *포트* , *AccessKey* , *ssl* 및 기타 Redis 특성에 대 한 값을 제공할 수 있습니다. *Connectionstring* 에 대해 자세히 살펴보려면 [특성 메모](#attribute-notes) 섹션에서 [connectionstring 설정](#setting-connectionstring) 을 참조 하세요. |
+| *connectionString* (올바른 stackexchange 연결 문자열) | 문자열 | *해당 없음* | AppSettings 또는 web.config에 대 한 매개 변수 참조 또는 유효한 StackExchange 연결 문자열입니다. 이 특성은 *호스트*, *포트*, *AccessKey*, *ssl* 및 기타 Redis 특성에 대 한 값을 제공할 수 있습니다. *Connectionstring* 에 대해 자세히 살펴보려면 [특성 메모](#attribute-notes) 섹션에서 [connectionstring 설정](#setting-connectionstring) 을 참조 하세요. |
 | *settingsClassName*<br/>*settingsMethodName* | 문자열<br/>문자열 | *해당 없음* | *이러한 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>이러한 특성을 사용 하 여 연결 문자열을 제공 합니다. *Settingsclassname* 은 *settingsclassname* 에 지정 된 메서드를 포함 하는 어셈블리의 정규화 된 클래스 이름 이어야 합니다.<br/><br/>*Settingsmethodname* 에 의해 지정 된 메서드는 **문자열** 의 반환 형식과 함께 public, static 및 void (매개 변수를 사용 하지 않음) 여야 합니다. 이 메서드는 실제 연결 문자열을 반환 합니다. |
 | *loggingClassName*<br/>*loggingMethodName* | 문자열<br/>문자열 | *해당 없음* | *이러한 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>이러한 특성을 사용 하 여 Redis의 로그와 함께 세션 상태/출력 캐시의 로그를 제공 하 여 응용 프로그램을 디버그할 수 있습니다. *loggingClassName* 는 *loggingMethodName* 에 의해 지정 된 메서드를 포함 하는 어셈블리의 정규화 된 클래스 이름 이어야 합니다.<br/><br/>*LoggingMethodName* 에 지정 된 메서드는 반환 형식이 **system.object** 인 public, static 및 void (매개 변수를 사용 하지 않음) 여야 합니다. |
 | *applicationName* | 문자열 | 현재 프로세스의 모듈 이름 또는 "/" | *SessionStateProvider만*<br/>*이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>Redis cache에서 사용할 앱 이름 접두사입니다. 고객은 다양 한 용도로 동일한 Redis cache를 사용할 수 있습니다. 세션 키가 충돌 하지 않도록 하기 위해 응용 프로그램 이름 앞에 접두사를 붙일 수 있습니다. |

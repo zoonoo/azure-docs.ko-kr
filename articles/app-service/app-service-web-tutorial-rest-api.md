@@ -7,11 +7,11 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
 ms.openlocfilehash: 9481b6d2740d27b8c3d1309e205edda6017868fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213691"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005755"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -130,7 +130,7 @@ To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
-`http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`으로 이동하여 배포된 API에 대한 _swagger.json_을 확인합니다.
+`http://<app_name>.azurewebsites.net/swagger/v1/swagger.json`으로 이동하여 배포된 API에 대한 _swagger.json_ 을 확인합니다.
 
 `http://<app_name>.azurewebsites.net/api/todo`로 이동하여 배포된 API가 작동하는지 확인합니다.
 
@@ -140,7 +140,7 @@ To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
 
 ### <a name="test-cors-in-sample-app"></a>샘플 앱에서 CORS 테스트
 
-로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
+로컬 리포지토리에서 _wwwroot/index.html_ 을 엽니다.
 
 51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_ 를 App Service의 앱 이름으로 바꿉니다.
 

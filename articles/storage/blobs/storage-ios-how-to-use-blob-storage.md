@@ -7,12 +7,12 @@ ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fc1b2638c2ab17c4cd58ca8d4508d2e6d244cfa
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465493"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95996820"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
@@ -39,7 +39,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
     sudo gem install cocoapods
     ```
 
-2. 그런 다음 프로젝트 디렉터리(.xcodeproj 파일이 포함된 디렉터리)에서 _Podfile_(파일 확장명 없음)이라는 새 파일을 만듭니다. _Podfile_에 다음을 추가한 후 저장합니다.
+2. 그런 다음 프로젝트 디렉터리(.xcodeproj 파일이 포함된 디렉터리)에서 _Podfile_(파일 확장명 없음)이라는 새 파일을 만듭니다. _Podfile_ 에 다음을 추가한 후 저장합니다.
 
     ```ruby
     platform :ios, '8.0'
@@ -62,7 +62,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 라이브러리를 사용하는 다른 방법은 프레임워크를 수동으로 빌드하는 것입니다.
 
 1. 먼저, [azure-storage-ios repo](https://github.com/azure/azure-storage-ios)를 다운로드하거나 복제합니다.
-2. *azure-storage-ios* -> *Lib* -> *Azure Storage 클라이언트 라이브러리*로 이동하고 X 코드에서 `AZSClient.xcodeproj`를 엽니다.
+2. *azure-storage-ios* -> *Lib* -> *Azure Storage 클라이언트 라이브러리* 로 이동하고 X 코드에서 `AZSClient.xcodeproj`를 엽니다.
 3. Xcode의 왼쪽 위에서 "Azure Storage 클라이언트 라이브러리"의 활성 구성표를 "프레임워크"로 변경합니다.
 4. 프로젝트를 빌드합니다(⌘+B). 그러면 바탕 화면에 `AZSClient.framework` 파일이 만들어집니다.
 
@@ -70,7 +70,7 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 
 1. 새 프로젝트를 만들거나 Xcode에서 기존 프로젝트를 엽니다.
 2. `AZSClient.framework`를 Xcode 프로젝트 탐색기에 끌어다 놓습니다.
-3. *필요한 경우 항목 복사*를 선택하고 *마침*을 클릭합니다.
+3. *필요한 경우 항목 복사* 를 선택하고 *마침* 을 클릭합니다.
 4. 왼쪽의 탐색에서 프로젝트를 클릭하고 프로젝트 편집기의 위에서 *일반* 탭을 클릭합니다.
 5. *연결된 프레임워크 및 라이브러리* 섹션 아래에서 추가 단추 (+)를 클릭합니다.
 6. 이미 제공된 라이브러리 목록에서 `libxml2.2.tbd`를 검색하고 프로젝트에 추가합니다.
@@ -85,8 +85,8 @@ Blob Storage에 대한 자세한 내용은 [Azure Blob Storage 소개](storage-b
 Swift를 사용 하는 경우 브리징 헤더를 만들고 여기에서 가져와야 합니다 \<AZSClient/AZSClient.h> .
 
 1. 헤더 파일 `Bridging-Header.h`를 만들고 위의 import 문을 추가합니다.
-2. *빌드 설정* 탭으로 이동하고 *Objective-C 브리징 헤더*를 검색합니다.
-3. *Objective-C 브리징 헤더*의 필드를 두 번 클릭하고 다음 헤더 파일에 경로를 추가합니다.`ProjectName/Bridging-Header.h`
+2. *빌드 설정* 탭으로 이동하고 *Objective-C 브리징 헤더* 를 검색합니다.
+3. *Objective-C 브리징 헤더* 의 필드를 두 번 클릭하고 다음 헤더 파일에 경로를 추가합니다.`ProjectName/Bridging-Header.h`
 4. 프로젝트(⌘+B)를 빌드하여 Xcode로 브리징 헤더를 받았음을 확인합니다.
 5. Swift 파일에서 직접 라이브러리를 사용하여 시작하면 import 문이 필요 없습니다.
 
@@ -99,7 +99,7 @@ Swift를 사용 하는 경우 브리징 헤더를 만들고 여기에서 가져�
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer*라는 컨테이너를 Storage 계정에 만드는 방법을 보여 줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
+Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예제에서는 *newcontainer* 라는 컨테이너를 Storage 계정에 만드는 방법을 보여 줍니다(아직 없는 경우). 컨테이너에 대한 이름을 선택할 때 위에서 언급한 명명 규칙을 따릅니다.
 
 ```objc
 -(void)createContainer{
@@ -208,7 +208,7 @@ Blob 서비스 개념 섹션에서 설명한 것처럼 Blob Storage는 블록 Bl
 }
 ```
 
-[Microsoft Azure Storage Explorer](https://storageexplorer.com)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 이 애플리케이션 작업을 확인할 수도 있습니다.
+[Microsoft Azure Storage Explorer](https://storageexplorer.com)를 확인하고 컨테이너 *containerpublic* 이 Blob *sampleblob* 을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 이 애플리케이션 작업을 확인할 수도 있습니다.
 
 ```http
 https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
@@ -222,7 +222,7 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 
 - **continuationToken** - 연속 토큰은 목록 작업을 시작할 위치를 나타냅니다. 토큰이 제공되지 않는 경우 처음부터 Blob를 나열합니다. 0에서 최대 설정까지 개수에 관계 없이 Blob를 나열할 수 있습니다. 이 메서드가 0개의 결과를 반환하더라도 `results.continuationToken` 이 nil이 아니면 서비스에 나열되지 않은 더 많은 Blob이 있을 수 있습니다.
 - **prefix** - Blob 목록에 사용할 접두사를 지정할 수 있습니다. 이 접두사로 시작하는 Blob만 나열됩니다.
-- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 스토리지 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES**여야 합니다.
+- **useFlatBlobListing** - [컨테이너 및 Blob 이름 명명 및 참조](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 섹션에서 설명한 것처럼 Blob service가 플랫 스토리지 스키마인 경우에도 경로 정보로 Blob 이름을 지정하여 가상 계층 구조를 만들 수 있습니다. 그러나 현재는 플랫이 아닌 목록은 지원되지 않습니다. 이 기능은 곧 제공됩니다. 현재 이 값은 **YES** 여야 합니다.
 - **blobListingDetails** - Blob을 나열할 때 포함할 항목을 지정할 수 있습니다.
   - _AZSBlobListingDetailsNone_: 커밋된 Blob만 나열하고 Blob 메타데이터는 반환하지 않습니다.
   - _AZSBlobListingDetailsSnapshots_: 커밋된 Blob 및 Blob 스냅샷을 나열합니다.
@@ -391,8 +391,8 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 
 - [iOS용 Azure Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
 - [Azure Storage iOS 참조 설명서](https://azure.github.io/azure-storage-ios/)
-- [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Azure Storage 팀 블로그](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+- [Azure Storage 서비스 REST API](/rest/api/storageservices/)
+- [Azure Storage 팀 블로그](/archive/blogs/windowsazurestorage/)
 
-이 라이브러리에 대한 문의 사항이 있는 경우 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-blob-storage.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
+이 라이브러리에 대한 문의 사항이 있는 경우 [Microsoft Q&A 질문 페이지](/answers/topics/azure-blob-storage.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
 Azure Storage에 대한 기능 제안 사항이 있는 경우 [Azure Storage 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.

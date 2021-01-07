@@ -3,18 +3,18 @@ title: 팀 내에서 시작 및 Azure Lab Services 랩 만들기
 description: 팀 내에서 Azure Lab Services 랩을 시작 하 고 만드는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cc4ad604bdf250cc6e4ba2c50c2f7143c921e906
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217085"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433974"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>팀 내에서 랩 서비스 랩 시작 및 만들기
 
 이 문서에서는 팀에 **Azure Lab Services** 앱을 추가 하 고 MS 팀 환경 내에서 랩을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 팀에 대 한 가상 컴퓨터를 사용 하 여 랩을 설정 합니다. 랩 계정에서 랩을 설정 하려면 랩 계정에서 소유자, 랩 작성자 또는 참가자 역할 중 하나의 멤버 여야 합니다. 랩 계정을 만드는 데 사용된 계정은 소유자 역할에 자동으로 추가됩니다. 따라서 랩을 만들기 위해 랩 계정을 만드는 데 사용한 사용자 계정을 사용할 수 있습니다.
 
@@ -40,18 +40,18 @@ ms.locfileid: "92217085"
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="탭 추가":::
-1. 이 팀에서 교실 랩을 만드는 데 사용할 랩 서비스 계정을 선택 합니다. 
+1. 이 팀에서 랩을 만드는 데 사용할 랩 서비스 계정을 선택 합니다. 
 
     Azure Lab Services [Azure Lab Services 웹 사이트](https://labs.azure.com) 에 Single Sign-On를 사용 하 고 액세스 권한이 있는 모든 랩 계정을 가져옵니다. 
 
-    팀과 같은 테 넌 트에 있는 계정과 **소유자**, **참가자**또는 **작성자** 액세스 권한이 있는 계정입니다. 
+    팀과 같은 테 넌 트에 있는 계정과 **소유자**, **참가자** 또는 **작성자** 액세스 권한이 있는 계정입니다. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="탭 추가":::
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="ALS 시작":::
 1. **저장** 을 누르고 탭이 채널에 추가 됩니다.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="탭 추가":::
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="ALS 탭을 만듦":::
 
     이제 채널에서 **Azure Lab Services** 탭을 선택 하 고 다음 문서에 설명 된 대로 실습 관리를 시작할 수 있습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "92217085"
 
 [팀 내의 Lab Services 사용자 목록 관리](how-to-manage-user-lists-within-teams.md)
 
-### <a name="see-also"></a>참고자료
+### <a name="see-also"></a>참고 항목
 
 다음 문서도 참조합니다.
 

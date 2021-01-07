@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069411"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658658"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -46,9 +46,9 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 문서에서는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 이 시나리오가 제대로 작동하기 위해서는 세 가지 주요 요구 사항이 있습니다.
 
@@ -56,19 +56,19 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 - 허브 게이트웨이 서브넷의 UDR은 스포크 네트워크에 대한 다음 호프로 방화벽 IP 주소를 가리켜야 합니다.
 
    Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
-- VNet-Hub와 VNet-Spoke를 피어링할 때는 **AllowGatewayTransit**, VNet-Spoke와 VNet-Hub를 피어링할 때는 **UseRemoteGateways**를 설정합니다.
+- VNet-Hub와 VNet-Spoke를 피어링할 때는 **AllowGatewayTransit**, VNet-Spoke와 VNet-Hub를 피어링할 때는 **UseRemoteGateways** 를 설정합니다.
 
 이러한 경로를 만드는 방법을 보려면이 문서의 [경로 만들기](#create-the-routes) 섹션을 참조 하세요.
 
 >[!NOTE]
->Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
+>Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet** 으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 >
 >Azure Firewall은 강제 터널링을 지원하도록 구성할 수 있습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
 
 >[!NOTE]
 >직접 피어링된 VNet 사이의 트래픽은 UDR이 기본 게이트웨이로 Azure Firewall을 가리키는 경우에도 직접 라우팅됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 UDR에 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.
 
-관련된 Azure PowerShell 참조 설명서를 검토하려면, [Azure PowerShell 참조](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)를 참조하세요.
+관련된 Azure PowerShell 참조 설명서를 검토하려면, [Azure PowerShell 참조](/powershell/module/az.network/new-azfirewall)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-가상 네트워크용으로 만들 VPN 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod*가 **동적**인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 VPN 게이트웨이에 동적으로 할당됩니다.
+가상 네트워크용으로 만들 VPN 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod* 가 **동적** 인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 VPN 게이트웨이에 동적으로 할당됩니다.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-가상 네트워크용으로 만들 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod*가 **동적**인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다.
+가상 네트워크용으로 만들 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod* 가 **동적** 인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -292,13 +292,13 @@ New-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupNam
 
 #### <a name="verify-the-connection"></a>연결 확인
 
-*-Debug*를 포함하거나 포함하지 않은 상태에서 *Get-AzVirtualNetworkGatewayConnection* cmdlet을 사용하여 연결 성공을 확인할 수 있습니다. 일치하는 값을 구성하는 데 다음 cmdlet 예제를 사용합니다. 메시지가 표시되면 **모두** 실행하기 위해 **A**를 선택합니다. 예제에서 *-Name*은 테스트하려는 연결의 이름을 나타냅니다.
+*-Debug* 를 포함하거나 포함하지 않은 상태에서 *Get-AzVirtualNetworkGatewayConnection* cmdlet을 사용하여 연결 성공을 확인할 수 있습니다. 일치하는 값을 구성하는 데 다음 cmdlet 예제를 사용합니다. 메시지가 표시되면 **모두** 실행하기 위해 **A** 를 선택합니다. 예제에서 *-Name* 은 테스트하려는 연결의 이름을 나타냅니다.
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
 ```
 
-cmdlet이 완료되면 값을 봅니다. 다음 예제에서는 연결 상태가 *연결됨*으로 표시되고 송/수신 바이트를 볼 수 있습니다.
+cmdlet이 완료되면 값을 봅니다. 다음 예제에서는 연결 상태가 *연결됨* 으로 표시되고 송/수신 바이트를 볼 수 있습니다.
 
 ```
 "connectionStatus": "Connected",
@@ -463,11 +463,11 @@ Azure Portal에서 **VM-Onprem** 가상 머신에 연결합니다.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-**VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
+**VM-Onprem** 에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
 
 Internet Information Services 기본 페이지가 표시됩니다.
 
-**VM-Onprem**에서 개인 IP 주소의 **VM-spoke-01**로 원격 데스크톱을 엽니다.
+**VM-Onprem** 에서 개인 IP 주소의 **VM-spoke-01** 로 원격 데스크톱을 엽니다.
 
 연결에 성공하며 선택한 사용자 이름과 암호를 사용하여 로그인할 수 있습니다.
 
@@ -477,7 +477,7 @@ Internet Information Services 기본 페이지가 표시됩니다.
 - 스포크 가상 네트워크에서 웹 서버를 탐색할 수 있습니다.
 - RDP를 사용하여 스포크 가상 네트워크에 있는 서버에 연결할 수 있습니다.
 
-이제 방화벽 규칙이 예상대로 작동하는지 호가인하기 위해 방화벽 네트워크 규칙 수집 동작을 **거부**로 변경합니다. 다음 스크립트를 실행하여 규칙 수집 동작을 **거부**로 변경합니다.
+이제 방화벽 규칙이 예상대로 작동하는지 호가인하기 위해 방화벽 네트워크 규칙 수집 동작을 **거부** 로 변경합니다. 다음 스크립트를 실행하여 규칙 수집 동작을 **거부** 로 변경합니다.
 
 ```azurepowershell
 $rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
@@ -496,4 +496,4 @@ Set-AzFirewall -AzureFirewall $azfw
 
 그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.
 
-[자습서: Azure Firewall 로그 모니터링](./tutorial-diagnostics.md)
+[자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)

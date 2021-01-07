@@ -1,7 +1,7 @@
 ---
 title: B2C (b2b) Azure Active Directory의 새로운 기능
 description: Azure Active Directory b2b (B2C)에 대 한 새롭고 업데이트 된 설명서입니다.
-ms.date: 11/10/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,36 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: f89537d1e221ecc9a871343e863f021723965239
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550074"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559730"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: 새로운 기능
 
 Azure Active Directory B2C 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. B2C 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../active-directory/fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure Active Directory B2C에서 사용자 흐름 만들기](create-user-flow.md)
+- [사용자 흐름에 대 한 전화 등록 및 로그인 설정 (미리 보기)](phone-authentication-user-flows.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [자습서: Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)
+- [Azure Active Directory B2C 코드 샘플](code-samples.md)
+- [페이지 레이아웃 버전](page-layout.md)
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="updated-articles"></a>업데이트된 문서
+- [Azure Monitor를 사용 하 여 Azure AD B2C 모니터링](azure-monitor.md)
+- [자습서: 단일 페이지 애플리케이션에서 Azure AD B2C를 사용하여 인증 설정](tutorial-single-page-app.md)
+
 
 ## <a name="october-2020"></a>2020년 10월
 

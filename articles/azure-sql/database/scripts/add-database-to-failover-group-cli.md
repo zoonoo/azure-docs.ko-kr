@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 07/16/2019
-ms.openlocfilehash: 4e102f0161a50fe6f65558fef77549b86c5c3eae
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f3a314f55d45a888dde08ddc275953e7f9bbf3b2
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742241"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594150"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Azure CLI를 사용하여 장애 조치(failover) 그룹에 데이터베이스 추가
 
@@ -54,7 +54,7 @@ az group delete --name $resource
 
 이 스크립트는 다음 명령을 사용합니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 |---|---|
 | [az sql db](/cli/azure/sql/db) | 데이터베이스 명령입니다. |
 | [az sql failover-group](/cli/azure/sql/failover-group) | 장애 조치(failover) 그룹 명령입니다. |

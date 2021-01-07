@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: effa0d3ba9f7098b691605bfbd76bff9ea3d5e66
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7936699832a09f535729c42b12fec2d5c49a11a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593759"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350945"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -167,7 +167,7 @@ Azure Portal을 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 **연결 테스트** 를 선택하고(해당하는 경우), 테스트가 성공하면 **다음** 을 선택합니다.
 
 > [!NOTE]
-   > Azure SQL Database 서버를 사용 하 여 SSISDB를 호스트 하는 경우 기본적으로 데이터는 백업에 대 한 지역 중복 저장소에 저장 됩니다. 다른 지역에 데이터를 복제 하지 않으려는 경우 [PowerShell을 사용 하 여 백업 저장소 중복성을 구성](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell)하는 지침을 따르세요.
+   > Azure SQL Database 서버를 사용 하 여 SSISDB를 호스트 하는 경우 기본적으로 데이터는 백업에 대 한 지역 중복 저장소에 저장 됩니다. 다른 지역에 데이터를 복제 하지 않으려는 경우 [PowerShell을 사용 하 여 백업 저장소 중복성을 구성](../azure-sql/database/automated-backups-overview.md?tabs=single-database#configure-backup-storage-redundancy-by-using-powershell)하는 지침을 따르세요.
    
 ##### <a name="creating-azure-ssis-ir-package-stores"></a>Azure-SSIS IR 패키지 저장소 만들기
 
@@ -186,7 +186,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
    1. **패키지 저장소 연결된 서비스** 로는 패키지가 배포되는 파일 시스템/Azure Files/Azure SQL Managed Instance 대한 액세스 정보를 저장하는 기존의 연결된 서비스를 선택하거나, **새로 만들기** 를 선택하여 새로 만듭니다. **새 연결된 서비스** 창에서 다음 단계를 완료합니다.
    
       > [!NOTE]
-      > **Azure File Storage** 또는 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. **Azure File Storage** 연결 서비스를 사용하는 경우 Azure-SSIS IR 패키지 저장소는 현재 **기본** ( **계정 키** 또는 **SAS URI** 아님) 인증 방법만 지원합니다. **Azure File Storage** 연결 서비스에서 **기본** 인증을 사용하려면 브라우저의 ADF 포털 URL에 `?feature.upgradeAzureFileStorage=false`를 추가하면 됩니다. 또는, 대신 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. 
+      > **Azure File Storage** 또는 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. **Azure File Storage** 연결 서비스를 사용하는 경우 Azure-SSIS IR 패키지 저장소는 현재 **기본**(**계정 키** 또는 **SAS URI** 아님) 인증 방법만 지원합니다. **Azure File Storage** 연결 서비스에서 **기본** 인증을 사용하려면 브라우저의 ADF 포털 URL에 `?feature.upgradeAzureFileStorage=false`를 추가하면 됩니다. 또는, 대신 **파일 시스템** 연결 서비스를 사용하여 Azure Files에 액세스할 수 있습니다. 
 
       ![연결된 서비스의 배포 설정](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -194,7 +194,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
          
       1. **설명** 에는 연결된 서비스에 대한 설명을 입력합니다. 
          
-      1. **형식** 으로는 **Azure File Storage** , **Azure SQL Managed Instance** 또는 **파일 시스템** 을 선택합니다.
+      1. **형식** 으로는 **Azure File Storage**, **Azure SQL Managed Instance** 또는 **파일 시스템** 을 선택합니다.
 
       1. 항상 Azure-SSIS IR를 사용하여 패키지 저장소에 대한 액세스 정보를 가져오기 때문에 **통합 런타임을 통해 연결** 을 무시해도 됩니다.
 
@@ -202,7 +202,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
          1. **계정 선택 방법** 으로는 **Azure 구독에서 선택** 또는 **수동으로 입력** 을 선택합니다.
          
-         1. **Azure 구독에서 선택** 을 선택하는 경우 관련된 **Azure 구독** , **스토리지 계정 이름** 및 **파일 공유** 를 선택합니다.
+         1. **Azure 구독에서 선택** 을 선택하는 경우 관련된 **Azure 구독**, **스토리지 계정 이름** 및 **파일 공유** 를 선택합니다.
             
          1. **수동으로 입력** 을 선택하는 경우 **호스트** 로 `\\<storage account name>.file.core.windows.net\<file share name>`을 입력하고, **사용자 이름** 으로 `Azure\<storage account name>`을 입력하고, **암호** 로 `<storage account key>`를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 
@@ -216,7 +216,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
             1. **데이터베이스 이름** 으로 `msdb`를 입력합니다.
                
-            1. **인증 형식** 으로 **SQL 인증** , **관리 ID** 또는 **서비스 주체** 를 선택합니다.
+            1. **인증 형식** 으로 **SQL 인증**, **관리 ID** 또는 **서비스 주체** 를 선택합니다.
 
             1. **SQL 인증** 을 선택하는 경우 관련 **사용자 이름** 및 **암호** 를 입력하거나 비밀로 저장된 **Azure Key Vault** 를 선택합니다.
 
@@ -240,7 +240,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
    1. **노드당 최대 병렬 실행 수** 에 대해 통합 런타임 클러스터에서 노드당 동시에 실행할 최대 패키지 수를 선택합니다. 지원되는 패키지 수만 표시됩니다. 둘 이상의 코어를 사용하여 계산 집약적이거나 메모리 집약적인 하나의 대형 패키지를 실행하려면 낮은 숫자를 선택합니다. 하나의 코어에서 하나 이상의 소형 패키지를 실행하려면 높은 숫자를 선택합니다.
 
-   1. **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** (추가 시스템 구성/구성 요소 설치를 통해 Azure-SSIS Integration Runtime 사용자 지정) 확인란을 선택하여 Azure-SSIS IR에 표준/빠른 사용자 지정 설치를 추가할지 여부를 선택합니다. 자세한 내용은 [Azure-SSIS IR 사용자 지정 설치](./how-to-configure-azure-ssis-ir-custom-setup.md)를 참조하세요.
+   1. **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations**(추가 시스템 구성/구성 요소 설치를 통해 Azure-SSIS Integration Runtime 사용자 지정) 확인란을 선택하여 Azure-SSIS IR에 표준/빠른 사용자 지정 설치를 추가할지 여부를 선택합니다. 자세한 내용은 [Azure-SSIS IR 사용자 지정 설치](./how-to-configure-azure-ssis-ir-custom-setup.md)를 참조하세요.
 
       확인란을 선택 하는 경우 다음 단계를 완료 합니다.
 
@@ -248,7 +248,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
    
       1. **사용자 지정 설치 컨테이너 SAS uri** 에는 표준 사용자 지정 설치에 대 한 스크립트 및 관련 파일을 저장 하는 컨테이너의 sas uri를 입력 합니다.
 
-      1. **Express 사용자 지정 설치** 의 경우 **새로 만들기** 를 선택 하 여 **빠른 사용자 지정 설정** 패널을 열고 **빠른 사용자 지정 설치 유형** 드롭다운 메뉴 (예: **cmdkey 명령 실행** , **환경 변수 추가** , **사용이 허가 된 구성 요소 설치** 등)에서 유형을 선택 합니다.
+      1. **Express 사용자 지정 설치** 의 경우 **새로 만들기** 를 선택 하 여 **빠른 사용자 지정 설정** 패널을 열고 **빠른 사용자 지정 설치 유형** 드롭다운 메뉴 (예: **cmdkey 명령 실행**, **환경 변수 추가**, **사용이 허가 된 구성 요소 설치** 등)에서 유형을 선택 합니다.
 
          **사용 허가를 받은 구성 요소** 유형을 선택 하는 경우 **구성 요소 이름** 드롭다운 메뉴의 ISV 파트너에서 통합 된 구성 요소를 선택 하 고 필요한 경우 제품 라이선스 키를 입력 하 고 해당 제품에서 구입한 제품 라이선스 파일을 **라이선스 키** / **라이선스 파일** 상자에 업로드 합니다.
   
@@ -280,7 +280,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
       
          1. **두 번째 고정 공용 ip 주소** 에 대해 Azure-SSIS IR 요구 사항을 충족 하는 두 번째 고정 공용 ip 주소를 선택 합니다. 가 없으면 **새 링크 만들기** 를 클릭 하 여 Azure Portal에서 고정 공용 IP 주소를 만든 다음 새로 고침 단추를 클릭 하 여 선택할 수 있습니다.
 
-   1. **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** (자체 호스팅 통합 런타임을 Azure-SSIS Integration Runtime의 프록시로 설정) 확인란을 선택하여 자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성할지 여부를 선택합니다. 자세한 내용은 [자체 호스팅 IR을 프록시로 설정](./self-hosted-integration-runtime-proxy-ssis.md)을 참조하세요. 
+   1. **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime**(자체 호스팅 통합 런타임을 Azure-SSIS Integration Runtime의 프록시로 설정) 확인란을 선택하여 자체 호스팅 IR을 Azure-SSIS IR의 프록시로 구성할지 여부를 선택합니다. 자세한 내용은 [자체 호스팅 IR을 프록시로 설정](./self-hosted-integration-runtime-proxy-ssis.md)을 참조하세요. 
 
       확인란을 선택 하는 경우 다음 단계를 완료 합니다.
 
@@ -321,7 +321,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
    ![메뉴를 통한 통합 런타임](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. **통합 런타임 설치** 패널에서 **Lift-and-shift existing SSIS packages to execute in Azure** (Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트) 타일을 선택하고, **다음** 을 선택합니다.
+1. **통합 런타임 설치** 패널에서 **Lift-and-shift existing SSIS packages to execute in Azure**(Azure에서 실행할 기존 SSIS 패키지를 리프트 앤 시프트) 타일을 선택하고, **다음** 을 선택합니다.
 
    ![통합 런타임 유형 지정](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 

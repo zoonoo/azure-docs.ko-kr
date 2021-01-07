@@ -8,47 +8,51 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: cabde27591159b5751435a97a909a5f6f8c3081b
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518229"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683359"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
-텍스트 분석 API를 사용 하면 구조화 되지 않은 텍스트를 가져와 웹에 대 한 자세한 정보에 대 한 링크가 포함 된 명확 하지 않은 엔터티 목록을 반환할 수 있습니다. API는 NER (명명 된 엔터티 인식) 및 엔터티 연결을 모두 지원 합니다.
+텍스트 분석 API를 사용 하면 구조화 되지 않은 텍스트를 가져와 웹에 대 한 자세한 정보에 대 한 링크가 포함 된 명확 하지 않은 엔터티 목록을 반환할 수 있습니다. API는 여러 엔터티 범주에 대해 명명 된 엔터티 인식 (NER) 및 엔터티 연결을 모두 지원 합니다.
 
-### <a name="entity-linking"></a>엔터티 연결
+## <a name="entity-linking"></a>엔터티 연결
 
 엔터티 연결은 텍스트에 있는 엔터티의 id를 식별 하 고 구분 하는 기능입니다. 예를 들어 "Mars" 라는 단어의 발생이 행성을 참조 하는지 또는 전쟁의 Roman 신의 것을 확인 하는 것입니다. 이 프로세스에서는 인식 된 엔터티를 텍스트에 연결 하기 위해 기술 자료가 적절 한 언어로 존재 해야 합니다. 엔터티 링크는이 기술 자료로 [위키백과](https://www.wikipedia.org/) 를 사용 합니다.
 
-
-### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
+## <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
 NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식별 하 여 사용자, 위치, 이벤트, 제품, 조직 등의 미리 정의 된 클래스 또는 형식으로 분류 하는 기능입니다.  
 
-## <a name="named-entity-recognition-versions-and-features"></a>명명 된 엔터티 인식 버전 및 기능
+## <a name="personally-identifiable-information-pii"></a>PII(개인 식별 정보)
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+PII 기능은 NER의 일부 이며, 전화 번호, 전자 메일 주소, 우편 주소, 여권 번호 등의 개별 사람과 연결 된 텍스트에서 중요 한 엔터티를 식별 하 고 교정 할 수 있습니다.
 
-| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 2 |
+## <a name="named-entity-recognition-features-and-versions"></a>명명 된 엔터티 인식 기능 및 버전
+
+| 기능                                                         | NER v 3.0 | NER v 3.1-preview. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X        |
 | 여러 범주에서 확장 된 엔터티 인식           | X      | X        |
 | 엔터티 연결 및 NER 요청을 보내기 위한 별도의 끝점입니다. | X      | X        |
 | 개인 ( `PII` ) 및 상태 ( `PHI` ) 정보 엔터티 인식        |        | X        |
+| 교정 `PII`        |        | X        |
 
 자세한 내용은 [언어 지원](../language-support.md) 을 참조 하세요.
 
-## <a name="entity-types"></a>엔터티 형식
-
 명명 된 엔터티 인식 v3은 여러 형식에서 확장 된 검색을 제공 합니다. 현재 NER v 3.0은 [일반 엔터티 범주의](../named-entity-types.md)엔터티를 인식할 수 있습니다.
 
-명명 된 엔터티 인식 v 3.1-preview. 2에는 v 3.0의 검색 기능 및 `PII` 끝점을 사용 하 여 개인 정보 ()를 검색 하는 기능이 포함 되어 있습니다. `v3.1-preview.2/entities/recognition/pii` 선택적 매개 변수를 사용 `domain=phi` 하 여 기밀 상태 정보 ()를 검색할 수 있습니다 `PHI` . 자세한 내용은 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요.
+명명 된 엔터티 인식 v 3.1-preview. 3에는 v 3.0의 검색 기능이 포함 되어 있습니다. 
+* 끝점을 사용 하 여 개인 정보 ()를 검색할 수 있는 기능 `PII` `v3.1-preview.3/entities/recognition/pii` 입니다. 
+* `domain=phi`기밀 상태 정보를 검색 하는 선택적 매개 변수 ( `PHI` )입니다.
+* 끝점을 사용 하는 [비동기 작업](text-analytics-how-to-call-api.md) `/analyze` 입니다.
 
+자세한 내용은 아래의 [엔터티 범주](../named-entity-types.md) 문서 및 [요청 끝점](#request-endpoints) 섹션을 참조 하세요. 신뢰 점수에 대 한 자세한 내용은 [Text Analytics 투명도 메모](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context)를 참조 하세요. 
 
 ## <a name="sending-a-rest-api-request"></a>REST API 요청 보내기
 
@@ -68,41 +72,49 @@ POST 요청을 만듭니다. 다음 링크에서 [Postman](text-analytics-how-to
 
 ### <a name="request-endpoints"></a>요청 엔드포인트
 
-#### <a name="version-31-preview2"></a>[버전 3.1-미리 보기. 2](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-preview)
 
-명명 된 엔터티 인식은 `v3.1-preview.2` NER, PII 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
+명명 된 엔터티 인식은 `v3.1-preview.3` NER, PII 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
-엔터티 연결
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+**엔터티 연결**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
 
-[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
 
-NER
-* 일반 엔터티- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+**명명된 엔터티 인식**
+* 일반 엔터티- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
 
-[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
 
-PII(개인 식별 정보)
-* 개인 ( `PII` ) 정보- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+**PII(개인 식별 정보)**
+* 개인 ( `PII` ) 정보- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
 선택적 `domain=phi` 매개 변수를 사용 하 여 텍스트에서 상태 ( `PHI` ) 정보를 검색할 수도 있습니다. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-`redactedText`응답 JSON에 속성을 추가 하면 검색 된 PII 엔터티가 엔터티의 각 문자에 대해 *로 대체 되는 수정 된 입력 텍스트가 포함 됩니다.
+부터 `v3.1-preview.3` JSON 응답은 `redactedText` 검색 된 PII 엔터티가 `*` 엔터티의 각 문자에 대해로 대체 되는 수정 된 입력 텍스트를 포함 하는 속성을 포함 합니다.
 
-[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+[명명 된 엔터티 인식 버전 3.1-에 대 한 미리 보기 참조 `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+
+**비동기 작업**
+
+부터 `v3.1-preview.3` 끝점을 사용 하 여 NER 요청을 비동기적으로 보낼 수 있습니다 `/analyze` .
+
+* 비동기 작업- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+
+비동기 요청을 보내는 방법에 대 한 자세한 내용은 [텍스트 분석 API를 호출 하는 방법을](text-analytics-how-to-call-api.md) 참조 하세요.
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 명명 된 엔터티 인식 v3은 NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. 요청에 따라 아래 URL 형식을 사용 합니다.
 
-엔터티 연결
+**엔터티 연결**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [에 대 한 명명 된 엔터티 인식 버전 3.0 참조 `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-NER
+**명명된 엔터티 인식**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 [에 대 한 명명 된 엔터티 인식 버전 3.0 참조 `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
@@ -111,9 +123,13 @@ NER
 
 Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 요청 본문에서 준비한 JSON 문서를 제공 합니다.
 
-### <a name="example-ner-request"></a>예제 NER 요청 
+## <a name="example-requests"></a>예제 요청
 
-다음은 API에 보낼 수 있는 콘텐츠의 예입니다. 두 API 버전의 요청 형식은 동일합니다.
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-preview)
+
+### <a name="example-synchronous-ner-request"></a>동기 NER 요청 예 
+
+다음 JSON은 API에 보낼 수 있는 콘텐츠의 예입니다. 두 API 버전의 요청 형식은 동일합니다.
 
 ```json
 {
@@ -125,8 +141,64 @@ Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 요�
     }
   ]
 }
-
 ```
+
+### <a name="example-asynchronous-ner-request"></a>비동기 NER 요청 예제
+
+`/analyze` [비동기 작업](text-analytics-how-to-call-api.md)에 끝점을 사용 하는 경우 API로 보낸 작업을 포함 하는 응답을 받게 됩니다.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+### <a name="example-synchronous-ner-request"></a>동기 NER 요청 예 
+
+버전 3.0에는 동기 작업만 포함 됩니다. 다음 JSON은 API에 보낼 수 있는 콘텐츠의 예입니다. 두 API 버전의 요청 형식은 동일합니다.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## <a name="post-the-request"></a>요청 게시
 
@@ -138,15 +210,72 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 모든 POST 요청에서는 Id와 검색 된 엔터티 속성을 사용 하 여 JSON 형식의 응답을 반환 합니다.
 
-출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [텍스트 오프셋을 처리 하는 방법을](../concepts/text-offsets.md) 참조 하세요.
+출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [텍스트 오프셋을 처리 하는 방법](../concepts/text-offsets.md)을 참조 하세요.
 
 ### <a name="example-responses"></a>예제 응답
 
-버전 3은 일반 NER PII 및 엔터티 링크를 위한 별도의 끝점을 제공 합니다. 두 작업 모두에 대 한 응답은 아래와 같습니다. 
+버전 3은 일반 NER, PII 및 엔터티 링크를 위한 별도의 끝점을 제공 합니다. 버전 3.1-pareview에는 비동기 분석 모드가 포함 되어 있습니다. 이러한 작업에 대 한 응답은 다음과 같습니다. 
 
 #### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-preview)
 
+### <a name="synchronous-example-results"></a>동기 예제 결과
+
+일반적인 NER 응답의 예는 다음과 같습니다.
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
 PII 응답의 예:
+
 ```json
 {
   "documents": [
@@ -233,6 +362,58 @@ PII 응답의 예:
 }
 ```
 
+### <a name="example-asynchronous-result"></a>예제 비동기 결과
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
+}
+```
+
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -303,5 +484,5 @@ PII 응답의 예:
 ## <a name="next-steps"></a>다음 단계
 
 * [Text Analytics 개요](../overview.md)
-* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/text-analytics-sdk.md)
+* [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)

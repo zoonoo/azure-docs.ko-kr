@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 54ef051b7d8778e2eecd85bef2e57b62239ba114
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475059"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435317"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Azure VM에 Elastic Stack 설치
 
@@ -35,9 +35,9 @@ ms.locfileid: "92475059"
 
  이 배포는 Elastic Stack을 사용한 기본 개발에 적합합니다. 프로덕션 환경에 대한 권장 사항을 포함하여 Elastic Stack에 대한 자세한 내용은 [Elastic 설명서](https://www.elastic.co/guide/index.html)와 [Azure Architecture Center](/azure/architecture/elasticsearch/)를 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+- 이 문서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -211,7 +211,7 @@ sudo /usr/share/logstash/bin/logstash -f vm-syslog-logstash.conf
 `/etc/kibana/kibana.yml`을 수정하고 Kibana가 수신 대기하는 IP 주소를 웹 브라우저에서 액세스할 수 있도록 변경합니다.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 다음 명령으로 Kibana를 시작합니다.

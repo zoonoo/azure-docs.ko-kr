@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대해 간략히 설명하고, BCDR(비�
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 537605498fe166b24bd4e24673cfa1542bc449ea
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 805fa81362b9f90c1d6ba468caaf4b6745e42c62
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172481"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96746117"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Azure Backup 서비스란?
 
@@ -43,7 +43,7 @@ Azure Backup에서 제공하는 주요 이점은 다음과 같습니다.
 - **애플리케이션 일치 백업 가져오기**: 애플리케이션 일치 백업은 백업 복사본을 복원하는 데 필요한 모든 데이터가 복구 지점에 있음을 의미합니다. Azure Backup은 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
 - **단기 및 장기 데이터 보존**: 단기 및 장기 데이터를 보존하기 위해 [Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md)을 사용할 수 있습니다.
 - **자동 스토리지 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 스토리지가 필요합니다. Azure Backup을 사용하면 온-프레미스 스토리지 디바이스를 사용하는 데 드는 비용이 없습니다. Azure Backup은 백업 스토리지를 자동으로 할당하고 관리하며 사용한 만큼 지불(pay-as-you-use) 모델을 사용합니다. 따라서 사용한 스토리지에 대해서만 비용을 지불합니다. 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/backup).
-- **여러 스토리지 옵션** - Azure Backup은 스토리지/데이터의 고가용성을 유지하는 두 가지 종류의 복제를 제공합니다.
+- **여러 스토리지 옵션** - Azure Backup은 스토리지/데이터의 고가용성을 유지하는 세 가지 종류의 복제를 제공합니다.
   - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy.md#locally-redundant-storage)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
   - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 더 많은 비용이 들지만, 지역 가동 중단이 발생하는 경우에도 높은 수준의 데이터 내구성을 제공합니다.
   - [ZRS(영역 중복 스토리지)](../storage/common/storage-redundancy.md#zone-redundant-storage)는 [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. ZRS에는 가동 중지 시간이 없습니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)가 필요하고, 가동 중지 시간이 없어야 하는 중요한 워크로드를 ZRS에서 백업할 수 있습니다.

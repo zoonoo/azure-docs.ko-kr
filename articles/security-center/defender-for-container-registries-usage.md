@@ -7,14 +7,14 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2471a19cf795d969644cb92e23b7a2926f2ee1a9
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a5d66e43485ec66b6297ef11ed382e8fb82b7cb3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372611"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96014580"
 ---
-# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리 용 Azure Defender를 사용 하 여 이미지에서 취약성 검색
+# <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>컨테이너 레지스트리용 Azure Defender를 사용하여 이미지에서 취약성 검사
 
 이 페이지에서는 기본 제공 취약점 스캐너를 사용 하 여 Azure Resource Manager 기반 Azure Container Registry에 저장 된 컨테이너 이미지를 검색 하는 방법을 설명 합니다.
 
@@ -22,17 +22,7 @@ ms.locfileid: "94372611"
 
 스캐너는 Security Center에 대 한 취약성을 보고 하는 경우 결과 및 관련 정보를 권장 사항으로 제공 Security Center. 또한 결과에는 재구성 단계, 관련 CVEs, CVES 점수 등의 관련 정보가 포함 됩니다. 하나 이상의 구독 또는 특정 레지스트리에 대해 식별 된 취약성을 볼 수 있습니다.
 
-## <a name="availability"></a>가용성
-
-|양상|세부 정보|
-|----|:----|
-|릴리스 상태:|GA(일반 공급)|
-|가격 책정:|**컨테이너 레지스트리에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
-|지원 되는 레지스트리 및 이미지:|셸 액세스를 사용 하 여 공용 인터넷에서 액세스할 수 있는 ACR 레지스트리에 있는 Linux 이미지|
-|지원 되지 않는 레지스트리 및 이미지:|Windows 이미지<br>' 개인 ' 레지스트리<br>방화벽, 서비스 끝점 또는 개인 끝점 (예: Azure 개인 링크)으로 액세스가 제한 된 레지스트리<br>[Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지|
-|필요한 역할 및 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](../container-registry/container-registry-roles.md)|
-|클라우드:|![예 ](./media/icons/yes-icon.png) 상업적 클라우드<br>![예 ](./media/icons/yes-icon.png) US Gov-현재 푸시에 대 한 검색 기능만 지원 됩니다. [어디에서 이미지를 검색 하는 경우](defender-for-container-registries-introduction.md#when-are-images-scanned) 에 대해 자세히 알아보세요.<br>![](./media/icons/no-icon.png)중국 .gov, 기타 .gov|
-|||
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Azure 컨테이너 레지스트리의 이미지 취약성 식별 

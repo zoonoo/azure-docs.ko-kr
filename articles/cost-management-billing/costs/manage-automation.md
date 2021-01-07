@@ -3,17 +3,17 @@ title: 자동화로 Azure 비용 관리
 description: 이 문서에서는 자동화를 사용하여 Azure 비용을 관리하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: matrive
-ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.reviewer: adwise
+ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131975"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956095"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -63,16 +63,23 @@ API를 사용하여 사용 가능한 최상위 범위에서 필요한 모든 데
 
 ### <a name="get-usage-details-for-a-scope-during-specific-date-range"></a>특정 날짜 범위 동안 범위에 대한 사용량 세부 정보 가져오기
 
-요청에 의해 반환되는 데이터는 청구 시스템이 사용량을 받은 날짜에 해당합니다. 여기에는 여러 청구서의 비용이 포함될 수 있습니다.
+요청에 의해 반환되는 데이터는 청구 시스템이 사용량을 받은 날짜에 해당합니다. 여기에는 여러 청구서의 비용이 포함될 수 있습니다. 사용할 호출은 구독 유형에 따라 달라집니다.
+
+EA(기업계약) 또는 종량제 구독이 있는 레거시 고객의 경우 다음 호출을 사용합니다.
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?$filter=properties%2FusageStart%20ge%20'2020-02-01'%20and%20properties%2FusageEnd%20le%20'2020-02-29'&$top=1000&api-version=2019-10-01
+```
 
+Microsoft 고객 계약이 있는 최신 고객의 경우 다음 호출을 사용합니다.
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?startDate=2020-08-01&endDate=&2020-08-05$top=1000&api-version=2019-10-01
 ```
 
 ### <a name="get-amortized-cost-details"></a>분할 상환 비용 세부 정보 얻기
 
-발생한 구매를 표시하는 데 실제 비용이 필요한 경우 다음 요청에서 *메트릭*을 `ActualCost`으로 변경합니다. 분할 상환 및 실제 비용을 사용하려면 `2019-04-01-preview` 버전을 사용해야 합니다. 현재 API 버전은 새 형식/메트릭 특성과 변경된 속성 이름을 제외하고 `2019-10-01` 버전과 동일하게 작동합니다. Microsoft 고객 계약이 있는 경우 다음 예제에서 필터를 `startDate`하고 `endDate` 합니다.
+발생한 구매를 표시하는 데 실제 비용이 필요한 경우 다음 요청에서 *메트릭* 을 `ActualCost`으로 변경합니다. 분할 상환 및 실제 비용을 사용하려면 `2019-04-01-preview` 버전을 사용해야 합니다. 현재 API 버전은 새 형식/메트릭 특성과 변경된 속성 이름을 제외하고 `2019-10-01` 버전과 동일하게 작동합니다. Microsoft 고객 계약이 있는 경우 다음 예제에서 필터를 `startDate`하고 `endDate` 합니다.
 
 ```http
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview

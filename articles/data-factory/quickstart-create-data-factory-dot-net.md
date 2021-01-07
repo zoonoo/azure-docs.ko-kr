@@ -1,6 +1,6 @@
 ---
 title: .NET SDK를 사용하여 Azure Data Factory 만들기
-description: .NET SDK를 사용하여 Azure 데이터 팩터리 및 파이프라인을 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
+description: .NET SDK를 사용하여 Azure Data Factory 및 파이프라인을 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2019
+ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: e8da3dff39f94d6639471a2d1d96691c9cde614d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5e35fb8ab6a782ec79f10b1099f6781062c1d7c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322889"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678862"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "91322889"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 빠른 시작에서는 .NET SDK를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환**하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요.
+이 빠른 시작에서는 .NET SDK를 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환** 하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -45,25 +45,25 @@ ms.locfileid: "91322889"
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션 만들기
 
-*방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기*의 섹션에서 다음 작업을 수행하기 위한 지침을 따릅니다.
+*방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기* 의 섹션에서 다음 작업을 수행하기 위한 지침을 따릅니다.
 
 1. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)에서 이 자습서에서 만드는 .NET 애플리케이션을 나타내는 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
-2. [로그인을 위한 값 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)에서 **애플리케이션 ID** 및 **테넌트 ID**를 가져온 후 이 자습서의 뒷부분에서 사용하게 되므로 이러한 값을 적어둡니다. 
-3. [인증서 및 비밀](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)에서 **인증 키**를 가져오고 이 자습서의 뒷부분에서 사용하게 되므로 이 값을 적어둡니다.
+2. [로그인을 위한 값 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)에서 **애플리케이션 ID** 및 **테넌트 ID** 를 가져온 후 이 자습서의 뒷부분에서 사용하게 되므로 이러한 값을 적어둡니다. 
+3. [인증서 및 비밀](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)에서 **인증 키** 를 가져오고 이 자습서의 뒷부분에서 사용하게 되므로 이 값을 적어둡니다.
 4. [역할에 애플리케이션 할당](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)에서 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
 다음으로, Visual Studio에서 C# .NET 콘솔 애플리케이션을 만듭니다.
 
-1. **Visual Studio**를 시작합니다.
+1. **Visual Studio** 를 시작합니다.
 2. 시작 창에서 **새 프로젝트 만들기** > **콘솔 앱(.NET Framework)** 을 선택합니다. .NET 버전 4.5.2 이상이 필요합니다.
-3. **프로젝트 이름**에 **ADFv2QuickStart**를 입력합니다.
-4. **만들기**를 선택하여 프로젝트를 만듭니다.
+3. **프로젝트 이름** 에 **ADFv2QuickStart** 를 입력합니다.
+4. **만들기** 를 선택하여 프로젝트를 만듭니다.
 
 ## <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
+1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다.
 2. **패키지 관리자 콘솔** 페이지에서 다음 명령을 실행하여 패키지를 설치합니다. 자세한 내용은 [Microsoft.Azure.Management.DataFactory nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
     ```powershell
@@ -74,20 +74,21 @@ ms.locfileid: "91322889"
 
 ## <a name="create-a-data-factory-client"></a>데이터 팩터리 클라이언트 만들기
 
-1. **Program.cs**를 열고 다음 문을 포함하여 네임스페이스에 대한 참조를 추가합니다.
+1. **Program.cs** 를 열고 다음 문을 포함하여 네임스페이스에 대한 참조를 추가합니다.
 
     ```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Rest;
+    using Microsoft.Rest.Serialization;
     using Microsoft.Azure.Management.ResourceManager;
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 고유한 값으로 바꿉니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 컴퓨팅 기능(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+2. 변수를 설정하는 **Main** 메서드에 다음 코드를 추가합니다. 자리 표시자를 고유한 값으로 바꿉니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 컴퓨팅 기능(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
    ```csharp
    // Set variables
@@ -130,7 +131,7 @@ ms.locfileid: "91322889"
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-**Main** 메서드에 **데이터 팩터리**를 만드는 다음 코드를 추가합니다. 
+**Main** 메서드에 **데이터 팩터리** 를 만드는 다음 코드를 추가합니다. 
 
 ```csharp
 // Create a data factory
@@ -153,7 +154,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
 
-**Main** 메서드에 **Azure Storage 연결된 서비스**를 만드는 다음 코드를 추가합니다.
+**Main** 메서드에 **Azure Storage 연결된 서비스** 를 만드는 다음 코드를 추가합니다.
 
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 빠른 시작에서는 복사 원본 및 싱크 저장소 모두에 대해 샘플의 “AzureStorageLinkedService”라는 하나의 Azure Storage 연결된 서비스를 만들기만 하면 됩니다.
 
@@ -177,7 +178,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
 
 ## <a name="create-a-dataset"></a>데이터 세트 만들기
 
-**Azure Blob Storage 데이터 세트**를 만드는 **Main** 메서드에 다음 코드를 추가합니다.
+**Azure Blob Storage 데이터 세트** 를 만드는 **Main** 메서드에 다음 코드를 추가합니다.
 
 원본에서 싱크로 복사할 데이터를 나타내는 데이터 세트를 정의합니다. 이 예에서 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조합니다. 데이터 세트는 값이 데이터 세트를 사용하는 활동에 설정되어 있는 매개 변수를 사용합니다. 매개 변수는 데이터가 상주/저장되는 위치를 가리키는 “folderPath”를 구성하는 데 사용됩니다.
 
@@ -206,7 +207,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
-**Main** 메서드에 **복사 작업이 있는 파이프라인**을 만드는 다음 코드를 추가합니다.
+**Main** 메서드에 **복사 작업이 있는 파이프라인** 을 만드는 다음 코드를 추가합니다.
 
 이 예제에서 이 파이프라인은 하나의 활동을 포함하고 입력 Blob 경로 및 출력 Blob 경로의 두 매개 변수를 사용합니다. 이러한 매개 변수의 값은 파이프라인이 트리거/실행될 때 설정됩니다. 복사 활동은 입력 및 출력 시 이전 단계에서 만든 동일한 Blob 데이터 세트를 참조합니다. 데이터 세트를 입력된 데이터 세트로 사용하는 경우 입력된 경로가 지정됩니다. 또한 데이터 세트를 출력된 데이터 세트로 사용하는 경우 출력된 경로가 지정됩니다. 
 
@@ -258,7 +259,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.Serialization
 
 ## <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
 
-**Main** 메서드에 **파이프라인 실행**을 트리거하는 다음 코드를 추가합니다.
+**Main** 메서드에 **파이프라인 실행** 을 트리거하는 다음 코드를 추가합니다.
 
 이 코드는 파이프라인에 지정된 **inputPath** 및 **outputPath** 매개 변수의 값을 원본 및 싱크 Blob 경로의 실제 값으로 설정합니다.
 
@@ -432,9 +433,9 @@ Press any key to exit...
 
 파이프라인은 자동으로 **adftutorial** Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음, 입력 폴더에서 출력 폴더로 **emp.txt** 파일을 복사합니다. 
 
-1. Azure Portal에서 위의 [Blob 컨테이너에 대한 입력 폴더 및 파일 추가](#add-an-input-folder-and-file-for-the-blob-container) 섹션에서 중지했던 **adftutorial** 컨테이너 페이지에 있는 **새로 고침**을 선택하여 출력 폴더를 참조하세요. 
-2. 폴더 목록에서 **출력**을 선택합니다.
-3. **emp.txt**가 출력 폴더에 복사되었는지 확인합니다. 
+1. Azure Portal에서 위의 [Blob 컨테이너에 대한 입력 폴더 및 파일 추가](#add-an-input-folder-and-file-for-the-blob-container) 섹션에서 중지했던 **adftutorial** 컨테이너 페이지에 있는 **새로 고침** 을 선택하여 출력 폴더를 참조하세요. 
+2. 폴더 목록에서 **출력** 을 선택합니다.
+3. **emp.txt** 가 출력 폴더에 복사되었는지 확인합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

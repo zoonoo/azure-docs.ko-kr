@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: SAP
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28d47b61bce7e154da6c6adb4b74e2b5cf1f3f3d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065085"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371852"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Azure 배포를 지원하는 SAP 소프트웨어
 이 문서에서는 Azure 배포에 대해 지원 되는 SAP 소프트웨어 및 필요한 운영 체제 릴리스 또는 DBMS 릴리스가 무엇 인지 확인 하는 방법을 설명 합니다.
@@ -82,6 +83,12 @@ Azure에서 지원 되는 운영 체제, Oracle DBMS 릴리스 및 Oracle 기능
 
 대상 Azure 인프라에서 지원 되는 DBMS 릴리스를 알고 있어야 합니다. OS 릴리스 및 DBMS가 실행 하려는 SAP 제품 릴리스에서 지원 되는지 여부에 대 한 SAP 제품 가용성 매트릭스를 확인 해야 합니다. 
 
+## <a name="oracle-linux"></a>Oracle Linux
+Oracle Linux에 대 한 가장 중요 한 질문은 SAP에서 Oracle Linux의 필수적인 부분인 Red Hat 커널을 지원 하는지 여부입니다. 자세한 내용은 [SAP 지원 참고 #1565179](https://launchpad.support.sap.com/#/notes/1565179)를 참조 하세요.
+
+## <a name="other-database-than-sap-hana"></a>다른 데이터베이스 SAP HANA
+Sap 워크 로드에 대 한 비 HANA 데이터베이스 지원은 [sap support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)에 설명 되어 있습니다.
+
 
 ## <a name="sap-hana-support"></a>지원 SAP HANA
 Azure에서 HANA 데이터베이스를 실행 하는 데 사용할 수 있는 두 가지 서비스가 있습니다.
@@ -117,7 +124,7 @@ Azure Vm의 경우 이러한 SAPS 처리량 번호는 [SAP support note #1928533
 
 [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)를 살펴보면 다음과 같은 주의 사항을 적용 합니다.
 
-- **M 시리즈 azure vm 및 Mv2-Series azure Vm의 경우 다른 AZURE VM 유형에 비해 다른 최소 OS 릴리스가 적용**됩니다. 최신 OS 릴리스를 위한 요구 사항은 특정 Azure VM 유형에 서 실행 중인 운영 체제를 사용 하도록 설정 하거나 해당 VM 유형에 서 SAP 워크 로드의 성능 및 처리량을 최적화 하기 위해 운영 체제 릴리스에서 제공 해야 하는 다양 한 운영 체제 공급 업체의 변경 사항을 기반으로 합니다.
+- **M 시리즈 azure vm 및 Mv2-Series azure Vm의 경우 다른 AZURE VM 유형에 비해 다른 최소 OS 릴리스가 적용** 됩니다. 최신 OS 릴리스를 위한 요구 사항은 특정 Azure VM 유형에 서 실행 중인 운영 체제를 사용 하도록 설정 하거나 해당 VM 유형에 서 SAP 워크 로드의 성능 및 처리량을 최적화 하기 위해 운영 체제 릴리스에서 제공 해야 하는 다양 한 운영 체제 공급 업체의 변경 사항을 기반으로 합니다.
 - 서로 다른 VM 유형을 지정 하는 두 개의 테이블이 있습니다. 두 번째 테이블은 Azure standard Storage만 지 원하는 Azure VM 형식에 대 한 SAPS 처리량을 지정 합니다. 메모의 두 번째 테이블에 지정 된 단위에 대 한 DBMS 배포가 지원 되지 않습니다.
 
 

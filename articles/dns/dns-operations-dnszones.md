@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 347fde86b2a37aa0f82c09c94d6aa2f9e405da9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6abcca9d9888dc8968d7233e7aee6cd76aa215f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075599"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965751"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
 > * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure 클래식 CLI](./dns-operations-dnszones-cli.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 
 이 문서는 Azure PowerShell을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure Portal을 사용하여 DNS 영역을 관리할 수도 있습니다.
@@ -40,13 +40,13 @@ ms.locfileid: "89075599"
 
 DNS 영역은 `New-AzureRmDnsZone` cmdlet을 사용하여 생성됩니다.
 
-다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
+다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에 *contoso.com* 이라는 DNS 영역을 만듭니다.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-다음 예제에서는 두 [Azure Resource Manager 태그](dns-zones-records.md#tags), *project = demo* 및 *env = test*를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
+다음 예제에서는 두 [Azure Resource Manager 태그](dns-zones-records.md#tags), *project = demo* 및 *env = test* 를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -174,4 +174,3 @@ DNS 영역에서 [레코드 집합 및 레코드 관리](dns-operations-recordse
 [Azure DNS에 도메인을 위임](dns-domain-delegation.md)하는 방법을 알아봅니다.
 <br>
 [Azure DNS PowerShell 참조 설명서](/powershell/module/azurerm.dns)를 검토합니다.
-

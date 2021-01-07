@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368647"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006203"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
 
@@ -164,7 +164,7 @@ Power BI 창의 오른쪽에 있는 **필드** 창 아래에서 마우스 오른
 
 ![새 빠른 측정 화면의 두 번째 이미지](../media/tutorials/new-quick-measure-2.png)
 
-**확인** 을 클릭하면 필드 목록의 아래쪽에 `Value for True` 필드가 표시됩니다. 마우스 오른쪽 단추로 클릭하고 이름을 **Anomaly** (변칙)로 변경합니다. 이를 차트의 **값** 에 추가합니다. 그런 다음, **서식** 도구를 선택하고, X축 유형을 **범주별** 로 설정합니다.
+**확인** 을 클릭하면 필드 목록의 아래쪽에 `Value for True` 필드가 표시됩니다. 마우스 오른쪽 단추로 클릭하고 이름을 **Anomaly**(변칙)로 변경합니다. 이를 차트의 **값** 에 추가합니다. 그런 다음, **서식** 도구를 선택하고, X축 유형을 **범주별** 로 설정합니다.
 
 ![x축 형식의 이미지](../media/tutorials/format-x-axis.png)
 

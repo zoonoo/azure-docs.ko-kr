@@ -10,11 +10,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87368186"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016032"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11을 배포 하기 위한 일반적인 필수 구성 요소
 
@@ -47,7 +47,7 @@ VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
-[az login](/cli/azure/reference-index) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.
+[az login](/cli/azure/reference-index) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도** 를 클릭하여 Cloud Shell을 사용합니다.
 
 ```azurecli
 az login
@@ -57,7 +57,7 @@ az login
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 키 자격 증명 모음을 호스트 하려면 전용 리소스 그룹을 사용 해야 합니다. 이 그룹은 OpenShift 클러스터 리소스가 배포되는 리소스 그룹과는 다릅니다.
 
-다음 예제에서는 *eastus* 위치에 *keyvaultrg*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *keyvaultrg* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name keyvaultrg --location eastus
@@ -66,7 +66,7 @@ az group create --name keyvaultrg --location eastus
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 [az keyvault create](/cli/azure/keyvault) 명령을 사용하여 클러스터에 대한 SSH 키를 저장할 키 자격 증명 모음을 만듭니다. 키 자격 증명 모음 이름은 전역적으로 고유 해야 하며 템플릿 배포를 사용 하도록 설정 해야 합니다. 그렇지 않으면 "KeyVaultParameterReferenceSecretRetrieveFailed" 오류로 인해 배포가 실패 합니다.
 
-다음 예제에서는 *keyvaultrg* 리소스 그룹에 *keyvault*라는 키 자격 증명 모음을 만듭니다.
+다음 예제에서는 *keyvaultrg* 리소스 그룹에 *keyvault* 라는 키 자격 증명 모음을 만듭니다.
 
 ```azurecli 
 az keyvault create --resource-group keyvaultrg --name keyvault \
@@ -98,9 +98,9 @@ OpenShift는 사용자 이름 및 암호 또는 서비스 주체를 사용하여
 
 [az ad sp create-for-rbac](/cli/azure/ad/sp)를 사용하여 서비스 주체를 만들고 OpenShift가 필요로 하는 자격 증명을 출력합니다.
 
-다음 예제에서는 서비스 주체를 만들고 *openshiftrg*이라는 리소스 그룹에 대 한 참가자 권한을 할당 합니다.
+다음 예제에서는 서비스 주체를 만들고 *openshiftrg* 이라는 리소스 그룹에 대 한 참가자 권한을 할당 합니다.
 
-먼저 *openshiftrg*이라는 리소스 그룹을 만듭니다.
+먼저 *openshiftrg* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create -l eastus -n openshiftrg
@@ -138,7 +138,7 @@ az ad sp create-for-rbac --name openshiftsp \
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>리소스 관리자 템플릿에만 적용 되는 필수 구성 요소
 
-**SshPrivateKey**(SSH 개인 키), Azure AD 클라이언트 암호 (**AadClientSecret**), Openshift admin password (**OpenshiftPassword**) 및 Red Hat Subscription Manager 암호 또는**rhsmPasswordOrActivationKey**(활성화 키)에 대 한 암호를 만들어야 합니다.  또한 사용자 지정 TLS/SSL 인증서를 사용 하는 경우에는 **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**및 **masterkeyfile**의 6 가지 추가 암호를 만들어야 합니다.  이러한 매개 변수에 대해서는 자세히 설명 합니다.
+**SshPrivateKey**(SSH 개인 키), Azure AD 클라이언트 암호 (**AadClientSecret**), Openshift admin password (**OpenshiftPassword**) 및 Red Hat Subscription Manager 암호 또는 **rhsmPasswordOrActivationKey**(활성화 키)에 대 한 암호를 만들어야 합니다.  또한 사용자 지정 TLS/SSL 인증서를 사용 하는 경우에는 **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile** 및 **masterkeyfile** 의 6 가지 추가 암호를 만들어야 합니다.  이러한 매개 변수에 대해서는 자세히 설명 합니다.
 
 템플릿은 특정 비밀 이름을 참조 하므로 위에 나열 된 굵게 표시 된 이름을 사용 **해야** 합니다 (대/소문자 구분).
 

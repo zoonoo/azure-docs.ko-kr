@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 4c7ba5806707e818f0ef13717d5f00b542c37614
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145840"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092740"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -109,7 +109,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
-2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제를 보려면 [Az. 함수 참조](/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제를 보려면 [Az. 함수 참조](/powershell/module/az.functions/#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ tenantId 속성은 ID가 속한 Azure AD 테넌트를 식별합니다. principal
 
 1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
 
-2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제는 [Az. 함수 참조](/powershell/module/az.functions/?view=azps-4.1.0#functions)를 참조 하세요. 또한 아래 스크립트는 `New-AzUserAssignedIdentity` [Azure PowerShell 사용 하 여 사용자 할당 관리 Id를 만들기, 나열 또는 삭제 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)으로 별도로 설치 해야 하는를 사용 합니다.
+2. Azure PowerShell를 사용 하 여 함수 앱을 만듭니다. Azure Functions에서 Azure PowerShell를 사용 하는 방법에 대 한 자세한 예제는 [Az. 함수 참조](/powershell/module/az.functions/#functions)를 참조 하세요. 또한 아래 스크립트는 `New-AzUserAssignedIdentity` [Azure PowerShell 사용 하 여 사용자 할당 관리 Id를 만들기, 나열 또는 삭제 하는 방법](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)으로 별도로 설치 해야 하는를 사용 합니다.
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -308,7 +308,7 @@ principalId는 Azure AD 관리에 사용되는 ID의 고유 식별자입니다. 
 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault에 액세스하는 토큰을 요청할 때에는 애플리케이션의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 > [!IMPORTANT]
-> 관리 ID에 대한 백 엔드 서비스는 약 8시간 동안 리소스 URI당 캐시를 유지 관리합니다. 특정 대상 리소스의 액세스 정책을 업데이트하고 해당 리소스에 대한 토큰을 즉시 검색하는 경우 토큰이 만료될 때까지 오래된 권한으로 캐시된 토큰을 계속 가져올 수 있습니다. 현재 토큰 새로 고침을 강제로 적용할 수 있는 방법은 없습니다.
+> 관리 id에 대 한 백 엔드 서비스는 약 24 시간 동안 리소스 URI 당 캐시를 유지 관리 합니다. 특정 대상 리소스의 액세스 정책을 업데이트하고 해당 리소스에 대한 토큰을 즉시 검색하는 경우 토큰이 만료될 때까지 오래된 권한으로 캐시된 토큰을 계속 가져올 수 있습니다. 현재 토큰 새로 고침을 강제로 적용할 수 있는 방법은 없습니다.
 
 App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. 이는 모든 애플리케이션 및 언어에 사용할 수 있습니다. .NET 및 Java의 경우 Azure SDK는 이 프로토콜에 대한 추상화를 제공하여 로컬 개발 환경을 지원합니다.
 
@@ -338,14 +338,14 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
-> | 속성 이름 | 설명                                                                                                                                                                                                                                        |
+> | 속성 이름 | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | 요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.                                                                                                                               |
 > | client_id     | 사용된 ID의 클라이언트 ID입니다.                                                                                                                                                                                                       |
 > | expires_on    | 액세스 토큰이 만료되는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `exp` 클레임에 해당함).                                                                                |
 > | not_before    | 액세스 토큰이 적용되고 허용될 수 있는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `nbf` 클레임에 해당함).                                                      |
 > | resource      | 액세스 토큰이 요청되는 리소스는 요청의 `resource` 쿼리 문자열 매개 변수와 일치합니다.                                                                                                                               |
-> | token_type    | 토큰 유형 값을 나타냅니다. Azure AD는 FBearer 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
+> | token_type    | 토큰 형식 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 
 이 응답은 [Azure AD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.
 
@@ -522,7 +522,8 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [관리 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
+- [관리 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
+- [관리 id를 사용 하 여 안전 하 게 Azure Storage 액세스](scenario-secure-app-access-storage.md)
+- [관리 id를 사용 하 여 Microsoft Graph를 안전 하 게 호출](scenario-secure-app-access-microsoft-graph-as-app.md)
 
 [Microsoft.Azure.Services.AppAuthentication 참조]: ../key-vault/general/service-to-service-authentication.md

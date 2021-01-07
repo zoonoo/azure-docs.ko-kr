@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5d11f343a55d30e5d14d6f4ae0ddb1a74d9c61fa
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311627"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631978"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -32,6 +32,11 @@ SSML의 음성 서비스 구현은 World Wide Web 컨소시엄의 [음성 합성
 표준 및 신경망에서 선택 하거나 제품 또는 브랜드에 고유한 사용자 지정 음성을 만드세요. 75 + standard 음성은 45 개 이상의 언어 및 로캘에서 사용할 수 있으며, 5 개의 신경망은 4 개의 언어와 로캘에서 사용할 수 있습니다. 지원되는 언어, 로캘 및 음성(인공신경망 및 표준)의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 
 표준, 신경망 및 사용자 지정 음성에 대해 자세히 알아보려면 [텍스트 음성 변환 개요](text-to-speech.md)를 참조 하세요.
+
+
+> [!NOTE]
+> [Text to Speech 페이지를](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features)사용 하 여 다양 한 스타일로 음성을 듣고 pitches의 예제 텍스트를 읽을 수 있습니다.
+
 
 ## <a name="special-characters"></a>특수 문자
 
@@ -56,7 +61,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석 하는 데 사용 되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정 합니다. 값에는 소문자, 2 자 언어 코드 (예: `en` ) 또는 언어 코드와 대문자/지역 (예:)이 포함 될 수 있습니다 `en-US` . | 필수 |
@@ -76,7 +81,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -99,7 +104,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -112,7 +117,7 @@ Speech SDK 언어에 따라 `"SpeechServiceResponse_Synthesis_WordBoundaryEnable
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```csharp
 speechConfig.SetProperty(
@@ -121,7 +126,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```cpp
 speechConfig->SetProperty(
@@ -130,7 +135,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```java
 speechConfig.setProperty(
@@ -139,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```python
 speech_config.set_property_by_name(
@@ -148,7 +153,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```javascript
 speechConfig.setProperty(
@@ -157,7 +162,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -165,7 +170,7 @@ speechConfig.setProperty(
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>을(를) 참조하세요.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -198,27 +203,50 @@ speechConfig!.setPropertyTo(
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
+* `zh-CN-YunxiNeural`(미리 보기)
+* `zh-CN-XiaohanNeural`(미리 보기)
+* `zh-CN-XiaomoNeural`(미리 보기)
+* `zh-CN-XiaoxuanNeural`(미리 보기)
+* `zh-CN-XiaoruiNeural`(미리 보기)
 
-변경 내용은 문장 수준에서 적용 되며 스타일은 음성에 따라 다릅니다. 스타일이 지원 되지 않는 경우 서비스는 기본 중립 말하는 스타일로 음성을 반환 합니다. [Voice LIST API](rest-text-to-speech.md#get-a-list-of-voices)를 통해 각 음성에 대해 지원 되는 스타일을 쿼리할 수 있습니다.
+사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. 에서 더 강력 하거나 더 부드러운 스타일을 지정 `styledegree` 하 여 음성을 더 표현 하거나 subdued 할 수 있습니다. 
 
-중국어 음성 XiaoxiaoNeural의 경우 사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. 에서 더 강력 하거나 더 부드러운 스타일을 지정 `styledegree` 하 여 음성을 더 표현 하거나 subdued 할 수 있습니다.
+현재 이러한 신경망에 대해 말하는 스타일 조정을 지원 합니다.
+* `zh-CN-XiaoxiaoNeural`
+
+말하는 스타일과 스타일 정도를 조정 하는 것 외에도, `role` 음성이 다른 나이를 모방 하도록 매개 변수를 조정할 수도 있습니다. 예를 들어 남성 음성은 피치를 발생 시키고 intonation를 변경 하 여 여성 음성을 모방할 수 있습니다.
+
+현재 다음과 같은 신경망에서 역할 재생 조정을 지원 합니다.
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+
+위의 변경 내용은 문장 수준에서 적용 되며 스타일 및 역할 재생은 음성에 따라 다릅니다. 스타일 또는 역할 재생이 지원 되지 않는 경우 서비스는 기본 중립 말하는 방식으로 음성을 반환 합니다. [음성 목록 API](rest-text-to-speech.md#get-a-list-of-voices) 또는 코드 없는 [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation) 플랫폼을 통해 각 음성에 대해 지원 되는 스타일 및 역할 재생을 확인할 수 있습니다.
 
 **구문**
 
 ```xml
+<mstts:express-as style="string"></mstts:express-as>
+```
+```xml
 <mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+```xml
+<mstts:express-as role="string" style="string"></mstts:express-as>
+```
 > [!NOTE]
-> 현재에서는 `styledegree` XiaoxiaoNeural만 지원 합니다. 
+> 현재는 zh-cn- `styledegree` XiaoxiaoNeural만 지원 합니다. `role` zh-cn-XiaomoNeural 및 zh-cn-XiaoxuanNeural만 지원 합니다.
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정 합니다. 현재 말하는 스타일은 음성 전용입니다. | 신경망의 말하기 스타일을 조정 하는 경우에 필요 합니다. 을 사용 하 `mstts:express-as` 는 경우 스타일을 제공 해야 합니다. 잘못 된 값을 제공 하는 경우이 요소는 무시 됩니다. |
-| `styledegree` | 말하기 스타일의 강도를 지정 합니다. **허용** 되는 값: 0.01-2 포함 기본값은 미리 정의 된 스타일 강도를 의미 하는 1입니다. 최소 단위는 0.01 이며이로 인해 대상 스타일에 대해 약간의 경향이 있습니다. 값이 2 이면 기본 스타일 농도가 두 배가 됩니다.  | 선택 사항 (현재는 `styledegree` XiaoxiaoNeural만 지원 합니다.)|
+| `styledegree` | 말하기 스타일의 강도를 지정 합니다. **허용** 되는 값: 0.01-2 포함 기본값은 미리 정의 된 스타일 강도를 의미 하는 1입니다. 최소 단위는 0.01 이며이로 인해 대상 스타일에 대해 약간의 경향이 있습니다. 값이 2 이면 기본 스타일 농도가 두 배가 됩니다.  | 선택 사항으로, 현재는 `styledegree` zh-cn-XiaoxiaoNeural만 지원 합니다.|
+| `role` | 말하는 역할 재생을 지정 합니다. 음성은 다른 나이로 작동 합니다.  | 선택 사항 (현재는 `role` zh-cn-cn-XiaomoNeural 및 zh-cn-XiaoxuanNeural만 지원)|
 
 이 표를 사용 하 여 각 신경망에 대해 지원 되는 말하는 스타일을 결정 합니다.
 
@@ -235,6 +263,7 @@ speechConfig!.setPropertyTo(
 |                         | `style="assistant"`       | 디지털 길잡이에 대 한 웜 및 낮은 톤을 나타냅니다.    |
 |                         | `style="newscast"`        | 일반 뉴스 배달에 대 한 다양 한 느낌을 나타냅니다.   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Narrating news의 공식 및 전문 톤을 나타냅니다. |
+| `pt-BR-FranciscaNeural` | `style="calm"`            | 말하는 동안 쿨, 수집 및 구성 된 태도를 표현 합니다. 다른 종류의 음성에 비해 톤, 피치, prosody는 훨씬 더 균일 합니다.                                |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Narrating news의 공식 및 전문 톤을 나타냅니다. |
 |                         | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  |
 |                         | `style="assistant"`       | 디지털 길잡이에 대 한 웜 및 낮은 톤을 나타냅니다.    |
@@ -250,6 +279,59 @@ speechConfig!.setPropertyTo(
 |                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
 |                         | `style="lyrical"`         | Melodic 및 sentimental 방식으로 감정을를 표현 합니다.         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  | 
+| `zh-CN-YunyeNeural`     | `style="calm"`            | 말하는 동안 쿨, 수집 및 구성 된 태도를 표현 합니다. 다른 종류의 음성에 비해 톤, 피치, prosody는 훨씬 더 균일 합니다.    | 
+|                         | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
+|                         | `style="sad"`             | 더 높은 피치, 낮은 강도 및 낮은 vocal 에너지를 사용 하 여 sorrowful 톤을 나타냅니다. 이 emotion의 일반적인 지표는 음성 중에 whimpers 또는 우는입니다.            |
+|                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
+|                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
+|                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
+|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
+|                         | `style="sad"`             | 더 높은 피치, 낮은 강도 및 낮은 vocal 에너지를 사용 하 여 sorrowful 톤을 나타냅니다. 이 emotion의 일반적인 지표는 음성 중에 whimpers 또는 우는입니다.            |
+|                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
+|                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
+|                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
+|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
+|                         | `style="depressed"`       | 낮은 피치와 에너지를 사용 하 여 melancholic 및 despondent 톤을 나타냅니다.    |
+|                         | `style="embarrassed"`     | 스피커가 불편 한 경우 불확실 하 고 망설 톤을 나타냅니다.   |
+| `zh-CN-XiaohanNeural`   | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
+|                         | `style="sad"`             | 더 높은 피치, 낮은 강도 및 낮은 vocal 에너지를 사용 하 여 sorrowful 톤을 나타냅니다. 이 emotion의 일반적인 지표는 음성 중에 whimpers 또는 우는입니다.            |
+|                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
+|                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
+|                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
+|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
+|                         | `style="embarrassed"`     | 스피커가 불편 한 경우 불확실 하 고 망설 톤을 나타냅니다.   |
+|                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |     
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
+| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
+|                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
+|                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
+|                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
+|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
+|                         | `style="depressed"`       | 낮은 피치와 에너지를 사용 하 여 melancholic 및 despondent 톤을 나타냅니다.    |
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |  
+| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
+|                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
+|                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
+|                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
+|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
+|                         | `style="depressed"`       | 낮은 피치와 에너지를 사용 하 여 melancholic 및 despondent 톤을 나타냅니다.    |
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
+| `zh-CN-XiaoruiNeural`    | `style="sad"`             | 더 높은 피치, 낮은 강도 및 낮은 vocal 에너지를 사용 하 여 sorrowful 톤을 나타냅니다. 이 emotion의 일반적인 지표는 음성 중에 whimpers 또는 우는입니다.            |
+|                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
+|                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
+
+이 표를 사용 하 여 각 신경망에 대해 지원 되는 역할을 확인 합니다.
+
+| 음성                   | 역할                       | 설명                                                 |
+|-------------------------|----------------------------|-------------------------------------------------------------|
+| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | 음성은 젊은 성인 모방한.                 |
+|                         | `role="OlderAdultMale"`    | 음성은 이전 성인 남성로 모방한.                   |
+|                         | `role="Girl"`              | 음성은 여자에 게 모방한.                               |
+|                         | `role="Boy"`               | 음성은 소년에 모방한.                                |
+| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | 음성은 젊은 성인 모방한.                 |
+|                         | `role="OlderAdultFemale"`  | 음성은 오래 된 성인 여성에 모방한.                 |
+|                         | `role="OlderAdultMale"`    | 음성은 이전 성인 남성로 모방한.                   |
 
 **예제**
 
@@ -278,6 +360,23 @@ speechConfig!.setPropertyTo(
 </speak>
 ```
 
+이 SSML 코드 조각은 특성을 `role` 사용 하 여 XiaomoNeural에 대 한 역할-재생을 변경 하는 방법을 보여 줍니다.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaomoNeural">
+        女儿看见父亲走了进来，问道：
+        <mstts:express-as role="YoungAdultFemale" style="calm">
+            “您来的挺快的，怎么过来的？”
+        </mstts:express-as>
+        父亲放下手提包，说：
+        <mstts:express-as role="OlderAdultMale" style="calm">
+            “刚打车过来的，路上还挺顺畅。”
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
 ## <a name="add-or-remove-a-breakpause"></a>중단/일시 중지 추가 또는 제거
 
 요소를 사용 `break` 하 여 단어 사이에 일시 중지 (또는 중단)를 삽입 하거나 텍스트 음성 변환 서비스에서 자동으로 추가 된 일시 중지를 방지 합니다.
@@ -294,10 +393,10 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | 옵션 |
-| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다. 유효한 값의 예는 `2s` 및입니다. `500` | 옵션 |
+| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다 .이 값은 5000ms 보다 작게 설정 해야 합니다. 유효한 값의 예는 `2s` 및입니다. `500ms` | 옵션 |
 
 | 강도가                      | 설명 |
 |-------------------------------|-------------|
@@ -316,6 +415,37 @@ speechConfig!.setPropertyTo(
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
+```
+## <a name="add-silence"></a>침묵 추가
+
+요소를 사용 `mstts:silence` 하 여 텍스트 앞 이나 뒤 또는 두 개의 인접 한 문장 사이에 일시 중지를 삽입 합니다. 
+
+> [!NOTE]
+>`mstts:silence`와의 차이는 `break` `break` 텍스트의 어느 위치에 나 추가할 수 있지만, 무음은 입력 텍스트의 시작 또는 끝 이나 인접 한 두 문장의 경계에서만 작동 합니다.  
+
+
+**구문**
+
+```xml
+<mstts:silence  type="string"  value="string"/>
+```
+
+**특성**
+
+| 특성 | 설명 | 필수/선택 |
+|-----------|-------------|---------------------|
+| `type` | 추가 되는 침묵의 위치를 지정 합니다. <ul><li>선행 – 텍스트의 시작 부분 </li><li>후행 – 텍스트 끝에 있습니다. </li><li>Sentenceboundary – 인접 한 문장 사이 </li></ul> | 필수 |
+| `Value` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다 .이 값은 5000ms 보다 작게 설정 해야 합니다. 유효한 값의 예는 `2s` 및입니다. `500ms` | 필수 |
+
+**예** 이 예에서는를 `mtts:silence` 사용 하 여 두 문장 사이에 200 밀리초의 대기를 추가 합니다.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
+<voice name="en-US-AriaNeural"> 
+<mstts:silence  type="Sentenceboundary" value="200ms"/> 
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
+</voice> 
+</speak> 
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>단락 및 문장 지정
@@ -356,6 +486,9 @@ speechConfig!.setPropertyTo(
 
 Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구성 되며, 경우에 따라 조합으로 이루어집니다. 각 전화 음성의 고유한 소리를 설명합니다. 문자는 여러 번의 음성 소리를 나타낼 수 있는 라틴 알파벳과는 대조적입니다. 단어 "사탕" 및 "중단", "c" 문자의 다양 한 발음 또는 고려 문자 조합과 다른 발음 "th" 단어 "thing" 및 "는" 합니다.
 
+> [!NOTE]
+> 현재 음소 태그는 이러한 5 가지 음성 (et-EE-AnuNeural, ga-OrlaNeural, lt-OnaNeural, lv-EveritaNeural 및 mt-GarceNeural)에 대해 지원 되지 않습니다.
+
 **구문**
 
 ```XML
@@ -364,12 +497,12 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자 <span class="docon docon-navigate-external x-hidden-focus"></span> </a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 옵션 |
 | `ph` | 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열 `phoneme` 입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
 
-**예**
+**예제**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -402,6 +535,10 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 > [!NOTE]
 > 현재 사용자 지정 어휘는 UTF-8 인코딩을 지원 합니다. 
 
+> [!NOTE]
+> 사용자 지정 어휘는 현재 5 개의 음성 (AnuNeural, ga-OrlaNeural, lt-OnaNeural, lv-EveritaNeural 및 mt-GarceNeural)에 대해 지원 되지 않습니다.
+
+
 **구문**
 
 ```XML
@@ -410,11 +547,11 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| attribute | 설명                               | 필수/선택 |
+| 특성 | 설명                               | 필수/선택 |
 |-----------|-------------------------------------------|---------------------|
-| `uri`     | 외부 j 문서의 주소입니다. | 필수 사항입니다.           |
+| `uri`     | 외부 j 문서의 주소입니다. | 필수 요소.           |
 
-**사용 현황**
+**사용법**
 
 여러 엔터티를 읽는 방법을 정의 하려면 .xml 또는. j 파일로 저장 된 사용자 지정 어휘를 만들 수 있습니다. 다음은 샘플 .xml 파일입니다.
 
@@ -439,7 +576,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 요소에는 `lexicon` 요소가 하나 이상 포함 되어 있습니다 `lexeme` . 각 `lexeme` 요소는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme` , `alias` 및 요소를 포함 `phoneme` 합니다. `grapheme`요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span> </a>를 설명 하는 텍스트를 포함 합니다. `alias`요소는 머리글자어 또는 축약 된 단어의 발음을 나타내는 데 사용 됩니다. `phoneme`요소는가 어떻게 발음 되는지 설명 하는 텍스트를 제공 `lexeme` 합니다.
 
-사용자 지정 어휘를 사용 하 여 구의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 다음은 그 예입니다.
+사용자 지정 어휘를 사용 하 여 구의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들면 다음과 같습니다.
 
 ```xml
   <lexeme>
@@ -452,7 +589,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
   </lexeme>
 ```
 
-`alias`약어 또는 축약 된 용어에 대 한 예상을 직접 제공할 수도 있습니다. 다음은 그 예입니다.
+`alias`약어 또는 축약 된 용어에 대 한 예상을 직접 제공할 수도 있습니다. 예를 들면 다음과 같습니다.
 ```xml
   <lexeme>
     <grapheme>Scotland MV</grapheme> 
@@ -465,7 +602,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 사용자 지정 어휘 파일에 대 한 자세한 내용은 [j (발음 어휘 사양) 버전 1.0](https://www.w3.org/TR/pronunciation-lexicon/)을 참조 하세요.
 
-다음으로 사용자 지정 어휘 파일을 게시 합니다. 이 파일을 저장할 수 있는 위치에 대 한 제한은 없지만 [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)를 사용 하는 것이 좋습니다.
+다음으로 사용자 지정 어휘 파일을 게시 합니다. 이 파일을 저장할 수 있는 위치에 대 한 제한은 없지만 [Azure Blob Storage](../../storage/blobs/storage-quickstart-blobs-portal.md)를 사용 하는 것이 좋습니다.
 
 사용자 지정 어휘를 게시 한 후 SSML에서 참조할 수 있습니다.
 
@@ -533,10 +670,10 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
-| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. `<prosody pitch="600Hz">some text</prosody>`)을 입력합니다.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>기본값</li></ul></li></ul> | 옵션 |
-| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 다음은 그 예입니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 옵션 |
+| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예들 들어 `<prosody pitch="600Hz">some text</prosody>`입니다.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>기본값</li></ul></li></ul> | 옵션 |
+| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 옵션 |
 | `range` | 텍스트의 피치 범위를 나타내는 값입니다. `range`설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다 `pitch` . | 옵션 |
 | `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 수 있습니다 `rate` .<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>기본값</li></ul></li></ul> | 옵션 |
 | `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms* 입니다. 기간은 표준 음성을 지원 합니다.| 옵션 |
@@ -616,7 +753,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조 하세요. | 필수 |
 | `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 옵션 |
@@ -631,14 +768,14 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 | `address` | | 텍스트를 주소로 읽습니다. 음성 합성 엔진 pronounces:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />"저는 150th 법정 워싱턴 워싱턴에 있습니다." |
 | `cardinal`, `number` | | 텍스트는 카디널 숫자로 표시 됩니다. 음성 합성 엔진 pronounces:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />"세 가지 대안이 있습니다." |
 | `characters`, `spell-out` | | 텍스트는 개별 문자 (철자)로 되어 있습니다. 음성 합성 엔진 pronounces:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />' T E S T. "로 |
-| `date` | dmy, mdy, ymd, ydm, ydm, my, md, dm, d, m, y | 텍스트를 날짜로 발음 합니다. `format`특성은 날짜의 형식 ( *d = 일, m = month 및 y = year* )을 지정 합니다. 음성 합성 엔진 pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />"현재는 10 월 19 2016입니다." |
+| `date` | dmy, mdy, ymd, ydm, ydm, my, md, dm, d, m, y | 텍스트를 날짜로 발음 합니다. `format`특성은 날짜의 형식 (*d = 일, m = month 및 y = year*)을 지정 합니다. 음성 합성 엔진 pronounces:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />"현재는 10 월 19 2016입니다." |
 | `digits`, `number_digit` | | 텍스트는 개별 숫자의 시퀀스로 음성으로 변환 됩니다. 음성 합성 엔진 pronounces:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />"1 2 3 4 5 6 7 8 9"입니다. |
 | `fraction` | | 텍스트를 소수로 표시 합니다. 음성 합성 엔진 pronounces:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />"Eighths 3 개." |
 | `ordinal` | | 텍스트는 서 수로 표시 됩니다. 음성 합성 엔진 pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />"세 번째 옵션을 선택 하십시오." |
 | `telephone` | | 텍스트는 전화 번호로 표시 됩니다. 특성에는 `format` 국가 코드를 나타내는 숫자가 포함 될 수 있습니다. 예를 들어 미국의 경우 "1"이 고 이탈리아의 경우 "39"입니다. 음성 합성 엔진은이 정보를 사용 하 여 전화 번호의 발음을 안내할 수 있습니다. 전화 번호에는 국가 코드도 포함 될 수 있으며,이 경우의 국가 코드 보다 우선적으로 적용 `format` 됩니다. 음성 합성 엔진 pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />"내 숫자가 지역 코드 8 8 8 5 5 5 1 2 1 2입니다." |
 | `time` | hms12, hms24 | 텍스트를 시간으로 읽습니다. `format`특성은 시간이 12 시간제 (hms12) 또는 24 시간제 (hms24)를 사용 하 여 지정 되었는지 여부를 지정 합니다. 콜론을 사용 하 여 시간, 분, 초를 나타내는 숫자를 구분 합니다. 다음은 유효한 시간 예: 12:35, 1:14:32, 08:15 및 02:50:45입니다. 음성 합성 엔진 pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />"The 트레인 분리 4 A M." |
 
-**사용 현황**
+**사용법**
 
 `say-as`요소는 텍스트만 포함할 수 있습니다.
 
@@ -678,7 +815,7 @@ SSML 문서에 포함 된 오디오는 다음 요구 사항을 충족 해야 합
 
 **특성**
 
-| attribute | 설명                                   | 필수/선택                                        |
+| 특성 | 설명                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 audio 요소를 사용 하는 경우 필요 합니다. |
 
@@ -714,7 +851,7 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| 특성 | 설명 | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
 | `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용** 되는 값: `0` `100` 포함 기본값은 `1`입니다. | 옵션 |

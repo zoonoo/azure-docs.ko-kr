@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 7c5aa7e5189b4c89636fdb38e8fd365208148900
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8591220eb80d9c60ed7873be546007449ab46f89
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094645"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463029"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -26,7 +26,7 @@ ms.locfileid: "93094645"
 
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/master/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
 - [Maven 3](https://maven.apache.org/download.cgi)
 - [Git](https://git-scm.com/download/)
 
@@ -78,7 +78,7 @@ ms.locfileid: "93094645"
             ```
 
         5. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_ 을 입력할 수 있습니다.
-        6. 이 도구는 **클라이언트 인증서** , **클라이언트 인증서 프라이빗 키** 및 **루트 인증서** 를 로컬로 생성합니다.
+        6. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 프라이빗 키** 및 **루트 인증서** 를 로컬로 생성합니다.
         7. **_-----BEGIN CERTIFICATE-----_** 및 **_-----END CERTIFICATE-----_** 줄을 포함하여 **루트 인증서** 를 복사합니다. 
         8. 아래와 같이 **PUBLIC_KEY_CERTIFICATE_STRING** 매개 변수에 **루트 인증서** 의 값을 할당합니다.
 

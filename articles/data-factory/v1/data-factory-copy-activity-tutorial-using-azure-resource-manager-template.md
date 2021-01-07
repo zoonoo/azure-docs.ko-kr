@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 831da4153eebc798265493441ee72c041901904f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a007e64a7bd034397c2030c435a5ad349bd4acc7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053905"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608751"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -95,7 +95,7 @@ ms.locfileid: "87053905"
     ]
 }
 ```
-**C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **ADFCopyTutorialARM.json**이라는 JSON 파일을 만듭니다.
+**C:\ADFGetStarted** 폴더에 다음과 같은 내용으로 **ADFCopyTutorialARM.json** 이라는 JSON 파일을 만듭니다.
 
 ```json
 {
@@ -283,7 +283,7 @@ ms.locfileid: "87053905"
 ```
 
 ## <a name="parameters-json"></a>매개 변수 JSON
-Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCopyTutorialARM-Parameters.json**이라는 JSON 파일을 만듭니다. 
+Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCopyTutorialARM-Parameters.json** 이라는 JSON 파일을 만듭니다. 
 
 > [!IMPORTANT]
 > storageAccountName 및 storageAccountKey 매개 변수에 대한 Azure Storage 계정의 이름과 키를 지정합니다.  
@@ -341,46 +341,58 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
 
 1. Azure 계정을 사용하여 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **데이터 팩터리**를 클릭하거나 **모든 서비스**를 클릭하고 **INTELLIGENCE + ANALYTICS** 범주 아래에서 **데이터 팩터리**를 클릭합니다.
+
+1. 왼쪽 메뉴에서 **데이터 팩터리** 를 클릭하거나 **모든 서비스** 를 클릭하고 **INTELLIGENCE + ANALYTICS** 범주 아래에서 **데이터 팩터리** 를 클릭합니다.
    
     ![데이터 팩터리 메뉴](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factories-menu.png)
-3. **데이터 팩터리** 페이지에서 데이터 팩터리(AzureBlobToAzureSQLDatabaseDF)를 검색하고 찾습니다. 
+
+1. **데이터 팩터리** 페이지에서 데이터 팩터리(AzureBlobToAzureSQLDatabaseDF)를 검색하고 찾습니다. 
    
     ![데이터 팩터리 검색](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/search-for-data-factory.png)  
-4. Azure Data Factory를 클릭합니다. 데이터 팩터리의 홈 페이지가 표시됩니다.
+
+1. Azure Data Factory를 클릭합니다. 데이터 팩터리의 홈 페이지가 표시됩니다.
    
     ![데이터 팩터리의 홈 페이지](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. 이 자습서에서 만든 파이프라인과 데이터 세트를 모니터링하려면 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다.
-7. 조각이 **준비** 상태일 때 데이터가 Azure SQL Database의 **emp** 테이블에 복사되는지 확인합니다.
 
+1. 이 자습서에서 만든 파이프라인과 데이터 세트를 모니터링하려면 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다.
+
+1. 조각이 **준비** 상태일 때 데이터가 Azure SQL Database의 **emp** 테이블에 복사되는지 확인합니다.
 
 이 자습서에서 만든 파이프라인과 데이터 세트를 Azure Portal 블레이드를 사용하여 모니터링하는 방법은 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
 
 모니터링 및 관리 애플리케이션을 사용하여 데이터 파이프라인을 모니터링하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
 ## <a name="data-factory-entities-in-the-template"></a>템플릿의 데이터 팩터리 엔터티
+
 ### <a name="define-data-factory"></a>데이터 팩터리 정의
-다음 예제에서처럼 Resource Manager 템플릿에서 데이터 팩터리를 정의합니다.  
+
+다음 예제에서처럼 Resource Manager 템플릿에서 데이터 팩터리를 정의합니다.
 
 ```json
-"resources": [
 {
-    "name": "[variables('dataFactoryName')]",
-    "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
-    "location": "West US"
+  "resources": [
+    {
+      "name": "[variables('dataFactoryName')]",
+      "apiVersion": "2015-10-01",
+      "type": "Microsoft.DataFactory/datafactories",
+      "location": "West US"
+    }
+  ]
 }
 ```
 
 dataFactoryName은 다음과 같이 정의됩니다. 
 
 ```json
-"dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+{
+    "dataFactoryName": "[concat('AzureBlobToAzureSQLDatabaseDF', uniqueString(resourceGroup().id))]"
+}
 ```
 
-리소스 그룹 ID를 기반으로 하는 고유 문자열입니다.  
+리소스 그룹 ID를 기반으로 하는 고유 문자열입니다.
 
 ### <a name="defining-data-factory-entities"></a>데이터 팩터리 엔터티 정의
+
 다음 데이터 팩터리 엔터티는 JSON 템플릿에 정의됩니다. 
 
 1. [Azure Storage 연결된 서비스](#azure-storage-linked-service)
@@ -390,6 +402,7 @@ dataFactoryName은 다음과 같이 정의됩니다.
 5. [복사 작업을 포함하는 데이터 파이프라인](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
+
 AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에 연결합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 컨테이너를 만들고 이 스토리지 계정에 데이터를 업로드했습니다. 이 섹션의 Azure Storage 계정 이름 및 키를 지정합니다. Azure Storage 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Storage 연결된 서비스](data-factory-azure-blob-connector.md#azure-storage-linked-service)를 참조하세요. 
 
 ```json
@@ -413,6 +426,7 @@ AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에
 connectionString은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStorageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
 #### <a name="azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스
+
 AzureSqlLinkedService는 Azure SQL Database의 데이터베이스를 데이터 팩터리에 연결합니다. (선택 사항) Azure File Storage를 프로젝트 리더의 DSVM(데이터 과학 Virtual Machine)에 탑재하고 여기에 프로젝트 데이터 자산을 추가합니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 emp 테이블을 만들었습니다. 이 섹션에서 논리 SQL 서버 이름, 데이터베이스 이름, 사용자 이름 및 사용자 암호를 지정합니다. Azure SQL 연결된 서비스를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure SQL 연결된 서비스](data-factory-azure-sql-connector.md#linked-service-properties)를 참조하세요.  
 
 ```json
@@ -424,11 +438,11 @@ AzureSqlLinkedService는 Azure SQL Database의 데이터베이스를 데이터 �
     ],
     "apiVersion": "2015-10-01",
     "properties": {
-          "type": "AzureSqlDatabase",
-          "description": "Azure SQL linked service",
-          "typeProperties": {
-            "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-          }
+      "type": "AzureSqlDatabase",
+      "description": "Azure SQL linked service",
+      "typeProperties": {
+        "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+      }
     }
 }
 ```

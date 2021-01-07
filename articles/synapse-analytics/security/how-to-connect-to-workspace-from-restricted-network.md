@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 2e96cbf0c1464e27b0a384e8a813118056103b91
+ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637135"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96296688"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>제한 된 네트워크에서 작업 영역 리소스에 연결
 
@@ -21,9 +21,9 @@ ms.locfileid: "94637135"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Synapse analytics 작업 영역** : Azure Synapse analytics에서 만들 수 있습니다. 4 단계에서 작업 영역 이름이 필요 합니다.
-* **제한 된 네트워크** : IT 관리자는 조직에 대해 제한 된 네트워크를 유지 관리 하 고 네트워크 정책을 구성할 수 있는 권한을 가집니다. 3 단계에서 가상 네트워크 이름 및 서브넷이 필요 합니다.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Synapse analytics 작업 영역**: Azure Synapse analytics에서 만들 수 있습니다. 4 단계에서 작업 영역 이름이 필요 합니다.
+* **제한 된 네트워크**: IT 관리자는 조직에 대해 제한 된 네트워크를 유지 관리 하 고 네트워크 정책을 구성할 수 있는 권한을 가집니다. 3 단계에서 가상 네트워크 이름 및 서브넷이 필요 합니다.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>1 단계: 제한 된 네트워크에 네트워크 아웃 바운드 보안 규칙 추가
@@ -38,22 +38,19 @@ ms.locfileid: "94637135"
 
 ![Azure Resource Manager 서비스 태그 정보에 대 한 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
-다른 세 가지 규칙을 만드는 경우 **대상 서비스 태그** 의 값을 목록에서 **AzureFrontDoor** , **AzureActiveDirectory** 또는 **azuremonitor** 로 바꿉니다.
+다른 세 가지 규칙을 만드는 경우 **대상 서비스 태그** 의 값을 목록에서 **AzureFrontDoor**, **AzureActiveDirectory** 또는 **azuremonitor** 로 바꿉니다.
 
-자세한 내용은 [서비스 태그 개요](/azure/virtual-network/service-tags-overview.md)를 참조 하세요.
+자세한 내용은 [서비스 태그 개요](/azure/virtual-network/service-tags-overview)를 참조 하세요.
 
 ## <a name="step-2-create-private-link-hubs"></a>2 단계: 개인 링크 허브 만들기
 
 다음으로 Azure Portal에서 개인 링크 허브를 만듭니다. 포털에서이를 확인 하려면 *Azure Synapse Analytics (개인 링크 허브)* 를 검색 한 다음 필요한 정보를 입력 하 여 만듭니다. 
 
-> [!Note]
-> **지역** 값이 Azure Synapse Analytics 작업 영역이 있는 것과 동일한 지 확인 합니다.
-
 ![Synapse 개인 링크 허브 만들기의 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-a-private-endpoint-for-your-gateway"></a>3 단계: 게이트웨이에 대 한 개인 끝점 만들기
+## <a name="step-3-create-a-private-endpoint-for-your-synapse-studio"></a>3 단계: Synapse Studio에 대 한 개인 끝점 만들기
 
-Azure Synapse Analytics Studio 게이트웨이에 액세스 하려면 Azure Portal에서 개인 끝점을 만들어야 합니다. 포털에서이를 찾으려면 *개인 링크* 를 검색 합니다. **개인 링크 센터** 에서 **개인 끝점 만들기** 를 선택한 다음 필요한 정보를 입력 하 여 만듭니다. 
+Azure Synapse Analytics Studio에 액세스 하려면 Azure Portal에서 개인 끝점을 만들어야 합니다. 포털에서이를 찾으려면 *개인 링크* 를 검색 합니다. **개인 링크 센터** 에서 **개인 끝점 만들기** 를 선택한 다음 필요한 정보를 입력 하 여 만듭니다. 
 
 > [!Note]
 > **지역** 값이 Azure Synapse Analytics 작업 영역이 있는 것과 동일한 지 확인 합니다.
@@ -118,6 +115,43 @@ Azure Synapse Analytics Studio 작업 영역에서 저장소 탐색기를 사용
 이 끝점을 만든 후 승인 상태는 **보류** 중 상태를 표시 합니다. Azure Portal에서이 저장소 계정의 **개인 끝점 연결** 탭에 있는이 저장소 계정의 소유자에 게 서 승인을 요청 합니다. 승인 되 면 노트북은이 저장소 계정으로 연결 된 저장소 리소스에 액세스할 수 있습니다.
 
 이제 모든 집합이 있습니다. Azure Synapse Analytics Studio 작업 영역 리소스에 액세스할 수 있습니다.
+
+## <a name="appendix-dns-registration-for-private-endpoint"></a>부록: 개인 끝점에 대 한 DNS 등록
+
+아래 스크린샷에서 개인 끝점을 만드는 동안 "개인 DNS 영역 통합"을 사용 하도록 설정 하지 않은 경우 각 개인 끝점에 대해 "**사설 DNS 영역**"을 만들어야 합니다.
+![Synapse 개인 DNS 영역 만들기 1의 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-1.png)
+
+포털에서 **사설 DNS 영역** 을 찾으려면 *사설 DNS 영역* 을 검색 합니다. **사설 DNS 영역** 에서 아래 필요한 정보를 입력 하 여 만듭니다.
+
+* **이름** 에 대해 아래와 같이 특정 개인 끝점의 전용 DNS 영역 전용 이름을 입력 합니다.
+  * **`privatelink.azuresynapse.net`** 는 Azure Synapse Analytics Studio 게이트웨이에 액세스 하는 개인 끝점에 대 한입니다. 3 단계에서 이러한 형식의 개인 끝점 만들기를 참조 하세요.
+  * **`privatelink.sql.azuresynapse.net`** 는 SQL 풀 및 기본 제공 풀에서 sql 쿼리 실행의 이러한 형식의 전용 끝점에 대 한 것입니다. 4 단계에서 끝점 만들기를 참조 하세요.
+  * **`privatelink.dev.azuresynapse.net`** 는 Azure Synapse Analytics Studio 작업 영역 내에서 다른 모든 항목에 액세스 하는 이러한 유형의 개인 끝점에 대 한 것입니다. 4 단계에서 이러한 형식의 개인 끝점 만들기를 참조 하세요.
+  * **`privatelink.dfs.core.windows.net`** 는 Azure Data Lake Storage Gen2 연결 된 작업 영역에 액세스 하는 전용 끝점에 대 한입니다. 5 단계에서 이러한 형식의 개인 끝점 만들기를 참조 하세요.
+  * **`privatelink.blob.core.windows.net`** 는 Azure Blob Storage 연결 된 작업 영역에 액세스 하는 전용 끝점에 대 한입니다. 5 단계에서 이러한 형식의 개인 끝점 만들기를 참조 하세요.
+
+![Synapse 개인 DNS 영역 만들기 2의 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-2.png)
+
+**사설 DNS 영역** 을 만든 후에는 생성 된 개인 DNS 영역을 입력 하 고 **가상 네트워크 링크** 를 선택 하 여 가상 네트워크에 대 한 링크를 추가 합니다. 
+
+![Synapse 개인 DNS 영역 만들기 3의 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-3.png)
+
+다음과 같이 필수 필드를 입력 합니다.
+* **링크 이름** 에 링크 이름을 입력 합니다.
+* **가상 네트워크** 에서 가상 네트워크를 선택 합니다.
+
+![Synapse 개인 DNS 영역 4 만들기의 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-4.png)
+
+가상 네트워크 링크가 추가 된 후 이전에 만든 **사설 DNS 영역** 에 DNS 레코드 집합을 추가 해야 합니다.
+
+* **이름** 에 대해 다른 개인 끝점의 전용 이름 문자열을 입력 합니다. 
+  * **웹** 은 Azure Synapse Analytics Studio 액세스를 위한 개인 끝점입니다.
+  * "***YourWorkSpaceName * * _"는 sql 풀에서의 sql 쿼리 실행 전용 끝점과 Azure Synapse Analytics Studio 작업 영역 내 다른 모든 항목에 액세스 하는 전용 끝점에 대 한 것입니다. _ "*** YourWorkSpaceName *-ondemand * *"는 기본 제공 풀에서 sql 쿼리 실행의 개인 끝점에 대 한 것입니다.
+* **유형** 에 대해 DNS 레코드 유형 **A** 만을 선택 합니다. 
+* **Ip 주소** 에 대해 각 개인 끝점의 해당 ip 주소를 입력 합니다. 개인 끝점 개요에서 **네트워크 인터페이스** 의 IP 주소를 가져올 수 있습니다.
+
+![Synapse 개인 DNS 영역 만들기 5의 스크린샷](./media/how-to-connect-to-workspace-from-restricted-network/pdns-zone-5.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 

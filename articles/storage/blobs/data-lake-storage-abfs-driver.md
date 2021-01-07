@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e9c56f59d6dd64002632a5f74e9f39c51293caab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836363"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913711"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2에서 데이터에 대한 기본 액세스 방법 �
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob 파일 시스템 드라이버
 
-[Azure Data Lake Storage REST 인터페이스](https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2)는 Azure Blob Storage에 대해 파일 시스템 의미 체계를 지원하도록 설계됐습니다. Hadoop 파일 시스템도 동일한 의미 체계를 지원하도록 설계된 경우 드라이버에서 복잡한 매핑에 대한 요구 사항은 없습니다. 따라서 Azure Blob 파일 시스템(ABFS) 드라이버는 REST API에 대한 클라이언트 shim에 불과합니다.
+[Azure Data Lake Storage REST 인터페이스](/rest/api/storageservices/data-lake-storage-gen2)는 Azure Blob Storage에 대해 파일 시스템 의미 체계를 지원하도록 설계됐습니다. Hadoop 파일 시스템도 동일한 의미 체계를 지원하도록 설계된 경우 드라이버에서 복잡한 매핑에 대한 요구 사항은 없습니다. 따라서 Azure Blob 파일 시스템(ABFS) 드라이버는 REST API에 대한 클라이언트 shim에 불과합니다.
 
 그러나 이 드라이버가 아직 수행해야 할 몇 가지 기능이 있습니다.
 

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 085ebcc147082ac78de9f8b97c810dee5bb1e96a
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145044"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762808"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
-이 빠른 시작에서는 코드 샘플을 사용하여 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 인스턴스에서 개인 계정(hotmail.com, outlook.com, 기타)과 회사 및 학교 계정에 로그인하는 방법을 배웁니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
+이 빠른 시작에서는 ASP.NET Core 웹앱이 모든 Azure AD(Azure Active Directory) 조직에서 사용자를 로그인하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다.  
+
+자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>필수 구성 요소
@@ -48,7 +50,7 @@ ms.locfileid: "92145044"
 > 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록** , **새 등록** 을 차례로 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `AspNetCore-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. `https://localhost:44321/`의 **리디렉션 URI** 를 입력합니다.
 > 1. **등록** 을 선택합니다.
@@ -97,7 +99,7 @@ ms.locfileid: "92145044"
 >
 >    - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 로 바꿉니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 를 찾을 수 있습니다.
 >    - `common`을 다음 중 하나로 바꿉니다.
->       - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 **디렉터리(테넌트) ID** (GUID) 또는 **테넌트 이름** (예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID** 를 찾을 수 있습니다.
+>       - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 **디렉터리(테넌트) ID**(GUID) 또는 **테넌트 이름**(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID** 를 찾을 수 있습니다.
 >       - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >       - 애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
 >
@@ -113,7 +115,7 @@ ms.locfileid: "92145044"
 >
 > 요청된 권한에 동의하면 앱에 Azure Active Directory 자격 증명을 사용하여 성공적으로 로그인한 것으로 표시됩니다.
 >
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="앱이 > 사용자로부터 요청하는 권한을 보여주는 동의 대화 상자":::
+> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="실행 중인 웹앱과 로그인한 사용자를 표시하는 웹 브라우저":::
 
 ## <a name="more-information"></a>자세한 정보
 

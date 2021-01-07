@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317277"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462402"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -29,7 +29,7 @@ Azure Active Directory를 사용하면 사용자 관리를 위한 단일 장소�
 
 ## <a name="administrative-accounts"></a>관리자 계정
 
-관리자로 작동하는 두 가지 관리 계정( **서버 관리자** 및 **Active Directory 관리자** )이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 Synapse SQL의 속성 탭으로 이동합니다.
+관리자로 작동하는 두 가지 관리 계정(**서버 관리자** 및 **Active Directory 관리자**)이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 Synapse SQL의 속성 탭으로 이동합니다.
 
 ![SQL Server 관리자](./media/sql-authentication/sql-admins.png)
 
@@ -51,7 +51,7 @@ Azure Active Directory를 사용하면 사용자 관리를 위한 단일 장소�
 - `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
 
-## <a name="serverless-sql-pool-preview"></a>[서버리스 SQL 풀(미리 보기)](#tab/serverless)
+## <a name="serverless-sql-pool"></a>[서버리스 SQL 풀](#tab/serverless)
 
 서버리스 SQL 풀에 액세스할 수 있는 사용자를 관리하려면 아래 지침을 사용하면 됩니다.
 
@@ -187,7 +187,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 - SQL Server 인증을 사용하는 경우 포함된 데이터베이스 사용자를 데이터베이스에 만듭니다. 하나 이상의 데이터베이스 사용자를 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)에 배치한 다음 해당 데이터베이스 역할에 [권한](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 할당합니다.
 
-데이터베이스 역할은 **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** , **db_denydatareader** 와 같은 기본 제공된 역할일 수 있습니다. **db_owner** 는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 
+데이터베이스 역할은 **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, **db_denydatareader** 와 같은 기본 제공된 역할일 수 있습니다. **db_owner** 는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 
 
 예를 들어 **db_datareader** 고정된 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여하며 일반적으로 그 이상이 필요합니다. 
 
@@ -208,7 +208,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 - `CREATE/ALTER/DROP DATABASE` 문을 실행할 경우 **master** 데이터베이스에 연결해야 합니다.
 - **Server 관리자** 로그인에 해당하는 데이터베이스 사용자를 변경 또는 삭제할 수 없습니다.
 - **Server 관리자** 로그인의 기본 언어는 미국 영어입니다.
-- 관리자( **Server 관리자** 로그인 또는 Azure AD 관리자) 및 **master** 데이터베이스에서 **dbmanager** 데이터베이스 역할의 멤버만 `CREATE DATABASE` 및 `DROP DATABASE` 문을 실행할 사용 권한이 있습니다.
+- 관리자(**Server 관리자** 로그인 또는 Azure AD 관리자) 및 **master** 데이터베이스에서 **dbmanager** 데이터베이스 역할의 멤버만 `CREATE DATABASE` 및 `DROP DATABASE` 문을 실행할 사용 권한이 있습니다.
 - `CREATE/ALTER/DROP LOGIN` 문을 실행할 경우 master 데이터베이스에 연결해야 합니다. 그러나 로그인 사용은 권장되지 않습니다. 대신에 포함된 데이터베이스 사용자를 사용합니다.
 - 사용자 데이터베이스에 연결하려면 연결 문자열에 데이터베이스 이름을 제공해야 합니다.
 - **master** 데이터베이스에서 **loginmanager** 데이터베이스 역할의 서버 수준 보안 주체 로그인 및 멤버는 `CREATE LOGIN`, `ALTER LOGIN` 및 `DROP LOGIN` 문을 실행할 권한이 있습니다.

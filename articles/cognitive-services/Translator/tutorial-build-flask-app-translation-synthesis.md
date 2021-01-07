@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330624"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023473"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
@@ -64,7 +64,7 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * 텍스트 분석
 * Speech Services
 
-[Azure Portal에서 Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 단계별 지침을 사용하여 리소스를 만듭니다.
+[Azure Portal에서 Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md) 단계별 지침을 사용하여 리소스를 만듭니다.
 
 > [!IMPORTANT]
 > 이 자습서를 위해 미국 서부 지역에서 리소스를 만드십시오. 다른 지역을 사용하는 경우 각 Python 파일에서 기본 URL을 조정해야 합니다.
@@ -240,7 +240,7 @@ def about():
    flask run
    ```
 
-4. 브라우저를 열고 제공된 URL로 이동합니다. 단일 페이지 앱이 표시될 것입니다. **Ctrl + C**를 눌러 앱을 종료합니다.
+4. 브라우저를 열고 제공된 URL로 이동합니다. 단일 페이지 앱이 표시될 것입니다. **Ctrl + C** 를 눌러 앱을 종료합니다.
 
 ## <a name="translate-text"></a>텍스트 번역
 
@@ -472,11 +472,11 @@ flask run
 > [!TIP]
 > 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 프라이빗/incognito 창을 열어 보십시오.
 
-**CTRL + C**를 눌러 앱을 종료한 다음, 다음 섹션으로 이동합니다.
+**CTRL + C** 를 눌러 앱을 종료한 다음, 다음 섹션으로 이동합니다.
 
 ## <a name="analyze-sentiment"></a>감정 분석
 
-[Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)를 사용하여 감정 분석을 수행하거나 텍스트에서 핵심 문구를 추출하거나 원본 언어를 검색할 수 있습니다. 이 앱에서는 감정 분석을 사용하여 제공된 텍스트가 긍정적인지, 중립적인지 또는 부정적인지 결정합니다. 이 API는 0~1 사이의 숫자 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다.
+[Text Analytics API](../text-analytics/overview.md)를 사용하여 감정 분석을 수행하거나 텍스트에서 핵심 문구를 추출하거나 원본 언어를 검색할 수 있습니다. 이 앱에서는 감정 분석을 사용하여 제공된 텍스트가 긍정적인지, 중립적인지 또는 부정적인지 결정합니다. 이 API는 0~1 사이의 숫자 점수를 반환합니다. 점수가 1에 가까울수록 긍정적 감정을 나타내고 점수가 0에 가까울수록 부정적 감정을 나타냅니다.
 
 이 섹션에서는 몇 가지 작업을 수행합니다.
 
@@ -658,11 +658,11 @@ flask run
 > [!TIP]
 > 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 프라이빗/incognito 창을 열어 보십시오.
 
-**CTRL + C**를 눌러 앱을 종료한 다음, 다음 섹션으로 이동합니다.
+**CTRL + C** 를 눌러 앱을 종료한 다음, 다음 섹션으로 이동합니다.
 
 ## <a name="convert-text-to-speech"></a>텍스트 음성 변환
 
-[텍스트 음성 변환 API](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)를 사용하면 앱에서 텍스트를 자연스러운 사람의 음성처럼 합성된 음성으로 변환할 수 있습니다. 이 서비스는 표준, 인공신경망 및 사용자 지정 음성을 지원합니다. 샘플 앱은 몇 가지 사용할 수 있는 음성을 사용합니다. 전체 목록은 [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)를 참조하세요.
+[텍스트 음성 변환 API](../speech-service/text-to-speech.md)를 사용하면 앱에서 텍스트를 자연스러운 사람의 음성처럼 합성된 음성으로 변환할 수 있습니다. 이 서비스는 표준, 인공신경망 및 사용자 지정 음성을 지원합니다. 샘플 앱은 몇 가지 사용할 수 있는 음성을 사용합니다. 전체 목록은 [지원되는 언어](../speech-service/language-support.md#text-to-speech)를 참조하세요.
 
 이 섹션에서는 몇 가지 작업을 수행합니다.
 
@@ -957,7 +957,7 @@ flask run
 > [!TIP]
 > 변경한 내용이 표시되지않거나 앱이 예상한 방법으로 작동하지 않는 경우 캐시를 지우거나 프라이빗/incognito 창을 열어 보십시오.
 
-끝났습니다. 이제 번역을 수행하고 감정을 분석하고 음성을 합성하는 제대로 작동하는 앱을 갖게 되었습니다. **Ctrl + C**를 눌러 앱을 종료합니다. 다른 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)도 꼭 확인해 보세요.
+끝났습니다. 이제 번역을 수행하고 감정을 분석하고 음성을 합성하는 제대로 작동하는 앱을 갖게 되었습니다. **Ctrl + C** 를 눌러 앱을 종료합니다. 다른 [Azure Cognitive Services](../index.yml)도 꼭 확인해 보세요.
 
 ## <a name="get-the-source-code"></a>소스 코드 가져오기
 
@@ -965,6 +965,6 @@ flask run
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Translator 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator 참조](./reference/v3-0-reference.md)
 * [텍스트 분석 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [텍스트를 음성으로 변환 API 참조](../speech-service/rest-text-to-speech.md)

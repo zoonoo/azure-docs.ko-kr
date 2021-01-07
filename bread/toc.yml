@@ -277,6 +277,9 @@
     - name: Azure Stack 사용자
       tocHref: /azure/azure-stack/user/
       topicHref: /azure/azure-stack/user/
+    - name: BareMetal Infrastructure
+      tocHref: /azure/baremetal-infrastructure/
+      topicHref: /azure/baremetal-infrastructure/
     - name: Backup
       tocHref: /azure/backup/
       topicHref: /azure/backup/
@@ -464,6 +467,9 @@
         - name: Data Box 온라인 전송
           tocHref: /azure/databox-online/
           topicHref: /azure/databox-online/
+        - name: Data Box Gateway
+          tocHref: /azure/databox-gateway/
+          topicHref: /azure/databox-gateway/
     - name: Data Catalog
       tocHref: /azure/data-catalog/
       topicHref: /azure/data-catalog/
@@ -908,3 +914,6 @@
         - name: 예약
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+    - name: Purview
+      tocHref: /azure/purview/
+      topicHref: /azure/purview/

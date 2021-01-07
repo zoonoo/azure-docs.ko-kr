@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b23b5d516479cb28948a601c6bd71309500e73f1
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089131"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825782"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>빠른 시작: Azure Spring Cloud 구성 서버 설정
 
@@ -53,13 +53,23 @@ Azure Spring Cloud 구성 서버는 분산 시스템을 위한 중앙 집중식 
 
 다음 절차에서는 Azure Portal을 사용하여 [Piggymetrics 샘플](spring-cloud-quickstart-sample-app-introduction.md)을 배포하는 구성 서버를 설정합니다.
 
-1. 서비스 **개요** 페이지로 이동하여 **구성 서버**를 선택합니다.
+1. 서비스 **개요** 페이지로 이동하여 **구성 서버** 를 선택합니다.
 
-2. **기본 리포지토리** 섹션에서 **URI**를 "https://github.com/Azure-Samples/piggymetrics-config"로 설정합니다.
+2. **기본 리포지토리** 섹션에서 **URI** 를 "https://github.com/Azure-Samples/piggymetrics-config"로 설정합니다.
 
-3. **적용**을 선택하여 변경 내용을 저장합니다.
+3. **유효성 검사** 를 클릭합니다.
 
-    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![구성 서버로 이동](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. 유효성 검사가 완료되면 **적용** 을 클릭하여 변경 내용을 저장합니다.
+
+    ![구성 서버 유효성 검사](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. 구성을 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
+ 
+    ![구성 서버 업데이트](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. 구성이 완료되면 알림을 받게 됩니다.
 
 #### <a name="cli"></a>[CLI](#tab/Azure-CLI)
 
@@ -70,9 +80,36 @@ Azure Spring Cloud 구성 서버는 분산 시스템을 위한 중앙 집중식 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+> [!TIP]
+> 구성 서버용 프라이빗 리포지토리를 사용하는 경우 [인증 설정에 대한 자습서](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)를 참조하세요.
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Azure Spring Cloud 구성 서버 문제 해결
+
+다음 절차에서는 구성 서버 설정 문제를 해결하는 방법을 설명합니다.
+
+1. Azure Portal에서 서비스 **개요** 페이지로 이동하여 **로그** 를 선택합니다. 
+1. **쿼리** 를 선택하고 **"오류" 또는 "예외" 용어"가 포함된 애플리케이션 로그 표시** 를 선택합니다. 
+1. **실행** 을 클릭합니다. 
+1. 로그에서 **java.lang.illegalStateException** 오류가 발견되면 Spring Cloud Service가 구성 서버에서 속성을 찾을 수 없음을 나타냅니다.
+
+    [ ![ASC 포털 실행 쿼리](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. 서비스 **개요** 페이지로 이동합니다.
+1. **문제 진단 및 해결** 을 선택합니다. 
+1. **Config Server** 감지기를 선택합니다.
+
+    [ ![ASC 포털 문제 진단](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. **Config Serve 상태 확인** 을 클릭합니다.
+
+    [ ![ASC 포털 지니](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. **Config Server 상태** 를 클릭하여 감지기에서 자세한 정보를 확인합니다.
+
+    [ ![ASC 포털 상태](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: VMSS에서 관리 ID 구성 - Azure AD
+title: 가상 머신 확장 집합에서 관리 ID 구성 - Azure AD
 description: Azure Portal을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID를 구성하는 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/20/2018
+ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 73c2f4167d6ce5465a879f6b2ef7e96d91065c4d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329136"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590923"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
+# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-vmss-using-the-azure-portal"></a>Azure Portal을 사용하여 VMSS(가상 머신 확장 집합)에서 Azure 리소스에 대한 관리 ID 구성
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -57,7 +57,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 2. 원하는 가상 머신 확장 집합으로 이동합니다.
 
-3. **시스템 할당**, **상태**에서 **켜기**를 선택한 다음, **저장**을 클릭합니다.
+3. **시스템 할당**, **상태** 에서 **켜기** 를 선택한 다음, **저장** 을 클릭합니다.
 
    ![스크린샷에는 "시스템 할당"이 선택된 "ID(미리 보기)" 페이지, 상태 "설정" 및 "저장" 단추가 강조 표시됩니다.](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
@@ -69,7 +69,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 2. 원하는 가상 머신 확장 집합으로 이동합니다.
 
-3. **시스템 할당**, **상태**에서 **끄기**를 선택한 다음, **저장**을 클릭합니다.
+3. **시스템 할당**, **상태** 에서 **끄기** 를 선택한 다음, **저장** 을 클릭합니다.
 
    ![구성 페이지 스크린샷](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
@@ -86,18 +86,18 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>기존 가상 머신 확장 집합에 사용자 할당 관리 ID 할당
 
 1. 가상 머신 확장 집합을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 원하는 가상 머신 확장 집합으로 이동하고 **ID**, **사용자 할당**을 클릭한 다음, **\+추가**를 클릭합니다.
+2. 원하는 가상 머신 확장 집합으로 이동하고 **ID**, **사용자 할당** 을 클릭한 다음, **\+추가** 를 클릭합니다.
 
    !["사용자 할당"이 선택되고 "추가" 단추가 강조 표시된 "ID" 페이지를 보여주는 스크린샷.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
-3. 가상 머신 확장 집합에 추가할 사용자 할당 ID를 클릭한 다음, **추가**를 클릭합니다.
+3. 가상 머신 확장 집합에 추가할 사용자 할당 ID를 클릭한 다음, **추가** 를 클릭합니다.
    
    ![VMSS에 사용자 할당 ID 추가](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 사용자가 할당한 관리 ID 제거
 
 1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 원하는 가상 머신 확장 집합으로 이동하고 **ID**, **사용자 할당**, 삭제할 사용자 할당 관리 ID의 이름을 클릭한 다음, **제거**를 클릭합니다(확인 창에서 **예** 클릭).
+2. 원하는 가상 머신 확장 집합으로 이동하고 **ID**, **사용자 할당**, 삭제할 사용자 할당 관리 ID의 이름을 클릭한 다음, **제거** 를 클릭합니다(확인 창에서 **예** 클릭).
 
    ![VMSS에서 사용자 할당 ID 제거](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
 

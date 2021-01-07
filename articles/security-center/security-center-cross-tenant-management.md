@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: d76ecc55c2e156199b2db789721946fd1f36de27
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340787"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922913"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
 
@@ -30,10 +30,8 @@ ms.locfileid: "92340787"
 
 ## <a name="set-up-cross-tenant-management"></a>교차 테넌트 관리 설정
 
-[Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하 여 자체 테 넌 트에 관리 되는 테 넌 트 리소스에 대 한 액세스 권한을 위임 하 여 교차 테 넌 트 관리
+Azure 위임 리소스 관리는 Azure Lighthouse의 주요 구성 요소 중 하나입니다. Azure Lighthouse의 설명서에서 다음 지침을 사용 하 여 관리 되는 테 넌 트의 리소스에 대 한 액세스를 자체 테 넌 트에 위임 하 여 테 넌 트 간 관리를 [설정 합니다.](../lighthouse/concepts/azure-delegated-resource-management.md)
 
-> [!NOTE]
-> Azure 위임 리소스 관리는 Azure Lighthouse의 주요 구성 요소 중 하나입니다.
 
 ## <a name="how-does-cross-tenant-management-work-in-security-center"></a>Security Center에서 교차 테 넌 트 관리는 어떻게 작동 하나요?
 
@@ -47,7 +45,7 @@ ms.locfileid: "92340787"
 
 - **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다.
 - **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 가시성을 통해 모든 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](secure-score-security-controls.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 향상 시킬 수 있습니다.
-- **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장](security-center-recommendations.md) 사항을 모니터링 하 고 수정 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
+- **권장 사항** 수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장](security-center-recommendations.md) 사항을 모니터링 하 고 수정 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
 - **경고 관리**: 다른 테 넌 트 전체에서 [경고](security-center-alerts-overview.md) 를 검색 합니다. 조치 가능한 [수정 단계](security-center-managing-and-responding-alerts.md)를 준수 하지 않는 리소스에 대 한 조치를 취합니다.
 
 - **고급 클라우드 방어 기능 및 기타 관리**: [JIT (just-in-time) VM 액세스](security-center-just-in-time.md), [적응 네트워크 강화](security-center-adaptive-network-hardening.md), [적응 응용 프로그램 제어](security-center-adaptive-application.md)등의 다양 한 위협 방지 서비스를 관리 합니다.

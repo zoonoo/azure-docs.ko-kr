@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422538"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936790"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 속성   | Description                                     | Type     |
+| 속성   | 설명                                     | 형식     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
 | MethodName | 트리거된 함수의 이름     | 문자열   |
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| 이름 | Type | 위치 | Description |
+| Name | 유형 | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -295,7 +295,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달 되는 request 개체의 형식은 `HttpRequestContext` 다음과 같습니다.
 
-| 속성  | Description                                                    | Type                      |
+| 속성  | 설명                                                    | 형식                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | 개체 |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송 해야 하는 응답 개체는 다음과 같은 속성을 포함 하는 형식입니다 `HttpResponseContext` .
 
-| 속성      | Description                                                 | Type                      |
+| 속성      | 설명                                                 | 형식                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
@@ -470,7 +470,7 @@ requirements.psd1 파일을 업데이트 하는 경우 다시 시작한 후 업�
 
 다음 응용 프로그램 설정을 사용 하 여 관리 되는 종속성을 다운로드 하 고 설치 하는 방법을 변경할 수 있습니다. 앱 업그레이드는 내에서 시작 되 `MDMaxBackgroundUpgradePeriod` 고, 업그레이드 프로세스는 약에서 완료 됩니다 `MDNewSnapshotCheckPeriod` .
 
-| 함수 앱 설정              | 기본값             | Description                                         |
+| 함수 앱 설정              | 기본값             | 설명                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 일)     | 각 PowerShell 작업자 프로세스는 프로세스 시작 시와 그 이후에 PowerShell 갤러리에서 모듈 업그레이드 확인을 시작 `MDMaxBackgroundUpgradePeriod` 합니다. PowerShell 갤러리에서 새 모듈 버전을 사용할 수 있는 경우이 버전은 파일 시스템에 설치 되며 PowerShell 작업자에 게 제공 됩니다. 이 값을 줄이면 함수 앱에서 최신 모듈 버전을 보다 빨리 가져올 수 있지만, 앱 리소스 사용량 (네트워크 i/o, CPU, 저장소)도 늘어납니다. 이 값을 늘려도 앱의 리소스 사용량이 줄어들지만 앱에 새 모듈 버전을 전달 하는 작업이 지연 될 수도 있습니다. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 시간)       | 새 모듈 버전이 파일 시스템에 설치 된 후에는 모든 PowerShell 작업자 프로세스를 다시 시작 해야 합니다. PowerShell 작업자를 다시 시작 하면 현재 함수 실행을 중단할 수 있으므로 앱 사용 가능성에 영향을 줍니다. 모든 PowerShell 작업자 프로세스가 다시 시작 될 때까지 함수 호출은 이전 또는 새 모듈 버전을 사용할 수 있습니다. 내에서 완료 되는 모든 PowerShell 작업자를 다시 시작 `MDNewSnapshotCheckPeriod` 합니다. 이 값을 늘리면 중단 빈도가 줄어들지만 함수 호출로 인해 이전 또는 새 모듈 버전이 명확 하지 않은 경우에도 시간이 길어질 수 있습니다. |
@@ -525,7 +525,7 @@ PSFunctionApp
 모듈의 현재 목록은 다음과 같습니다.
 
 * [Microsoft. PowerShell Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive):, 등의 보관 작업에 사용 되는 `.zip` 모듈 `.nupkg` 입니다.
-* **Threadjob** : PowerShell 작업 api의 스레드 기반 구현입니다.
+* **Threadjob**: PowerShell 작업 api의 스레드 기반 구현입니다.
 
 기본적으로 함수는 이러한 모듈의 최신 버전을 사용 합니다. 특정 모듈 버전을 사용 하려면 함수 앱의 폴더에 특정 버전을 배치 `Modules` 합니다.
 
@@ -649,11 +649,11 @@ PowerShell 함수를 사용 하는 경우 다음 섹션의 고려 사항에 유�
 
 ### <a name="cold-start"></a>콜드 부팅
 
-서버를 사용 하지 않는 [호스팅 모델](functions-scale.md#consumption-plan)에서 Azure Functions를 개발 하는 경우 콜드 시작은 현실입니다. *콜드 시작* 은 함수 앱이 요청을 처리 하기 위해 실행 되기 시작 하는 데 걸리는 시간을 나타냅니다. 비활성 기간 동안 함수 앱이 종료 되기 때문에 소비 계획에서 콜드 시작이 더 자주 발생 합니다.
+서버를 사용 하지 않는 [호스팅 모델](consumption-plan.md)에서 Azure Functions를 개발 하는 경우 콜드 시작은 현실입니다. *콜드 시작* 은 함수 앱이 요청을 처리 하기 위해 실행 되기 시작 하는 데 걸리는 시간을 나타냅니다. 비활성 기간 동안 함수 앱이 종료 되기 때문에 소비 계획에서 콜드 시작이 더 자주 발생 합니다.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>를 사용 하는 대신 번들 모듈 `Install-Module`
 
-모든 호출에서 스크립트가 실행 됩니다. `Install-Module`스크립트에서를 사용 하지 마십시오. 대신 `Save-Module` 함수에서 모듈 다운로드 시간을 낭비 하지 않아도 되도록 게시 하기 전에를 사용 합니다. 콜드 시작이 함수에 영향을 주는 경우에는 *always on* 또는 [프리미엄 계획](functions-scale.md#premium-plan)으로 설정 된 [App Service 계획](functions-scale.md#app-service-plan) 에 함수 앱을 배포 하는 것이 좋습니다.
+모든 호출에서 스크립트가 실행 됩니다. `Install-Module`스크립트에서를 사용 하지 마십시오. 대신 `Save-Module` 함수에서 모듈 다운로드 시간을 낭비 하지 않아도 되도록 게시 하기 전에를 사용 합니다. 콜드 시작이 함수에 영향을 주는 경우에는 *always on* 또는 [프리미엄 계획](functions-premium-plan.md)으로 설정 된 [App Service 계획](dedicated-plan.md) 에 함수 앱을 배포 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347083"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183552"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Azure VM에서 업데이트 관리 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "93347083"
 
     ![왼쪽 창에서 게스트 + 호스트 업데이트를 선택 합니다.](media/enable-from-vm/select-guest-and-os-updates.png)
 
-4. VM이 작업 영역에 대해 사용하도록 설정되었는지 확인하려면 `Microsoft.OperationalInsights/workspaces/read` 권한이 있어야 합니다. 필요한 추가 권한에 대한 자세한 내용은 [컴퓨터를 사용하도록 설정하는 데 필요한 권한](../automation-role-based-access-control.md#feature-setup-permissions)을 참조하세요. 한 번에 여러 컴퓨터를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](update-mgmt-enable-automation-account.md)을 참조하세요.
+4. VM이 작업 영역에 대해 사용하도록 설정되었는지 확인하려면 `Microsoft.OperationalInsights/workspaces/read` 권한이 있어야 합니다. 필요한 추가 권한에 대한 자세한 내용은 [컴퓨터를 사용하도록 설정하는 데 필요한 권한](../automation-role-based-access-control.md#feature-setup-permissions)을 참조하세요. 한 번에 여러 컴퓨터를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](./enable-from-automation-account.md)을 참조하세요.
 
 5. 업데이트 관리 사용 페이지에서 Log Analytics 작업 영역 및 Automation 계정을 선택 하 고 **사용** 을 클릭 하 여 업데이트 관리를 사용 하도록 설정 합니다. 업데이트 관리를 사용 하도록 설정한 후 VM에서 업데이트 평가를 보려면 약 15 분이 걸릴 수 있습니다.
 

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523709"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97506345"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -23,8 +23,8 @@ ms.locfileid: "94523709"
 
 동일한 지역에서 Vnet와 VNet 통합을 사용 하는 경우 다음과 같은 Azure 네트워킹 기능을 사용할 수 있습니다.
 
-* **Nsgs (네트워크 보안 그룹)** : 통합 서브넷에 배치 된 nsgs를 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙이 적용 되지 않습니다.
-* **UDRs (경로 테이블)** : 통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다.
+* **Nsgs (네트워크 보안 그룹)**: 통합 서브넷에 배치 된 nsgs를 사용 하 여 아웃 바운드 트래픽을 차단할 수 있습니다. VNet 통합을 사용 하 여 앱에 대 한 인바운드 액세스를 제공할 수 없으므로 인바운드 규칙이 적용 되지 않습니다.
+* **UDRs (경로 테이블)**: 통합 서브넷에 경로 테이블을 추가 하 여 원하는 위치에 아웃 바운드 트래픽을 보낼 수 있습니다.
 
 기본적으로 앱은 RFC1918 트래픽만 VNet에 라우팅합니다. 모든 아웃 바운드 트래픽을 VNet으로 라우팅하려면 앱 설정 WEBSITE_VNET_ROUTE_ALL 앱에 적용 합니다. 앱 설정을 구성 하려면:
 
@@ -96,7 +96,17 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 
 ### <a name="azure-dns-private-zones"></a>Azure DNS Private Zones 
 
-앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 원하는 DNS 서버의 주소를 사용 하 여 앱 설정을 WEBSITE_DNS_SERVER 구성 하 여 앱에서이 동작을 재정의할 수 있습니다. VNet을 사용 하 여 구성 된 사용자 지정 DNS 서버가 있지만 앱에서 전용 영역 Azure DNS 사용 하 게 하려는 경우에는 168.63.129.16 값을 사용 하 여 WEBSITE_DNS_SERVER를 설정 해야 합니다. 
+앱이 VNet과 통합 되 면 VNet이 구성 된 것과 동일한 DNS 서버를 사용 합니다. 기본적으로 앱은 Azure DNS Private Zones에서 작동 하지 않습니다. Azure DNS Private Zones를 사용 하려면 다음 앱 설정을 추가 해야 합니다.
+
+
+1. WEBSITE_DNS_SERVER 값 168.63.129.16
+1. 값 1로 WEBSITE_VNET_ROUTE_ALL
+
+
+이러한 설정은 앱에서 Azure DNS 전용 영역을 사용 하도록 설정 하는 것 외에도 앱의 모든 아웃 바운드 호출을 VNet으로 보냅니다.   이러한 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보냅니다. 또한 작업자 수준에서 사설 DNS 영역을 쿼리하여 앱이 Azure DNS를 사용할 수 있도록 합니다. 이 기능은 실행 중인 응용 프로그램이 사설 DNS 영역에 액세스할 때 사용 됩니다.
+
+> [!NOTE]
+>VNET 통합 사설 DNS 영역을 사용 하 여 웹 앱에 사용자 지정 도메인을 추가 하려는 시도는 불가능 합니다. 사용자 지정 도메인 유효성 검사는 작업자 수준이 아니라 컨트롤러 수준에서 수행 되며,이로 인해 DNS 레코드가 표시 되지 않습니다. 사설 DNS 영역에서 사용자 지정 도메인을 사용 하려면 Application Gateway 또는 ILB App Service Environment를 사용 하 여 유효성 검사를 무시 해야 합니다.
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 
@@ -110,5 +120,5 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
 
 <!--Links-->
-[VNETnsg]: https://docs.microsoft.com/azure/virtual-network/security-overview/
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[VNETnsg]: /azure/virtual-network/security-overview/
+[privateendpoints]: ../articles/app-service/networking/private-endpoint.md

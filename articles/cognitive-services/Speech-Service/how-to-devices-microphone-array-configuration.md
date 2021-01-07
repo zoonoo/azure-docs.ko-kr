@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781775"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025064"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>마이크 배열을 구성하는 방법
 
-이 문서에서는 [마이크 배열을](https://aka.ms/sdsdk-microphone)구성 하는 방법에 대해 알아봅니다. 작업 각도 설정, 음성 장치 SDK에 사용 되는 마이크를 선택 하는 방법 등을 포함 합니다.
+이 문서에서는 [마이크 배열을](./speech-devices-sdk-microphone.md)구성 하는 방법에 대해 알아봅니다. 작업 각도 설정, 음성 장치 SDK에 사용 되는 마이크를 선택 하는 방법 등을 포함 합니다.
 
-음성 장치 SDK는 [지침](https://aka.ms/sdsdk-microphone)에 따라 설계 된 마이크 배열에서 가장 잘 작동 합니다. 마이크 배열 구성은 운영 체제에서 제공 하거나 다음 방법 중 하나를 통해 제공 될 수 있습니다.
+음성 장치 SDK는 [지침](./speech-devices-sdk-microphone.md)에 따라 설계 된 마이크 배열에서 가장 잘 작동 합니다. 마이크 배열 구성은 운영 체제에서 제공 하거나 다음 방법 중 하나를 통해 제공 될 수 있습니다.
 
 음성 장치 SDK는 고정 된 구성 집합에서 선택 하 여 처음에 마이크 배열을 지원 합니다.
 
@@ -44,12 +44,12 @@ Windows에서 마이크 배열 기 하 도형 정보는 오디오 드라이버�
 ## <a name="linux"></a>Linux
 Linux에서 마이크 기 하 도형 정보를 제공 해야 합니다. 및의 사용 `DeviceGeometry` 은 `SelectedGeometry` 계속 지원 됩니다. 속성을 사용 하 여 JSON 파일을 통해 제공 될 수도 있습니다 `MicArrayGeometryConfigFile` . Windows와 마찬가지로, beamforming 범위는 JSON 파일에서 제공할 수 있습니다.
 
-를 사용 하 여 마이크 배열을 지정 하는 경우 `AudioConfig::FromMicrophoneInput` 지정 된 마이크를 사용 합니다. 마이크가 지정 되지 않았거나 `AudioConfig::FromDefaultMicrophoneInput` 가 호출 된 경우에는 *기본*이라는 alsa 장치에서 기록 합니다. 기본적으로 *기본* 은 항상 카드 0 장치 0을 가리키지만 사용자가 파일에서 변경할 수 있습니다 `asound.conf` . 
+를 사용 하 여 마이크 배열을 지정 하는 경우 `AudioConfig::FromMicrophoneInput` 지정 된 마이크를 사용 합니다. 마이크가 지정 되지 않았거나 `AudioConfig::FromDefaultMicrophoneInput` 가 호출 된 경우에는 *기본* 이라는 alsa 장치에서 기록 합니다. 기본적으로 *기본* 은 항상 카드 0 장치 0을 가리키지만 사용자가 파일에서 변경할 수 있습니다 `asound.conf` . 
 
 음성 장치 SDK의 Microsoft 오디오 스택은 16 KHz의 정수 배수가 되는 샘플 요금에 대 한 다운 샘플링만 지원 합니다. 또한 32 비트 IEEE little endian float, 32 비트 little endian signed int, 24 비트 little endian signed int, 16 비트 little endian signed int 및 8 비트의 부호 있는 int 형식이 지원 됩니다.
 
 ## <a name="android"></a>Android
-현재는 [Roobo v1](speech-devices-sdk-android-quickstart.md) 만 음성 장치 SDK에서 지원 됩니다. 동작은 이전 릴리스와 동일 `MicArrayGeometryConfigFile` 합니다. 여기서는 현재 속성을 사용 하 여 beamforming 범위가 포함 된 JSON 파일을 지정할 수 있습니다.
+현재는 [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) 만 음성 장치 SDK에서 지원 됩니다. 동작은 이전 릴리스와 동일 `MicArrayGeometryConfigFile` 합니다. 여기서는 현재 속성을 사용 하 여 beamforming 범위가 포함 된 JSON 파일을 지정할 수 있습니다.
 
 ## <a name="microphone-array-configuration-json"></a>마이크 배열 구성 JSON
 

@@ -4,11 +4,11 @@ description: 레지스트리 리포지토리 중 하나에서 풀 또는 푸시 
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253397"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004486"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -25,8 +25,8 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 웹후크를 만들려는 컨테이너 레지스트리로 이동합니다.
-1. **서비스**에서 **웹후크**를 선택합니다.
-1. 웹후크 도구 모음에서 **추가**를 선택합니다.
+1. **서비스** 에서 **웹후크** 를 선택합니다.
+1. 웹후크 도구 모음에서 **추가** 를 선택합니다.
 1. 다음 정보로 *웹후크 만들기* 양식을 완성합니다.
 
 | 값 | Description |
@@ -45,7 +45,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 ## <a name="create-webhook---azure-cli"></a>웹후크 만들기 - Azure CLI
 
-Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) 명령을 사용합니다. 다음 명령은 레지스트리 *mycontainerregistry*의 모든 이미지 삭제 이벤트에 대한 웹후크를 만듭니다.
+Azure CLI를 사용하여 웹후크를 만들려면 [az acr webhook create](/cli/azure/acr/webhook#az-acr-webhook-create) 명령을 사용합니다. 다음 명령은 레지스트리 *mycontainerregistry* 의 모든 이미지 삭제 이벤트에 대한 웹후크를 만듭니다.
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -58,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 웹후크를 사용하기 전에 **Ping** 단추를 사용하여 테스트할 수 있습니다. Ping은 지정된 엔드포인트에 일반 POST 요청을 보내고 응답을 기록합니다. ping 기능을 사용하면 웹후크를 올바르게 구성했는지 확인하는 데 도움이 될 수 있습니다.
 
 1. 테스트하려는 웹후크를 선택합니다.
-2. 맨 위의 도구 모음에서 **Ping**을 선택합니다.
+2. 맨 위의 도구 모음에서 **Ping** 을 선택합니다.
 3. **HTTP 상태** 열에서 엔드포인트의 응답을 확인합니다.
 
 ![Azure Portal의 ACR 웹후크 만들기 UI](./media/container-registry-webhook/webhook-02.png)

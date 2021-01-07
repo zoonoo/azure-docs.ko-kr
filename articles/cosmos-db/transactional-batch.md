@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9f6692db2da3722507136a468d1dcbdc2985e73f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340569"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347560"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>.NET SDK를 사용 하 Azure Cosmos DB의 트랜잭션 일괄 처리 작업
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-트랜잭션 일괄 처리는 컨테이너에서 동일한 파티션 키와 함께 성공 하거나 실패 해야 하는 시점 작업 그룹을 설명 합니다. .NET SDK에서 `TranscationalBatch` 클래스는 이러한 작업 일괄 처리를 정의 하는 데 사용 됩니다. 트랜잭션 일괄 처리 작업 내에 설명 된 순서 대로 모든 작업이 성공 하면 트랜잭션이 커밋됩니다. 그러나 작업이 실패 하면 전체 트랜잭션이 롤백됩니다.
+트랜잭션 일괄 처리는 컨테이너에서 동일한 파티션 키와 함께 성공 하거나 실패 해야 하는 시점 작업 그룹을 설명 합니다. .NET SDK에서 `TransactionalBatch` 클래스는 이러한 작업 일괄 처리를 정의 하는 데 사용 됩니다. 트랜잭션 일괄 처리 작업 내에 설명 된 순서 대로 모든 작업이 성공 하면 트랜잭션이 커밋됩니다. 그러나 작업이 실패 하면 전체 트랜잭션이 롤백됩니다.
 
 ## <a name="whats-a-transaction-in-azure-cosmos-db"></a>Azure Cosmos DB의 트랜잭션
 
@@ -35,7 +35,7 @@ Azure Cosmos DB는 현재 작업에 대 한 트랜잭션 범위도 제공 하는
 
 * **언어 옵션** – 트랜잭션 일괄 처리는 이미 사용 하는 SDK 및 언어에서 지원 되지만 저장 프로시저는 JavaScript로 작성 해야 합니다.
 * **코드 버전** 관리-응용 프로그램 코드의 버전을 관리 하 고 CI/CD 파이프라인에 등록 하는 것은 저장 프로시저의 업데이트를 오케스트레이션 하 고 적절 한 시간에 롤오버를 수행 하는 것 보다 훨씬 자연스럽 게 수행 됩니다. 또한 변경 내용을 보다 쉽게 롤백할 수 있습니다.
-* **성능** – 저장 프로시저 실행과 비교 하 여 해당 작업에 대 한 대기 시간을 최대 30% 줄입니다.
+* **성능** -저장 프로시저 실행과 비교할 때 해당 작업에 대 한 대기 시간이 최대 30%까지 줄어듭니다.
 * **콘텐츠 serialization** – 트랜잭션 일괄 처리 내의 각 작업은 해당 페이로드에 대 한 사용자 지정 serialization 옵션을 활용할 수 있습니다.
 
 ## <a name="how-to-create-a-transactional-batch-operation"></a>트랜잭션 일괄 처리 작업을 만드는 방법
@@ -51,13 +51,13 @@ TransactionalBatch batch = container.CreateTransactionalBatch(new PartitionKey(p
   .CreateItem<ChildClass>(child);
 ```
 
-다음에는를 호출 해야 합니다 `ExecuteAsync` .
+다음으로 `ExecuteAsync` 일괄 처리에서를 호출 해야 합니다.
 
 ```csharp
 TransactionalBatchResponse batchResponse = await batch.ExecuteAsync();
 ```
 
-응답이 수신 되 면 성공 여부를 검사 하 고 결과를 추출 해야 합니다.
+응답이 수신 되 면 성공 여부를 검사 하 고 결과를 추출 합니다.
 
 ```csharp
 using (batchResponse)
@@ -72,7 +72,7 @@ using (batchResponse)
 }
 ```
 
-오류가 발생 하는 경우 실패 한 작업에 해당 오류에 대 한 상태 코드가 포함 됩니다. 반면 다른 모든 작업에는 424 상태 코드 (실패 한 종속성)가 포함 됩니다. 아래 예제에서 작업은 이미 존재 하는 항목 (409 HttpStatusCode)을 만들려고 하기 때문에 실패 합니다. 상태 코드를 사용 하면 트랜잭션 오류의 원인을 쉽게 파악할 수 있습니다.
+오류가 발생 하는 경우 실패 한 작업에 해당 오류에 대 한 상태 코드가 포함 됩니다. 다른 모든 작업에는 424 상태 코드 (실패 한 종속성)가 포함 됩니다. 아래 예제에서 작업은 이미 존재 하는 항목 (409 HttpStatusCode)을 만들려고 하기 때문에 실패 합니다. 상태 코드를 사용 하 여 트랜잭션 오류의 원인을 식별할 수 있습니다.
 
 ```csharp
 // Parent's birthday!
@@ -100,7 +100,7 @@ using (failedBatchResponse)
 
 `ExecuteAsync`메서드가 호출 되 면 개체의 모든 작업이 `TransactionalBatch` 그룹화 되 고 단일 페이로드로 serialize 되며 단일 요청으로 Azure Cosmos DB 서비스에 전송 됩니다.
 
-서비스는 요청을 수신 하 고 트랜잭션 범위 내에서 모든 작업을 실행 하며 동일한 serialization 프로토콜을 사용 하 여 응답을 반환 합니다. 이 응답은 성공 또는 실패 이며 내부적으로 모든 개별 작업 응답을 포함 합니다.
+서비스는 요청을 수신 하 고 트랜잭션 범위 내에서 모든 작업을 실행 하며 동일한 serialization 프로토콜을 사용 하 여 응답을 반환 합니다. 이 응답은 성공 또는 실패 이며 작업당 개별 작업 응답을 제공 합니다.
 
 SDK는 결과를 확인 하 고 필요에 따라 각 내부 작업 결과를 추출 하는 응답을 제공 합니다.
 
@@ -108,7 +108,7 @@ SDK는 결과를 확인 하 고 필요에 따라 각 내부 작업 결과를 추
 
 현재는 두 가지 알려진 제한 사항이 있습니다.
 
-* Azure Cosmos DB 요청 크기 제한은 페이로드의 크기를 `TransactionalBatch` 2mb를 초과할 수 없으며 최대 실행 시간은 5 초입니다.
+* Azure Cosmos DB 요청 크기 제한은 페이로드의 크기를 `TransactionalBatch` 2mb를 초과 하지 않도록 제한 하 고 최대 실행 시간은 5 초입니다.
 * `TransactionalBatch`성능이 예상 대로 그리고 sla 내에 있는지 확인 하기 위한 최대 100 작업 한도가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

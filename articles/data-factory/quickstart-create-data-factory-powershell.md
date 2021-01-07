@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory를 사용하여 Blob Storage 데이터 복사
-description: PowerShell을 사용하여 Azure 데이터 팩터리를 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
+description: PowerShell을 사용하여 Azure Data Factory를 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637584"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013366"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "92637584"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다** . Azure Data Factory를 사용하여 데이터를 **변환** 하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
+이 빠른 시작에서는 PowerShell을 사용하여 Azure Data Factory를 만드는 방법을 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 **복사합니다**. Azure Data Factory를 사용하여 데이터를 **변환** 하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](transform-data-using-spark.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서는 Data Factory 서비스의 자세한 소개를 제공하지 않습니다. Azure Data Factory 서비스 소개는 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -107,7 +107,7 @@ ms.locfileid: "92637584"
 
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자** 이어야 합니다.
 
-* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory** : [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 
 ## <a name="create-a-linked-service"></a>연결된 서비스 만들기
@@ -115,7 +115,7 @@ ms.locfileid: "92637584"
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소 및 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. 이 빠른 시작에서 원본 및 싱크 저장소로 사용되는 Azure Storage 연결된 서비스를 만듭니다. 연결된 서비스에는 Data Factory 서비스가 런타임에 연결하는 데 사용하는 연결 정보가 있습니다.
 
 >[!TIP]
->이 빠른 시작에서는 *계정 키* 를 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI* , *서비스 주체* 및 *관리 ID* 를 선택합니다. 자세한 내용은 [이 문서](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
+>이 빠른 시작에서는 *계정 키* 를 데이터 저장소의 인증 형식으로 사용하지만 지원되는 다른 인증 방법을 선택할 수 있습니다. 필요한 경우 *SAS URI*, *서비스 주체* 및 *관리 ID* 를 선택합니다. 자세한 내용은 [이 문서](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
 >데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 그림은 [이 문서](./store-credentials-in-key-vault.md)를 참조하세요.
 
 1. 다음 콘텐츠가 포함된 **AzureStorageLinkedService.json** 이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다. (아직 없는 경우 ADFv2QuickStartPSH 폴더를 만듭니다.)
@@ -164,8 +164,8 @@ ms.locfileid: "92637584"
 ## <a name="create-datasets"></a>데이터 세트 만들기
 
 이 프로시저에서는 두 개의 데이터 세트를 만듭니다. **InputDataset** 및 **OutputDataset** 이러한 데이터 세트는 **Binary** 유형입니다. 이 데이터 집합은 이전 섹션에서 만든 Azure Storage 연결된 서비스를 참조합니다.
-입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너( **adftutorial** ), 폴더( **input** ) 및 파일( **emp.txt** )을 지정합니다.
-출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너( **adftutorial** ), 폴더( **output** ) 및 데이터가 복사될 파일을 지정합니다. 
+입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너(**adftutorial**), 폴더(**input**) 및 파일(**emp.txt**)을 지정합니다.
+출력 데이터 세트는 대상에 복사되는 데이터를 나타냅니다. 출력 데이터 세트 정의에서 Blob 컨테이너(**adftutorial**), 폴더(**output**) 및 데이터가 복사될 파일을 지정합니다. 
 1. 다음 콘텐츠가 포함된 **InputDataset.json** 이라는 JSON 파일을 **C:\ADFv2QuickStartPSH** 폴더에 만듭니다.
 
     ```json

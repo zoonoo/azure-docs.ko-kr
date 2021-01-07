@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 575486a89cd078325b76fa684ff9bd3d59a619c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409878"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844270"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -92,7 +92,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 #### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-[MFA (Azure Multi-Factor Authentication)](../../active-directory/authentication/concept-mfa-howitworks.md) 는 둘 이상의 인증 방법을 사용 해야 하 고 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증 방법입니다. MFA는 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 하는 [데 도움이 됩니다](../../active-directory/authentication/concept-mfa-howitworks.md) . 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
+[MFA (AZURE AD Multi-Factor Authentication)](../../active-directory/authentication/concept-mfa-howitworks.md) 는 둘 이상의 인증 방법을 사용 해야 하 고 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증 방법입니다. MFA는 간단한 로그인 프로세스에 대 한 사용자의 요구를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 하는 [데 도움이 됩니다](../../active-directory/authentication/concept-mfa-howitworks.md) . 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>보안 모니터링, 경고 및 기계 학습 기반 보고서
 
@@ -156,9 +156,9 @@ Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 
 
 ![보안 리소스 액세스](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. 예를 들어 RBAC를 사용하여 한 명의 직원은 구독의 가상 머신을 관리하도록 하고, 다른 직원은 동일한 구독 내에서 SQL 데이터베이스를 관리하도록 할 수 있습니다.
+Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다. Azure 구독 또는 리소스에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. 예를 들어 Azure RBAC를 사용 하 여 한 직원이 구독의 가상 컴퓨터를 관리 하 고 다른 직원이 동일한 구독 내에서 SQL 데이터베이스를 관리할 수 있게 합니다.
 
-![Azure의 보안 리소스 액세스 (RBAC)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Azure RBAC를 사용 하 여 보안 리소스 액세스](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>데이터 보안 및 암호화
 
@@ -422,7 +422,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 - 올바른 순서로 배포되므로 리소스 간의 종속성을 정의할 수 있습니다.
 
-- 역할 기반 Access Control(RBAC)가 관리 플랫폼으로 통합되기 때문에 리소스 그룹의 모든 서비스에 대해 Access Control를 적용할 수 있습니다.
+- Azure 역할 기반 access control (Azure RBAC)은 기본적으로 관리 플랫폼에 통합 되기 때문에 리소스 그룹의 모든 서비스에 액세스 제어를 적용할 수 있습니다.
 
 - 리소스에 태그를 적용하여 구독에서 모든 리소스를 논리적으로 구성할 수 있습니다.
 

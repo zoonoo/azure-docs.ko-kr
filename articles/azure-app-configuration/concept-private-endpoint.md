@@ -2,17 +2,17 @@
 title: Azure 앱 구성에 전용 끝점 사용
 description: 개인 끝점을 사용 하 여 앱 구성 저장소 보호
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 3/12/2020
-ms.author: lcozzens
-ms.openlocfilehash: a29c8c02093f47807ec71ffcc01e26514976ce79
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 07/15/2020
+ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071713"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929846"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Azure 앱 구성에 전용 끝점 사용
 
@@ -27,7 +27,7 @@ Azure 앱 구성에 대해 [개인 끝점](../private-link/private-endpoint-over
 
 개인 끝점은 VNet ( [Virtual Network](../virtual-network/virtual-networks-overview.md) )의 Azure 서비스에 대 한 특별 한 네트워크 인터페이스입니다. 앱 구성 저장소에 대 한 개인 끝점을 만들 때 VNet과 구성 저장소의 클라이언트 간에 보안 연결을 제공 합니다. 개인 끝점에는 VNet의 IP 주소 범위에서 IP 주소가 할당 됩니다. 개인 끝점과 구성 저장소 간의 연결은 보안 개인 링크를 사용 합니다.
 
-VNet의 응용 프로그램은 **다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여**개인 끝점을 통해 구성 저장소에 연결할 수 있습니다. 전용 끝점은 앱 구성 저장소에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
+VNet의 응용 프로그램은 **다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여** 개인 끝점을 통해 구성 저장소에 연결할 수 있습니다. 전용 끝점은 앱 구성 저장소에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
 
 앱 구성에서 서비스 끝점을 지원 하지 않지만 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 사용 하는 서브넷에서 개인 끝점을 만들 수 있습니다. 서브넷의 클라이언트는 서비스 끝점을 사용 하 여 다른 사용자에 게 액세스 하는 동안 개인 끝점을 사용 하 여 앱 구성 저장소에 안전 하 게 연결할 수 있습니다.  
 
@@ -41,7 +41,7 @@ VNet에서 서비스에 대 한 개인 끝점을 만들 때 서비스 계정 소
 
 ### <a name="connecting-to-private-endpoints"></a>전용 끝점에 연결
 
-Azure는 DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 구성 저장소로 연결을 라우팅합니다. 앱 구성 저장소를 선택 하 고 **설정**  >  **액세스 키**를 선택 하 여 Azure Portal에서 연결 문자열을 신속 하 게 찾을 수 있습니다.  
+Azure는 DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 구성 저장소로 연결을 라우팅합니다. 앱 구성 저장소를 선택 하 고 **설정**  >  **액세스 키** 를 선택 하 여 Azure Portal에서 연결 문자열을 신속 하 게 찾을 수 있습니다.  
 
 > [!IMPORTANT]
 > 공용 끝점에서 사용 하는 것 처럼 개인 끝점을 사용 하 여 앱 구성 저장소에 연결 하려면 동일한 연결 문자열을 사용 합니다. 하위 도메인 URL을 사용 하 여 저장소에 연결 하지 마세요 `privatelink` .

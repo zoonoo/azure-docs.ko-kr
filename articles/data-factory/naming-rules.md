@@ -3,20 +3,20 @@ title: Azure Data Factory 엔터티 명명 규칙
 description: 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 85e1e7fbea6033fde7c5f46b2ef566672bbe1fea
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 21adf26c2dbaca4507a4c925e3dae3b99c9d53ba
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105875"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497523"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - 이름 지정 규칙
 
@@ -30,7 +30,7 @@ ms.locfileid: "92105875"
 | 연결 된 서비스/데이터 집합/파이프라인/데이터 흐름 | 데이터 팩터리에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. |<ul><li>개체 이름은 문자로 시작 해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li><li>대시 ("-")는 연결 된 서비스, 데이터 흐름 및 데이터 집합의 이름에 사용할 수 없습니다.</li></ul>  |
 | 통합 런타임 |데이터 팩터리에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. |<ul><li>통합 런타임 이름에는 문자, 숫자 및 대시 (-) 문자만 사용할 수 있습니다.</li><li>첫 번째 및 마지막 문자는 문자 또는 숫자 여야 합니다. 모든 대시(-) 문자는 앞뒤에 문자 또는 숫자가 와야 합니다.</li><li>통합 런타임 이름에는 연속 대시를 사용할 수 없습니다. </li></ul> |
 | 데이터 흐름 변환 | 데이터 흐름 내에서 고유 합니다. 이름은 대/소문자를 구분 하지 않습니다. | <ul><li>데이터 흐름 변환 이름에는 문자와 숫자만 사용할 수 있습니다.</li><li>첫 번째 자리는 반드시 문자여야 합니다. </li></ul> |
-| Resource Group |Microsoft Azure에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. | 자세한 내용은 [Azure 명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming)을 참조하세요. |
+| 리소스 그룹 |Microsoft Azure에서 고유합니다. 이름은 대/소문자를 구분하지 않습니다. | 자세한 내용은 [Azure 명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming)을 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md) 문서의 단계별 지침에 따라 데이터 팩터리를 만드는 방법에 대해 알아봅니다. 

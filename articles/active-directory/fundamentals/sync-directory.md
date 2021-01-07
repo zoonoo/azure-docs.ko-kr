@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c340f973193f9c46735423c86112816003fecfcd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 748f91b2fe77667969e9736f8084a9dd24018425
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578912"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172472"
 ---
 # <a name="directory-synchronization"></a>디렉터리 동기화
 
@@ -40,22 +40,22 @@ ms.locfileid: "94578912"
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자** : Azure AD를 사용 하 여 응용 프로그램에 액세스 합니다.
+* **사용자**: Azure AD를 사용 하 여 응용 프로그램에 액세스 합니다.
 
-* **웹 브라우저** : 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
+* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
 
-* **응용 프로그램** : 인증 및 권한 부여를 위해 Azure AD 사용에 의존 하는 웹 앱입니다.
+* **응용 프로그램**: 인증 및 권한 부여를 위해 Azure AD 사용에 의존 하는 웹 앱입니다.
 
-* **AZURE AD** : Azure AD Connect을 통해 조직의 온-프레미스 디렉터리에서 id 정보를 동기화 합니다. 
+* **AZURE AD**: Azure AD Connect을 통해 조직의 온-프레미스 디렉터리에서 id 정보를 동기화 합니다. 
 
-* **Azure AD Connect** : 온-프레미스 id 인프라를 Microsoft Azure AD에 연결 하기 위한 도구입니다. 마법사 및 단계별 경험을 통해 Active Directory에서 Azure AD로 동기화 및 로그인을 포함 하 여 연결에 필요한 필수 구성 요소 및 구성 요소를 배포 하 고 구성할 수 있습니다. 
+* **Azure AD Connect**: 온-프레미스 id 인프라를 Microsoft Azure AD에 연결 하기 위한 도구입니다. 마법사 및 단계별 경험을 통해 Active Directory에서 Azure AD로 동기화 및 로그인을 포함 하 여 연결에 필요한 필수 구성 요소 및 구성 요소를 배포 하 고 구성할 수 있습니다. 
 
-* **Active Directory** : Active Directory는 대부분의 Windows Server 운영 체제에 포함 된 디렉터리 서비스입니다. Active Directory Domain Services (AD DS)을 실행 하는 서버를 도메인 컨트롤러 라고 합니다. 도메인의 모든 사용자 및 컴퓨터를 인증 하 고 권한을 부여 합니다.
+* **Active Directory**: Active Directory는 대부분의 Windows Server 운영 체제에 포함 된 디렉터리 서비스입니다. Active Directory Domain Services (AD DS)을 실행 하는 서버를 도메인 컨트롤러 라고 합니다. 도메인의 모든 사용자 및 컴퓨터를 인증 하 고 권한을 부여 합니다.
 
 ## <a name="implement-directory-synchronization-with-azure-ad"></a>Azure AD를 사용 하 여 디렉터리 동기화 구현
 
-* [ID 프로비저닝이란?](https://docs.microsoft.com/azure/active-directory/cloud-provisioning/what-is-provisioning) 
+* [ID 프로비저닝이란?](../cloud-provisioning/what-is-provisioning.md) 
 
-* [하이브리드 id 디렉터리 통합 도구](https://docs.microsoft.com/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-tools-comparison) 
+* [하이브리드 id 디렉터리 통합 도구](../hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-* [Azure AD Connect 설치 로드맵](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-roadmap)
+* [Azure AD Connect 설치 로드맵](../hybrid/how-to-connect-install-roadmap.md)

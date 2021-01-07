@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4af7e10b573743602fea609264c73d58a1e6a7d1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790001"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359390"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대 한 부하 분산 장치 구성
 
@@ -70,8 +71,8 @@ ms.locfileid: "92790001"
    | 설정 | 값 |
    | --- | --- |
    | **이름** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB** 입니다. |
-   | **형식** |**내부** : 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부** : 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
-   | **SKU** |**기본** : 기본 옵션입니다. SQL Server 인스턴스가 동일한 가용성 집합에 있는 경우에만 유효 합니다. </br> **표준** : 기본 설정입니다. SQL Server 인스턴스가 동일한 가용성 집합에 있는 경우 유효 합니다. SQL Server 인스턴스가 다른 가용성 영역에 있는 경우 필요 합니다. |
+   | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
+   | **SKU** |**기본**: 기본 옵션입니다. SQL Server 인스턴스가 동일한 가용성 집합에 있는 경우에만 유효 합니다. </br> **표준**: 기본 설정입니다. SQL Server 인스턴스가 동일한 가용성 집합에 있는 경우 유효 합니다. SQL Server 인스턴스가 다른 가용성 영역에 있는 경우 필요 합니다. |
    | **가상 네트워크** |SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** |SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
    | **IP 주소 할당** |**정적** |
@@ -147,7 +148,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
    | **이름** |부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener** 입니다. |
    | **프로토콜** |**TCP** |
    | **포트** |*1433* |
-   | **백 엔드 포트** |*1433* . 이 규칙은 **부동 IP(Direct Server Return)** 를 사용하므로 이 값은 무시됩니다. |
+   | **백 엔드 포트** |*1433*. 이 규칙은 **부동 IP(Direct Server Return)** 를 사용하므로 이 값은 무시됩니다. |
    | **프로브** |이 부하 분산 장치에 대해 만든 프로브의 이름을 사용합니다. |
    | **세션 지속성** |**없음** |
    | **유휴 제한 시간(분)** |*4* |

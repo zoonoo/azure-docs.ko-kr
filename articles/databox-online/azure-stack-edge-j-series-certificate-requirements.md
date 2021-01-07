@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de41bd030ea73ac68bfac5fbfbd03ae14cf7980f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891381"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874239"
 ---
 # <a name="certificate-requirements"></a>인증서 요구 사항
 
@@ -30,12 +30,13 @@ ms.locfileid: "90891381"
 * 인증서의 *발급 대상:* 필드는 루트 CA 인증서를 제외 하 고 *발급자* : 필드와 같지 않아야 합니다.
 
 
-
 ## <a name="certificate-algorithms"></a>인증서 알고리즘
 
 인증서 알고리즘은 다음과 같은 요구 사항을 충족 해야 합니다.
 
 * 인증서는 RSA 키 알고리즘을 사용 해야 합니다.
+
+* Microsoft RSA/Schannel 암호화 공급자가 있는 RSA 인증서만 지원 됩니다.
 
 * 인증서 서명 알고리즘은 SHA1 일 수 없습니다.
 
@@ -53,10 +54,10 @@ ms.locfileid: "90891381"
 
 * 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
     |노드|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
@@ -81,6 +82,8 @@ Azure Stack Edge Pro 장치에 설치 된 PFX 인증서는 다음 요구 사항�
 * Azure Stack 준비 검사기 도구를 사용 하는 경우 배포 시 모든 인증서 PFX 파일에 대 한 암호는 동일 해야 합니다. 자세한 내용은 [Azure Stack 허브 준비 검사 도구를 사용 하 여 Azure Stack Edge Pro에 대 한 인증서 만들기](azure-stack-edge-j-series-create-certificates-tool.md)를 참조 하세요.
 
 * 인증서 PFX에 대 한 암호는 복잡 한 암호 여야 합니다. 이 암호는 배포 매개 변수로 사용 되므로 기록해 둡니다.
+
+* Microsoft RSA/Schannel 암호화 공급자에는 RSA 인증서만 사용 합니다.
 
 자세한 내용은 [개인 키를 사용 하 여 PFX 인증서 내보내기](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)를 참조 하세요.
 

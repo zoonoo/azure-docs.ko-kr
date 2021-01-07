@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565741"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025877"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>사용자 지정 명령 응용 프로그램을 원격 기술로 내보내기
 
 이 문서에서는 사용자 지정 명령 응용 프로그램을 원격 기술로 내보내는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 > [!div class="checklist"]
-> * [Bot Framework 기술 이해](https://aka.ms/speech/cc-skill-overview)
+> * [Bot Framework 기술 이해](/azure/bot-service/skills-conceptual)
 > * [기술 매니페스트 이해](https://aka.ms/speech/cc-skill-manifest)
-> * [Bot Framework 봇에서 기술을 호출 하는 방법](https://aka.ms/speech/cc-skill-consumer)
+> * [Bot Framework 봇에서 기술을 호출 하는 방법](/azure/bot-service/skills-about-skill-consumers)
 > * 기존 사용자 지정 명령 응용 프로그램입니다. 사용자 지정 명령 응용 프로그램이 없는 경우- [빠른 시작: 사용자 지정 명령을 사용 하 여 음성 도우미 만들기](quickstart-custom-commands-application.md) 를 사용해 보세요.
 
 ## <a name="custom-commands-as-remote-skills"></a>원격 기술으로 서의 사용자 지정 명령

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966295"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
 ## <a name="overview"></a>개요
@@ -53,7 +53,7 @@ RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합
 파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절감 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 스토리지에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint 서버 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 스토리지 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하세요.
 
 ### <a name="capacity-and-performance-limits"></a>용량 및 성능 제한
-SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 [소프트웨어 경계 및 SharePoint 2013에 대한 한계](https://technet.microsoft.com/library/cc262787.aspx)를 참조하세요.
+SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 [소프트웨어 경계 및 SharePoint 2013에 대한 한계](/SharePoint/install/software-boundaries-and-limits-0)를 참조하세요.
 
 RBS를 구성하기 전에 다음을 검토합니다.
 
@@ -137,10 +137,10 @@ SharePoint 서버 팜이 올바르게 구성되어있는지 다음과 같이 확
   
   1. Internet Explorer의 모든 인스턴스를 닫습니다.
   2. 서버 관리자를 시작합니다.
-  3. 왼쪽 창에서 **로컬 서버**를 클릭합니다.
-  4. 오른쪽 창에서 **IE 보안 강화 구성** 옆에 있는 **사용**을 클릭합니다.
-  5. **관리자** 아래에서 **해제**를 클릭합니다.
-  6. **확인**을 클릭합니다.
+  3. 왼쪽 창에서 **로컬 서버** 를 클릭합니다.
+  4. 오른쪽 창에서 **IE 보안 강화 구성** 옆에 있는 **사용** 을 클릭합니다.
+  5. **관리자** 아래에서 **해제** 를 클릭합니다.
+  6. **확인** 을 클릭합니다.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>RBS(Remote BLOB Storage) 필수 구성 요소
 SQL Server 중 지원되는 버전을 사용하고 있는지 확인합니다. 다음 버전만 지원되며 RBS를 사용할 수 있습니다.
@@ -221,12 +221,12 @@ SharePoint용 StorSimple 어댑터 소프트웨어를 제거하기 전에 표면
 
 #### <a name="to-move-the-blobs-back-to-the-content-databases"></a>Blob을 콘텐츠 데이터베이스로 다시 이동하려면
 1. 각 표면화된 개체를 다운로드합니다.
-2. **SharePoint 중앙 관리** 페이지를 열고 **시스템 설정**으로 이동합니다.
-3. **Azure StorSimple**에서 **StorSimple 어댑터 구성**을 클릭합니다.
+2. **SharePoint 중앙 관리** 페이지를 열고 **시스템 설정** 으로 이동합니다.
+3. **Azure StorSimple** 에서 **StorSimple 어댑터 구성** 을 클릭합니다.
 4. **StorSimple 어댑터 구성** 페이지에서, 외부 BLOB 저장소에서 제거할 각 콘텐츠 데이터베이스 아래에 있는 **사용 안 함** 단추를 클릭합니다. 
 5. SharePoint에서 개체를 삭제한 다음 다시 업로드합니다.
 
-또는 SharePoint에 포함 된 Microsoft PowerShell cmdlet을 사용할 수 있습니다 `RBS Migrate()` . 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
+또는 SharePoint에 포함 된 Microsoft PowerShell cmdlet을 사용할 수 있습니다 `RBS Migrate()` . 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14))을 참조하세요.
 
 Blob을 콘텐츠 데이터베이스로 다시 이동한 후 다음 단계인 [어댑터 제거](#uninstall-the-adapter)로 이동합니다.
 
@@ -238,28 +238,28 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 2. SharePoint용 StorSimple 어댑터 설치 관리자를 두 번 클릭합니다. 설치 마법사가 시작됩니다.
    
     ![설치 마법사](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. **다음**을 클릭합니다. 다음 페이지가 나타납니다.
+3. **다음** 을 클릭합니다. 다음 페이지가 나타납니다.
    
     ![설치 마법사 제거 페이지](./media/storsimple-adapter-for-sharepoint/sasp3.png)
-4. **제거**를 클릭하여 제거 프로세스를 선택합니다. 다음 페이지가 나타납니다.
+4. **제거** 를 클릭하여 제거 프로세스를 선택합니다. 다음 페이지가 나타납니다.
    
     ![설치 마법사 확인 페이지](./media/storsimple-adapter-for-sharepoint/sasp4.png)
-5. **제거**를 클릭하여 제거를 확인합니다. 다음 진행률 페이지가 나타납니다.
+5. **제거** 를 클릭하여 제거를 확인합니다. 다음 진행률 페이지가 나타납니다.
    
     ![설치 마법사 진행률 페이지](./media/storsimple-adapter-for-sharepoint/sasp5.png)
-6. 제거가 완료되면 마침 페이지가 나타납니다. **마침**을 클릭하여 설치 마법사를 닫습니다.
+6. 제거가 완료되면 마침 페이지가 나타납니다. **마침** 을 클릭하여 설치 마법사를 닫습니다.
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>제어판을 사용하여 어댑터를 제거하려면
-1. 제어판을 열고 **프로그램 및 기능**을 클릭합니다.
-2. **SharePoint용 StorSimple 어댑터**를 선택하고 **제거**를 클릭합니다.
+1. 제어판을 열고 **프로그램 및 기능** 을 클릭합니다.
+2. **SharePoint용 StorSimple 어댑터** 를 선택하고 **제거** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [StorSimple에 대해 자세히 알아봅니다](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
-[2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
-[4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
-[5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/library/ff943565.aspx
+[2]: /SharePoint/administration/rbs-planning
+[3]: /previous-versions/office/sharepoint-server-2010/ff628583(v=office.14)
+[4]: /previous-versions/office/sharepoint-foundation-2010/ff628569(v=office.14)
+[5]: /SharePoint/administration/rbs-planning
+[8]: /SharePoint/administration/maintain-rbs

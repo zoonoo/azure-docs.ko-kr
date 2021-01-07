@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 260631e36d113b6ccd190f66ce61caa7ba1b187b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900891"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683134"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 Azure CSI (disk Container Storage Interface) 드라이버 사용
 CSI (azure disk Container Storage Interface) 드라이버는 AKS (azure Kubernetes Service)에서 Azure 디스크의 수명 주기를 관리 하는 데 사용 하는 [CSI 사양](https://github.com/container-storage-interface/spec/blob/master/spec.md)규격 드라이버입니다.
@@ -275,7 +275,7 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 ## <a name="shared-disk"></a>공유 디스크
 
-Azure [공유 디스크](../virtual-machines/windows/disks-shared.md) 는 azure 디스크를 에이전트 노드에 동시에 연결할 수 있도록 하는 azure managed disks 기능입니다. 예를 들어 관리 되는 디스크를 여러 에이전트 노드에 연결 하면 새로 배포 하거나 기존 클러스터형 응용 프로그램을 Azure로 마이그레이션할 수 있습니다.
+Azure [공유 디스크](../virtual-machines/disks-shared.md) 는 azure 디스크를 에이전트 노드에 동시에 연결할 수 있도록 하는 azure managed disks 기능입니다. 예를 들어 관리 되는 디스크를 여러 에이전트 노드에 연결 하면 새로 배포 하거나 기존 클러스터형 응용 프로그램을 Azure로 마이그레이션할 수 있습니다.
 
 > [!IMPORTANT] 
 > 현재 원시 블록 장치 ()만 `volumeMode: Block` Azure DISK CSI 드라이버에서 지원 됩니다. 응용 프로그램은 원시 블록 장치로 노출 되는 공유 디스크에 대 한 쓰기, 읽기, 잠금, 캐시, 탑재 및 fence의 조정 및 제어를 관리 해야 합니다.

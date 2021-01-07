@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 872d1f43f1e9dc180e41a2bf625ca18b74522b40
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 14f17c6716fe98a11d03e8d1021bcdb1058fe671
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409513"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968114"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>빠른 시작: C# 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
@@ -41,23 +41,23 @@ ms.locfileid: "91409513"
 
 1. Azure Portal에 로그인하고 **모든 리소스**, Device Provisioning Service를 차례로 선택합니다.
 
-1. **공유 액세스 정책**을 선택한 다음, 사용하려는 액세스 정책을 선택하여 해당 속성을 엽니다. **액세스 정책**에서 기본 키 연결 문자열을 복사하여 저장합니다.
+1. **공유 액세스 정책** 을 선택한 다음, 사용하려는 액세스 정책을 선택하여 해당 속성을 엽니다. **액세스 정책** 에서 기본 키 연결 문자열을 복사하여 저장합니다.
 
     ![포털에서 프로비전 서비스 연결 문자열 가져오기](media/quick-enroll-device-tpm-csharp/get-service-connection-string-vs2019.png)
 
 ## <a name="create-the-individual-enrollment-sample"></a>개별 등록 샘플 만들기
 
-이 섹션에서는 TPM 디바이스의 개별 등록을 프로비저닝 서비스에 추가하는 .NET Core 콘솔 앱을 만드는 방법을 보여줍니다. 일부를 수정하여 개별 등록을 추가할 [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) 콘솔 앱을 만들기 위해 다음과 같은 단계를 수행할 수 있습니다. IoT Core를 사용하여 개발하는 방법에 대한 자세한 내용은 [Windows IoT Core 개발자 설명서](https://docs.microsoft.com/windows/iot-core/)를 참조하세요.
+이 섹션에서는 TPM 디바이스의 개별 등록을 프로비저닝 서비스에 추가하는 .NET Core 콘솔 앱을 만드는 방법을 보여줍니다. 일부를 수정하여 개별 등록을 추가할 [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) 콘솔 앱을 만들기 위해 다음과 같은 단계를 수행할 수 있습니다. IoT Core를 사용하여 개발하는 방법에 대한 자세한 내용은 [Windows IoT Core 개발자 설명서](/windows/iot-core/)를 참조하세요.
 
-1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다. **새 프로젝트 만들기**에서 C#의 **콘솔 앱(.NET Core)** 프로젝트 템플릿을 선택하고 **다음**을 선택합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택합니다. **새 프로젝트 만들기** 에서 C#의 **콘솔 앱(.NET Core)** 프로젝트 템플릿을 선택하고 **다음** 을 선택합니다.
 
-1. 프로젝트 이름을 *CreateTpmEnrollment*로 지정하고 **만들기**를 누릅니다.
+1. 프로젝트 이름을 *CreateTpmEnrollment* 로 지정하고 **만들기** 를 누릅니다.
 
     ![Visual C# Windows 클래식 데스크톱 프로젝트 구성](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
-1. 솔루션이 Visual Studio에서 열리면 **솔루션 탐색기** 창에서 **CreateTpmEnrollment** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션이 Visual Studio에서 열리면 **솔루션 탐색기** 창에서 **CreateTpmEnrollment** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **NuGet 패키지 관리** 를 선택합니다.
 
-1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고, **Microsoft.Azure.Devices.Provisioning.Service**를 검색하여 선택한 다음, **설치**를 누릅니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기** 를 선택하고, **Microsoft.Azure.Devices.Provisioning.Service** 를 검색하여 선택한 다음, **설치** 를 누릅니다.
 
    ![NuGet 패키지 관리자 창](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -147,7 +147,7 @@ Visual Studio에서 샘플을 실행하여 TPM 디바이스에 대한 개별 등
 
 명령 프롬프트 창이 나타나고 확인 메시지를 표시하기 시작합니다. 성공적으로 만들어지면 명령 프롬프트 창에 새 개별 등록에 대한 속성이 표시됩니다.
 
-개별 등록이 만들어졌는지 확인할 수 있습니다. Device Provisioning Service 요약으로 이동하여 **등록 관리**를 선택한 다음, **개별 등록**을 선택합니다. 샘플에 사용된 등록 ID에 해당하는 새 등록 항목이 표시됩니다.
+개별 등록이 만들어졌는지 확인할 수 있습니다. Device Provisioning Service 요약으로 이동하여 **등록 관리** 를 선택한 다음, **개별 등록** 을 선택합니다. 샘플에 사용된 등록 ID에 해당하는 새 등록 항목이 표시됩니다.
 
 ![포털의 등록 속성](media/quick-enroll-device-tpm-csharp/verify-enrollment-portal-vs2019.png)
 
@@ -161,13 +161,13 @@ C# 서비스 샘플을 살펴볼 계획이면 이 빠른 시작에서 만든 리
 
 1. 컴퓨터에서 C# 샘플 출력 창을 닫습니다.
 
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다.
+1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리** 를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다.
 
 1. [C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전](quick-create-simulated-device-tpm-csharp.md)의 단계를 수행하여 시뮬레이션된 TPM 디바이스를 만든 경우 다음 단계를 수행합니다.
 
     1. TPM 시뮬레이터 창 및 시뮬레이션된 디바이스에 대한 샘플 출력 창을 닫습니다.
 
-    1. Azure Portal에서 디바이스가 프로비전된 IoT Hub로 이동합니다. **탐색기** 아래의 메뉴에서 **IoT 디바이스**를 선택하고 이 빠른 시작에 등록한 디바이스의 *디바이스 ID* 옆의 확인란을 선택한 다음, 창 위쪽에 있는 **삭제** 단추를 누릅니다.
+    1. Azure Portal에서 디바이스가 프로비전된 IoT Hub로 이동합니다. **탐색기** 아래의 메뉴에서 **IoT 디바이스** 를 선택하고 이 빠른 시작에 등록한 디바이스의 *디바이스 ID* 옆의 확인란을 선택한 다음, 창 위쪽에 있는 **삭제** 단추를 누릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

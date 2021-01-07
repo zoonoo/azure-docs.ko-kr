@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 21c8e75ac81a443b1dd9d4a0f43263bbf40bee88
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392580"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359203"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 비 Microsoft 계정 추가
 
-2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가합니다. Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
+Google, Facebook 또는 GitHub와 같은 타사 계정이 있는 경우 2 단계 인증을 위해 Microsoft Authenticator 앱에 추가할 수 있습니다. Microsoft Authenticator 앱은 2 단계 인증을 사용 하는 모든 앱과 시간 기반 TOTP (일회용 암호) 표준을 지 원하는 계정을 사용 하 여 작동 합니다.
 
 >[!Important]
 >계정을 추가하려면 Microsoft Authenticator 앱을 다운로드하여 설치해야 합니다. [앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 아직 진행하지 않은 경우 지금 진행하세요.
@@ -130,7 +130,7 @@ Facebook, Google, GitHub 및 Amazon 계정에 대 한 여기에서 프로세스�
 
 1. 컴퓨터의 **2단계 인증** 페이지에서 **앱을 사용하여 설정** 을 선택합니다.
 
-2. 액세스 권한이 없어져도 계정에 다시 액세스할 수 있도록 복구 코드를 저장하고, **다음** 을 선택합니다. 
+2. 액세스 권한이 없어져도 계정에 다시 액세스할 수 있도록 복구 코드를 저장하고, **다음** 을 선택합니다.
 
     코드는 디바이스에 다운로드하거나, 하드 카피를 인쇄하거나, 암호 관리자 도구에 복사하는 방식으로 저장할 수 있습니다.
 

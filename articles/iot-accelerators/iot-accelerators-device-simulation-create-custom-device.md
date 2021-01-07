@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1fe86aef832223a7485036343b4b12d8bb526e06
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165573"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852390"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>자습서: 사용자 지정 시뮬레이션된 디바이스 만들기
 
@@ -34,15 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 실행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
-디바이스 시뮬레이션을 아직 배포하지 않은 경우 [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작을 완료해야 합니다.
-
-## <a name="open-device-simulation"></a>디바이스 시뮬레이션 열기
-
-브라우저에서 디바이스 시뮬레이션을 실행하려면 먼저 [Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com)로 이동합니다.
-
-Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표시될 수 있습니다.
-
-그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작** 을 클릭합니다.
+아직 디바이스 시뮬레이션을 배포하지 않은 경우 GitHub의 [디바이스 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)를 참조하세요.
 
 ## <a name="view-your-device-models"></a>디바이스 모델 보기
 

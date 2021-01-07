@@ -3,6 +3,7 @@ title: Azure에서 IBM zD&T 개발/테스트 환경 설치 | Microsoft Docs
 description: Azure 가상 머신 (VM) infrastructure as a service (IaaS)에서 IBM Z 개발 및 테스트 환경 (zD&T)을 배포 합니다.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 55eb9a0bca3f142c1065f867cebd840cc7958b7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12a812f66345a26701b2a1623487fd262ede4be
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499922"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968335"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Azure에서 IBM zD&T 개발/테스트 환경 설치
 
@@ -42,7 +43,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
-> IBM에서는 zD&T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수*없습니다* .
+> IBM에서는 zD&T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수 *없습니다* .
 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
@@ -62,11 +63,11 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 3. **연결** 단추를 통해 VM의 **개요** 블레이드에 표시 된 SSH 자격 증명을 가져옵니다. **Ssh** 탭을 선택 하 고 ssh logon 명령을 클립보드에 복사 합니다.
 
-4. 로컬 PC에서 [Bash 셸에](../../../../cloud-shell/quickstart.md) 로그온 하 여 명령을 붙여넣습니다. ** \<user id\> Ssh \@ 형식이 \<IP Address\> **됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
+4. 로컬 PC에서 [Bash 셸에](../../../../cloud-shell/quickstart.md) 로그온 하 여 명령을 붙여넣습니다. **\<user id\> Ssh \@ 형식이 \<IP Address\>** 됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>서버에 설치 파일을 복사 합니다.
 
-웹 서버의 설치 파일은 **Zdt \_ Install \_ EE \_ v 12.0.0.1. tgz**입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
+웹 서버의 설치 파일은 **Zdt \_ Install \_ EE \_ v 12.0.0.1. tgz** 입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
 
 1. 명령줄에서 다음 명령을 입력 하 여 새로 만든 이미지에서 모든 항목이 최신 상태 인지 확인 합니다.
 
@@ -108,7 +109,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
 
 4. **Enter** 키를 누르고 사용권 계약을 자세히 읽습니다. 라이선스의 끝에 **예** 를 입력 하 여 계속 합니다.
 
-5. 새로 만든 사용자 **ibmsys1**에 대 한 암호를 변경 하 라는 메시지가 표시 되 면 **sudo passwd ibmsys1** 명령을 사용 하 여 새 암호를 입력 합니다.
+5. 새로 만든 사용자 **ibmsys1** 에 대 한 암호를 변경 하 라는 메시지가 표시 되 면 **sudo passwd ibmsys1** 명령을 사용 하 여 새 암호를 입력 합니다.
 
 6. 설치에 성공 했는지 확인 하려면 다음을 입력 합니다.
 
@@ -116,7 +117,7 @@ ZD&T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서만 
     dpkg -l | grep zdtapp
     ```
 
-7. 출력에 **zdtapp 12.0.0.0**문자열이 포함 되어 있는지 확인 합니다 .이는 패키지 가스가 성공적으로 설치 되었음을 나타냅니다.
+7. 출력에 **zdtapp 12.0.0.0** 문자열이 포함 되어 있는지 확인 합니다 .이는 패키지 가스가 성공적으로 설치 되었음을 나타냅니다.
 
 ### <a name="starting-enterprise-edition"></a>Enterprise Edition 시작
 

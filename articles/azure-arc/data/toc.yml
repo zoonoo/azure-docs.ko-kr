@@ -42,13 +42,13 @@
               href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: 데이터 컨트롤러 만들기
       items:
-        - name: 데이터 컨트롤러 만들기(Azure Data Studio)
+        - name: Azure Data Studio
           href: create-data-controller-azure-data-studio.md
-        - name: 데이터 컨트롤러 리소스 만들기(포털)
+        - name: Azure portal
           href: create-data-controller-resource-in-azure-portal.md
-        - name: 데이터 컨트롤러 만들기(Azure Data CLI)
+        - name: Azure Data CLI(azdata)
           href: create-data-controller-using-azdata.md
-        - name: Kubernetes를 사용하여 데이터 컨트롤러 만들기
+        - name: Kubernetes 도구
           href: create-data-controller-using-kubernetes-native-tools.md
     - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
       items:
@@ -80,6 +80,8 @@
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: 데이터 컨트롤러 사용자 이름 및 암호 가져오기
           href: retrieve-the-username-password-for-data-controller.md
+        - name: 서비스 주체 자격 증명 업데이트
+          href: update-service-principal-credentials.md
     - name: 문제 해결
       items:
         - name: 가이드

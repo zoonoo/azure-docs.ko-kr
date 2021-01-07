@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contentperfq2
-ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675896"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97032578"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -165,7 +165,7 @@ Cost Management API, Power BI 또는 Azure Portal을 사용하여 데이터를 �
 
 ## <a name="cost-rounding"></a>비용 반올림
 
-Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 예를 들면 다음과 같습니다.
+Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 다음은 그 예입니다.
 
 - Azure Portal의 비용 분석 - 요금은 표준 반올림 규칙을 사용하여 반올림됩니다. 즉 0.5보다 큰 값은 반올림되고, 그렇지 않으면 비용이 반올림됩니다. 값이 표시되는 경우에만 반올림이 수행됩니다. 데이터 처리 및 집계 중에는 반올림이 수행되지 않습니다. 예를 들어 비용 분석에서 집계하는 비용은 다음과 같습니다.
   -    요금 1: $0.004

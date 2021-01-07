@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2020
+ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: e802f798ade5e6bfe0b40b17bbf15df5387ef7c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357847"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955266"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -30,6 +30,233 @@ ms.locfileid: "93357847"
 - 사용되지 않는 기능
 
 
+## <a name="july-2020"></a>2020년 7월
+
+7월의 업데이트는 다음과 같습니다.
+- [이제 가상 머신에 대한 취약성 평가를 비 마켓플레이스 이미지에 사용할 수 있음](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Azure Storage에 대한 위협 방지 기능이 Azure Files 및 Azure Data Lake Storage Gen2(미리 보기)로 확장됨](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [위협 방지 기능을 사용하도록 설정하기 위한 새로운 8가지 추천 사항](#eight-new-recommendations-to-enable-threat-protection-features)
+- [컨테이너 보안이 향상됨 - 더 빠른 레지스트리 검사 및 새로 고친 설명서](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [적응형 애플리케이션 제어가 새 추천 사항 및 경로 규칙의 와일드카드 지원으로 업데이트됨](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
+- [SQL Advanced Data Security에 대한 6가지 정책이 더 이상 사용되지 않음](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>이제 가상 머신에 대한 취약성 평가를 비 마켓플레이스 이미지에 사용할 수 있음
+
+이전에는 취약성 평가 솔루션을 배포할 때 Security Center에서 배포하기 전에 유효성 검사를 수행했습니다. 이 검사는 대상 가상 머신의 마켓플레이스 SKU를 확인하는 것이었습니다. 
+
+이 업데이트에서는 검사가 제거되었으며, 이제 취약성 평가 도구를 '사용자 지정' Windows 및 Linux 컴퓨터에 배포할 수 있습니다. 사용자 지정 이미지는 마켓플레이스 기본값에서 수정한 이미지입니다.
+
+이제 통합 취약성 평가 확장(Qualys에서 제공)을 더 많은 컴퓨터에 배포할 수 있지만, 지원은 [표준 계층 VM에 통합 취약성 스캐너 배포](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)에 나열된 OS를 사용하는 경우에만 지원을 사용할 수 있습니다.
+
+[가상 머신용 통합 취약성 스캐너(Azure Defender 필요)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)에 대해 자세히 알아보세요.
+
+개인적으로 사용이 허가된 Qualys 또는 Rapid7의 취약성 평가 솔루션을 사용하는 방법은 [파트너 취약성 검사 솔루션 배포](deploy-vulnerability-assessment-vm.md)에서 자세히 알아보세요.
+
+
+### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Azure Storage에 대한 위협 방지 기능이 Azure Files 및 Azure Data Lake Storage Gen2(미리 보기)로 확장됨
+
+Azure Storage에 대한 위협 방지는 Azure Storage 계정에서 잠재적으로 유해한 활동을 탐지합니다. Security Center는 스토리지 계정에 액세스하거나 이를 악용하려는 시도를 탐지하면 경고를 표시합니다. 
+
+Blob 컨테이너, 파일 공유 또는 데이터 레이크로 저장되는지에 관계없이 데이터를 보호할 수 있습니다.
+
+
+
+
+### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>위협 방지 기능을 사용하도록 설정하기 위한 새로운 8가지 추천 사항
+
+가상 머신, App Service 요금제, Azure SQL Database 서버, 컴퓨터의 SQL 서버, Azure Storage 계정, Azure Kubernetes Service 클러스터, Azure Container Registry 레지스트리 및 Azure Key Vault 자격 증명 모음과 같은 리소스 종류에 대해 Azure Security Center의 위협 방지 기능을 사용하도록 설정하는 간단히 방법을 제공하기 위해 8가지 추천 사항이 새로 추가되었습니다.
+
+새 추천 사항은 다음과 같습니다.
+
+- **Azure SQL Database 서버에서 Advanced Data Security를 사용하도록 설정해야 함**
+- **머신의 SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 함**
+- **Azure App Service 계획에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함**
+- **Virtual Machines에서 Advanced Threat Protection을 사용하도록 설정해야 함**
+
+이러한 새 추천 사항은 **Azure Defender 사용** 보안 제어에 속합니다.
+
+추천 사항에는 빠른 수정 기능도 포함됩니다. 
+
+> [!IMPORTANT]
+> 이러한 추천 사항 중 하나를 수정하면 관련 리소스를 보호하는 데 드는 요금이 청구됩니다. 현재 구독에 관련 리소스가 있는 경우 이러한 청구가 즉시 시작됩니다. 또는 나중에 추가하는 경우가 있습니다.
+> 
+> 예를 들어 구독에 Azure Kubernetes Service 클러스터가 없고 위협 방지를 사용하도록 설정하면 요금이 발생하지 않습니다. 나중에 클러스터를 동일한 구독에 추가하면 해당 클러스터가 자동으로 보호되고 해당 시간에 요금이 청구됩니다.
+
+이러한 리소스 각각에 대해 [보안 추천 사항 참조 페이지](recommendations-reference.md)에서 자세히 알아보세요.
+
+[Azure Security Center의 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.
+
+
+
+
+### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>컨테이너 보안이 향상됨 - 더 빠른 레지스트리 검사 및 새로 고친 설명서
+
+컨테이너 보안 도메인에 대한 지속적인 투자의 일환으로, Azure Container Registry에 저장된 컨테이너 이미지에 대한 Security Center의 동적 검사에서 상당히 향상된 성능을 공유할 수 있습니다. 이제 검사는 일반적으로 약 2분 안에 완료됩니다. 경우에 따라 최대 15분이 걸릴 수 있습니다.
+
+Azure Security Center의 컨테이너 보안 기능에 대한 명확성과 지침을 향상시키기 위해 컨테이너 보안 문서 페이지도 새로 고쳤습니다. 
+
+Security Center의 컨테이너 보안에 대해 다음 문서에서 자세히 알아보세요.
+
+- [Security Center의 컨테이너 보안 기능에 대한 개요](container-security.md)
+- [Azure Container Registry와의 통합에 대한 세부 정보](defender-for-container-registries-introduction.md)
+- [Azure Kubernetes Service와의 통합에 대한 세부 정보](defender-for-kubernetes-introduction.md)
+- [레지스트리를 검사하고 Docker 호스트를 강화하는 방법](container-security.md)
+- [Azure Kubernetes Service 클러스터에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-akscluster)
+- [Azure Kubernetes Service 호스트에 대한 위협 방지 기능의 보안 경고](alerts-reference.md#alerts-containerhost)
+- [컨테이너에 대한 보안 추천 사항](recommendations-reference.md#recs-containers)
+
+
+
+### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>적응형 애플리케이션 제어가 새 추천 사항 및 경로 규칙의 와일드카드 지원으로 업데이트됨
+
+적응형 애플리케이션 제어 기능에는 다음과 같은 두 가지 중요한 업데이트가 제공되었습니다.
+
+* 새 추천 사항은 이전에 허용되지 않은 잠재적으로 합법적인 동작을 식별합니다. **적응형 애플리케이션 제어 정책의 허용 목록 규칙을 업데이트해야 합니다.** 라는 새 추천 사항은 적응형 애플리케이션 제어 위반 경고의 가양성의 수를 줄이기 위해 새 규칙을 기존 정책에 추가하도록 요청합니다.
+
+* 경로 규칙에서 이제 와일드카드를 지원합니다. 이 업데이트에서는 와일드카드를 사용하여 허용되는 경로 규칙을 구성할 수 있습니다. 지원되는 두 가지 시나리오는 다음과 같습니다.
+
+    * 와일드카드를 경로 끝에 사용하여 이 폴더 및 하위 폴더에 있는 모든 실행 파일 허용
+
+    * 경로 중간에 와일드 카드를 사용 하 여 변경 된 폴더 이름 (예: 알려진 실행 파일이 있는 개인 사용자 폴더, 자동으로 생성 된 폴더 이름 등)이 있는 알려진 실행 파일 이름을 사용할 수 있습니다.
+
+
+[적응형 애플리케이션 제어에 대해 자세히 알아봅니다](security-center-adaptive-application.md).
+
+
+
+### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>SQL Advanced Data Security에 대한 6가지 정책이 더 이상 사용되지 않음
+
+SQL 컴퓨터의 고급 데이터 보안과 관련된 6가지 정책은 더 이상 사용되지 않습니다.
+
+- SQL Managed Instance Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
+- SQL Server Advanced Data Security 설정에서 Advanced Threat Protection 유형을 '모두'로 설정해야 합니다.
+- SQL 관리형 인스턴스에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+
+[기본 제공 정책](./policy-reference.md)에 대해 자세히 알아보세요.
+
+
+
+## <a name="june-2020"></a>2020년 6월
+
+6월의 업데이트는 다음과 같습니다.
+- [보안 점수 API(미리 보기)](#secure-score-api-preview)
+- [SQL 컴퓨터 (Azure, 다른 클라우드 및 온-프레미스)에 대 한 고급 데이터 보안 (미리 보기)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
+- [Log Analytics 에이전트를 Azure Arc 컴퓨터에 배포하기 위한 두 가지 새 추천 사항(미리 보기)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
+- [연속 내보내기 및 워크플로 자동화 구성을 규모에 맞게 만들기 위한 새 정책](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
+- [NSG를 사용하여 인터넷에 연결되지 않은 가상 머신을 보호하기 위한 새 추천 사항](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+- [위협 방지 및 고급 데이터 보안을 사용하도록 설정하기 위한 새 정책](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
+
+
+
+### <a name="secure-score-api-preview"></a>보안 점수 API(미리 보기)
+
+이제 [보안 점수 API](/rest/api/securitycenter/securescores/)(현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져올 수 있습니다. 또한 **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+
+보안 점수 API를 사용하여 가능한 외부 도구의 예는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조하세요.
+
+[Azure Security Center의 보안 점수 및 보안 제어](secure-score-security-controls.md)에 대해 자세히 알아보세요.
+
+
+
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview"></a>SQL 컴퓨터 (Azure, 다른 클라우드 및 온-프레미스)에 대 한 고급 데이터 보안 (미리 보기)
+
+SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능은 이제 Azure, 다른 클라우드 환경 및 심지어 온-프레미스 컴퓨터에서 호스팅되는 SQL Server를 보호합니다. 이렇게 하면 Azure 네이티브 SQL Server에 대한 보호 기능이 확장되어 하이브리드 환경을 완벽하게 지원합니다.
+
+고급 데이터 보안은 SQL 컴퓨터가 어디에 있든 취약성 평가 및 지능형 위협 방지 기능을 제공합니다.
+
+설정에는 다음 두 가지 단계가 포함됩니다.
+
+1. Log Analytics 에이전트를 SQL Server의 호스트 컴퓨터에 배포하여 Azure 계정에 대한 연결을 제공합니다.
+
+1. Security Center의 가격 책정 및 설정 페이지에서 선택적 번들을 사용하도록 설정합니다.
+
+[SQL 컴퓨터에 대한 고급 데이터 보안](defender-for-sql-usage.md)에 대해 자세히 알아보세요.
+
+
+
+### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Log Analytics 에이전트를 Azure Arc 컴퓨터에 배포하기 위한 두 가지 새 추천 사항(미리 보기)
+
+[Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md)를 Azure Arc 컴퓨터에 배포하고 Azure Security Center에서 보호하도록 하는 데 도움이 되는 두 가지 추천 사항이 새로 추가되었습니다.
+
+- **Windows 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
+- **Linux 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
+
+이러한 새 추천 사항은 기존(관련) 추천 사항(**컴퓨터에 모니터링 에이전트를 설치해야 합니다.** )과 동일한 네 가지 보안 제어(보안 구성 수정, 적응형 애플리케이션 제어 적용, 시스템 업데이트 적용 및 엔드포인트 보호 사용)에 나타납니다.
+
+또한 추천 사항에는 배포 프로세스 속도를 높이는 데 도움이 되는 빠른 수정 기능도 포함됩니다. 
+
+이러한 두 가지 새 추천 사항에 대해 [컴퓨팅 및 앱 추천 사항](recommendations-reference.md#recs-computeapp) 표에서 자세히 알아보세요.
+
+Azure Security Center에서 에이전트를 사용하는 방법에 대해 [Log Analytics 에이전트는 무엇인가요?](faq-data-collection-agents.md#what-is-the-log-analytics-agent)에서 자세히 알아보세요.
+
+[Azure Arc 컴퓨터용 확장](../azure-arc/servers/manage-vm-extensions.md)에 대해 자세히 알아보세요.
+
+
+### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>연속 내보내기 및 워크플로 자동화 구성을 규모에 맞게 만들기 위한 새 정책
+
+조직의 모니터링 및 인시던트 대응 프로세스를 자동화하면 보안 인시던트를 조사하고 완화하는 데 걸리는 시간을 크게 향상시킬 수 있습니다.
+
+자동화 구성을 조직 전체에 배포하려면 다음과 같은 기본 제공 'DeployIfdNotExist' Azure 정책을 사용하여 [연속 내보내기](continuous-export.md) 및 [워크플로 자동화](workflow-automation.md) 프로시저를 만들고 구성합니다.
+
+정책은 Azure Policy에서 찾을 수 있습니다.
+
+
+|목표  |정책  |정책 ID  |
+|---------|---------|---------|
+|이벤트 허브로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Event Hub로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Log Analytics 작업 영역으로 연속 내보내기|[Azure Security Center 경고 및 권장 사항에 대한 Log Analytics 작업 영역으로 내보내기 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|보안 경고에 대한 워크플로 자동화|[Azure Security Center 경고에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|보안 추천 사항에 대한 워크플로 자동화|[Azure Security Center 권장 사항에 대한 워크플로 자동화 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+||||
+
+[워크플로 자동화 템플릿](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation)을 시작합니다.
+
+[제공된 정책을 사용하여 대규모 워크플로 자동화 구성](workflow-automation.md#configure-workflow-automation-at-scale-using-the-supplied-policies) 및 [연속 내보내기 설정](continuous-export.md#set-up-a-continuous-export)에서 두 가지 내보내기 정책 사용에 대해 자세히 알아봅니다.
+
+
+### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>NSG를 사용하여 인터넷에 연결되지 않은 가상 머신을 보호하기 위한 새 추천 사항
+
+"보안 모범 사례 구현" 보안 제어에는 이제 다음과 같은 새 추천 사항이 포함됩니다.
+
+- **네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함**
+
+**네트워크 보안 그룹을 사용하여 인터넷 연결 가상 머신을 보호해야 함** 이라는 기존 추천 사항은 VM을 대상으로 하는 인터넷 연결 VM과 인터넷에 연결되지 않은 VM을 구분하지 않았습니다. 두 경우 모두에서 VM이 네트워크 보안 그룹에 할당되지 않은 경우 높은 심각도 추천 사항이 생성되었습니다. 이 새 추천 사항은 인터넷에 연결되지 않은 머신을 분리하여 가양성을 줄이고 불필요한 높은 심각도 경고를 방지합니다.
+
+[네트워크 추천 사항](recommendations-reference.md#recs-network) 표에서 자세히 알아보세요.
+
+
+
+
+### <a name="new-policies-for-enabling-threat-protection-and-advanced-data-security"></a>위협 방지 및 고급 데이터 보안을 사용하도록 설정하기 위한 새 정책
+
+아래의 새 정책은 ASC 기본 이니셔티브에 추가되었으며, 관련 리소스 종류에 대한 위협 방지 또는 고급 데이터 보안을 지원하도록 설계되었습니다.
+
+정책은 Azure Policy에서 찾을 수 있습니다.
+
+
+| 정책                                                                                                                                                                                                                                                                | 정책 ID                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [Azure SQL Database 서버에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
+| [머신의 SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
+| [Azure Storage 계정에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
+| [Azure App Service 계획에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
+| [Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
+| [Virtual Machines에서 지능형 위협 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
+|                                                                                                                                                                                                                                                                       |                                      |
+
+[Azure Security Center의 위협 방지](azure-defender.md)에 대해 자세히 알아보세요.
 
 
 ## <a name="may-2020"></a>2020년 5월
@@ -120,9 +347,9 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 이동한 세 가지 권장 사항은 다음과 같습니다.
 
-- **구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다** (원래 "MFA 사용" 컨트롤).
-- **읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다** (원래 "액세스 및 권한 관리" 컨트롤).
-- **구독에 대해 최대 3명의 소유자를 지정해야 합니다** (원래 "액세스 및 권한 관리" 컨트롤).
+- **구독에 대한 읽기 권한이 있는 계정에서 MFA를 사용하도록 설정해야 합니다**(원래 "MFA 사용" 컨트롤).
+- **읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다**(원래 "액세스 및 권한 관리" 컨트롤).
+- **구독에 대해 최대 3명의 소유자를 지정해야 합니다**(원래 "액세스 및 권한 관리" 컨트롤).
 
 컨트롤에 추가된 두 가지 새로운 권장 사항은 다음과 같습니다.
 
@@ -176,7 +403,7 @@ Microsoft는 CDA(Windows 크래시 덤프 분석) 탐지 기능을 [파일리스
 
 ### <a name="dynamic-compliance-packages-are-now-generally-available"></a>이제 일반 공급되는 동적 규정 준수 패키지
 
-Azure Security Center 규제 준수 대시보드에는 이제 추가 산업 및 규제 표준을 추적하는 **동적 규정 준수 패키지** (현재 일반 공급)가 포함되어 있습니다.
+Azure Security Center 규제 준수 대시보드에는 이제 추가 산업 및 규제 표준을 추적하는 **동적 규정 준수 패키지**(현재 일반 공급)가 포함되어 있습니다.
 
 Security Center 보안 정책 페이지에서 구독 또는 관리 그룹에 동적 규정 준수 패키지를 추가할 수 있습니다. 표준 또는 벤치 마크를 온보딩하면 규정 준수 대시보드에 평가로 매핑된 모든 관련 준수 데이터가 포함된 표준이 표시됩니다. 온보딩된 표준에 대한 요약 보고서는 다운로드할 수 있습니다.
 
@@ -316,7 +543,7 @@ Security Center 방어에는 다음이 포함됩니다.
 
 ## <a name="november-2019"></a>2019년 11월
 
-11 월의 업데이트는 다음과 같습니다.
+11월의 업데이트는 다음과 같습니다.
  - [북아메리카 지역에서 Azure Key Vault에 대 한 위협 방지 (미리 보기)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
  - [Azure Storage에 대한 위협 방지에 맬웨어 평판 차단 포함](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
  - [Logic Apps로 워크플로 자동화(미리 보기)](#workflow-automation-with-logic-apps-preview)
@@ -392,7 +619,7 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 이 공개 미리 보기 릴리스의 새로운 기능은 다음과 같습니다.
 
 - **검색 & 표시 유형** - Security Center의 등록된 구독 내에서 관리되는 AKS 인스턴스를 지속적으로 검색합니다.
-- **Secure Score 권장 사항** - 고객의 Secure Score의 일부로 고객이 AKS의 보안 모범 사례를 준수하도록 돕는 실행 가능한 항목입니다(예: "역할 기반 액세스 제어를 사용하여 Kubernetes 서비스 클러스터에 대한 액세스를 제한해야 합니다.").
+- 보안 **점수 권장 사항** -고객이 AKS에 대 한 보안 모범 사례를 준수 하 고 보안 점수를 늘리는 데 도움이 되는 조치 가능한 항목입니다. 권장 사항에는 "역할 기반 액세스 제어를 사용 하 여 Kubernetes 서비스 클러스터에 대 한 액세스를 제한 해야 합니다."와 같은 항목이 포함 됩니다.
 - **위협 탐지** - "권한 있는 컨테이너 탐지"와 같은 호스트 및 클러스터 기반 분석입니다.
 
 

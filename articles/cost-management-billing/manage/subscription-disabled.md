@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 11/17/2020
 ms.author: banders
-ms.openlocfilehash: 550be6c10402398b62af307281660b93981a0df3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308965"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744428"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
 
@@ -49,11 +49,15 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 비�
 
 1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
 1. 취소된 구독을 선택합니다.
-1. **다시 활성화**를 클릭합니다.
+1. **다시 활성화** 를 클릭합니다.
 
     ![오른쪽 창에서 다시 활성화 링크를 보여 주는 스크린샷](./media/subscription-disabled/reactivate-sub.png)
 
 다른 구독 유형의 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 구독을 다시 활성화합니다.
+
+## <a name="after-reactivation"></a>재활성화 후
+
+구독을 다시 활성화한 후에는 리소스를 만들거나 관리하는 데 지연이 발생할 수 있습니다. 지연 시간이 30분을 초과하는 경우 도움이 필요하면 [Azure 청구 지원](https://go.microsoft.com/fwlink/?linkid=2083458)에 문의하세요. 대부분의 Azure 리소스는 자동으로 다시 시작되며 어떤 조치도 필요하지 않습니다. 그러나 Azure 서비스 리소스를 확인하고 자동으로 다시 시작되지 않는 모든 리소스를 다시 시작하는 것이 좋습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

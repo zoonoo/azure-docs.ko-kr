@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bb46bc18469638416ff76f84516498e0076c85fd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636863"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500325"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Azure HDInsight에서 Confluent 스키마 레지스트리 Apache Kafka
 
@@ -34,11 +34,11 @@ HDInsight 관리 Kafka 클러스터에서 스키마 레지스트리는 일반적
 
 1. 아래 **Azure에 배포** 단추를 선택하여 Azure에 로그인하고 Resource Manager 템플릿을 엽니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
+    [![Azure에 배포](./media/schema-registry/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json)
 
 1. 사용자 지정 배포 템플릿에서 아래에 설명 된 대로 필드를 채웁니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
     |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -113,7 +113,7 @@ HDInsight 관리 Kafka 클러스터에서 스키마 레지스트리는 일반적
     debug=true
     ```
 
-1. 파일을 저장하려면 **Ctrl + X** , **Y** 및 **Enter** 키를 사용합니다.
+1. 파일을 저장하려면 **Ctrl + X**, **Y** 및 **Enter** 키를 사용합니다.
 
 1. 스키마 레지스트리를 시작 하 고 업데이트 된 스키마 레지스트리 속성 파일을 사용 하도록 가리킵니다. 다음 명령을 실행합니다.
 

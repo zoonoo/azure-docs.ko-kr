@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 690a5cef2141af75412eaca207a16c59b37aa3ac
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c9bc614aa044ace0224086c7f18b54783757711a
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93335384"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96549143"
 ---
 # <a name="spatial-functions-azure-cosmos-db"></a>공간 함수 (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. 
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 다음 스칼라 함수는 공간 개체 입력 값에 대한 연산을 수행하고, 숫자 또는 부울 값을 반환합니다.  
 
@@ -40,4 +40,4 @@ Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)
 - [사용자 정의 함수](sql-query-udfs.md)
-- [집계](sql-query-aggregates.md)
+- [집계](sql-query-aggregate-functions.md)

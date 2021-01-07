@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293153"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953545"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 WhoIAM 구성에 대 한 자습서
 
@@ -24,13 +24,13 @@ ms.locfileid: "89293153"
 
 BRIMS은 사용자 환경에 배포 되는 앱 및 서비스 집합입니다. 사용자 기반에 대 한 음성, SMS 및 전자 메일 확인을 제공 합니다. BRIMS는 기존 id 및 액세스 관리 솔루션과 함께 작동 하며 플랫폼에 관계 없이 작동 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 입니다.
+- Azure 구독에 연결 된 [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md) 입니다.
 
 - WhoIAM [평가판 계정](https://www.whoiam.ai/contact-us/).
 
@@ -50,7 +50,7 @@ WhoIAM 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![WhoIAM와 통합 Azure AD B2C의 아키텍처 다이어그램](media/partner-whoiam/whoiam-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자는 Azure AD B2C를 id 공급자로 사용 하는 앱에 대 한 등록 또는 로그인 요청을 시작 하기 위해 페이지에 도착 합니다.
 | 2. | 인증의 일부로 사용자는 전자 메일 또는 전화의 소유권을 확인 하거나 음성을 생체 인식 확인 요소로 사용 하도록 요청 합니다.  
@@ -72,7 +72,7 @@ WhoIAM 통합에는 다음 구성 요소가 포함 됩니다.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): 설정을 저장 하 고 검색 하는 데 사용 됩니다.
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (선택 사항): API 및 관리 포털에 로그인 하는 데 사용 됩니다.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (선택 사항): API 및 관리 포털에 로그인 하는 데 사용 됩니다.
 
 3. Azure 환경에서 BRIMS API 및 BRIMS 관리 포털을 배포 합니다.
 
@@ -82,17 +82,17 @@ WhoIAM의 BRIMS에 대 한 자세한 내용은 [제품 설명서](https://www.wh
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테 넌 트를 엽니다. **정책**에서 **Identity Experience Framework**를 선택합니다.
+1. Azure AD B2C 테 넌 트를 엽니다. **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 
-2. 이전에 만든 **Signupsignin**을 선택 합니다.
+2. 이전에 만든 **Signupsignin** 을 선택 합니다.
 
 3. **사용자 흐름 실행** 을 선택 하 고 다음을 수행 합니다.
 
-   a. **응용 프로그램**의 경우 등록 된 앱 (JWT)을 선택 합니다.
+   a. **응용 프로그램** 의 경우 등록 된 앱 (JWT)을 선택 합니다.
 
-   b. **회신 url**에 대해 **리디렉션 url**을 선택 합니다.
+   b. **회신 url** 에 대해 **리디렉션 url** 을 선택 합니다.
 
-   다. **사용자 흐름 실행**을 선택합니다.
+   c. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름을 진행 하 고 계정을 만듭니다.
 
@@ -102,6 +102,6 @@ WhoIAM의 BRIMS에 대 한 자세한 내용은 [제품 설명서](https://www.wh
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

@@ -4,19 +4,19 @@ description: Azure Service Fabric의 Apache Tomcat 서버에서 실행되는 애
 ms.topic: conceptual
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de97bc277195dff2daf5868c0eb9aec5d6e27c0
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75614420"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96534032"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Linux에서 Apache Tomcat 서버를 실행하는 Service Fabric 컨테이너 만들기
 Apache Tomcat은 Java 서블릿 및 Java 서버 기술의 인기 있는 오픈 소스 구현입니다. 이 문서에서는 Apache Tomcat 및 간단한 웹 애플리케이션이 포함된 컨테이너를 빌드하고, Linux를 실행하는 Service Fabric 클러스터에 이 컨테이너를 배포한 다음, 웹 애플리케이션에 연결하는 방법에 대해 설명합니다.  
 
 Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https://tomcat.apache.org/)를 참조하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * 다음을 실행하는 개발 컴퓨터
   * [SDK 및 도구를 Service Fabric](service-fabric-get-started-linux.md)합니다.
   * [Linux용 Docker CE](https://docs.docker.com/engine/installation/#prior-releases) 
@@ -39,7 +39,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
    cd service-fabric-java-getting-started/container-apache-tomcat-web-server-sample
    ```
 
-1. Docker 허브 및 Tomcat 서버 샘플에 있는 공식 [Tomcat 이미지](https://hub.docker.com/_/tomcat/)를 기반으로 하는 Docker 파일을 만듭니다. *service-fabric-java-getting-started/container-apache-tomcat-web-server-sample* 디렉터리에서 *Dockerfile*이라는 파일(파일 확장명 없음)을 만듭니다. *Dockerfile*에 다음을 추가하고 변경 내용을 저장합니다.
+1. Docker 허브 및 Tomcat 서버 샘플에 있는 공식 [Tomcat 이미지](https://hub.docker.com/_/tomcat/)를 기반으로 하는 Docker 파일을 만듭니다. *service-fabric-java-getting-started/container-apache-tomcat-web-server-sample* 디렉터리에서 *Dockerfile* 이라는 파일(파일 확장명 없음)을 만듭니다. *Dockerfile* 에 다음을 추가하고 변경 내용을 저장합니다.
 
    ```
    FROM library/tomcat
@@ -52,9 +52,10 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
    자세한 내용은 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)를 참조하세요.
 
 
-4. `docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다.
+4. Docker에 로그인 하 고 명령을 실행 `docker build` 하 여 웹 응용 프로그램을 실행 하는 이미지를 만듭니다.
 
    ```bash
+   docker login
    docker build . -t tomcattest
    ```
 
@@ -99,7 +100,7 @@ Apache Tomcat에 대한 자세한 내용은 [Apache Tomcat 홈페이지](https:/
    ```
 
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>컨테이너 레지스트리에 Tomcat 이미지 푸시
-Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행되는지 확인했으므로 이제 이 이미지를 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry*로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
+이제 Tomcat 이미지가 개발 컴퓨터의 컨테이너에서 실행 되는 것을 확인 했으므로 이미지 개발 및 배포 워크플로에 대 한 [중단을 줄이기](../container-registry/buffer-gate-public-content.md) 위해 컨테이너 레지스트리의 리포지토리로 푸시합니다. 이 문서에서는 Azure Container Registry를 사용하여 이미지를 저장하지만, 단계를 약간 수정하면 선택한 모든 컨테이너 레지스트리를 사용할 수 있습니다. 이 문서에서 레지스트리 이름은 *myregistry* 로 간주되며, 전체 레지스트리 이름은 myregistry.azurecr.io입니다. 시나리오에 맞게 적절하게 변경합니다. 
 
 1. `docker login`을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
@@ -201,7 +202,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
 
    설치 스크립트가 실행되면 브라우저를 열고 Service Fabric Explorer로 이동합니다.
     
-   * 로컬 클러스터에서 `http://localhost:19080/Explorer`를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost*를 VM의 프라이빗 IP로 바꿉니다).
+   * 로컬 클러스터에서 `http://localhost:19080/Explorer`를 사용합니다(Mac OS X에서 Vagrant를 사용하는 경우 *localhost* 를 VM의 프라이빗 IP로 바꿉니다).
    * 보안 Azure 클러스터에서 `https://PublicIPorFQDN:19080/Explorer`를 사용합니다. 
     
    **애플리케이션** 노드를 펼칩니다. 그러면 **ServiceFabricTomcatType** 애플리케이션 유형에 대한 항목 및 해당 유형의 첫 번째 인스턴스에 대한 다른 항목이 있습니다. 애플리케이션이 완전히 배포될 때까지 몇 분이 걸릴 수 있으므로 기다려주세요.
@@ -209,7 +210,7 @@ Tomcat 이미지를 컨테이너 레지스트리로 푸시했으므로 이제 �
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. Tomcat 서버에서 애플리케이션에 액세스하려면 브라우저 창을 열고 다음 URL 중 하나를 입력합니다. 로컬 클러스터에 배포한 경우 *PublicIPorFQDN*에 *localhost*를 사용합니다. "Hello World!" 변형이 표시됩니다. 각 URL에 대한 시작 화면
+1. Tomcat 서버에서 애플리케이션에 액세스하려면 브라우저 창을 열고 다음 URL 중 하나를 입력합니다. 로컬 클러스터에 배포한 경우 *PublicIPorFQDN* 에 *localhost* 를 사용합니다. "Hello World!" 변형이 표시됩니다. 각 URL에 대한 시작 화면
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello

@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: d6469ada7fcb46c732cc7fbe081059ef41d89a40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626778"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862168"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -21,8 +21,31 @@ ms.locfileid: "94626778"
 - [Azure Service Fabric 클러스터 업그레이드](service-fabric-cluster-upgrade.md)
 - [독립 실행형 Windows Server 클러스터에서 실행 되는 Service Fabric 버전을 업그레이드 합니다.](service-fabric-cluster-upgrade-windows-server.md)
 
-## <a name="supported-versions"></a>지원되는 버전
 
+## <a name="unsupported-versions"></a>지원 되지 않는 버전
+
+### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>5.7에서 6.3.63 사이의 버전에 대 한 업그레이드 경고
+
+***지원 되지 않는 버전에 있는 모든 Service Fabric 클러스터 (5.7 ~ 6.3.63)입니다.* 2021 * * * 년 1 월 7 일에 Azure에서 롤아웃 되는 보안 주요 변경의 영향을 받습니다.
+ 
+ 심각 하지 않은 클러스터를 포함 하 여 심각한 서비스 중단을 방지 하려면 가능한 한 빨리 클러스터를 보안 문제에 대 한 픽스를 포함 하는 Service Fabric 런타임의 지원 되는 버전 중 하나로 업그레이드 해야 합니다. 이에 대 한 지침을 통해 영향을 받는 고객에 게 연락 했습니다. 지원 계획이 있고 기술 도움말이 필요한 경우 지원 요청을 열고 지원 티켓에이 컨텍스트를 언급 하 여 [Azure 지원 채널](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 을 통해 문의 하세요. 
+ 
+  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>보안 주요 변경에 대 한 픽스를 포함 하 여 지원 되는 Service Fabric 런타임 버전 
+   보안 주요 변경의 영향을 받는 이전 버전의 지원 되지 않는 버전에서 실행 되는 Service Fabric 클러스터를 아래 지원 되는 버전 중 하나로 업그레이드 합니다.
+
+  | OS | 클러스터의 현재 Service Fabric 런타임 | CU/Patch 릴리스  | 
+  | --- | --- |--- | 
+  | Windows | 7.0. * | 7.0.478.9590 |
+  | Windows | 7.1. * | 7.1.503.9590 |
+  | Windows | 7.2. * | 7.2.445.9590 |
+  | Ubuntu 16 | 7.0. * | 7.0.472.1  |
+  | Ubuntu 16 | 7.1. * | 7.1.455.1  |
+  | Ubuntu 1804 | 7.1. * | 7.1.455.1804 |
+  | Ubuntu 16 | 7.2. * | 7.2.447.1 |
+  | Ubuntu 1804 | 7.2. * | 7.2.447.1804 |
+ 
+
+## <a name="supported-versions"></a>지원되는 버전
 다음 표에서는 Service Fabric 버전 및 지원 종료 날짜를 나열 합니다.
 
 | 클러스터의 Service Fabric 런타임 | 클러스터 버전에서 직접 업그레이드할 수 있습니다. |호환 되는 SDK 또는 NuGet 패키지 버전 | 지원 종료 |
@@ -54,6 +77,7 @@ ms.locfileid: "94626778"
 | 7.2.413.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 | 7.2.432.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 | 7.2.433.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.2.445.* | 7.0.470.* |버전 4.2 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -84,7 +108,7 @@ ms.locfileid: "94626778"
 | 5.5 CU1 | 5.5.216.0    | 해당 없음 |
 | 5.5 CU2 | 5.5.219.0    | 해당 없음 |
 | 5.5 CU3 | 5.5.227.0    | 해당 없음 |
-| 5.5 CU4 | 5.5.232.0    | 해당 없음 |
+| 5.5 CU4 | 5.5.232.0 | 해당 없음 |
 | 5.6 RTO | 5.6.204.9494 | 해당 없음 |
 | 5.6 CU2 | 5.6.210.9494 | 해당 없음 |
 | 5.6 CU3 | 5.6.220.9494 | 해당 없음 |
@@ -129,8 +153,9 @@ ms.locfileid: "94626778"
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
-| 7.1 CU8 | 7.1.503.9590 | 해당 없음 |
+| 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
 | 7.2 RTO | 7.2.413.9590 | 해당 없음 |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
 | 7.2 CU3 | 7.2.433.9590 | 해당 없음 |
+| 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
 

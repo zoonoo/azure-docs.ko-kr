@@ -8,17 +8,17 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 09/15/2020
-ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331661"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489892"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대한 고객 Lockbox
 
 > [!NOTE]
-> 이 기능을 사용 하려면 조직에 최소한의 **개발자**로 [Azure 지원 계획이](https://azure.microsoft.com/support/plans/) 있어야 합니다.
+> 이 기능을 사용 하려면 조직에 최소한의 **개발자** 로 [Azure 지원 계획이](https://azure.microsoft.com/support/plans/) 있어야 합니다.
 
 Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스 요청을 검토하고 승인하거나 거부할 수 있는 인터페이스를 제공합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다.
 
@@ -64,7 +64,7 @@ Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스
 - 가상 머신 확장 집합 - Windows 및 Linux
 
 > [!NOTE]
-> IaaS 클래식 인스턴스는 고객 Lockbox에서 지원 되지 않습니다. IaaS 클래식 인스턴스에서 실행 되는 워크 로드가 있는 경우 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+> IaaS 클래식 인스턴스는 고객 Lockbox에서 지원 되지 않습니다. IaaS 클래식 인스턴스에서 실행 되는 워크 로드가 있는 경우 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 #### <a name="detailed-audit-logs"></a>자세한 감사 로그
 
@@ -105,15 +105,15 @@ Microsoft Azure에 대한 고객 Lockbox는 고객이 고객 데이터 액세스
 
    요청은 4 일간 고객 큐에 유지 됩니다. 이 시간이 지나면 액세스 요청이 자동으로 만료 되 고 Microsoft 엔지니어에 게 액세스 권한이 부여 되지 않습니다.
 
-9. 보류 중인 요청의 세부 정보를 가져오기 위해 지정 된 승인자는 **보류 중인 요청**에서 lockbox 요청을 선택할 수 있습니다.
+9. 보류 중인 요청의 세부 정보를 가져오기 위해 지정 된 승인자는 **보류 중인 요청** 에서 lockbox 요청을 선택할 수 있습니다.
 
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예를 들면 다음과 같습니다.
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 다음은 그 예입니다. 
 
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
-11. 요청을 검토 한 후 지정 된 승인자가 **승인** 또는 **거부**를 선택 합니다.
+11. 요청을 검토 한 후 지정 된 승인자가 **승인** 또는 **거부** 를 선택 합니다.
 
     ![Azure 고객 Lockbox-승인 또는 거부를 선택 합니다.](./media/customer-lockbox-overview/customer-lockbox-approval.png)
 
@@ -149,6 +149,6 @@ Azure 보안 벤치 마크에 고객 Lockbox 적용 가능성을 다루는 새�
 
 ## <a name="next-steps"></a>다음 단계
 
-고객 Lockbox는 최소한의 **개발자**로 [Azure 지원 계획](https://azure.microsoft.com/support/plans/) 을 보유 하 고 있는 모든 고객에 게 자동으로 제공 됩니다.
+고객 Lockbox는 최소한의 **개발자** 로 [Azure 지원 계획](https://azure.microsoft.com/support/plans/) 을 보유 하 고 있는 모든 고객에 게 자동으로 제공 됩니다.
 
 적격 지원 계획을 사용 하는 경우 고객 Lockbox 사용 하도록 설정 하는 작업이 필요 하지 않습니다. 이 작업이 조직의 다른 사용자가 작성 한 지원 티켓을 진행 하는 데 필요한 경우 Microsoft 엔지니어가 고객 Lockbox 요청을 시작 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure VMware Solution VM 재해 복구 준비
+title: Azure Site Recovery로 재해 복구를 위한 Azure VMware Solution 준비
 description: Azure Site Recovery 서비스를 사용하여 Azure VMware Solution 서버를 Azure로 재해 복구하도록 준비하는 방법을 알아봅니다.
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814271"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395447"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>Azure VMware Solution 서버를 Azure로 재해 복구하도록 준비
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>Azure Site Recovery로 재해 복구를 위한 Azure VMware Solution 준비
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure VMware Solution 서버를 Azure로 재해 복구하도록 준비하는 방법을 설명합니다. 
 
@@ -46,7 +46,7 @@ Site Recovery에서는 다음 작업을 위해 Azure VMware Solution 서버에 �
 
 계정을 만들려면 다음을 수행합니다.
 
-1. 전용 계정을 사용하려면 vCenter 수준에서 역할을 만듭니다. 역할에 **Azure_Site_Recovery**와 같은 이름을 지정합니다.
+1. 전용 계정을 사용하려면 vCenter 수준에서 역할을 만듭니다. 역할에 **Azure_Site_Recovery** 와 같은 이름을 지정합니다.
 2. 아래 표에 요약된 권한을 역할에 할당합니다.
 3. vCenter 서버 또는 vSphere 호스트에서 사용자를 만듭니다. 사용자에게 역할을 할당합니다.
 
@@ -68,7 +68,7 @@ Site Recovery에서는 다음 작업을 위해 Azure VMware Solution 서버에 �
 
 VM에 설치할 수 있는 권한이 있는 도메인 또는 로컬 계정을 준비합니다.
 
-- **Windows VM**: Windows VM에 설치하려면 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 이렇게 하려면 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
+- **Windows VM**: Windows VM에 설치하려면 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 이렇게 하려면 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
 - **Linux VM**: Linux VM에 설치하려면 Linux 원본 서버에서 루트 계정을 준비합니다.
 
 
@@ -82,7 +82,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 4. [네트워크](vmware-physical-azure-support-matrix.md#network) 및 [스토리지](vmware-physical-azure-support-matrix.md#storage) 지원을 확인합니다. 
 5. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [스토리지](vmware-physical-azure-support-matrix.md#azure-storage) 및 [컴퓨팅](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
 6. Azure에 복제하는 Azure VMware Solution VM이 [Azure VM 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
-7. Linux Virtual Machines에서 디바이스 이름과 탑재 지점 이름은 고유해야 합니다. 이름이 같은 두 개의 디바이스/탑재 지점 이름이 없어야 합니다. 이름은 대/소문자를 구분하지 않습니다. 예를 들어 동일한 VM의 두 디바이스에 _device1_과 _Device1_로 이름을 지정하는 것이 허용되지 않습니다.
+7. Linux Virtual Machines에서 디바이스 이름과 탑재 지점 이름은 고유해야 합니다. 이름이 같은 두 개의 디바이스/탑재 지점 이름이 없어야 합니다. 이름은 대/소문자를 구분하지 않습니다. 예를 들어 동일한 VM의 두 디바이스에 _device1_ 과 _Device1_ 로 이름을 지정하는 것이 허용되지 않습니다.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
@@ -91,13 +91,13 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 
 장애 조치 후 RDP를 사용하여 Windows VM에 연결하려면 다음을 수행합니다.
 
-- **인터넷 액세스**. 장애 조치(failover) 전에 Azure VMware Solution VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.
+- **인터넷 액세스**. 장애 조치(failover) 전에 Azure VMware Solution VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.
 - **사이트 간 VPN 액세스**:
     - 장애 조치(failover) 전에 Azure VMware Solution VM에서 RDP를 활성화합니다.
-    - RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 프라이빗** 네트워크에 대해 허용되어야 합니다.
-    - 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).
+    - RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능** 에서 **도메인 또는 프라이빗** 네트워크에 대해 허용되어야 합니다.
+    - 운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).
 - 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 머신에 로그인할 수 없습니다.
-- 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
+- 장애 조치 후 Microsoft Azure VM에서 **부트 진단** 을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
 
 장애 조치 후 SSH를 사용하여 Linux VM에 연결하려면 다음을 수행합니다.
 
@@ -105,7 +105,7 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 - 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
 - 장애 조치 후 Azure VM에서 장애 조치된 VM의 네트워크 보안 그룹 규칙 및 연결되어 있는 Azure 서브넷에 대한 SSH 포트로 들어오는 연결을 허용합니다.
 - VM에 대한 [공용 IP 주소를 추가](./site-recovery-monitor-and-troubleshoot.md)합니다.
-- **부트 진단**을 확인하여 VM에 대한 스크린샷을 볼 수 있습니다.
+- **부트 진단** 을 확인하여 VM에 대한 스크린샷을 볼 수 있습니다.
 
 
 ## <a name="failback-requirements"></a>장애 복구 요구 사항

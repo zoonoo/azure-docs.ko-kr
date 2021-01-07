@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330991"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920824"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -42,7 +42,7 @@ ms.locfileid: "94330991"
 
 이 기본 제공 트리거는 HTTPS를 *통한 인바운드 요청만* 처리할 수 있는 수동으로 호출할 수 있는 끝점을 만듭니다. 호출자가이 끝점에 요청을 보내면 [요청 트리거가](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 발생 하 고 논리 앱이 실행 됩니다. 이 트리거를 호출 하는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 HTTPS 끝점을 사용 하 여 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.
 
-논리 앱은 [제한 된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits)동안만 인바운드 요청을 열어 둡니다. 논리 앱이 [응답 작업](#add-response)을 포함 하 고 있다고 가정 하면 논리 앱이이 시간이 지난 후에 호출자에 게 응답을 보내지 않는 경우 논리 앱 `504 GATEWAY TIMEOUT` 은 호출자에 게 상태를 반환 합니다. 논리 앱에 응답 작업이 포함 되어 있지 않으면 논리 앱은 즉시 `202 ACCEPTED` 호출자에 게 상태를 반환 합니다.
+논리 앱은 [제한 된 시간](../logic-apps/logic-apps-limits-and-config.md#http-limits)동안만 인바운드 요청을 열어 둡니다. 논리 앱이 [응답 작업](#add-response)을 포함 하 고 있다고 가정 하면 논리 앱이이 시간이 지난 후에 호출자에 게 응답을 보내지 않는 경우 논리 앱 `504 GATEWAY TIMEOUT` 은 호출자에 게 상태를 반환 합니다. 논리 앱에 응답 작업이 포함 되어 있지 않으면 논리 앱은 즉시 `202 ACCEPTED` 호출자에 게 상태를 반환 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 빈 논리 앱을 만듭니다.
 
@@ -153,7 +153,7 @@ ms.locfileid: "94330991"
 
 1. 인바운드 호출에 지정 된 스키마와 일치 하는 요청 본문이 있는지 확인 하려면 다음 단계를 수행 합니다.
 
-   1. 요청 트리거의 제목 표시줄에서 줄임표 단추 ( **...** )를 선택 합니다.
+   1. 요청 트리거의 제목 표시줄에서 줄임표 단추 (**...**)를 선택 합니다.
 
    1. 트리거의 설정에서 **스키마 유효성 검사** 를 켜고 **완료** 를 선택 합니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "94330991"
 
    예를 들어 사용자 지정된 응답을 반환하는 데 사용할 수 있으며 이 토픽의 뒷부분에서 설명하는 [응답 작업을 추가](#add-response)하여 요청에 응답할 수 있습니다.
 
-   논리 앱은 [제한된 시간](../logic-apps/logic-apps-limits-and-config.md#request-limits) 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함되어 있다고 가정하면 논리 앱이 이 시간 경과 후 응답을 반환하지 않는 경우 논리 앱은 호출자에게 `504 GATEWAY TIMEOUT`을 반환합니다. 그렇지 않은 경우 논리 앱에 응답 작업이 포함되어 있지 않으면 논리 앱은 즉시 호출자에게 `202 ACCEPTED` 응답을 반환합니다.
+   논리 앱은 [제한된 시간](../logic-apps/logic-apps-limits-and-config.md#http-limits) 동안만 들어오는 요청을 열어 둡니다. 논리 앱 워크플로에 응답 작업이 포함되어 있다고 가정하면 논리 앱이 이 시간 경과 후 응답을 반환하지 않는 경우 논리 앱은 호출자에게 `504 GATEWAY TIMEOUT`을 반환합니다. 그렇지 않은 경우 논리 앱에 응답 작업이 포함되어 있지 않으면 논리 앱은 즉시 호출자에게 `202 ACCEPTED` 응답을 반환합니다.
 
 1. 완료되면 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
@@ -190,9 +190,9 @@ ms.locfileid: "94330991"
    > [!NOTE]
    > **#** 요청 트리거를 호출할 때 해시 또는 파운드 기호 ()를 URI에 포함 하려면이 인코딩된 버전을 대신 사용 합니다.`%25%23`
 
-1. 논리 앱을 트리거하려면 생성된 URL에 HTTP POST를 보냅니다.
+1. 논리 앱을 테스트 하려면 생성 된 URL에 HTTP 요청을 보냅니다.
 
-   예를 들어 [Postman](https://www.getpostman.com/)과 같은 도구를 사용하여 HTTP POST를 보낼 수 있습니다. 트리거의 기본 JSON 정의 및 이 트리거를 호출하는 방법에 대한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [Azure Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
+   예를 들어 [Postman](https://www.getpostman.com/) 과 같은 도구를 사용 하 여 HTTP 요청을 보낼 수 있습니다. 트리거의 기본 JSON 정의 및 이 트리거를 호출하는 방법에 대한 자세한 내용은 [요청 트리거 형식](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) 및 [Azure Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요.
 
 [TLS (전송 계층 보안](https://en.wikipedia.org/wiki/Transport_Layer_Security))와 같은 논리 앱에 대 한 인바운드 호출에 대 한 보안, 권한 부여 및 암호화에 대 한 자세한 내용은 SSL(Secure Sockets Layer) TLS (전송 계층 보안 [), Azure Active Directory 오픈 인증 (azure AD OAuth)](../active-directory/develop/index.yml), azure API Management를 사용 하 여 논리 앱 노출 또는 인바운드 호출을 시작 하는 IP 주소 제한 [을 참조 하세요](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 

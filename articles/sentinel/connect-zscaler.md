@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: ef6677b6f1103c26bd719a3585800765a029f7fb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d788219e36ac94b1d13b2f4819c3e546622ddff1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056841"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655258"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Azure 센티널에 Zscaler 인터넷 액세스 연결
 
@@ -46,7 +46,5 @@ ms.locfileid: "92056841"
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Zscaler 인터넷 액세스를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.
+- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.
 - [통합 문서를 사용](tutorial-monitor-your-data.md)하여 데이터를 모니터링합니다.
-
-

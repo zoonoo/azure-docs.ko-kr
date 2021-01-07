@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8841c55d8f276f048db53a531bd2e9218e498b34
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566588"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016499"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
 
@@ -44,7 +44,7 @@ ms.locfileid: "89566588"
 
 이러한 한도에 도달 하거나 초과할 짧은 시간 동안 할당량의 일부를 너무 많이 보내면 할당량 초과 응답이 수신 될 가능성이 높습니다. 동시 요청에는 제한이 없습니다.
 
-| 서비스 계층 | 문자 제한 |
+| 계층 | 문자 제한 |
 |------|-----------------|
 | F0 | 시간당 2백만 자 |
 | S1 | 시간당 4천만 자 |
@@ -52,19 +52,19 @@ ms.locfileid: "89566588"
 | S3/C3 | 시간당 1억 2천만 자 |
 | S4/C4 | 시간당 2억 자 |
 
-[다중 서비스 구독](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) 에 대 한 제한은 S1 계층과 동일 합니다.
+[다중 서비스 구독](./reference/v3-0-reference.md#authentication) 에 대 한 제한은 S1 계층과 동일 합니다.
 
 이러한 제한은 Microsoft의 표준 변환 모델로 제한 됩니다. 사용자 지정 변환기를 사용 하는 사용자 지정 변환 모델은 초당 1800 자로 제한 됩니다.
 
 ## <a name="latency"></a>대기 시간
 
-사용자 지정 모델을 사용 하는 경우 변환기는 표준 모델 및 120 초를 사용 하 여 최대 대기 시간이 15 초입니다. 일반적으로 *100 자 내의 텍스트에 대 한* 응답은 150 밀리초에서 300 밀리초로 반환 됩니다. 사용자 지정 번역기 모델은 지속적으로 요청 률과 비슷한 대기 시간 특성을 가지 며, 요청 속도가 간헐적 이면 대기 시간이 길어질 수 있습니다. 응답 시간은 요청 및 언어 쌍의 크기에 따라 달라 집니다. 해당 기간 내에 번역이 나 [오류 응답](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) 을 받지 못한 경우에는 해당 코드, 네트워크 연결을 확인 하 고 다시 시도 하세요. 
+사용자 지정 모델을 사용 하는 경우 변환기는 표준 모델 및 120 초를 사용 하 여 최대 대기 시간이 15 초입니다. 일반적으로 *100 자 내의 텍스트에 대 한* 응답은 150 밀리초에서 300 밀리초로 반환 됩니다. 사용자 지정 번역기 모델은 지속적으로 요청 률과 비슷한 대기 시간 특성을 가지 며, 요청 속도가 간헐적 이면 대기 시간이 길어질 수 있습니다. 응답 시간은 요청 및 언어 쌍의 크기에 따라 달라 집니다. 해당 기간 내에 번역이 나 [오류 응답](./reference/v3-0-reference.md#errors) 을 받지 못한 경우에는 해당 코드, 네트워크 연결을 확인 하 고 다시 시도 하세요. 
 
 ## <a name="sentence-length-limits"></a>문장 길이 제한
 
-[BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) 함수를 사용하는 경우 문장 길이는 275자로 제한됩니다. 이러한 언어에 대한 예외가 있습니다.
+[BreakSentence](./reference/v3-0-break-sentence.md) 함수를 사용하는 경우 문장 길이는 275자로 제한됩니다. 이러한 언어에 대한 예외가 있습니다.
 
-| Language | 코드 | 문자 제한 |
+| 언어 | 코드 | 문자 제한 |
 |----------|------|-----------------|
 | 중국어 | zh | 166 |
 | 독일어 | de | 800 |
@@ -80,5 +80,5 @@ ms.locfileid: "89566588"
 ## <a name="next-steps"></a>다음 단계
 
 * [가격](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
-* [국가별 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [v3 Translator 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [지역별 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+* [v3 Translator 참조](./reference/v3-0-reference.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 12/07/2020
 ms.author: alexeyo
-ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9b923ba208dd2a5111a59f67401b1e4f080b7187
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345400"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754167"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -37,7 +37,7 @@ ms.locfileid: "93345400"
 | 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
 |--|--|--|
 | REST API 제한 | F0에 대 한 일괄 처리 기록을 사용할 수 없음 | 분당 300 요청 |
-| 최대 오디오 입력 파일 크기 | 해당 없음 | 1 GB |
+| 최대 오디오 입력 파일 크기 | 해당 없음 | 1GB |
 | 최대 입력 blob 크기 (예: zip 보관 파일에 둘 이상의 파일을 포함할 수 있습니다. 위의 파일 크기 제한을 확인 해야 함) | 해당 없음 | 2.5GB |
 | 최대 blob 컨테이너 크기 | 해당 없음 | 5GB |
 | 컨테이너 당 최대 blob 수 | 해당 없음 | 10000 |
@@ -104,7 +104,7 @@ ms.locfileid: "93345400"
 Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제한 매개 변수의 기존 값이 표시 **되지** 않습니다. 기존 값을 확인 하려면 Azure 지원 요청을 만듭니다.
 
 >[!NOTE]
->컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다.
+>컨테이너는 호스트 되는 하드웨어의 Cpu에 의해서만 제한 되므로 [음성 컨테이너](speech-container-howto.md) 는 동시 요청 제한의 증가가 필요 하지 않습니다. 그러나 음성 컨테이너에는 고려해 야 할 자체 용량 제한이 있습니다. *"온-프레미스에서 음성-텍스트 컨테이너의 용량을 계획 하 고 비용을 예측 하는 데 도움이 되나요?"* 질문을 참조 하세요. [음성 컨테이너 FAQ](speech-container-faq.md)에서.
 
 #### <a name="have-the-required-information-ready"></a>필요한 정보가 준비 되어 있어야 합니다.
 - **기본 모델** 의 경우:
@@ -114,15 +114,15 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
   - 지역
   - 사용자 지정 끝점 ID
 
-- **정보를 가져오는 방법 (기본 모델)** :  
+- **정보를 가져오는 방법 (기본 모델)**:  
   - [Azure Portal](https://portal.azure.com/) 로 이동
   - 동시성 요청 제한을 늘릴 음성 리소스를 선택 하세요.
-  - *속성* 선택 ( *리소스 관리* 그룹) 
+  - *속성* 선택 (*리소스 관리* 그룹) 
   - 다음 필드의 값을 복사 하 여 저장 합니다.
     - **리소스 ID**
     - **위치** (끝점 영역)
 
-- **정보를 가져오는 방법 (사용자 지정 모델)** :
+- **정보를 가져오는 방법 (사용자 지정 모델)**:
   - [Speech Studio](https://speech.microsoft.com/) 포털로 이동
   - 필요한 경우 로그인
   - Custom Speech로 이동
@@ -139,7 +139,7 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
 - [필요한 정보가](#have-the-required-information-ready) 있는지 확인 합니다.
 - [Azure Portal](https://portal.azure.com/) 로 이동
 - 동시성 요청 제한을 늘리거나 확인할 음성 리소스를 선택 합니다.
-- *새 지원 요청* ( *지원 + 문제 해결* 그룹)을 선택 합니다. 
+- *새 지원 요청* (*지원 + 문제 해결* 그룹)을 선택 합니다. 
 - Azure 구독 및 Azure 리소스에 대 한 자동 채우기 정보를 포함 하는 새 창이 표시 됩니다.
 - *Summary* 를 입력 합니다 (예: "STT Concurrency 요청 제한").
 - *문제 유형에* 서 "할당량 또는 구독 문제"를 선택 합니다.
@@ -191,7 +191,7 @@ Azure Portal, Command-Line 도구 또는 API 요청을 통해 동시 요청 제�
 - [필요한 정보가](#prepare-the-required-information) 있는지 확인 합니다.
 - [Azure Portal](https://portal.azure.com/) 로 이동
 - 동시성 요청 제한을 늘리거나 확인할 음성 리소스를 선택 합니다.
-- *새 지원 요청* ( *지원 + 문제 해결* 그룹)을 선택 합니다. 
+- *새 지원 요청* (*지원 + 문제 해결* 그룹)을 선택 합니다. 
 - Azure 구독 및 Azure 리소스에 대 한 자동 채우기 정보를 포함 하는 새 창이 표시 됩니다.
 - *요약* 입력 (예: "TTS 사용자 지정 끝점 동시성 요청 제한 증가")
 - *문제 유형에* 서 "할당량 또는 구독 문제"를 선택 합니다.

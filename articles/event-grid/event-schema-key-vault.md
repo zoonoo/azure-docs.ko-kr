@@ -3,12 +3,12 @@ title: Event Grid 원본으로 Azure Key Vault
 description: Azure Key Vault 이벤트에 제공 되는 속성 및 스키마에 대해 설명 Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b3d961228429c1f84e45c1df9147fa1687ab5074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 605502794f2f3aa4f4edd14b49efda5003b91146
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324079"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460395"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 Azure Key Vault
 
@@ -35,7 +35,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 ### <a name="event-examples"></a>이벤트 예제
 
-다음 예제에서는 **SecretNewVersionCreated**에 대 한 스키마를 보여 줍니다.
+다음 예제에서는 **SecretNewVersionCreated** 에 대 한 스키마를 보여 줍니다.
 
 ```JSON
 [
@@ -64,15 +64,15 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | ---------- | ----------- |---|
 | id | 문자열 | 이 이벤트를 트리거한 개체의 ID입니다. |
 | vaultName | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름입니다. |
 | objectType | 문자열 | 이 이벤트를 트리거한 개체의 형식입니다. |
 | objectName | 문자열 | 이 이벤트를 트리거한 개체의 이름입니다. |
 | 버전 | 문자열 | 이 이벤트를 트리거한 개체의 버전입니다. |
-| nbf | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 경과 되지 않은 날짜 (초)입니다. |
-| exp | number | 1970-01-01T00:00:00Z 이후이 이벤트를 트리거한 개체의 만료 날짜 (초)입니다. |
+| nbf | 숫자 | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 경과 되지 않은 날짜 (초)입니다. |
+| exp | 숫자 | 1970-01-01T00:00:00Z 이후이 이벤트를 트리거한 개체의 만료 날짜 (초)입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 |제목  |설명  |
@@ -85,5 +85,5 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 * Azure Event Grid에 대 한 소개는 [Event Grid 무엇입니까?](overview.md)를 참조 하세요.
 * Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조 하세요.
-* Key VAult에 대 한 자세한 내용은 [Azure Key Vault?](../key-vault/general/overview.md) 을 참조 하세요.
+* Key Vault에 대 한 자세한 내용은 [Azure Key Vault 항목](../key-vault/general/overview.md) 을 참조 하세요.
 

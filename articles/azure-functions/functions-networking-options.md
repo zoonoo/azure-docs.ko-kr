@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636472"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936869"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -21,9 +21,9 @@ ms.locfileid: "94636472"
 다음 두 가지 방법으로 함수 앱을 호스트할 수 있습니다.
 
 * 다양한 수준의 가상 네트워크 연결 및 확장 옵션을 사용하여 다중 테넌트 인프라에서 실행되는 요금제 옵션 중에서 선택할 수 있습니다.
-    * [사용 계획](functions-scale.md#consumption-plan)은 부하에 대응하여 동적으로 확장되고 최소한의 네트워크 격리 옵션을 제공합니다.
-    * [프리미엄 계획](functions-scale.md#premium-plan)은 동적으로 확장되고 보다 포괄적인 네트워크 격리를 제공합니다.
-    * Azure [App Service 계획](functions-scale.md#app-service-plan)은 고정된 규모에서 작동하며 프리미엄 계획과 비슷한 네트워크 격리를 제공합니다.
+    * [사용 계획](consumption-plan.md)은 부하에 대응하여 동적으로 확장되고 최소한의 네트워크 격리 옵션을 제공합니다.
+    * [프리미엄 계획](functions-premium-plan.md)은 동적으로 확장되고 보다 포괄적인 네트워크 격리를 제공합니다.
+    * Azure [App Service 계획](dedicated-plan.md)은 고정된 규모에서 작동하며 프리미엄 계획과 비슷한 네트워크 격리를 제공합니다.
 * [App Service Environment](../app-service/environment/intro.md)에서 함수를 실행할 수 있습니다. 이 메서드는 가상 네트워크에 함수를 배포하고 전체 네트워크 제어 및 격리를 제공합니다.
 
 ## <a name="matrix-of-networking-features"></a>네트워킹 기능 매트릭스
@@ -34,7 +34,7 @@ ms.locfileid: "94636472"
 
 액세스 제한을 사용 하 여 앱에 대 한 액세스를 허용 하거나 거부 하는 우선 순위가 지정 된 IP 주소 목록을 정의할 수 있습니다. 이 목록에는 IPv4 및 IPv6 주소 또는 [서비스 끝점](#use-service-endpoints)을 사용 하는 특정 가상 네트워크 서브넷이 포함 될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 "모두 거부"가 표시됩니다. IP 제한은 모든 함수 호스팅 옵션에서 작동합니다.
 
-액세스 제한은 [프리미엄](functions-premium-plan.md), [소비](functions-scale.md#consumption-plan)및 [App Service](functions-scale.md#app-service-plan)에서 사용할 수 있습니다.
+액세스 제한은 [프리미엄](functions-premium-plan.md), [소비](consumption-plan.md)및 [App Service](dedicated-plan.md)에서 사용할 수 있습니다.
 
 > [!NOTE]
 > 네트워크 제한이 적용 된 상태에서, 가상 네트워크 내 에서만 배포 하거나, 사용 중인 컴퓨터의 IP 주소를 안전 받는 사람 목록에 Azure Portal 액세스 하는 데 사용 하는 컴퓨터의 IP 주소를 배치할 수 있습니다. 그러나 포털을 사용 하 여 함수를 관리할 수는 있습니다.
@@ -128,7 +128,7 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 프리미엄 계획
 
-프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [Azure portal](https://portal.azure.com)  >  **함수 런타임 설정** 아래 Azure Portal에 있습니다.
+프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [](https://portal.azure.com)  >  **함수 런타임 설정** 아래 Azure Portal에 있습니다.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -180,8 +180,8 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 ## <a name="automation"></a>Automation
 다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
-+ **Azure CLI** : 명령을 사용 [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 하 여 지역 가상 네트워크 통합을 추가, 나열 또는 제거 합니다.  
-+ **ARM 템플릿** : 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
++ **Azure CLI**: 명령을 사용 [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 하 여 지역 가상 네트워크 통합을 추가, 나열 또는 제거 합니다.  
++ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용 하 여 사용 하도록 설정할 수 있습니다. 전체 예제는 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

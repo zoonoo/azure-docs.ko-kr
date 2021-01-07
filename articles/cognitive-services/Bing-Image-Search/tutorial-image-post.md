@@ -11,21 +11,21 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 76670c6a061ce3f257d9df8cfe61b1cc020194c6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cef39b940f0d61fc60ea10156acfd781289157de
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100221"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591974"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>자습서: Bing Image Search API 및 C#을 사용하여 이미지 세부 정보 추출
 
 > [!WARNING]
-> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](https://aka.ms/cogsvcs/bingmove)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
+> Bing Search API는 Cognitive Services에서 Bing Search Services로 이동합니다. **2020년 10월 30일** 부터 Bing Search의 모든 새 인스턴스는 [여기](/bing/search-apis/bing-web-search/create-bing-search-service-resource)에 설명된 프로세스에 따라 프로비저닝되어야 합니다.
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
-> 마이그레이션 지침은 [Bing Search Services](https://aka.ms/cogsvcs/bingmigration)를 참조하세요.
+> 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint)가 있습니다. `/details` 엔드포인트는 이미지가 포함된 POST 요청을 허용하며 이미지에 대한 다양한 세부 정보를 반환할 수 있습니다. 이 C# 애플리케이션은 API를 사용하여 이미지를 보내고 Bing에서 반환된 다음과 같은 JSON 개체인 세부 정보를 표시합니다.
+Bing Image Search API를 통해 사용할 수 있는 다양한 [엔드포인트](./image-search-endpoint.md)가 있습니다. `/details` 엔드포인트는 이미지가 포함된 POST 요청을 허용하며 이미지에 대한 다양한 세부 정보를 반환할 수 있습니다. 이 C# 애플리케이션은 API를 사용하여 이미지를 보내고 Bing에서 반환된 다음과 같은 JSON 개체인 세부 정보를 표시합니다.
 
 ![[JSON 결과]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 

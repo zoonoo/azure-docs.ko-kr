@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5e433fd857f638c1c13e4545c19e0b6314ee62e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 5f0dc73877d7742d4fc6a0c5b9bcf0529d475e0a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146509"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445260"
 ---
 # <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>PowerShell을 사용 하 여 Synapse Studio 연결 문제 해결
 
-Azure Synapse Studio (미리 보기)는 제대로 작동 하는 웹 API 끝점의 집합에 따라 달라 집니다. 이 가이드는 다음과 같은 경우 연결 문제의 원인을 파악 하는 데 도움이 됩니다.
+Azure Synapse Studio는 정상적으로 작동 하는 웹 API 끝점의 집합에 따라 달라 집니다. 이 가이드는 다음과 같은 경우 연결 문제의 원인을 파악 하는 데 도움이 됩니다.
 - Azure Synapse Studio에 액세스 하기 위해 로컬 네트워크 (예: 회사 방화벽 뒤에 있는 네트워크)를 구성 합니다.
 - Azure Synapse Studio를 사용 하 여 연결 문제가 발생 했습니다.
 

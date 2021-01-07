@@ -13,7 +13,7 @@
       items:
         - name: 웹 포털 사용
           href: getting-started-build-a-classifier.md
-        - name: Custom Vision SDK 사용
+        - name: Custom Vision SDK 또는 REST API 사용
           href: quickstarts/image-classification.md
     - name: 개체 감지기 빌드
       items:

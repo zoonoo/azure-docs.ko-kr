@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630280"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723981"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 8100 및 8600 마이그레이션
 
@@ -133,11 +133,11 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 여러 Azure storage 계정을 배포 해야 할 수도 있습니다. 각 항목에는이 문서의 이전 섹션에서 완료 한 배포 계획에 따라 적은 수의 Azure 파일 공유가 포함 됩니다. Azure Portal로 이동 하 여 [계획 된 저장소 계정을 배포](../common/storage-account-create.md#create-a-storage-account)합니다. 새 저장소 계정에 대해 다음과 같은 기본 설정을 준수 하는 것이 좋습니다.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>구독
 
 StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 올바른 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있습니다. 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 
-#### <a name="resource-group"></a>Resource group
+#### <a name="resource-group"></a>리소스 그룹
 
 리소스 그룹은 리소스 구성과 관리 관리 권한을 지원 합니다. [Azure에서 리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)에 대해 자세히 알아보세요.
 
@@ -160,7 +160,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
 
 아직 확실 하지 않나요?
 
-* [프리미엄 Azure 파일 공유의 성능이](storage-files-planning.md#understanding-provisioning-for-premium-file-shares)필요한 경우 premium storage를 선택 합니다.
+* [프리미엄 Azure 파일 공유의 성능이](understanding-billing.md#provisioned-billing)필요한 경우 premium storage를 선택 합니다.
 * 핫 데이터 및 보관 데이터를 포함 하는 범용 파일 서버 작업에 대 한 표준 저장소를 선택 합니다. 또한 클라우드의 공유에서 유일한 작업을 Azure File Sync 하는 경우 standard storage를 선택 합니다.
 
 #### <a name="account-kind"></a>계정 종류
@@ -244,7 +244,7 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
         ![StorSimple 8000 시리즈 마이그레이션 작업](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "데이터 변환 서비스 작업에 대 한 새 작업 생성 양식의 스크린샷")
     :::column-end:::
     :::column:::
-        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>Target</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
+        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple Device Manager 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 Device Manager StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>대상</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
     :::column-end:::
 :::row-end:::
 
@@ -320,8 +320,8 @@ Azure File Sync를 사용 하면 자주 액세스 하는 파일의 온-프레미
 
 Azure 파일 공유에 액세스 하는 두 가지 주요 전략은 다음과 같습니다.
 
-* **Azure File Sync** : 온-프레미스 Windows Server 인스턴스에 [Azure File Sync를 배포](#deploy-azure-file-sync) 합니다. Azure File Sync에는 StorSimple과 마찬가지로 로컬 캐시의 모든 이점이 있습니다.
-* **직접 공유-액세스** : [직접 공유 액세스를 배포](#deploy-direct-share-access)합니다. 지정 된 Azure 파일 공유에 대 한 액세스 시나리오에서 로컬 캐싱을 활용 하지 않거나 더 이상 온-프레미스 Windows Server 인스턴스를 호스트할 수 없는 경우이 전략을 사용 합니다. 여기서 사용자와 앱은 SMB 프로토콜을 통해 SMB 공유에 계속 액세스 합니다. 이러한 공유는 더 이상 온-프레미스 서버에 없지만 클라우드에서 직접 사용할 수 있습니다.
+* **Azure File Sync**: 온-프레미스 Windows Server 인스턴스에 [Azure File Sync를 배포](#deploy-azure-file-sync) 합니다. Azure File Sync에는 StorSimple과 마찬가지로 로컬 캐시의 모든 이점이 있습니다.
+* **직접 공유-액세스**: [직접 공유 액세스를 배포](#deploy-direct-share-access)합니다. 지정 된 Azure 파일 공유에 대 한 액세스 시나리오에서 로컬 캐싱을 활용 하지 않거나 더 이상 온-프레미스 Windows Server 인스턴스를 호스트할 수 없는 경우이 전략을 사용 합니다. 여기서 사용자와 앱은 SMB 프로토콜을 통해 SMB 공유에 계속 액세스 합니다. 이러한 공유는 더 이상 온-프레미스 서버에 없지만 클라우드에서 직접 사용할 수 있습니다.
 
 이 가이드의 [1 단계](#phase-1-prepare-for-migration) 에서 사용자에 게 가장 적합 한 옵션을 이미 결정 해야 합니다.
 
@@ -429,8 +429,8 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 1. 로 이동 하 여 **Microsoft\FileSync\Agent\Telemetry** 를 엽니다.
 1. 완료 된 동기화 세션에 해당 하는 최신 **이벤트 9102** 을 찾습니다.
 1. **세부 정보** 를 선택 하 고 **Syncdirection** 값이 **다운로드** 되는 이벤트를 확인 하 고 있는지 확인 합니다.
-1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오** , 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  **0** 합니다.
-1. 해당 이벤트를 놓친 경우 **syncdirection** **9102 events**  =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
+1. 네임 스페이스에서 서버에 대 한 다운로드를 완료 한 경우에는 **시나리오**, 값 **FullGhostedSync** 및 **HResult** 0을 포함 하는 단일 이벤트가 발생  =  합니다.
+1. 해당 이벤트를 놓친 경우 **syncdirection**   =  **다운로드** 및 **시나리오**  =  **"RegularSync"** 를 사용 하 여 다른 9102 이벤트를 찾을 수도 있습니다. 이러한 이벤트 중 하나를 찾으면 동기화가 완료 되었는지 여부에 관계 없이 네임 스페이스의 다운로드 및 동기화가 일반 동기화 세션으로 진행 되었음을 알 수 있습니다.
 
 ### <a name="a-final-robocopy"></a>최종 RoboCopy
 
@@ -448,7 +448,7 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 RoboCopy에는 여러 매개 변수가 있습니다. 다음 예제에서는 완성 된 명령과 이러한 매개 변수를 선택 하는 이유 목록을 보여 줍니다.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 배경:
@@ -475,6 +475,14 @@ Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
    :::column-end:::
    :::column span="1":::
       콘솔 창에 출력 합니다. 로그 파일에 대 한 출력과 함께 사용 됩니다.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /NP
+   :::column-end:::
+   :::column span="1":::
+      로그를 읽을 수 있도록 진행률 기록을 생략 합니다.
    :::column-end:::
 :::row-end:::
 :::row:::

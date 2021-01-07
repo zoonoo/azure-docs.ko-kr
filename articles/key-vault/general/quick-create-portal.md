@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e1c780d1eb9535343373701e6dfe4899a9cba366
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: b5f4f3d2b3eda9f00049cee26ae95850d65257d6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803928"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778872"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 키 자격 증명 모음 만들기
 
@@ -34,21 +34,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
-2. 검색 상자에 **Key Vault**를 입력합니다.
-3. 결과 목록에서 **Key Vault**를 선택합니다.
-4. Key Vault 섹션에서 **만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
+2. 검색 상자에 **Key Vault** 를 입력합니다.
+3. 결과 목록에서 **Key Vault** 를 선택합니다.
+4. Key Vault 섹션에서 **만들기** 를 선택합니다.
 5. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.
-    - **Name**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
+    - **Name**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2** 를 사용합니다. 
     - **구독**: 구독을 선택합니다.
-    - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
+    - **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.
     - **위치** 풀 다운 메뉴에서 위치를 선택합니다.
     - 다른 옵션은 기본값으로 그대로 둡니다.
-6. 위의 정보를 제공한 후 **만들기**를 선택합니다.
+6. 위의 정보를 제공한 후 **만들기** 를 선택합니다.
 
 아래에 나열된 두 개의 속성을 기록합니다.
 
-* **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2**입니다. 다른 단계에서 이 이름을 사용합니다.
+* **자격 증명 모음 이름**: 이 예에서는 **Contoso-Vault2** 입니다. 다른 단계에서 이 이름을 사용합니다.
 * **자격 증명 모음 URI**: 이 예에서는 https://contoso-vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 이때 사용자의 Azure 계정은 이 새 자격 증명 모음에서 작업을 수행할 권한이 있는 유일한 계정입니다.
@@ -61,13 +61,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 더 이상 필요 없으면 리소스 그룹을 삭제하고 Key Vault 및 관련 리소스를 삭제합니다. 포털을 통해 리소스 그룹을 삭제하려면:
 
 1. 포털 맨 위에 있는 검색 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 빠른 시작에서 사용된 리소스 그룹이 표시되면 선택합니다.
-2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+2. **리소스 그룹 삭제** 를 선택합니다.
+3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제** 를 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
+이 빠른 시작에서는 Azure Portal을 사용하여 Key Vault를 만들었습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](overview.md) 참조
 - [Azure Key Vault 개발자 가이드](developers-guide.md) 참조

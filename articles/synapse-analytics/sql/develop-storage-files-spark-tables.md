@@ -1,6 +1,6 @@
 ---
-title: 서버리스 SQL 풀(미리 보기)에서 외부 테이블 정의에 대한 Apache Spark 동기화
-description: 서버리스 SQL 풀(미리 보기)을 사용하여 Spark 테이블 쿼리하는 방법 개요
+title: 서버리스 SQL 풀에서 외부 테이블 정의에 대한 Apache Spark 동기화
+description: 서버리스 SQL 풀을 사용하여 Spark 테이블 쿼리하는 방법 개요
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea4e7cd009be8a78faa0dcfab44371a350b6a200
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 057a69881b8b407e5d75fa3510ca1c3eb1830bc7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315835"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96446486"
 ---
-# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool-preview"></a>서버리스 SQL 풀(미리 보기)에서 Apache Spark for Azure Synapse 외부 테이블 정의 동기화
+# <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-serverless-sql-pool"></a>서버리스 SQL 풀에서 Apache Spark for Azure Synapse 외부 테이블 정의 동기화
 
-서버리스 SQL 풀(미리 보기)은 Azure Synapse 풀에서 메타데이터를 자동으로 동기화할 수 있습니다. 서버리스 Apache Spark 풀(미리 보기)에 있는 각 데이터베이스에 대해 서버리스 SQL 풀 데이터베이스가 생성됩니다. 
+서버리스 SQL 풀은 Apache Spark에서 메타데이터를 자동으로 동기화할 수 있습니다. 서버리스 Apache Spark 풀에 있는 각 데이터베이스에 대해 서버리스 SQL 풀 데이터베이스가 생성됩니다. 
 
 Parquet을 기반으로 하고 Azure Storage에 있는 각 Spark 외부 테이블에 대해 서버리스 SQL 풀 데이터베이스에 외부 테이블이 생성됩니다. 따라서 Spark 풀을 종료하고 서버리스 SQL 풀에서 Spark 외부 테이블을 계속 쿼리할 수 있습니다.
 

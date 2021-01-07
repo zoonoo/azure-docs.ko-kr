@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329485"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002751"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 전체 텍스트 검색
 
@@ -69,7 +69,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 2. 쿼리를 실행합니다. 이 예제의 검색 쿼리는 다음과 같은 구와 용어로 구성되어 있습니다. `"Spacious, air-condition* +\"Ocean view\""`(일반적으로는 사용자가 문장 부호를 입력하지 않지만, 이 예에서는 분석기가 문장 부호를 어떻게 처리하는지 설명하기 위해 문장 부호를 포함함). 이 쿼리에서 검색 엔진은 "Ocean view"가 포함된 문서를 찾기 위해 `searchFields`에 지정된 설명 및 제목 필드를 검색하고, 추가적으로 "spacious" 용어 또는 접두사 "air-condition"으로 시작하는 용어를 검색합니다. `searchMode` 매개 변수는 용어가 명시적으로 필요하지 않은 경우(`+`)에 일부 일치(기본값) 또는 전체 일치에 사용됩니다.
 3. 호텔 검색 결과 집합을 특정 지리적 위치에 가까운 순서대로 정렬한 후 호출 애플리케이션으로 반환합니다. 
 
-이 문서의 대부분은 *검색 쿼리*를 처리 하는 방법에 대 한 것입니다 `"Spacious, air-condition* +\"Ocean view\""` . 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](/rest/api/searchservice/search-documents)를 참조하세요.
+이 문서의 대부분은 *검색 쿼리* 를 처리 하는 방법에 대 한 것입니다 `"Spacious, air-condition* +\"Ocean view\""` . 필터링 및 정렬은 본 문서에서 다루지 않습니다. 자세한 내용은 [검색 API 참조 문서](/rest/api/searchservice/search-documents)를 참조하세요.
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>1단계: 쿼리 구문 분석 
@@ -80,7 +80,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
  "search": "Spacious, air-condition* +\"Ocean view\"", 
 ```
 
-쿼리 파서는 검색 용어에서 예제의 `*` 및 `+` 같은 연산자를 분리하고, 검색 쿼리를 지원되는 유형의 *하위 쿼리*로 분해합니다. 
+쿼리 파서는 검색 용어에서 예제의 `*` 및 `+` 같은 연산자를 분리하고, 검색 쿼리를 지원되는 유형의 *하위 쿼리* 로 분해합니다. 
 
 + 독립 용어(예: spacious)에 대한 *용어 쿼리*
 + 따옴표가 붙은 용어(예: ocean view)에 대한 *구 쿼리*
@@ -108,9 +108,9 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 Spacious,||air-condition*+"Ocean view" 
 ```
 
-`+"Ocean view"`의 `+` 같은 명시적 연산자는 부울 쿼리 구조에서 모호하지 않습니다(용어가 *반드시* 일치해야 함). 나머지 용어 spacious와 air-condition을 해석하는 방법은 덜 명확합니다. 검색 엔진이 ocean view *그리고* spacious *그리고* air-condition과 일치하는 항목을 찾아야 합니까? 아니면 ocean view와 나머지 *두 용어 중 하나*를 찾아야 합니까? 
+`+"Ocean view"`의 `+` 같은 명시적 연산자는 부울 쿼리 구조에서 모호하지 않습니다(용어가 *반드시* 일치해야 함). 나머지 용어 spacious와 air-condition을 해석하는 방법은 덜 명확합니다. 검색 엔진이 ocean view *그리고* spacious *그리고* air-condition과 일치하는 항목을 찾아야 합니까? 아니면 ocean view와 나머지 *두 용어 중 하나* 를 찾아야 합니까? 
 
-기본적으로(`searchMode=any`) 검색 엔진은 보다 광범위한 해석을 가정합니다. "or" 구문을 반영하여 두 필드 중 하나가 일치*해야 합니다*. 앞에서 보여드린 두 개의 "should" 연산이 사용된 초기 쿼리 트리는 기본값을 표시합니다.  
+기본적으로(`searchMode=any`) 검색 엔진은 보다 광범위한 해석을 가정합니다. "or" 구문을 반영하여 두 필드 중 하나가 일치 *해야 합니다*. 앞에서 보여드린 두 개의 "should" 연산이 사용된 초기 쿼리 트리는 기본값을 표시합니다.  
 
 만약 `searchMode=all`로 설정한다면 어떨까요? 이 경우 공간이 "and" 연산으로 해석됩니다. 나머지 두 용어가 모두 문서에 있어야만 일치 항목으로 인정됩니다. 결과 샘플 쿼리는 다음과 같이 해석됩니다. 
 
@@ -128,9 +128,9 @@ Spacious,||air-condition*+"Ocean view"
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>2단계: 어휘 분석 
 
-어휘 분석기는 쿼리 트리가 구조화된 후 *용어 쿼리* 및 *구 쿼리*를 처리합니다. 분석기는 파서에서 제공한 텍스트 입력을 수락하고, 해당 텍스트를 처리한 후 토큰화된 용어를 다시 보내서 쿼리 트리와 통합합니다. 
+어휘 분석기는 쿼리 트리가 구조화된 후 *용어 쿼리* 및 *구 쿼리* 를 처리합니다. 분석기는 파서에서 제공한 텍스트 입력을 수락하고, 해당 텍스트를 처리한 후 토큰화된 용어를 다시 보내서 쿼리 트리와 통합합니다. 
 
-어휘 분석의 가장 일반적인 형태는 지정된 언어와 관련된 규칙을 기반으로 쿼리 용어를 변환하는 *언어 분석*입니다. 
+어휘 분석의 가장 일반적인 형태는 지정된 언어와 관련된 규칙을 기반으로 쿼리 용어를 변환하는 *언어 분석* 입니다. 
 
 * 쿼리 용어를 단어의 루트 형식으로 줄이기 
 * 필수적이지 않은 단어(영어의 "the" 또는 "and" 같은 중지 단어) 제거 
@@ -238,9 +238,9 @@ Spacious,||air-condition*+"Ocean view"
 
 반전된 인덱스에 용어를 생성하기 위해 검색 엔진은 쿼리 처리 중 발생하는 동작과 비슷하게 문서 내용에 대한 어휘 분석을 수행합니다.
 
-1. *텍스트 입력*은 분석기 구성에 따라 분석기로 전달되고, 소문자로 변환되고, 문장 부호가 제거됩니다. 
+1. *텍스트 입력* 은 분석기 구성에 따라 분석기로 전달되고, 소문자로 변환되고, 문장 부호가 제거됩니다. 
 2. *토큰* 은 어휘 분석의 출력입니다.
-3. *용어*는 인덱스에 추가됩니다.
+3. *용어* 는 인덱스에 추가됩니다.
 
 쿼리 용어가 인덱스 내 용어와 좀 더 비슷하게 보이도록 검색 작업과 인덱싱 작업에 같은 분석기를 사용하는 것이 일반적이지만 필수는 아닙니다.
 
@@ -261,7 +261,7 @@ Spacious,||air-condition*+"Ocean view"
 | resort | 3 |
 | retreat | 4 |
 
-제목 필드에서는 오직 *hotel*만 1, 3 문서에 표시됩니다.
+제목 필드에서는 오직 *hotel* 만 1, 3 문서에 표시됩니다.
 
 **설명** 필드의 경우 인덱스는 다음과 같습니다.
 
@@ -287,7 +287,7 @@ Spacious,||air-condition*+"Ocean view"
 | spacious | 1
 | the | 1, 2
 | to | 1
-| view | 1, 2, 3
+| 뷰 | 1, 2, 3
 | walking | 1
 | 다음과 같이 바꿉니다. | 3
 
@@ -315,7 +315,7 @@ Spacious,||air-condition*+"Ocean view"
 
 ## <a name="stage-4-scoring"></a>4단계: 점수 매기기  
 
-검색 결과 집합의 모든 문서에 관련성 점수가 할당됩니다. 관련성 점수의 기능은 검색 쿼리의 표현에 따라 사용자 질문에 가장 잘 대답한 문서에 더 높은 순위를 매기는 것입니다. 점수는 일치하는 용어의 통계 속성에 따라 계산됩니다. 점수 매기기 공식의 핵심은 [TF/IDF(term frequency-inverse document frequency)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)입니다. 드문 용어와 일반적인 용어가 포함된 쿼리에서, TF/IDF는 드문 용어가 포함된 결과에 더 높은 순위를 부여합니다. 예를 들어 모든 Wikipedia 문서가 포함된 가상의 인덱스에서 *the president* 쿼리와 일치하는 문서의 경우 *president*와 일치하는 문서는 *the*와 일치하는 문서보다 관련성이 높은 것으로 간주됩니다.
+검색 결과 집합의 모든 문서에 관련성 점수가 할당됩니다. 관련성 점수의 기능은 검색 쿼리의 표현에 따라 사용자 질문에 가장 잘 대답한 문서에 더 높은 순위를 매기는 것입니다. 점수는 일치하는 용어의 통계 속성에 따라 계산됩니다. 점수 매기기 공식의 핵심은 [TF/IDF(term frequency-inverse document frequency)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)입니다. 드문 용어와 일반적인 용어가 포함된 쿼리에서, TF/IDF는 드문 용어가 포함된 결과에 더 높은 순위를 부여합니다. 예를 들어 모든 Wikipedia 문서가 포함된 가상의 인덱스에서 *the president* 쿼리와 일치하는 문서의 경우 *president* 와 일치하는 문서는 *the* 와 일치하는 문서보다 관련성이 높은 것으로 간주됩니다.
 
 
 ### <a name="scoring-example"></a>점수 매기기 예제
@@ -351,7 +351,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ```
 
-문서 1이 쿼리와 가장 정확하게 일치했습니다. *spacious*라는 용어와 *ocean view*라는 필수 구가 설명 필드에서 모두 발생했기 때문입니다. 그 다음 두 문서는 *ocean view*라는 구만 일치합니다. 문서 2와 3이 동일한 방식으로 쿼리와 일치하는데 관련성 점수는 서로 다르다는 점에 놀라실 수도 있습니다. 이는 점수 매기기 공식에 TF/IDF 외에도 여러 구성 요소가 더 있기 때문입니다. 이 예에서는 문서 3에 약간 더 높은 점수가 할당되었는데, 설명이 좀 더 짧기 때문입니다. 필드 길이 및 기타 요소가 관련성 점수에 미치는 영향에 대해 자세히 알아보려면 [Lucene의 실제 점수 매기기 공식](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)을 살펴보세요.
+문서 1이 쿼리와 가장 정확하게 일치했습니다. *spacious* 라는 용어와 *ocean view* 라는 필수 구가 설명 필드에서 모두 발생했기 때문입니다. 그 다음 두 문서는 *ocean view* 라는 구만 일치합니다. 문서 2와 3이 동일한 방식으로 쿼리와 일치하는데 관련성 점수는 서로 다르다는 점에 놀라실 수도 있습니다. 이는 점수 매기기 공식에 TF/IDF 외에도 여러 구성 요소가 더 있기 때문입니다. 이 예에서는 문서 3에 약간 더 높은 점수가 할당되었는데, 설명이 좀 더 짧기 때문입니다. 필드 길이 및 기타 요소가 관련성 점수에 미치는 영향에 대해 자세히 알아보려면 [Lucene의 실제 점수 매기기 공식](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)을 살펴보세요.
 
 일부 쿼리 유형(와일드카드, 접두사, regex)은 전체적인 문서 점수에 항상 상수 점수를 부여합니다. 따라서 쿼리 확장을 통해 검색된 일치 항목이 결과에는 포함되지만 순위에는 영향을 주지 않습니다. 
 
@@ -361,8 +361,8 @@ search=Spacious, air-condition* +"Ocean view"
 
 Azure Cognitive Search에서 관련성 점수를 조정 하는 방법에는 두 가지가 있습니다.
 
-1. **점수 매기기 프로필**은 규칙 집합을 기준으로 순위가 지정된 결과 목록에서 문서를 승격합니다. 이 문서의 예제에서는 제목 필드와 일치하는 문서가 설명 필드와 일치하는 문서보다 관련성이 높은 것으로 간주할 수 있습니다. 뿐만 아니라 만약 인덱스에 각 호텔의 가격 필드가 있다면 가격이 낮은 문서를 승격할 수 있습니다. [검색 인덱스에 점수 매기기 프로필 추가](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)에 대해 자세히 알아보세요.
-2. **용어 상승**(전체 Lucene 쿼리 구문에만 사용 가능)은 쿼리 트리의 어떤 부분에도 적용할 수 있는 `^` 상승 연산자를 제공합니다. 이 예제에서는 접두사 *공기 조건을*검색 하는 대신 \* 정확한 용어 *공기 조건* 또는 접두사를 검색할 수 있지만, 정확한 용어에서 일치 하는 문서는 쿼리 라는 용어에 상승 (* 공기 조건 ^ 2 | |)을 적용 하 여 더 높은 순위를 갖습니다. 공기 조건 * *. [용어 상승](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)에 대해 자세히 알아보세요.
+1. **점수 매기기 프로필** 은 규칙 집합을 기준으로 순위가 지정된 결과 목록에서 문서를 승격합니다. 이 문서의 예제에서는 제목 필드와 일치하는 문서가 설명 필드와 일치하는 문서보다 관련성이 높은 것으로 간주할 수 있습니다. 뿐만 아니라 만약 인덱스에 각 호텔의 가격 필드가 있다면 가격이 낮은 문서를 승격할 수 있습니다. [검색 인덱스에 점수 매기기 프로필 추가](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)에 대해 자세히 알아보세요.
+2. **용어 상승**(전체 Lucene 쿼리 구문에만 사용 가능)은 쿼리 트리의 어떤 부분에도 적용할 수 있는 `^` 상승 연산자를 제공합니다. 이 예제에서는 접두사 *공기 조건을* 검색 하는 대신 \* 정확한 용어 *공기 조건* 또는 접두사를 검색할 수 있지만, 정확한 용어에서 일치 하는 문서는 쿼리 라는 용어에 상승 (* 공기 조건 ^ 2 | |)을 적용 하 여 더 높은 순위를 갖습니다. 공기 조건 * *. [용어 상승](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost)에 대해 자세히 알아보세요.
 
 
 ### <a name="scoring-in-a-distributed-index"></a>분산된 인덱스에 점수 매기기
@@ -393,13 +393,13 @@ Azure Cognitive Search의 모든 인덱스는 자동으로 여러 분할 분할 
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 [문서 검색 REST API](/rest/api/searchservice/search-documents) 
 
 [단순 쿼리 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[전체 Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Full Lucene 쿼리 구문](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [검색 결과 처리](./search-pagination-page-layout.md)
 

@@ -12,17 +12,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 41f3505388e72fba15277067a94cf4e473008f20
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fab52fcea03a2f65c868cfac27f8a8cef115b2be
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790426"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917650"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 SQL Server 2005 이상 데이터베이스를 Azure SQL Database으로 마이그레이션하는 기본 방법에 대해 알아봅니다. Azure SQL Managed Instance로 마이그레이션하는 방법에 대 한 자세한 내용은 [AZURE sql Managed Instance SQL Server 인스턴스 마이그레이션](../managed-instance/migrate-to-instance-from-sql-server.md)을 참조 하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 SQL Server 2005 이상 데이터베이스를 Azure SQL Database으로 마이그레이션하는 기본 방법에 대해 알아봅니다. Azure SQL Managed Instance로 마이그레이션하는 방법에 대 한 자세한 내용은 [AZURE sql Managed Instance SQL Server 인스턴스 마이그레이션](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)을 참조 하세요. Azure SQL로 마이그레이션할 마이그레이션 옵션 및 도구를 선택 하는 방법에 대 한 지침은 [AZURE sql로](../migration-guides/index.yml) 마이그레이션을 참조 하세요.
+
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션
 

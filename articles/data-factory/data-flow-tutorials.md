@@ -1,17 +1,17 @@
 ---
 title: 데이터 흐름 매핑 비디오 자습서
 description: 매핑 데이터 흐름 개념을 설명하는 비디오 자습서 목록
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 10/13/2020
-ms.openlocfilehash: 90b0791387e8b4966f8f2c56d3838f54457beef5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 11/02/2020
+ms.openlocfilehash: 605d740b56b4f1cd57ab705e442a8b3e3946fcff
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044057"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490706"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -86,6 +86,8 @@ ms.locfileid: "92044057"
 [계층적 데이터 변환](https://youtu.be/oAEh21NFgWQ)
 
 [순위 변환](https://youtu.be/6XvgkbMtws0)
+
+[캐시된 조회](https://www.youtube.com/watch?v=HqCn42FaRJs)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 

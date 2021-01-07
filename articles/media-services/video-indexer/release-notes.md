@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145755"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916663"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -29,6 +29,12 @@ ms.locfileid: "93145755"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+##  <a name="december-2020"></a>2020년 12월
+
+### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>스위스 서부 및 스위스 북부에 배포 Video Indexer
+
+이제 스위스 서부 및 스위스 북부 지역에서 Video Indexer 유료 계정을 만들 수 있습니다.
 
 ## <a name="october-2020"></a>2020년 10월
 

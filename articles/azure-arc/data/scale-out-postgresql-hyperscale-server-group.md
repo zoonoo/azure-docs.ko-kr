@@ -9,15 +9,15 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: df0620308fab2e813fe3802dc7effb9dc1ce226c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285386"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96779977"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>작업자 노드를 더 추가 하 여 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 확장
-이 문서에서는 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹을 확장 하는 방법을 설명 합니다. 시나리오를 통해이를 수행 합니다. **시나리오를 실행 하지 않고 규모를 확장 하는 방법에 대 한 자세한 내용을 보려면 단락 [규모 확장](#scale-out)으로 이동**하세요.
+이 문서에서는 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹을 확장 하는 방법을 설명 합니다. 시나리오를 통해이를 수행 합니다. **시나리오를 실행 하지 않고 규모를 확장 하는 방법에 대 한 자세한 내용을 보려면 단락 [규모 확장](#scale-out)으로 이동** 하세요.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -31,7 +31,7 @@ Azure Arc의 크기 조정 모델에 이미 익숙한 경우 PostgreSQL Hypersca
 - [다중 테 넌 트 데이터베이스 디자인](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
 - [실시간 분석 대시보드 디자인](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> \* 위의 문서에서 **Azure Portal에 로그인**섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
+> \* 위의 문서에서 **Azure Portal에 로그인** 섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
 
 ## <a name="scenario"></a>시나리오
 이 시나리오는 [Azure Arc Enabled PostgreSQL Hyperscale 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md) 설명서에서 예제로 생성 된 PostgreSQL hyperscale 서버 그룹을 참조 합니다.
@@ -160,7 +160,7 @@ azdata arc postgres server edit -n <server group name> -w <target number of work
 azdata arc postgres server edit -n postgres01 -w 4
 ```
 
-노드를 추가할 때 서버 그룹에 대 한 보류 중 상태가 표시 됩니다. 예를 들면 다음과 같습니다.
+노드를 추가할 때 서버 그룹에 대 한 보류 중 상태가 표시 됩니다. 예:
 ```console
 azdata arc postgres server list
 ```
@@ -182,7 +182,7 @@ postgres01  Pending 4/5    4
 azdata arc postgres server list
 ```
 
-네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
+네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예:
 ```console
 Name        State    Workers
 ----------  -------  ---------
@@ -195,7 +195,7 @@ postgres01  Ready    4
 kubectl get postgresql-12
 ```
 
-네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
+네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예:
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
@@ -249,8 +249,7 @@ SELECT COUNT(*) FROM github_events;
     * [다중 테 넌 트 데이터베이스 디자인](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [실시간 분석 대시보드 디자인](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
- > \* 위의 문서에서 **Azure Portal에 로그인**섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
+ > \* 위의 문서에서 **Azure Portal에 로그인** 섹션을 건너뛰고 **Azure Database for PostgreSQL-Hyperscale (Citus) & 만듭니다**. Azure Arc 배포의 나머지 단계를 구현 합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공 되는 Citus (Azure Database for PostgreSQL Hyperscale)에 고유 하지만, 문서의 다른 부분은 Azure Arc enabled PostgreSQL Hyperscale에 직접 적용할 수 있습니다.
 
 - [저장소 구성 및 Kubernetes 저장소 개념](storage-configuration.md)
-- [영구적 볼륨 클레임 확장](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes 리소스 모델](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a9357f81c3b22f70af2a4a05de2de10e19acfbd9
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: edf9df1777c4ab1d204cfc8058ec22c2d4e3f663
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458662"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>자습서: Learning Seat LMS와 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ Learning Seat LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://<subdomain>.learningseatlms.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Learning Seat LMS 클라이언트 지원 팀](http://help.learningseatlms.com/help)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Learning Seat LMS 클라이언트 지원 팀](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -130,13 +130,13 @@ Learning Seat LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
 ### <a name="configure-learning-seat-lms-single-sign-on"></a>Learning Seat LMS Single Sign-On 구성
 
-**Learning Seat LMS** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Learning Seat LMS 지원 팀](http://help.learningseatlms.com/help)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Learning Seat LMS** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Learning Seat LMS 지원 팀](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -161,7 +161,7 @@ Learning Seat LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Learning Seat LMS에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Learning Seat LMS** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Learning Seat LMS** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -185,7 +185,7 @@ Learning Seat LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
 ### <a name="create-learning-seat-lms-test-user"></a>Learning Seat LMS 테스트 사용자 만들기
 
-이 섹션에서는 Learning Seat LMS에서 Britta Simon이라는 사용자를 만듭니다. Learning Seat LMS 플랫폼에서 사용자를 추가하려면 [Learning Seat LMS 지원 팀](http://help.learningseatlms.com/help)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Learning Seat LMS에서 Britta Simon이라는 사용자를 만듭니다. Learning Seat LMS 플랫폼에서 사용자를 추가하려면 [Learning Seat LMS 지원 팀](https://azuremarketplace.microsoft.com/marketplace/apps/aad.learnconnect?tab=Overview)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

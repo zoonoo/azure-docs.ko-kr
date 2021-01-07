@@ -3,17 +3,17 @@ title: Azure Service Bus 메시징-큐, 토픽 및 구독
 description: 이 문서에서는 Azure Service Bus 메시징 엔터티 (큐, 토픽 및 구독)에 대 한 개요를 제공 합니다.
 ms.topic: article
 ms.date: 11/04/2020
-ms.openlocfilehash: 7c1d22605e841eac42f2b47aab38777a622bfb90
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359428"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95791601"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 Azure Service Bus는 신뢰할 수 있는 메시지 큐 및 지속형 게시/구독 메시징을 포함하여 클라우드 기반, 메시지 지향 미들웨어 기술 집합을 지원합니다. 이러한 조정 된 메시징 기능은 Service Bus 메시징 작업을 사용 하 여 게시-구독, 임시 분리 및 부하 분산 시나리오를 지 원하는 분리 된 메시징 기능으로 간주할 수 있습니다. 분리 된 통신에는 많은 이점이 있습니다. 예를 들어 클라이언트 및 서버는 필요에 따라 연결 하 고 비동기 방식으로 작업을 수행할 수 있습니다.
 
-Service Bus에서 메시징 기능의 핵심을 구성 하는 메시징 엔터티는 **큐** , **토픽 및 구독** , 규칙/동작입니다.
+Service Bus에서 메시징 기능의 핵심을 구성 하는 메시징 엔터티는 **큐**, **토픽 및 구독**, 규칙/동작입니다.
 
 ## <a name="queues"></a>큐
 큐 **는** 하나 이상의 경쟁 소비자에 게 FIFO (선입 선출) 메시지 배달을 제공 합니다. 즉, 수신자는 일반적으로 큐에 추가 된 순서 대로 메시지를 수신 하 고 처리 합니다. 그리고 하나의 메시지 소비자만 각 메시지를 받고 처리 합니다. 큐를 사용 하는 경우의 주요 혜택은 **응용 프로그램 구성 요소의 임시** 분리를 구현 하는 것입니다. 즉, 생산자 (발신자)와 소비자 (수신자)가 동시에 메시지를 보내고 받을 필요가 없습니다. 메시지가 큐에 지속적으로 저장 되기 때문입니다. 또한 생산자는 소비자의 회신이 계속 해 서 메시지를 처리 하 고 보낼 때까지 기다릴 필요가 없습니다.
@@ -23,10 +23,10 @@ Service Bus에서 메시징 기능의 핵심을 구성 하는 메시징 엔터�
 메시지 생산자와 소비자 간을 중개하는 큐를 사용하면 구성 요소 간에 내재하는 느슨한 연결을 제공합니다. 생산자와 소비자가 서로를 인식 하지 못하기 때문에 생산자에 영향을 주지 않고 소비자를 업그레이드할 수 있습니다.
 
 ### <a name="create-queues"></a>큐 만들기
-[Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md)또는 [리소스 관리자 템플릿을](service-bus-resource-manager-namespace-queue.md)사용 하 여 큐를 만들 수 있습니다. 그런 다음 [c #](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues-new-package.md), [PHP](service-bus-php-how-to-use-queues.md), [Ruby](service-bus-ruby-how-to-use-queues.md)로 작성 된 클라이언트를 사용 하 여 메시지를 보내고 받습니다. 
+[Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md)또는 [리소스 관리자 템플릿을](service-bus-resource-manager-namespace-queue.md)사용 하 여 큐를 만들 수 있습니다. 그런 다음 [c #](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md), [Ruby](service-bus-ruby-how-to-use-queues.md)로 작성 된 클라이언트를 사용 하 여 메시지를 보내고 받습니다. 
 
 ### <a name="receive-modes"></a>수신 모드
-Service Bus에서 메시지를 받는 두 가지 다른 모드( **ReceiveAndDelete** 또는 **PeekLock** )를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 Service Bus 소비자의 요청을 받을 때 메시지를 사용 되는 것으로 표시 하 고 소비자 응용 프로그램에 반환 합니다. 이 모드는 가장 간단한 모델입니다. 오류가 발생 하는 경우 응용 프로그램이 메시지를 처리 하지 않도록 허용할 수 있는 시나리오에 가장 적합 합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. 메시지를 사용 중인 것으로 표시 Service Bus 응용 프로그램은 다시 시작할 때 메시지를 사용 하기 시작 합니다. 크래시 전에 사용 된 메시지는 누락 됩니다.
+Service Bus에서 메시지를 받는 두 가지 다른 모드(**ReceiveAndDelete** 또는 **PeekLock**)를 지정할 수 있습니다. [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 Service Bus 소비자의 요청을 받을 때 메시지를 사용 되는 것으로 표시 하 고 소비자 응용 프로그램에 반환 합니다. 이 모드는 가장 간단한 모델입니다. 오류가 발생 하는 경우 응용 프로그램이 메시지를 처리 하지 않도록 허용할 수 있는 시나리오에 가장 적합 합니다. 이 시나리오를 이해하려면 소비자가 수신 요청을 실행한 다음, 처리하기 전에 충돌하는 시나리오를 고려합니다. 메시지를 사용 중인 것으로 표시 Service Bus 응용 프로그램은 다시 시작할 때 메시지를 사용 하기 시작 합니다. 크래시 전에 사용 된 메시지는 누락 됩니다.
 
 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드에서 수신 작업은 2 단계가 되기 때문에 누락 된 메시지를 허용할 수 없는 응용 프로그램을 지원할 수 있습니다. Service Bus 요청을 받으면 다음 작업을 수행 합니다.
 
@@ -46,10 +46,10 @@ Service Bus에서 메시지를 받는 두 가지 다른 모드( **ReceiveAndDele
 큐의 메시지 전송 기능은 토픽에 직접 매핑되고 메시지 수신 기능은 구독에 매핑됩니다. 다른 기능 중에서 이 기능은 구독에서 큐와 관련하여 이 섹션의 앞부분에서 설명한 동일한 패턴(경쟁 소비자, 임시 분리, 부하 평준화 및 부하 분산)을 지원한다는 것을 의미합니다.
 
 ### <a name="create-topics-and-subscriptions"></a>토픽 및 구독 만들기
-토픽을 만드는 것은 이전 섹션에서 설명한 대로 큐를 만드는 것과 비슷합니다. [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-tutorial-topics-subscriptions-cli.md)또는 [리소스 관리자 템플릿을](service-bus-resource-manager-namespace-topic.md)사용 하 여 토픽 및 구독을 만들 수 있습니다. 그런 다음 [c #](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md), [PHP](service-bus-php-how-to-use-topics-subscriptions.md), [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)로 작성 된 클라이언트를 사용 하 여 항목에 메시지를 보내고 구독에서 메시지를 받습니다. 
+토픽을 만드는 것은 이전 섹션에서 설명한 대로 큐를 만드는 것과 비슷합니다. [Azure Portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-tutorial-topics-subscriptions-cli.md)또는 [리소스 관리자 템플릿을](service-bus-resource-manager-namespace-topic.md)사용 하 여 토픽 및 구독을 만들 수 있습니다. 그런 다음 [c #](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), [PHP](service-bus-php-how-to-use-topics-subscriptions.md), [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)로 작성 된 클라이언트를 사용 하 여 항목에 메시지를 보내고 구독에서 메시지를 받습니다. 
 
 ### <a name="rules-and-actions"></a>규칙 및 동작
-대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 **필터 동작** 이라고 합니다. 구독을 만들 때 메시지의 속성에 대해 작동 하는 필터 식을 제공할 수 있습니다. 속성에는 시스템 속성 (예: **Label** ) 및 사용자 지정 응용 프로그램 속성 (예: **StoreName** )이 모두 있을 수 있습니다. 이 경우 SQL 필터 식은 선택 사항입니다. SQL 필터 식이 없으면 구독에 정의 된 모든 필터 동작이 해당 구독의 모든 메시지에 대해 수행 됩니다.
+대부분의 시나리오에서 특정 특성을 가진 메시지를 다른 방법으로 처리해야 합니다. 이 처리를 사용하려면 desired 속성이 있는 메시지를 찾은 다음, 해당 속성에 대한 특정 수정 작업을 수행하도록 구독을 구성하면 됩니다. Service Bus 구독이 토픽으로 전송된 모든 메시지를 확인하는 동안 가상 구독 큐로 이러한 메시지의 하위 집합을 복사할 수 있습니다. 이 필터링은 구독 필터를 사용하여 수행됩니다. 이와 같은 수정을 **필터 동작** 이라고 합니다. 구독을 만들 때 메시지의 속성에 대해 작동 하는 필터 식을 제공할 수 있습니다. 속성에는 시스템 속성 (예: **Label**) 및 사용자 지정 응용 프로그램 속성 (예: **StoreName**)이 모두 있을 수 있습니다. 이 경우 SQL 필터 식은 선택 사항입니다. SQL 필터 식이 없으면 구독에 정의 된 모든 필터 동작이 해당 구독의 모든 메시지에 대해 수행 됩니다.
 
 전체 작업 예제를 보려면 GitHub의 [TopicSubscriptionWithRuleOperationsSample 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample)을 참조하세요.
 

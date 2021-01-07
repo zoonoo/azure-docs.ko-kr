@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776105"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835801"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>위험 재구성 및 사용자 차단 해제
 
@@ -37,7 +37,7 @@ ms.locfileid: "91776105"
 
 ### <a name="self-remediation-with-risk-policy"></a>위험 정책을 통한 자체 재구성
 
-사용자가 위험 정책에서 MFA (Azure Multi-Factor Authentication)와 SSPR (셀프 서비스 암호 재설정)를 사용 하 여 자체 재구성을 허용 하면 위험이 감지 되 면 스스로 차단을 해제할 수 있습니다. 이러한 검색은 닫힌 것으로 간주 됩니다. 위험이 검색 될 때를 사용 하려면 사용자가 이전에 Azure MFA 및 SSPR에 등록 되어 있어야 합니다.
+사용자가 위험 정책에서 MFA (Azure AD Multi-Factor Authentication)와 SSPR (셀프 서비스 암호 재설정)를 사용 하 여 자체 재구성을 허용 하는 경우 위험이 감지 되 면 스스로 차단을 해제할 수 있습니다. 이러한 검색은 닫힌 것으로 간주 됩니다. 위험이 감지 되 면 사용자가 Azure AD MFA 및 SSPR에 대해 이전에 등록 되어 있어야 사용할 수 있습니다.
 
 일부 검색은 사용자가 직접 수정 해야 하는 수준에 대 한 위험을 발생 시 키 지 않지만 관리자는 이러한 검색을 평가 해야 할 수도 있습니다. 관리자는 [위치에서의 액세스를 차단](../conditional-access/howto-conditional-access-policy-location.md) 하거나 정책에서 허용 가능한 위험을 낮추는 등의 추가 측정값이 필요 하다 고 결정할 수 있습니다.
 
@@ -49,13 +49,13 @@ ms.locfileid: "91776105"
 
 - **임시 암호 생성** - 임시 암호를 생성하여 ID를 안전한 상태로 즉시 전환할 수 있습니다. 이 메서드는 임시 암호가 무엇 인지 알아야 하므로 영향을 받는 사용자에 게 연락 해야 합니다. 암호는 임시 암호 이므로 사용자에 게 다음 로그인 시 암호를 새로운 항목으로 변경 하 라는 메시지가 표시 됩니다.
 
-- **사용자가 암호를 재설정해야 함** - 사용자가 암호를 재설정하도록 요구하면 지원 센터 또는 관리자에게 문의하지 않고도 셀프 복구가 가능합니다. 이 메서드는 Azure MFA 및 SSPR에 등록 된 사용자 에게만 적용 됩니다. 등록 되지 않은 사용자의 경우에는이 옵션을 사용할 수 없습니다.
+- **사용자가 암호를 재설정해야 함** - 사용자가 암호를 재설정하도록 요구하면 지원 센터 또는 관리자에게 문의하지 않고도 셀프 복구가 가능합니다. 이 메서드는 Azure AD MFA 및 SSPR에 등록 된 사용자 에게만 적용 됩니다. 등록 되지 않은 사용자의 경우에는이 옵션을 사용할 수 없습니다.
 
 ### <a name="dismiss-user-risk"></a>사용자 위험 해제
 
 암호 재설정이 옵션이 아닌 경우, 예를 들어 사용자가 삭제 되었으므로 사용자 위험 검색을 해제 하도록 선택할 수 있습니다.
 
-**사용자 위험 해제**를 클릭 하면 모든 이벤트가 닫히고 영향을 받는 사용자는 더 이상 위험 하지 않습니다. 그러나 이 방법은 기존 암호에 영향을 주지 않으므로 관련된 ID를 안전한 상태로 다시 전환하지 않습니다. 
+**사용자 위험 해제** 를 클릭 하면 모든 이벤트가 닫히고 영향을 받는 사용자는 더 이상 위험 하지 않습니다. 그러나 이 방법은 기존 암호에 영향을 주지 않으므로 관련된 ID를 안전한 상태로 다시 전환하지 않습니다. 
 
 ### <a name="close-individual-risk-detections-manually"></a>수동으로 개별 위험 검색 닫기
 

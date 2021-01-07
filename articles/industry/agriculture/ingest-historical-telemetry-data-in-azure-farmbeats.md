@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: af1bee00261cd96f61a39389f31a52109f4e64b5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 603f14d2076b5b74dde0b92a732f8fe816f6dd10
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675825"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656787"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -84,7 +84,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
     ```
 
-9. 화면의 지시에 따라 **API 끝점** , **테 넌 트 ID** , **클라이언트 ID** , **클라이언트 암호** 및 **EventHub 연결 문자열** 의 값을 캡처합니다.
+9. 화면의 지시에 따라 **API 끝점**, **테 넌 트 ID**, **클라이언트 ID**, **클라이언트 암호** 및 **EventHub 연결 문자열** 의 값을 캡처합니다.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>장치 또는 센서 메타 데이터 만들기
@@ -96,51 +96,50 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
  > [!NOTE]
  > 파트너는 메타 데이터에 대 한 읽기, 만들기 및 업데이트에만 액세스할 수 있습니다. **삭제 옵션은 파트너 에게만 제한 됩니다.**
 
-- /**DeviceModel** : DeviceModel는 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 장치 메타 데이터에 해당 합니다.
-- /**Device** : Device는 팜에 있는 물리적 디바이스에 해당합니다.
-- /**SensorModel** : SensorModel 센서의 메타 데이터에 해당 합니다. 예를 들어 센서의 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 일치 합니다.
-- /**Sensor** : Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
+- /**DeviceModel**: DeviceModel는 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 장치 메타 데이터에 해당 합니다.
+- /**Device**: Device는 팜에 있는 물리적 디바이스에 해당합니다.
+- /**SensorModel**: SensorModel 센서의 메타 데이터에 해당 합니다. 예를 들어 센서의 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 일치 합니다.
+- /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
-
-|        DeviceModel   |  제안   |
-| ------- | -------             |
-|     Type(node, gateway)        |          장치 노드 또는 게이트웨이의 유형입니다.      |
-|          제조업체            |         제조업체의 이름입니다.    |
-|  ProductCode                    |  디바이스 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor#6800.  |
-|            포트          |     포트 이름 및 유형(디지털 또는 아날로그)입니다.
-|     속성                 |  리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.
-      Description     | 모델에 대한 의미 있는 설명을 제공합니다.
-|    속성          |    제조업체로부터의 추가 속성입니다.   |
-|    **디바이스**             |                      |
-|   DeviceModelId     |     연결된 디바이스 모델의 ID입니다.  |
-|  HardwareId          | MAC 주소와 같은 장치에 대 한 고유 ID입니다.
-|  ReportingInterval        |   보고 간격(초)입니다.
-|  위치            |  디바이스 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다.
-|ParentDeviceId       |    이 디바이스가 연결된 부모 디바이스의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다.  |
-|    Name            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
-|     Description       |      의미 있는 설명을 제공합니다. |
-|     속성    |  제조업체로부터의 추가 속성입니다.
-|     **SensorModel**        |          |
-|       Type(analog, digital)          |      센서 유형 (아날로그 또는 디지털)입니다.       |
-|          제조업체            |       센서의 제조업체입니다.     |
-|     ProductCode| 제품 코드 또는 모델 이름 또는 번호입니다. 예: RS-CO2-N01. |
-|       SensorMeasures > Name       | 센서 측정값의 이름입니다. 소문자만 지원됩니다. 다른 깊이에서 측정하려면 깊이를 지정합니다. 예: soil_moisture_15cm. 이 이름은 원격 분석 데이터와 일치 해야 합니다.  |
-|          SensorMeasures > DataType       |원격 분석 데이터 형식입니다. 현재 double이 지원됩니다.|
-|    SensorMeasures > Type    |센서 원격 분석 데이터의 측정값 형식입니다. 시스템 정의 형식은 AmbientTemperature입니다. CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 유형을 추가하려면 /ExtendedType API를 참조하세요.|
-|        SensorMeasures > Unit              | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 온도, Rankine, 파스칼, 수, 수, 프, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion,, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole,, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, MilliLiter, MicroMolPerMeterSquaredPerSecond, Seconds, InchesPerHour,,.|
-|    SensorMeasures > AggregationType    |  값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다.  |
-|          Name            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
-|    Description        | 모델에 대한 의미 있는 설명을 제공합니다.|
-|   속성       |  제조업체로부터의 추가 속성입니다.|
-|    **Sensor**      |          |
-| HardwareId          |   제조업체에서 설정한 센서의 고유 ID입니다.|
-|  SensorModelId     |    연결된 센서 모델의 ID입니다.|
-| 위치          |  센서 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다.|
-|   Port > Name        |  디바이스에서 센서가 연결된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다.|
-|    DeviceID  |    센서가 연결된 디바이스의 ID입니다. |
-| 속성            |   리소스를 식별하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다.|
-|    Description      | 의미 있는 설명을 제공합니다.|
-|    속성        |제조업체로부터의 추가 속성입니다.|
+| DeviceModel | 제안 |
+|--|--|
+| Type(node, gateway) | 장치 노드 또는 게이트웨이의 유형입니다. |
+| 제조업체 | 제조업체의 이름입니다. |
+| ProductCode | 디바이스 제품 코드 또는 모델 이름 또는 번호입니다. 예: EnviroMonitor#6800. |
+| 포트 | 포트 이름 및 유형(디지털 또는 아날로그)입니다. |
+| 속성 | 리소스를 식별하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
+| Description | 모델에 대한 의미 있는 설명을 제공합니다. |
+| 속성 | 제조업체로부터의 추가 속성입니다. |
+| **디바이스** |  |
+| DeviceModelId | 연결된 디바이스 모델의 ID입니다. |
+| HardwareId | MAC 주소와 같은 장치에 대 한 고유 ID입니다. |
+| ReportingInterval | 보고 간격(초)입니다. |
+| 위치 | 디바이스 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다. |
+| ParentDeviceId | 이 디바이스가 연결된 부모 디바이스의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다. |
+| Name | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 된 경우 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다. |
+| Description | 의미 있는 설명을 제공합니다. |
+| 속성 | 제조업체로부터의 추가 속성입니다. |
+| **SensorModel** |  |
+| Type(analog, digital) | 센서 유형 (아날로그 또는 디지털)입니다. |
+| 제조업체 | 센서의 제조업체입니다. |
+| ProductCode | 제품 코드 또는 모델 이름 또는 번호입니다. 예: RS-CO2-N01. |
+| SensorMeasures > Name | 센서 측정값의 이름입니다. 소문자만 지원됩니다. 다른 깊이에서 측정하려면 깊이를 지정합니다. 예: soil_moisture_15cm. 이 이름은 원격 분석 데이터와 일치 해야 합니다. |
+| SensorMeasures > DataType | 원격 분석 데이터 형식입니다. 현재 double이 지원됩니다. |
+| SensorMeasures > Type | 센서 원격 분석 데이터의 측정값 형식입니다. 시스템 정의 형식은 AmbientTemperature입니다. CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 유형을 추가하려면 /ExtendedType API를 참조하세요. |
+| SensorMeasures > Unit | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 온도, Rankine, 파스칼, 수, 수, 프, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion,, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole,, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, MilliLiter, MicroMolPerMeterSquaredPerSecond, Seconds, InchesPerHour,,. |
+| SensorMeasures > AggregationType | 값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다. |
+| Name | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다. |
+| Description | 모델에 대한 의미 있는 설명을 제공합니다. |
+| 속성 | 제조업체로부터의 추가 속성입니다. |
+| **Sensor** |  |
+| HardwareId | 제조업체에서 설정한 센서의 고유 ID입니다. |
+| SensorModelId | 연결된 센서 모델의 ID입니다. |
+| 위치 | 센서 위도(-90 ~ + 90), 경도(-180 ~ 180), 고도(미터)입니다. |
+| Port > Name | 디바이스에서 센서가 연결된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다. |
+| DeviceID | 센서가 연결된 디바이스의 ID입니다. |
+| 속성 | 리소스를 식별하는 이름입니다. 예를 들어 센서 이름 또는 제품 이름과 모델 번호 또는 제품 코드를 사용할 수 있습니다. |
+| Description | 의미 있는 설명을 제공합니다. |
+| 속성 | 제조업체로부터의 추가 속성입니다. |
 
 개체에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
 
@@ -192,9 +191,9 @@ access_token = token_response.get('access_token')
 
 FarmBeats Datahub에 대 한 API 호출을 수행할 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
-- **Content-type** : application/json
-- **권한 부여** : 전달자 <Access-Token>
-- **수락** : application/json
+- **Content-type**: application/json
+- **권한 부여**: 전달자 <Access-Token>
+- **수락**: application/json
 
 ### <a name="input-payload-to-create-metadata"></a>메타 데이터를 만들기 위한 입력 페이로드
 
@@ -431,9 +430,9 @@ write_client.stop()
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집한 후 원격 분석 데이터를 볼 수 없음
 
-**증상** : 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+**증상**: 디바이스 또는 센서가 배포되고 FarmBeats에 디바이스/센서를 만들었고 EventHub로 원격 분석을 수집했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
 
-**정정 작업** :
+**정정 작업**:
 
 1. 적절 한 파트너 등록을 완료 했는지 확인 합니다 .이를 확인 하려면 datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하면 됩니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
 

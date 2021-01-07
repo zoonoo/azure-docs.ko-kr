@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463759"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835903"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Id 보호에서 위험 감지 시뮬레이션
 
@@ -40,7 +40,7 @@ ms.locfileid: "84463759"
 다음 절차를 완료하려면 다음을 사용해야 합니다.
 
 - [Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en) - 익명 IP 주소를 시뮬레이션할 수 있습니다. 조직이 Tor 브라우저를 사용하여 제한하는 경우 가상 머신을 사용해야 합니다.
-- Azure Multi-Factor Authentication에 아직 등록 되지 않은 테스트 계정.
+- Azure AD Multi-Factor Authentication에 아직 등록 되지 않은 테스트 계정.
 
 **익명 IP에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
@@ -61,7 +61,7 @@ ms.locfileid: "84463759"
 다음 절차를 완료하려면 다음 항목을 포함하는 사용자 계정을 사용해야 합니다.
 
 - 최소 30일 로그인 기록.
-- Azure Multi-Factor Authentication 사용 하도록 설정 되었습니다.
+- Azure AD Multi-Factor Authentication 사용 하도록 설정 되었습니다.
 
 **익숙하지 않은 위치에서 로그인을 시뮬레이트하려면 다음 단계를 수행합니다.**
 
@@ -93,14 +93,14 @@ ms.locfileid: "84463759"
 사용자 위험 보안 정책을 테스트하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory**  >  **보안**  >  **개요**로 이동 합니다.
-1. **사용자 위험 정책 구성**을 선택 합니다.
+1. **Azure Active Directory**  >  **보안**  >  **개요** 로 이동 합니다.
+1. **사용자 위험 정책 구성** 을 선택 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
-      1. **조건**  -  **사용자 위험** Microsoft는이 옵션을 **높음으로**설정 하는 것이 좋습니다.
+      1. **조건**  -  **사용자 위험** Microsoft는이 옵션을 **높음으로** 설정 하는 것이 좋습니다.
    1. **컨트롤** 에서
-      1. **액세스** - **액세스를 허용** 하 고 **암호 변경을 요구**하는 것이 Microsoft의 권장 사항입니다.
+      1. **액세스** - **액세스를 허용** 하 고 **암호 변경을 요구** 하는 것이 Microsoft의 권장 사항입니다.
    1. **정책 적용**  -  **끄기**
    1. **저장** -이 작업을 수행 하면 **개요** 페이지로 돌아갑니다.
 1. 예를 들어, 위험 검색 중 하나를 시뮬레이션 하는 등의 방법으로 테스트 계정의 사용자 위험을 상승 시킵니다.
@@ -113,14 +113,14 @@ ms.locfileid: "84463759"
 로그인 위험 정책을 테스트하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory**  >  **보안**  >  **개요**로 이동 합니다.
-1. **로그인 위험 정책 구성**을 선택 합니다.
+1. **Azure Active Directory**  >  **보안**  >  **개요** 로 이동 합니다.
+1. **로그인 위험 정책 구성** 을 선택 합니다.
    1. **할당** 아래
       1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
          1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
-      1. **조건**  -  **로그인 위험** Microsoft는이 옵션을 **보통 이상**으로 설정 하는 것이 좋습니다.
+      1. **조건**  -  **로그인 위험** Microsoft는이 옵션을 **보통 이상** 으로 설정 하는 것이 좋습니다.
    1. **컨트롤** 에서
-      1. **액세스** - **액세스를 허용** 하 고 **multi-factor authentication을 요구**하는 것이 Microsoft의 권장 사항입니다.
+      1. **액세스** - **액세스를 허용** 하 고 **multi-factor authentication을 요구** 하는 것이 Microsoft의 권장 사항입니다.
    1. **정책 적용**  -  **설정**
    1. **저장** -이 작업을 수행 하면 **개요** 페이지로 돌아갑니다.
 1. 이제 위험한 세션을 사용 하 여 로그인 (예: 사용자 브라우저 사용) 하 여 로그인 위험 기반 조건부 액세스를 테스트할 수 있습니다. 

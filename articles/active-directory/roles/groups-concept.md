@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d014a901791f16ecdcb9c3d5f0858a8626cc1072
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 54988c8bbc4a9c3d448ac35f31e97e2d20228209
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379080"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007571"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>클라우드 그룹을 사용 하 여 Azure Active Directory에서 역할 할당 관리 (미리 보기)
 
@@ -52,8 +52,6 @@ Azure AD를 사용 하면 그룹에 대해 isAssignableToRole 라는 새 속성�
 
 다음 시나리오는 현재 지원 되지 않습니다.  
 
-- Azure AD 사용자 지정 역할에 클라우드 그룹 할당
-- 관리 단위나 응용 프로그램 범위에 대해 Azure AD 역할 (기본 제공 또는 사용자 지정)에 클라우드 그룹을 할당 합니다.
 - 온-프레미스 그룹을 Azure AD 역할에 할당 (기본 제공 또는 사용자 지정)
 
 ## <a name="known-issues"></a>알려진 문제

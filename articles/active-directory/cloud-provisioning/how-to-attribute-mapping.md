@@ -11,14 +11,14 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b7aa0bf8c82990a00b4e41041145a67ee2f02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fabad618233e8866c545e1c5ccbcc8cb7508ebf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91637221"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652100"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-attibute-mapping"></a>Azure AD Connect 클라우드 프로 비전 특성이 있는데 매핑
+# <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Azure AD Connect 클라우드 프로 비전 특성 매핑
 
 Azure AD Connect 클라우드 프로 비전에는 온-프레미스 사용자/그룹 개체와 Azure AD의 개체 간에 특성을 쉽게 매핑할 수 있도록 하는 새로운 기능이 도입 되었습니다.  이 기능은 클라우드 프로 비전 구성에 추가 되었습니다.
 
@@ -52,45 +52,51 @@ Azure AD Connect 클라우드 프로 비전에는 온-프레미스 사용자/그
 > 이 문서에서는 Azure Portal를 사용 하 여 특성을 매핑하는 방법에 대해 설명 합니다.  그래프 사용에 대 한 자세한 내용은 [변환](how-to-transformation.md) 을 참조 하세요.
 
 ## <a name="using-attribute-mapping"></a>특성 매핑 사용
+
 새 기능을 사용 하려면 다음 단계를 수행 합니다.
 
- 1.  Azure Portal에서 **Azure Active Directory**를 선택 합니다.
- 2.  **Azure AD Connect**를 선택합니다.
- 3.  **프로 비전 관리**를 선택 합니다.
+1.  Azure Portal에서 **Azure Active Directory** 를 선택합니다.
+2.  **Azure AD Connect** 를 선택합니다.
+3.  **프로 비전 관리** 를 선택 합니다.
 
-   ![프로 비전 관리](media/how-to-configure/manage1.png)
- 
- 4. **구성**아래에서 구성을 선택 합니다.
- 5. **매핑을 편집 하려면 클릭**하십시오 .를 선택 합니다.  이렇게 하면 특성 매핑 화면이 열립니다.
+    ![프로 비전 관리](media/how-to-configure/manage1.png)
 
- ![특성 추가](media/how-to-attribute-mapping/mapping6.png)
- 6.  **특성 추가**를 클릭 합니다.
+4. **구성** 아래에서 구성을 선택 합니다.
+5. **매핑을 편집 하려면 클릭** 하십시오 .를 선택 합니다.  이렇게 하면 특성 매핑 화면이 열립니다.
 
- ![매핑 유형](media/how-to-attribute-mapping/mapping1.png)
- 
- 7. **매핑 유형을**선택 합니다.  이 예에서는 식을 사용 합니다.
- 8.  상자에 식을 입력 합니다.  이 예제에서는 다음을 사용 합니다. `Replace([mail], "@contoso.com", , ,"", ,).`
- 9.  대상 특성을 입력 합니다.  이 예제에서는 ExtensionAttribute15를 사용 합니다.
- 10. 적용 시기를 선택 하 고 **적용** 을 클릭 합니다.
-   
-   ![매핑 편집](media/how-to-attribute-mapping/mapping2a.png)
- 11. 특성 매핑 화면으로 돌아가서 새 특성 매핑이 표시 됩니다.  
- 12. **스키마 저장**을 클릭 합니다.
+    ![특성 추가](media/how-to-attribute-mapping/mapping6.png)
 
- ![스키마 저장](media/how-to-attribute-mapping/mapping3.png)
+6.  **특성 추가** 를 클릭 합니다.
+
+    ![매핑 유형](media/how-to-attribute-mapping/mapping1.png)
+
+7. **매핑 유형을** 선택 합니다.  이 예에서는 식을 사용 합니다.
+8.  상자에 식을 입력 합니다.  이 예제에서는 다음을 사용 합니다. `Replace([mail], "@contoso.com", , ,"", ,).`
+9.  대상 특성을 입력 합니다.  이 예제에서는 ExtensionAttribute15를 사용 합니다.
+10. 적용 시기를 선택 하 고 **적용** 을 클릭 합니다.
+
+    ![매핑 편집](media/how-to-attribute-mapping/mapping2a.png)
+
+11. 특성 매핑 화면으로 돌아가서 새 특성 매핑이 표시 됩니다.  
+12. **스키마 저장** 을 클릭 합니다.
+
+    ![스키마 저장](media/how-to-attribute-mapping/mapping3.png)
 
 ## <a name="test-your-attribute-mapping"></a>특성 매핑 테스트
+
 특성 매핑을 테스트 하기 위해 [주문형 프로 비전](how-to-on-demand-provision.md)을 사용할 수 있습니다.  에서 
 
-1.  Azure Portal에서 **Azure Active Directory**를 선택 합니다.
-2.  **Azure AD Connect**를 선택합니다.
-3.  **프로 비전 관리**를 선택 합니다.
-4. **구성**아래에서 구성을 선택 합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 선택합니다.
+2. **Azure AD Connect** 를 선택합니다.
+3. **프로 비전 관리** 를 선택 합니다.
+4. **구성** 아래에서 구성을 선택 합니다.
 5. **유효성 검사** 아래에서 **사용자 프로 비전** 단추를 클릭 합니다. 
 6. 요청 시 프로 비전 화면  사용자 또는 그룹의 **고유 이름을** 입력 하 고 **프로 비전** 단추를 클릭 합니다.  
 7. 완료 되 면 성공 화면 및 4 개의 녹색 확인란이 표시 되 고 성공적으로 프로 비전 되었음을 나타냅니다.  
-  ![프로 비전 성공](media/how-to-attribute-mapping/mapping4.png)
-1. **작업 수행** 에서 **세부 정보 보기**를 클릭 합니다.  오른쪽에 새 특성 syncrhonized 및 적용 된 식이 표시 되어야 합니다.
+
+    ![프로 비전 성공](media/how-to-attribute-mapping/mapping4.png)
+
+8. **작업 수행** 에서 **세부 정보 보기** 를 클릭 합니다.  오른쪽에 새 특성 syncrhonized 및 적용 된 식이 표시 되어야 합니다.
 
   ![수행 작업](media/how-to-attribute-mapping/mapping5.png)
 

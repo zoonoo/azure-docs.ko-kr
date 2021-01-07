@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d365b13ef8fb7ed9676bb00919315dc6fc9773ee
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993706"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184589"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -93,9 +93,9 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 
 
 ### <a name="insights-and-solutions"></a>인사이트 및 솔루션 
-일부 서비스는 Azure Monitor 표준 기능 외의 도구를 제공합니다. [인사이트](./insights-overview.md)는 Azure Monitor 데이터 플랫폼과 표준 기능을 기반으로 한 사용자 지정된 모니터링 환경을 제공합니다. [솔루션](./solutions.md)은 Azure Monitor 로그를 기반으로 한 미리 정의된 모니터링 논리를 제공합니다. 
+일부 서비스는 Azure Monitor 표준 기능 외의 도구를 제공합니다. [인사이트](../monitor-reference.md)는 Azure Monitor 데이터 플랫폼과 표준 기능을 기반으로 한 사용자 지정된 모니터링 환경을 제공합니다. [솔루션](./solutions.md)은 Azure Monitor 로그를 기반으로 한 미리 정의된 모니터링 논리를 제공합니다. 
 
-서비스에 Azure Monitor 인사이트가 있는 경우에는 각 리소스 메뉴의 **모니터링**에서 액세스할 수 있습니다. **Azure Monitor** 메뉴에서 모든 인사이트 및 솔루션에 액세스할 수 있습니다.
+서비스에 Azure Monitor 인사이트가 있는 경우에는 각 리소스 메뉴의 **모니터링** 에서 액세스할 수 있습니다. **Azure Monitor** 메뉴에서 모든 인사이트 및 솔루션에 액세스할 수 있습니다.
 
 ![Azure Portal의 정보](media/monitor-azure-resource/insights.png)
 
@@ -119,7 +119,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해 여러 서비스 및 기타 데이터 원본의 로그와 메트릭을 통합합니다. 위에서 설명된 것처럼 Azure Monitor의 Log Analytics 작업 영역으로 플랫폼 메트릭, 활동 로그 및 리소스 로그를 수집하는 진단 설정을 만듭니다.
 
-[Log Analytics](../log-query/get-started-portal.md)를 사용하면 [로그 쿼리](../log-query/log-query-overview.md)로 작업할 수 있습니다. 로그 쿼리는 완전한 기능을 갖춘 쿼리 언어를 사용하여 로그 데이터에 대한 고급 분석을 수행할 수 있는 Azure Monitor의 강력한 기능입니다. Azure 리소스에 대한 **모니터링** 메뉴의 **로그**에서 Log Analytics를 열어 리소스를 [쿼리 범위](../log-query/scope.md#query-scope)로 사용하면서 로그 쿼리로 작업할 수 있습니다. 이를 통해 해당 리소스에 대한 여러 테이블의 데이터를 분석할 수 있습니다. Azure Monitor 메뉴에서 **로그**를 사용하여 모든 리소스에 대한 로그에 액세스할 수 있습니다. 
+[Log Analytics](../log-query/log-analytics-tutorial.md)를 사용하면 [로그 쿼리](../log-query/log-query-overview.md)로 작업할 수 있습니다. 로그 쿼리는 완전한 기능을 갖춘 쿼리 언어를 사용하여 로그 데이터에 대한 고급 분석을 수행할 수 있는 Azure Monitor의 강력한 기능입니다. Azure 리소스에 대한 **모니터링** 메뉴의 **로그** 에서 Log Analytics를 열어 리소스를 [쿼리 범위](../log-query/scope.md#query-scope)로 사용하면서 로그 쿼리로 작업할 수 있습니다. 이를 통해 해당 리소스에 대한 여러 테이블의 데이터를 분석할 수 있습니다. Azure Monitor 메뉴에서 **로그** 를 사용하여 모든 리소스에 대한 로그에 액세스할 수 있습니다. 
 
 - 로그 쿼리를 작성하는 데 사용되는 쿼리 언어를 사용하는 방법에 대한 자습서는 [Azure Monitor에서 로그 쿼리 시작](../log-query/get-started-queries.md)을 참조하세요.
 - Azure Monitor 로그에서 리소스 로그를 수집하는 방법에 대한 자세한 내용과 쿼리에서 액세스하는 방법에 대한 자세한 내용은 [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그 수집](../platform/resource-logs.md#send-to-log-analytics-workspace)을 참조하세요.
@@ -151,7 +151,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 - [메트릭 경고](../platform/alerts-metric.md) - 메트릭 값이 특정 임계값을 초과하는 경우 경고를 만듭니다. 메트릭 경고는 다른 경고보다 응답성이 뛰어나므로 문제가 해결되면 자동으로 해결될 수 있습니다.
 - [로그 쿼리 경고](../platform/alerts-log.md) - 정기적으로 로그 쿼리를 실행하고 특정 조건이 발견되면 경고를 만듭니다. 이를 통해 여러 데이터 세트 등에서 복잡한 분석을 수행할 수 있습니다.
 
-리소스 메뉴에서 **경고**를 사용하여 경고를 보고 해당 리소스에 대한 경고 규칙을 관리합니다. 활동 로그 경고 및 메트릭 경고만 개별 Azure 리소스를 대상으로 사용합니다. 로그 쿼리 경고는 Log Analytics 작업 영역을 대상으로 사용하며 해당 작업 영역에 저장된 모든 로그에 액세스할 수 있는 쿼리를 기준으로 합니다. Azure Monitor 메뉴를 사용하여 모든 리소스에 대한 경고를 보고 관리하며 로그 쿼리 경고 규칙을 관리합니다.
+리소스 메뉴에서 **경고** 를 사용하여 경고를 보고 해당 리소스에 대한 경고 규칙을 관리합니다. 활동 로그 경고 및 메트릭 경고만 개별 Azure 리소스를 대상으로 사용합니다. 로그 쿼리 경고는 Log Analytics 작업 영역을 대상으로 사용하며 해당 작업 영역에 저장된 모든 로그에 액세스할 수 있는 쿼리를 기준으로 합니다. Azure Monitor 메뉴를 사용하여 모든 리소스에 대한 경고를 보고 관리하며 로그 쿼리 경고 규칙을 관리합니다.
 
 - 경고 규칙을 만드는 방법에 대한 자세한 내용은 위에서 여러 종류의 경고에 대한 문서를 참조하세요.
 - 경고에 대한 응답을 관리할 수 있는 작업 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기 및 관리](../platform/action-groups.md)를 참조하세요.

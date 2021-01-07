@@ -11,16 +11,16 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eaf41e903f1a55dd85c6b6282617564a32087707
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320995"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447814"
 ---
-# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Azure Synapse Analytics-전용 SQL 풀 비디오
+# <a name="azure-synapse-analytics---dedicated-sql-pool--formerly-sql-dw-videos"></a>Azure Synapse Analytics-전용 SQL 풀 (이전의 SQL DW) 비디오
 
-최신 전용 SQL 풀 동영상을 시청 하 여 새로운 기능 및 성능 향상에 대해 알아보세요. 
+최신 전용 SQL 풀 (이전의 SQL DW) 비디오를 시청 하 여 새로운 기능 및 성능 향상에 대해 알아보세요. 
 
 시작 하려면 아래 개요 비디오를 선택 하 여 전용 SQL 풀의 새 업데이트에 대해 알아보세요. 또한 최신 데이터 웨어하우스 패턴을 사용 하 여 사이버 범죄와 같은 실제 시나리오를 다룰 수 있는 방법에 대해 알아봅니다.
 </br>

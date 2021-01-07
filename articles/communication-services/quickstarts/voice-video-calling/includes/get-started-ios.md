@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5f604847faf01d1b267e6cbb73481d57ef397bd9
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92438983"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95557905"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -32,22 +32,23 @@ Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Xcode 내에서 새 프로젝트 창을 보여 주는 스크린샷":::
 
-### <a name="install-the-package"></a>패키지 설치
+### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
-Azure Communication Services 통화 클라이언트 라이브러리 및 해당 종속성(AzureCore.framework 및 AzureCommunication.framework)을 프로젝트에 추가합니다.
+1. 다음과 같이 애플리케이션에 대한 Podfile을 만듭니다.
 
-> [!NOTE]
-> AzureCommunicationCalling SDK 릴리스를 사용하면 bash 스크립트 `BuildAzurePackages.sh`를 찾을 수 있습니다. `sh ./BuildAzurePackages.sh`를 실행할 때 스크립트는 생성된 프레임워크 패키지의 경로를 제공하며, 다음 단계에서 이 경로를 샘플 앱으로 가져와야 합니다. Xcode 명령줄 도구를 설정하지 않은 경우 스크립트를 실행하기 전에 설정해야 합니다. Xcode를 시작하고 "기본 설정-> 위치"를 선택합니다. 명령줄 도구에 대한 Xcode 버전을 선택합니다. **BuildAzurePackages.sh 스크립트는 Xcode 11.5 이상에서만 작동함**
+   ```
+   platform :ios, '13.0'
+   use_frameworks!
 
-1. iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 [다운로드](https://github.com/Azure/Communication/releases)합니다.
-2. Xcode에서 프로젝트 파일을 클릭하고 빌드 대상을 선택하여 프로젝트 설정 편집기를 엽니다.
-3. **일반** 탭에서 **Frameworks, Libraries, and Embedded Content** (프레임워크, 라이브러리 및 포함된 콘텐츠) 섹션으로 스크롤하여 **"+"** 아이콘을 클릭합니다.
-4. 대화 상자 왼쪽 아래에서 드롭다운하여 선택한 **파일 추가** 를 사용하고, 압축을 푼 클라이언트 라이브러리 패키지의 **AzureCommunicationCalling.framework** 디렉터리로 이동합니다.
-    1. 마지막 단계를 반복하여 **AzureCore.framework** 및 **AzureCommunication.framework** 를 추가합니다.
-5. 프로젝트 설정 편집기의 **빌드 설정** 탭을 열고 **검색 경로** 섹션으로 스크롤합니다. **AzureCommunicationCalling.framework** 가 포함된 디렉터리에 대한 새 **프레임워크 검색 경로** 항목을 추가합니다.
-    1. 종속성이 포함된 폴더를 가리키는 다른 프레임워크 검색 경로 항목을 추가합니다.
+   target 'AzureCommunicationCallingSample' do
+     pod 'AzureCommunicationCalling', '~> 1.0.0-beta.5'
+     pod 'AzureCommunication', '~> 1.0.0-beta.5'
+     pod 'AzureCore', '~> 1.0.0-beta.5'
+   end
+   ```
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Xcode 내에서 새 프로젝트 창을 보여 주는 스크린샷":::
+2. `pod install`을 실행합니다.
+3. Xcode로 `.xcworkspace`를 엽니다.
 
 ### <a name="request-access-to-the-microphone"></a>마이크에 대한 액세스 요청
 
@@ -74,9 +75,9 @@ import AVFoundation
 ```swift
 struct ContentView: View {
     @State var callee: String = ""
-    @State var callClient: ACSCallClient?
-    @State var callAgent: ACSCallAgent?
-    @State var call: ACSCall?
+    @State var callClient: CallClient?
+    @State var callAgent: CallAgent?
+    @State var call: Call?
 
     var body: some View {
         NavigationView {
@@ -136,7 +137,7 @@ do {
     return
 }
 
-self.callClient = ACSCallClient()
+self.callClient = CallClient()
 
 // Creates the call agent
 self.callClient?.createCallAgent(userCredential) { (agent, error) in
@@ -165,13 +166,13 @@ func startCall()
         if granted {
             // start call logic
             let callees:[CommunicationIdentifier] = [CommunicationUser(identifier: self.callee)]
-            self.call = self.callAgent?.call(callees, options: ACSStartCallOptions())
+            self.call = self.callAgent?.call(callees, options: StartCallOptions())
         }
     }
 }
 ```
 
-또한 `ACSStartCallOptions`의 속성을 사용하여 통화에 대한 초기 옵션을 설정할 수 있습니다(예: 마이크 음소거 상태에서 통화를 시작할 수 있음).
+또한 `StartCallOptions`의 속성을 사용하여 통화에 대한 초기 옵션을 설정할 수 있습니다(예: 마이크 음소거 상태에서 통화를 시작할 수 있음).
 
 ## <a name="end-a-call"></a>통화 종료
 
@@ -180,7 +181,7 @@ func startCall()
 ```swift
 func endCall()
 {    
-    self.call!.hangup(ACSHangupOptions()) { (error) in
+    self.call!.hangup(HangupOptions()) { (error) in
         if (error != nil) {
             print("ERROR: It was not possible to hangup the call.")
         }
@@ -192,7 +193,7 @@ func endCall()
 
 **제품** > **실행** 을 선택하거나 (&#8984;-R) 키보드 단축키를 사용하여 iOS 시뮬레이터에서 앱을 빌드하고 실행할 수 있습니다.
 
-:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Xcode 내에서 새 프로젝트 창을 보여 주는 스크린샷":::
+:::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="빠른 시작 앱의 최종 모양과 느낌":::
 
 텍스트 필드에서 사용자 ID를 제공하고 **Start Call** 단추를 눌러서 아웃바운드 VOIP 전화를 걸 수 있습니다. `8:echo123`에 전화를 걸면 에코 봇과 연결됩니다. 이렇게 하면 통화를 시작하고 오디오 디바이스가 작동하는지 확인하는 데 유용합니다. 
 

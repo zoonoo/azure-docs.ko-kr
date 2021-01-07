@@ -4,18 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/19/2020
 ms.author: glenga
-ms.openlocfilehash: ca8da227c97a44abe14354a5c530d508ce357884
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a5c113849296275432acf1f5603377a1909a2c04
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88704429"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96842269"
 ---
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
 Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Azure Functions 프로젝트를 로컬로 실행하고 디버그할 수 있도록 합니다. Visual Studio Code에서 디버그하는 방법에 대한 자세한 내용은 [PowerShell Azure Functions를 로컬로 디버그](../articles/azure-functions/functions-debug-powershell-local.md)를 참조하세요. 
-
-1. F5 키를 눌러 함수 앱 프로젝트를 시작합니다. 핵심 도구의 출력이 **터미널** 패널에 표시됩니다.
+1. 함수를 호출하려면 <kbd>F5</kbd>를 눌러 함수 앱 프로젝트를 시작합니다. 핵심 도구의 출력이 **터미널** 패널에 표시됩니다. Windows에서 실행하는 데 문제가 있는 경우 Visual Studio Code의 기본 터미널이 **WSL Bash** 로 설정되어 있지 않은지 확인합니다.
 
 1. **터미널** 패널에서 HTTP 트리거 함수의 URL 엔드포인트를 복사합니다.
 
@@ -38,6 +37,6 @@ Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Az
 
     ![터미널 패널에서 함수 실행](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
 
-1. 완료되면 **Ctrl + C**를 눌러 Core Tools를 중지합니다.
+1. 완료되면 **Ctrl + C** 를 눌러 Core Tools를 중지합니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.

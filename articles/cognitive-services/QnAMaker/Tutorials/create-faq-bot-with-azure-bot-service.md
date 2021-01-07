@@ -5,15 +5,15 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
-ms.openlocfilehash: ab78ac41be2f900d84e82c21e566f5250b2afd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 356b954c65086ff65264ce7a62b038cd7a8eac3d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777400"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350962"
 ---
 # <a name="tutorial-create-an-faq-bot-with-azure-bot-service"></a>자습서: Azure Bot Service로 FAQ 봇 만들기
-QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/en-us/services/bot-service/)를 사용하여 코드 없이 FAQ 봇을 만듭니다.
+QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/services/bot-service/)를 사용하여 코드 없이 FAQ 봇을 만듭니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -28,7 +28,15 @@ QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/en-us/services/bot
 
 [빠른 시작](../Quickstarts/create-publish-knowledge-base.md)에 따라 기술 자료를 만듭니다. 기술 자료가 성공적으로 게시되 면 아래 페이지에 연결됩니다.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+
 ![성공적인 게시의 스크린샷](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+
+![관리형 게시를 성공한 스크린샷](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
+
+---
 
 ## <a name="create-a-bot"></a>봇 만들기
 
@@ -39,11 +47,20 @@ QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/en-us/services/bot
 
 기술 자료를 변경하고 다시 게시하는 경우 봇에 다른 조치를 취할 필요가 없습니다. 이미 기술 자료와 함께 작동하도록 구성되어 있으며 향후 모든 기술 자료 변경 내용과 호환됩니다. 기술 자료를 게시할 때마다 기술 자료에 연결된 모든 봇이 자동으로 업데이트됩니다.
 
-1. QnA Maker 포털의 **게시** 페이지에서 **봇 만들기**를 선택합니다. 이 단추는 기술 자료를 게시한 후에만 표시됩니다.
+1. QnA Maker 포털의 **게시** 페이지에서 **봇 만들기** 를 선택합니다. 이 단추는 기술 자료를 게시한 후에만 표시됩니다.
+
+     # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
     ![봇 만들기 스크린샷](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. 새 브라우저 탭에서 Azure Portal의 Azure Bot Service 만들기 페이지가 열립니다. Azure Bot Service를 구성합니다. 봇과 QnA Maker는 웹앱 서비스 플랜을 공유할 수 있지만, 웹앱을 공유할 수는 없습니다. 즉, 봇의 **앱 이름**이 QnA Maker 서비스의 앱 이름과 달라야 합니다.
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+
+    ![봇 관리형 미리 보기를 만드는 스크린샷](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
+
+    ---
+    
+
+1. 새 브라우저 탭에서 Azure Portal의 Azure Bot Service 만들기 페이지가 열립니다. Azure Bot Service를 구성합니다. 봇과 QnA Maker는 웹앱 서비스 플랜을 공유할 수 있지만, 웹앱을 공유할 수는 없습니다. 즉, 봇의 **앱 이름** 이 QnA Maker 서비스의 앱 이름과 달라야 합니다.
 
     * **해야 할 일**
         * 고유하지 않은 경우 봇 핸들을 변경합니다.
@@ -55,12 +72,12 @@ QnA Maker 및 Azure [Bot Service](https://azure.microsoft.com/en-us/services/bot
 
 
 1. 봇을 만든 후 **봇 서비스** 리소스를 엽니다.
-1. **봇 관리**에서 **웹 채팅에서 테스트**를 선택합니다.
-1. **메시지 입력**의 채팅 프롬프트에서 다음을 입력합니다.
+1. **봇 관리** 에서 **웹 채팅에서 테스트** 를 선택합니다.
+1. **메시지 입력** 의 채팅 프롬프트에서 다음을 입력합니다.
 
     `Azure services?`
 
     채팅 봇은 기술 자료의 답변으로 응답합니다.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="테스트 웹 채팅에 사용자 쿼리를 입력합니다.":::
-1. 추가 [지원 채널](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0&preserve-view=true)에서 봇을 강화합니다.
+1. 추가 [지원 채널](/azure/bot-service/bot-service-manage-channels?preserve-view=true&view=azure-bot-service-4.0)에서 봇을 강화합니다.

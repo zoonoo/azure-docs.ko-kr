@@ -1,21 +1,21 @@
 ---
 title: 기본 제공 정책 이니셔티브 목록
 description: Azure Policy에 대한 기본 제공 정책 이니셔티브를 나열합니다. 범주에는 규정 준수, 게스트 구성 등이 포함됩니다.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: cf685f10ba27064e650070a5e0a7fc44104f0bea
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74ebf960933837953c0b279da14dbb17bd88b330
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311584"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986919"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy 기본 제공 이니셔티브 정의
 
 이 페이지는 Azure Policy 기본 제공 이니셔티브 정의의 인덱스입니다.
 
-각 기본 제공 기능의 이름은 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 이니셔티브 정의 원본에 연결됩니다. 기본 제공 기능은 **메타데이터**의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주**로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
+각 기본 제공 기능의 이름은 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 이니셔티브 정의 원본에 연결됩니다. 기본 제공 기능은 **메타데이터** 의 **범주** 속성을 기준으로 그룹화됩니다. 특정 **범주** 로 이동하려면 페이지 오른쪽에 있는 메뉴를 사용합니다. 그렇지 않으면 <kbd>Ctrl</kbd>-<kbd>F</kbd>를 사용하여 브라우저의 검색 기능을 사용합니다.
 
 ## <a name="cosmos-db"></a>Cosmos DB
 

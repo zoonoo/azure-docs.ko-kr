@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e44437bb926e8d2d1ffcd3134bbc63538a112ff0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147014"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648313"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 역할 할당 나열
 
@@ -28,9 +28,9 @@ ms.locfileid: "93147014"
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](../cloud-shell/overview.md)
 
 ## <a name="list-role-assignments-for-a-user"></a>사용자에 대한 역할 할당 목록
 
@@ -103,7 +103,7 @@ az role assignment list --resource-group pharma-sales --output json --query '[].
 az role assignment list --subscription {subscriptionNameOrId}
 ```
 
-예제:
+예:
 
 ```azurecli
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'
@@ -140,7 +140,7 @@ az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --ou
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/{groupId}
 ```
 
-예제:
+예:
 
 ```azurecli
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/sales-group --output json --query '[].{principalName:principalName, roleDefinitionName:roleDefinitionName, scope:scope}'

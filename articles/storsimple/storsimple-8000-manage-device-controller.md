@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513941"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956996"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple 디바이스 컨트롤러 관리
 
@@ -54,24 +54,24 @@ StorSimple용 Windows PowerShell 또는 StorSimple 디바이스 관리자 서비
 Azure Portal에서 디바이스 컨트롤러를 관리하려면 다음 단계를 수행합니다.
 
 #### <a name="to-restart-or-shut-down-a-controller-in-azure-portal"></a>Azure Portal에서 컨트롤러를 다시 시작하거나 종료하려면
-1. StorSimple 디바이스 관리자 서비스에서 **디바이스**로 이동합니다. 디바이스 목록에서 디바이스를 선택합니다. 
+1. StorSimple 디바이스 관리자 서비스에서 **디바이스** 로 이동합니다. 디바이스 목록에서 디바이스를 선택합니다. 
 
     ![디바이스 선택](./media/storsimple-8000-manage-device-controller/manage-controller1.png)
 
-2. **설정 > 컨트롤러**로 이동합니다.
+2. **설정 > 컨트롤러** 로 이동합니다.
    
     ![StorSimple 디바이스 컨트롤러가 정상임을 확인](./media/storsimple-8000-manage-device-controller/manage-controller2.png)
-3. **컨트롤러** 블레이드에서 디바이스에 대한 컨트롤러의 상태가 **정상**인지 확인합니다. 컨트롤러를 선택하고 마우스 오른쪽 단추로 클릭한 다음 **다시 시작** 또는 **종료**를 선택합니다.
+3. **컨트롤러** 블레이드에서 디바이스에 대한 컨트롤러의 상태가 **정상** 인지 확인합니다. 컨트롤러를 선택하고 마우스 오른쪽 단추로 클릭한 다음 **다시 시작** 또는 **종료** 를 선택합니다.
 
     ![StorSimple 디바이스 컨트롤러를 다시 시작 또는 종료 선택](./media/storsimple-8000-manage-device-controller/manage-controller3.png)
 
-4. 컨트롤러를 다시 시작하거나 종료하기 위해 작업을 만들고 적용 가능한 경고가 있는 경우 함께 표시됩니다. 다시 시작 또는 종료를 모니터링하려면 **서비스 > 활동 로그**로 이동한 다음 서비스에 지정된 매개 변수에서 필터링합니다. 컨트롤러를 종료하는 경우 전원 단추를 눌러서 설정하려는 컨트롤러를 켜야 합니다.
+4. 컨트롤러를 다시 시작하거나 종료하기 위해 작업을 만들고 적용 가능한 경고가 있는 경우 함께 표시됩니다. 다시 시작 또는 종료를 모니터링하려면 **서비스 > 활동 로그** 로 이동한 다음 서비스에 지정된 매개 변수에서 필터링합니다. 컨트롤러를 종료하는 경우 전원 단추를 눌러서 설정하려는 컨트롤러를 켜야 합니다.
 
 #### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell에서 컨트롤러를 다시 시작하거나 종료합니다.
 다음 단계를 수행하여 StorSimple용 Windows PowerShell에서 StorSimple 디바이스에 단일 컨트롤러를 종료하거나 다시 시작합니다.
 
 1. 직렬 콘솔 또는 원격 컴퓨터에서 텔넷 세션을 통해 디바이스에 액세스합니다. 컨트롤러 0 또는 컨트롤러 1에 연결하려면 [디바이스 직렬 콘솔 연결에 PuTTY 사용](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)의 단계를 수행합니다.
-2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
+2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다.
 3. 배너 메시지에서 연결된 컨트롤러(컨트롤러 0 또는 컨트롤러 1)와 활성 또는 수동(대기) 컨트롤러 여부를 기록합니다.
    
    * 프롬프트에서 단일 컨트롤러를 종료하려면 다음을 입력합니다.
@@ -91,7 +91,7 @@ Azure Portal에서 디바이스 컨트롤러를 관리하려면 다음 단계를
 이 섹션에서는 원격 컴퓨터에서 실행 중이거나 실패한 StorSimple 디바이스를 종료하는 방법을 설명합니다. 디바이스 컨트롤러를 모두 종료한 후에 디바이스는 꺼집니다. 디바이스를 물리적으로 이동하는 경우 디바이스가 종료되거나 서비스에서 중단됩니다.
 
 > [!IMPORTANT]
-> 디바이스를 종료하기 전에 디바이스 구성 요소의 상태를 확인합니다. 사용자의 디바이스로 이동한 다음 **설정 &gt; 하드웨어 상태**를 클릭합니다. **상태 및 하드웨어 상태** 블레이드에서 모든 구성 요소의 LED 상태가 녹색인지 확인합니다. 정상 디바이스만이 녹색 상태가 됩니다. 디바이스가 종료되어 작동하지 않는 구성 요소를 교체하는 경우 해당 구성 요소에 실패(빨간색) 또는 성능 저하(노란색) 상태가 표시됩니다.
+> 디바이스를 종료하기 전에 디바이스 구성 요소의 상태를 확인합니다. 사용자의 디바이스로 이동한 다음 **설정 &gt; 하드웨어 상태** 를 클릭합니다. **상태 및 하드웨어 상태** 블레이드에서 모든 구성 요소의 LED 상태가 녹색인지 확인합니다. 정상 디바이스만이 녹색 상태가 됩니다. 디바이스가 종료되어 작동하지 않는 구성 요소를 교체하는 경우 해당 구성 요소에 실패(빨간색) 또는 성능 저하(노란색) 상태가 표시됩니다.
 
 
 #### <a name="to-shut-down-a-storsimple-device"></a>StorSimple 디바이스 종료하려면
@@ -112,12 +112,12 @@ Microsoft Azure StorSimple 디바이스를 공장 기본 설정으로 다시 설
 
 ### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell의 기본 설정으로 디바이스를 재설정하려면
 1. 직렬 콘솔을 통해 디바이스에 액세스합니다. 배너 메시지를 확인 하 여 **활성** 컨트롤러에 연결 되어 있는지 확인 합니다.
-2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
+2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다.
 3. 프롬프트에서 전체 클러스터를 다시 설정하는 다음 명령을 입력하면 모든 데이터, 메타데이터 및 컨트롤러 설정을 제거합니다.
    
     `Reset-HcsFactoryDefault`
    
-    대신 단일 컨트롤러를 재설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet을 사용합니다.
+    대신 단일 컨트롤러를 재설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) cmdlet을 사용합니다.
    
     시스템을 여러 번 다시 부팅합니다. 재설정이 성공적으로 완료되면 알림이 표시됩니다. 시스템 모델에 따라 이 프로세스를 완료 하는 데 8100 디바이스로 45-60분이 걸리고 8600 디바이스로 60-90분이 걸릴 수 있습니다.
    
@@ -161,4 +161,3 @@ Microsoft Azure StorSimple 디바이스를 공장 기본 설정으로 다시 설
 ## <a name="next-steps"></a>다음 단계
 * StorSimple 디바이스 컨트롤러에서 이 자습서에 나열된 절차를 사용하여 해결할 수 없는 문제가 발생할 경우 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
 * StorSimple 디바이스 관리자 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리](storsimple-8000-manager-service-administration.md)로 이동하세요.
-

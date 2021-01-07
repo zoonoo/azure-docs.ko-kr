@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819082"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646341"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Front Door에서 루트 또는 Apex 도메인 온보드
 Azure 전면 도어는 CNAME 레코드를 사용 하 여 사용자 지정 도메인의 등록을 위한 도메인 소유권의 유효성을 검사 합니다. 전면 도어는 프런트 도어 프로필에 연결 된 프런트 엔드 IP 주소를 노출 하지 않습니다. 따라서 apex 도메인을 Azure Front 도어에 등록 하려는 경우 IP 주소에 매핑할 수 없습니다.
@@ -34,7 +34,7 @@ Azure Portal를 사용 하 여 Front 문에 apex 도메인을 등록 하 고 TLS
 
 1. Apex 영역에 대 한 레코드를 만들거나 편집 합니다.
 
-1. 레코드 **유형** *으로 레코드를 선택* 하 고 **별칭 레코드 집합**에 대해 *예* 를 선택 합니다. **별칭 유형은** *Azure 리소스*로 설정 되어야 합니다.
+1. 레코드 **유형** *으로 레코드를 선택* 하 고 **별칭 레코드 집합** 에 대해 *예* 를 선택 합니다. **별칭 유형은** *Azure 리소스* 로 설정 되어야 합니다.
 
 1. 프런트 도어 프로필이 호스트 되는 Azure 구독을 선택 합니다. 그런 다음 **Azure 리소스** 드롭다운에서 Front 도어 리소스를 선택 합니다.
 
@@ -54,15 +54,15 @@ Azure Portal를 사용 하 여 Front 문에 apex 도메인을 등록 하 고 TLS
 
 1. **저장** 을 선택 하 여 변경 내용을 제출 합니다.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="영역 apex에 대 한 별칭 레코드":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="사용자 지정 도메인 메뉴":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>사용자 지정 도메인에서 HTTPS를 사용 하도록 설정
 
-1. 추가 된 사용자 지정 도메인을 선택 하 고 **사용자 지정 도메인 HTTPS**섹션에서 상태를 **사용**으로 변경 합니다.
+1. 추가 된 사용자 지정 도메인을 선택 하 고 **사용자 지정 도메인 HTTPS** 섹션에서 상태를 **사용** 으로 변경 합니다.
 
 1. **인증서 관리 유형을** *' 자체 인증서 사용 '* 으로 선택 합니다.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="영역 apex에 대 한 별칭 레코드":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="사용자 지정 도메인 HTTPS 설정":::    
 
    > [!WARNING]
    > Apex 또는 루트 도메인에 대해 현재 Front 도어 관리 인증서 관리 유형이 지원 되지 않습니다. Apex 또는 루트 도메인에서 HTTPS를 사용 하도록 설정 하는 데 사용할 수 있는 유일한 옵션은 Azure Key Vault에서 호스트 되는 사용자 지정 TLS/SSL 인증서를 사용 하는 것입니다.
@@ -71,7 +71,7 @@ Azure Portal를 사용 하 여 Front 문에 apex 도메인을 등록 하 고 TLS
 
 1. 현재 구독에서 **Key Vault 계정을** 선택한 다음 적절 한 **암호** 및 **암호 버전** 을 선택 하 여 올바른 인증서에 매핑합니다.
 
-1. **업데이트** 를 선택 하 여 선택 항목을 저장 하 고 **저장**을 선택 합니다.
+1. **업데이트** 를 선택 하 여 선택 항목을 저장 하 고 **저장** 을 선택 합니다.
 
 1. 몇 분 후에 **새로 고침** 을 선택 하 고 사용자 지정 도메인을 다시 선택 하 여 인증서 프로 비전의 진행 상태를 확인 합니다. 
 

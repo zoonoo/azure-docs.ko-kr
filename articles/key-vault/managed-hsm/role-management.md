@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149110"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445645"
 ---
 # <a name="managed-hsm-role-management"></a>관리형 HSM 역할 관리
 
@@ -52,7 +52,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 ### <a name="assign-roles-for-all-keys"></a>모든 키에 역할 할당
 
-`az keyvault role assignment create` 명령을 사용하여 ContosoHSM의 모든 **키** (범위 `/keys`)에 대해 사용자 주체 이름 **user2\@contoso.com** 으로 식별되는 사용자에게 **관리형 HSM Crypto 책임자** 역할을 할당합니다.
+`az keyvault role assignment create` 명령을 사용하여 ContosoHSM의 모든 **키**(범위 `/keys`)에 대해 사용자 주체 이름 **user2\@contoso.com** 으로 식별되는 사용자에게 **관리형 HSM Crypto 책임자** 역할을 할당합니다.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -113,7 +113,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 개요를 참조하세요.
+- [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 개요를 참조하세요.
 - [관리형 HSM 역할 관리](role-management.md)에 대한 자습서를 참조하세요.
 - [관리형 HSM 액세스 제어 모델](access-control.md)에 대한 자세한 정보
 - 모든 [관리형 HSM 로컬 RBAC의 기본 제공 역할](built-in-roles.md)을 참조하세요.

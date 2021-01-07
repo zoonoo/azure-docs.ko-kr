@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669176"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700463"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -32,7 +32,7 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
 * 규칙
 * 백 엔드 풀 정의
 
-가용성 영역의 컨텍스트에서 부하 분산 장치 규칙의 동작 및 속성은 영역 중복 또는 영역으로 설명 됩니다.  부하 분산 장치의 컨텍스트에서 영역 중복은 항상 **여러 영역** 을 의미 하 고 영역에는 서비스를 **단일 영역**으로 격리 하는 것을 의미 합니다. Azure Load Balancer에는 공용 및 내부 라는 두 가지 형식이 있습니다. 두 가지 유형의 부하 분산 장치는 영역 중복성 및 영역 배포를 지원 합니다.  두 부하 분산 장치 유형 모두 필요에 따라 영역 간에 트래픽을 보낼 수 있습니다.
+가용성 영역의 컨텍스트에서 부하 분산 장치 규칙의 동작 및 속성은 영역 중복 또는 영역으로 설명 됩니다.  부하 분산 장치의 컨텍스트에서 영역 중복은 항상 **여러 영역** 을 의미 하 고 영역에는 서비스를 **단일 영역** 으로 격리 하는 것을 의미 합니다. Azure Load Balancer에는 공용 및 내부 라는 두 가지 형식이 있습니다. 두 가지 유형의 부하 분산 장치는 영역 중복성 및 영역 배포를 지원 합니다.  두 부하 분산 장치 유형 모두 필요에 따라 영역 간에 트래픽을 보낼 수 있습니다.
 
 ## <a name="frontend"></a>프런트 엔드
 
@@ -58,7 +58,7 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
 
 ### <a name="zonal"></a>횡단면
 
-*영역 프런트 엔드*라고 하는 단일 영역에 대한 프런트 엔드를 보장하도록 선택할 수 있습니다.  이 시나리오는 모든 인바운드 또는 아웃 바운드 흐름이 한 지역의 단일 영역에서 처리 됨을 의미 합니다.  프런트 엔드는 영역의 상태와 수명을 공유합니다.  데이터 경로는 보장된 영역 이외의 영역에서 오류가 발생해도 영향을 받지 않습니다. 영역 프런트 엔드를 사용하여 가용성 영역별 IP 주소를 공개할 수 있습니다.  
+*영역 프런트 엔드* 라고 하는 단일 영역에 대한 프런트 엔드를 보장하도록 선택할 수 있습니다.  이 시나리오는 모든 인바운드 또는 아웃 바운드 흐름이 한 지역의 단일 영역에서 처리 됨을 의미 합니다.  프런트 엔드는 영역의 상태와 수명을 공유합니다.  데이터 경로는 보장된 영역 이외의 영역에서 오류가 발생해도 영향을 받지 않습니다. 영역 프런트 엔드를 사용하여 가용성 영역별 IP 주소를 공개할 수 있습니다.  
 
 또한 각 영역 내의 부하 분산 된 끝점에 대해 영역 프런트 엔드를 직접 사용 하는 것이 지원 됩니다. 이 구성을 사용 하 여 각 영역을 개별적으로 모니터링 하기 위해 부하 분산 된 영역 당 끝점을 노출할 수 있습니다. 공용 끝점의 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md) 와 같은 dns 부하 분산 제품과 통합 하 고 단일 dns 이름을 사용할 수 있습니다.
 
@@ -151,11 +151,11 @@ Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간
   - 영역에 오류가 발생 하면 서비스에서이 오류를 이해 하 고 상태를 잃어 버렸습니다. 어떻게 복구 하나요?
   - 영역이 반환되면 애플리케이션에서 안전하게 수렴하는 방법을 이해하고 있습니까?
 
-[Azure 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/) 을 검토 하 여 응용 프로그램의 복원 력을 오류 시나리오로 향상 시킵니다.
+[Azure 클라우드 디자인 패턴](/azure/architecture/patterns/) 을 검토 하 여 응용 프로그램의 복원 력을 오류 시나리오로 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역](../availability-zones/az-overview.md) 에 대 한 자세한 정보
-- [표준 Load Balancer](load-balancer-standard-overview.md) 에 대 한 자세한 정보
-- [영역 프런트 엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM을 부하 분산](load-balancer-standard-public-zonal-cli.md)하는 방법에 대해 알아보기
-- [영역 중복 프런트 엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM을 부하 분산](load-balancer-standard-public-zone-redundant-cli.md)하는 방법에 대해 알아보기
-- 응용 프로그램의 복원 력을 오류 시나리오로 개선 하기 위해 [Azure 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/) 에 대해 알아봅니다.
+- [표준 Load Balancer](./load-balancer-overview.md) 에 대 한 자세한 정보
+- [영역 프런트 엔드를 통해 표준 Load Balancer를 사용하여 영역 내에 VM을 부하 분산](./quickstart-load-balancer-standard-public-cli.md)하는 방법에 대해 알아보기
+- [영역 중복 프런트 엔드를 통해 표준 Load Balancer를 사용하여 영역에서 VM을 부하 분산](./quickstart-load-balancer-standard-public-cli.md)하는 방법에 대해 알아보기
+- 응용 프로그램의 복원 력을 오류 시나리오로 개선 하기 위해 [Azure 클라우드 디자인 패턴](/azure/architecture/patterns/) 에 대해 알아봅니다.

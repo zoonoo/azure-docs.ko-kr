@@ -6,19 +6,19 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504699"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007588"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure 개인 링크를 사용 하는 azure Cache for Redis (공개 미리 보기)
 이 문서에서는 Azure Portal를 사용 하 여 개인 끝점이 있는 Redis 인스턴스에 대 한 가상 네트워크 및 Azure Cache를 만드는 방법에 대해 알아봅니다. Redis 인스턴스에 대 한 기존 Azure 캐시에 개인 끝점을 추가 하는 방법에 대해서도 알아봅니다.
 
 Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 Azure Cache에 대해 개인적이 고 안전 하 게 연결 하는 네트워크 인터페이스입니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
@@ -43,7 +43,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -111,8 +111,8 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
     
 > [!IMPORTANT]
 > 
-> `publicNetworkAccess` `Enabled` 기본적으로 플래그가 있습니다. 
-> 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 다음 PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` .
+> `publicNetworkAccess` `Disabled` 기본적으로 플래그가 있습니다. 
+> 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`다음 PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다 `Enabled` . 캐시에 사용할 플래그를 반영 하도록 값을 편집 합니다.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -142,7 +142,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 4. **가상 네트워크 만들기** 의 **기본** 탭에서 다음 정보를 입력하거나 선택합니다.
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 가상 네트워크를 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 가상 네트워크 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -181,7 +181,7 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 
 5. **개인 끝점 만들기 페이지** 에서 개인 끝점에 대 한 설정을 구성 합니다.
 
-   | 설정      | 제안 값  | 설명 |
+   | 설정      | 제안 값  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **구독** | 드롭다운하여 구독을 선택합니다. | 이 개인 끝점을 만들 구독입니다. | 
    | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 개인 끝점 및 기타 리소스를 만들 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -212,8 +212,9 @@ Azure 개인 끝점은 azure 개인 링크를 통해 Redis으로 구동 되는 A
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>개인 끝점에서 지원 되지 않는 기능은 무엇입니까?
 지역에서 복제, 방화벽 규칙, 포털 콘솔 지원, 클러스터 된 캐시 당 여러 끝점, 방화벽 규칙 및 영역 중복성에 대 한 지 속성 
 
-### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>내 개인 끝점을 공용 네트워크 액세스에서 사용 하지 않도록 변경 하려면 어떻게 해야 하나요?
-`publicNetworkAccess` `Enabled` 기본적으로 플래그가 있습니다. 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. 다음 PATCH 요청을 사용 하 여 값을로 설정할 수 있습니다 `Disabled` .
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>공용 네트워크 액세스에서 개인 끝점을 사용 하지 않도록 설정 하거나 사용 하도록 설정 하려면 어떻게 해야 하나요?
+`publicNetworkAccess` `Disabled` 기본적으로 플래그가 있습니다. 이 플래그는가로 설정 된 경우 선택적으로 공용 및 개인 끝점 액세스를 모두 허용할 수 있도록 하기 위한 것입니다 `Enabled` . 로 설정 되 면 `Disabled` 개인 끝점 액세스만 허용 됩니다. `Disabled`다음 PATCH 요청을 사용 하 여 값을 또는로 설정할 수 있습니다 `Enabled` . 캐시에 사용할 플래그를 반영 하도록 값을 편집 합니다.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {
@@ -223,7 +224,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>개인 끝점에 대해 NSG (네트워크 보안 그룹)를 사용할 수 있나요?
-아니요. 전용 끝점에 대해서는 사용할 수 없습니다. 그러나 서브넷에 다른 리소스가 있는 경우 NSG 적용이 해당 리소스에 적용 됩니다.
+아니요. 전용 끝점에 대해서는 사용할 수 없습니다. 프라이빗 엔드포인트를 포함하는 서브넷에 NSG가 연결되어 있을 수 있지만 규칙은 프라이빗 엔드포인트에서 처리하는 트래픽에 적용되지 않습니다. 서브넷에 프라이빗 엔드포인트를 배포하려면 [네트워크 정책 적용을 사용하지 않도록 설정](../private-link/disable-private-endpoint-network-policy.md)해야 합니다. NSG는 동일한 서브넷에서 호스트되는 다른 워크로드에도 적용됩니다. 모든 클라이언트 서브넷의 경로는/32 접두사를 사용 하 고 기본 라우팅 동작을 변경 하려면 비슷한 UDR이 필요 합니다. 
+
+원본 클라이언트의 아웃바운드 트래픽에 대한 NSG 규칙을 사용하여 트래픽을 제어합니다. /32 접두사가 있는 개별 경로를 배포하여 프라이빗 엔드포인트 경로를 재정의합니다. 아웃바운드 연결에 대한 NSG 흐름 로그 및 모니터링 정보는 계속 지원되며 사용 가능합니다.
+
+### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>개인 끝점에서 방화벽 규칙을 사용할 수 있나요?
+아니요. 이것은 개인 끝점의 현재 제한 사항입니다. 캐시에 방화벽 규칙이 구성 된 경우 개인 끝점은 제대로 작동 하지 않습니다.
 
 ### <a name="how-can-i-connect-to-a-clustered-cache"></a>어떻게 클러스터형 캐시에 연결할 수 있나요?
 `publicNetworkAccess` 는로 설정 해야 `Disabled` 하며 개인 끝점 연결은 하나만 있을 수 있습니다.

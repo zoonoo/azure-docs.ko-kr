@@ -10,23 +10,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: a3427be85314f06b5408c4450e0415768122879f
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541303"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913008"
 ---
 # <a name="configure-and-submit-training-runs"></a>학습 실행 구성 및 제출
 
-이 문서에서는 모델을 학습 하는 Azure Machine Learning 실행을 구성 하 고 제출 하는 방법에 대해 알아봅니다.
+이 문서에서는 모델을 학습 하는 Azure Machine Learning 실행을 구성 하 고 제출 하는 방법에 대해 알아봅니다. 코드 조각은 학습 스크립트 구성 및 제출의 주요 부분을 설명 합니다.  그런 다음 [예제 노트북](#notebooks) 중 하나를 사용 하 여 완전 한 종단 간 작업 예제를 찾습니다.
 
 훈련 시 로컬 컴퓨터에서 시작 하 여 나중에 클라우드 기반 클러스터로 확장 하는 것이 일반적입니다. Azure Machine Learning를 사용 하면 학습 스크립트를 변경 하지 않고도 다양 한 계산 대상에서 스크립트를 실행할 수 있습니다.
 
 **스크립트 실행 구성** 내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
@@ -38,10 +38,10 @@ ms.locfileid: "94541303"
 
 ScriptRunConfig 개체를 사용 하 여 학습 실험을 제출 합니다.  이 개체는 다음을 포함합니다.
 
-* **source_directory** : 학습 스크립트를 포함하는 원본 디렉터리
-* **스크립트** : 실행할 학습 스크립트
-* **compute_target** : 실행할 계산 대상
-* **환경** : 스크립트를 실행할 때 사용할 환경
+* **source_directory**: 학습 스크립트를 포함하는 원본 디렉터리
+* **스크립트**: 실행할 학습 스크립트
+* **compute_target**: 실행할 계산 대상
+* **환경**: 스크립트를 실행할 때 사용할 환경
 * 구성 가능한 몇 가지 옵션이 있습니다. 자세한 내용은 [참조 설명서](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) 를 참조 하세요.
 
 ## <a name="train-your-model"></a><a id="submit"></a>모델 학습
@@ -164,7 +164,7 @@ run.wait_for_completion(show_output=True)
 
 원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 
-## <a name="notebook-examples"></a>Notebook 예제
+## <a name="notebook-examples"></a><a name="notebooks"></a>Notebook 예제
 
 다양 한 학습 시나리오에 대 한 실행 구성 예제는 이러한 노트북을 참조 하세요.
 * [다양 한 계산 대상에 대 한 교육](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
@@ -172,6 +172,50 @@ run.wait_for_completion(show_output=True)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+
+## <a name="troubleshooting"></a>문제 해결
+
+ * **Moduleerrors (이름이 지정 된 모듈 없음)**: Azure ML에서 실험을 제출 하는 동안 moduleerrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않습니다. 패키지 이름을 제공 하 고 나면 Azure ML은 학습 실행에 사용 되는 환경에 패키지를 설치 합니다.
+
+    추정를 사용 하 여 실험을 제출 하는 경우 `pip_packages` `conda_packages` 패키지를 설치 하려는 원본에 기반 하 여 평가기에서 또는 매개 변수를 통해 패키지 이름을 지정할 수 있습니다. 를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 `conda_dependencies_file` 하거나 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다 `pip_requirements_file` . 평가기에서 사용 하는 기본 이미지를 재정의 하려는 고유한 Azure ML Environment 개체가 있는 경우 `environment` 평가기 생성자의 매개 변수를 통해 해당 환경을 지정할 수 있습니다.
+    
+    Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
+    프레임 워크 관련 종속성은 해당 프레임 워크 설명서에 나와 있습니다.
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    * [Tensorflow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    
+    > [!Note]
+    > 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
+ 
+* **Nameerror (이름이 정의 되지 않음), attributeerror (개체에 특성이 없음)**:이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서를 사용 `run.get_details()` 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 실행을 다시 전송 하기 전에 학습 스크립트를 확인 하 고 오류를 수정 하세요. 
+
+
+* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
+
+    개별 실험 또는 실행의 영구 삭제는 현재 지원되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
+
+* **메트릭 문서가 너무 큼**: Azure Machine Learning 학습 실행에서 한 번에 기록할 수 있는 메트릭 개체 크기에 대 한 내부 제한이 있습니다. 목록 값 메트릭을 로깅할 때 "메트릭 문서가 너무 큼" 오류가 발생하면 목록을 더 작은 청크로 분할해보세요. 예를 들면 다음과 같습니다.
+
+    ```python
+    run.log_list("my metric name", my_metric[:N])
+    run.log_list("my metric name", my_metric[N:])
+    ```
+
+    내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속된 목록에 연결합니다.
+
+* **실행 실패 `jwt.exceptions.DecodeError`**: 정확한 오류 메시지: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
+    
+    최신 버전의 azureml-코어로 업그레이드 하는 것이 `pip install -U azureml-core` 좋습니다.
+    
+    로컬 실행에 대해이 문제가 발생 하는 경우 실행을 시작 하는 환경에 설치 된 PyJWT의 버전을 확인 합니다. 지원 되는 버전의 PyJWT는 < 2.0.0입니다. 버전이 >= 2.0.0 인 경우 환경에서 PyJWT를 제거 합니다. PyJWT의 버전을 확인 하 고, 다음과 같이 올바른 버전을 제거 하 고 설치할 수 있습니다.
+    1. 명령 셸을 시작 하 고 azureml-core가 설치 된 conda 환경을 활성화 합니다.
+    2. 을 입력 `pip freeze` 하 고 검색 `PyJWT` 하는 경우 나열 된 버전 < 2.0.0 여야 합니다.
+    3. 표시 된 버전이 지원 되는 버전이 아닌 경우 `pip uninstall PyJWT` 명령 셸에서 y를 입력 하 여 확인 합니다.
+    4. `pip install 'PyJWT<2.0.0'`를 사용하여 설치
+    
+    사용자가 만든 환경을 실행 하 여 제출 하는 경우 해당 환경에서 최신 버전의 azureml-코어를 사용 하는 것이 좋습니다. 버전 >= 1.18.0 PyJWT < 2.0.0의 azureml가 이미 고정 되어 있습니다. 제출 하는 환경에서 azureml 1.18.0 < 버전을 사용 해야 하는 경우 pip 종속성에서 PyJWT < 2.0.0를 지정 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

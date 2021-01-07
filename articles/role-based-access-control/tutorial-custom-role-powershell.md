@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1815e7598410cd709572d93082d5dee5e0b0fb
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82735592"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369245"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 사용자 지정 역할 만들기
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 사용자 지정 역할을 만드는 가장 쉬운 방법은 기본 제공 역할로 시작하여 편집한 다음, 새 역할을 만드는 것입니다.
 
-1. PowerShell에서 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 명령을 사용하여 Microsoft.Support 리소스 공급자의 작업 목록을 가져옵니다. 권한을 만드는 데 사용할 수 있는 작업을 파악하는 데 도움이 됩니다. 모든 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md#microsoftsupport)에서 확인할 수 있습니다.
+1. PowerShell에서 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 명령을 사용하여 Microsoft.Support 리소스 공급자의 작업 목록을 가져옵니다. 권한을 만드는 데 사용할 수 있는 작업을 파악하는 데 도움이 됩니다. [Azure 리소스 공급자 작업](resource-provider-operations.md#microsoftsupport)에서 모든 작업 목록을 볼 수도 있습니다.
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
@@ -272,7 +272,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     ```
 
-1. 확인을 묻는 메시지가 나타나면 **Y**를 선택합니다.
+1. 확인을 묻는 메시지가 나타나면 **Y** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

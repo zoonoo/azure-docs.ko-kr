@@ -1,23 +1,23 @@
 ---
 title: 성능 조정-Azure Data Lake Storage Gen1를 사용 하 여 스톰
 description: 일반적인 문제 해결을 포함 하 여 Azure 스톰 토폴로지의 성능을 조정할 때 고려해 야 하는 요인을 이해 합니다.
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
-ms.author: stewu
-ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.author: twooley
+ms.openlocfilehash: 95619c75d332ec1bf68af97fc3dddbc67b6706ed
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101650"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725040"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Storm 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
@@ -126,7 +126,7 @@ Data Lake Storage Gen1에서 제공하는 대역폭 한계에 도달한 경우 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. **Ambari**  >  **스톰**  >  **구성**  >  **고급 스톰-log4j**에서 ** &lt; root level = "info" &gt; ** 를 ** &lt; root level = "debug" &gt; **로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari**  >  **스톰**  >  **구성**  >  **고급 스톰-log4j** 에서 **&lt; root level = "info" &gt;** 를 **&lt; root level = "debug" &gt;** 로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. 작업자 노드의 storm 토폴로지 로그에서 Data Lake Storage Gen1 제한 예외를 모니터링합니다(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래).
 
 ## <a name="next-steps"></a>다음 단계

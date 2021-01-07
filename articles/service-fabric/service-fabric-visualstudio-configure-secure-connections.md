@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: d4d6b781d97d481793e69cf2ca97cca5b93ce432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256096"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008534"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Visual Studio에서 서비스 패브릭 클러스터에 대한 보안 연결 구성
 액세스 제어 정책이 구성되어 있는 Azure 서비스 패브릭 클러스터에 안전하게 액세스하기 위해 Visual Studio를 사용하는 방법에 대해 알아봅니다.
@@ -31,7 +31,7 @@ Visual Studio에서 Service Fabric 프로젝트를 게시하는 경우 **Service
 
 ### <a name="to-connect-to-a-secure-cluster"></a>보안 클러스터에 연결하려면
 1. 대상 클러스터에서 신뢰하는 클라이언트 인증서 중 하나에 액세스할 수 있는지 확인합니다. 인증서는 일반적으로 개인 정보 교환(.pfx) 파일로 공유됩니다. 클라이언트에 액세스를 허용하도록 서버를 구성하는 방법은 [Azure Portal에서 서비스 패브릭 클러스터 설정](service-fabric-cluster-creation-via-portal.md)을 참조하세요.
-2. 신뢰할 수 있는 인증서를 설치합니다. 이를 위해 .pfx 파일을 두 번 클릭하거나 PowerShell 스크립트 Import-PfxCertificate를 사용하여 인증서를 가져옵니다. 인증서를 **Cert:\LocalMachine\My**에 설치합니다. 인증서를 가져오는 동안 모든 기본 설정을 수락할 수 있습니다.
+2. 신뢰할 수 있는 인증서를 설치합니다. 이를 위해 .pfx 파일을 두 번 클릭하거나 PowerShell 스크립트 Import-PfxCertificate를 사용하여 인증서를 가져옵니다. 인증서를 **Cert:\LocalMachine\My** 에 설치합니다. 인증서를 가져오는 동안 모든 기본 설정을 수락할 수 있습니다.
 3. 프로젝트의 바로 가기 메뉴에서 **게시...** 명령을 선택하여 **Azure 애플리케이션 게시** 대화 상자를 연 다음 대상 클러스터를 선택합니다. 도구가 자동으로 연결을 확인한 다음 게시 프로필에 보안 연결 매개 변수를 저장합니다.
 4. 선택 사항: 게시 프로필을 편집하여 보안 클러스터 연결을 지정할 수 있습니다.
    

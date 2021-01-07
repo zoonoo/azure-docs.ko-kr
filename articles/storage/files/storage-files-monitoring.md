@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8dc99cda4128635e619afec5ed725da16bbd81ed
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 2af4f5467cb0f604f16d1faf841618a14d292806
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629889"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585737"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -44,7 +44,7 @@ Azure Files는 다른 Azure 리소스와 동일한 종류의 모니터링 데이
 
 Azure Files에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 내용은 [Azure 파일 모니터링 데이터 참조](storage-files-monitoring-reference.md) 를 참조 하세요.
 
-Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조하세요.
+Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조하세요.
 
 ## <a name="collection-and-routing"></a>컬렉션 및 라우팅
 
@@ -65,7 +65,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 사용 하 여 진단 설정을 만들 수 있습니다.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
 일반적인 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
 
@@ -96,6 +96,8 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>저장소 계정에 로그 보관
 
+저장소 계정에 로그를 보관 하도록 선택 하는 경우 저장소 계정으로 전송 되는 로그의 양에 대 한 비용을 지불 하 게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 1. **저장소 계정에 보관** 확인란을 선택 하 고 **구성** 단추를 클릭 합니다.
 
    > [!div class="mx-imgBorder"]   
@@ -107,6 +109,8 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
    > 저장소 계정을 내보내기 대상으로 선택 하기 전에 저장소 계정에 대 한 필수 구성 요소를 이해 하기 위해 [Azure 리소스 로그 보관](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 을 참조 하세요.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs로 로그 스트림
+
+로그를 이벤트 허브로 스트리밍하려면 이벤트 허브로 전송 되는 로그의 양에 대 한 비용을 지불 합니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
 
 1. **이벤트 허브로 스트림** 확인란을 선택 하 고 **구성** 단추를 클릭 합니다.
 
@@ -140,10 +144,12 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>저장소 계정에 로그 보관
 
+저장소 계정에 로그를 보관 하도록 선택 하는 경우 저장소 계정으로 전송 되는 로그의 양에 대 한 비용을 지불 하 게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 매개 변수와 함께 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용 하 여 로그를 사용 하도록 설정 `StorageAccountId` 합니다.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 `<storage-service-resource--id>`이 코드 조각의 자리 표시자를 Azure 파일 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
@@ -158,10 +164,12 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccoun
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
+로그를 이벤트 허브로 스트리밍하려면 이벤트 허브로 전송 되는 로그의 양에 대 한 비용을 지불 합니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 매개 변수와 함께 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용 하 여 로그를 사용 하도록 설정 `EventHubAuthorizationRuleId` 합니다.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 예를 들면 다음과 같습니다.
@@ -175,7 +183,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAutho
 매개 변수와 함께 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용 하 여 로그를 사용 하도록 설정 `WorkspaceId` 합니다.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
 예를 들면 다음과 같습니다.
@@ -198,6 +206,8 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 #### <a name="archive-logs-to-a-storage-account"></a>저장소 계정에 로그 보관
 
+저장소 계정에 로그를 보관 하도록 선택 하는 경우 저장소 계정으로 전송 되는 로그의 양에 대 한 비용을 지불 하 게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
+
 [Az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 로그를 사용 하도록 설정 합니다.
 
 ```azurecli-interactive
@@ -215,6 +225,8 @@ az monitor diagnostic-settings create --name <setting-name> --storage-account <s
 각 매개 변수에 대 한 설명은 [Azure CLI를 통해 보관 리소스 로그](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 참조 하세요.
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
+
+로그를 이벤트 허브로 스트리밍하려면 이벤트 허브로 전송 되는 로그의 양에 대 한 비용을 지불 합니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조 하세요.
 
 [Az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 로그를 사용 하도록 설정 합니다.
 
@@ -459,7 +471,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 기록 되는 SMB 및 REST 작업 목록을 얻으려면 [저장소 로깅 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 및 [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)를 참조 하세요.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 저장소 계정에 해당 파일 끝점의 작업이 있지만 테이블 또는 큐 끝점에는 없는 경우 Azure 파일 서비스와 관련 된 로그만 만들어집니다. Azure Storage는 스토리지 서비스에 대해 성공한 요청과 실패한 요청의 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
@@ -585,7 +597,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 
 5. **작업 그룹 선택** 을 클릭 하 고 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (메일, SMS 등)을 추가 합니다.
 
-6. 경고 **규칙 이름** , **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+6. 경고 **규칙 이름**, **설명** 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 
 7. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
 
@@ -617,7 +629,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
     > 정적 임계값을 사용 하는 경우 메트릭 차트는 파일 공유가 현재 제한 되는 경우 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다. 동적 임계값을 사용 하는 경우 메트릭 차트에는 최근 데이터를 기반으로 계산 된 임계값이 표시 됩니다.
 
 11. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (전자 메일, SMS 등)을 추가 합니다.
-12. 경고 **규칙 이름** , * * 설명 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+12. 경고 **규칙 이름**, * * 설명 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 13. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Azure 파일 공유 크기가 용량의 80% 인 경우 경고를 만드는 방법
@@ -636,7 +648,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 8. **임계값** (바이트)을 입력 합니다. 예를 들어 파일 공유 크기가 100 TiB이 고 파일 공유 크기가 용량의 80% 인 경우 경고를 수신 하려면 바이트의 임계값은 87960930222080입니다.
 9. 나머지 **경고 매개 변수** (집계 세분성 및 평가 빈도)를 정의 하 고 **완료** 를 클릭 합니다.
 10. 작업 그룹 선택을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 작업 그룹 (전자 메일, SMS 등)을 추가 합니다.
-11. 경고 **규칙 이름** , * * 설명 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+11. 경고 **규칙 이름**, * * 설명 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 12. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Azure 파일 공유 송신이 하루에 500 GiB을 초과 하는 경우 경고를 만드는 방법
@@ -656,7 +668,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 9. **집계 세분성** 드롭다운을 클릭 하 고 **24 시간** 을 선택 합니다.
 10. **평가 빈도** 를 선택 하 고 **완료를 클릭** 합니다.
 11. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (전자 메일, SMS 등)을 추가 합니다.
-12. 경고 **규칙 이름** , * * 설명 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
+12. 경고 **규칙 이름**, * * 설명 및 **심각도** 와 같은 **경고 정보** 를 입력 합니다.
 13. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계

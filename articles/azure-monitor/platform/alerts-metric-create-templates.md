@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.subservice: alerts
-ms.openlocfilehash: e5f78c8b58cc3100d746957094ddfd9bab2b29fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51ae97567e9c3720c7e36a81bfa7bff44935aac6
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91813222"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511623"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -270,7 +270,7 @@ az login
 
 az deployment group create \
     --name AlertDeployment \
-    --resource-group ResourceGroupofTargetResource \
+    --resource-group ResourceGroupOfTargetResource \
     --template-file simplestaticmetricalert.json \
     --parameters @simplestaticmetricalert.parameters.json
 ```
@@ -377,7 +377,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -518,7 +518,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -569,8 +569,7 @@ az deployment group create \
 - 각 조건 내에서 차원당 하나의 값만 선택할 수 있습니다.
 - "\*"는 차원 값으로 사용할 수 없습니다.
 - 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 모든 해당 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건에 따라).
-    - 아래 예제에서는 **Transactions** 및 **SuccessE2ELatency** 메트릭 모두에 **ApiName** 차원이 있고 *criterion1*에서 **ApiName** 차원에 대해 *"GetBlob"* 값을 지정하고 있으므로 *criterion2*에서도 **ApiName** 차원에 대해 *"GetBlob"* 값을 설정해야 합니다.
-
+    - 아래 예제에서는 **Transactions** 및 **SuccessE2ELatency** 메트릭 모두에 **ApiName** 차원이 있고 *criterion1* 에서 **ApiName** 차원에 대해 *"GetBlob"* 값을 지정하고 있으므로 *criterion2* 에서도 **ApiName** 차원에 대해 *"GetBlob"* 값을 설정해야 합니다.
 
 이 연습의 목적을 위해 아래의 json을 advancedstaticmetricalert.json으로 저장합니다.
 
@@ -976,7 +975,7 @@ az deployment group create \
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }

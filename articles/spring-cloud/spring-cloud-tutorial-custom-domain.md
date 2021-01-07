@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.custom: devx-track-java
-ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d06a6eb8b504f2c5dd09de70d79f50a3ed5d89a3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088757"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844730"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -38,7 +38,7 @@ Azure Key Vault는 PEM 및 PFX 형식의 프라이빗 인증서 가져오기를 
 
 이렇게 하려면 받은 각 인증서를 텍스트 편집기에서 엽니다.
 
-_mergedcertificate.crt_라는 병합된 인증서의 파일을 만듭니다. 텍스트 편집기에서 각 인증서의 내용을 이 파일에 복사합니다. 사용자 인증서의 순서는 사용자의 인증서로 시작하고 루트 인증서로 끝나는 인증서 체인의 순서에 따라야 합니다. 다음 예제와 유사합니다.
+_mergedcertificate.crt_ 라는 병합된 인증서의 파일을 만듭니다. 텍스트 편집기에서 각 인증서의 내용을 이 파일에 복사합니다. 사용자 인증서의 순서는 사용자의 인증서로 시작하고 루트 인증서로 끝나는 인증서 체인의 순서에 따라야 합니다. 다음 예제와 유사합니다.
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -70,19 +70,19 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 메시지가 표시되면 내보내기 암호를 정의합니다. 나중에 TLS/SSL 인증서를 Azure Key Vault에 업로드할 때 이 암호를 사용합니다.
 
-IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 인증서를 로컬 컴퓨터에 설치한 다음 [해당 인증서를 PFX로 내보냅니다](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 인증서를 로컬 컴퓨터에 설치한 다음 [해당 인증서를 PFX로 내보냅니다](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
 ### <a name="save-certificate-in-key-vault"></a>Key Vault에 인증서 저장
 인증서를 가져오는 절차를 수행하려면 PEM 또는 PFX로 인코딩된 파일이 디스크에 있어야 하며 프라이빗 키가 필요합니다. 
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 인증서를 주요 자격 증명 모음에 업로드하려면 다음을 수행합니다.
 1. 키 자격 증명 모음 인스턴스로 이동합니다.
-1. 왼쪽 탐색 창에서 **인증서**를 클릭합니다.
-1. 위쪽 메뉴에서 **생성/가져오기**를 클릭합니다.
-1. **인증서 만들기** 대화 상자의 **인증서를 만드는 방법**에서 `Import`를 선택합니다.
-1. **인증서 파일 업로드**에서 인증서 위치로 이동하여 선택합니다.
-1. **암호**에 인증서의 프라이빗 키를 입력합니다.
-1. **만들기**를 클릭합니다.
+1. 왼쪽 탐색 창에서 **인증서** 를 클릭합니다.
+1. 위쪽 메뉴에서 **생성/가져오기** 를 클릭합니다.
+1. **인증서 만들기** 대화 상자의 **인증서를 만드는 방법** 에서 `Import`를 선택합니다.
+1. **인증서 파일 업로드** 에서 인증서 위치로 이동하여 선택합니다.
+1. **암호** 에 인증서의 프라이빗 키를 입력합니다.
+1. **만들기** 를 클릭합니다.
 
     ![인증서 가져오기 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
@@ -98,9 +98,9 @@ az keyvault certificate import --file <path to .pfx file> --name <certificate na
 인증서를 가져오기 전에 키 자격 증명 모음에 Azure Spring Cloud 액세스 권한을 부여해야 합니다.
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 1. 키 자격 증명 모음 인스턴스로 이동합니다.
-1. 왼쪽 탐색 창에서 **액세스 정책**을 클릭합니다.
-1. 위쪽 메뉴에서 **액세스 정책 추가**를 클릭합니다.
-1. 정보를 입력하고, **추가** 단추를 클릭한 다음, 액세스 정책을 **저장**합니다.
+1. 왼쪽 탐색 창에서 **액세스 정책** 을 클릭합니다.
+1. 위쪽 메뉴에서 **액세스 정책 추가** 를 클릭합니다.
+1. 정보를 입력하고, **추가** 단추를 클릭한 다음, 액세스 정책을 **저장** 합니다.
 
 | 비밀 권한 | 인증서 권한 | 보안 주체 선택 |
 |--|--|--|
@@ -119,8 +119,8 @@ az keyvault set-policy -g <key vault resource group> -n <key vault name>  --obje
 ### <a name="import-certificate-to-azure-spring-cloud"></a>Azure Spring Cloud로 인증서 가져오기
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 1. 서비스 인스턴스로 이동합니다. 
-1. 앱의 왼쪽 탐색 창에서 **TLS/SSL 설정**을 선택합니다.
-1. **Key Vault 인증서 가져오기**를 클릭합니다.
+1. 앱의 왼쪽 탐색 창에서 **TLS/SSL 설정** 을 선택합니다.
+1. **Key Vault 인증서 가져오기** 를 클릭합니다.
 
     ![인증서 가져오기](./media/custom-dns-tutorial/import-certificate.png)
 
@@ -161,14 +161,14 @@ Azure Spring Cloud에 아직 애플리케이션이 없으면 [빠른 시작: Azu
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
 애플리케이션 페이지로 이동합니다.
 
-1. **사용자 지정 도메인**을 선택합니다.
-2. **사용자 지정 도메인 추가**를 선택합니다. 
+1. **사용자 지정 도메인** 을 선택합니다.
+2. **사용자 지정 도메인 추가** 를 선택합니다. 
 
     ![사용자 지정 도메인](./media/custom-dns-tutorial/custom-domain.png)
 
 3. CNAME 레코드를 추가한 정규화된 도메인 이름을 입력합니다(예: www.contoso.com). 호스트 이름 레코드 형식이 CNAME으로 설정되었는지 확인합니다(<service_name>.azuremicroservices.io).
-4. **유효성 검사**를 클릭하여 **추가** 단추를 사용하도록 설정합니다.
-5. **추가**를 클릭합니다.
+4. **유효성 검사** 를 클릭하여 **추가** 단추를 사용하도록 설정합니다.
+5. **추가** 를 클릭합니다.
 
     ![사용자 지정 도메인 추가](./media/custom-dns-tutorial/add-custom-domain.png)
 
@@ -188,14 +188,14 @@ az spring-cloud app custom-domain list --app <app name> --resource-group <resour
 ---
 
 > [!NOTE]
-> 사용자 지정 도메인에 **안전하지 않음**이라는 레이블이 있으면 아직 SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 오류 또는 경고를 수신합니다.
+> 사용자 지정 도메인에 **안전하지 않음** 이라는 레이블이 있으면 아직 SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 오류 또는 경고를 수신합니다.
 
 ## <a name="add-ssl-binding"></a>SSL 바인딩 추가
 
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
-위의 그림처럼 사용자 지정 도메인 테이블에서 **SSL 바인딩 추가**를 선택합니다.  
-1. **인증서**를 선택하거나 가져옵니다.
-1. **저장**을 클릭합니다.
+위의 그림처럼 사용자 지정 도메인 테이블에서 **SSL 바인딩 추가** 를 선택합니다.  
+1. **인증서** 를 선택하거나 가져옵니다.
+1. **저장** 을 클릭합니다.
 
     ![SSL 바인딩 추가 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
@@ -205,14 +205,14 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 ```
 ---
 
-SSL 바인딩을 성공적으로 추가한 후에는 도메인 상태가 안전함을 나타내는 **정상**으로 표시됩니다. 
+SSL 바인딩을 성공적으로 추가한 후에는 도메인 상태가 안전함을 나타내는 **정상** 으로 표시됩니다. 
 
 ![SSL 바인딩 추가 2](./media/custom-dns-tutorial/secured-domain-state.png)
 
 ## <a name="enforce-https"></a>HTTPS 적용
 기본적으로 여전히 누구나 HTTP를 사용하여 앱에 액세스할 수 있지만, 모든 HTTP 요청을 HTTPS 포트로 리디렉션할 수 있습니다.
 #### <a name="portal"></a>[포털](#tab/Azure-portal)
-앱 페이지의 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. **HTTPS만 사용**을 *True*로 설정합니다.
+앱 페이지의 왼쪽 탐색 영역에서 **사용자 지정 도메인** 을 선택합니다. **HTTPS만 사용** 을 *True* 로 설정합니다.
 
 ![SSL 바인딩 추가 3](./media/custom-dns-tutorial/enforce-http.png)
 

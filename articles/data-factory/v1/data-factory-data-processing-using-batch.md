@@ -3,8 +3,8 @@ title: Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 description: Azure Batch의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2abc04a6a4ad6ee1c3e910db0a6be11b8150d52e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 365de79db450eda897621ccde3b92478ed93ecc3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631923"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96496163"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -70,7 +70,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 * **컴퓨팅 노드(VM)의 풀과 함께 Batch를 구성합니다.** 노드 수와 각 노드의 크기를 지정할 수 있습니다.
 
-* 데이터를 이동하고 변환하는 작업을 사용하여 Blob Storage, Batch 컴퓨팅 서비스, 입력/출력 데이터 및 워크플로/파이프라인을 나타내는 엔터티로 구성된 **Data Factory 인스턴스를 만듭니다** .
+* 데이터를 이동하고 변환하는 작업을 사용하여 Blob Storage, Batch 컴퓨팅 서비스, 입력/출력 데이터 및 워크플로/파이프라인을 나타내는 엔터티로 구성된 **Data Factory 인스턴스를 만듭니다**.
 
 * **Data Factory 파이프라인에서 사용자 지정 .NET 작업을 만듭니다.** 작업은 Batch 풀에서 실행되는 사용자 코드입니다.
 
@@ -80,7 +80,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 
 * **Data Factory는 Batch에서 할당한 풀을 사용하여 사용자 지정 작업을 실행합니다.** 데이터 팩터리는 작업을 동시에 실행할 수 있습니다. 각 작업은 데이터 조각을 처리합니다. 결과는 스토리지에 저장됩니다.
 
-* 앱을 통해 배포하거나 다른 도구에서 추가로 처리하기 위한 목적으로 **Data Factory는 최종 결과를 세 번째 위치로 이동시킵니다** .
+* 앱을 통해 배포하거나 다른 도구에서 추가로 처리하기 위한 목적으로 **Data Factory는 최종 결과를 세 번째 위치로 이동시킵니다**.
 
 ## <a name="implementation-of-the-sample-solution"></a>샘플 솔루션의 구현
 샘플 솔루션은 의도적으로 간단합니다. Data Factory와 Batch를 사용하여 데이터 세트를 처리하는 방법을 알려주도록 디자인되었습니다. 솔루션은 시계열에 구성된 입력 파일에서 검색 단어 "Microsoft"의 발생 수를 계산합니다. 그러면 출력 파일에 개수를 출력합니다.
@@ -110,7 +110,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
 1. **풀** 블레이드에서 도구 모음의 **추가** 단추를 선택하여 풀을 추가합니다.
 
-   a. 풀에 대한 ID( **풀 ID** )를 입력합니다. 풀의 ID를 적어둡니다. Data Factory 솔루션을 만들 때 필요합니다.
+   a. 풀에 대한 ID(**풀 ID**)를 입력합니다. 풀의 ID를 적어둡니다. Data Factory 솔루션을 만들 때 필요합니다.
 
    b. **운영 체제 제품군** 설정에 **Windows Server 2012 R2** 를 지정합니다.
 
@@ -170,10 +170,10 @@ public IDictionary<string, string> Execute(
 
 * 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
-  * **linkedServices** . 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
-  * **데이터 세트** . 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
-  * **activity** . 이 매개 변수는 현재 컴퓨팅 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
-  * **logger** . 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
+  * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
+  * **데이터 세트**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
+  * **activity**. 이 매개 변수는 현재 컴퓨팅 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
+  * **logger**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
 #### <a name="procedure-create-the-custom-activity"></a>프로시저: 사용자 지정 작업 만들기
@@ -395,11 +395,11 @@ public IDictionary<string, string> Execute(
 
     Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 "Microsoft" 키워드의 인스턴스 수를 계산합니다. 검색 용어 "Microsoft"는 코드에 하드 코딩됩니다.
 
-1. 프로젝트를 컴파일합니다. 메뉴에서 **빌드** , **솔루션 빌드** 를 차례로 선택합니다.
+1. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**, **솔루션 빌드** 를 차례로 선택합니다.
 
 1. Windows 탐색기를 시작하고, **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다. 선택하는 폴더하는 빌드의 형식에 따라 달라집니다.
 
-1. **\\bin\\Debug** 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity. **pdb** 파일을 포함할 수 있습니다.
+1. **\\bin\\Debug** 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
 
    ![Bin\Debug 폴더 목록](./media/data-factory-data-processing-using-batch/image5.png)
 
@@ -660,7 +660,7 @@ test custom activity Microsoft test custom activity Microsoft
     }
     ```
 
-    이 연습에서는 나중에 시작 시간 2015-11-16T00:00:00Z 및 종료 시간 2015-11-16T05:00:00Z로 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약됩니다. 따라서 5개의 입/출력 조각이 있습니다( **00** :00:00 -\> **05** :00:00 사이).
+    이 연습에서는 나중에 시작 시간 2015-11-16T00:00:00Z 및 종료 시간 2015-11-16T05:00:00Z로 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약됩니다. 따라서 5개의 입/출력 조각이 있습니다(**00**:00:00 -\> **05**:00:00 사이).
 
     입력 데이터 세트의 **빈도** 및 **간격** 은 **시간** 및 **1** 로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
 
@@ -668,21 +668,21 @@ test custom activity Microsoft test custom activity Microsoft
 
     | **조각** | **시작 시간**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T **00** :00:00 |
-    | 2         | 2015-11-16T **01** :00:00 |
-    | 3         | 2015-11-16T **02** :00:00 |
-    | 4         | 2015-11-16T **03** :00:00 |
-    | 5         | 2015-11-16T **04** :00:00 |
+    | 1         | 2015-11-16T **00**:00:00 |
+    | 2         | 2015-11-16T **01**:00:00 |
+    | 3         | 2015-11-16T **02**:00:00 |
+    | 4         | 2015-11-16T **03**:00:00 |
+    | 5         | 2015-11-16T **04**:00:00 |
 
-    **folderPath** 는 조각 시작 시간( **SliceStart** )의 연도, 월, 일 및 시간 부분을 사용하여 계산됩니다. 입력 폴더가 조각에 매핑되는 방식은 다음과 같습니다.
+    **folderPath** 는 조각 시작 시간(**SliceStart**)의 연도, 월, 일 및 시간 부분을 사용하여 계산됩니다. 입력 폴더가 조각에 매핑되는 방식은 다음과 같습니다.
 
     | **조각** | **시작 시간**          | **입력 폴더**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T **00** :00:00 | 2015-11-16- **00** |
-    | 2         | 2015-11-16T **01** :00:00 | 2015-11-16- **01** |
-    | 3         | 2015-11-16T **02** :00:00 | 2015-11-16- **02** |
-    | 4         | 2015-11-16T **03** :00:00 | 2015-11-16- **03** |
-    | 5         | 2015-11-16T **04** :00:00 | 2015-11-16- **04** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04** |
 
 1. 도구 모음에서 **배포** 를 선택하여 **InputDataset** 테이블을 만들고 배포합니다.
 
@@ -725,11 +725,11 @@ test custom activity Microsoft test custom activity Microsoft
 
     | **조각** | **시작 시간**          | **출력 파일**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T **00** :00:00 | 2015-11-16- **00.txt** |
-    | 2         | 2015-11-16T **01** :00:00 | 2015-11-16- **01.txt** |
-    | 3         | 2015-11-16T **02** :00:00 | 2015-11-16- **02.txt** |
-    | 4         | 2015-11-16T **03** :00:00 | 2015-11-16- **03.txt** |
-    | 5         | 2015-11-16T **04** :00:00 | 2015-11-16- **04.txt** |
+    | 1         | 2015-11-16T **00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T **02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T **03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T **04**:00:00 | 2015-11-16-**04.txt** |
 
     입력 폴더(예: 2015-11-16-00)에 있는 모든 파일은 시작 시간(2015-11-16-00)의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어 "Microsoft"의 항목 수와 함께 출력 파일에 줄을 생성합니다. 폴더 2015-11-16-00에 세 개의 파일이 있는 경우 출력 파일(2015-11-16-00.txt)에 세 줄이 있게 됩니다.
 
@@ -797,7 +797,7 @@ test custom activity Microsoft test custom activity Microsoft
    * **EntryPoint** 는 **MyDotNetActivityNS.MyDotNetActivity** 로 설정합니다. 기본적으로 \<namespace\> 입니다.\<classname\> 코드에서
    * **PackageLinkedService** 가 사용자 지정 작업 zip 파일을 포함하는 Blob Storage를 가리키는 **StorageLinkedService** 로 설정됩니다. 입/출력 파일 및 사용자 지정 작업 zip 파일에 대해 서로 다른 스토리지 계정을 사용하는 경우 다른 Storage 연결된 서비스를 만들어야 합니다. 이 문서에서는 동일한 스토리지 계정을 사용한다고 가정합니다.
    * **PackageFile** 은 **customactivitycontainer/MyDotNetActivity.zip** 으로 설정합니다. 형식 \<containerforthezip\> / \<nameofthezip.zip\> 입니다.
-   * 사용자 지정 작업은 입력으로 **InputDataset** , 출력으로 **OutputDataset** 을 사용합니다.
+   * 사용자 지정 작업은 입력으로 **InputDataset**, 출력으로 **OutputDataset** 을 사용합니다.
    * 사용자 지정 작업의 **linkedServiceName** 속성은 **AzureBatchLinkedService** 를 가리키며 Data Factory에 사용자 지정 작업을 Batch에서 실행해야 함을 알려줍니다.
    * **동시성** 설정은 중요합니다. Batch 풀에 2개 이상의 컴퓨팅 노드가 있더라도 기본값(1)을 사용하는 경우 조각은 차례로 처리됩니다. 따라서 Batch의 병렬 처리 기능을 활용하지 못합니다. **동시성** 을 더 높은 값, 예를 들어 2로 설정한 경우 2조각(Batch에서 2개의 작업에 해당)은 동시에 처리될 수 있습니다. 이 경우에 Batch 풀의 두 VM이 모두 활용됩니다. 동시성 속성을 적절하게 설정합니다.
    * 기본적으로 VM에서 언제든지 하나의 작업(조각)이 실행됩니다. 기본적으로 **VM 당 최대 작업** 은 Batch 풀에 대해 1로 설정됩니다. 필수 구성 요소의 일부로 이 속성이 2로 설정된 풀을 만들었습니다. 따라서 두 개의 Data factory 조각이 VM에서 동시에 실행될 수 있습니다.
@@ -842,7 +842,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![조각 매핑 다이어그램](./media/data-factory-data-processing-using-batch/image16.png)
 
-1. 이제 폴더의 여러 파일을 시도하세요. **2015-11-06-01** 폴더의 file.txt와 동일한 콘텐츠를 가진 **file2.txt** , **file3.txt** , **file4.txt** 및 **file5.txt** 파일을 만듭니다.
+1. 이제 폴더의 여러 파일을 시도하세요. **2015-11-06-01** 폴더의 file.txt와 동일한 콘텐츠를 가진 **file2.txt**, **file3.txt**, **file4.txt** 및 **file5.txt** 파일을 만듭니다.
 
 1. 출력 폴더에서 출력 파일 **2015-11-16-01.txt** 를 삭제합니다.
 
@@ -850,7 +850,7 @@ test custom activity Microsoft test custom activity Microsoft
 
     ![다음을 실행합니다.](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일( **2015-11-16-01.txt** )의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
+1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -914,7 +914,7 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
 
    ![사용자 지정 작업 zip 파일 목록](./media/data-factory-data-processing-using-batch/image20.png)
 
-1. **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService** (zip 파일을 포함하는 Blob Storage를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다.
+1. **assemblyName**(MyDotNetActivity.dll), **entryPoint**(MyDotNetActivityNS.MyDotNetActivity), **packageFile**(customactivitycontainer/MyDotNetActivity.zip) 및 **packageLinkedService**(zip 파일을 포함하는 Blob Storage를 가리켜야 함)가 올바른 값으로 설정되었는지 확인합니다.
 
 1. 오류를 해결했고 조각을 다시 처리하려면 **OutputDataset** 블레이드에서 조각을 마우스 오른쪽 단추로 클릭하고 **실행** 을 선택합니다.
 

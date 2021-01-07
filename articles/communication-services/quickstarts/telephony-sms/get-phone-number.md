@@ -9,16 +9,17 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: cff39f93f9caddfdbe48788f14b62642a373e2bf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3c7f171a2b4957b687831ec2777ecc40b5913a15
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148190"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938650"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전화 번호 받기
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Services를 시작합니다.
 
@@ -37,13 +38,13 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 리소스 메뉴에서 **전화 번호** 블레이드로 이동합니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Communication Services 리소스의 전화 페이지를 보여주는 스크린샷":::
 
 **가져오기** 단추를 눌러 마법사를 시작합니다. **전화 번호** 블레이드의 마법사는 시나리오에 가장 적합한 전화 번호를 선택하는 데 도움이 되는 일련의 질문을 안내합니다. 
 
 먼저 전화 번호를 프로비저닝하려는 **국가/지역** 을 선택해야 합니다. 국가/지역이 선택되면 요구 사항에 가장 적합한 **사용 사례** 를 선택해야 합니다. 
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="[전화 번호 받기] 보기를 보여주는 스크린샷":::
 
 ### <a name="select-your-phone-number-features"></a>전화 번호 기능 선택
 
@@ -56,7 +57,7 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 이 예에서는 **아웃바운드 통화** 및 **인바운드 및 아웃바운드 SMS** 기능이 있는 **무료** 전화 번호 유형을 선택했습니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="기능 선택 보기를 보여 주는 스크린샷":::
 
 여기서는 페이지 아래쪽에서 **다음: 전화 번호** 단추를 클릭하여 프로비저닝하려는 전화 번호를 사용자 지정합니다.
 
@@ -64,14 +65,14 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 **전화 번호** 페이지에서 프로비저닝하려는 전화 번호를 사용자 지정합니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="[번호 선택] 페이지를 보여주는 스크린샷":::
 
 > [!NOTE]
 > 이 빠른 시작에서는 **무료** 전화 번호 유형의 사용자 지정 흐름을 보여 줍니다. **지역** 전화 번호 유형을 선택한 경우 환경이 약간 다를 수 있지만 최종 결과는 동일합니다.
 
 사용 가능한 지역 코드 목록에서 **지역 코드** 를 선택하고, 프로비저닝하려는 수량을 입력한 다음, **검색** 을 클릭하여 선택한 요구 사항을 충족하는 전화 번호를 찾습니다. 요구 사항을 충족하는 전화 번호가 해당 월간 비용과 함께 표시됩니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="번호가 예약된 [번호 선택] 페이지를 보여주는 스크린샷":::
 
 > [!NOTE]
 > 가용성은 선택한 전화 번호 유형, 위치 및 기능에 따라 달라집니다.
@@ -88,7 +89,7 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 마지막으로, 페이지 아래쪽에서 **주문** 을 클릭하여 확인합니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-get-numbers-summary.png" alt-text="번호 유형, 기능, 전화 번호, 총 월간 비용이 표시된 요약 페이지를 보여주는 스크린샷":::
 
 ## <a name="find-your-phone-numbers-on-the-azure-portal"></a>Azure Portal에서 전화 번호 찾기
 
@@ -98,7 +99,7 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 메뉴에서 [전화 번호] 블레이드를 선택하여 전화 번호를 관리합니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Communication Services 리소스의 전화 번호 페이지를 보여주는 스크린샷":::
 
 > [!NOTE]
 > 프로비저닝된 번호가 이 페이지에 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
@@ -108,7 +109,7 @@ Azure Portal을 통해 전화 번호를 구매하여 Azure Communication Service
 
 **전화 번호** 페이지에서 구성할 전화 번호를 선택할 수 있습니다.
 
-:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Communication Services 리소스의 기본 페이지를 보여주는 스크린샷":::
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="기능 업데이트 페이지를 보여 주는 스크린샷":::
 
 사용 가능한 옵션에서 기능을 선택한 다음, **확인** 을 클릭하여 선택 항목을 적용합니다.
 

@@ -1,31 +1,31 @@
 ---
-title: Azure Multi-Factor Authentication에 대 한 인증 방법 관리-Azure Active Directory
-description: Azure에 대 한 사용자 설정 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다 Multi-Factor Authentication
+title: Azure AD Multi-Factor Authentication에 대 한 인증 방법 관리-Azure Active Directory
+description: Azure AD에 대 한 사용자 설정 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다 Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: a96f01d38fb41f64336d0a2b1d2aa33a96ca9f1a
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378048"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96742751"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대 한 사용자 인증 방법 관리
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication에 대 한 사용자 인증 방법 관리
 
 Azure AD의 사용자에 게는 두 가지 연락처 정보 집합이 있습니다.  
 
 - 사용자 프로필에서 관리 되 고 조직의 구성원에 게 표시 되는 공개 프로필 연락처 정보입니다. 온-프레미스 Active Directory에서 동기화 된 사용자의 경우이 정보는 온-프레미스 Windows Server Active Directory Domain Services에서 관리 됩니다.
 - 항상 비공개로 유지 되 고 MFA (multi-factor authentication)를 비롯 한 인증에만 사용 되는 인증 방법입니다. 관리자는 사용자의 인증 방법 블레이드에서 이러한 메서드를 관리할 수 있으며, 사용자는 MyAccount의 보안 정보 페이지에서 해당 메서드를 관리할 수 있습니다.
 
-사용자에 대 한 Azure Multi-Factor Authentication 메서드를 관리 하는 경우 인증 관리자는 다음을 수행할 수 있습니다. 
+사용자를 위해 Azure AD Multi-Factor Authentication 메서드를 관리 하는 경우 인증 관리자는 다음을 수행할 수 있습니다. 
 
 1. MFA에 사용 되는 전화 번호를 포함 하 여 특정 사용자에 대 한 인증 방법을 추가 합니다.
 1. 사용자 암호를 다시 설정합니다.
@@ -112,10 +112,10 @@ Microsoft Graph Api를 사용 하 여 인증 방법을 관리할 수도 있습�
 1. **Multi-Factor Authentication** 을 선택합니다. 이 메뉴 옵션을 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 다음 스크린샷 예를 선택 하 여 전체 Azure Portal 창 및 메뉴 위치를 확인 합니다. [ ![ Azure AD의 사용자 창에서 Multi-Factor Authentication를 선택 합니다.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. 관리하려는 사용자 한 명 또는 여러 명 옆의 상자를 선택합니다. 오른쪽에 빠른 단계 옵션 목록이 표시 됩니다.
 1. **사용자 설정 관리** 를 선택 하 고 다음 예제와 같이 모든 기존 앱 암호 삭제의 확인란을 선택 하 여 **선택한 사용자가 생성 한 모든 기존 앱 암호를 삭제** 합니다. 확인란을 선택 합니다. ![](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-1. **저장** , **닫기** 를 차례로 선택 합니다.
+1. **저장**, **닫기** 를 차례로 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 개별 사용자 설정을 구성 하는 방법을 살펴보았습니다. 전체 Azure Multi-Factor Authentication 서비스 설정을 구성 하려면 [azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)을 참조 하세요.
+이 문서에서는 개별 사용자 설정을 구성 하는 방법을 살펴보았습니다. 전체 Azure AD Multi-Factor Authentication 서비스 설정을 구성 하려면 [AZURE ad Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)을 참조 하세요.
 
-사용자에 게 도움이 필요한 경우 [Azure Multi-Factor Authentication에 대 한 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조 하세요.
+사용자에 게 도움이 필요한 경우 [AZURE AD Multi-Factor Authentication에 대 한 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조 하세요.

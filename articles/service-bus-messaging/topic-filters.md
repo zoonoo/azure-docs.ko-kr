@@ -3,12 +3,12 @@ title: Azure Service Bus 토픽 필터 | Microsoft Docs
 description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5df343ff63c01a7cf10315b758e3d6fba8ac5674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04ae585c42f8acfbf338bf23befb32a5521fcf57
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066749"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889034"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
@@ -18,11 +18,11 @@ ms.locfileid: "88066749"
 
 Service Bus는 세 가지 필터 조건을 지원합니다.
 
--   *부울 필터* - **TrueFilter** 및 **FalseFilter**는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다.
+-   *부울 필터* - **TrueFilter** 및 **FalseFilter** 는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다. 이러한 두 필터는 SQL 필터에서 파생 됩니다. 
 
--   *SQL 필터* - **SqlFilter**는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 ( `EXISTS` ), null 값 ( `IS NULL` ), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와의 단순 텍스트 패턴 일치 여부를 테스트 합니다 `LIKE` .
+-   *SQL 필터* - **SqlFilter** 는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 ( `EXISTS` ), null 값 ( `IS NULL` ), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와의 단순 텍스트 패턴 일치 여부를 테스트 합니다 `LIKE` .
 
--   *상관 관계 필터* - **CorrelationFilter**는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적으로 **CorrelationId** 속성을 일치 시키는 것 이지만 응용 프로그램은 다음 속성과 일치 하도록 선택할 수도 있습니다.
+-   *상관 관계 필터* - **CorrelationFilter** 는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적으로 **CorrelationId** 속성을 일치 시키는 것 이지만 응용 프로그램은 다음 속성과 일치 하도록 선택할 수도 있습니다.
 
     - **ContentType**
      - **레이블**
@@ -52,6 +52,75 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 분할은 필터를 사용하여 예측 가능하며 상호 배타적인 방식으로 기존의 여러 토픽 구독에 메시지를 배포합니다. 분할 패턴은 전체 데이터의 하위 집합을 보유하는 기능적으로 동일한 구획에서 다수의 많은 컨텍스트를 처리하도록 시스템 규모가 확장될 때 사용됩니다(예: 고객 프로필 정보). 분할을 사용하면 게시자가 분할 모델에 대한 지식이 없어도 토픽에 메시지를 제출할 수 있습니다. 그런 다음 메시지는 올바른 구독으로 이동되고 파티션의 메시지 처리기에서 검색이 가능해집니다.
 
 라우팅은 필터를 사용하여 예측 가능한 방식으로 토픽 구독에 메시지를 배포하지만 반드시 배타적이지는 않습니다. [자동 전달](service-bus-auto-forwarding.md) 기능과 함께 토픽 필터를 사용하여 Azure 지역 내에 메시지를 배포하기 위해 Service Bus 네임스페이스 내에 복잡한 라우팅 그래프를 만들 수 있습니다. Azure Service Bus 네임스페이스 간에 브리지 역할을 하는 Azure Functions 또는 Azure Logic Apps를 사용하면 LOB(기간 업무) 애플리케이션에 직접 통합하여 복잡한 글로벌 토폴로지를 만들 수 있습니다.
+
+## <a name="examples"></a>예
+
+### <a name="set-rule-action-for-a-sql-filter"></a>SQL 필터에 대 한 규칙 동작 설정
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>시스템 속성에 대 한 SQL 필터
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>또는 사용 
+
+```csharp
+sys.Label LIKE '%bus%' OR user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>IN 및 NOT IN 사용
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+이러한 필터를 사용 하는 c # 샘플은 [GitHub의 토픽 필터 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters)을 참조 하세요.
+
+### <a name="correlation-filter-using-correlationid"></a>CorrelationID를 사용 하 여 상관 관계 필터
+
+```csharp
+new CorrelationFilter("Contoso");
+```
+
+가로 설정 된 메시지 `CorrelationID` 를 필터링 `Contoso` 합니다. 
+
+### <a name="correlation-filter-using-system-and-user-properties"></a>시스템 및 사용자 속성을 사용한 상관 관계 필터
+
+```csharp
+var filter = new CorrelationFilter();
+filter.Label = "Important";
+filter.ReplyTo = "johndoe@contoso.com";
+filter.Properties["color"] = "Red";
+```
+
+다음과 같습니다. `sys.ReplyTo = 'johndoe@contoso.com' AND sys.Label = 'Important' AND color = 'Red'`
 
 
 > [!NOTE]

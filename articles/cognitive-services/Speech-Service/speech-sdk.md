@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9356cbb6eb210d6745d90e8ad001917e73592cd3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870717"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96021992"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -29,7 +29,7 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
 
-음성 [텍스트](speech-to-text.md) ( *음성 인식이*라고도 함)는 응용 프로그램, 도구 또는 장치에서 사용 하거나 표시할 수 있는 텍스트로 오디오 스트림을 speech 합니다. [LUIS(Language Understanding)](../luis/index.yml)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. 음성 [번역](speech-translation.md) 을 사용 하 여 한 번의 호출로 음성 입력을 다른 언어로 번역 합니다. 자세한 내용은 [음성 텍스트 기본 사항](speech-to-text-basics.md)을 참조 하세요.
+음성 [텍스트](speech-to-text.md) ( *음성 인식이* 라고도 함)는 응용 프로그램, 도구 또는 장치에서 사용 하거나 표시할 수 있는 텍스트로 오디오 스트림을 speech 합니다. [LUIS(Language Understanding)](../luis/index.yml)에서 음성 텍스트 변환을 사용하여 기록된 음성에서 사용자 의도를 파생시키고 음성 명령 작업에 따라 행동합니다. 음성 [번역](speech-translation.md) 을 사용 하 여 한 번의 호출로 음성 입력을 다른 언어로 번역 합니다. 자세한 내용은 [음성 텍스트 기본 사항](./get-started-speech-to-text.md)을 참조 하세요.
 
 **SR (음성 인식), 구 목록, 의도, 번역 및 온-프레미스 컨테이너** 는 다음 플랫폼에서 사용할 수 있습니다.
 
@@ -44,7 +44,7 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
 
-[텍스트 음성](text-to-speech.md) 변환 ( *음성 합성*이 라고도 함)은 텍스트를 사람이 나 비슷한 합성 음성으로 변환 합니다. 입력 텍스트는 문자열 리터럴 또는 [SSML (Speech 합성 Markup Language)](speech-synthesis-markup.md)을 사용 하는 것입니다. 표준 또는 신경망 음성에 대 한 자세한 내용은 [텍스트 음성 변환 언어 및 음성 지원](language-support.md#text-to-speech)을 참조 하세요.
+[텍스트 음성](text-to-speech.md) 변환 ( *음성 합성* 이 라고도 함)은 텍스트를 사람이 나 비슷한 합성 음성으로 변환 합니다. 입력 텍스트는 문자열 리터럴 또는 [SSML (Speech 합성 Markup Language)](speech-synthesis-markup.md)을 사용 하는 것입니다. 표준 또는 신경망 음성에 대 한 자세한 내용은 [텍스트 음성 변환 언어 및 음성 지원](language-support.md#text-to-speech)을 참조 하세요.
 
 **TTS (텍스트 음성 변환)** 는 다음 플랫폼에서 사용할 수 있습니다.
 
@@ -68,7 +68,7 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
 
 #### <a name="keyword-spotting"></a>키워드 발견
 
-[발견 키워드](speech-devices-sdk-create-kws.md) 의 개념은 Speech SDK에서 지원 됩니다. 키워드 발견는 음성에서 키워드를 식별 한 후 키워드를 청력으로 작업을 수행 하는 동작입니다. 예를 들어 "안녕하세요 Cortana"는 Cortana 길잡이를 활성화 합니다.
+[발견 키워드](./custom-keyword-basics.md) 의 개념은 Speech SDK에서 지원 됩니다. 키워드 발견는 음성에서 키워드를 식별 한 후 키워드를 청력으로 작업을 수행 하는 동작입니다. 예를 들어 "안녕하세요 Cortana"는 Cortana 길잡이를 활성화 합니다.
 
 **KWS (Keyword 발견)** 는 다음 플랫폼에서 사용할 수 있습니다.
 
@@ -84,7 +84,7 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 든 상관 없이 
 
 #### <a name="conversation-transcription"></a>대화 전사
 
-[대화 기록을](conversation-transcription.md) 통해 각 스피커 ( *diarization*라고도 함)에 대 한 실시간 (및 비동기) 음성 인식, 발표자 식별 및 문장 특성을 사용할 수 있습니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다.
+[대화 기록을](conversation-transcription.md) 통해 각 스피커 ( *diarization* 라고도 함)에 대 한 실시간 (및 비동기) 음성 인식, 발표자 식별 및 문장 특성을 사용할 수 있습니다. 화자를 구별하는 기능을 사용하여 직접 만남을 전사하는 데 이상적입니다.
 
 다음과 같은 플랫폼에서 **대화 기록을** 사용할 수 있습니다.
 
@@ -180,4 +180,4 @@ Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나�
 ## <a name="next-steps"></a>다음 단계
 
 * [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [C#에서 음성을 인식하는 방법 참조](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

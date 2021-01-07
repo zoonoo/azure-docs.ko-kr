@@ -1,5 +1,5 @@
 ---
-title: Metrics Monitor REST API 빠른 시작
+title: Metrics Advisor REST API 빠른 시작
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 09/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 416f28f51a3ebe00e7227503f189898406229c8a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 42ea166119d3cc405b3d73e184c44dbfd6708a97
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047467"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96231483"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "92047467"
 
 > [!TIP]
 > * REST API를 호출하는 Python 샘플은 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/MetricsAdvisor)에서 확인할 수 있습니다.
-> * Metrics Advisor 리소스에서 사용할 서비스 인스턴스를 배포하는 데 10~30분 정도 걸릴 수 있습니다. 성공적으로 배포되면 **리소스로 이동**을 클릭합니다. 배포 후에는 웹 포털과 REST API 모두를 사용하여 Metrics Advisor 인스턴스 사용을 시작할 수 있습니다. 
+> * Metrics Advisor 리소스에서 사용할 서비스 인스턴스를 배포하는 데 10~30분 정도 걸릴 수 있습니다. 성공적으로 배포되면 **리소스로 이동** 을 클릭합니다. 배포 후에는 웹 포털과 REST API 모두를 사용하여 Metrics Advisor 인스턴스 사용을 시작할 수 있습니다. 
 > * 리소스의 **개요** 섹션에서 Azure Portal의 REST API에 대한 URL을 찾을 수 있습니다. 다음과 같이 표시됩니다.
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
 
@@ -33,12 +33,12 @@ REST API 사용을 시작하려면 두 개의 키가 필요합니다.
 
 * Metrics Advisor 리소스에 대한 키입니다. Azure Portal에서 리소스의 **키 및 엔드포인트** 섹션에서 찾을 수 있습니다.
     * 나중에 이 키를 사용하여 예제의 `Ocp-Apim-Subscription-Key`를 바꿉니다. 
-* Metrics Advisor 인스턴스에 대한 API 키입니다. 이는 Metrics Advisor용 웹 포털의 왼쪽 탐색 메뉴에 있는 **API 키**에서 찾을 수 있습니다.
+* Metrics Advisor 인스턴스에 대한 API 키입니다. 이는 Metrics Advisor용 웹 포털의 왼쪽 탐색 메뉴에 있는 **API 키** 에서 찾을 수 있습니다.
     * 나중에 이 키를 사용하여 예제의 `x-api-key`를 바꿉니다.
 
 ## <a name="add-a-data-feed-from-a-sample-or-data-source"></a>샘플 또는 데이터 원본에서 데이터 피드 추가
 
-시계열 데이터 모니터링을 시작하려면 데이터 피드를 추가해야 합니다. 데이터 피드를 추가하려면 데이터 원본 유형 및 매개 변수에 따라 데이터 스키마를 제공해야 합니다. 아래 JSON 요청 본문을 *body.json*이라는 파일에 저장하고, cURL 명령을 실행합니다.
+시계열 데이터 모니터링을 시작하려면 데이터 피드를 추가해야 합니다. 데이터 피드를 추가하려면 데이터 원본 유형 및 매개 변수에 따라 데이터 스키마를 제공해야 합니다. 아래 JSON 요청 본문을 *body.json* 이라는 파일에 저장하고, cURL 명령을 실행합니다.
 
 ```json
 {
@@ -115,9 +115,9 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 x-content-type-options: nosniff
 Date: Thu, 03 Sep 2020 18:29:27 GMT
 ```
-위의 응답에서 **Location** 헤더는 사용자가 만든 데이터 피드의 URL이며 **dataFeedID**를 포함합니다. 
+위의 응답에서 **Location** 헤더는 사용자가 만든 데이터 피드의 URL이며 **dataFeedID** 를 포함합니다. 
 
-위의 URL을 사용하여 이전 단계에서 만든 데이터 피드의 자세한 정보를 쿼리할 수 있습니다. **metricID**는 다음 단계의 데이터 피드 정보에 사용합니다.
+위의 URL을 사용하여 이전 단계에서 만든 데이터 피드의 자세한 정보를 쿼리할 수 있습니다. **metricID** 는 다음 단계의 데이터 피드 정보에 사용합니다.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WITH-YOUR-DATA-FEED-ID \
@@ -197,7 +197,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
 
 ## <a name="check-ingestion-status"></a>수집 상태 확인
 
-데이터 피드를 추가한 후 수집 작업의 진행 상황을 확인하려는 경우 해당 상태를 확인할 수 있습니다. 아래 JSON 요청 본문을 *body.json*이라는 파일에 저장하고, cURL 명령을 실행합니다.
+데이터 피드를 추가한 후 수집 작업의 진행 상황을 확인하려는 경우 해당 상태를 확인할 수 있습니다. 아래 JSON 요청 본문을 *body.json* 이라는 파일에 저장하고, cURL 명령을 실행합니다.
 
 ```json
 {
@@ -246,7 +246,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/datafeeds/REPLACE-WI
 
 ##  <a name="configure-anomaly-detection-configuration"></a>변칙 검색 구성 설정
 
-기본 구성이 각 메트릭에 자동으로 적용되지만 데이터에서 사용되는 검색 모드를 튜닝할 수 있습니다. 아래 JSON 요청 본문을 *body.json*이라는 파일에 저장하고, cURL 명령을 실행합니다.
+기본 구성이 각 메트릭에 자동으로 적용되지만 데이터에서 사용되는 검색 모드를 튜닝할 수 있습니다. 아래 JSON 요청 본문을 *body.json* 이라는 파일에 저장하고, cURL 명령을 실행합니다.
 
 ```json
 {
@@ -297,7 +297,7 @@ Date: Tue, 08 Sep 2020 09:50:38 GMT
 
 위의 **Location** 헤더에는 새로 만든 리소스(검색 구성)의 URL이 포함되어 있습니다. 
 
-**Location** 헤더에 위의 URL을 사용하여 사용자가 만든 검색 구성을 쿼리할 수 있습니다. **anomalyDetectionConfigurationId**는 다음 단계의 응답 콘텐츠에 사용합니다.
+**Location** 헤더에 위의 URL을 사용하여 사용자가 만든 검색 구성을 쿼리할 수 있습니다. **anomalyDetectionConfigurationId** 는 다음 단계의 응답 콘텐츠에 사용합니다.
 
 ```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/enrichment/anomalyDetection/configurations/REPLACE-WITH-YOUR-DETECTION-CONFIGURATION-ID \
@@ -338,7 +338,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/enrichment/anomalyDe
 
 경고를 구성하기 전에 경고를 알리는 데 사용되는 후크를 만들어야 합니다. 경고가 트리거될 경우 웹후크와 이메일로 알림을 받을 수 있습니다. 후크를 만드는 동안 둘 중 하나를 후크 구성에 후크 형식으로 지정할 수 있습니다.
 
-아래 JSON 요청 본문을 *body.json*이라는 파일에 저장하고, cURL 명령을 실행합니다.
+아래 JSON 요청 본문을 *body.json* 이라는 파일에 저장하고, cURL 명령을 실행합니다.
 
 ```json
 {
@@ -414,7 +414,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/hooks/REPLACE-WITH-Y
 }
 ```
 
-경고 구성을 설정하여 경고를 트리거하는 데 사용할 수 있는 검색 조건을 지정할 수 있습니다. 아래 JSON 요청 본문을 *body.json*이라는 파일에 저장하고, cURL 명령을 실행합니다.
+경고 구성을 설정하여 경고를 트리거하는 데 사용할 수 있는 검색 조건을 지정할 수 있습니다. 아래 JSON 요청 본문을 *body.json* 이라는 파일에 저장하고, cURL 명령을 실행합니다.
 
 ```json
 {
@@ -469,7 +469,7 @@ Date: Tue, 08 Sep 2020 09:50:38 GMT
 
 위의 **Location** 헤더에는 새로 만든 리소스(검색 구성)의 URL이 포함되어 있습니다. 
 
-**Location** 헤더에 위의 URL을 사용하여 사용자가 만든 경고 구성을 쿼리할 수 있습니다. (**anomalyAlertingConfigurationId**는 다음 단계의 경고 구성에 사용합니다.)
+**Location** 헤더에 위의 URL을 사용하여 사용자가 만든 경고 구성을 쿼리할 수 있습니다. (**anomalyAlertingConfigurationId** 는 다음 단계의 경고 구성에 사용합니다.)
 
 ```bash
 curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/configurations/REPLACE-WITH-YOUR-ANOMALY-ALERTING-CONFIGURATION-ID \
@@ -538,7 +538,7 @@ curl https://REPLACE-WITH-YOUR-ENDPOINT/metricsadvisor/v1.0/alert/anomaly/config
 }
 ```
 
-위의 응답에는 경고가 있습니다. 이 **alertID**를 사용하여 이 경고를 발생시킨 모든 관련 변칙을 쿼리할 수 있습니다.
+위의 응답에는 경고가 있습니다. 이 **alertID** 를 사용하여 이 경고를 발생시킨 모든 관련 변칙을 쿼리할 수 있습니다.
 
 경고를 표시하는 또 다른 방법은 웹후크와 수동적으로 수신되는 경고(발견된 경우)를 구성하는 것입니다.
 

@@ -9,18 +9,18 @@ ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 09/21/2020
-ms.openlocfilehash: 68ab5c820f3a67a7fd332557d47918d2a7aa4b62
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/01/2020
+ms.openlocfilehash: 1425003c718ca52c0bea712e9d25cd3e4c035cf1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789423"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453971"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Azure SQL Database에 대 한 Advanced Threat Protection 구성
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database에 대 한 [Advanced Threat Protection](threat-detection-overview.md) 은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다. Advanced Threat Protection은 **잠재적 sql 삽입** , **비정상적인 위치 또는 데이터 센터에서 액세스** , **익숙하지 않은 사용자 또는 잠재적으로 유해한 응용 프로그램에서 액세스** , **무차별 암호 대입 SQL 자격 증명** 등을 식별할 수 있습니다. [advanced threat protection 경고](threat-detection-overview.md#alerts)에서 자세한 정보를 참조 하세요.
+Azure SQL Database에 대 한 [Advanced Threat Protection](threat-detection-overview.md) 은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다. Advanced Threat Protection은 **잠재적 sql 삽입**, **비정상적인 위치 또는 데이터 센터에서 액세스**, **익숙하지 않은 사용자 또는 잠재적으로 유해한 응용 프로그램에서 액세스**, **무차별 암호 대입 SQL 자격 증명** 등을 식별할 수 있습니다. [advanced threat protection 경고](threat-detection-overview.md#alerts)에서 자세한 정보를 참조 하세요.
 
 [전자 메일 알림을](threat-detection-overview.md#explore-detection-of-a-suspicious-event) 통해 검색 된 위협에 대 한 알림을 받거나 [Azure Portal](threat-detection-overview.md#explore-alerts-in-the-azure-portal) 수 있습니다.
 
@@ -29,11 +29,13 @@ Azure SQL Database에 대 한 [Advanced Threat Protection](threat-detection-over
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Azure Portal에서 Advanced Threat Protection 설정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 보호 하려는 서버의 구성 페이지로 이동 합니다. 보안 설정에서 **security center** 를 선택 합니다.
-3. **Azure Defender** 구성 페이지에서 다음을 수행 합니다.
+2. 보호 하려는 서버의 구성 페이지로 이동 합니다. 보안 설정에서 **Security Center** 를 선택 합니다.
+3. **Azure Defender FOR SQL** 구성 페이지에서 다음을 수행 합니다.
 
-   - 서버에서 Azure Defender를 사용 하도록 설정 합니다.
-   - **Advanced Threat Detection 설정** 의 **경고 전송 대상** 텍스트 상자에 비정상적인 데이터베이스 활동 발견 시 보안 경고를 받을 이메일 목록을 입력합니다.
+   - 서버에서 **SQL 용 Azure Defender를** 사용 하도록 설정 합니다.
+   - **Advanced Threat Protection 설정** 에서 **경고 보내기** 텍스트 상자에서 비정상 데이터베이스 작업을 검색할 때 보안 경고를 받을 전자 메일 목록을 제공 합니다.
+   
+   :::image type="content" source="media/azure-defender-for-sql/set-up-advanced-threat-protection.png" alt-text="advanced threat protection 설정":::
 
 ## <a name="set-up-advanced-threat-protection-using-powershell"></a>PowerShell을 사용하여 Advanced Threat Protection 설정
 

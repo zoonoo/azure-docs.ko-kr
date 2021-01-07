@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 38133a63d65e45a4d1c83e9752dcaa01a86da33e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782895"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445386"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse의 논리 SQL server는 무엇 인가요?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ Azure SQL Database 및 Azure Synapse Analytics에서 서버는 데이터베이�
 
 이 서버는 온-프레미스 세계에서 친숙 한 SQL Server 인스턴스와는 다릅니다. 특히 데이터베이스 또는 데이터 웨어하우스 데이터베이스의 위치를 관리 하는 서버와 관련 하 여 어떠한 보증도 하지 않습니다. 또한 Azure SQL Database 및 Azure Synapse는 인스턴스 수준 액세스 또는 기능을 노출 하지 않습니다. 반면에 관리 되는 인스턴스의 인스턴스 데이터베이스는 온-프레미스 또는 가상 컴퓨터에서 SQL Server 하는 것과 동일한 방식으로 모두 물리적으로 배치 됩니다.
 
-서버를 만들 때 해당 서버에 있는 master 데이터베이스와 해당 서버에 생성 된 모든 데이터베이스에 대 한 관리 권한이 있는 서버 로그인 계정 및 암호를 제공 합니다. 이 초기 계정이 SQL 로그인 계정입니다. Azure SQL Database 및 Synapse Analytics는 인증을 위해 SQL 인증 및 Azure Active Directory 인증을 지원 합니다. 로그인 및 인증에 대한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](logins-create-manage.md)를 참조하세요. Windows 인증은 지원되지 않습니다.
+서버를 만들 때 해당 서버에 있는 master 데이터베이스와 해당 서버에 생성 된 모든 데이터베이스에 대 한 관리 권한이 있는 서버 로그인 계정 및 암호를 제공 합니다. 이 초기 계정이 SQL 로그인 계정입니다. Azure SQL Database 및 Azure Synapse Analytics는 인증을 위해 SQL 인증 및 Azure Active Directory 인증을 지원 합니다. 로그인 및 인증에 대한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](logins-create-manage.md)를 참조하세요. Windows 인증은 지원되지 않습니다.
 
 SQL Database 및 Azure Synapse의 서버:
 
@@ -87,7 +87,7 @@ SQL Database 및 Azure Synapse의 서버:
 
 Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 PowerShell cmdlet을 사용 합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
-| cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|데이터베이스 만들기 |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|하나 이상의 데이터베이스 가져오기|
@@ -112,7 +112,7 @@ Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 �
 
 [Azure CLI](/cli/azure)를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용 합니다. [Cloud Shell](../../cloud-shell/overview.md)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
-| cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버에서 관리 하는 모든 데이터베이스 또는 탄력적 풀에 있는 모든 데이터베이스를 나열 합니다.|
@@ -145,7 +145,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 서버를 만들거나 삭제할 수 없습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Azure SQL Database에서 새로운 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 |[데이터베이스 만들기 (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Azure Synapse에서 새 데이터 웨어하우스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
@@ -171,7 +171,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 
 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 이러한 REST API 요청을 사용 합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[서버-만들기 또는 업데이트](/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
 |[Servers - Delete](/rest/api/sql/servers/delete)|서버를 삭제 합니다.|

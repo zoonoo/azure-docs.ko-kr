@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c4fe512ff6db24498148ffa724c3144a2f61823f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323837"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451711"
 ---
 # <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 트랜잭션 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "93323837"
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
 
-SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  master 데이터베이스에 연결된 경우 사용자 데이터베이스의 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 ON으로 설정하여 이 기본값을 READ COMMITTED SNAPSHOT ISOLATION으로 변경할 수 있습니다.  
+전용 SQL 풀은 ACID 트랜잭션을 구현 합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  master 데이터베이스에 연결된 경우 사용자 데이터베이스의 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 ON으로 설정하여 이 기본값을 READ COMMITTED SNAPSHOT ISOLATION으로 변경할 수 있습니다.  
 
 활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
@@ -89,7 +89,7 @@ SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 �
 
 ## <a name="transaction-state"></a>트랜잭션 상태
 
-SQL 풀은 XACT_STATE() 함수를 사용하여 값 -2를 사용하는 실패한 트랜잭션을 보고합니다. 이 값은 트랜잭션이 실패하고 롤백만 표시함을 의미합니다.
+전용 SQL 풀은 XACT_STATE () 함수를 사용 하 여-2 값을 사용 하 여 실패 한 트랜잭션을 보고 합니다. 이 값은 트랜잭션이 실패하고 롤백만 표시함을 의미합니다.
 
 > [!NOTE]
 > XACT_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 `SELECT 1/0`은 오류를 발생시키지만 커밋할 수 없는 상태로 트랜잭션을 강제 적용하지 않습니다. 또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 전용 SQL 풀을 사용 하면이 작업을 수행할 수 없습니다. 전용 SQL 풀 트랜잭션 내에서 오류가 발생 하는 경우-2 상태가 자동으로 시작 되 고 문이 롤백될 때까지 추가 select 문을 수행할 수 없습니다. 따라서 코드를 수정해야 할 수 있으므로 XACT_STATE()가 사용되는지 알기 위해 해당 애플리케이션 코드를 확인하는 것이 중요합니다.
@@ -193,7 +193,7 @@ THROW는 전용 SQL 풀에서 예외를 발생 시키는 최신 구현 이지만
 
 ## <a name="limitations"></a>제한 사항
 
-SQL 풀에는 트랜잭션과 관련된 몇 가지 기타 제한 사항이 있습니다. 다음과 같습니다.
+전용 SQL 풀에는 트랜잭션과 관련 된 몇 가지 다른 제한 사항이 있습니다. 다음과 같습니다.
 
 * 분산된 트랜잭션이 없습니다
 * 중첩된 트랜잭션이 허용되지 않습니다.
@@ -204,4 +204,4 @@ SQL 풀에는 트랜잭션과 관련된 몇 가지 기타 제한 사항이 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. [Sql 풀](best-practices-sql-pool.md) 및 서버를 사용 하지 않는 [sql 풀 (미리 보기)](best-practices-sql-on-demand.md)에 대 한 추가 모범 사례 가이드도 제공 됩니다.
+트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요. 추가 모범 사례 가이드는 [전용 sql 풀](best-practices-sql-pool.md) 및 [서버 리스 sql 풀](best-practices-sql-on-demand.md)에 대해서도 제공 됩니다.

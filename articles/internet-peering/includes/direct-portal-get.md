@@ -8,14 +8,14 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e50f53c65c330265d3d9ec1b1804a7910b632b1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3507aacc68de25f7368cbe3cda917077564c56eb
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81678842"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96356247"
 ---
-1. **리소스 그룹**으로 이동 하 여 **피어 링** 리소스를 만들 때 선택한 리소스 그룹을 선택 합니다. 너무 많은 리소스 그룹이 있는 경우 **필터** 상자를 사용 합니다.
+1. **리소스 그룹** 으로 이동 하 여 **피어 링** 리소스를 만들 때 선택한 리소스 그룹을 선택 합니다. 너무 많은 리소스 그룹이 있는 경우 **필터** 상자를 사용 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![리소스 그룹](../media/setup-direct-get-resourcegroup.png)
@@ -23,7 +23,7 @@ ms.locfileid: "81678842"
 1. 만든 **피어 링** 리소스를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![피어 링 리소스 뷰](../media/setup-direct-get-open.png)
+    > ![왼쪽 창에서 개요 페이지를 선택 합니다. PeeringResourceGroup에 대 한 정보를 표시 합니다. 피어 링 목록에서 AshburnPeering가 강조 표시 됩니다.](../media/setup-direct-get-open.png)
 
 1. **개요** 페이지에는 여기에 표시 된 것 처럼 높은 수준의 정보가 표시 됩니다.
 
@@ -35,11 +35,11 @@ ms.locfileid: "81678842"
     > [!div class="mx-imgBorder"]
     > ![피어 링 리소스 ASN 정보](../media/setup-direct-get-asninfo.png)
 
-1. 왼쪽에서 **연결**을 선택 합니다. 화면 위쪽에는 metro 내의 여러 시설에서 ASN과 Microsoft 간의 피어 링 연결 요약이 표시 됩니다. 표시 된 것 처럼 창의 가운데에서 **연결** 을 선택 하 여 **개요** 페이지에서 연결 요약에 액세스할 수도 있습니다.
+1. 왼쪽에서 **연결** 을 선택 합니다. 화면 위쪽에는 metro 내의 여러 시설에서 ASN과 Microsoft 간의 피어 링 연결 요약이 표시 됩니다. 표시 된 것 처럼 창의 가운데에서 **연결** 을 선택 하 여 **개요** 페이지에서 연결 요약에 액세스할 수도 있습니다.
 
     > [!div class="mx-imgBorder"]
     > ![피어 링 리소스 연결](../media/setup-direct-get-connectionssummary.png)
 
     * **연결 상태** 는 피어 링 연결 설정의 상태에 해당 합니다. 이 필드에 표시 되는 상태는 [직접 피어 링 연습](../walkthrough-direct-all.md)에 표시 된 상태 다이어그램을 따릅니다.
     * **Ipv4 세션 상태** 및 **ipv6 세션 상태** 는 각각 ipv4 및 ipv6 BGP 세션 상태에 해당 합니다. 
-    * 화면 위쪽에서 행을 선택 하면 아래쪽의 **연결** 섹션에 각 연결에 대 한 세부 정보가 표시 됩니다. 화살표를 선택 하 여 **구성**, **IPv4 주소**및 **IPv6 주소**를 확장 합니다.
+    * 화면 위쪽에서 행을 선택 하면 아래쪽의 **연결** 섹션에 각 연결에 대 한 세부 정보가 표시 됩니다. 화살표를 선택 하 여 **구성**, **IPv4 주소** 및 **IPv6 주소** 를 확장 합니다.

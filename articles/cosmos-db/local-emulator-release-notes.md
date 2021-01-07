@@ -1,31 +1,41 @@
 ---
-title: Azure Cosmos Emulator 다운로드 및 릴리스 정보
-description: 다양한 버전에 대한 Azure Cosmos 에뮬레이터 릴리스 정보를 가져오고 정보를 다운로드합니다.
+title: Azure Cosmos DB Emulator 다운로드 및 릴리스 정보
+description: 다양한 버전에 대한 Azure Cosmos DB Emulator 릴리스 정보를 가져오고 정보를 다운로드합니다.
 ms.service: cosmos-db
 ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: e87985154226369cd47cc6437fc82c59602a78d9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085584"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656226"
 ---
-# <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
+# <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Azure Cosmos DB Emulator - 릴리스 정보 및 다운로드 정보
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-이 문서에서는 Azure Cosmos Emulator 릴리스 정보와 각 릴리스의 기능 업데이트 목록을 알아봅니다. 또한 다운로드 및 사용할 수 있는 에뮬레이터의 최신 버전도 나와 있습니다.
+이 문서에서는 Azure Cosmos DB Emulator 릴리스 정보와 각 릴리스의 기능 업데이트 목록을 알아봅니다. 또한 다운로드 및 사용할 수 있는 에뮬레이터의 최신 버전도 나와 있습니다.
 
 ## <a name="download"></a>다운로드
 
 | | |
 |---------|---------|
 |**MSI 다운로드**|[Microsoft 다운로드 센터](https://aka.ms/cosmosdb-emulator)|
-|**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
+|**시작**|[Azure Cosmos DB Emulator를 사용하여 로컬로 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2119-3-december-2020"></a>2.11.9(2020년 12월 3일)
+
+ - 이 릴리스는 Azure Cosmos DB의 최신 기능과 개선 사항을 반영하는 일반 콘텐츠 업데이트 외에도 Azure Cosmos DB 에뮬레이터 기능과 관련된 몇 가지 문제를 해결합니다.
+ * 직접 모드 및 Java 클라이언트 애플리케이션을 사용할 때 대량 문서 페이로드 요청이 실패하는 문제를 해결합니다.
+ * .NET 기반 애플리케이션을 대상으로 하는 경우 MongoDB 엔드포인트 버전 3.6의 연결 문제를 해결합니다.
+
+### <a name="2118-6-november-2020"></a>2.11.8(2020년 11월 6일)
+
+ - 이 릴리스에는 Cosmos 에뮬레이터 Data Explorer 업데이트가 포함되어 있으며, TLS 1.3 클라이언트가 Data Explorer를 열려고 시도하는 문제를 해결합니다.
 
 ### <a name="2116-6-october-2020"></a>2.11.6(2020년 10월 6일)
 
@@ -73,7 +83,7 @@ ms.locfileid: "93085584"
 
 ### <a name="246"></a>2.4.6
 
-- 이 릴리스에서는 [Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)에 설명된 예외가 포함된 2019년 7월 현재 Azure Cosmos 서비스의 기능과 패리티를 제공합니다. 또한 직접 모드 연결을 사용하는 SDK 클라이언트에 대한 명령줄 및 내부 IP 주소 재정의를 통해 호출될 때 에뮬레이터 종료와 관련된 몇 가지 버그를 수정합니다.
+- 이 릴리스에서는 [Azure Cosmos DB Emulator를 사용하여 로컬로 개발](local-emulator.md)에 설명된 예외가 포함된 2019년 7월 현재 Azure Cosmos 서비스의 기능과 패리티를 제공합니다. 또한 직접 모드 연결을 사용하는 SDK 클라이언트에 대한 명령줄 및 내부 IP 주소 재정의를 통해 호출될 때 에뮬레이터 종료와 관련된 몇 가지 버그를 수정합니다.
 
 ### <a name="243"></a>2.4.3
 

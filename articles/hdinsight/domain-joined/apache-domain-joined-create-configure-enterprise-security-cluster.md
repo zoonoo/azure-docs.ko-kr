@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: 07bd92e17b827dfeede5958587cecbdc97694329
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545296"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003925"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Enterprise Security Package 클러스터 만들기 및 구성
 
@@ -45,7 +45,7 @@ Azure HDInsight 용 ESP (Enterprise Security Package)를 사용 하면 Azure에�
 
     |속성 | 값 |
     |---|---|
-    |Subscription|리소스를 배포 하려는 구독을 선택 합니다.|
+    |구독|리소스를 배포 하려는 구독을 선택 합니다.|
     |리소스 그룹|**새로 만들기** 를 선택 하 고 이름을 입력 합니다.`OnPremADVRG`|
     |위치|위치를 선택합니다.|
     |관리자 사용자 이름|`HDIFabrikamAdmin`|
@@ -106,7 +106,7 @@ Azure HDInsight 용 ESP (Enterprise Security Package)를 사용 하면 Azure에�
 
 1. **HDIUserGroup** 에 멤버를 추가 합니다.
 
-    1. **Hdiuser** 를 마우스 오른쪽 단추로 클릭 하 고 **그룹에 추가** ...를 선택 합니다.
+    1. **Hdiuser** 를 마우스 오른쪽 단추로 클릭 하 고 **그룹에 추가**...를 선택 합니다.
     1. **선택할 개체 이름을 입력** 하십시오. 텍스트 상자에을 입력 `HDIUserGroup` 합니다. 그런 다음 **확인** 을 선택 하 고 팝업에서 **확인** 을 다시 선택 합니다.
     1. **Hdiadmin** 계정에 대해 이전 단계를 반복 합니다.
 
@@ -156,7 +156,7 @@ Active Directory 테 넌 트 관리자를 만듭니다.
 
     **ID**
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
     |사용자 이름|텍스트 상자에 `fabrikamazureadmin`를 입력합니다. 도메인 이름 드롭다운 목록에서 다음을 선택 합니다. `hdifabrikam.com`|
     |속성| `fabrikamazureadmin`를 입력합니다.|
@@ -257,7 +257,7 @@ Azure AD DS을 사용 하도록 설정 하려면 다음 단계를 따르세요. 
 
         ![Azure AD DS 기본 정보](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
 
-1. **네트워크** 페이지에서 PowerShell 스크립트를 사용 하 여 만든 네트워크 ( **HDIFABRIKAM-VNET** ) 및 서브넷 ( **aadds-서브넷** )을 선택 합니다. 또는 **새로 만들기** 를 선택 하 여 가상 네트워크를 지금 만듭니다.
+1. **네트워크** 페이지에서 PowerShell 스크립트를 사용 하 여 만든 네트워크 (**HDIFABRIKAM-VNET**) 및 서브넷 (**aadds-서브넷**)을 선택 합니다. 또는 **새로 만들기** 를 선택 하 여 가상 네트워크를 지금 만듭니다.
 
     !["가상 네트워크 만들기" 단계](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
@@ -277,7 +277,7 @@ Azure AD DS을 사용 하도록 설정 하면 로컬 DNS 서버가 Azure AD Vm�
 
 ### <a name="configure-your-azure-ad-ds-virtual-network"></a>Azure AD DS 가상 네트워크 구성
 
-사용자 지정 DNS 서버를 사용 하도록 Azure AD DS 가상 네트워크 ( **Hdifabrikam-AADDSVNET** )를 구성 하려면 다음 단계를 사용 합니다.
+사용자 지정 DNS 서버를 사용 하도록 Azure AD DS 가상 네트워크 (**Hdifabrikam-AADDSVNET**)를 구성 하려면 다음 단계를 사용 합니다.
 
 1. 사용자 지정 DNS 서버의 IP 주소를 찾습니다.
     1. `HDIFabrikam.com`Azure AD DS 리소스를 선택 합니다.
@@ -290,9 +290,9 @@ Azure AD DS을 사용 하도록 설정 하면 로컬 DNS 서버가 Azure AD Vm�
 
     1. **설정** 아래에서 **DNS 서버** 를 선택 합니다.
     1. **사용자 지정** 을 선택 합니다.
-    1. 텍스트 상자에 첫 번째 IP 주소 ( *10.0.0.4* )를 입력 합니다.
+    1. 텍스트 상자에 첫 번째 IP 주소 (*10.0.0.4*)를 입력 합니다.
     1. **저장** 을 선택합니다.
-    1. 다른 IP 주소 ( *10.0.0.5* )를 추가 하는 단계를 반복 합니다.
+    1. 다른 IP 주소 (*10.0.0.5*)를 추가 하는 단계를 반복 합니다.
 
 이 시나리오에서는 azure AD DS 가상 네트워크에서 동일한 IP 주소를 설정 하 여 10.0.0.4 및 10.0.0.5 IP 주소를 사용 하도록 Azure AD DS를 구성 했습니다.
 
@@ -328,7 +328,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 
 1. 오른쪽 창에서 만든 인증서를 마우스 오른쪽 단추로 클릭 합니다. **모든 작업** 을 가리킨 다음 **내보내기** 를 선택 합니다.
 
-1. **개인 키 내보내기** 페이지에서 **예, 개인 키를 내보냅니다** .를 선택 합니다. 키를 가져올 컴퓨터에는 암호화 된 메시지를 읽기 위한 개인 키가 필요 합니다.
+1. **개인 키 내보내기** 페이지에서 **예, 개인 키를 내보냅니다**.를 선택 합니다. 키를 가져올 컴퓨터에는 암호화 된 메시지를 읽기 위한 개인 키가 필요 합니다.
 
     ![인증서 내보내기 마법사의 개인 키 내보내기 페이지](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
@@ -358,7 +358,7 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
         | 프로토콜 | 모두 |
         | 작업 | 허용 |
         | 우선 순위 | \<Desired number> |
-        | 속성 | Port_LDAP_636 |
+        | Name | Port_LDAP_636 |
 
     !["인바운드 보안 규칙 추가" 대화 상자](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 

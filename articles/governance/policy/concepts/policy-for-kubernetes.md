@@ -1,14 +1,14 @@
 ---
 title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
-ms.date: 09/29/2020
+ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e85d7af26e52ea38c09ec0c052b5c6a2787bb80
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146299"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96511334"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -62,7 +62,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
 
 - [AKS Pod 보안 정책](../../../aks/use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 자세한 내용은 [AKS pod 보안 제한](../../../aks/use-pod-security-on-azure-policy.md#limitations)을 참조 하세요.
-- _Kube_ , _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
+- _Kube_, _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
 
 ## <a name="recommendations"></a>권장 사항
 
@@ -217,7 +217,7 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. ‘Policy Insights Data Writer(미리 보기)’ 역할 할당을 Azure Arc 지원 Kubernetes 클러스터에 할당합니다. `<subscriptionId>`를 구독 ID로, `<rg>`를 Azure Arc 지원 Kubernetes 클러스터의 리소스 그룹으로, `<clusterName>`을 Azure Arc 지원 Kubernetes 클러스터 이름으로 바꿉니다. 설치 단계에서 _appId_ , _password_ 및 _tenant_ 에 대해 반환된 값을 추적합니다.
+1. ‘Policy Insights Data Writer(미리 보기)’ 역할 할당을 Azure Arc 지원 Kubernetes 클러스터에 할당합니다. `<subscriptionId>`를 구독 ID로, `<rg>`를 Azure Arc 지원 Kubernetes 클러스터의 리소스 그룹으로, `<clusterName>`을 Azure Arc 지원 Kubernetes 클러스터 이름으로 바꿉니다. 설치 단계에서 _appId_, _password_ 및 _tenant_ 에 대해 반환된 값을 추적합니다.
 
    - Azure CLI
 
@@ -376,7 +376,7 @@ kubectl get pods -n gatekeeper-system
 
 Kubernetes를 관리하기 위한 Azure Policy 언어 구조는 기존 정책 정의의 언어를 따릅니다. 의 [리소스 공급자 모드](./definition-structure.md#resource-provider-modes) 에서는 `Microsoft.Kubernetes.Data` Kubernetes 클러스터를 관리 하는 데 효과 [감사](./effects.md#audit) 및 [거부가](./effects.md#deny) 사용 됩니다. _Audit_ 및 _Deny_ [는 Opa 제약 조건 프레임 워크](https://github.com/open-policy-agent/frameworks/tree/master/constraint) 및 게이트 키퍼 v3 작업과 관련 된 **세부** 정보 속성을 제공 해야 합니다.
 
-정책 정의의 _details.constraintTemplate_ 및 _details.constraint_ 속성의 일부로, Azure Policy는 CRD( [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates))의 URI를 추가 기능에 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
+정책 정의의 _details.constraintTemplate_ 및 _details.constraint_ 속성의 일부로, Azure Policy는 CRD([CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates))의 URI를 추가 기능에 전달합니다. Rego는 Kubernetes 클러스터에 대한 요청을 유효성 검사하도록 OPA 및 Gatekeeper가 지원하는 언어입니다. Kubernetes 관리의 기존 표준을 지원함으로써 Azure Policy에서는 기존 규칙을 다시 사용하고 Azure Policy와 쌍으로 연결하여 통합 클라우드 규정 준수 보고 환경을 구성할 수 있습니다. 자세한 내용은 [Rego란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조하세요.
 
 ## <a name="assign-a-built-in-policy-definition"></a>기본 제공 정책 정의 할당
 
@@ -409,7 +409,7 @@ Kubernetes 클러스터에 정책 정의를 할당 하려면 적절 한 Azure RB
 
 1. **매개 변수 값** 설정
 
-   - 정책 평가에서 Kubernetes 네임스페이스를 제외하려면 **네임 스페이스 제외** 매개 변수에 네임스페이스 목록을 지정합니다. _kube-system_ , _gatekeeper-system_ 및 _azure-arc_ 를 제외하는 것이 좋습니다.
+   - 정책 평가에서 Kubernetes 네임스페이스를 제외하려면 **네임 스페이스 제외** 매개 변수에 네임스페이스 목록을 지정합니다. _kube-system_, _gatekeeper-system_ 및 _azure-arc_ 를 제외하는 것이 좋습니다.
 
 1. **검토 + 만들기** 를 선택합니다.
 
@@ -436,6 +436,14 @@ Kubernetes 클러스터에서 네임스페이스에 다음 레이블 중 하나�
 > [!NOTE]
 > Kubernetes 클러스터에 대한 Azure Policy의 각 규정 준수 보고서에는 지난 45분 이내의 모든 위반이 포함됩니다. 타임스탬프는 위반이 발생한 시기를 나타냅니다.
 
+기타 고려 사항:
+
+- 클러스터 구독이 Azure Security Center에 등록 된 경우 Azure Security Center Kubernetes 정책이 클러스터에 자동으로 적용 됩니다.
+
+- 기존 Kubernetes 리소스를 사용 하 여 클러스터에 거부 정책을 적용 하면 새 정책과 호환 되지 않는 기존 리소스는 계속 실행 됩니다. 비준수 리소스가 다른 노드에서 다시 예약 되 면 게이트 키퍼가 리소스 생성을 차단 합니다.
+
+- 클러스터에 리소스의 유효성을 검사 하는 거부 정책이 있으면 배포를 만들 때 사용자에 게 거부 메시지가 표시 되지 않습니다. 예를 들어 replicasets 및 pod를 포함 하는 Kubernetes 배포를 생각해 보세요. 사용자가를 실행 하면 `kubectl describe deployment $MY_DEPLOYMENT` 이벤트의 일부로 거부 메시지가 반환 되지 않습니다. 그러나는 `kubectl describe replicasets.apps $MY_DEPLOYMENT` 거부와 관련 된 이벤트를 반환 합니다.
+
 ## <a name="logging"></a>로깅
 
 Kubernetes 컨트롤러/컨테이너로 _azure-policy_ 및 _gatekeeper_ Pod는 모두 Kubernetes 클러스터에 로그를 유지합니다. 로그는 Kubernetes 클러스터의 **인사이트** 페이지에 공개될 수 있습니다.
@@ -452,6 +460,10 @@ kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
 자세한 내용은 Gatekeeper 설명서의 [Gatekeeper 디버깅](https://github.com/open-policy-agent/gatekeeper#debugging)을 참조하세요.
+
+## <a name="troubleshooting-the-add-on"></a>추가 기능 문제 해결
+
+Kubernetes에 대 한 추가 기능 문제 해결에 대 한 자세한 내용은 Azure Policy 문제 해결 문서의 [Kubernetes 섹션](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) 을 참조 하세요.
 
 ## <a name="remove-the-add-on"></a>추가 기능 제거
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a67a721b8d94112347282e1cd9be4d43f4ac85da
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579490"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96744638"
 ---
 # <a name="configure-a-managed-application-plan"></a>관리 되는 응용 프로그램 계획 구성
 
@@ -135,10 +135,10 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 **전체** 또는 **증분** 배포 모드를 선택 합니다.
 
-- **완료** 모드에서 고객이 응용 프로그램을 다시 배포 하면 리소스가의 [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md)에 정의 되어 있지 않은 경우 관리 되는 리소스 그룹의 리소스가 제거 됩니다.
+- **완료** 모드에서 고객이 응용 프로그램을 다시 배포 하면 리소스가의 [mainTemplate.js](../azure-resource-manager/managed-applications/publish-service-catalog-app.md?tabs=azure-powershell#create-the-arm-template)에 정의 되어 있지 않은 경우 관리 되는 리소스 그룹의 리소스가 제거 됩니다.
 - **증분** 모드에서 응용 프로그램을 다시 배포 하면 기존 리소스는 변경 되지 않습니다.
 
-배포 모드에 관한 자세한 내용은 [Azure Resource Manager 배포 모드](/azure/azure-resource-manager/deployment-modes)를 참조하세요.
+배포 모드에 관한 자세한 내용은 [Azure Resource Manager 배포 모드](../azure-resource-manager/templates/deployment-modes.md)를 참조하세요.
 
 ### <a name="provide-a-notification-endpoint-url"></a>알림 끝점 URL 제공
 

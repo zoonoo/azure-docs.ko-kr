@@ -1,18 +1,21 @@
 ---
 title: 서비스 패브릭 서비스 분할
-description: Service Fabric 상태 저장 서비스를 분할하는 방법을 설명합니다. 파티션을 사용하면 로컬 머신에 데이터가 스토리지되므로 데이터와 컴퓨팅을 함께 확장할 수 있습니다.
+description: Service Fabric 상태 비저장 및 상태 저장 서비스를 분할 하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d33e7b5ee293cf9dfb49e509bec2e1950033a956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 199ae9d9844149c1931da638633110f717fe0517
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005431"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915898"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
-이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
+이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 분할을 사용 하면 데이터 및 계산을 함께 확장할 수 있도록 로컬 컴퓨터에 데이터를 저장할 수 있습니다.
+
+> [!TIP]
+> 이 문서의 [전체 코드 샘플](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions) 은 GitHub에서 사용할 수 있습니다.
 
 ## <a name="partitioning"></a>분할
 분할은 서비스 패브릭에만 있는 것이 아닙니다. 사실, 분할은 확장 가능한 서비스 구축의 코어 패턴입니다. 광범위한 의미로 분할을 상태(데이터) 분할의 개념으로 생각하고 확장성 및 성능 향상을 위해 더 작은 액세스 가능한 단위로 컴퓨팅할 수 있습니다. 분할의 잘 알려진 양식은 [데이터 분할][wikipartition]로서 분할이라고도 합니다.
@@ -116,7 +119,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 > 
 > 
 
-1. **Visual Studio**  >  **파일**  >  **새**  >  **프로젝트**를 엽니다.
+1. **Visual Studio**  >  **파일**  >  **새**  >  **프로젝트** 를 엽니다.
 2. **새 프로젝트** 대화 상자에서 Service Fabric 애플리케이션을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
 4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 이름을 "Alphabet.Processing"으로 지정합니다.
@@ -348,14 +351,14 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
     
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
-샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서 확인할 수 있습니다.
+이 문서에 사용 된 코드의 전체 솔루션은에서 사용할 수 있습니다 https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions .
 
 ## <a name="next-steps"></a>다음 단계
-서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.
+Service Fabric services에 대해 자세히 알아보세요.
 
+* [서비스 패브릭에서 서비스와 연결 및 통신](service-fabric-connect-and-communicate-with-services.md)
 * [서비스 패브릭 서비스의 가용성](service-fabric-availability-services.md)
 * [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
-* [Service Fabric 애플리케이션의 용량 계획](service-fabric-capacity-planning.md)
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 

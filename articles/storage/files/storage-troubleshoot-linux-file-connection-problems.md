@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 19fe6be0487772524516172bd32e0562512c4e3c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e680ba10c507ef83591b56652ee8e95c4d665dda
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630178"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96492066"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux (SMB)의 Azure Files 문제 해결
 
@@ -47,7 +47,7 @@ ms.locfileid: "94630178"
 - Azure VM에서 Azure 파일 공유에 연결하려고 하며, VM이 스토리지 계정과 동일한 지역에 있지 않습니다.
 - 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우 Azure Files에서는 암호화 기능이 포함된 SMB 3.0을 사용하는 연결만 허용합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 [Linux에서 Azure Files 탑재 오류에 대한 문제 해결 도구](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux)를 사용합니다. 이 도구는 다음과 같은 작업을 수행합니다.
 
@@ -91,7 +91,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 단일 파일이 나 디렉터리에 2000 열린 핸들의 할당량이 있습니다. 2000개의 열린 핸들이 있는 경우 할당량에 도달했다는 오류 메시지가 표시됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄인 후 작업을 다시 시도하세요.
 
@@ -107,7 +107,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 - 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MiB를 사용하는 것이 좋습니다.
 - copy 메서드를 다음과 같이 올바르게 사용합니다.
-    - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) 를 사용 합니다.
+    - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
     - Cp 또는 dd를 병렬로 사용 하 여 복사 속도를 향상 시킬 수 있습니다. 스레드 수는 사용 사례 및 워크 로드에 따라 달라 집니다. 다음 예에서는 6을 사용 합니다. 
     - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` 를 사용 합니다.
     - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
@@ -127,7 +127,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 일부 Linux 배포는 아직 SMB 3.0의 암호화 기능을 지원하지 않습니다. 사용자는 SMB 3.0을 사용하여 Azure Files를 탑재할 경우 기능 누락으로 인해 “115” 오류 메시지를 수신할 수 있습니다. 전체 암호화가 적용된 SMB 3.0은 Ubuntu 16.04 이상을 사용할 때만 지원됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 Linux용 SMB 3.0의 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스에서 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 일부 Linux 배포판은 4.11 커널에서 유지 관리 하는 Linux 커널의 이전 버전으로 변경 될 수 있습니다. Linux 버전에서 암호화를 사용 하 여 SMB 3.0을 지원 하는지 확인 하는 데 도움이 되도록 [linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조 하세요. 
 
@@ -158,7 +158,7 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
 
@@ -227,7 +227,7 @@ ls 명령을 사용하여 Azure 파일 공유에서 파일을 나열하려는 �
 **ls: '&lt;path&gt;'에 액세스할 수 없음: 입력/출력 오류**
 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 이 문제를 수정하는 다음 버전으로 Linux 커널을 업그레이드합니다.
 
 - 4.4.87+
@@ -243,7 +243,7 @@ ls 명령을 사용하여 Azure 파일 공유에서 파일을 나열하려는 �
 ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 Linux CIFS 클라이언트는 SMB 2 또는 3 프로토콜을 통한 Windows 스타일의 심볼 링크 생성을 지원하지 않습니다. 현재 Linux 클라이언트는 만들기 및 따르기 작업 모두에 대해 [Mishall+French symlinks](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks)라는 다른 스타일의 심볼 링크를 지원합니다. 심볼 링크가 필요한 고객은 "mfsymlinks" 탑재 옵션을 사용할 수 있습니다. Mac이 사용하는 형식이기도 하므로 "mfsymlinks"를 사용하는 것이 좋습니다.
 
 symlink를 사용하려면 CIFS 탑재 명령 끝에 다음을 추가합니다.
@@ -274,7 +274,7 @@ Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우
 -   기본 "소프트" 탑재 옵션을 사용하는 경우 서버에 TCP 연결을 다시 설정하지 않는 네트워크 통신 오류입니다.
 -   이전 커널에 존재하지 않는 최근 재연결 수정
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 수정되었습니다.
 
@@ -296,7 +296,7 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 ### <a name="cause"></a>원인
 [현재 Azure Files에서 SMB 다중 채널을 지원 하지](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)않기 때문에이 오류가 기록 됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 이 오류는 무시해도 됩니다.
 
 
@@ -308,7 +308,7 @@ Linux에 탑재 된 상태에서 Azure 파일 공유의 폴더 또는 파일에 
 
 이름 끝의 문자를 다른 문자로 인코딩하는 시스템에서 폴더 또는 파일을 업로드 했습니다. Macintosh 컴퓨터에서 업로드 한 파일에는 0x20 (space) 또는 0X2E (점) 대신 "0xF028" 또는 "0Xf028" 문자가 있을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 Linux에서 공유를 탑재 하는 동안 공유에서 mapchars 옵션을 사용 합니다. 
 

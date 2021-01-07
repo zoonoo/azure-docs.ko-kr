@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132536"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348928"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -65,7 +65,7 @@ Azure API를 사용하여 프로그래밍 방식으로 Azure 서비스 또는 �
 
 Azure 예약 가상 머신 인스턴스를 구매하려면 Enterprise Azure 등록 관리자가 _예약 인스턴스_ 구매 옵션을 사용하도록 설정해야 합니다. 이 옵션은 [Azure EA Portal](https://ea.azure.com/)의 _등록_ 탭에 있는 _등록 세부 정보_ 섹션에 있습니다.
 
-EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면 EA 등록과 연결된 활성 구독이 있는 계정 소유자는 [Azure Portal](https://aka.ms/reservations)에서 예약 가상 머신 인스턴스를 구매할 수 있습니다. 자세한 내용은 [가상 머신에 대해 선불 결제하고 예약 가상 머신 인스턴스를 사용하여 비용 절감](../../virtual-machines/windows/prepay-reserved-vm-instances.md)을 참조하세요.
+EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면 EA 등록과 연결된 활성 구독이 있는 계정 소유자는 [Azure Portal](https://aka.ms/reservations)에서 예약 가상 머신 인스턴스를 구매할 수 있습니다. 자세한 내용은 [가상 머신에 대해 선불 결제하고 예약 가상 머신 인스턴스를 사용하여 비용 절감](../../virtual-machines/prepay-reserved-vm-instances.md)을 참조하세요.
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>예약 인스턴스 구매 세부 정보를 보는 방법
 

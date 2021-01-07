@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6a74f105525ec8ce28559b47ed4fc9624f518a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488340"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608268"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -53,7 +53,7 @@ ms.locfileid: "89488340"
 
 ### <a name="select-the-app-in-the-azure-portal"></a>Azure Portal에서 앱 선택
 
-1. **App Services**를 검색하여 선택합니다.
+1. **App Services** 를 검색하여 선택합니다.
 
    ![App Services 선택을 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/app-services.png)
 
@@ -81,9 +81,9 @@ App Service 앱의 관리 페이지가 표시됩니다.
 
 ### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
-1. 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 선택합니다.
+1. 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기** 를 선택합니다.
 
-1. **적용**을 선택합니다.
+1. **적용** 을 선택합니다.
 
    ![가격 책정 계층 확인을 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -95,12 +95,12 @@ App Service 앱의 관리 페이지가 표시됩니다.
 
 ## <a name="get-a-domain-verification-id"></a>도메인 확인 ID 가져오기
 
-앱에 사용자 지정 도메인을 추가하려면 도메인 공급자를 사용하여 확인 ID를 TXT 레코드로 추가하여 도메인 소유권을 확인해야 합니다. 앱 페이지의 왼쪽 창에서 **사용자 지정 도메인**을 선택합니다. 다음 단계에 대한 **사용자 지정 도메인** 페이지에서 **사용자 지정 도메인 확인 ID** 상자에서 ID를 복사합니다.
+앱에 사용자 지정 도메인을 추가하려면 도메인 공급자를 사용하여 확인 ID를 TXT 레코드로 추가하여 도메인 소유권을 확인해야 합니다. 앱 페이지의 왼쪽 창에서 **사용자 지정 도메인** 을 선택합니다. 다음 단계에 대한 **사용자 지정 도메인** 페이지에서 **사용자 지정 도메인 확인 ID** 상자에서 ID를 복사합니다.
 
 ![사용자 지정 도메인 확인 ID 상자에 있는 ID를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
 > [!WARNING]
-> 도메인 확인 ID를 사용자 지정 도메인에 추가하면 현수 DNS 항목을 방지하고 하위 도메인 인수를 피할 수 있습니다. 이 일반적인 높은 심각도 위협에 대한 자세한 내용은 [하위 도메인 인수](../security/fundamentals/subdomain-takeover.md)을 참조하세요.
+> 도메인 확인 ID를 사용자 지정 도메인에 추가하면 현수 DNS 항목을 방지하고 하위 도메인 인수를 피할 수 있습니다. 이 확인 ID 없이 이전에 구성한 사용자 지정 도메인의 경우 DNS 레코드에 확인 ID를 추가하여 동일한 위험으로부터 보호해야 합니다. 이 일반적인 높은 심각도 위협에 대한 자세한 내용은 [하위 도메인 인수](../security/fundamentals/subdomain-takeover.md)을 참조하세요.
 
 ## <a name="map-your-domain"></a>도메인 매핑
 
@@ -138,21 +138,21 @@ CNAME 및 TXT 레코드를 추가하면 DNS 레코드 페이지는 다음 예제
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure에서 CNAME 레코드 매핑 사용
 
-1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인**을 선택합니다.
+1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인** 을 선택합니다.
 
     ![사용자 지정 도메인 메뉴를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
 1. 앱의 **사용자 지정 도메인** 페이지에서 정규화된 사용자 지정 DNS 이름(`www.contoso.com`)을 목록에 추가합니다.
 
-1. **사용자 지정 도메인 추가**를 선택합니다.
+1. **사용자 지정 도메인 추가** 를 선택합니다.
 
     ![호스트 이름 추가 항목을 보여주는 스크린샷](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 1. `www.contoso.com`과 같이 CNAME 레코드를 추가한 정규화된 도메인 이름을 입력합니다.
 
-1. **유효성 검사**를 선택합니다. **사용자 지정 도메인 추가** 페이지가 나타납니다.
+1. **유효성 검사** 를 선택합니다. **사용자 지정 도메인 추가** 페이지가 나타납니다.
 
-1. **호스트 이름 레코드 형식**이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가**를 선택합니다.
+1. **호스트 이름 레코드 형식** 이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가** 를 선택합니다.
 
     ![사용자 지정 도메인 추가 단추를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
@@ -179,7 +179,7 @@ CNAME 및 TXT 레코드를 추가하면 DNS 레코드 페이지는 다음 예제
 
 A 레코드를 매핑하려면 앱의 외부 IP 주소가 필요합니다. 이 IP 주소는 Azure Portal에서 앱의 **사용자 지정 도메인** 페이지에서 찾을 수 있습니다.
 
-1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인**을 선택합니다.
+1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인** 을 선택합니다.
 
    ![사용자 지정 도메인 메뉴를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
@@ -206,7 +206,7 @@ A 레코드를 앱(일반적으로 루트 도메인)에 매핑하려면 두 개�
 > | 레코드 형식 | 호스트 | 값 |
 > | - | - | - |
 > | A | `www` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
+> | TXT | `asuid.www` | [이전에 가져온 확인 ID](#get-a-domain-verification-id) |
 >
 
 레코드를 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니다.
@@ -219,15 +219,15 @@ A 레코드를 앱(일반적으로 루트 도메인)에 매핑하려면 두 개�
 
 Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌아가서 정규화된 사용자 지정 DNS 이름(예: `contoso.com`)을 목록에 추가합니다.
 
-1. **사용자 지정 도메인 추가**를 선택합니다.
+1. **사용자 지정 도메인 추가** 를 선택합니다.
 
     ![호스트 이름 추가를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 1. `contoso.com`과 같이 A 레코드를 구성한 정규화된 도메인 이름을 입력합니다. 
 
-1. **유효성 검사**를 선택합니다. **사용자 지정 도메인 추가** 페이지가 표시됩니다.
+1. **유효성 검사** 를 선택합니다. **사용자 지정 도메인 추가** 페이지가 표시됩니다.
 
-1. **호스트 이름 레코드 형식**이 **A 레코드(example.com)** 로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가**를 선택합니다.
+1. **호스트 이름 레코드 형식** 이 **A 레코드(example.com)** 로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가** 를 선택합니다.
 
     ![앱에 DNS 이름 추가를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
@@ -271,19 +271,19 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 
 이제 와일드카드 이름과 일치하는 모든 하위 도메인을 앱에 추가할 수 있습니다(예: `sub1.contoso.com`, `sub2.contoso.com`, `*.contoso.com`은 모두 `*.contoso.com`과 일치).
 
-1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인**을 선택합니다.
+1. Azure Portal의 앱 페이지 왼쪽 창에서 **사용자 지정 도메인** 을 선택합니다.
 
     ![사용자 지정 도메인 메뉴를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-1. **사용자 지정 도메인 추가**를 선택합니다.
+1. **사용자 지정 도메인 추가** 를 선택합니다.
 
     ![호스트 이름 추가를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-1. 와일드카드 도메인과 일치하는 정규화된 도메인 이름(예: `sub1.contoso.com`)을 입력한 다음 **유효성 검사**를 선택합니다.
+1. 와일드카드 도메인과 일치하는 정규화된 도메인 이름(예: `sub1.contoso.com`)을 입력한 다음 **유효성 검사** 를 선택합니다.
 
     **사용자 지정 도메인 추가** 단추가 활성화됩니다.
 
-1. **호스트 이름 레코드 형식**이 **CNAME 레코드(www\.example.com or any subdomain)** 로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가**를 선택합니다.
+1. **호스트 이름 레코드 형식** 이 **CNAME 레코드(www\.example.com or any subdomain)** 로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가** 를 선택합니다.
 
     ![앱에 DNS 이름 추가를 보여 주는 스크린샷](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
@@ -319,7 +319,7 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 
 App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. 그러나 특정 웹 프레임워크는 루트 디렉터리에서 시작하지 않습니다. 예를 들어 [Laravel](https://laravel.com/)은 `public` 하위 디렉터리에서 시작합니다. `contoso.com` DNS 예제를 계속하려면 그러한 앱은 `http://contoso.com/public`에서 액세스할 수도 있지만, 대신 `http://contoso.com`을 `public` 디렉터리로 전달할 수 있습니다. 이 단계는 DNS 확인을 포함하지는 않으나, 가상 디렉터리를 사용자 지정합니다.
 
-가상 디렉터리를 사용자 지정하려면 웹앱 페이지의 왼쪽 창에서 **애플리케이션 설정**을 선택합니다.
+가상 디렉터리를 사용자 지정하려면 웹앱 페이지의 왼쪽 창에서 **애플리케이션 설정** 을 선택합니다.
 
 페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다.
 

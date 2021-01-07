@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517974"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655853"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>일반적인 이벤트 형식을 사용 하 여 외부 솔루션 연결
 
@@ -48,7 +48,7 @@ CEF 메시지를 전송 하는 외부 솔루션을 연결 하는 경우 Azure �
 
 Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에서 통신 하도록 Syslog 데몬 (rsyslog 또는 syslog 기능)을 구성 해야 합니다. tls [-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), tls를 [사용 하 여 로그 메시지 암호화 – syslog](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)를 사용 합니다.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 로그 전달자로 사용할 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
@@ -78,7 +78,7 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
  
 컴퓨터가 다음 요구 사항도 충족 하는지 확인 합니다. 
 
-- 권한
+- 사용 권한
   - 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다. 
 
 - 소프트웨어 요구 사항
@@ -94,5 +94,4 @@ Syslog 원본 및 Syslog 전달자 간에 TLS 통신을 사용 하려면 tls에�
 
 Azure 센티널에서 수집한 데이터로 수행할 작업에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
-- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats.md)을 시작합니다.
-
+- [Azure Sentinel을 사용하여 위협 검색](./tutorial-detect-threats-built-in.md)을 시작합니다.

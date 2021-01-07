@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042802"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900929"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -34,9 +34,9 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 
 관리자는 액세스 권한을 부여할 때 하나 이상의 컨트롤을 적용 하도록 선택할 수 있습니다. 이러한 컨트롤에는 다음 옵션이 포함 됩니다. 
 
-- [Multi-factor authentication 필요 (Azure Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
+- [Multi-factor authentication 필요 (Azure AD Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)
 - [장치를 규격으로 표시 해야 함 (Microsoft Intune)](/intune/protect/device-compliance-get-started)
-- [하이브리드 Azure AD 조인 장치 필요](../devices/concept-azure-ad-join-hybrid.md)
+- [하이브리드 Azure AD 조인 디바이스 필요](../devices/concept-azure-ad-join-hybrid.md)
 - [승인된 클라이언트 앱 필요](app-based-conditional-access.md)
 - [앱 보호 정책 필요](app-protection-based-conditional-access.md)
 - [암호 변경 필요](#require-password-change)
@@ -50,7 +50,7 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 
 ### <a name="require-multi-factor-authentication"></a>다단계 인증 필요
 
-이 확인란을 선택 하면 사용자가 Azure Multi-Factor Authentication를 수행 해야 합니다. Azure Multi-Factor Authentication 배포에 대 한 자세한 내용은 [클라우드 기반 azure Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)문서에서 찾을 수 있습니다.
+이 확인란을 선택 하면 사용자가 Azure AD Multi-Factor Authentication를 수행 해야 합니다. Azure AD Multi-Factor Authentication 배포에 대 한 자세한 내용은 [클라우드 기반 AZURE ad Multi-Factor Authentication 배포 계획](../authentication/howto-mfa-getstarted.md)문서에서 찾을 수 있습니다.
 
 ### <a name="require-device-to-be-marked-as-compliant"></a>디바이스를 준수 상태로 표시해야 함
 
@@ -70,7 +70,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 
 조직에서 선택한 클라우드 앱에 대 한 액세스를 승인 된 클라이언트 앱에서 수행 해야 하도록 요구할 수 있습니다. 이러한 승인 된 클라이언트 앱은 모든 MDM (모바일 장치 관리) 솔루션과 독립적인 [Intune 앱 보호 정책을](/intune/app-protection-policy) 지원 합니다.
 
-이 권한 부여 컨트롤을 활용 하기 위해 조건부 액세스를 사용 하려면 장치를 Azure Active Directory에 등록 해야 합니다. 그러면 broker 앱을 사용 해야 합니다. Broker 앱은 iOS의 Microsoft Authenticator 또는 Android 장치용 Microsoft Authenticator 또는 Microsoft 회사 포털 일 수 있습니다. 사용자가 인증을 시도할 때 broker 앱이 장치에 설치 되지 않은 경우 사용자는 필요한 broker 앱을 설치 하기 위해 적절 한 앱/play 스토어로 리디렉션됩니다.
+이 권한 부여 컨트롤을 활용 하기 위해 조건부 액세스를 사용 하려면 장치를 Azure Active Directory에 등록 해야 합니다. 그러면 broker 앱을 사용 해야 합니다. Broker 앱은 iOS의 Microsoft Authenticator 또는 Android 장치용 Microsoft Authenticator 또는 Microsoft 회사 포털 일 수 있습니다. 사용자가 인증을 시도할 때 broker 앱이 장치에 설치 되지 않은 경우 사용자는 필요한 broker 앱을 설치 하기 위해 적절 한 앱 스토어로 리디렉션됩니다.
 
 이 설정은 다음 iOS 및 Android 앱에 적용 됩니다.
 
@@ -102,14 +102,16 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 - Microsoft Word
 - Microsoft Yammer
 - Microsoft Whiteboard
+- Microsoft 365 관리
 
 **주의**
 
 - 승인된 클라이언트 앱은 Intune 모바일 애플리케이션 관리 기능을 지원합니다.
 - **승인된 클라이언트 앱 필요** 요구 사항:
    - 디바이스 플랫폼 조건에서는 iOS 및 Android만 지원됩니다.
-   - 장치를 등록 하려면 broker 앱이 필요 합니다. IOS에서 broker 앱은 Microsoft Authenticator 되며 Android에서 Intune 회사 포털 앱입니다.
+   - 장치를 등록 하려면 broker 앱이 필요 합니다. Broker 앱은 iOS의 Microsoft Authenticator 또는 Android 장치용 Microsoft Authenticator 또는 Microsoft 회사 포털 일 수 있습니다.
 - 조건부 액세스는 InPrivate 모드에서 승인 된 클라이언트 앱으로 Microsoft Edge를 고려할 수 없습니다.
+- Azure AD 응용 프로그램 프록시를 사용 하 여 온-프레미스 Power BI Report Server에 연결 하는 Power BI 모바일 앱을 승인 된 클라이언트 앱으로 사용 하는 Microsoft Power BI 앱을 요구 하는 조건부 액세스 정책은 지원 되지 않습니다.
 
 구성 예제는 [방법: 조건부 액세스를 사용 하는 클라우드 앱 액세스를 위해 승인 된 클라이언트 앱 필요](app-based-conditional-access.md) 문서를 참조 하세요.
 

@@ -3,8 +3,8 @@ title: Data Factory, 데이터 통합 서비스 소개
 description: 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 101de32aea47bb3dd3c8a04434993c8614939c37
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89436259"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96495568"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -35,13 +35,13 @@ ms.locfileid: "89436259"
 
 이러한 로그를 분석하려면 회사는 온-프레미스 데이터 저장소에 있는 고객 정보, 게임 정보 및 마케팅 캠페인 정보와 같은 참조 데이터를 사용해야 합니다. 따라서 회사는 클라우드 데이터 저장소에서 로그 데이터를 수집하고 온-프레미스 데이터 저장소에서 데이터를 참조하려고 합니다. 
 
-그런 다음 클라우드(Azure HDInsight)에서 Hadoop을 사용하여 데이터를 처리하려고 합니다. Azure Synapse Analytics(이전의 SQL Data Warehouse)와 같은 클라우드 데이터 웨어하우스 또는 SQL Server와 같은 온-프레미스 데이터 저장소에 결과 데이터를 게시하려고 합니다. 회사는 이 워크플로를 일주일에 한 번 실행하려고 합니다. 
+그런 다음 클라우드(Azure HDInsight)에서 Hadoop을 사용하여 데이터를 처리하려고 합니다. Azure Synapse Analytics와 같은 클라우드 데이터 웨어하우스 또는 SQL Server와 같은 온-프레미스 데이터 저장소에 결과 데이터를 게시하려고 합니다. 회사는 이 워크플로를 일주일에 한 번 실행하려고 합니다. 
 
 회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 컴퓨팅 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 애플리케이션용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
 
 ![데이터 팩터리 개요](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
-Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니다. *데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스*입니다. Azure Data Factory를 사용하여 다음 작업을 수행할 수 있습니다. 
+Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니다. *데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스* 입니다. Azure Data Factory를 사용하여 다음 작업을 수행할 수 있습니다. 
 
 - 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약합니다.
 
@@ -112,9 +112,9 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 연결된 서비스는 데이터 팩터리 내에서 두 가지 이유로 사용됩니다.
 
-* SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소*를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](#data-movement-activities) 섹션을 참조하세요.
+* SQL Server 데이터베이스, Oracle 데이터베이스, 파일 공유 또는 Azure Blob 스토리지 계정을 포함하지만 여기에 국한되지 않는 *데이터 저장소* 를 나타내기 위해 사용됩니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](#data-movement-activities) 섹션을 참조하세요.
 
-* 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스*를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
+* 활동의 실행을 호스팅할 수 있는 *컴퓨팅 리소스* 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 지원되는 컴퓨팅 환경 목록은 [데이터 변환 활동](#data-transformation-activities) 섹션을 참조하세요.
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory 엔터티 간의 관계
 

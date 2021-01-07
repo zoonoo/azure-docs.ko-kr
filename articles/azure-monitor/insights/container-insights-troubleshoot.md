@@ -4,11 +4,11 @@ description: 이 문서에서는 컨테이너용 Azure Monitor의 문제를 해�
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 5727702ff973523ce7ab6400c1c7748e0584acbf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890363"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010591"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
@@ -112,7 +112,7 @@ nodeSelector:
 
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>비 Azure Kubernetes 클러스터는 컨테이너에 대 한 Azure Monitor에 표시 되지 않습니다.
 
-컨테이너에 대 한 Azure Monitor에서 비 Azure Kubernetes 클러스터를 보려면이 통찰력을 지 원하는 Log Analytics 작업 영역 및 Container Insights 솔루션 리소스 **ContainerInsights ( *작업 영역* )** 에서 읽기 권한이 필요 합니다.
+컨테이너에 대 한 Azure Monitor에서 비 Azure Kubernetes 클러스터를 보려면이 통찰력을 지 원하는 Log Analytics 작업 영역 및 Container Insights 솔루션 리소스 **ContainerInsights (*작업 영역*)** 에서 읽기 권한이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

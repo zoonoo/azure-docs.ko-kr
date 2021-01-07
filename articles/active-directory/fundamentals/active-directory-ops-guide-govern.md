@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d4df373f78a9c74584d0e4046f7532a2190f3a3f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ba3ca140abe36a31ffa03422420ea537bbe4f39a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370970"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935753"
 ---
 # <a name="azure-active-directory-governance-operations-reference-guide"></a>Azure Active Directory 거 버 넌 스 작업 참조 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "92370970"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| Task | 소유자 |
+| 작업 | 소유자 |
 | :- | :- |
 | SIEM 시스템에서 Azure AD 감사 로그 보관 | InfoSec 운영 팀 |
 | 비준수로 관리 되는 응용 프로그램 검색 | IAM 운영 팀 |
@@ -59,7 +59,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 | 시나리오| 권장 |
 |-|-|
 |인증 유형을 페더레이션된에서 PHS/PTA로 변경 하거나 그 반대로 변경| [준비 된 롤아웃](../hybrid/how-to-connect-staged-rollout.md) 을 사용 하 여 인증 유형 변경의 영향을 테스트 합니다.|
-|새 조건부 액세스 (CA) 정책 또는 Id 보호 정책 롤아웃|새 CA 정책을 만들고 테스트 사용자에 게 할당 합니다.|
+|새 조건부 액세스 (CA) 정책 또는 Id 보호 정책 롤아웃|새 조건부 액세스 정책을 만들고 테스트 사용자에 게 할당 합니다.|
 |응용 프로그램의 테스트 환경 온 보 딩|응용 프로그램을 프로덕션 환경에 추가 하 고 MyApps 패널에서 숨긴 다음 QA (품질 보증) 단계에서 테스트 사용자에 게 할당 합니다.|
 |동기화 규칙 변경|현재 프로덕션에 있는 동일한 구성 (스테이징 모드 라고도 함)을 사용 하 여 테스트 Azure AD Connect의 변경을 수행 하 고 CSExport 결과를 분석 합니다. 만족 스 러 우면 준비가 되 면 프로덕션으로 바꿉니다.|
 |브랜딩 변경|별도의 테스트 테 넌 트에서 테스트 합니다.|

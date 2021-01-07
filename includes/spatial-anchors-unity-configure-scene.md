@@ -1,15 +1,15 @@
 ---
-author: craigktreasure
+author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 8/13/2020
-ms.author: crtreasu
-ms.openlocfilehash: e712f7876a31e2bde629b2a2a3ad83a22c6ad7e7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/20/2020
+ms.author: parkerra
+ms.openlocfilehash: bf644689f0e6b3b5bad367d48b8e263ac7c07c36
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971426"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185337"
 ---
 ## <a name="configure-the-account-information"></a>계정 정보 구성
 
@@ -17,4 +17,4 @@ ms.locfileid: "91971426"
 
 **프로젝트** 창에서 `Assets\AzureSpatialAnchors.SDK\Resources`로 이동합니다. 
 
-**SpatialAnchorConfig**를 선택합니다. **검사기** 창에서 **Spatial Anchors 계정 키**의 값으로 `Account Key`를, **Spatial Anchors 계정 ID**의 값으로 `Account ID`를, **Spatial Anchors 계정 도메인**의 값으로 `Account Domain`을 입력합니다.
+**SpatialAnchorConfig** 를 선택합니다. **검사기** 창에서 **Spatial Anchors 계정 키** 의 값으로 `Account Key`를, **Spatial Anchors 계정 ID** 의 값으로 `Account ID`를, **Spatial Anchors 계정 도메인** 의 값으로 `Account Domain`을 입력합니다.

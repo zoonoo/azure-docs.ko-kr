@@ -1,20 +1,22 @@
 ---
 title: 템플릿의 변수
-description: Azure Resource Manager 템플릿에서 변수를 정의 하는 방법을 설명 합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: cf135959d30702ea58b7a1d4fdd82625a39245d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75483818"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934665"
 ---
-# <a name="variables-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 변수
+# <a name="variables-in-arm-template"></a>ARM 템플릿의 변수
 
-이 문서에서는 Azure Resource Manager 템플릿에서 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 변수를 사용 하 여 템플릿을 단순화 합니다. 템플릿 전체에서 복잡 한 식을 반복 하는 대신 복잡 한 식을 포함 하는 변수를 정의 합니다. 그런 다음 템플릿 전체에서 필요에 따라 해당 변수를 참조 합니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수를 정의 하 고 사용 하는 방법을 설명 합니다. 변수를 사용 하 여 템플릿을 단순화 합니다. 템플릿 전체에서 복잡 한 식을 반복 하는 대신 복잡 한 식을 포함 하는 변수를 정의 합니다. 그런 다음 템플릿 전체에서 필요에 따라 해당 변수를 참조 합니다.
 
 리소스 관리자는 배포 작업을 시작 하기 전에 변수를 확인 합니다. 템플릿에서 변수를 사용하는 모든 경우에는 Resource Manager는 변수를 확인된 값으로 바꿉니다.
+
+각 변수의 형식은 [데이터 형식](template-syntax.md#data-types)중 하 나와 일치 해야 합니다.
 
 ## <a name="define-variable"></a>변수 정의
 
@@ -26,7 +28,7 @@ ms.locfileid: "75483818"
 },
 ```
 
-Variables 섹션에는 [reference](template-functions-resource.md#reference) 함수 또는 [list](template-functions-resource.md#list) 함수를 사용할 수 없습니다. 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
+[참조](template-functions-resource.md#reference) 함수 또는 섹션의 [목록](template-functions-resource.md#list) 함수는 사용할 수 없습니다 `variables` . 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
 
 ## <a name="use-variable"></a>변수 사용
 
@@ -44,7 +46,7 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 
 ## <a name="configuration-variables"></a>구성 변수
 
-환경을 구성 하는 데 관련 된 값을 포함 하는 변수를 정의할 수 있습니다. 변수를 값이 포함 된 개체로 정의 합니다. 다음 예제에서는 **테스트** 와 **prod**의 두 환경에 대 한 값을 보유 하는 개체를 보여 줍니다.
+환경을 구성 하는 데 관련 된 값을 포함 하는 변수를 정의할 수 있습니다. 변수를 값이 포함 된 개체로 정의 합니다. 다음 예제에서는 **테스트** 와 **prod** 의 두 환경에 대 한 값을 보유 하는 개체를 보여 줍니다.
 
 ```json
 "variables": {
@@ -61,7 +63,7 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 },
 ```
 
-매개 변수에서 사용할 구성 값을 나타내는 값을 만듭니다.
+에서는 `parameters` 사용할 구성 값을 나타내는 값을 만듭니다.
 
 ```json
 "parameters": {
@@ -93,5 +95,5 @@ Variables 섹션에는 [reference](template-functions-resource.md#reference) 함
 
 ## <a name="next-steps"></a>다음 단계
 
-* 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 변수를 만드는 방법에 대 한 권장 사항은 [모범 사례-변수](template-best-practices.md#variables)를 참조 하세요.

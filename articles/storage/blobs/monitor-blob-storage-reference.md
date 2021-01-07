@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 16ae2f9e74202aff47e58a22dbe21a28d8280a7e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357541"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780725"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob storage 모니터링 데이터 참조
 
@@ -36,12 +36,12 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="blob-storage"></a>Blob Storage
 
-다음 표에서는 [Blob storage 메트릭을](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices)보여 줍니다.
+다음 표에서는 [Blob storage 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices)보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier** ( [정의](#metrics-dimensions)) |
-| BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier** ( [정의](#metrics-dimensions)) |
+| BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
+| BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
 | BlobProvisionedSize | 저장소 계정에 프로 비전 된 저장소의 양입니다. 이 메트릭은 premium storage 계정에만 적용 됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
 | ContainerCount    | 스토리지 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | IndexCapacity     | ADLS Gen2 계층적 인덱스에 사용한 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
@@ -66,15 +66,15 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 
 | 차원 이름 | Description |
 | ------------------- | ----------------- |
-| **BlobType** | Blob 메트릭용 Blob 형식만. 지원되는 값은 **BlockBlob** , **PageBlob** 및 **Azure Data Lake Storage** 입니다. 추가 blob은 **blockblob** 에 포함 되어 있습니다. |
-| **BlobTier** | Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. [Azure Storage Blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 지원되는 값은 다음과 같습니다. <br/> <li>**핫** : 핫 액세스 계층</li> <li>**쿨** : 쿨 액세스 계층</li> <li>**보관** : 보관 액세스 계층</li> <li>**프리미엄** : 블록 Blob 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : 프리미엄 페이지 Blob 계층 유형</li> <li>**표준** : 표준 페이지 Blob 계층 유형</li> <li>**계층 없음** : 범용 v1 스토리지 계정 계층 유형</li> |
+| **BlobType** | Blob 메트릭용 Blob 형식만. 지원되는 값은 **BlockBlob**, **PageBlob** 및 **Azure Data Lake Storage** 입니다. 추가 blob은 **blockblob** 에 포함 되어 있습니다. |
+| **BlobTier** | Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. [Azure Storage Blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 지원되는 값은 다음과 같습니다. <br/> <li>**핫**: 핫 액세스 계층</li> <li>**쿨**: 쿨 액세스 계층</li> <li>**보관**: 보관 액세스 계층</li> <li>**프리미엄**: 블록 Blob 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: 프리미엄 페이지 Blob 계층 유형</li> <li>**표준**: 표준 페이지 Blob 계층 유형</li> <li>**계층 없음**: 범용 v1 스토리지 계정 계층 유형</li> |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공** 을 포함한 **ResponseType** 차원을 필터링해야 합니다. 블록 Blob에 대 한 **Blobcount** 값을 확인 하는 경우 **blockblob** 을 사용 하 여 **blobcount** 차원을 필터링 해야 합니다.
 
 ## <a name="resource-logs-preview"></a>리소스 로그(미리 보기)
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 미리 보기에 등록하려면 [이 페이지](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)를 참조하세요.  이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
 
 다음 표에는 Azure Monitor Logs 또는 Azure Storage에서 수집되는 경우 Azure Storage 리소스 로그의 속성이 나와 있습니다. 속성은 작업, 서비스, 작업을 수행하는 데 사용된 인증 유형을 설명합니다.
 

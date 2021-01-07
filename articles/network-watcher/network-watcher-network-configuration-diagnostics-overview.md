@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
-ms.openlocfilehash: 4d308b8a1a589308e2481c8bb9e0dc9ec64be25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad60b0be8a9a5341c71d760f98c0db84a72763c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996699"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951522"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Azure Network Watcher의 네트워크 구성 진단 소개
 
 네트워크 구성 진단 도구를 사용 하 여 Azure Virtual Network에서 허용 되거나 거부 되는 트래픽 흐름과 디버그에 대 한 자세한 정보를 파악할 수 있습니다. NSG 규칙이 올바르게 구성 되었는지 이해 하는 데 도움이 될 수 있습니다. 
 
 ## <a name="pre-requisites"></a>필수 구성 요소
-네트워크 구성 진단을 사용 하려면 구독에서 Network Watcher를 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하려면 [Azure Network Watcher 인스턴스 만들기](https://docs.microsoft.com/azure/network-watcher/network-watcher-create) 를 참조 하세요.
+네트워크 구성 진단을 사용 하려면 구독에서 Network Watcher를 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하려면 [Azure Network Watcher 인스턴스 만들기](./network-watcher-create.md) 를 참조 하세요.
 
 ## <a name="background"></a>배경
 
@@ -39,7 +39,6 @@ ms.locfileid: "90996699"
 ## <a name="next-steps"></a>다음 단계
 
 다른 인터페이스를 통한 네트워크 구성 진단 사용
- - [REST API](https://docs.microsoft.com/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
- - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
- - [Azure CLI](https://docs.microsoft.com/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)
-
+ - [REST API](/rest/api/network-watcher/networkwatchers/getnetworkconfigurationdiagnostic)
+ - [PowerShell](/powershell/module/az.network/invoke-aznetworkwatchernetworkconfigurationdiagnostic?view=azps-4.6.1)
+ - [Azure CLI](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_run_configuration_diagnostic)

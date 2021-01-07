@@ -1,24 +1,28 @@
 ---
-title: '자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인 | Microsoft Azure Maps'
+title: '자습서: Microsoft Azure Maps에서 Azure Notebooks(Python)를 사용하여 센서 데이터를 날씨 예측 데이터와 조인'
 description: Azure Notebooks(Python)를 사용하여 Microsoft Azure Maps Weather Service의 날씨 예측 데이터와 센서 데이터를 조인하는 방법에 대한 자습서.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/29/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6d2ede8ab49b22a22d8959ce296182a2210640d0
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896602"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905471"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 
-풍력은 기후 변화에 맞서기 위해 화석 연료를 대체할 수 있는 에너지원입니다. 바람은 본질적으로 일관되지 않으므로 풍력 연산자는 ML(기계 학습) 모델을 빌드하여 풍력 용량을 예측해야 합니다. 이 예측은 전기 수요를 충족하고 그리드 안정성을 보장하기 위해 필요합니다. 이 자습서에서는 Azure Maps 날씨 예측 데이터가 날씨 판독값이 있는 데모 데이터와 결합되는 방식을 안내합니다. 날씨 예측 데이터는 Azure Maps 날씨 서비스를 호출하여 요청됩니다.
+> [!IMPORTANT]
+> Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+풍력은 기후 변화에 맞서기 위해 화석 연료를 대체할 수 있는 에너지원입니다. 바람은 본질적으로 일관되지 않으므로 풍력 연산자는 ML(기계 학습) 모델을 빌드하여 풍력 용량을 예측해야 합니다. 이 예측은 전기 수요를 충족하고 그리드 안정성을 보장하기 위해 필요합니다. 이 자습서에서는 Azure Maps 날씨 예측 데이터가 날씨 판독값이 있는 데모 데이터와 결합되는 방식을 안내합니다. 날씨 예측 데이터는 Azure Maps Weather Services(미리 보기)를 호출하여 요청됩니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -68,7 +72,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>일일 예측 데이터 요청
 
-시나리오에서는 각 센서 위치에 대한 일일 예측을 요청하려고 합니다. 다음 스크립트는 Azure Maps 날씨 서비스의 [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview)를 호출합니다. 이 API는 현재 날짜로부터 다음 15일 동안 각 풍력 터빈에 대한 날씨 예보를 반환합니다.
+시나리오에서는 각 센서 위치에 대한 일일 예측을 요청하려고 합니다. 다음 스크립트는 Azure Maps Weather Services(미리 보기)의 [Daily Forecast API](/rest/api/maps/weather/getdailyforecastpreview)를 호출합니다. 이 API는 현재 날짜로부터 다음 15일 동안 각 풍력 터빈에 대한 날씨 예보를 반환합니다.
 
 
 ```python
@@ -82,7 +86,7 @@ years,months,days = [],[],[]
 dates_check=set()
 wind_speeds, wind_direction = [], []
 
-# Call azure maps weather service to get daily forecast data for 15 days from current date
+# Call azure maps Weather services (Preview) to get daily forecast data for 15 days from current date
 session = aiohttp.ClientSession()
 j=-1
 for i in range(0, len(coords), 2):

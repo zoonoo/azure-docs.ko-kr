@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 55a7e117ebd49f268d4b075d58791df4e9223fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849265"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350673"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>디스크 암호화가 사용된 풀 생성
 
@@ -25,8 +25,8 @@ Batch 풀을 사용 하면 OS 및 계산 노드의 임시 디스크에 데이터
 
 Batch는 풀 구성 및 지역별 지원 가능성을 기준으로 계산 노드에 이러한 디스크 암호화 기술 중 하나를 적용 합니다.
 
-- [플랫폼 관리 키를 사용 하 여 미사용 관리 디스크 암호화](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [플랫폼 관리 키를 사용 하 여 호스트에서 암호화](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [플랫폼 관리 키를 사용 하 여 미사용 관리 디스크 암호화](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [플랫폼 관리 키를 사용 하 여 호스트에서 암호화](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure 디스크 암호화](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
 > [!IMPORTANT]
@@ -38,15 +38,15 @@ Batch는 풀 구성 및 지역별 지원 가능성을 기준으로 계산 노드
 
 ## <a name="azure-portal"></a>Azure portal
 
-Azure Portal에서 Batch 풀을 만들 때 **디스크 암호화 구성**에서 **TemporaryDisk** 또는 **OsAndTemporaryDisk** 를 선택 합니다.
+Azure Portal에서 Batch 풀을 만들 때 **디스크 암호화 구성** 에서 **TemporaryDisk** 또는 **OsAndTemporaryDisk** 를 선택 합니다.
 
 :::image type="content" source="media/disk-encryption/portal-view.png" alt-text="Azure Portal에서 디스크 암호화 구성 옵션의 스크린샷":::
 
 풀을 만든 후에는 풀의 **속성** 섹션에서 디스크 암호화 구성 대상을 확인할 수 있습니다.
 
-:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Azure Portal에서 디스크 암호화 구성 옵션의 스크린샷":::
+:::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Azure Portal의 디스크 암호화 구성 대상을 보여 주는 스크린샷":::
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예에서는 batch .NET SDK, Batch REST API 및 Azure CLI를 사용 하 여 Batch 풀에서 OS 및 임시 디스크를 암호화 하는 방법을 보여 줍니다.
 
@@ -107,5 +107,5 @@ az batch pool create \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 디스크 저장소의 서버 쪽 암호화](../virtual-machines/windows/disk-encryption.md)에 대해 자세히 알아보세요.
+- [Azure 디스크 저장소의 서버 쪽 암호화](../virtual-machines/disk-encryption.md)에 대해 자세히 알아보세요.
 - Batch에 대한 자세한 개요는 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요.

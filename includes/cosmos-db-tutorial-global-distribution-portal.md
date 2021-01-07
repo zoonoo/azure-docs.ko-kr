@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
-ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58788d6194454c8bd40730c9c350aa901924ba3d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75751580"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027334"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
 Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사용할 수 있습니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **Azure Cosmos DB**를 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 왼쪽 막대에서 **Azure Cosmos DB** 를 클릭합니다.
 2. **Azure Cosmos DB** 페이지에서 수정할 데이터베이스 계정을 선택합니다.
-3. 계정 페이지의 메뉴에서 **전역으로 데이터 복제**를 클릭합니다.
-4. **전역으로 데이터 복제** 페이지에서 맵의 지역을 클릭하여 추가 또는 제거할 지역을 선택하고 **저장**을 클릭합니다. 지역을 추가하는 비용에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 또는 [Azure Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/cosmos-db/distribute-data-globally.md) 문서를 참조하세요.
+3. 계정 페이지의 메뉴에서 **전역으로 데이터 복제** 를 클릭합니다.
+4. **전역으로 데이터 복제** 페이지에서 맵의 지역을 클릭하여 추가 또는 제거할 지역을 선택하고 **저장** 을 클릭합니다. 지역을 추가하는 비용에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 또는 [Azure Cosmos DB를 사용하여 전역적으로 데이터 배포](../articles/cosmos-db/distribute-data-globally.md) 문서를 참조하세요.
    
     ![지도에서 지역을 클릭하여 추가/삭제][1]
     
@@ -59,7 +59,7 @@ While all regions associated with your Cosmos DB database account can serve read
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
+[bcdr]: ../articles/best-practices-availability-paired-regions.md
 [consistency]: ../articles/cosmos-db/consistency-levels.md
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/cosmos-db/

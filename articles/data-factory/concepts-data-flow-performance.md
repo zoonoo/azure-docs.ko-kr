@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 08/12/2020
-ms.openlocfilehash: 055cdf7b6cec12eb8c3e7fde891d155b831a6523
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637873"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858589"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -68,7 +68,7 @@ ADF UX에서 데이터 흐름을 디자인 하 고 테스트 하는 경우 디�
 
 라운드 로빈은 여러 파티션에 데이터를 균등 하 게 분산 합니다. 견고한 스마트 분할 전략을 구현 하는 데 좋은 핵심 후보가 없는 경우 라운드 로빈을 사용 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-### <a name="hash"></a>Hash
+### <a name="hash"></a>해시
 
 Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 포함 되도록 균일 한 파티션을 생성 하는 열 해시를 생성 합니다. Hash 옵션을 사용 하는 경우 가능한 파티션 오차를 테스트 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
@@ -86,6 +86,12 @@ Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 포�
 
 > [!TIP]
 > 데이터를 reshuffles 하는 파티션 구성표를 수동으로 설정 하 고 Spark 최적화 프로그램의 이점을 오프셋할 수 있습니다. 필요한 경우를 제외 하 고는 수동으로 분할을 설정 하지 않는 것이 가장 좋습니다.
+
+## <a name="logging-level"></a>로깅 수준
+
+모든 자세한 원격 분석 로그를 완전히 기록 하기 위해 데이터 흐름 활동의 모든 파이프라인을 실행할 필요가 없는 경우 필요에 따라 로깅 수준을 "Basic" 또는 "None"으로 설정할 수 있습니다. "자세한 정보" 모드 (기본값)로 데이터 흐름을 실행 하는 경우 데이터 변환 중에 각 개별 파티션 수준에서 전체 로그 작업으로 ADF를 요청 하 게 됩니다. 이 작업은 비용이 많이 들 수 있으므로 문제를 해결 하는 경우에만 전체 데이터 흐름 및 파이프라인 성능을 향상 시킬 수 있습니다. "기본" 모드에서는 "없음"이 기간 요약만 제공 하는 동안에만 변환 기간을 기록 합니다.
+
+![로깅 수준](media/data-flow/logging.png "로깅 수준 설정")
 
 ## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Azure Integration Runtime 최적화
 
@@ -155,7 +161,7 @@ Azure SQL Database에는 ' 원본 ' 분할 이라는 고유한 분할 옵션이 
 
 #### <a name="isolation-level"></a>격리 수준
 
-Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 줍니다. ' 커밋되지 않은 읽기 '를 선택 하면 가장 빠른 성능을 제공 하 고 데이터베이스 잠금을 방지 합니다. SQL 격리 수준에 대 한 자세한 내용은 [격리 수준 이해](/sql/connect/jdbc/understanding-isolation-levels?view=sql-server-ver15)를 참조 하세요.
+Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 줍니다. ' 커밋되지 않은 읽기 '를 선택 하면 가장 빠른 성능을 제공 하 고 데이터베이스 잠금을 방지 합니다. SQL 격리 수준에 대 한 자세한 내용은 [격리 수준 이해](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels)를 참조 하세요.
 
 #### <a name="read-using-query"></a>쿼리를 사용 하 여 읽기
 
@@ -163,7 +169,7 @@ Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 
 
 ### <a name="azure-synapse-analytics-sources"></a>Azure Synapse 분석 소스
 
-Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 [하면 ADF를 사용 하](/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15)여 Synapse에서 읽기 성능을 크게 향상 시킬 수 있습니다. PolyBase를 사용 하도록 설정 하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정 해야 합니다.
+Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용** 이라는 설정이 있습니다. 이렇게 하면 ADF를 사용 하 여 Synapse를 읽을 수 있으므로 ```Staging``` 읽기 성능이 크게 향상 됩니다. 을 사용 하도록 설정 ```Staging``` 하려면 데이터 흐름 활동 설정에서 Azure Blob Storage 또는 Azure Data Lake Storage gen2 준비 위치를 지정 해야 합니다.
 
 ![준비 사용](media/data-flow/enable-staging.png "준비 사용")
 
@@ -183,6 +189,10 @@ Azure Synapse Analytics를 사용 하는 경우 원본 옵션에 **준비 사용
 
 Azure SQL Database를 사용 하면 대부분의 경우 기본 분할이 작동 합니다. SQL database에서 처리 하기에 너무 많은 파티션이 싱크에 있을 수 있습니다. 이를 실행 하는 경우 SQL Database 싱크에 의해 출력 되는 파티션 수를 줄입니다.
 
+#### <a name="impact-of-error-row-handling-to-performance"></a>오류 행 처리의 성능에 미치는 영향
+
+싱크 변환에서 오류 행 처리 ("오류 발생 시 계속")를 사용 하도록 설정 하면 ADF는 대상 테이블에 호환 되는 행을 쓰기 전에 추가 단계를 수행 합니다. 이 추가 단계에서는이 단계에 추가 된 5% 범위에 있을 수 있는 약간의 성능 저하가 발생할 수 있습니다. 또한 옵션을 호환 되지 않는 행을 로그 파일로 설정한 경우에도 추가 작은 성능 저하가 추가 됩니다.
+
 #### <a name="disabling-indexes-using-a-sql-script"></a>SQL 스크립트를 사용 하 여 인덱스 비활성화
 
 SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 테이블에 쓰기 성능이 크게 향상 됩니다. 다음 명령을 실행 하 여 SQL 싱크에 작성 합니다.
@@ -198,7 +208,7 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 ![인덱스 사용 안 함](media/data-flow/disable-indexes-sql.png "인덱스 사용 안 함")
 
 > [!WARNING]
-> 인덱스를 사용 하지 않도록 설정 하는 경우 데이터 흐름은 실제로 데이터베이스의 제어를 수행 하 고 쿼리는 성공할 가능성이 거의 없습니다. 결과적으로이 충돌을 방지 하기 위해 많은 ETL 작업이 야간 도중에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](/sql/relational-databases/indexes/disable-indexes-and-constraints?view=sql-server-ver15) 에 대 한 자세한 내용
+> 인덱스를 사용 하지 않도록 설정 하는 경우 데이터 흐름은 실제로 데이터베이스의 제어를 수행 하 고 쿼리는 성공할 가능성이 거의 없습니다. 결과적으로이 충돌을 방지 하기 위해 많은 ETL 작업이 야간 도중에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints) 에 대 한 자세한 내용
 
 #### <a name="scaling-up-your-database"></a>데이터베이스 확장
 
@@ -206,9 +216,9 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics 싱크
 
-Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF를 사용 하 여 대량의 데이터를 효과적으로 로드 하는 [PolyBase](/sql/relational-databases/polybase/polybase-guide) 를 작성할 수 있습니다. PolyBase를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
+Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF가 데이터를 대량으로 효과적으로 로드 하는 [SQL 복사 명령을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) 사용 하 여 쓸 수 있습니다. 준비를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
 
-PolyBase 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Synapse Analytics에 적용 됩니다.
+스테이징 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Synapse Analytics에 적용 됩니다.
 
 ### <a name="file-based-sinks"></a>파일 기반 싱크 
 
@@ -239,7 +249,6 @@ CosmosDB에 쓸 때 데이터 흐름을 실행 하는 동안 처리량과 일괄
 **처리량:** 문서를 CosmosDB에 더 빨리 쓸 수 있도록 여기에서 더 높은 처리량 설정을 설정 합니다. 높은 처리량 설정에 따라 높은 수준의 비용을 염두에 두어야 합니다.
 
 **쓰기 처리량 예산:** 분당 총 RUs 보다 작은 값을 사용 합니다. 많은 수의 Spark 파티션이 포함 된 데이터 흐름이 있는 경우 예산 처리량을 설정 하면 해당 파티션에 대 한 균형을 높일 수 있습니다.
-
 
 ## <a name="optimizing-transformations"></a>변형 최적화
 
@@ -300,6 +309,14 @@ SSIS와 같은 도구의 병합 조인과 달리, 조인 변환은 필수 병합
 ### <a name="overloading-a-single-data-flow"></a>단일 데이터 흐름 오버 로드
 
 모든 논리를 단일 데이터 흐름 내에 배치 하면 ADF는 단일 Spark 인스턴스에서 전체 작업을 실행 합니다. 이는 비용을 절감 하는 방법 처럼 보일 수도 있지만, 서로 다른 논리적 흐름을 혼합 하 여 모니터링 및 디버깅 하기 어려울 수 있습니다. 한 구성 요소에 오류가 발생 하는 경우 작업의 다른 모든 부분도 실패 합니다. Azure Data Factory 팀에서는 비즈니스 논리의 독립적인 흐름에 따라 데이터 흐름을 구성 하는 것이 좋습니다. 데이터 흐름이 너무 커지면 분리 구성 요소로 분할 하면 모니터링 및 디버깅이 더 쉬워집니다. 데이터 흐름의 변환 수에 대 한 하드 제한은 없지만 너무 많으면 작업이 복잡해 집니다.
+
+### <a name="execute-sinks-in-parallel"></a>병렬로 싱크 실행
+
+데이터 흐름 싱크의 기본 동작은 직렬 방식으로 각 싱크를 순차적으로 실행 하 고 싱크에서 오류가 발생할 때 데이터 흐름을 실패 하는 것입니다. 또한 데이터 흐름 속성으로 이동 하 여 싱크에 대해 다른 우선 순위를 설정 하지 않는 한 모든 싱크는 동일한 그룹으로 기본 설정 됩니다.
+
+데이터 흐름을 사용 하면 UI 디자이너의 데이터 흐름 속성 탭에서 싱크를 그룹으로 묶을 수 있습니다. 동일한 그룹 번호를 사용 하 여 싱크의 실행 순서와 그룹 싱크를 함께 설정할 수 있습니다. 그룹을 관리 하는 데 도움이 되도록 ADF에서 동일한 그룹의 싱크를 실행 하도록 요청 하 여 병렬로 실행할 수 있습니다.
+
+파이프라인 실행 데이터 흐름 작업의 "싱크 속성" 섹션에서 병렬 싱크 로드를 설정 하는 옵션을 선택할 수 있습니다. "병렬로 실행"을 사용 하도록 설정 하는 경우 데이터 흐름은 순차적 방식 대신 동시에 연결 된 싱크에 쓰도록 지시 하 게 됩니다. 병렬 옵션을 사용 하기 위해 싱크는 함께 그룹화 되 고 새 분기 또는 조건부 분할을 통해 동일한 스트림에 연결 되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight에서 Jupyter 노트북을 만들 수 없습니다.
+title: Azure HDInsight에서 Jupyter Notebook를 만들 수 없습니다.
 description: Azure HDInsight 클러스터와 상호 작용 하는 경우 문제 해결 단계 및 가능한 해결 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,20 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 50a77e240315796d0d4c98fc8fba8edfc9cd2b7d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41eefd18419969c6e8c54ba68ce6c0d1eeb7832b
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545534"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519198"
 ---
-# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Azure HDInsight에서 Jupyter 노트북을 만들 수 없습니다.
+# <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Azure HDInsight에서 Jupyter Notebook를 만들 수 없습니다.
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
 ## <a name="issue"></a>문제
 
-Jupyter 노트북을 시작 하면 다음을 포함 하는 오류 메시지가 표시 됩니다.
+Jupyter Notebook를 시작 하는 경우 다음을 포함 하는 오류 메시지가 표시 됩니다.
 
 ```error
 Cannot convert notebook to v5 because that version doesn't exist
@@ -50,7 +50,7 @@ Cannot convert notebook to v5 because that version doesn't exist
     version_info = (4, 0, 3)
     ```
 
-    **Ctrl + X** , **Y** , **Enter** 를 입력 하 여 변경 내용을 저장 합니다.
+    **Ctrl + X**, **Y**, **Enter** 를 입력 하 여 변경 내용을 저장 합니다.
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 

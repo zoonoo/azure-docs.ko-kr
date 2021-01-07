@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145602"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461189"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins에 대 한 사용자 지정 Sdk 만들기
 
@@ -73,7 +73,7 @@ SDK를 성공적으로 빌드하려면 프로젝트에 다음 참조가 필요 �
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-이러한 도구를 추가 하려면 *> Nuget 패키지 관리자 > 솔루션에 대 한 Nuget 패키지 관리* ...를 엽니다.
+이러한 도구를 추가 하려면 *> Nuget 패키지 관리자 > 솔루션에 대 한 Nuget 패키지 관리*...를 엽니다.
 
 1. 패널에서 *찾아보기* 탭이 선택 되어 있는지 확인 합니다.
 2. *Microsoft Rest를 검색 합니다.*
@@ -102,7 +102,7 @@ SDK에서 오류가 발생할 때마다 (404 등의 HTTP 오류 포함) SDK에�
 ```csharp
 try
 {
-    await client.DigitalTwins.AddAsync(id, initData);
+    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
     Console.WriteLine($"Created a twin successfully: {id}");
 }
 catch (ErrorResponseException e)

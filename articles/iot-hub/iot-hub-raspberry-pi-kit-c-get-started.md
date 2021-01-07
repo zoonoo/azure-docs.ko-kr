@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145857"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804057"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
@@ -53,7 +53,7 @@ ms.locfileid: "92145857"
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
-* 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분만에 [무료 azure 평가판 계정을 만듭니다](https://azure.microsoft.com/free/) .
+* 활성 Azure 구독 Azure 계정이 없는 경우 몇 분만에 [무료 azure 평가판 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 
@@ -99,7 +99,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   1. 데스크톱 (.zip 파일) [을 사용 하 여 Raspbian Stretch를 다운로드](https://www.raspberrypi.org/downloads/raspbian/) 합니다.
+   1. 데스크톱 (.zip 파일) [을 사용 하 여 Raspbian Stretch를 다운로드](https://www.raspberrypi.org/software/) 합니다.
 
    2. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
@@ -121,11 +121,11 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Pi를 모니터, 키보드 및 마우스에 연결 하 고 Pi를 시작한 다음 사용자 이름 및를 암호로 사용 하 여 Raspbian에 로그인 `pi` `raspberry` 합니다.
  
-2. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성**을 클릭 합니다.
+2. Raspberry 아이콘 > **기본 설정**  >  **Raspberry Pi 구성** 을 클릭 합니다.
 
    ![Raspbian 기본 설정 메뉴](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
-3. **인터페이스** 탭에서 **SPI** 및 **SSH**를 **사용**으로 설정한 다음 **확인**을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
+3. **인터페이스** 탭에서 **SPI** 및 **SSH** 를 **사용** 으로 설정한 다음 **확인** 을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
 
    ![Raspberry Pi에서 SPI 및 SSH를 사용하도록 설정](./media/iot-hub-raspberry-pi-kit-c-get-started/2-enable-spi-ssh-on-raspberry-pi.png)
 

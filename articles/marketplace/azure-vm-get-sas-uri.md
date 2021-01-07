@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 10/19/2020
-ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 1/5/2021
+ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129119"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914164"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대 한 SAS URI를 생성 하는 방법
 
@@ -62,21 +62,22 @@ SAS 주소 (URL)를 만드는 데 사용 되는 두 가지 일반적인 도구�
 1. [MICROSOFT AZURE CL](/cli/azure/install-azure-cli)I를 다운로드 하 여 설치 합니다. 버전은 Windows, macOS 및 다양한 Linux 배포판에서 사용할 수 있습니다.
 2. PowerShell 파일(.ps1 파일 확장명)을 만들고, 다음 코드를 복사한 다음, 로컬로 저장합니다.
 
-    ```JSON
-    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <container-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
     ```
 
 3. 파일을 편집하여 다음 매개 변수 값을 사용합니다. UTC 날짜/시간 형식으로 날짜를 입력 합니다 (예: 2020-04-01T00:00:00Z).
 
     - 계정-이름 – Azure storage 계정 이름입니다.
     - 계정-키 – Azure storage 계정 키입니다.
-    - vhd-이름 – VHD 이름입니다.
     - 시작-날짜 – VHD 액세스를 위한 사용 권한 시작 날짜입니다. 현재 날짜보다 하루 전의 날짜를 제공합니다.
     - 만료 날짜-VHD 액세스를 위한 사용 권한 만료 날짜입니다. 현재 날짜 이후 최소 3주 후의 날짜를 제공합니다.
 
     다음은이 문서를 작성할 당시에 적절 한 매개 변수 값의 예입니다.
 
-    `az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name vhds -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’`
+    ```azurecli-interactive
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ON c+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net’ --name <container-name> -- permissions rl --start ‘2020-04-01T00:00:00Z’ --expiry ‘2021-04-01T00:00:00Z’
+    ```
 
 1. 변경 내용을 저장합니다.
 2. 다음 방법 중 하나를 사용하여 이 스크립트를 관리자 권한으로 실행해 컨테이너 수준 액세스를 위한 SAS 연결 문자열을 만듭니다.
@@ -88,7 +89,7 @@ SAS 주소 (URL)를 만드는 데 사용 되는 두 가지 일반적인 도구�
 
 6. SAS 연결 문자열을 복사하고, 안전한 위치에 텍스트 파일로 저장합니다. 이 문자열을 편집하여 최종 SAS URI를 만들기 위한 VHD 위치 정보를 추가합니다.
 7. Azure Portal에서 새 URI와 연결된 VHD를 포함하는 BLOB 스토리지로 이동합니다.
-8. Bblob 서비스 끝점의 URL을 복사 합니다.
+8. Blob service 끝점의 URL을 복사 합니다.
 
     ![Blob service 끝점의 URL을 복사 하는 중입니다.](media/vm/create-sas-uri-blob-endpoint.png)
 

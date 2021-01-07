@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491242"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461754"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
 
@@ -26,7 +26,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 배포 템플릿에는 솔루션을 구성 하는 모든 Azure 리소스가 포함 되어 있습니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용합니다. 파트너 센터에서 다음 속성을 설정 합니다.
 
-- **지역** (필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 일반적으로 고객 수가 가장 많은 지역에서 시험 사용을 사용할 수 있도록 하여 가장 가까운 지역을 선택할 수 있게 합니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
+- **지역**(필수) - 현재 시험 사용을 사용할 수 있는 26개의 Azure 지원 지역이 있습니다. 최상의 성능을 위해 일반적으로 고객 수가 가장 많은 지역에서 시험 사용을 사용할 수 있도록 하여 가장 가까운 지역을 선택할 수 있게 합니다. 구독에서 선택한 각 지역에 필요한 모든 리소스를 배포할 수 있는지 확인해야 합니다.
 
 - **인스턴스** – 유형(핫 또는 콜드)을 선택하고, 제품을 사용할 수 있는 지역 수를 곱하여 사용 가능한 인스턴스 수를 선택합니다.
 
@@ -37,9 +37,9 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 - **시험 사용 Azure Resource Manager 템플릿** – Azure Resource Manager 템플릿이 포함된 .zip 파일을 업로드합니다. 자세한 내용은 빠른 시작 문서 [Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)에서 Azure Resource Manager 템플릿을 만드는 방법을 참조하세요.
 
     > [!note]
-    > 성공적으로 게시 하려면 ARM 템플릿 서식의 유효성을 검사 하는 것이 중요 합니다. 이 작업을 수행 하는 두 가지 방법은 (1) [온라인 API 도구](https://docs.microsoft.com/rest/api/resources/deployments/validate) 를 사용 하거나 (2) [테스트 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)를 사용 하는 것입니다.
+    > 성공적으로 게시 하려면 ARM 템플릿 서식의 유효성을 검사 하는 것이 중요 합니다. 이 작업을 수행 하는 두 가지 방법은 (1) [온라인 API 도구](/rest/api/resources/deployments/validate) 를 사용 하거나 (2) [테스트 배포](../azure-resource-manager/templates/deploy-portal.md)를 사용 하는 것입니다.
 
-- **시험 사용 기간** (필수) – 시험 사용이 활성 상태로 유지되는 기간(시간)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 정수만 사용합니다(예: "2" 시간. "1.5"는 잘못됨).
+- **시험 사용 기간**(필수) – 시험 사용이 활성 상태로 유지되는 기간(시간)을 입력합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 정수만 사용합니다(예: "2" 시간. "1.5"는 잘못됨).
 
 ## <a name="write-the-test-drive-template"></a>테스트 드라이브 템플릿 작성
 
@@ -240,7 +240,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 구독에서 선택한 각 지역에 원하는 모든 리소스를 배포할 수 있는지 확인 합니다. 또한 사용할 모든 지역에서 가상 머신 이미지를 사용할 수 있는지 확인 하세요. 그렇지 않으면 일부 지역에서 배포 템플릿이 작동 하지 않습니다.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>출력
 
 일반적으로 리소스 관리자 템플릿을 사용 하 여 출력을 생성 하지 않고 배포할 수 있습니다. 이는 템플릿 매개 변수를 채우는 데 사용하는 모든 값을 알고 있으며 항상 리소스의 속성을 수동으로 검사할 수 있기 때문입니다.
 
@@ -248,7 +248,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 템플릿 출력과 관련된 제한 사항은 없습니다. 시험 사용에서 모든 출력 값을 문자열로 변환 하므로 개체를 출력으로 보내면 사용자에 게 JSON 문자열이 표시 됩니다.
 
-예제:
+예:
 
 ```JSON
 "outputs": {
@@ -348,7 +348,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 1. Azure Portal 내에서 Azure 구독을 엽니다.
 1. 테스트 드라이브가 올바르게 배포 되는지 확인 합니다.
 
-   ![Azure 포털](media/test-drive/azure-portal.png)
+   ![Azure portal](media/test-drive/azure-portal.png)
 
 고객에 대해 프로 비전 된 테스트 드라이브 인스턴스를 삭제 하지 마세요. 사용자가 작업을 완료 한 후에는 test drive 서비스에서 이러한 리소스 그룹을 자동으로 정리 합니다.
 

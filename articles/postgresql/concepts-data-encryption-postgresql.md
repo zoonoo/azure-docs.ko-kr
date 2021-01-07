@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 23961a03d1da1137d92ecd3b8003241120b11d80
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242418"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96493786"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용하여 Azure Database for PostgreSQL Single 서버 데이터 암호화
 
@@ -47,9 +47,9 @@ KEK로 암호화된 DEK는 별도로 저장됩니다. KEK에 대한 액세스 �
 
 PostgreSQL 서버에서 Key Vault에 저장된 고객 관리형 키를 DEK 암호화에 사용하려면 Key Vault 관리자는 서버에 대한 다음 액세스 권한을 제공해야 합니다.
 
-* **get** : 키 자격 증명 모음에 저장된 키의 공개 파트와 속성을 검색합니다.
-* **wrapKey** : DEK를 암호화할 수 있습니다. 암호화 된 DEK는 Azure Database for PostgreSQL에 저장 됩니다.
-* **unwrapKey** : DEK를 암호 해독할 수 있습니다. 데이터를 암호화/암호 해독 하려면 암호 해독 된 DEK가 필요 Azure Database for PostgreSQL
+* **get**: 키 자격 증명 모음에 저장된 키의 공개 파트와 속성을 검색합니다.
+* **wrapKey**: DEK를 암호화할 수 있습니다. 암호화 된 DEK는 Azure Database for PostgreSQL에 저장 됩니다.
+* **unwrapKey**: DEK를 암호 해독할 수 있습니다. 데이터를 암호화/암호 해독 하려면 암호 해독 된 DEK가 필요 Azure Database for PostgreSQL
 
 또한 키 자격 증명 모음 관리자는 [Key Vault 감사 이벤트 로깅을 사용하도록 설정](../azure-monitor/insights/key-vault-insights-overview.md)하여 나중에 감사할 수도 있습니다.
 
@@ -93,8 +93,8 @@ Key Vault에서 고객 관리형 키를 사용하여 데이터 암호화를 구�
 
 * 데이터 암호화를 사용하는 Azure Database for PostgreSQL Single 서버에 대한 특정 시점 복원 서버를 만들면 새로 만든 서버는 *액세스할 수 없음* 상태가 됩니다. [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) 또는 [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)를 통해 서버 상태를 수정할 수 있습니다.
 * 데이터 암호화를 사용하는 Azure Database for PostgreSQL Single 서버에 대한 읽기 복제본을 만들면 복제본 서버는 *액세스할 수 없음* 상태가 됩니다. [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) 또는 [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)를 통해 서버 상태를 수정할 수 있습니다.
-* KeyVault를 삭제하면 Azure Database for PostgreSQL Single 서버는 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
-* KeyVault에서 키를 삭제하면 Azure Database for PostgreSQL Single 서버는 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [키](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
+* KeyVault를 삭제하면 Azure Database for PostgreSQL Single 서버는 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [Key Vault](../key-vault/general/key-vault-recovery.md)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
+* KeyVault에서 키를 삭제하면 Azure Database for PostgreSQL Single 서버는 키에 액세스할 수 없게 되고 *액세스할 수 없음* 상태로 변경됩니다. 서버를 *사용 가능* 상태로 만들려면 [키](../key-vault/general/key-vault-recovery.md)를 복구하고 데이터 암호화의 유효성을 다시 검사하세요.
 * Azure KeyVault에 저장된 키가 만료되면 키가 무효화되고 Azure Database for PostgreSQL Single 서버가 *액세스할 수 없음* 상태로 전환됩니다. [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes)를 사용하여 키 만료 날짜를 연장한 다음, 데이터 암호화의 유효성을 다시 검사하여 서버를 *사용 가능* 상태로 만드세요.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Key Vault에서 실수로 인한 키 액세스 해지

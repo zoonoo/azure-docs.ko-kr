@@ -10,41 +10,41 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 3e58be4b94457d95d28cf6528b9151e4be1802cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79749533d636f4b73ff3bef6b12d9e842ac485ea
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754177"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905173"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>중재 워크플로 정의 및 사용 (REST)
+# <a name="define-and-use-moderation-workflows-api-console"></a>중재 워크플로 정의 및 사용 (API 콘솔)
 
 워크플로는 콘텐츠를 더 효율적으로 처리 하는 데 사용할 수 있는 클라우드 기반의 사용자 지정 필터입니다. 워크플로는 다양 한 서비스에 연결 하 여 다양 한 방법으로 콘텐츠를 필터링 한 다음 적절 한 조치를 취할 수 있습니다. 이 가이드에서는 API 콘솔을 통해 워크플로 REST Api를 사용 하 여 워크플로를 만들고 사용 하는 방법을 보여 줍니다. Api의 구조를 이해 하면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
 ## <a name="create-a-workflow"></a>워크플로 만들기
 
-워크플로를 만들거나 업데이트 하려면 **[워크플로-API 참조 만들기 또는 업데이트](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** 페이지로 이동 하 고 키 영역에 대 한 단추를 선택 합니다 .이는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com/) **자격 증명** 페이지에 있는 끝점 URL에서 찾을 수 있습니다. 이렇게 하면 REST API 호출을 쉽게 구성 하 고 실행할 수 있는 API 콘솔이 시작 됩니다.
+워크플로를 만들거나 업데이트 하려면 **[워크플로-API 참조 만들기 또는 업데이트](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** 페이지로 이동 하 여 키 영역에 대 한 단추를 선택 합니다. [검토 도구의](https://contentmoderator.cognitive.microsoft.com/) **자격 증명** 페이지에서 끝점 URL의 지역을 찾을 수 있습니다. 이렇게 하면 REST API 호출을 쉽게 구성 하 고 실행할 수 있는 API 콘솔이 시작 됩니다.
 
 ![워크플로 - 만들기 또는 업데이트 페이지 영역 선택](images/test-drive-region.png)
 
 ### <a name="enter-rest-call-parameters"></a>REST 호출 매개 변수 입력
 
-**팀**, **Workflowname**및 **Ocp-구독 키**에 대 한 값을 입력 합니다.
+**팀**, **Workflowname** 및 **Ocp-구독 키** 에 대 한 값을 입력 합니다.
 
 - **팀**: 검토 [도구](https://contentmoderator.cognitive.microsoft.com/) 계정 (검토 도구의 자격 증명 화면에서 **ID** 필드에 있음)을 설정할 때 만든 팀 ID입니다.
 - **workflowname**: 추가할 새 워크플로의 이름 (또는 기존 워크플로를 업데이트 하려는 경우 기존 이름)입니다.
-- **Ocp-Apim-Subscription-키**: Content Moderator 키입니다. 이는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com) **설정** 탭에서 찾을 수 있습니다.
+- **Ocp-Apim-Subscription-키**: Content Moderator 키입니다. 이 키는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com) **설정** 탭에서 찾을 수 있습니다.
 
 ![워크플로 - 만들기 또는 업데이트 콘솔 쿼리 매개 변수 및 헤더](images/workflow-console-parameters.PNG)
 
 ### <a name="enter-a-workflow-definition"></a>워크플로 정의 입력
 
 1. **요청 본문** 상자를 편집 하 여 **설명** 및 **유형** (또는)에 대 한 세부 정보가 포함 된 JSON 요청을 입력 합니다 `Image` `Text` .
-2. **식**의 경우 기본 워크플로 JSON 식을 복사 합니다. 최종 JSON 문자열은 다음과 같습니다.
+2. **식** 의 경우 기본 워크플로 JSON 식을 복사 합니다. 최종 JSON 문자열은 다음과 같습니다.
 
 ```json
 {
@@ -80,11 +80,11 @@ ms.locfileid: "72754177"
 
 ### <a name="submit-your-request"></a>요청 제출
   
-**보내기**를 선택합니다. 작업이 성공하면 **응답 상태**가 `200 OK`이고, **응답 콘텐츠** 상자에 `true`가 표시됩니다.
+**보내기** 를 선택합니다. 작업이 성공하면 **응답 상태** 가 `200 OK`이고, **응답 콘텐츠** 상자에 `true`가 표시됩니다.
 
 ### <a name="examine-the-new-workflow"></a>새 워크플로를 검사 합니다.
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com/)에서 **설정**  >  **워크플로**를 선택 합니다. 새 워크플로가 목록에 표시 됩니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com/)에서 **설정**  >  **워크플로** 를 선택 합니다. 새 워크플로가 목록에 표시 됩니다.
 
 ![워크플로의 검토 도구 목록](images/workflow-console-new-workflow.PNG)
 
@@ -102,7 +102,7 @@ ms.locfileid: "72754177"
 
 ![쿼리 매개 변수 및 헤더 가져오기](images/workflow-get-default.PNG)
 
-**보내기**를 선택합니다. 작업이 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자는 다음과 같이 워크플로를 JSON 형식으로 표시 합니다.
+**보내기** 를 선택합니다. 작업이 성공 하면 **응답 상태** 는이 `200 OK` 고 **응답 콘텐츠** 상자는 다음 예제와 같이 JSON 형식으로 워크플로를 표시 합니다.
 
 ```json
 {

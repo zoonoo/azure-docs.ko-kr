@@ -7,11 +7,11 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/30/2018
 ms.openlocfilehash: e88616f45c69d33234aa35333e0d82ad8cc59bb6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219363"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015284"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>CI/CD 파이프라인에서 U-SQL 어셈블리를 관리하는 모범 사례
 
@@ -31,13 +31,13 @@ U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플�
 
 프로젝트를 만들고 참조를 추가하려면 다음 단계를 따릅니다.
 
-1. **파일**  >  **새로**만들기  >  **프로젝트**를 선택 하 여 클래스 라이브러리 (t-sql 응용 프로그램) 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake > U-SQL** 노드 아래에 있습니다.
+1. **파일**  >  **새로** 만들기  >  **프로젝트** 를 선택 하 여 클래스 라이브러리 (t-sql 응용 프로그램) 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake > U-SQL** 노드 아래에 있습니다.
 
    ![Data Lake Tools for Visual Studio - C# 클래스 라이브러리 프로젝트 만들기](./media/data-lake-analytics-cicd-manage-assemblies/create-c-sharp-class-library-project.png)
 
 1. 클래스 라이브러리(U-SQL 애플리케이션용) 프로젝트에 사용자 정의 C# 코드를 추가합니다.
 
-1. **파일**  >  **새로**만들기  >  **프로젝트**를 선택 하 여 U SQL 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake**  >  **U-SQL** 노드 아래에 있습니다.
+1. **파일**  >  **새로** 만들기  >  **프로젝트** 를 선택 하 여 U SQL 프로젝트를 만듭니다. 프로젝트는 **Azure Data Lake**  >  **U-SQL** 노드 아래에 있습니다.
 
    ![Data Lake Tools for Visual Studio--U-SQL 데이터베이스 프로젝트 만들기](media/data-lake-analytics-cicd-manage-assemblies/create-u-sql-database-project.png)
 
@@ -47,7 +47,7 @@ U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플�
 
    ![Visual Studio 용 Data Lake 도구-추가 SQL 데이터베이스 프로젝트 참조](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-add-project-reference-wizard.png)
 
-1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목 추가**를 선택하여 U-SQL 데이터베이스 프로젝트에서 어셈블리 스크립트를 만듭니다.
+1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목 추가** 를 선택하여 U-SQL 데이터베이스 프로젝트에서 어셈블리 스크립트를 만듭니다.
 
    ![Data Lake Tools for Visual Studio - 어셈블리 스크립트 추가](media/data-lake-analytics-cicd-manage-assemblies/add-assembly-script.png)
 
@@ -57,7 +57,7 @@ U-SQL 데이터베이스 프로젝트는 클래스 라이브러리(U-SQL 애플�
 
 1. **관리되는 종속성** 및 **추가 파일**(있는 경우)을 추가합니다. 추가 파일을 추가하는 경우 이 도구는 나중에 상대 경로를 사용하여 로컬 컴퓨터 및 빌드 컴퓨터에서 어셈블리를 찾을 수 있습니다.
 
-아래쪽의 편집기 창에 있는 ** \@ _DeployTempDirectory** 는 도구를 빌드 출력 폴더에 가리키는 미리 정의 된 변수입니다. 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다.
+아래쪽의 편집기 창에 있는 **\@ _DeployTempDirectory** 는 도구를 빌드 출력 폴더에 가리키는 미리 정의 된 변수입니다. 모든 어셈블리는 빌드 출력 폴더 아래에 어셈블리 이름의 하위 폴더가 있습니다. 모든 DLL 및 추가 파일이 해당 하위 폴더에 있습니다.
 
 ## <a name="build-a-u-sql-database-project"></a>U-SQL 데이터베이스 프로젝트 빌드
 
@@ -73,15 +73,15 @@ U-SQL 데이터베이스는 Visual Studio에서 U-SQL 데이터베이스 프로�
 
 #### <a name="deploy-by-using-a-u-sql-database-project"></a>U-SQL 데이터베이스 프로젝트를 사용하여 배포
 
-1. U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **배포**를 선택합니다.
+1. U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **배포** 를 선택합니다.
 
-1. **U-SQL 데이터베이스 배포 마법사**에서 데이터베이스를 배포하려는 **ADLA 계정**을 선택합니다. 로컬 계정과 ADLA 계정이 둘 다 지원됩니다.
+1. **U-SQL 데이터베이스 배포 마법사** 에서 데이터베이스를 배포하려는 **ADLA 계정** 을 선택합니다. 로컬 계정과 ADLA 계정이 둘 다 지원됩니다.
 
-1. **데이터베이스 원본**이 자동으로 채워집니다. 원본은 프로젝트의 빌드 출력 폴더에 있는 .usqldbpack 패키지를 가리킵니다.
+1. **데이터베이스 원본** 이 자동으로 채워집니다. 원본은 프로젝트의 빌드 출력 폴더에 있는 .usqldbpack 패키지를 가리킵니다.
 
-1. **데이터베이스 이름**에 이름을 입력하여 데이터베이스를 만듭니다. 같은 이름의 데이터베이스가 대상 Azure Data Lake Analytics 계정에 이미 있는 경우 데이터베이스 프로젝트에 정의된 모든 개체는 데이터베이스를 다시 만들지 않고도 생성됩니다.
+1. **데이터베이스 이름** 에 이름을 입력하여 데이터베이스를 만듭니다. 같은 이름의 데이터베이스가 대상 Azure Data Lake Analytics 계정에 이미 있는 경우 데이터베이스 프로젝트에 정의된 모든 개체는 데이터베이스를 다시 만들지 않고도 생성됩니다.
 
-1. U-SQL 데이터베이스를 배포하려면 **제출**을 선택합니다. 어셈블리 및 추가 파일을 비롯한 모든 리소스가 업로드됩니다. 모든 DDL 문을 포함하는 U-SQL 작업이 제출됩니다.
+1. U-SQL 데이터베이스를 배포하려면 **제출** 을 선택합니다. 어셈블리 및 추가 파일을 비롯한 모든 리소스가 업로드됩니다. 모든 DDL 문을 포함하는 U-SQL 작업이 제출됩니다.
 
    ![Data Lake Tools for Visual Studio--U-SQL 데이터베이스 프로젝트 배포](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-deploy-usql-database-project.png)
 

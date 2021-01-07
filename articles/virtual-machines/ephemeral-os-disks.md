@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f915652110524aac06d641d636155bc6a5fcd256
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927926"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510994"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
 
@@ -86,7 +86,7 @@ az vm create \
 
 확장 집합의 경우 `--ephemeral-os-disk true` [az-vmss-create](/cli/azure/vmss#az-vmss-create) 에 동일한 매개 변수를 사용 하 고 `--os-disk-caching` 매개 변수를로 설정 `ReadOnly` 합니다.
 
-## <a name="portal"></a>포털   
+## <a name="portal"></a>포털
 
 Azure Portal에서 **디스크** 탭의 **고급** 섹션을 열어 VM을 배포할 때 임시 디스크를 사용 하도록 선택할 수 있습니다. **사용 후 삭제 OS 디스크 사용** **예** 를 선택 합니다.
 
@@ -120,7 +120,7 @@ Azure Portal에서 **디스크** 탭의 **고급** 섹션을 열어 VM을 배포
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-                "option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 
@@ -240,7 +240,7 @@ A: 예, REST, 템플릿, PowerShell 및 CLI를 사용 하 여 사용 후 삭제 
 A: 임시 디스크는 다음을 지원 하지 않습니다.
 - VM 이미지 캡처
 - 디스크 스냅샷 
-- Azure Disk Encryption 
+- Azure 디스크 암호화 
 - Azure Backup
 - Azure Site Recovery  
 - OS 디스크 교환 

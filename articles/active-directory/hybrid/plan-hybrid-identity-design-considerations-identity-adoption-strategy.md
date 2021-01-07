@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294871"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836192"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -176,7 +176,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Multi-Factor Authentication 전략 정의
-이 작업에서 사용할 Multi-Factor Authentication 전략을 정의합니다.  두 가지 다른 버전의 Azure Multi-Factor Authentication이 있습니다.  하나는 클라우드 기반이고 다른 하나는  Azure MFA 서버를 사용하는 온-프레미스 기반입니다.  위에서 수행한 평가 결과에 따라 어떤 솔루션이 전략에 가장 적합한지 결정할 수 있습니다.  아래 테이블을 사용하여 어떤 설계 옵션이 회사의 보안 요구 사항을 가장 충족하는지 결정합니다.
+이 작업에서 사용할 Multi-Factor Authentication 전략을 정의합니다.  Azure AD Multi-Factor Authentication는 두 가지 다른 버전으로 제공 됩니다.  하나는 클라우드 기반이고 다른 하나는  Azure MFA 서버를 사용하는 온-프레미스 기반입니다.  위에서 수행한 평가 결과에 따라 어떤 솔루션이 전략에 가장 적합한지 결정할 수 있습니다.  아래 테이블을 사용하여 어떤 설계 옵션이 회사의 보안 요구 사항을 가장 충족하는지 결정합니다.
 
 Multi-Factor 설계 옵션:
 
@@ -185,8 +185,8 @@ Multi-Factor 설계 옵션:
 | Microsoft 앱 |예 |예 |
 | 앱 갤러리의 SaaS 앱 |예 |예 |
 | Azure AD 앱 프록시를 통해 IIS 애플리케이션 게시됨 |예 |예 |
-| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |아니요 |예 |
-| VPN 및 RDG와 같은 원격 액세스 |아니요 |예 |
+| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |no |예 |
+| VPN 및 RDG와 같은 원격 액세스 |no |예 |
 
 전략에 대한 솔루션에 적응했더라도 여전히 사용자가 있는 위치의 위쪽에서 평가를 사용해야 합니다.  솔루션을 변경할 수 있습니다.  아래 테이블을 사용하여 다음을 결정하는 데 도움이 됩니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: e56cf54e1bf1483309cb7aac8519bb281ca2bc06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f65da4f9a4f7ade94d76e99d57439e62b3c808
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938714"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092060"
 ---
 # <a name="access-your-security-data"></a>보안 데이터 액세스
 
@@ -30,14 +30,14 @@ IoT 용 Defender는 보안 경고, 권장 사항 및 원시 보안 데이터 (�
 
 1. IoT Hub를 엽니다.
 1. **보안** 섹션에서 **설정** 블레이드를 클릭 합니다.
-1. **데이터 컬렉션**을 클릭 하 고 Log Analytics 작업 영역 구성을 변경 합니다.
+1. **데이터 컬렉션** 을 클릭 하 고 Log Analytics 작업 영역 구성을 변경 합니다.
 
 구성 후 Log Analytics 작업 영역에서 경고 및 권장 사항에 액세스 하려면 다음을 수행 합니다.
 
 1. IoT 용 Defender에서 경고 또는 권장 사항을 선택 합니다.
-1. **추가 조사**를 클릭 한 다음 **이 경고가 있는 장치를 보려면 여기를 클릭 하 여 DeviceId 열을 확인**합니다.
+1. **추가 조사** 를 클릭 한 다음 **이 경고가 있는 장치를 보려면 여기를 클릭 하 여 DeviceId 열을 확인** 합니다.
 
-Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries)을 참조 하세요.
+Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [Log Analytics에서 쿼리 시작](/azure/azure-monitor/log-query/get-started-queries)을 참조 하세요.
 
 ## <a name="security-alerts"></a>보안 경고
 

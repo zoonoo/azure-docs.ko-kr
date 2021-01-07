@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9c4410cb2b9550bc111da96204ada15313867fb1
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368936"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238091"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -38,28 +38,6 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 적절한 형식 및 양의 학습 데이터가 제공될 경우, 5~10 사이의 향상을 기대하는 것도 드문 일은 아니며, Custom Translator를 사용하여 번역 품질에 더 많은 BLUE 포인트가 추가될 수도 있습니다.
 
 사용 가능한 데이터를 기준으로 하는 다양한 수준의 사용자 지정에 대한 자세한 내용은 [Custom Translator 사용자 가이드](./custom-translator/overview.md)를 참조하세요.
-
-
-## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
-
-> [!NOTE]
-> 레거시 Microsoft Translator 허브는 2019 년 5 월 17 일에 사용 중지 됩니다. [중요 한 마이그레이션 정보 및 날짜를 확인](https://www.microsoft.com/translator/business/hub/)합니다.  
-
-## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
-
-| 기능 | 허브 | Custom Translator |
-| ------- | :-: | :---------------: |
-|사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
-| Text API 버전    | V2만    | V3만 |
-| SMT 사용자 지정    | yes    | 예 |
-| NMT 사용자 지정    | 예    | yes |
-| 새로운 통합 Speech Service 사용자 지정    | 예    | yes |
-| [추적 없음](https://www.aka.ms/notrace) | yes    | yes |
-
-## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
-
-> [!NOTE]
-> 2018 년 2 월 1 일부 터는 AddTranslation () 및 AddTranslationArray ()를 Translator v 2.0에서 더 이상 사용할 수 없습니다. 이러한 메서드는 실패하며 아무 결과도 기록되지 않습니다. Translator v 3.0은 이러한 메서드를 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

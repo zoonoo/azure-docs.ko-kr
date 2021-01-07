@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
 ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040766"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021591"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -61,11 +61,11 @@ UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 
 1. Azure Portal에서 Azure Marketplace의 서비스 목록을 검색 한 다음 Log Analytics 작업 영역을 선택 합니다.
 2. **만들기** 를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
-   * **Log Analytics 작업 영역** : 작업 영역의 이름을 입력합니다.
-   * **구독** : 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
-   * **리소스 그룹** : 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
-   * **위치** : 위치를 입력합니다.
-   * **가격 책정 계층** : **확인** 을 클릭하여 완료합니다.
+   * **Log Analytics 작업 영역**: 작업 영역의 이름을 입력합니다.
+   * **구독**: 구독이 여러 개인 경우 CF 배포와 동일한 구독을 선택합니다.
+   * **리소스 그룹**: 새 리소스 그룹을 만들거나 CF 배포가 포함된 그룹과 같은 그룹을 사용할 수 있습니다.
+   * **위치**: 위치를 입력합니다.
+   * **가격 책정 계층**: **확인** 을 클릭하여 완료합니다.
 
 자세한 내용은 [Azure Monitor 로그 시작](../azure-monitor/overview.md)을 참조하세요.
 
@@ -76,13 +76,13 @@ UAA 명령줄 클라이언트를 설정 하기 전에 RubyGems가 설치 되어 
 1. 검색 창에 "Cloud Foundry"를 입력하고 "Cloud Foundry 모니터링 솔루션"을 선택합니다.
 1. Cloud Foundry 모니터링 솔루션 템플릿 첫 페이지가 로드되며, “만들기”를 클릭하여 템플릿 블레이드를 실행합니다.
 1. 필수 매개 변수를 입력합니다.
-    * **구독** : Log Analytics 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
-    * **리소스 그룹** : Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
-    * **리소스 그룹 위치** : 리소스 그룹의 위치를 선택합니다.
-    * **OMS_Workspace_Name** : 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
-    * **OMS_Workspace_Region** : 작업 영역에 대한 위치를 선택합니다.
-    * **OMS_Workspace_Pricing_Tier** : Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
-    * **약관** : 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
+    * **구독**: Log Analytics 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
+    * **리소스 그룹**: Log Analytics 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+    * **리소스 그룹 위치**: 리소스 그룹의 위치를 선택합니다.
+    * **OMS_Workspace_Name**: 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
+    * **OMS_Workspace_Region**: 작업 영역에 대한 위치를 선택합니다.
+    * **OMS_Workspace_Pricing_Tier**: Log Analytics 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
+    * **약관**: 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
 1. 모든 매개 변수를 지정한 후 "만들기"를 클릭하여 템플릿을 배포합니다. 배포가 완료되면 상태가 알림 탭에 표시됩니다.
 
 
@@ -100,7 +100,7 @@ PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -124,7 +124,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>최신 Log Analytics Nozzle 릴리스 다운로드
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
-현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령을 실행합니다.
+현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
 ```
 cf push
 ```

@@ -3,18 +3,18 @@ title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만
 description: 새 Azure Monitor Application Insights 작업 영역 기반 리소스를 사용하도록 설정하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945416"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536917"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
 작업 영역 기반 리소스는 Application Insights와 Log Analytics 간의 완전한 통합을 지원합니다. 이제 Application Insights 원격 분석을 공통 Log Analytics 작업 영역으로 보낼 수 있습니다. 이를 통해 애플리케이션, 인프라 및 플랫폼 로그를 통합된 단일 위치에 유지하면서 Log Analytics의 모든 기능에 액세스할 수 있습니다.
 
-또한 리소스에서 일반적인 RBAC(역할 기반 액세스 제어)를 사용할 수 있으며 앱 간/작업 영역 간 쿼리가 필요하지 않습니다.
+또한 리소스에서 일반적인 Azure 역할 기반 액세스 제어 (Azure RBAC)를 허용 하 고 앱 간/작업 영역 쿼리가 필요 하지 않습니다.
 
 > [!NOTE]
 > 작업 영역 기반 Application Insights 리소스에 대한 데이터 수집 및 보존 비용은 데이터가 있는 Log Analytics 작업 영역을 통해 청구됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
@@ -199,15 +199,15 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 작업 영역 기반 Application Insights 리소스를 만든 후에는 연결된 Log Analytics 작업 영역을 수정할 수 있습니다.
 
-Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경** > **Log Analytics 작업 영역**을 선택합니다.
+Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경** > **Log Analytics 작업 영역** 을 선택합니다.
 
 ## <a name="export-telemetry"></a>원격 분석 내보내기
 
-작업 영역 기반 리소스에는 레거시 연속 내보내기 기능이 지원되지 않습니다. 대신 Application Insights 리소스 내에서 **진단 설정** > **진단 설정 추가**를 선택합니다. 모든 테이블 또는 테이블 하위 집합을 선택하여 스토리지 계정에 보관하거나 Azure Event Hub로 스트리밍할 수 있습니다.
+작업 영역 기반 리소스에는 레거시 연속 내보내기 기능이 지원되지 않습니다. 대신 Application Insights 리소스 내에서 **진단 설정** > **진단 설정 추가** 를 선택합니다. 모든 테이블 또는 테이블 하위 집합을 선택하여 스토리지 계정에 보관하거나 Azure Event Hub로 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > 현재 원격 분석 내보내기에 대 한 추가 요금은 없습니다. 이 기능에 대 한 가격 정보는 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 제공 됩니다.  청구를 시작 하기 전에 알림이 전송 됩니다. 알림 기간 후에도 계속 사용 하도록 선택 하면 <feature name> 해당 요금에 대 한 요금이 청구 됩니다. 
- 
+ 
 
 ## <a name="next-steps"></a>다음 단계
 

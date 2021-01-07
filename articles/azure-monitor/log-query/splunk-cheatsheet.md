@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: 00fdaf93553c97112c67caa66cb2246756b63c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c59b5646e011afa6b8487e8145a1cb07e6e2a8ff
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207485"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015585"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk-Azure Monitor 로그 쿼리
 
@@ -29,11 +29,11 @@ ms.locfileid: "86207485"
  | 구조적 이벤트 메타데이터 | 해당 없음 | 테이블 |  Splunk에는 이벤트 메타데이터의 검색 언어에 대해 공개된 개념이 없습니다. Azure Monitor 로그에는 열이 있는 테이블에 대한 개념이 있습니다. 각 이벤트 인스턴스가 한 행에 매핑됩니다. |
  | 데이터 레코드 | event | row |  용어 변경에만 해당 |
  | 데이터 레코드 특성 | 필드(field) |  열 |  Azure Monitor에서는 테이블 구조의 일부로 미리 정의됩니다. Splunk에서는 각 이벤트마다 자체의 필드 집합이 있습니다. |
- | 유형 | 데이터 형식 |  데이터 형식 |  Azure Monitor 데이터 형식은 열에 설정되므로 더 명시적입니다. 둘 다 JSON 지원을 포함하여 데이터 형식 및 거의 동등한 데이터 형식 집합을 동적으로 사용할 수 있습니다. |
+ | 형식 | 데이터 형식 |  데이터 형식 |  Azure Monitor 데이터 형식은 열에 설정되므로 더 명시적입니다. 둘 다 JSON 지원을 포함하여 데이터 형식 및 거의 동등한 데이터 형식 집합을 동적으로 사용할 수 있습니다. |
  | 쿼리 및 검색  | search | Query |  개념은 기본적으로 Azure Monitor와 Splunk 간에 동일합니다. |
  | 이벤트 수집 시간 | 시스템 시간 | ingestion_time() |  Splunk에서 각 이벤트는 이벤트가 인덱싱된 시간의 시스템 타임스탬프를 가져옵니다. Azure Monitor에서는 ingestion_time() 함수를 통해 참조할 수 있는 시스템 열을 공개하는 ingestion_time이라는 정책을 정의할 수 있습니다. |
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 
 다음 표에서는 Splunk 함수와 동일한 Azure Monitor 함수를 지정합니다.
 
@@ -74,7 +74,7 @@ Splunk에서는 `search` 키워드를 생략하고 따옴표가 없는 문자열
 | **Azure Monitor** | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 
 
-### <a name="filter"></a>Assert
+### <a name="filter"></a>필터
 Azure Monitor 로그 쿼리는 필터가 있는 테이블 형식 결과 집합에서 시작합니다. Splunk에서 필터링은 현재 인덱스에 대한 기본 작업입니다. 또한 Splunk에서 `where` 연산자도 사용할 수 있지만 권장되지 않습니다.
 
 | | 연산자 | 예제 |
@@ -123,7 +123,7 @@ Splunk에는 `project-away`와 비슷한 연산자가 없는 것 같습니다. U
 | **Azure Monitor** | **project**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 
 ### <a name="aggregation"></a>집계
-다양한 집계 함수는 [Azure Monitor 로그 쿼리의 집계](aggregations.md)를 참조하세요.
+다양한 집계 함수는 [Azure Monitor 로그 쿼리의 집계](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations)를 참조하세요.
 
 | | 연산자 | 예제 |
 |:---|:---|:---|

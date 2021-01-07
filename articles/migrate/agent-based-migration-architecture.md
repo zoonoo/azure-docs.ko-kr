@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 서버 마이그레이션의 에이전트 기반 마이그레이션
 description: Azure Migrate의 에이전트 기반 VMware VM 마이그레이션에 대 한 개요를 제공 합니다.
-author: rayne-wiselman
-ms.service: azure-migrate
+author: rahulg1190
+ms.author: rahugup
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: raynew
-ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357168"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861948"
 ---
 # <a name="agent-based-migration-architecture"></a>에이전트 기반 마이그레이션 아키텍처
 
@@ -99,7 +99,7 @@ VMware Vm을 복제 하는 경우 [vmware에 대 한 Site Recovery Deployment Pl
 --- | --- | --- | --- | ---
 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz) | 16GB | 300GB | 500GB 이하 | 컴퓨터 100대 미만 
 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) | 18GB | 600GB | 501GB~1TB | 100-150 컴퓨터.
-16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) | 32 G1 |  1TB | 1TB ~ 2TB | 151-200 컴퓨터.
+16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) | 32GB |  1TB | 1TB ~ 2TB | 151-200 컴퓨터.
 
 ### <a name="sizing-scale-out-process-servers"></a>스케일 아웃 프로세스 서버 크기 조정
 
@@ -108,7 +108,7 @@ VMware Vm을 복제 하는 경우 [vmware에 대 한 Site Recovery Deployment Pl
 **프로세스 서버** | **데이터 캐싱에 사용 가능한 공간** | **변동 율** | **복제 제한**
 --- | --- | --- | --- 
 4개 vCPU(2개 소켓 * 2코어 \@ 2.5GHz) 8GB 메모리 | 300GB | 250GB 이하 | 최대 85 대의 컴퓨터 
-8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB    | 86-150 컴퓨터.
+8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB | 86-150 컴퓨터.
 12 개 vCPUs (2 개 소켓 * 6 코어 \@ 2.5 g h z), 24gb 메모리 | 1TB | 1-2TB | 151-225 컴퓨터.
 
 ## <a name="throttle-upload-bandwidth"></a>업로드 대역폭을 제한 합니다.
@@ -119,8 +119,8 @@ Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과�
 - 또한 다음과 같이 프로세스 서버 컴퓨터에서 대역폭을 제한할 수 있습니다.
 
     1. 프로세스 서버 컴퓨터에서 Azure Backup MMC 스냅인을 엽니다. 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 폴더에 바로 가기가 있습니다. 
-    2. 스냅인에서 **속성 변경**을 선택합니다.
-    3. **제한**에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
+    2. 스냅인에서 **속성 변경** 을 선택합니다.
+    3. **제한** 에서 **백업 작업에 인터넷 대역폭 사용 제한 사용** 을 선택 합니다. 작업 시간 및 비 작업 시간의 제한을 설정합니다. 유효 범위는 512Kbps~1,023Mbps입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

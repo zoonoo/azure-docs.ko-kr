@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 089c59c041110209e55cc3fb10b1c5adf54bd13e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3aa8f9057c3c9e3a141824a9d23e9be8d0bbe4b2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538277"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96532638"
 ---
 # <a name="face-detection-with-computer-vision"></a>Computer Vision으로 얼굴 감지
 
 Computer Vision은 이미지에서 사람 얼굴을 감지하고 감지된 각 얼굴에 대해 연령, 성별 및 사각형을 생성합니다. 
 
 > [!NOTE]
-> 이 기능은 Azure [Face](/azure/cognitive-services/face/) 서비스를 통해서도 제공됩니다. 얼굴 인식 및 자세 감지를 비롯한 더 자세한 얼굴 감지에 대해서는 이 대안을 참조하세요. 
+> 이 기능은 Azure [Face](../face/index.yml) 서비스를 통해서도 제공됩니다. 얼굴 인식 및 자세 감지를 비롯한 더 자세한 얼굴 감지에 대해서는 이 대안을 참조하세요. 
 
 ## <a name="face-detection-examples"></a>얼굴 감지 예제
 
@@ -115,5 +115,4 @@ Computer Vision은 이미지에서 사람 얼굴을 감지하고 감지된 각 �
 
 얼굴 감지 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Faces` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"faces"` .
 
-* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

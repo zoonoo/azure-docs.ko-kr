@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 895b8441f340d085932cade513c9f8929491b374
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445135"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904264"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -22,7 +22,7 @@ Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안�
 - 키, 암호 및 인증서는 코드를 직접 작성 하지 않고도 보호 되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
 - 고객은 핵심 소프트웨어 기능을 제공 하는 데 집중할 수 있도록 자신의 키, 암호 및 인증서를 소유 하 고 관리할 수 있습니다. 이러한 방식으로 응용 프로그램은 고객의 테 넌 트 키, 암호 및 인증서에 대 한 책임 또는 잠재적인 책임을 소유 하지 않습니다.
 - 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만 응용 프로그램 외부에서 키 관리를 유지 합니다. 키에 대 한 자세한 내용은 [키](../keys/about-keys.md) 정보를 참조 하세요.
-- 암호, 액세스 키, Key Vault에 암호를 저장 하는 sas 토큰과 같은 자격 증명을 암호로 관리할 수 있습니다. [비밀 정보](../secrets/about-secrets.md) 를 참조 하세요.
+- 암호, 액세스 키 및 sas 토큰과 같은 자격 증명을 Key Vault에 암호로 저장 하 여 관리할 수 있습니다. 암호 [정보](../secrets/about-secrets.md) 를 참조 하세요.
 - 인증서를 관리 합니다. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md) 를 참조 하세요.
 
 Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](overview.md)을 참조하세요.
@@ -56,11 +56,11 @@ Azure ad 보안 주체에 액세스 권한을 부여 해야 하는 Azure AD 인�
 Azure에 배포 된 응용 프로그램에 관리 되는 id를 사용 하는 것이 좋습니다. 관리 id를 지원 하지 않거나 응용 프로그램을 온-프레미스에 배포 하는 경우 Azure 서비스를 사용 하는 경우 인증서를 사용 하는 [서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md) 를 사용할 수 있습니다. 이 시나리오에서는 인증서를 Key Vault 저장 하 고 자주 회전 해야 합니다. 보안을 사용 하는 서비스 주체는 개발 및 테스트 환경에 사용할 수 있으며, 로컬 또는 Cloud Shell 사용자 계정을 사용 하 여 사용 하는 것이 좋습니다.
 
 환경 당 권장 되는 보안 주체:
-- **프로덕션 환경** :
+- **프로덕션 환경**:
   - 인증서를 사용 하는 관리 id 또는 서비스 주체
-- **테스트 및 개발 환경** :
+- **테스트 및 개발 환경**:
   - 관리 id, 인증서 또는 서비스 사용자가 암호를 사용 하는 서비스 주체
-- **로컬 개발** :
+- **로컬 개발**:
   - 암호를 사용 하는 사용자 계정 또는 서비스 주체
 
 위의 인증 시나리오는 **Azure id 클라이언트 라이브러리** 에서 지원 되 고 Key Vault sdk와 통합 됩니다. Azure Id 라이브러리는 코드를 변경 하지 않고도 다양 한 환경 및 플랫폼에서 사용할 수 있습니다. 또한 azure Id는 Azure CLI, Visual Studio, Visual Studio Code 등을 사용 하 여 Azure 사용자에 게 로그인 한 인증 토큰을 자동으로 검색 합니다. 
@@ -120,7 +120,7 @@ Azure Id 클라이언트 li바 항에 대 한 자세한 내용은 다음을 참�
 - Key Vault- [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) 에서 vm에 인증서를 배포 하는 방법-Azure의 vm에서 실행 되는 클라우드 응용 프로그램에는 인증서가 필요 합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [Key Vault를 통해 Azure Web App 인증서 배포](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - 액세스 정책 할당 ([CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [포털](assign-access-policy-portal.md))을 선택 합니다. 
-- [CLI로 Key Vault 일시 삭제를 사용하는 방법](soft-delete-cli.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
+- [CLI로 Key Vault 일시 삭제를 사용하는 방법](./key-vault-recovery.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
 - [배포하는 동안 보안 값(예: 암호)을 전달하는 방법](../../azure-resource-manager/templates/key-vault-parameter.md) - 배포하는 동안 보안 값(예: 암호)을 매개 변수로 전달해야 하는 경우 이 값을 Azure Key Vault에 암호로 저장하고 다른 Resource Manager 템플릿에서 이 값을 참조할 수 있습니다.
 
 ## <a name="integrated-with-key-vault"></a>주요 자격 증명 모음과 통합됨

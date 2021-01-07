@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895888"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96570963"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>자습서: "Hello world!" Python 스크립트 실행(2/4부)
 
@@ -61,7 +61,8 @@ tutorial
 └──02-create-compute.py
 ```
 
-### <a name="test-your-script-locally"></a>로컬로 스크립트 테스트
+
+### <a name="test-your-script-locally"></a><a name="test"></a>로컬로 스크립트 테스트
 
 즐겨 사용하는 IDE 또는 터미널을 사용하여 코드를 로컬로 실행할 수 있습니다. 코드를 로컬로 실행하면 코드의 대화형 디버깅을 활용할 수 있습니다.
 
@@ -70,7 +71,10 @@ cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## <a name="create-a-control-script"></a>제어 스크립트 만들기
+> [!div class="nextstepaction"]
+> [스크립트를 로컬로 실행했습니다.](?success=run-local#control-script) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="create-a-control-script"></a><a name="control-script"></a> 제어 스크립트 만들기
 
 *제어 스크립트* 를 사용하면 클라우드에서 `hello.py` 스크립트를 실행할 수 있습니다. 제어 스크립트를 사용하여 기계 학습 코드가 실행되는 방법과 위치를 제어합니다.  
 
@@ -90,6 +94,8 @@ aml_url = run.get_portal_url()
 print(aml_url)
 ```
 
+
+
 ### <a name="understand-the-code"></a>코드 이해
 
 제어 스크립트의 작동 방식은 다음과 같이 설명됩니다.
@@ -99,7 +105,7 @@ print(aml_url)
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [작업 영역](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)은 Azure Machine Learning 작업 영역에 연결되므로 Azure Machine Learning 리소스와 통신할 수 있습니다.
+      [작업 영역](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)은 Azure Machine Learning 작업 영역에 연결되므로 Azure Machine Learning 리소스와 통신할 수 있습니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +113,7 @@ print(aml_url)
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true)은 여러 실행을 단일 이름으로 구성하는 간단한 방법을 제공합니다. 나중에 실험을 통해 수십 개의 실행 간에 메트릭을 쉽게 비교할 수 있는 방법을 확인할 수 있습니다.
+      [실험](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)은 여러 실행을 단일 이름으로 구성하는 간단한 방법을 제공합니다. 나중에 실험을 통해 수십 개의 실행 간에 메트릭을 쉽게 비교할 수 있는 방법을 확인할 수 있습니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +121,7 @@ print(aml_url)
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)에서 `hello.py` 코드를 래핑하고 작업 영역에 전달합니다. 이름에서 알 수 있듯이 이 클래스를 사용하여 Azure Machine Learning에서 _스크립트_ 를 _실행_ 하는 방법을 _구성_ 할 수 있습니다. 또한 스크립트가 실행되는 컴퓨팅 대상을 지정합니다. 이 코드에서 대상은 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터입니다.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py)에서 `hello.py` 코드를 래핑하고 작업 영역에 전달합니다. 이름에서 알 수 있듯이 이 클래스를 사용하여 Azure Machine Learning에서 _스크립트_ 를 _실행_ 하는 방법을 _구성_ 할 수 있습니다. 또한 스크립트가 실행되는 컴퓨팅 대상을 지정합니다. 이 코드에서 대상은 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터입니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +129,7 @@ print(aml_url)
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       스크립트를 제출합니다. 이 제출을 [실행](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true)이라고 합니다. 실행은 코드의 단일 실행을 캡슐화합니다. 실행을 사용하여 스크립트 진행률을 모니터링하고, 출력을 캡처하고, 결과를 분석하고, 메트릭을 시각화하는 등의 작업을 수행합니다.
+       스크립트를 제출합니다. 이 제출을 [실행](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)이라고 합니다. 실행은 코드의 단일 실행을 캡슐화합니다. 실행을 사용하여 스크립트 진행률을 모니터링하고, 출력을 캡처하고, 결과를 분석하고, 메트릭을 시각화하는 등의 작업을 수행합니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -135,9 +141,20 @@ print(aml_url)
    :::column-end:::
 :::row-end:::
 
-## <a name="submit-and-run-your-code-in-the-cloud"></a>클라우드에서 코드 제출 및 실행
+> [!div class="nextstepaction"]
+> [제어 스크립트를 만들었습니다.](?success=create-control-script#submit) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit-and-run-your-code-in-the-cloud"></a><a name="submit"></a> 클라우드에서 코드 제출 및 실행
 
 제어 스크립트를 실행합니다. 그러면 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터에서 `hello.py`가 실행됩니다.
+
+첫 번째 실행은 완료하는 데 5~10분 정도 걸립니다. 다음과 같은 경우에 발생합니다.
+
+* Docker 이미지가 클라우드에 빌드됩니다.
+* 컴퓨팅 클러스터의 크기가 0에서 1 노드로 조정됩니다.
+* Docker 이미지가 컴퓨팅에 다운로드됩니다. 
+
+Docker 이미지가 컴퓨팅에 캐시되기 때문에 후속 실행이 훨씬 더 빠릅니다(~15초). 첫 번째 실행이 완료된 후 아래 코드를 다시 제출하여 테스트할 수 있습니다.
 
 ```bash
 python 03-run-hello.py
@@ -146,7 +163,10 @@ python 03-run-hello.py
 > [!TIP]
 > 이 코드를 실행하면 구독에 대한 액세스 권한이 없다는 오류가 표시됩니다. 인증 옵션에 대한 자세한 내용은 [작업 영역에 연결](how-to-manage-workspace.md?tab=python#connect-multi-tenant)을 참조하세요.
 
-## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>스튜디오를 사용하여 클라우드에서 코드 모니터링
+> [!div class="nextstepaction"]
+> [클라우드에서 코드를 제출했습니다.](?success=submit-to-cloud#monitor) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
+
+## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>스튜디오를 사용하여 클라우드에서 코드 모니터링
 
 출력에는 다음과 같은 스튜디오에 대한 링크(`https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`)가 포함됩니다.
 
@@ -177,6 +197,9 @@ python 03-run-hello.py
 8번 줄에 "Hello World!" 출력이 표시됩니다.
 
 `70_driver_log.txt` 파일에는 실행의 표준 출력이 포함됩니다. 이 파일은 클라우드에서 원격 실행을 디버그할 때 유용할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [스튜디오에서 로그를 확인했습니다.](?success=monitor-in-studio#next-steps) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## <a name="next-steps"></a>다음 단계
 

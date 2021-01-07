@@ -8,17 +8,14 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cfb778a1a632dc17a9f50c7ea05debed0edb4fb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660250"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932390"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
-
-> [!NOTE]
-> 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
 이 문서에서는 다음 작업을 수행합니다.
 
@@ -29,6 +26,18 @@ ms.locfileid: "88660250"
 Azure Notebooks는 기계 학습 모델을 실험, 학습 및 배포하는 데 사용되는 기본 블록인 Azure Machine Learning 작업 영역을 활용합니다.
 
 이 문서의 단계는 일반적으로 데이터 과학자가 수행할 수 있습니다.
+
+자습서의 이 섹션에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+>
+> * 기계 학습 모델을 학습하기 위한 Azure Notebooks 프로젝트를 만듭니다.
+> * 학습된 기계 학습 모델을 컨테이너화합니다.
+> * 컨테이너화된 기계 학습 모델에서 Azure IoT Edge 모듈을 만듭니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 시리즈의 각 문서는 이전 문서의 작업을 기반으로 합니다. 이 문서에 직접 도착한 경우 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)를 방문하세요.
 
 ## <a name="set-up-azure-notebooks"></a>Azure Notebooks 설정
 
@@ -48,7 +57,7 @@ Azure Notebooks를 사용하려면 계정을 만들어야 합니다. Azure Noteb
 
 1. [Azure Notebooks](https://notebooks.azure.com)로 이동합니다.
 
-1. 페이지의 오른쪽 위에서 **로그인**을 클릭합니다.
+1. 페이지의 오른쪽 위에서 **로그인** 을 클릭합니다.
 
 1. 회사 또는 학교 계정(Azure Active Directory)이나 개인 계정(Microsoft 계정)으로 로그인합니다.
 
@@ -60,25 +69,25 @@ Azure Notebooks를 사용하려면 계정을 만들어야 합니다. Azure Noteb
 
 샘플 Notebook 파일을 새 Azure Notebooks 프로젝트에 업로드합니다.
 
-1. 새 계정의 사용자 페이지 맨 위에 있는 메뉴 모음에서 **내 프로젝트**를 선택합니다.
+1. 새 계정의 사용자 페이지 맨 위에 있는 메뉴 모음에서 **내 프로젝트** 를 선택합니다.
 
 1. **+** 단추를 선택하여 새 프로젝트를 추가합니다.
 
-1. **새 프로젝트 만들기** 대화 상자에서 **프로젝트 이름**을 제공합니다. 
+1. **새 프로젝트 만들기** 대화 상자에서 **프로젝트 이름** 을 제공합니다. 
 
-1. 프로젝트를 공개하거나 추가 정보가 있을 필요는 없으므로 **공개** 및 **추가 정보**를 선택 취소된 상태로 둡니다.
+1. 프로젝트를 공개하거나 추가 정보가 있을 필요는 없으므로 **공개** 및 **추가 정보** 를 선택 취소된 상태로 둡니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
-1. **업로드**(위쪽 화살표 아이콘)와 **컴퓨터에서**를 차례로 선택합니다.
+1. **업로드**(위쪽 화살표 아이콘)와 **컴퓨터에서** 를 차례로 선택합니다.
 
-1. **파일 선택**을 선택합니다.
+1. **파일 선택** 을 선택합니다.
 
-1. **C:\source\IoTEdgeAndMlSample\AzureNotebooks**로 이동합니다. 목록에서 모든 파일을 선택하고 **열기**를 클릭합니다.
+1. **C:\source\IoTEdgeAndMlSample\AzureNotebooks** 로 이동합니다. 목록에서 모든 파일을 선택하고 **열기** 를 클릭합니다.
 
 1. **이 파일의 콘텐츠를 신뢰합니다** 확인란을 선택합니다.
 
-1. **업로드**를 선택하여 업로드를 시작하고 프로세스가 완료되면 **완료**를 선택합니다.
+1. **업로드** 를 선택하여 업로드를 시작하고 프로세스가 완료되면 **완료** 를 선택합니다.
 
 ### <a name="azure-notebook-files"></a>Azure Notebook 파일
 
@@ -110,13 +119,13 @@ Azure Notebooks 프로젝트에 업로드한 파일을 검토해 보겠습니다
 
 이제 프로젝트를 만들었으므로 Notebook을 실행할 수 있습니다. 
 
-1. 프로젝트 페이지에서 **01-turbofan\_regression.ipynb**를 선택합니다.
+1. 프로젝트 페이지에서 **01-turbofan\_regression.ipynb** 를 선택합니다.
 
     ![실행할 첫 번째 Notebook 선택](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Notebook이 **신뢰할 수 없음**으로 나열되면 Notebook의 오른쪽 위에서 **신뢰할 수 없음** 위젯을 클릭합니다. 대화 상자가 열리면, **신뢰**를 선택합니다.
+1. Notebook이 **신뢰할 수 없음** 으로 나열되면 Notebook의 오른쪽 위에서 **신뢰할 수 없음** 위젯을 클릭합니다. 대화 상자가 열리면, **신뢰** 를 선택합니다.
 
-1. 최상의 결과를 위해 각 셀에 대한 설명서를 읽고 개별적으로 실행합니다. 도구 모음에서 **실행**을 선택합니다. 나중에 여러 셀을 실행하는 것이 편리한 것을 알 수 있습니다. 업그레이드 및 사용 중단 경고는 무시해도 됩니다.
+1. 최상의 결과를 위해 각 셀에 대한 설명서를 읽고 개별적으로 실행합니다. 도구 모음에서 **실행** 을 선택합니다. 나중에 여러 셀을 실행하는 것이 편리한 것을 알 수 있습니다. 업그레이드 및 사용 중단 경고는 무시해도 됩니다.
 
     셀이 실행 중이면 대괄호 사이에 별표가 표시됩니다([\*]). 셀 작업이 완료되면 별표가 숫자로 바뀌고 관련된 출력이 나타납니다. Notebook의 셀은 순차적으로 작성되며 한 번에 하나만 실행할 수 있습니다.
 
@@ -145,7 +154,7 @@ Azure Notebooks 프로젝트에 업로드한 파일을 검토해 보겠습니다
 
 1. 노트북을 저장하고 프로젝트 페이지로 돌아갑니다.
 
-1. **02-turbofan\_deploy\_model.ipynb**를 열고 각 셀을 실행합니다. **작업 영역 구성** 다음에 나오는 셀에서 인증하려면 로그인해야 합니다.
+1. **02-turbofan\_deploy\_model.ipynb** 를 열고 각 셀을 실행합니다. **작업 영역 구성** 다음에 나오는 셀에서 인증하려면 로그인해야 합니다.
 
 1. 노트북을 저장하고 프로젝트 페이지로 돌아갑니다.
 
@@ -153,7 +162,7 @@ Azure Notebooks 프로젝트에 업로드한 파일을 검토해 보겠습니다
 
 Notebook이 성공적으로 완료되었는지 확인하려면 몇 가지 항목이 만들어졌는지 확인합니다.
 
-1. Azure Notebooks 프로젝트 페이지에서 마침표로 시작하는 항목 이름이 표시되도록 **숨긴 항목 표시**를 선택합니다.
+1. Azure Notebooks 프로젝트 페이지에서 마침표로 시작하는 항목 이름이 표시되도록 **숨긴 항목 표시** 를 선택합니다.
 
 1. 다음 파일이 생성되었는지 확인합니다.
 
@@ -178,6 +187,10 @@ Notebook이 성공적으로 완료되었는지 확인하려면 몇 가지 항목
 디버깅을 위해 노트북에 Python 문(예: `print()` 명령)을 삽입하여 값을 표시할 수 있습니다. 정의되지 않은 변수 또는 개체가 표시되는 경우 처음으로 선언되거나 인스턴스화된 셀을 실행합니다.
 
 노트북을 다시 실행해야 하는 경우 이전에 만든 파일과 Azure 리소스를 삭제해야 할 수도 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서를 완료할 때까지 기다렸다가 리소스를 정리하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

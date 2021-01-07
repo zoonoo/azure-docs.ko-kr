@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779410"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352119"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>진단 로그-Azure Content Delivery Network
 
@@ -52,14 +52,14 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 3. **모니터링** 섹션에서 **진단 로그** 를 선택 합니다.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="CDN 끝점을 선택 합니다." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="진단 로그를 선택 합니다." border="true":::
 
 ### <a name="enable-logging-with-azure-storage"></a>Azure Storage에서 로깅을 사용하도록 설정
 
 스토리지 계정을 사용하여 로그를 저장하려면 아래 단계를 따릅니다.
 
  >[!NOTE] 
- >이러한 단계를 완료 하려면 저장소 계정이 필요 합니다. 자세한 내용은 **[Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** 를 참조 하세요.
+ >이러한 단계를 완료 하려면 저장소 계정이 필요 합니다. 자세한 내용은 **[Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** 를 참조 하세요.
     
 1. **진단 설정 이름** 에 진단 로그 설정의 이름을 입력 합니다.
  
@@ -69,7 +69,7 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 4. 로그에 대 한 구독 및 저장소 계정을 선택 합니다.
 
-    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="CDN 끝점을 선택 합니다." border="true":::
+    :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="진단 로그-저장소." border="true":::
 
 3. **저장** 을 선택합니다.
 
@@ -86,7 +86,7 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 3. 로그에 대 한 구독 및 Log Analytics 작업 영역을 선택 합니다.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="CDN 끝점을 선택 합니다." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="진단 로그-Log Analytics." border="true":::
 
 4. **저장** 을 선택합니다.
 
@@ -103,7 +103,7 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 3. 로그에 대 한 구독 및 이벤트 허브 네임 스페이스를 선택 합니다.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="CDN 끝점을 선택 합니다." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="진단 로그-이벤트 허브" border="true":::
 
 4. **저장** 을 선택합니다.
 
@@ -204,14 +204,14 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 **필드 설명:**
 
-|값|Description|
+|값|설명|
 |-------|---------|
 |구독 ID    |GUID 형식에서 Azure 구독의 ID입니다.|
 |리소스 그룹 이름 |CDN 리소스가 속한 리소스 그룹의 이름입니다.|
 |프로필 이름 |CDN 프로필의 이름입니다.|
 |엔드포인트 이름 |CDN 엔드포인트의 이름입니다.|
 |Year|  4자리 연도 표시(예: 2017)입니다.|
-|Month| 2자리 월 표시입니다. 01 = 1 월 ... 12 = 12 월|
+|월| 2자리 월 표시입니다. 01 = 1 월 ... 12 = 12 월|
 |일|   2자리 월의 일 표시입니다.|
 |PT1H.json| 분석 데이터가 저장되는 실제 JSON 파일입니다.|
 
@@ -229,7 +229,7 @@ Azure CDN 끝점에 대 한 로깅을 사용 하도록 설정 하려면 다음 �
 
 ## <a name="log-data-delays"></a>로그 데이터 지연
 
-다음 표에는 **Microsoft의 Azure CDN 표준** , **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준/프리미엄** 에 대한 로그 데이터 지연이 표시됩니다.
+다음 표에는 **Microsoft의 Azure CDN 표준**, **Akamai의 Azure CDN 표준** 및 **Verizon의 Azure CDN 표준/프리미엄** 에 대한 로그 데이터 지연이 표시됩니다.
 
 Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로그 데이터 지연
 --- | --- | ---
@@ -249,7 +249,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 모든 공급자의 모든 메트릭을 사용할 수 있는 것은 아니지만 이러한 차이는 미미합니다. 이 표에는 지정된 메트릭을 공급자에서 사용할 수 있는지 여부도 나와 있습니다. 메트릭은 트래픽이 있는 해당 CDN 엔드포인트에 대해서만 사용할 수 있습니다.
 
 
-|메트릭                     | Description | Microsoft | Verizon | Akamai |
+|메트릭                     | 설명 | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | 이 기간 동안의 요청 적중의 총 수입니다. | 예 | 예 |예 |
 | RequestCountHttpStatus2xx | 2xx HTTP 코드(예: 200, 202)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
@@ -257,27 +257,27 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 | RequestCountHttpStatus4xx | 4xx HTTP 코드(예: 400, 404)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
 | RequestCountHttpStatus5xx | 5xx HTTP 코드(예: 500, 504)를 생성한 모든 요청의 수입니다. | 예 | 예 |예 |
 | RequestCountHttpStatusOthers | 다른 모든 HTTP 코드의 수(2xx-5xx 이외)입니다. | 예 | 예 |예 |
-| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 아니요  |예 |
-| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 아니요  |
-| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트와 가장 가까운 POP에서 찾을 수 없고 원본에서 검색 했음을 의미 합니다. | 예 | 예 | 아니요 |
-| RequestCountCacheNoCache | 에 지에 대 한 사용자 구성 때문에 캐시 되지 못하도록 방지 된 자산에 대 한 모든 요청의 수입니다. | 예 | 예 | 아니요 |
-| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 모든 요청의 수입니다. 이 개수는 POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 아니요 |
-| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 아니요 | 예 | 아니요  |
+| RequestCountHttpStatus200 | 200 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus206 | 206 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus302 | 302 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus304 | 304 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountHttpStatus404 | 404 HTTP 코드 응답을 생성한 모든 요청의 수입니다. | 예 | 예  |예 |
+| RequestCountCacheHit | 캐시 적중을 발생한 모든 요청의 수. 자산이 POP에서 클라이언트로 직접 제공되었습니다. | 예 | 예 | 예  |
+| RequestCountCacheMiss | 캐시 누락을 발생한 모든 요청의 수. 캐시 누락은 자산을 클라이언트와 가장 가까운 POP에서 찾을 수 없고 원본에서 검색 했음을 의미 합니다. | 예 | 예 | 예 |
+| RequestCountCacheNoCache | 에 지에 대 한 사용자 구성 때문에 캐시 되지 못하도록 방지 된 자산에 대 한 모든 요청의 수입니다. | 예 | 예 | 예 |
+| RequestCountCacheUncacheable | 자산의 Cache-Control 및 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 모든 요청의 수입니다. 이 개수는 POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 예 |
+| RequestCountCacheOthers | 위에 포함되지 않는 캐시 상태를 갖는 모든 요청의 수 | 예 | 예 | 예  |
 | EgressTotal | 아웃바운드 데이터 전송(GB) | 예 |예 |예 |
-| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 아니요  |
-| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요 |
-| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 아니요  |
-| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
-| EgressCacheMiss. | 가장 가까운 POP 서버에서 찾을 수 없고 원본 서버에서 검색 된 응답에 대 한 아웃 바운드 데이터 전송입니다. | 예 | 예 | 아니요 |
-| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시 되지 않도록 방지 된 자산에 대 한 아웃 바운드 데이터 전송. | 예 | 예 | 아니요 |
-| EgressCacheUncacheable | 자산의 Cache-Control 및 또는 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 아웃 바운드 데이터 전송. POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 아니요 |
-| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 아니요 | 예 | 아니요 |
+| EgressHttpStatus2xx | 2xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다.* | 예 | 예 | 예  |
+| EgressHttpStatus3xx | 3xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예  |
+| EgressHttpStatus4xx | 4xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예  |
+| EgressHttpStatus5xx | 5xx HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예 |
+| EgressHttpStatusOthers | 다른 HTTP 상태 코드를 나타내는 응답에 대한 아웃바운드 데이터 전송(GB)입니다. | 예 | 예 | 예  |
+| EgressCacheHit | CDN POP/Edge의 CDN 캐시에서 직접 전달된 응답에 대한 아웃바운드 데이터 전송입니다. | 예 | 예 | 예 |
+| EgressCacheMiss. | 가장 가까운 POP 서버에서 찾을 수 없고 원본 서버에서 검색 된 응답에 대 한 아웃 바운드 데이터 전송입니다. | 예 | 예 | 예 |
+| EgressCacheNoCache | Edge의 사용자 구성 때문에 캐시 되지 않도록 방지 된 자산에 대 한 아웃 바운드 데이터 전송. | 예 | 예 | 예 |
+| EgressCacheUncacheable | 자산의 Cache-Control 및 또는 Expires 헤더에 의해 캐시 되지 못하도록 하는 자산에 대 한 아웃 바운드 데이터 전송. POP 또는 HTTP 클라이언트에 의해 캐시 되지 않아야 함을 나타냅니다. | 예 | 예 | 예 |
+| EgressCacheOthers | 다른 캐시 시나리오에 대한 아웃바운드 데이터 전송 | 예 | 예 | 예 |
 
 * 아웃바운드 데이터 전송은 CDN POP 서버에서 클라이언트로 전달되는 트래픽을 나타냅니다.
 

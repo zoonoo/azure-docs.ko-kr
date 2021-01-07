@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461807"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853149"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -126,17 +126,17 @@ ms.locfileid: "92461807"
 |Managed Applications  | 예 | 예 | 예 |  |
 |지도  | 예 | 예 | 예 |  |
 |Media Services | 예 | 예 | 예 |  |
-|Microsoft Flow | 예 | 예 | 예 |  |
 |Microsoft Managed Desktop | 예 | 예 | 예 |  |
 |Microsoft PowerApps | 예 | 예 | 예 |  |
 |Microsoft 소셜 참여 | 예 | 예 | 예 |  |
 |Microsoft Stream | 예 | 예 | 예 |  |
-|마이그레이션 | 예 | 예 | 예 |  |
+|마이그레이션 | 예 | 아니요 | 예 |  |
 |Multi-Factor Authentication | 예 | 예 | 예 |  |
 |Network Watcher | 예 | 예 | 예 |  |
-|Notification Hubs | 예 | 예 | 예 |  |
+|Notification Hubs | 예 | 아니요 | 예 |  |
 |공개 데이터 세트 | 예 | 예 | 예 |  |
 |정책 | 예 | 예 | 예 |  |
+|Power Automate | 예 | 예 | 예 |  |
 |Power BI Embedded | 예 | 예 | 예 |  |
 |Private Link | 예 | 예 | 예 |  |
 |프로젝트 Spool 통신 플랫폼 | 예 | 예 | 예 |  |
@@ -177,7 +177,7 @@ ms.locfileid: "92461807"
 
 | 에이전트 |  메트릭 | 로그 |
 |:---|:---|:---|:---|
-| [Azure Monitor 에이전트 (미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
+| [Azure Monitor 에이전트(미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
 | [Log Analytics 에이전트](platform/log-analytics-agent.md) | 아니요 | 예|
 | [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 아니요 |
 | [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
@@ -189,12 +189,12 @@ ms.locfileid: "92461807"
 
 | 제품/서비스 | Description |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리하고 변경 내용을 추적합니다. [변경 내용 추적](../automation/change-tracking/overview.md) 및 [업데이트 관리](../automation/update-management/update-mgmt-overview.md)을 참조하세요. |
+| [Azure Automation](../automation/index.yml) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리하고 변경 내용을 추적합니다. [변경 내용 추적](../automation/change-tracking/overview.md) 및 [업데이트 관리](../automation/update-management/overview.md)을 참조하세요. |
 | [Azure Information Protection ](/azure/information-protection/) | 문서와 이메일을 분류하고 필요에 따라 보호합니다. [Azure Information Protection의 중요 보고](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)를 참조하세요. |
 | [Azure Security Center](../security-center/index.yml) | 보안 이벤트를 수집 및 분석하고 위협 분석을 수행합니다. [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md)을 참조하세요. |
 | [Azure Sentinel](../sentinel/index.yml) | Office 365 및 Amazon Web Services 클라우드 내역을 비롯한 다양한 원본에 연결합니다. [데이터 원본에 연결](../sentinel/connect-data-sources.md)을 참조하세요. |
 | [Microsoft Intune](/intune/) | Azure Monitor로 로그를 보낼 진단 설정을 만듭니다. [Intune에서 스토리지, 이벤트 허브 또는 로그 분석으로 로그 데이터 전송(미리 보기)](/intune/fundamentals/review-logs-using-azure-monitor)을 참조하세요.  |
-| 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) - Azure Application Gateway에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](../network-watcher/traffic-analytics.md) - NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. |
+| 네트워크  | [네트워크 성능 모니터](insights/network-performance-monitor.md) - 서비스 및 애플리케이션 엔드포인트에 대한 네트워크 연결 및 성능을 모니터링합니다.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics) - Azure Application Gateway에서 로그 및 메트릭을 분석합니다.<br>[트래픽 분석](../network-watcher/traffic-analytics.md) - NSG(Network Watcher 네트워크 보안 그룹) 흐름 로그를 분석하여 Azure 클라우드 내 트래픽 흐름에 대한 정보를 제공합니다. |
 | [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 향상된 온보딩이 제공되는 업데이트된 버전입니다. |
 | [SQL Analytics](insights/azure-sql.md) | 여러 구독에서 규모에 상관 없이 Azure SQL Database 및 SQL 관리 되는 인스턴스의 성능을 모니터링 합니다. |
 | [Surface Hub](insights/surface-hubs.md) | Surface Hub 디바이스의 상태와 사용 현황을 추적합니다. |
@@ -245,4 +245,3 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 - [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](learn/tutorial-resource-logs.md)를 완료합니다.
 - [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](learn/tutorial-metrics-explorer.md)를 완료합니다.
 
- 

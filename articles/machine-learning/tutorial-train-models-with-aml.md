@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321281"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862431"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 
@@ -313,7 +313,7 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 컴퓨팅 대상. 이 경우 만든 Azure Machine Learning 컴퓨팅 클러스터를 사용합니다.
-* 학습 스크립트 이름( **train.py** )
+* 학습 스크립트 이름(**train.py**)
 * 스크립트를 실행하는 데 필요한 라이브러리가 포함된 환경입니다.
 * 학습 스크립트에 필요한 인수
 
@@ -368,15 +368,15 @@ run
 
 기다리는 동안 수행되는 작업은 다음과 같습니다.
 
-- **이미지 만들기** : Azure ML 환경에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분** 이 걸립니다.
+- **이미지 만들기**: Azure ML 환경에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지를 만들고 업로드하는 데 **약 5분** 이 걸립니다.
 
   컨테이너가 후속 실행을 위해 캐시되므로 이 단계는 각 Python 환경에 대해 한 번만 수행됩니다. 이미지 생성 중에 로그가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 이미지 만들기 진행 상황을 모니터링할 수 있습니다.
 
-- **크기 조정** : 원격 클러스터에서 현재 사용 가능한 것보다 더 많은 노드를 실행해야 하는 경우 추가 노드가 자동으로 추가됩니다. 크기 조정에는 일반적으로 **약 5분** 이 걸립니다.
+- **크기 조정**: 원격 클러스터에서 현재 사용 가능한 것보다 더 많은 노드를 실행해야 하는 경우 추가 노드가 자동으로 추가됩니다. 크기 조정에는 일반적으로 **약 5분** 이 걸립니다.
 
-- **실행** : 이 단계에서는 필요한 스크립트와 파일이 컴퓨팅 대상으로 보내집니다. 다음으로, 데이터 저장소가 탑재되거나 복사됩니다. 그런 다음, **entry_script** 가 실행됩니다. 작업이 실행되는 동안 **stdout** 및 **./logs** 디렉터리가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 실행 진행 상황을 모니터링할 수 있습니다.
+- **실행**: 이 단계에서는 필요한 스크립트와 파일이 컴퓨팅 대상으로 보내집니다. 다음으로, 데이터 저장소가 탑재되거나 복사됩니다. 그런 다음, **entry_script** 가 실행됩니다. 작업이 실행되는 동안 **stdout** 및 **./logs** 디렉터리가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 실행 진행 상황을 모니터링할 수 있습니다.
 
-- **후 처리 중** : 실행의 **./outputs** 디렉터리가 작업 영역의 실행 기록으로 복사되므로 이러한 결과에 액세스할 수 있습니다.
+- **후 처리 중**: 실행의 **./outputs** 디렉터리가 작업 영역의 실행 기록으로 복사되므로 이러한 결과에 액세스할 수 있습니다.
 
 실행 중인 작업의 진행 상황은 여러 가지 방법으로 확인할 수 있습니다. 이 자습서에서는 Jupyter 위젯과 `wait_for_completion` 메서드를 사용합니다.
 

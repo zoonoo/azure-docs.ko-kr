@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151389"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017001"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -63,7 +63,7 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
 
 * 디바이스의 ID를 만듭니다.
 
-* 인증 유형으로 **대칭 키**를 선택합니다.
+* 인증 유형으로 **대칭 키** 를 선택합니다.
 
 * **부모 장치 설정** 을 선택 하 고이 다운스트림 장치에서 연결할 IoT Edge 게이트웨이 장치를 선택 합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
 
@@ -105,10 +105,10 @@ X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) 다운
 
 3. Azure Portal에서 IoT 허브로 이동하고 다음 값을 사용하여 새 IoT 디바이스 ID를 만듭니다.
 
-   * 디바이스 인증서의 주체 이름과 일치하는 **디바이스 ID**를 제공합니다.
-   * 인증 유형으로 **X.509 자체 서명**을 선택합니다.
+   * 디바이스 인증서의 주체 이름과 일치하는 **디바이스 ID** 를 제공합니다.
+   * 인증 유형으로 **X.509 자체 서명** 을 선택합니다.
    * 디바이스의 기본 인증서 및 보조 인증서에서 복사한 16진수 문자열을 붙여넣습니다.
-   * **부모 디바이스 설정**을 선택하고 이 다운스트림 디바이스가 통과할 IoT Edge 게이트웨이 디바이스를 선택합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
+   * **부모 디바이스 설정** 을 선택하고 이 다운스트림 디바이스가 통과할 IoT Edge 게이트웨이 디바이스를 선택합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
 
    ![포털에서 X.509 자체 서명된 인증을 사용하여 디바이스 ID 만들기](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -144,13 +144,13 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 다운스트림 장치에 �
 
 2. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브에 X.509 CA 인증서 등록](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
 
-   1. 루트 CA 인증서를 업로드합니다. 데모 인증서를 사용 하는 경우 루트 CA는 ** \<path> /certs/azure-iot-test-only.root.ca.cert.pem**입니다.
+   1. 루트 CA 인증서를 업로드합니다. 데모 인증서를 사용 하는 경우 루트 CA는 **\<path> /certs/azure-iot-test-only.root.ca.cert.pem** 입니다.
 
    2. 해당 루트 CA 인증서를 소유하고 있는지 확인합니다.
 
 3. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브용 X.509 디바이스 만들기](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
 
-   1. 새 디바이스를 추가합니다. **디바이스 ID**에 소문자 이름을 입력하고 인증 유형 **X.509 CA 서명**을 선택합니다.
+   1. 새 디바이스를 추가합니다. **디바이스 ID** 에 소문자 이름을 입력하고 인증 유형 **X.509 CA 서명** 을 선택합니다.
 
    2. 부모 디바이스를 설정합니다. **부모 장치 설정** 을 선택 하 고 IoT Hub 연결을 제공 하는 IoT Edge 게이트웨이 장치를 선택 합니다.
 
@@ -201,7 +201,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들면 다음과 같습니다.
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예들 들어 다음과 같습니다.
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

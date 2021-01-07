@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147519"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96346158"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>다른 작성자 및 편집기와 공동 작업
 
@@ -35,18 +35,18 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 > [!div class="mx-imgBorder"]
 > ![다음 다이어그램에서는 작성자의 관점에서 QnA Maker 포털에 로그인 하 고 제작 Api를 사용 하는 흐름을 보여 줍니다.](../media/qnamaker-how-to-collaborate-knowledge-base/rbac-flow-from-portal-to-service.png)
 
-|단계|Description|
+|단계|설명|
 |--|--|
 |1|포털에서 QnA Maker 리소스에 대 한 토큰을 가져옵니다.|
 |2|포털은 키 대신 토큰을 전달 하는 적절 한 APIM (QnA Maker authoring API)를 호출 합니다.|
 |3|QnA Maker API는 토큰의 유효성을 검사 합니다.|
 |4 |QnA Maker API QnAMaker 서비스를 호출 합니다.|
 
-[제작 api](../How-To/collaborate-knowledge-base.md)를 호출 하려는 경우 인증을 설정 하는 방법에 대해 자세히 알아보세요.
+[제작 api](../index.yml)를 호출 하려는 경우 인증을 설정 하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>QnA Maker 포털에서 인증
 
-QnA Maker 포털을 사용 하 여 작성 하 고 공동 작업 하는 경우 공동 작업을 [위해 리소스에 적절 한 역할을 추가](../How-To/collaborate-knowledge-base.md)하면 QnA Maker 포털에서 모든 액세스 권한을 관리 합니다.
+QnA Maker 포털을 사용 하 여 작성 하 고 공동 작업 하는 경우 공동 작업을 [위해 리소스에 적절 한 역할을 추가](../index.yml)하면 QnA Maker 포털에서 모든 액세스 권한을 관리 합니다.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>QnA Maker Api 및 Sdk를 통해 인증
 
@@ -54,4 +54,4 @@ REST 또는 Sdk를 통해 Api를 사용 하 여 작성 하 고 공동 작업 하
 
 ## <a name="next-step"></a>다음 단계
 
-* [언어](design-language-culture.md) 및 [클라이언트 응용 프로그램](integration-with-other-applications.md) 에 대 한 기술 자료 디자인
+* [언어](../index.yml) 및 [클라이언트 응용 프로그램](../index.yml) 에 대 한 기술 자료 디자인

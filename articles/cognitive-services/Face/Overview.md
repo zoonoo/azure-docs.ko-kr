@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911446"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95532259"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -76,9 +76,9 @@ Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는
 
 사람 식별에 대한 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 참조 설명서를 참조하세요.
 
-## <a name="containers"></a>컨테이너
+## <a name="deploy-on-premises-using-docker-containers"></a>Docker 컨테이너를 사용하여 온-프레미스 배포
 
-데이터에 더 유사한 표준화된 Docker 컨테이너를 설치하여 [얼굴 컨테이너를 통해](face-how-to-install-containers.md) 얼굴을 감지, 인식, 식별합니다.
+[Face 컨테이너(미리 보기)를 사용](face-how-to-install-containers.md)하여 온-프레미스에 API 기능을 배포합니다. 이 Docker 컨테이너는 규정 준수, 보안 또는 기타 운영상의 이유로 서비스를 데이터에 더 가깝게 가져올 수 있습니다.
 
 ## <a name="sample-apps"></a>샘플 앱
 

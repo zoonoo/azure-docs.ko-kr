@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130564"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996131"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용하여 여러 컨테이너 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "93130564"
 
 단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 읽기 및 폼 인식기 컨테이너를 함께 가져옵니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 절차를 수행 하려면 로컬에 설치 하 고 실행 해야 하는 여러 도구가 필요 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "93130564"
 
 ## <a name="docker-compose-file"></a>Docker Compose 파일
 
-YAML 파일은 배포할 모든 서비스를 정의 합니다. 이러한 서비스는 `DockerFile` 또는 기존 컨테이너 이미지를 사용 합니다. 이 경우 두 개의 미리 보기 이미지를 사용 합니다. 다음 YAML 파일을 복사 하 여 붙여넣고 *docker로 작성 합니다. yaml* 로 저장 합니다. 파일에 적절 한 **apikey** , **청구** 및 **endpointuri** 값을 제공 합니다.
+YAML 파일은 배포할 모든 서비스를 정의 합니다. 이러한 서비스는 `DockerFile` 또는 기존 컨테이너 이미지를 사용 합니다. 이 경우 두 개의 미리 보기 이미지를 사용 합니다. 다음 YAML 파일을 복사 하 여 붙여넣고 *docker로 작성 합니다. yaml* 로 저장 합니다. 파일에 적절 한 **apikey**, **청구** 및 **endpointuri** 값을 제공 합니다.
 
 ```yaml
 version: '3.7'

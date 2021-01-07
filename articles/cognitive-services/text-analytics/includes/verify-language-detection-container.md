@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 543a4d85982adadc86435819679351c8ffaa9814
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779542"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009892"
 ---
 ### <a name="verify-the-language-detection-container-instance"></a>언어 감지 컨테이너 인스턴스 확인
 
@@ -26,7 +26,7 @@ ms.locfileid: "91779542"
 
 1. **서비스 API 설명** 링크를 선택 하 여 컨테이너의 Swagger 페이지로 이동 합니다.
 
-1. **POST** api 중 하나를 선택 하 고 **사용해 보기**를 선택 합니다. 이 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
+1. **POST** api 중 하나를 선택 하 고 **사용해 보기** 를 선택 합니다. 이 예제 입력을 포함 하는 매개 변수가 표시 됩니다.
 
     ```json
     {

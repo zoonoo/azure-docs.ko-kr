@@ -1,20 +1,15 @@
 ---
-title: Azure Portal 설정 및 기본 설정 관리 | Microsoft Docs
+title: Azure Portal 설정 및 기본 설정 관리
 description: 기본 설정에 맞게 Azure Portal 기본 설정을 변경할 수 있습니다. 설정에는 비활성 세션 제한 시간, 기본 보기, 메뉴 모드, 대비, 테마, 알림, 언어 및 지역 형식이 포함 됩니다.
-services: azure-portal
 keywords: 설정, 시간 제한, 언어, 지역
-author: mgblythe
-ms.author: mblythe
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145942"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745641"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Azure Portal 설정 및 기본 설정 관리
 
@@ -33,7 +28,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 구독을 변경할 
 
 1. 포털을 시작할 때 기본 구독으로 사용할 구독을 선택 합니다. 
 
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="구독 별로 리소스 목록을 필터링 합니다."::: 
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="포털을 시작할 때 기본 구독으로 사용할 구독을 선택 합니다."::: 
 
 
 ## <a name="choose-your-default-view"></a>기본 보기 선택 

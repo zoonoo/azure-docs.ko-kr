@@ -54,6 +54,22 @@
           href: ../azure-functions/functions-bindings-signalr-service.md
         - name: 업스트림 설정
           href: concept-upstream.md
+    - name: 가용성
+      items:
+        - name: 앱 서버를 정상적으로 종료합니다.
+          href: server-graceful-shutdown.md
+    - name: 보안
+      items:
+        - name: 권한 부여
+          items:
+            - name: Azure Active Directory를 사용하여 액세스 권한 부여
+              href: authorize-access-azure-active-directory.md
+        - name: 인증
+          items:
+            - name: 애플리케이션에서 인증
+              href: authenticate-application.md
+            - name: 관리 ID로 인증
+              href: authenticate-managed-identity.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구
@@ -66,6 +82,10 @@
       href: signalr-concept-authenticate-oauth.md
     - name: 이벤트 처리
       href: signalr-concept-event-grid-integration.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 확장
@@ -98,6 +118,12 @@
           href: signalr-howto-diagnostic-logs.md
         - name: Azure Policy를 사용하여 규정 준수 감사
           href: signalr-howto-azure-policy.md
+    - name: 문제 해결
+      items:
+        - name: 문제 해결 가이드
+          href: signalr-howto-troubleshoot-guide.md
+        - name: 문제 해결 방법
+          href: signalr-howto-troubleshoot-method.md
 - name: 참조
   items:
     - name: Azure CLI

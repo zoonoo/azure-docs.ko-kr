@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536534"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693735"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -138,11 +138,11 @@ App Service 웹앱은 웹 서버와 웹 애플리케이션 모두의 정보를 �
 -   애플리케이션 오류(예외 이벤트 표시)
 -   성능(성능 이벤트 표시)
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
-### <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
-RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안을 유지할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절 한 Azure 역할을 할당 하 여 이러한 액세스 권한을 부여 합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하는 저장소 계정의 저장소 키에 대 한 액세스는 RBAC (Role-Based Access Control)를 통해 제어할 수 있습니다.
+### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
+Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 저장소 계정을 보호할 수 있습니다. 데이터 액세스에 대 한 보안 정책을 적용 하려는 조직의 경우에는 보안 원칙을 알아야 하 고 [최소 권한](https://en.wikipedia.org/wiki/Principle_of_least_privilege) 보안 원칙에 따라 액세스를 제한 [해야](https://en.wikipedia.org/wiki/Need_to_know) 합니다. 특정 범위에서 그룹 및 응용 프로그램에 적절 한 Azure 역할을 할당 하 여 이러한 액세스 권한을 부여 합니다. 저장소 계정 기여자와 같은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 사용 하 여 사용자에 게 권한을 할당할 수 있습니다. Azure RBAC를 통해 [Azure Resource Manager](../../storage/blobs/security-recommendations.md) 모델을 사용 하 여 저장소 계정의 저장소 키에 대 한 액세스를 제어할 수 있습니다.
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 [SAS (공유 액세스 서명)](../../storage/common/storage-sas-overview.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 스토리지 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
@@ -155,7 +155,7 @@ RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정의 보안
 
 -   클라이언트 쪽 암호화 - 데이터를 스토리지로 전송하기 전에 암호화하고, 스토리지에서 전송한 후에 암호를 해독합니다.
 
-### <a name="encryption-at-rest"></a>저장 데이터 암호화
+### <a name="encryption-at-rest"></a>미사용 암호화
 많은 조직에서 미사용 데이터 암호화는 데이터 개인 정보 보호, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. &quot;미사용&quot; 데이터 암호화를 제공하는 세 가지 Azure Storage 보안 기능이 있습니다.
 
 -   [Storage 서비스 암호화](../../storage/common/storage-service-encryption.md) 를 사용하면 Storage 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
@@ -288,7 +288,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 ### <a name="security-center"></a>Security Center
 [Azure Security Center](../../security-center/security-center-introduction.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>컴퓨팅
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신
@@ -336,7 +336,7 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 -   [토큰 기반 인증](../../active-directory/develop/authentication-vs-authorization.md)을 사용하여 Azure Active Directory를 통한 인증을 설정할 수 있습니다.
 
--   Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/built-in-roles.md) 를 사용 하면 사용자의 할당 된 역할에 따라 액세스 권한을 부여 하 여 사용자에 게 작업 업무를 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 RBAC를 사용자 지정할 수 있습니다.
+-   Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/built-in-roles.md) 를 사용 하면 사용자의 할당 된 역할에 따라 액세스 권한을 부여 하 여 사용자에 게 작업 업무를 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 조직의 비즈니스 모델 및 위험 허용 범위에 따라 Azure RBAC를 사용자 지정할 수 있습니다.
 
 -   [통합 ID 관리(하이브리드 ID)](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) - 모든 리소스에 대한 인증 및 권한 부여를 위한 단일 사용자 ID를 만들어 내부 데이터 센터 및 클라우드 플랫폼에서 사용자 액세스에 대한 제어를 유지할 수 있게 합니다.
 

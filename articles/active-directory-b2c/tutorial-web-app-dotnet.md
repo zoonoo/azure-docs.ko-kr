@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5957ccb7bd7ff7e7acc0ed76899850bbca09ad6c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 9c3c63b6116e02e8a742b69e90c11e182d72ab2e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91664803"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953035"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정
 
@@ -45,26 +45,26 @@ ms.locfileid: "91664803"
 
 ### <a name="add-a-redirect-uri-reply-url"></a>리디렉션 URI 추가(회신 URL)
 
-Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록**을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
-1. **웹** 아래에서 **URI 추가** 링크를 선택하고, `https://localhost:44316`을 입력한 후 **저장**을 선택합니다.
-1. **개요**를 선택합니다.
-1. 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** 을 선택하고 **소유한 애플리케이션** 탭을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
+1. **웹** 아래에서 **URI 추가** 링크를 선택하고, `https://localhost:44316`을 입력한 후 **저장** 을 선택합니다.
+1. **개요** 를 선택합니다.
+1. 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID** 를 기록합니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
 1. **애플리케이션(레거시)** 을 선택한 다음, *webapp1* 애플리케이션을 선택합니다.
 1. **회신 URL** 아래에서 `https://localhost:44316`을 추가합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 1. 속성 페이지에서 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 애플리케이션 ID를 기록합니다.
 
 * * *
@@ -77,7 +77,7 @@ Azure AD B2C 테넌트에 애플리케이션을 업데이트하려면 새로운 
 
 ## <a name="configure-the-sample"></a>샘플 구성
 
-이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플을 구성합니다. 이 샘플은 ASP.NET을 사용하여 간단한 할 일 목록을 제공합니다. 이 샘플은 [Microsoft OWIN 미들웨어 구성 요소](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/)를 사용합니다. GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플을 복제합니다. 경로의 총 문자 길이가 260자 미만인 폴더에 샘플 파일을 추출합니다.
+이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플을 구성합니다. 이 샘플은 ASP.NET을 사용하여 간단한 할 일 목록을 제공합니다. 이 샘플은 [Microsoft OWIN 미들웨어 구성 요소](/aspnet/aspnet/overview/owin-and-katana/)를 사용합니다. GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip)하거나 샘플을 복제합니다. 경로의 총 문자 길이가 260자 미만인 폴더에 샘플 파일을 추출합니다.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -104,18 +104,18 @@ Web.config 파일의 설정을 사용자 흐름에 맞게 업데이트합니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-1. 솔루션 탐색기에서 **TaskWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **시작 프로젝트로 설정**을 클릭합니다.
-1. **F5**키를 누릅니다. 기본 브라우저가 로컬 웹 사이트 주소(`https://localhost:44316/`)에서 시작됩니다.
+1. 솔루션 탐색기에서 **TaskWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **시작 프로젝트로 설정** 을 클릭합니다.
+1. **F5** 키를 누릅니다. 기본 브라우저가 로컬 웹 사이트 주소(`https://localhost:44316/`)에서 시작됩니다.
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
-1. **가입/로그인**을 선택하여 애플리케이션의 사용자로 가입합니다. **b2c_1_signupsignin1** 사용자 흐름이 사용됩니다.
-1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 등록**을 선택합니다. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
+1. **가입/로그인** 을 선택하여 애플리케이션의 사용자로 가입합니다. **b2c_1_signupsignin1** 사용자 흐름이 사용됩니다.
+1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 등록** 을 선택합니다. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 1. 유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
     ![로그인/등록 워크플로의 일부로 표시되는 등록 페이지](./media/tutorial-web-app-dotnet/sign-up-workflow.PNG)
 
-1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 테넌트에 만듭니다.
+1. **만들기** 를 선택하여 로컬 계정을 Azure AD B2C 테넌트에 만듭니다.
 
 이제 애플리케이션 사용자는 이메일 주소를 사용하여 로그인하고 웹 애플리케이션을 사용할 수 있습니다.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 29f0f0c3fd48920990519aecfe5ae58c32b43db9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253839"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608275"
 ---
 # <a name="list-entity"></a>목록 엔터티
 
@@ -85,7 +85,6 @@ ms.locfileid: "91253839"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-
 이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
 
 ```json
@@ -130,7 +129,6 @@ ms.locfileid: "91253839"
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
 |엔터티 나열|`Cities`|`paris`|
-
 
 ## <a name="next-steps"></a>다음 단계
 

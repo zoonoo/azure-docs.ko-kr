@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cbae833c1b207669e35b467707f946e9bafe31d2
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150146"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854947"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -24,9 +24,9 @@ Azure App Service VNet 통합 기능에는 두 가지 변형이 있습니다.
 
 ## <a name="enable-vnet-integration"></a>VNet 통합 사용
 
-1. App Service 포털에서 **네트워킹**으로 이동합니다. **VNet 통합**에서 **구성하려면 클릭**을 선택하세요.
+1. App Service 포털에서 **네트워킹** 으로 이동합니다. **VNet 통합** 에서 **구성하려면 클릭** 을 선택하세요.
 
-1. **VNet 추가**를 선택합니다.
+1. **VNet 추가** 를 선택합니다.
 
    ![VNET 통합 선택][1]
 
@@ -36,7 +36,7 @@ Azure App Service VNet 통합 기능에는 두 가지 변형이 있습니다.
 
    * VNet이 동일한 지역에 있는 경우 서브넷을 새로 만들거나 기존의 빈 서브넷을 선택하세요.
    * 다른 지역에서 VNet을 선택하려면 사이트 간 사용이 프로비전된 VNet 게이트웨이가 필요합니다.
-   * 클래식 VNet과 통합하려면 **Virtual Network** 드롭다운 목록을 선택하는 대신 **여기를 클릭 하여 클래식 VNet**을 선택하세요. 원하는 클래식 가상 네트워크를 선택하세요. 대상 VNet에는 지점 및 사이트 간 사용으로 프로비전된 Virtual Network 게이트웨이가 이미 있어야 합니다.
+   * 클래식 VNet과 통합하려면 **Virtual Network** 드롭다운 목록을 선택하는 대신 **여기를 클릭 하여 클래식 VNet** 을 선택하세요. 원하는 클래식 가상 네트워크를 선택하세요. 대상 VNet에는 지점 및 사이트 간 사용으로 프로비전된 Virtual Network 게이트웨이가 이미 있어야 합니다.
 
     ![클래식 VNet을 선택][3]
 
@@ -116,15 +116,15 @@ VNet으로 온-프레미스 리소스에 연결하기 위해 지역 VNet 통합 
 
 피어링과 함께 필수 게이트웨이 VNet 통합을 사용하는 경우 몇 가지 추가 항목을 구성해야 합니다. 앱에서 작동하도록 피어링을 구성하려면,
 
-1. 앱이 연결되는 VNet에 피어링 연결을 추가합니다. 피어링 연결을 추가할 때 **가상 네트워크 액세스 허용**을 사용하도록 설정하고, **전달된 트래픽 허용** 및 **게이트 전송 허용**을 선택하세요.
-1. 사용자가 연결한 VNet에 피어링되는 VNet으로 피어링 연결을 추가하세요. 대상 VNet에 피어링 연결을 추가할 때 **가상 네트워크 액세스 허용**을 사용하도록 설정하고, **전달된 트래픽 허용** 및 **원격 게이트웨이 허용**을 선택하세요.
+1. 앱이 연결되는 VNet에 피어링 연결을 추가합니다. 피어링 연결을 추가할 때 **가상 네트워크 액세스 허용** 을 사용하도록 설정하고, **전달된 트래픽 허용** 및 **게이트 전송 허용** 을 선택하세요.
+1. 사용자가 연결한 VNet에 피어링되는 VNet으로 피어링 연결을 추가하세요. 대상 VNet에 피어링 연결을 추가할 때 **가상 네트워크 액세스 허용** 을 사용하도록 설정하고, **전달된 트래픽 허용** 및 **원격 게이트웨이 허용** 을 선택하세요.
 1. 포털에서 **App Service 계획** > **네트워킹** > **VNet 통합** UI로 이동합니다. 앱이 연결되는 VNet을 선택합니다. 라우팅 섹션에서 앱이 연결된 VNet과 피어링되는 VNet의 주소 범위를 추가하세요.
 
 ## <a name="manage-vnet-integration"></a>VNet 통합 관리
 
 앱 수준에서 VNet에 연결하거나 연결을 끊습니다. 여러 앱의 VNet 통합에 영향을 줄 수 있는 작업은 App Service 계획 수준입니다. 앱 >**네트워킹** > **VNet 통합** 포털에서 VNet 관련 세부 정보를 볼 수 있습니다. **App Service 계획** > **네트워킹** > **VNet 통합** 포털의 App Service 계획 수준에서 유사한 정보를 볼 수 있습니다.
 
-VNet 통합 인스턴스의 앱 보기에서 할 수 있는 유일한 작업은 현재 연결된 VNet과 앱의 연결을 해제하는 것입니다. VNet에서 앱의 연결을 끊으려면 **연결 끊기**를 선택합니다. VNet과의 연결을 끊으면 앱이 다시 시작됩니다. 연결을 끊더라도 VNet은 변경되지 않습니다. 서브넷 또는 게이트웨이가 제거되지 않습니다. 그다음 VNet을 삭제하려면, 먼저 VNet에서 앱의 연결을 끊고 게이트웨이 등의 리소스를 삭제하세요.
+VNet 통합 인스턴스의 앱 보기에서 할 수 있는 유일한 작업은 현재 연결된 VNet과 앱의 연결을 해제하는 것입니다. VNet에서 앱의 연결을 끊으려면 **연결 끊기** 를 선택합니다. VNet과의 연결을 끊으면 앱이 다시 시작됩니다. 연결을 끊더라도 VNet은 변경되지 않습니다. 서브넷 또는 게이트웨이가 제거되지 않습니다. 그다음 VNet을 삭제하려면, 먼저 VNet에서 앱의 연결을 끊고 게이트웨이 등의 리소스를 삭제하세요.
 
 App Service 계획 VNet 통합 UI에는 App Service 계획의 앱에서 사용하는 모든 VNet 통합이 표시됩니다. 각 VNet 관련 세부 정보를 보려면 관심 있는 VNet을 선택하세요. 필수 게이트웨이 VNet 통합에 대해 여기에서 수행할 수 있는 작업은 두 가지가 있습니다.
 
@@ -137,7 +137,7 @@ VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 �
 ### <a name="gateway-required-vnet-integration-certificates"></a>필수 게이트웨이 VNet 통합 인증서
 필수 게이트웨이 VNet 통합을 사용하면, 연결 보안을 위해 필요한 인증서 교환이 있습니다. 인증서와 함께 네트워크를 설명하는 DNS 구성, 경로 및 다른 비슷한 항목이 있습니다.
 
-인증서 또는 네트워크 정보가 변경되면 **네트워크 동기화**를 선택하세요. **네트워크 동기화**를 클릭하면 앱과 VNet 연결이 잠시 중단됩니다. 앱이 다시 시작되지는 않지만, 연결 손실로 인해 사이트가 제대로 작동하지 않을 수 있습니다.
+인증서 또는 네트워크 정보가 변경되면 **네트워크 동기화** 를 선택하세요. **네트워크 동기화** 를 클릭하면 앱과 VNet 연결이 잠시 중단됩니다. 앱이 다시 시작되지는 않지만, 연결 손실로 인해 사이트가 제대로 작동하지 않을 수 있습니다.
 
 ## <a name="pricing-details"></a>가격 정보
 지역 VNet 통합 기능에는 App Service 계획 가격 책정 계층별 요금 외에 추가 요금이 부과되지 않습니다.
@@ -152,6 +152,7 @@ VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 �
 
 > [!NOTE]
 > App Service에서 Docker Compose 시나리오에는 VNET 통합이 지원 되지 않습니다.
+> 개인 끝점이 있으면 Azure Functions 액세스 제한이 무시 됩니다.
 >
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

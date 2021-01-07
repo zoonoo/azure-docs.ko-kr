@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 1ffbcc24a2ee386be1a8ce50b55375d5bd458df1
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 69168060cbce4a904c53d7f79895e909c8c42e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410099"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935226"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
 
@@ -89,7 +89,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    예를 들어: 
+    예를 들면 다음과 같습니다. 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
@@ -172,6 +172,7 @@ Krb5p의 성능 영향:
 
 ## <a name="next-steps"></a>다음 단계  
 
+* [NFSv 4.1 Kerberos 볼륨 문제 해결](troubleshoot-nfsv41-kerberos-volumes.md)
 * [Azure NetApp Files에 대 한 Faq](azure-netapp-files-faqs.md)
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Active Directory 연결 만들기](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)

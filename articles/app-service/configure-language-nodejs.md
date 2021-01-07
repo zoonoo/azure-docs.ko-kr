@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8bdf637ab773e90a5eac42bcaa443cf6741db636
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744061"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696016"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Node.js 앱 구성
 
@@ -85,6 +85,36 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ::: zone-end
 
+## <a name="get-port-number"></a>포트 번호 가져오기
+
+들어오는 요청을 수신 하려면 앱이 올바른 포트를 수신 대기 해야 Node.js 합니다.
+
+::: zone pivot="platform-windows"  
+
+Windows에서 App Service Node.js 앱은 [Iisnode](https://github.com/Azure/iisnode)를 사용 하 여 호스트 되 고 Node.js 앱은 변수에 지정 된 포트를 수신 대기 해야 합니다 `process.env.PORT` . 다음 예제에서는 간단한 Express 앱에서이 작업을 수행 하는 방법을 보여 줍니다.
+
+::: zone-end
+
+::: zone pivot="platform-linux"  
+
+App Service은 Node.js 컨테이너에 환경 변수를 설정 하 `PORT` 고 들어오는 요청을 해당 포트 번호의 컨테이너에 전달 합니다. 요청을 받으려면 앱이를 사용 하 여 해당 포트를 수신 대기 해야 합니다 `process.env.PORT` . 다음 예제에서는 간단한 Express 앱에서이 작업을 수행 하는 방법을 보여 줍니다.
+
+::: zone-end
+
+```javascript
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
+```
+
 ::: zone pivot="platform-linux"
 
 ## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
@@ -131,7 +161,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Npm start 실행
 
-를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 예를 들면 다음과 같습니다.
+를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -164,7 +194,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 다음 확장을 사용 하 여 사용자 지정 시작 파일을 구성할 수도 있습니다.
 
 - *.Js* 파일
-- PM2, *.config.js* *,* .yml 또는 *.yml* 확장명을 포함 하는 [파일](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) *입니다.*
+- PM2, *.config.js* *,*.yml 또는 *.yml* 확장명을 포함 하는 [파일](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) *입니다.*
 
 사용자 지정 시작 파일을 추가 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
 
@@ -179,7 +209,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 PM2를 사용 하 여 [실행](#run-with-pm2)하도록 구성 하는 경우 * .config.js, * .yml 또는 *.yaml* 을 사용 하 여 실행 하는 경우를 제외 하 고는 [Visual Studio Code](https://code.visualstudio.com/) 에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
+대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -209,7 +239,7 @@ process.env.NODE_ENV
 
 기본적으로 빌드 자동화 `npm install --production` 는 빌드 자동화를 사용 하 여 Git 또는 Zip 배포를 통해 배포 된 Node.js 앱을 인식할 때 실행 App Service. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우이를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) 를 제공 해야 합니다.
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예를 들면 다음과 같습니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 다음은 그 예입니다.
 
 ```json
 "dependencies": {

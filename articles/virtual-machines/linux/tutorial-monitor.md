@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 2bc1878739c9ce23cb1448eee87d71575823a2f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a21df6e5f8d437415bb5376969d56d26153b5c5f
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740297"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500464"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링
 
@@ -192,4 +192,4 @@ VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확
 Azure Security Center에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [VM 보안 관리](tutorial-azure-security.md)
+> [VM 보안 관리](../tutorial-azure-security.md)

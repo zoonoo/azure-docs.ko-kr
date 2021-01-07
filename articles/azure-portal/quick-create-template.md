@@ -1,18 +1,15 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대시보드 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대시보드를 만드는 방법을 알아봅니다.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2d7006e0c13f7e652b4edd973a36f94f2e2265
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85560500"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745726"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Portal에서 대시보드 만들기
 
@@ -68,19 +65,19 @@ Azure Portal의 대시보드는 클라우드 리소스에 대해 집중적으로
 
     [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-portal-dashboard%2Fazuredeploy.json)
 
-1. 다음 값을 선택하거나 입력한 다음, **검토 + 만들기**를 선택합니다.
+1. 다음 값을 선택하거나 입력한 다음, **검토 + 만들기** 를 선택합니다.
 
     ![ARM 템플릿, 대시보드 만들기, 포털 배포](media/quick-create-template/create-dashboard-using-template-portal.png)
 
     지정되지 않은 경우 기본값을 사용하여 대시보드를 만듭니다.
 
     * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **SimpleWinVmResourceGroup**을 선택합니다.
-    * **위치**: **미국 동부**를 선택합니다.
-    * **가상 머신 이름**: **SimpleWinVm**을 입력합니다.
-    * **가상 머신 리소스 그룹**: **SimpleWinVmResourceGroup**을 입력합니다.
+    * **리소스 그룹**: **SimpleWinVmResourceGroup** 을 선택합니다.
+    * **위치**: **미국 동부** 를 선택합니다.
+    * **가상 머신 이름**: **SimpleWinVm** 을 입력합니다.
+    * **가상 머신 리소스 그룹**: **SimpleWinVmResourceGroup** 을 입력합니다.
 
-1. **만들기** 또는 **구매**를 선택합니다. 대시보드가 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
+1. **만들기** 또는 **구매** 를 선택합니다. 대시보드가 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
 
     ![ARM 템플릿, 대시보드 만들기, 포털 배포 알림](media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -90,11 +87,11 @@ Azure Portal은 템플릿을 배포하는데 사용되었습니다. Azure Portal
 
 대시보드가 성공적으로 만들어졌고 VM에서 데이터를 볼 수 있는지 확인합니다.
 
-1. Azure Portal에서 **대시보드**를 선택합니다.
+1. Azure Portal에서 **대시보드** 를 선택합니다.
 
     ![대시보드에 대한 Azure Portal 탐색](media/quick-create-template/navigate-to-dashboards.png)
 
-1. 대시보드 페이지에서 **단순 VM 대시보드**를 선택합니다.
+1. 대시보드 페이지에서 **단순 VM 대시보드** 를 선택합니다.
 
     ![단순 VM 대시보드로 이동](media/quick-create-template/select-simple-vm-dashboard.png)
 
@@ -106,9 +103,9 @@ Azure Portal은 템플릿을 배포하는데 사용되었습니다. Azure Portal
 
 VM 및 연결된 대시보드를 제거하려면 해당 대시보드를 포함하는 리소스 그룹을 삭제합니다.
 
-1. Azure Portal에서 **SimpleWinVmResourceGroup**을 검색한 다음, 검색 결과에서 선택합니다.
+1. Azure Portal에서 **SimpleWinVmResourceGroup** 을 검색한 다음, 검색 결과에서 선택합니다.
 
-1. **SimpleWinVmResourceGroup** 페이지에서 **리소스 그룹 삭제**를 선택하고, 확인할 리소스 그룹 이름을 입력한 다음, **삭제**를 선택합니다.
+1. **SimpleWinVmResourceGroup** 페이지에서 **리소스 그룹 삭제** 를 선택하고, 확인할 리소스 그룹 이름을 입력한 다음, **삭제** 를 선택합니다.
 
     ![리소스 그룹 삭제](media/quick-create-template/delete-resource-group.png)
 

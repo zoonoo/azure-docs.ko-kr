@@ -7,15 +7,15 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151896"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021931"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
 ## <a name="introduction"></a>소개
-**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. 이 시나리오의 중요한 측면은 데이터를 사용하는 것입니다. 사용자가 데이터 원본을 검색하고 용도를 이해하면 다음 단계는 해당 데이터를 사용할 수 있도록 데이터 원본에 연결하는 것입니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. 이 시나리오의 중요한 측면은 데이터를 사용하는 것입니다. 사용자가 데이터 원본을 검색하고 용도를 이해하면 다음 단계는 해당 데이터를 사용할 수 있도록 데이터 원본에 연결하는 것입니다.
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 데이터 원본을 등록하는 동안 **Azure 데이터 카탈로그** 는 데이터 원본에 대한 메타데이터를 받습니다. 이 메타데이터는 데이터 원본 위치에 대한 세부 정보를 포함합니다. 위치에 대한 세부 정보는 데이터 원본에 따라 달라지지만 연결에 필요한 정보를 항상 포함합니다. 예를 들어 SQL Server Reporting Services 보고서에 대한 위치는 서버 이름 및 보고서에 대한 경로를 포함하는 한편 SQL Server 테이블에 대한 위치는 서버 이름, 데이터베이스 이름, 스키마 이름 및 테이블 이름을 포함합니다. 다른 데이터 원본 유형에는 원본 시스템의 구조 및 기능을 반영하는 위치가 있습니다.
@@ -47,7 +47,7 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 
  ![SQL Server 테이블에 대한 연결 정보](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-연결 세부 정보는 데이터 원본 유형에 따라 다르지만 포털에 포함된 정보는 모든 클라이언트 도구에서 데이터 원본에 연결하는데 필요한 모든 것을 제공합니다. 사용자는 **Azure 데이터 카탈로그**를 사용하여 검색한 데이터 원본에 대한 연결 세부 정보를 복사하여 선택한 자신의 도구에서 데이터를 작업할 수 있도록 합니다.
+연결 세부 정보는 데이터 원본 유형에 따라 다르지만 포털에 포함된 정보는 모든 클라이언트 도구에서 데이터 원본에 연결하는데 필요한 모든 것을 제공합니다. 사용자는 **Azure 데이터 카탈로그** 를 사용하여 검색한 데이터 원본에 대한 연결 세부 정보를 복사하여 선택한 자신의 도구에서 데이터를 작업할 수 있도록 합니다.
 
 ## <a name="connecting-and-data-source-permissions"></a>연결 및 데이터 원본 사용 권한
 **Azure 데이터 카탈로그** 를 통해 데이터 원본을 검색할 수 있지만 데이터 자체에 대한 액세스는 데이터 원본 소유자 또는 관리자의 통제 하에 있습니다. **Azure 데이터 카탈로그** 에서 데이터 원본을 검색하는 것은 사용자에게 데이터 원본 자체에 대한 액세스 권한을 부여하지 않습니다.
@@ -57,7 +57,7 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
  ![제공된 액세스 요청 지침을 사용한 연결 정보](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
 ## <a name="summary"></a>요약
-데이터 원본을 **Azure Data Catalog**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되고 검색되면 사용자는 **Azure Data Catalog** 포털 "다음에서 열기..." "메뉴 또는 선택한 자신의 데이터 도구를 사용하여 데이터 원본에 연결할 수 있습니다.
+데이터 원본을 **Azure Data Catalog** 에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되고 검색되면 사용자는 **Azure Data Catalog** 포털 "다음에서 열기..." "메뉴 또는 선택한 자신의 데이터 도구를 사용하여 데이터 원본에 연결할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 * [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.

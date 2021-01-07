@@ -1,17 +1,15 @@
 ---
 title: Azure Service Fabric 행위자 삭제
 description: Azure Service Fabric 응용 프로그램에서 Reliable Actors 및 해당 상태를 수동으로 및 완전히 삭제 하는 방법에 대해 알아봅니다.
-author: amanbha
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: amanbha
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80192aef564317e36fba56025aa31c787676d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d4ab6a3c155f897cf9212fb1cd6c34d977b9ec
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006859"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574023"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Reliable Actors 및 해당 상태 삭제
 비활성화된 행위자의 가비지 수집에서는 행위자 개체를 정리하기만 하고 행위자의 상태 관리자에 저장된 데이터를 제거하지는 않습니다. 행위자가 다시 활성화되면 상태 관리자를 통해 해당 데이터를 다시 사용할 수 있게 됩니다. 행위자가 상태 관리자에 데이터를 저장하고 비활성화되었지만 다시 활성화되지 않는 경우에는 해당 데이터를 정리해야 할 수 있습니다.

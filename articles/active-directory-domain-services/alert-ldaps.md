@@ -2,7 +2,7 @@
 title: Azure AD Domain Services에서 보안 LDAP 경고 해결 | Microsoft Docs
 description: Azure Active Directory Domain Services에 대 한 보안 LDAP로 일반적인 경고 문제를 해결 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: joflore
-ms.openlocfilehash: b9bdcc7e338c0dffc97bd05a6ae9b64947542b2e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962805"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620310"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: 보안 LDAP 경고 Azure Active Directory Domain Services
 
@@ -34,13 +34,13 @@ LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Dire
 
 보안 LDAP를 사용 하도록 설정 하는 경우 특정 IP 주소에 대 한 인바운드 LDAPS 액세스를 제한 하는 추가 규칙을 만드는 것이 좋습니다. 이러한 규칙은 무차별 암호 대입 공격 으로부터 관리 되는 도메인을 보호 합니다. 보안 LDAP에 대 한 TCP 포트 636 액세스를 제한 하도록 네트워크 보안 그룹을 업데이트 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **네트워크 보안 그룹**을 검색 하 고 선택 합니다.
-1. *Contoso.com-NSG*와 같이 관리 되는 도메인과 연결 된 네트워크 보안 그룹을 선택한 다음 **인바운드 보안 규칙** 을 선택 합니다.
+1. Azure Portal에서 **네트워크 보안 그룹** 을 검색 하 고 선택 합니다.
+1. *Contoso.com-NSG* 와 같이 관리 되는 도메인과 연결 된 네트워크 보안 그룹을 선택한 다음 **인바운드 보안 규칙** 을 선택 합니다.
 1. **+ 추가** 를 선택 하 여 TCP 포트 636에 대 한 규칙을 만듭니다. 필요한 경우 창에서 **고급** 을 선택 하 여 규칙을 만듭니다.
-1. **원본의**경우 드롭다운 메뉴에서 *IP 주소* 를 선택 합니다. 보안 LDAP 트래픽에 대 한 액세스 권한을 부여 하려는 원본 IP 주소를 입력 합니다.
-1. **대상**으로 *Any* 를 선택한 다음 **대상 포트 범위**에 대해 *636* 을 입력 합니다.
-1. **프로토콜** 을 *TCP* 로 설정 하 고 **작업** 을 *허용*으로 설정 합니다.
-1. 규칙의 우선 순위를 지정 하 고 *RestrictLDAPS*와 같은 이름을 입력 합니다.
+1. **원본의** 경우 드롭다운 메뉴에서 *IP 주소* 를 선택 합니다. 보안 LDAP 트래픽에 대 한 액세스 권한을 부여 하려는 원본 IP 주소를 입력 합니다.
+1. **대상** 으로 *Any* 를 선택한 다음 **대상 포트 범위** 에 대해 *636* 을 입력 합니다.
+1. **프로토콜** 을 *TCP* 로 설정 하 고 **작업** 을 *허용* 으로 설정 합니다.
+1. 규칙의 우선 순위를 지정 하 고 *RestrictLDAPS* 와 같은 이름을 입력 합니다.
 1. 준비가 되 면 **추가** 를 선택 하 여 규칙을 만듭니다.
 
 관리 되는 도메인의 상태는 2 시간 내에 자동으로 업데이트 되 고 경고를 제거 합니다.

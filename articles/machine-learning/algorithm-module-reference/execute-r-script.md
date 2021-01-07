@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/21/2020
-ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 12/17/2020
+ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592671"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679106"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
@@ -51,6 +51,9 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!NOTE]
 > 패키지를 설치할 때 CRAN 리포지토리를 지정 합니다 (예:) `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
+> [!WARNING]
+> Excute R 스크립트 모듈은 `qdap` c + +를 필요로 하는 JAVA 및 패키지를 필요로 하는 패키지와 같이 네이티브 컴파일이 필요한 패키지를 설치 하는 것을 지원 하지 않습니다 `drc` . 이 모듈은 비관리자 권한이 있는 사전 설치 된 환경에서 실행 되기 때문입니다.
+
 이 샘플은 동물원을 설치 하는 방법을 보여 줍니다.
 ```R
 # R version: 3.5.1
@@ -78,25 +81,27 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
  > 패키지를 설치 하기 전에 설치를 반복 하지 않도록 이미 존재 하는지 확인 합니다. 설치를 반복 하면 웹 서비스 요청 시간이 초과 될 수 있습니다.     
 
+## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
+
+다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
+
+```R
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="uploading-files"></a>파일 업로드
 R 스크립트 실행 모듈은 Azure Machine Learning R SDK를 사용 하 여 파일 업로드를 지원 합니다.
 
 다음 샘플에서는 R 스크립트 실행에서 이미지 파일을 업로드 하는 방법을 보여 줍니다.
 ```R
-
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
-
-# Note that functions dependent on the X11 library,
-# such as "View," are not supported because the X11 library
-# is not preinstalled.
-
-# The entry point function MUST have two input arguments.
-# If the input port is not connected, the corresponding
-# dataframe argument will be null.
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
 
@@ -119,22 +124,6 @@ azureml_main <- function(dataframe1, dataframe2){
 > [!div class="mx-imgBorder"]
 > ![업로드 된 이미지 미리 보기](media/module/upload-image-in-r-script.png)
 
-## <a name="access-to-registered-dataset"></a>등록 된 데이터 집합에 대 한 액세스
-
-다음 샘플 코드를 참조 하 여 작업 영역에서 등록 된 [데이터 집합](../how-to-create-register-datasets.md) 에 액세스할 수 있습니다.
-
-```R
-    azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
-  run = get_current_run()
-  ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
-  dataframe2 <- dataset$to_pandas_dataframe()
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
-
 ## <a name="how-to-configure-execute-r-script"></a>R 스크립트 실행을 구성 하는 방법
 
 R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
@@ -147,11 +136,11 @@ R 스크립트 실행 모듈에는 샘플 코드가 포함 되어 있습니다.
 
 1. 스크립트에 필요한 모든 입력을 연결 합니다. 입력은 선택 사항이 며 데이터 및 추가 R 코드를 포함할 수 있습니다.
 
-    * **Dataset1** : 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
+    * **Dataset1**: 첫 번째 입력을로 참조 합니다 `dataframe1` . 입력 데이터 집합은 CSV, TSV 또는 ARFF 파일 형식으로 지정 해야 합니다. 또는 Azure Machine Learning 데이터 집합을 연결할 수 있습니다.
 
-    * **Dataset2** : 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
+    * **Dataset2**: 두 번째 입력을로 참조 합니다 `dataframe2` . 또한이 데이터 집합은 CSV, TSV 또는 ARFF 파일이 나 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
 
-    * **스크립트 번들** : 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
+    * **스크립트 번들**: 세 번째 입력은 .zip 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
 
 1. **R 스크립트** 텍스트 상자에 올바른 R 스크립트를 입력 하거나 붙여 넣습니다.
 

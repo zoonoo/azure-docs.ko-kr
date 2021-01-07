@@ -3,16 +3,17 @@ title: Azure의 Red Hat Enterprise Linux 이미지 개요
 description: Microsoft Azure Red Hat Enterprise Linux 이미지에 대해 알아봅니다.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 46504f7d6d3a989119a3c851fc029bdf4494e01f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994301"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900504"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -21,7 +22,7 @@ ms.locfileid: "91994301"
 모든 버전의 RHEL에 대 한 Red Hat 지원 정책에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요. 가격 책정에 대 한 자세한 내용은 [Azure 가격 계산기](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조 하세요.
 
 >[!IMPORTANT]
-> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. [Azure 하이브리드 사용 혜택](../../windows/hybrid-use-benefit-licensing.md) 및 byos와 종 량 제 라이선스 간의 동적 전환은 지원 되지 않습니다. 라이선스 모드를 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
+> 현재 Azure Marketplace에서 사용할 수 있는 RHEL 이미지는 BYOS (사용자 고유의 구독) 또는 종 량 제 라이선스 모델을 지원 합니다. BYOS와 종 량 제 라이선스 간의 동적 전환은 [Azure 하이브리드 사용 혜택](../../linux/azure-hybrid-benefit-linux.md)을 통해 수행할 수 있습니다.
 
 >[!NOTE]
 > Azure Marketplace의 RHEL 이미지와 관련 된 모든 문제에 대해 Microsoft에 지원 티켓을 제출 합니다.
@@ -145,7 +146,7 @@ RedHat:RHEL:7.6:7.6.2019102813
 RHEL 7.4      |RedHat: RHEL: 7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat: RHEL: 7.5:7.5.2019060305 | 6 월 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat: RHEL: 7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다. |
-RHEL 8.0      |N/A                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
+RHEL 8.0      |해당 없음                            | Red Hat에서는 EUS를 사용할 수 없습니다.                               |
 
 ### <a name="update-services-for-sap"></a>SAP 용 업데이트 서비스
 

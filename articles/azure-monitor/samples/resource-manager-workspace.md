@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 684f37ba3186a719aa9ce730ac07ca4ad42f113d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cc79edf50c4f056f413292d2d43aa8cf8e65136
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458062"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683481"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 Log Analytics 작업 영역을 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -610,7 +610,7 @@ ms.locfileid: "89458062"
 
 ### <a name="notes"></a>메모
 
-- 구분 기호 및 추출 구성은 복잡할 수 있습니다. 도움말을 보려면 **-Kind**가 **CustomLog**로 설정된 [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0)를 사용하는 해당 구성 검색 및 Azure Portal을 사용하여 사용자 지정 로그를 정의합니다.
+- 구분 기호 및 추출 구성은 복잡할 수 있습니다. 도움말을 보려면 **-Kind** 가 **CustomLog** 로 설정된 [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0)를 사용하는 해당 구성 검색 및 Azure Portal을 사용하여 사용자 지정 로그를 정의합니다.
 
   
 ### <a name="template-file"></a>템플릿 파일
@@ -698,7 +698,6 @@ ms.locfileid: "89458062"
           "properties": {
               "customLogName": "armlog_newline",
               "description": "this is a description",
-              "extractions": [],
               "inputs": [
                 {
                     "location": {

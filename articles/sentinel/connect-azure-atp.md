@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579524"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656074"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Microsoft Defender에서 Id에 대 한 데이터 연결 (이전의 Azure Advanced Threat Protection)
 
@@ -27,7 +27,7 @@ ms.locfileid: "94579524"
 > Azure 센티널의 Microsoft Defender for Identity 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
 > 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-한 번의 클릭으로 [Microsoft Defender에서 id에 대 한](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 로그를 Azure 센티널로 스트리밍할 수 있습니다.
+한 번의 클릭으로 [Microsoft Defender에서 id에 대 한](/azure-advanced-threat-protection/what-is-atp) 로그를 Azure 센티널로 스트리밍할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -36,7 +36,7 @@ ms.locfileid: "94579524"
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Id에 대해 Microsoft Defender에 연결
 
-Microsoft Defender for Identity preview 버전이 [네트워크에서 사용 하도록 설정](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1)되어 있는지 확인 합니다.
+Microsoft Defender for Identity preview 버전이 [네트워크에서 사용 하도록 설정](/azure-advanced-threat-protection/install-atp-step1)되어 있는지 확인 합니다.
 Microsoft Defender for Identity가 배포 되 고 데이터를 수집 의심 스러운 경고를 Azure 센티널로 쉽게 스트리밍할 수 있습니다. 경고가 Azure 센티널로 스트리밍을 시작 하는 데 최대 24 시간이 걸릴 수 있습니다.
 
 
@@ -57,4 +57,3 @@ Microsoft Defender for Identity가 배포 되 고 데이터를 수집 의심 스
 이 문서에서는 Id 용 Microsoft Defender를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
-

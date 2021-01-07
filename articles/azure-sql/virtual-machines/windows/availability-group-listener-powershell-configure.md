@@ -7,18 +7,19 @@ author: MashaMSFT
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb55274800b239cf0e1e942647ae0c65b321b862
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9337d1c2767923e6dc7c6b267e0c180b460a116e
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790052"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359424"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 
@@ -64,7 +65,7 @@ Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경�
 현재 가용성 그룹을 위한 [Microsoft 템플릿](./availability-group-quickstart-template-configure.md)은 기본 IP 주소를 사용하는 기본 부하 분산 장치를 사용합니다.
 
    > [!NOTE]
-   > 클라우드 감시에 표준 부하 분산 장치 및 Azure Storage를 사용하는 경우 [서비스 엔드포인트](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)를 구성해야 합니다. 
+   > 클라우드 감시에 표준 부하 분산 장치 및 Azure Storage를 사용하는 경우 [서비스 엔드포인트](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)를 구성해야 합니다. 
    > 
 
 이 문서의 예제에서는 표준 부하 분산 장치를 지정합니다. 예제에서 스크립트는 `-sku Standard`를 포함합니다.
@@ -236,7 +237,7 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
   - AG 수신기에 대 한 부하 분산 장치 부동 IP 주소
   - 클러스터 코어 IP 주소 (해당 하는 경우)입니다.
 
-* 클라우드 감시에 Azure Storage와 함께 표준 부하 분산 장치를 사용하는 경우 서비스 엔드포인트를 만듭니다. 자세한 내용은 [가상 네트워크에서 액세스 권한 얻기](../../../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#grant-access-from-a-virtual-network)를 참조하세요.
+* 클라우드 감시에 Azure Storage와 함께 표준 부하 분산 장치를 사용하는 경우 서비스 엔드포인트를 만듭니다. 자세한 내용은 [가상 네트워크에서 액세스 권한 얻기](../../../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)를 참조하세요.
 
 ## <a name="for-more-information"></a>참조 항목
 

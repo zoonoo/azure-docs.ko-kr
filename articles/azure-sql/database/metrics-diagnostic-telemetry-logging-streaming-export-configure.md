@@ -9,14 +9,14 @@ ms.devlang: sqldbrb=2
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: b1e1de694b6333a350d034b08225aeea117ae703
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790477"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96490823"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Azure SQL Database 및 SQL Managed Instance 진단 원격 분석의 스트리밍 내보내기 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -56,17 +56,17 @@ Intelligent Insights 로그의 내보내기를 스트리밍하는 것 외에도 
 
 이 진단 원격 분석은 분석을 위해 다음 Azure 리소스 중 하나로 스트리밍할 수 있습니다.
 
-- **[Log Analytics 작업 영역](#stream-into-sql-analytics)** :
+- **[Log Analytics 작업 영역](#stream-into-sql-analytics)**:
 
   [Log Analytics 작업 영역](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) 으로 스트리밍되는 데이터는 [SQL Analytics](../../azure-monitor/insights/azure-sql.md)에서 사용할 수 있습니다. SQL Analytics는 성능 보고서, 경고 및 완화 권장 사항을 포함 하는 데이터베이스에 대 한 지능형 모니터링을 제공 하는 클라우드 전용 모니터링 솔루션입니다. Log Analytics 작업 영역으로 스트리밍되는 데이터는 수집 된 다른 모니터링 데이터를 사용 하 여 분석할 수 있으며 경고 및 시각화와 같은 다른 Azure Monitor 기능을 활용할 수도 있습니다.
-- **[Azure Event Hubs](#stream-into-event-hubs)** :
+- **[Azure Event Hubs](#stream-into-event-hubs)**:
 
   [Azure 이벤트 허브](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)로 스트리밍되는 데이터는 다음과 같은 기능을 제공 합니다.
 
-  - 타사 **로깅 및 원격 분석 시스템으로 로그 스트림** : 모든 메트릭 및 리소스 로그를 단일 이벤트 허브로 스트리밍하려면 로그 데이터를 타사 siem 또는 log analytics 도구로 파이프 합니다.
-  - **사용자 지정 원격 분석 및 로깅 플랫폼 빌드** : event hubs의 확장성이 뛰어난 게시-구독 특성을 통해 메트릭 및 리소스 로그를 사용자 지정 원격 분석 플랫폼으로 유연 하 게 수집할 수 있습니다. 자세한 내용은 [Event Hubs Azure에서 글로벌 확장 원격 분석 플랫폼 디자인 및 크기 조정](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) 을 참조 하세요.
-  - **Power BI에 데이터를 스트리밍하 여 서비스 상태 보기** : Event Hubs, Stream Analytics 및 Power BI를 사용 하 여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 변환 합니다. 이 솔루션에 대 한 자세한 내용은 [Stream Analytics 및 Power BI: 스트리밍 데이터에 대 한 실시간 분석 대시보드를](../../stream-analytics/stream-analytics-power-bi-dashboard.md) 참조 하세요.
-- **[Azure Storage](#stream-into-azure-storage)** :
+  - 타사 **로깅 및 원격 분석 시스템으로 로그 스트림**: 모든 메트릭 및 리소스 로그를 단일 이벤트 허브로 스트리밍하려면 로그 데이터를 타사 siem 또는 log analytics 도구로 파이프 합니다.
+  - **사용자 지정 원격 분석 및 로깅 플랫폼 빌드**: event hubs의 확장성이 뛰어난 게시-구독 특성을 통해 메트릭 및 리소스 로그를 사용자 지정 원격 분석 플랫폼으로 유연 하 게 수집할 수 있습니다. 자세한 내용은 [Event Hubs Azure에서 글로벌 확장 원격 분석 플랫폼 디자인 및 크기 조정](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) 을 참조 하세요.
+  - **Power BI에 데이터를 스트리밍하 여 서비스 상태 보기**: Event Hubs, Stream Analytics 및 Power BI를 사용 하 여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 변환 합니다. 이 솔루션에 대 한 자세한 내용은 [Stream Analytics 및 Power BI: 스트리밍 데이터에 대 한 실시간 분석 대시보드를](../../stream-analytics/stream-analytics-power-bi-dashboard.md) 참조 하세요.
+- **[Azure Storage](#stream-into-azure-storage)**:
 
   [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 로 스트리밍되는 데이터는 이전의 두 스트리밍 옵션에 대 한 비용을 절감 하기 위해 방대한 양의 진단 원격 분석을 보관할 수 있습니다.
 
@@ -122,7 +122,7 @@ Azure Portal에서 진단 원격 분석의 스트리밍 내보내기를 구성 �
    ![탄력적 풀에 대해 진단 사용](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-enable.png)
 
 4. 고유한 참조의 설정 이름을 입력합니다.
-5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관** , **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
+5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
 6. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기** 를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 선택 합니다.
 7. 탄력적 풀 진단 원격 분석: **기본** 메트릭에 대 한 확인란을 선택 합니다.
    ![탄력적 풀에 대해 진단 구성](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
@@ -151,8 +151,8 @@ Azure Portal에서 진단 원격 분석의 스트리밍 내보내기를 구성 �
    ![단일 및 풀링된 데이터베이스에 대 한 진단 사용](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-enable.png)
 
 5. 고유한 참조의 설정 이름을 입력합니다.
-6. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관** , **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
-7. 표준 이벤트 기반 모니터링 환경에서는 데이터베이스 진단 로그 원격 분석에 대 한 다음 확인란을 선택 합니다. **SQLInsights** , 자동 **조정** , **QueryStoreRuntimeStatistics** , **queryswaitwaitstatistics** , **Errors** , **databasewaitstatistics** , **시간 제한** , **블록** 및 **교착 상태** .
+6. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
+7. 표준 이벤트 기반 모니터링 환경에서는 데이터베이스 진단 로그 원격 분석에 대 한 다음 확인란을 선택 합니다. **SQLInsights**, 자동 **조정**, **QueryStoreRuntimeStatistics**, **queryswaitwaitstatistics**, **Errors**, **databasewaitstatistics**, **시간 제한**, **블록** 및 **교착 상태**.
 8. 1 분 분량의 고급 모니터링 환경을 위해 **기본** 메트릭에 대 한 확인란을 선택 합니다.
 
    ![Azure SQL Database에 대 한 진단 구성](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
@@ -186,7 +186,7 @@ Azure Portal에서 진단 원격 분석의 스트리밍 내보내기를 구성 �
    ![관리되는 인스턴스에 대해 진단 사용](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-enable.png)
 
 4. 고유한 참조의 설정 이름을 입력합니다.
-5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관** , **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
+5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
 6. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기** 를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 사용 합니다.
 7. 인스턴스 진단 원격 분석: **ResourceUsageStats** 에 대 한 확인란을 선택 합니다.
 
@@ -217,8 +217,8 @@ Azure Portal에서 진단 원격 분석의 스트리밍 내보내기를 구성 �
    ![인스턴스 데이터베이스에 대해 진단 사용](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-enable.png)
 
 4. 고유한 참조의 설정 이름을 입력합니다.
-5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관** , **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
-6. 데이터베이스 진단 원격 분석에 대 한 확인란을 선택 합니다. **SQLInsights** , **QueryStoreRuntimeStatistics** , **Query waitstatistics** 및 **Errors** .
+5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림** 또는 **Log Analytics으로 전송** 합니다.
+6. 데이터베이스 진단 원격 분석에 대 한 확인란을 선택 합니다. **SQLInsights**, **QueryStoreRuntimeStatistics**, **Query waitstatistics** 및 **Errors**.
    ![인스턴스 데이터베이스에 대한 진단 구성](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
 7. **저장** 을 선택합니다.
 8. 모니터링 하려는 각 인스턴스 데이터베이스에 대해 이러한 단계를 반복 합니다.
@@ -471,14 +471,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="resource-usage-stats-for-managed-instances"></a>관리 되는 인스턴스의 리소스 사용 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: ResourceUsageStats |
+|범주|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: MANAGEDINSTANCES |
 |SubscriptionId|데이터베이스의 구독 GUID |
@@ -496,14 +496,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: QueryStoreRuntimeStatistics |
+|범주|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -547,14 +547,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="query-store-wait-statistics"></a>쿼리 저장소 대기 통계
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: QueryStoreWaitStatistics |
+|범주|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -585,14 +585,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="errors-dataset"></a>오류 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Errors |
+|범주|범주 이름. 항상: Errors |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -614,14 +614,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: DatabaseWaitStatistics |
+|범주|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -643,14 +643,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Timeouts |
+|범주|범주 이름. 항상: Timeouts |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -666,14 +666,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="blockings-dataset"></a>차단 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: Blocks |
+|범주|범주 이름. 항상: Blocks |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -690,14 +690,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: 교착 상태 |
+|범주|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
@@ -711,14 +711,14 @@ Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **
 
 #### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|Type|항상: AzureDiagnostics |
+|형식|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
-|Category|범주 이름. 항상: AutomaticTuning |
+|범주|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |
 |ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES |
 |SubscriptionId|데이터베이스의 구독 GUID |

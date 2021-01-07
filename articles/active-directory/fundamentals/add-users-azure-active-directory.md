@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370817"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996698"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -32,19 +32,19 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
 1. 조직의 사용자 관리자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
-1. 모든 페이지에서 *Azure Active Directory*를 검색하고 선택합니다.
+1. 모든 페이지에서 *Azure Active Directory* 를 검색하고 선택합니다.
 
-1. **사용자**를 선택한 다음 **새 사용자**를 선택 합니다.
+1. **사용자** 를 선택한 다음 **새 사용자** 를 선택 합니다.
 
     ![사용자를 통해 사용자 추가-Azure AD의 모든 사용자](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
 1. **사용자** 페이지에서이 사용자에 대 한 정보를 입력 합니다.
 
-   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
+   - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
 
    - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
 
-     사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 * \<yourdomainname> onmicrosoft.com*을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
+     사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 *\<yourdomainname> onmicrosoft.com* 을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 
    - **그룹**. 원할 경우, 하나 이상의 기존 그룹에 사용자를 추가할 수 있습니다. 사용자를 나중에 그룹에 추가할 수도 있습니다. 그룹에 사용자를 추가 하는 방법에 대 한 자세한 내용은 [기본 그룹 만들기 및 Azure Active Directory를 사용 하 여 구성원 추가](active-directory-groups-create-azure-portal.md)를 참조 하세요.
 
@@ -54,7 +54,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
 1. **암호** 상자에 제공 된 자동 생성 된 암호를 복사 합니다. 사용자가 처음으로 로그인 하려면이 암호를 제공 해야 합니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 사용자가 만들어지고 Azure AD 조직에 추가 됩니다.
 
@@ -78,11 +78,11 @@ Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 
 
 1. 조직의 사용자 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
-1. 모든 페이지에서 *Azure Active Directory*를 검색하고 선택합니다.
+1. 모든 페이지에서 *Azure Active Directory* 를 검색하고 선택합니다.
 
-1. Azure AD 테 넌 트에서 삭제할 사용자를 검색 하 고 선택 합니다. 예를 들어, _Mary Parker_입니다.
+1. Azure AD 테 넌 트에서 삭제할 사용자를 검색 하 고 선택 합니다. 예를 들어, _Mary Parker_ 입니다.
 
-1. **사용자 삭제**를 선택합니다.
+1. **사용자 삭제** 를 선택합니다.
 
     ![사용자 - 사용자 삭제가 강조 표시된 모든 사용자 페이지](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 

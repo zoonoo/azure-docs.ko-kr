@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358486"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913065"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -41,21 +41,21 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 이 섹션에서는 Blob API와 Data Lake Storage Gen2 API를 사용하여 동일한 데이터에서 작업하는 경우의 문제점과 제한 사항에 대해 설명합니다.
 
-* Blob API 및 Data Lake Storage Api를 사용 하 여 파일의 동일한 인스턴스에 쓸 수는 없습니다. Data Lake Storage Gen2 API를 사용하여 파일에 쓰면 해당 파일의 블록은 [블록 목록 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 보이지 않습니다. 유일한 예외는를 사용 하 여 덮어쓰는 것입니다. 두 API를 사용 하 여 파일/b a s e/blob을 덮어쓸 수 있습니다.
+* Blob API 및 Data Lake Storage Api를 사용 하 여 파일의 동일한 인스턴스에 쓸 수는 없습니다. Data Lake Storage Gen2 API를 사용하여 파일에 쓰면 해당 파일의 블록은 [블록 목록 가져오기](/rest/api/storageservices/get-block-list) Blob API에 대한 호출에 보이지 않습니다. 유일한 예외는를 사용 하 여 덮어쓰는 것입니다. 두 API를 사용 하 여 파일/b a s e/blob을 덮어쓸 수 있습니다.
 
-* 구분 기호를 지정하지 않고 [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 작업을 사용하면 결과에 디렉터리와 Blob이 모두 포함됩니다. 구분 기호를 사용하려면 슬래시(`/`)만 사용합니다. 이것이 유일하게 지원되는 구분 기호입니다.
+* 구분 기호를 지정하지 않고 [Blob 나열](/rest/api/storageservices/list-blobs) 작업을 사용하면 결과에 디렉터리와 Blob이 모두 포함됩니다. 구분 기호를 사용하려면 슬래시(`/`)만 사용합니다. 이것이 유일하게 지원되는 구분 기호입니다.
 
-* [Blob 삭제](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API를 사용하여 디렉터리를 삭제하면 디렉터리가 비어있는 경우에만 삭제됩니다. 따라서, Blob API 디렉터리 삭제는 재귀적으로 사용할 수 없습니다.
+* [Blob 삭제](/rest/api/storageservices/delete-blob) API를 사용하여 디렉터리를 삭제하면 디렉터리가 비어있는 경우에만 삭제됩니다. 따라서, Blob API 디렉터리 삭제는 재귀적으로 사용할 수 없습니다.
 
 다음과 같은 Blob REST API는 지원되지 않습니다.
 
-* [Blob 배치(페이지)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [페이지 범위 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Blob 증분 복사](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [URL에서 페이지 배치](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [추가 블록](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [URL에서 블록 추가](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Blob 배치(페이지)](/rest/api/storageservices/put-blob)
+* [페이지 배치](/rest/api/storageservices/put-page)
+* [페이지 범위 가져오기](/rest/api/storageservices/get-page-ranges)
+* [Blob 증분 복사](/rest/api/storageservices/incremental-copy-blob)
+* [URL에서 페이지 배치](/rest/api/storageservices/put-page-from-url)
+* [추가 블록](/rest/api/storageservices/append-block)
+* [URL에서 블록 추가](/rest/api/storageservices/append-block-from-url)
 
 
 비관리형 VM 디스크는 계층 구조 네임스페이스가 있는 계정에서 지원되지 않습니다. 스토리지 계정에서 계층 구조 네임스페이스를 활성화하려면, 계층 구조 네임스페이스 기능을 활성화하지 않은 스토리지 계정에 비관리형 VM 디스크를 배치합니다.
@@ -70,7 +70,7 @@ Blob API와 Data Lake Storage Gen2 API는 동일한 데이터에서 작업할 �
 
 ## <a name="azcopy"></a>AzCopy
 
-최신 버전의 AzCopy만 사용하십시오([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  AzCopy v8.1과 같은 이전 버전의 AzCopy는 지원되지 않습니다.
+최신 버전의 AzCopy만 사용하십시오([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  AzCopy v8.1과 같은 이전 버전의 AzCopy는 지원되지 않습니다.
 
 <a id="storage-explorer"></a>
 
@@ -92,7 +92,7 @@ REST API를 사용하여 작동하는 타사 애플리케이션은 Blob API를 �
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>ACL(액세스 제어 목록) 및 익명 읽기 액세스
 
-컨테이너에 [익명 읽기 액세스](storage-manage-access-to-resources.md)가 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
+컨테이너에 [익명 읽기 액세스](./anonymous-read-access-configure.md)가 부여된 경우 ACL은 해당 컨테이너 또는 해당 컨테이너의 파일에 영향을 주지 않습니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 

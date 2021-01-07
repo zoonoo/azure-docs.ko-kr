@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 08/26/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 4d6bf4df1499d919cead0a184054e5ba0db9c06e
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925801"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97346603"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장 문제 해결
 
@@ -42,6 +42,11 @@ Azure AD Connect 버전 *1.1.443.0* 이상에서는 다음 주소에 *아웃 바
 
 * *\*. passwordreset.microsoftonline.com*
 * *\*. servicebus.windows.net*
+
+Azure [.gov 끝점](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+
+* *\*. passwordreset.microsoftonline.us*
+* *\*. servicebus.usgovcloudapi.net*
 
 더 많은 세분성이 필요한 경우 [Microsoft Azure 데이터 센터 IP 범위 목록을](https://www.microsoft.com/download/details.aspx?id=41653)참조 하세요. 이 목록은 수요일 마다 업데이트 되며 다음 월요일에 적용 됩니다.
 
@@ -104,29 +109,29 @@ Azure AD Connect를 다시 설치 하면 Azure AD와 로컬 Active Directory Dom
 1. Azure AD Connect 서버에 로그인하고 **시작** > **동기화 서비스** 를 선택하여 **Synchronization Service Manager** 를 시작합니다.
 1. **커넥터** 탭 아래에서 온-프레미스 **Active Directory Domain Services** 커넥터를 선택한 후 **속성** 을 선택합니다.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="속성을 편집하는 방법을 보여 주는 Synchronization Service Manager" border="false":::
   
 1. 팝업 창에서 **Active Directory 포리스트에 연결** 을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이 속성은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다.
 
     Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다. 다음 단계에서이 사용자 계정에 대 한 사용 권한을 확인 합니다.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="동기화 서비스 Active Directory 사용자 계정 찾기" border="false":::
   
 1. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 애플리케이션을 시작합니다.
 1. **보기** 를 선택하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Active Directory 사용자 및 컴퓨터에 고급 기능 표시" border="false":::
   
 1. 확인 하려는 AD DS 사용자 계정을 찾습니다. 계정 이름을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.  
 1. 팝업 창에서 **보안** 탭으로 이동하고 **고급** 을 선택합니다.  
 1. **관리자에 대한 고급 보안 설정** 팝업 창에서 **유효한 액세스** 탭으로 이동합니다.
 1. **사용자 선택** 을 선택 하 고 Azure AD Connect에서 사용 하는 AD DS 계정을 선택한 다음 **유효한 액세스 보기** 를 선택 합니다.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="동기화 계정을 표시하는 유효한 액세스 탭" border="false":::
   
 1. 아래로 스크롤하여 **암호 재설정** 을 검색합니다. 해당 항목에 선택 표시가 있는 경우 AD DS 계정에 선택한 Active Directory 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작" border="false":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="동기화 계정에 비밀번호 재설정 권한이 있는지 확인" border="false":::
 
 ## <a name="common-password-writeback-errors"></a>일반적인 비밀 번호 쓰기 저장 오류
 
@@ -213,22 +218,22 @@ Azure AD 및 셀프 서비스 암호 재설정에 대 한 일반적인 질문이
 
 제대로 지원하기 위해 사례를 시작할 때 가능한 많은 세부 정보를 제공하도록 요청합니다. 이러한 세부 정보는 다음과 같습니다.
 
-* **오류에 대한 일반적인 설명** : 오류란 무엇인가요? 어떤 동작이 발견되었습니까? 오류를 재현하려면 어떻게 해야 합니까? 최대한 많은 세부 정보를 제공해주세요.
-* **페이지** : 어떤 페이지에서 오류가 나타났나요? 가능하면 URL 및 페이지 스크린샷을 포함해주세요.
-* **지원 코드** : 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었나요?
+* **오류에 대한 일반적인 설명**: 오류란 무엇인가요? 어떤 동작이 발견되었습니까? 오류를 재현하려면 어떻게 해야 합니까? 최대한 많은 세부 정보를 제공해주세요.
+* **페이지**: 어떤 페이지에서 오류가 나타났나요? 가능하면 URL 및 페이지 스크린샷을 포함해주세요.
+* **지원 코드**: 사용자가 오류를 확인했을 때 생성된 지원 코드는 무엇이었나요?
    * 이 코드를 찾으려면 오류를 재현한 후 화면 아래에서 **지원 코드** 링크를 선택하고 지원 엔지니어에게 결과로 표시된 GUID를 보내세요.
 
-    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="GUI를 사용하여 Azure AD Sync 서비스 다시 시작":::
+    :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="지원 코드는 웹 브라우저 창의 오른쪽 아래에 있습니다.":::
 
   * 아래에서 지원 코드 없이 페이지에서 F12 키를 선택하고 SID 및 CID를 검색한 후 지원 엔지니어에게 이러한 두 개의 결과를 보냅니다.
-* **날짜, 시간 및 표준 시간대** : 오류가 발생한 *표준 시간대와* 정확한 날짜 및 시간을 포함해주세요.
-* **사용자 ID** : 어떤 사용자에게서 오류가 나타났나요? 예를 들면 ‘사용자\@contoso.com’입니다.
+* **날짜, 시간 및 표준 시간대**: 오류가 발생한 *표준 시간대와* 정확한 날짜 및 시간을 포함해주세요.
+* **사용자 ID**: 어떤 사용자에게서 오류가 나타났나요? 예를 들면 ‘사용자\@contoso.com’입니다.
    * 페더레이션된 사용자입니까?
    * 통과 인증 사용자입니까?
    * 암호 해시 동기화 사용자인가요?
    * 클라우드 전용 사용자인가요?
-* **라이선스** : 사용자에게 Azure AD 라이선스가 할당되었나요?
-* **애플리케이션 이벤트 로그** : 비밀번호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 애플리케이션 이벤트 로그의 복사본을 압축하여 보내주세요.
+* **라이선스**: 사용자에게 Azure AD 라이선스가 할당되었나요?
+* **애플리케이션 이벤트 로그**: 비밀번호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 애플리케이션 이벤트 로그의 복사본을 압축하여 보내주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

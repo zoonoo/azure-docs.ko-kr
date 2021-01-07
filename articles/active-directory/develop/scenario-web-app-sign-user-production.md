@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f438567851204a1a284955bede1525505712f4b7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: fd9890cb94bf6bb4b82ebbb585ab8bbb9d5ba46a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442381"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169293"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자가 로그인 하는 웹 앱: 프로덕션으로 이동
 
@@ -50,7 +50,7 @@ SameSite NuGet 패키지는 가장 일반적인 문제를 처리 합니다.
 - 조직
 - 여러 조직
 - 회사 또는 학교 계정 또는 개인 Microsoft 계정
-- [Azure AD B2C](https://aka.ms/aadb2c)
+- [Azure AD B2C](../../active-directory-b2c/overview.md)
 - 국가별 클라우드
 
 ## <a name="sample-code-java-web-app"></a>샘플 코드: Java 웹 앱

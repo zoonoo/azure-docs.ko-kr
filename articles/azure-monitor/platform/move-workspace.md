@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555535"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699749"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -30,7 +30,7 @@ ms.locfileid: "94555535"
 
 ## <a name="workspace-move-considerations"></a>작업 영역 이동 고려 사항
 - 작업 영역에 설치 되는 관리형 솔루션은 Log Analytics 작업 영역 이동 작업과 함께 이동 됩니다. 
-- 작업 영역 이동 (주 및 보조)으로 작업 영역 키가 다시 생성 됩니다. 작업 영역 키가 자격 증명 모음 인 경우 새로 생성 된 키를 사용 하 여 해당 키를 업데이트 합니다. 
+- 작업 영역 키 (기본 및 보조)는 작업 영역 이동 작업을 사용 하 여 다시 생성 됩니다. 키 자격 증명 모음에 작업 영역 키의 복사본을 보관 하는 경우 작업 영역을 이동한 후에 생성 된 새 키로 업데이트 합니다. 
 - 연결 된 에이전트는 연결 된 상태를 유지 하 고 이동 후에 작업 영역으로 데이터를 전송 합니다. 
 - 이동 작업을 수행 하려면 작업 영역에서 연결 된 서비스가 필요 하지 않으므로 작업 영역 이동을 허용 하려면 해당 링크를 사용 하는 솔루션을 제거 해야 합니다. Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션은 다음과 같습니다.
   - 업데이트 관리

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: 4179b06759802025f97bd32a355b788c96c9eddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a32491453812d74d4bd93f3f97b7e6a32036f65f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123323"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573377"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "93123323"
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
 
-### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>관리 ID를 사용하여 SQL Database 출력에 인증
+### <a name="authenticate-to-sql-database-output-with-managed-identities-preview"></a>관리 id를 사용 하 여 SQL Database 출력에 인증 (미리 보기)
 
 Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 인증](../active-directory/managed-identities-azure-resources/overview.md)을 지원합니다. 관리 id를 사용 하면 암호 변경으로 인해 다시 인증 해야 하는 것과 같은 사용자 기반 인증 방법의 제한 사항이 제거 됩니다. 
 

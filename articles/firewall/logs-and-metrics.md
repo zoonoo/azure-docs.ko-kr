@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: victorh
-ms.openlocfilehash: a0333f9afa69b533ac28dc302987e6d057bfeeb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69890e2d846a63a70c1b7459b1df13ce5e891289
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090162"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659474"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭
 
@@ -155,10 +155,10 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
     단위:%
 
    이 메트릭에는 두 개의 차원이 있습니다.
-  - 상태: 가능한 값은 *정상*, *저하*됨, *비정상*입니다.
+  - 상태: 가능한 값은 *정상*, *저하* 됨, *비정상* 입니다.
   - 이유: 방화벽의 해당 상태에 대 한 이유를 나타냅니다. 
 
-     SNAT 포트를 95% > 사용 하는 경우 사용 중인 것으로 간주 되 고 상태는 50% 상태 =**저하** 됨 및 이유 =**SNAT 포트**입니다. 방화벽은 처리 트래픽을 유지하고 기존 연결은 영향을 받지 않습니다. 그러나 새 연결이 간헐적으로 설정되지 않을 수 있습니다.
+     SNAT 포트를 95% > 사용 하는 경우 사용 중인 것으로 간주 되 고 상태는 50% 상태 =**저하** 됨 및 이유 =**SNAT 포트** 입니다. 방화벽은 처리 트래픽을 유지하고 기존 연결은 영향을 받지 않습니다. 그러나 새 연결이 간헐적으로 설정되지 않을 수 있습니다.
 
      SNAT 포트를 95% < 사용 하는 경우 방화벽은 정상으로 간주 되 고 상태는 100%로 표시 됩니다.
 
@@ -173,6 +173,6 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)을 참조하세요.
+- Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)을 참조하세요.
 
 - Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.

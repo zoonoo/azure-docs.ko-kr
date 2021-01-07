@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperfq2
-ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616181"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584496"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>자습서 - Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -45,7 +45,7 @@ SCIM 2.0(RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.i
 
 ## <a name="step-1-design-your-user-and-group-schema"></a>1단계: 사용자 및 그룹 스키마 디자인
 
-모든 애플리케이션에는 사용자 또는 그룹을 만들기 위해 여러 특성이 필요합니다. 애플리케이션에 필요한 개체(사용자, 그룹) 및 특성(이름, 관리자, 직함 등)을 식별하여 통합을 시작합니다. SCIM 표준은 사용자 및 그룹을 관리하기 위한 스키마를 정의합니다. 핵심 사용자 스키마에는 **id** \(서비스 공급자 정의 식별자\), **externalId** \(클라이언트 정의 식별자\) 및 **meta** \(서비스 공급자가 유지 관리하는 읽기 전용 메타데이터\)의 세 가지 특성만 필요합니다. 기타 모든 특성은 선택 사항입니다. SCIM 표준은 핵심 사용자 스키마 외에도 애플리케이션의 요구에 맞게 사용자 스키마를 확장하기 위한 모델 및 엔터프라이즈 사용자 확장을 정의합니다. 예를 들어 애플리케이션에 사용자 관리자가 필요한 경우 엔터프라이즈 사용자 스키마를 사용하여 사용자 관리자를 수집하고 핵심 스키마를 사용하여 사용자의 메일을 수집할 수 있습니다. 스키마를 디자인하려면 다음 단계를 수행합니다.
+모든 애플리케이션에는 사용자 또는 그룹을 만들기 위해 여러 특성이 필요합니다. 애플리케이션에 필요한 개체(사용자, 그룹) 및 특성(이름, 관리자, 직함 등)을 식별하여 통합을 시작합니다. SCIM 표준은 사용자 및 그룹을 관리하기 위한 스키마를 정의합니다. 핵심 사용자 스키마에는 **id**\(서비스 공급자 정의 식별자\), **externalId**\(클라이언트 정의 식별자\) 및 **meta**\(서비스 공급자가 유지 관리하는 읽기 전용 메타데이터\)의 세 가지 특성만 필요합니다. 기타 모든 특성은 선택 사항입니다. SCIM 표준은 핵심 사용자 스키마 외에도 애플리케이션의 요구에 맞게 사용자 스키마를 확장하기 위한 모델 및 엔터프라이즈 사용자 확장을 정의합니다. 예를 들어 애플리케이션에 사용자 관리자가 필요한 경우 엔터프라이즈 사용자 스키마를 사용하여 사용자 관리자를 수집하고 핵심 스키마를 사용하여 사용자의 메일을 수집할 수 있습니다. 스키마를 디자인하려면 다음 단계를 수행합니다.
   1. 애플리케이션에 필요한 특성을 나열합니다. 그러면 요구 사항을 인증에 필요한 특성(예: loginName 및 메일), 사용자의 수명 주기를 관리하는 데 필요한 특성(예: 상태/활성) 및 특정 애플리케이션이 작동하는 데 필요한 기타 특성(예: 관리자, 태그)으로 분류하는 데 도움이 될 수 있습니다.
   2. 해당 특성이 핵심 사용자 스키마 또는 엔터프라이즈 사용자 스키마에 이미 정의되어 있는지 확인하세요. 필요한 특성이 핵심 또는 엔터프라이즈 사용자 스키마에 포함되어 있지 않으면 필요한 특성을 포함하는 사용자 스키마에 대한 확장을 정의해야 합니다. 아래 예제에서는 사용자에게 “tag”를 프로비저닝할 수 있도록 사용자에 대한 확장을 추가했습니다. 핵심 및 엔터프라이즈 사용자 스키마로 시작하고 나중에 추가 사용자 지정 스키마로 확장하는 것이 가장 좋습니다.  
   3. SCIM 특성을 Azure AD의 사용자 특성에 매핑합니다. SCIM 엔드포인트에 정의된 특성 중 하나에 Azure AD 사용자 스키마에 대한 명확한 대응 항목이 없으면 대부분의 테넌트에서 데이터를 사용자 개체에 저장하지 않는 것이 좋습니다. 사용자를 생성하기 위해 이 특성을 선택적으로 사용할 수 있는지 고려하세요. 애플리케이션이 작동하는 데 중요한 특성이면 테넌트 관리자로 해당 스키마를 확장하거나 아래와 같이 “tag” 특성에 대한 확장 특성을 사용하도록 안내합니다.
@@ -154,6 +154,7 @@ SCIM 2.0 사용자 관리 API를 지원하는 애플리케이션을 빌드하는
 * [SCIM 프로토콜의 섹션 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2)에 따라 사용자 또는 그룹 쿼리를 지원합니다.  기본적으로 사용자는 `id`로 검색되고 `username` 및 `externalId`에 의해 쿼리되며 그룹은 `displayName`에 의해 쿼리됩니다.  
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 관리자에 의한 사용자 쿼리를 지원합니다.  
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 멤버에 의한 그룹 쿼리를 지원합니다.  
+* SCIM 프로토콜의 3.4.2.5 섹션에 따라 그룹 리소스를 쿼리할 때 [excludedAttributes=members](#get-group) 필터를 지원합니다.
 * 애플리케이션에 대한 Azure AD의 인증 및 권한 부여를 위해 단일 전달자 토큰을 허용합니다.
 * 사용자 `active=false`의 일시 삭제 및 사용자 `active=true` 복원을 지원합니다(사용자가 활성 상태인지 여부를 묻는 요청에 사용자 개체를 반환해야 함). 애플리케이션에서 영구 삭제될 때만 사용자가 반환되지 않습니다. 
 
@@ -198,29 +199,21 @@ Azure AD와의 호환성을 보장하기 위해 SCIM 엔드포인트를 구현�
   - [사용자 만들기](#create-user)([요청](#request) / [응답](#response))
   - [사용자 가져오기](#get-user)([요청](#request-1) / [응답](#response-1))
   - [쿼리로 사용자 가져오기](#get-user-by-query)([요청](#request-2) / [응답](#response-2))
-  - [쿼리로 사용자 가져오기 - 결과 없음](#get-user-by-query---zero-results)([요청](#request-3)
-/ [응답](#response-3))
-  - [사용자 업데이트[다중값 속성]](#update-user-multi-valued-properties)([요청](#request-4) /  [응답](#response-4))
-  - [사용자 업데이트[단일값 속성]](#update-user-single-valued-properties)([요청](#request-5)
-/ [응답](#response-5)) 
-  - [사용자 사용 안 함](#disable-user)([요청](#request-14) / 
-[응답](#response-14))
-  - [사용자 삭제](#delete-user)([요청](#request-6) / 
-[응답](#response-6))
+  - [쿼리로 사용자 가져오기 - 결과 없음](#get-user-by-query---zero-results)([요청](#request-3) / [응답](#response-3))
+  - [사용자 업데이트[다중값 속성]](#update-user-multi-valued-properties)([요청](#request-4) / [응답](#response-4))
+  - [사용자 업데이트[단일값 속성]](#update-user-single-valued-properties)([요청](#request-5) / [응답](#response-5)) 
+  - [사용자 사용 안 함](#disable-user)([요청](#request-14) / [응답](#response-14))
+  - [사용자 삭제](#delete-user)([요청](#request-6) / [응답](#response-6))
 
 
 [그룹 작업](#group-operations)
   - [그룹 만들기](#create-group)([요청](#request-7) / [응답](#response-7))
   - [그룹 가져오기](#get-group)([요청](#request-8) / [응답](#response-8))
   - [displayName으로 그룹 가져오기](#get-group-by-displayname)([요청](#request-9) / [응답](#response-9))
-  - [그룹 업데이트[비멤버 특성]](#update-group-non-member-attributes)([요청](#request-10) /
- [응답](#response-10))
-  - [그룹 업데이트[멤버 추가]](#update-group-add-members)([요청](#request-11) /
-[응답](#response-11))
-  - [그룹 업데이트[멤버 제거]](#update-group-remove-members)([요청](#request-12) /
-[응답](#response-12))
-  - [그룹 삭제](#delete-group)([요청](#request-13) /
-[응답](#response-13))
+  - [그룹 업데이트[비멤버 특성]](#update-group-non-member-attributes)([요청](#request-10) / [응답](#response-10))
+  - [그룹 업데이트[멤버 추가]](#update-group-add-members)([요청](#request-11) / [응답](#response-11))
+  - [그룹 업데이트[멤버 제거]](#update-group-remove-members)([요청](#request-12) / [응답](#response-12))
+  - [그룹 삭제](#delete-group)([요청](#request-13) / [응답](#response-13))
 
 ### <a name="user-operations"></a>사용자 작업
 
@@ -749,7 +742,7 @@ TLS 1.2 암호 도구 모음 최소 막대:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP 범위
-Azure AD 프로비저닝 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열된 AzureActiveDirectory의 IP 범위에서 작동합니다. AzureActiveDirectory 태그 아래에 나열된 IP 범위를 추가하면 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽을 허용할 수 있습니다. 계산된 주소에 대해 IP 범위 목록을 신중하게 검토해야 합니다. '40.126.25.32'와 같은 주소는 IP 범위 목록에 '40.126.0.0/18'로 표시될 수 있습니다. 다음 [API](/rest/api/virtualnetwork/servicetags/list)를 사용하여 IP 범위 목록을 프로그래밍 방식으로 검색할 수도 있습니다.
+Azure AD 프로비저닝 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열된 AzureActiveDirectory의 IP 범위에서 작동합니다. AzureActiveDirectory 태그 아래에 나열된 IP 범위를 추가하면 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽을 허용할 수 있습니다. 계산된 주소에 대해 IP 범위 목록을 신중하게 검토해야 합니다. '40.126.25.32'와 같은 주소는 IP 범위 목록에 '40.126.0.0/18'로 표시될 수 있습니다. 또한 다음 [API](/rest/api/virtualnetwork/servicetags/list)를 사용하여 IP 범위 목록을 프로그래밍 방식으로 검색할 수도 있습니다.
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3단계: SCIM 엔드포인트 빌드
 
@@ -1148,8 +1141,8 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 7. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: `https://api.contoso.com/scim/`
 8. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다. 
    > [!NOTE]
-   > 이 필드를 비워두고 Azure AD에서 생성한 토큰을 사용하는 것은 권장되지 * *_않습니다_*. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.
-9. *연결 테스트* *를 선택하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
+   > 이 필드를 비워두고 Azure AD에서 생성한 토큰을 사용하는 것은 권장되지 **_않습니다_*. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.
+9. *연결 테스트**를 선택하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
 
     > [!NOTE]
     > **테스트 연결** 은 Azure AD 구성에서 선택된 일치하는 속성으로 임의 GUID를 사용하여 존재하지 않는 사용자의 SCIM 엔드포인트를 쿼리합니다. 예상되는 올바른 응답은 SCIM ListResponse 메시지가 비어 있는 HTTP 200 OK입니다.
@@ -1160,7 +1153,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
     > [!NOTE]
     > 필요에 따라 "그룹" 매핑을 사용하지 않도록 설정하여 그룹 개체의 동기화를 비활성화할 수 있습니다.
 
-12. **설정** 아래의 **범위** 필드는 동기화되는 사용자 및 그룹을 정의합니다. **할당된 사용자 및 그룹만 동기화** (권장)를 선택하면 **사용자 및 그룹** 탭에서 할당된 사용자 및 그룹만 동기화됩니다.
+12. **설정** 아래의 **범위** 필드는 동기화되는 사용자 및 그룹을 정의합니다. **할당된 사용자 및 그룹만 동기화**(권장)를 선택하면 **사용자 및 그룹** 탭에서 할당된 사용자 및 그룹만 동기화됩니다.
 13. 구성이 완료되면 **프로비저닝 상태** 를 **켜기** 로 설정합니다.
 14. **저장** 을 선택하여 Azure AD 프로비저닝 서비스를 시작합니다.
 15. 할당된 사용자 및 그룹만 동기화하는 경우(권장) **사용자 및 그룹** 탭을 선택하고 동기화하려는 사용자 또는 그룹을 할당합니다.
@@ -1172,12 +1165,12 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>5단계: Azure AD 애플리케이션 갤러리에 애플리케이션 게시
 
-둘 이상의 테넌트가 사용할 애플리케이션을 빌드하는 경우 Azure AD 애플리케이션 갤러리에서 사용하도록 할 수 있습니다. 그러면 조직은 쉽게 애플리케이션을 찾고 프로비저닝을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시하고 다른 사용자가 프로비저닝을 쉽게 사용할 수 있도록 합니다. [여기](../azuread-dev/howto-app-gallery-listing.md)서 단계를 확인하세요. Microsoft는 사용자와 협력하여 애플리케이션을 갤러리에 통합하고, 엔드포인트를 테스트하며, 고객이 사용할 수 있도록 온보딩 [설명서](../saas-apps/tutorial-list.md)를 제공합니다. 
+둘 이상의 테넌트가 사용할 애플리케이션을 빌드하는 경우 Azure AD 애플리케이션 갤러리에서 사용하도록 할 수 있습니다. 그러면 조직은 쉽게 애플리케이션을 찾고 프로비저닝을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시하고 다른 사용자가 프로비저닝을 쉽게 사용할 수 있도록 합니다. [여기](../develop/v2-howto-app-gallery-listing.md)서 단계를 확인하세요. Microsoft는 사용자와 협력하여 애플리케이션을 갤러리에 통합하고, 엔드포인트를 테스트하며, 고객이 사용할 수 있도록 온보딩 [설명서](../saas-apps/tutorial-list.md)를 제공합니다.
 
 ### <a name="gallery-onboarding-checklist"></a>갤러리 온보딩 검사 목록
-아래의 검사 목록에 따라 애플리케이션이 빠르게 온보드되고 고객이 원활한 배포 환경을 갖추도록 하세요. 갤러리에 온보딩하면 해당 정보가 수집됩니다. 
+아래의 검사 목록에 따라 애플리케이션이 빠르게 온보딩되고 고객이 원활한 배포 환경을 갖추도록 합니다. 갤러리에 온보딩하면 해당 정보가 수집됩니다. 
 > [!div class="checklist"]
-> * [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 엔드포인트 지원(하나만 필요하지만 둘 다 권장됨)
+> * [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 엔드포인트 지원(하나만 필요하지만 둘 다 권장됨)
 > * 사용자 및 그룹이 지연 없이 프로비저닝 및 프로비저닝 해제되도록 한 테넌트에 대해 초당 최소 25개의 요청을 지원합니다(필수).
 > * 고객이 갤러리 온보딩을 게시할 수 있도록 엔지니어링 및 지원 연락처 설정(필수)
 > * 3 애플리케이션에 대해 만료되지 않은 테스트 자격 증명(필수)
@@ -1247,3 +1240,4 @@ OAuth 코드 부여 흐름의 단계:
 * [사용자 프로비저닝에 대한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
 * [계정 프로비전 알림](user-provisioning.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+

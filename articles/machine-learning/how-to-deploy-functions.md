@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python, devx-track-azurecli
-ms.openlocfilehash: d17967c24fbbb127c1d3eaee5acd5b78c3e3b902
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 901e4d458cc2d77d4e7f13c1782b86c8532ca499
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630348"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327171"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 
@@ -277,7 +277,7 @@ print(blob.location)
     }
     ```
 
-3. 함수에서 생성 된 출력을 보려면 다음 명령을 사용 하 여 생성 된 출력 파일을 나열 합니다. `<triggerConnectionString>`이전에 반환 된 연결 문자열로 대체 합니다. 이 예에서 `output` 는 앞에서 만든 출력 컨테이너의 이름입니다. 다른 이름을 사용 하는 경우 다음 값을 바꿉니다.:
+3. 함수에서 생성 된 출력을 보려면 다음 명령을 사용 하 여 생성 된 출력 파일을 나열 합니다. `<triggerConnectionString>`이전에 반환 된 연결 문자열로 대체 합니다. 이 예에서 `output` 는 앞에서 만든 출력 컨테이너의 이름입니다. 다른 이름을 사용 하는 경우 다음 값을 바꿉니다.
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv

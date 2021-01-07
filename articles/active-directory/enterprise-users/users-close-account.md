@@ -3,22 +3,22 @@ title: 관리 되지 않는 Azure AD 조직에서 회사 또는 학교 계정 �
 description: 관리 되지 않는 Azure Active Directory에서 회사 또는 학교 계정을 종료 하는 방법입니다.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/20/2019
+ms.date: 12/03/2020
 ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 252c993f5679d80cda97a6fade08f5f92489840d
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376414"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575587"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>관리 되지 않는 Azure AD 조직에서 회사 또는 학교 계정 닫기
 
@@ -45,11 +45,11 @@ ms.locfileid: "92376414"
 
 1. 종료 하려는 계정을 사용 하 여 [계정을 닫으려면](https://go.microsoft.com/fwlink/?linkid=873123)로그인 합니다.
 
-1. **내 데이터 요청**에서 **계정 닫기**를 선택 합니다.
+1. **내 데이터 요청** 에서 **계정 닫기** 를 선택 합니다.
 
     ![내 데이터 요청-계정 닫기](./media/users-close-account/close-account.png)
 
-1. 확인 메시지를 검토 한 다음 **예**를 선택 합니다.
+1. 확인 메시지를 검토 한 다음 **예** 를 선택 합니다.
 
     ![내 데이터 요청-닫기 확인](./media/users-close-account/confirm-close.png)
 

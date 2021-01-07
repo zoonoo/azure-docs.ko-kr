@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259197"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002173"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Linux Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 �
 ## <a name="log-and-event-sources"></a>로그 및 이벤트 원본
 
 ### <a name="service-fabric-platform-events"></a>Service Fabric 플랫폼 이벤트
-Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [LTTng](https://lttng.org)를 통해 몇 가지 기본 제공 로그를 생성합니다. 이러한 로그는 클러스터의 Resource Manager 템플릿에서 지정한 위치에 저장됩니다. 스토리지 계정 세부 정보를 가져오거나 설정하려면 **AzureTableWinFabETWQueryable** 태그를 찾아서 **StoreConnectionString**을 검색합니다.
+Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [LTTng](https://lttng.org)를 통해 몇 가지 기본 제공 로그를 생성합니다. 이러한 로그는 클러스터의 Resource Manager 템플릿에서 지정한 위치에 저장됩니다. 스토리지 계정 세부 정보를 가져오거나 설정하려면 **AzureTableWinFabETWQueryable** 태그를 찾아서 **StoreConnectionString** 을 검색합니다.
 
 ### <a name="application-events"></a>애플리케이션 이벤트
  소프트웨어를 계측할 때 지정한 대로 애플리케이션 및 서비스 코드에서 발생되는 이벤트입니다. 텍스트 기반 로그 파일을 작성하는 모든 로깅 솔루션을 사용할 수 있습니다(예: LTTng). 자세한 내용은 애플리케이션 추적에 대한 LTTng 설명서를 참조하세요.
@@ -36,7 +36,7 @@ Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [L
 ## <a name="deploy-the-diagnostics-extension"></a>진단 확장 배포
 로그를 수집하는 첫 단계는 Service Fabric 클러스터의 각 VM에 진단 확장을 배포하는 것입니다. 진단 확장은 각 VM에서 로그를 수집하여 사용자가 지정하는 스토리지 계정에 업로드합니다. 
 
-클러스터 만들기의 일환으로 클러스터 내의 VM에 진단 확장을 배포하려면 **진단**을 **켜기**로 설정합니다. 클러스터를 만든 후에는 포털을 사용하여 이 설정을 변경할 수는 없으므로 Resource Manager 템플릿에서 올바른 변경을 수행해야 합니다.
+클러스터 만들기의 일환으로 클러스터 내의 VM에 진단 확장을 배포하려면 **진단** 을 **켜기** 로 설정합니다. 클러스터를 만든 후에는 포털을 사용하여 이 설정을 변경할 수는 없으므로 Resource Manager 템플릿에서 올바른 변경을 수행해야 합니다.
 
 이는 지정된 로그 파일을 모니터링하도록 LAD 에이전트를 구성합니다. 새 줄이 파일에 추가될 때마다 이 에이전트는 사용자가 지정한 스토리지(테이블)로 전송되는 syslog 항목을 만듭니다.
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2214dbc9dcbd4ba7728065ee45471e9f94b9e513
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628852"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95739998"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요-Azure 파일 공유에 대 한 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
 
@@ -24,7 +24,7 @@ Azure 파일 공유를 처음 접하는 경우 다음 일련의 문서를 읽기
 
 - Azure Files 온-프레미스 AD DS 인증에 사용 되는 AD DS Id를 Azure AD에 동기화 해야 합니다. 암호 해시 동기화는 선택 사항입니다. 
 - Azure File Sync에서 관리 하는 Azure 파일 공유를 지원 합니다.
-- 는 RC4-HMAC 및 [AES 256 암호화](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 사용 하 여 AD에서 Kerberos 인증을 지원 합니다. AES 128 Kerberos 암호화는 아직 지원 되지 않습니다.
+- 는 RC4-HMAC 및 [AES 256 암호화](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 사용 하 여 AD에서 Kerberos 인증을 지원 합니다. AES 256 암호화 지원은 현재 이름이 15 자인 <의 저장소 계정으로 제한 됩니다. AES 128 Kerberos 암호화는 아직 지원되지 않습니다.
 - Single Sign-On 환경을 지원 합니다.
 - Windows 7 또는 Windows Server 2008 r 2 보다 최신 버전의 OS에서 실행 되는 클라이언트 에서만 지원 됩니다.
 - 저장소 계정이 등록 된 AD 포리스트에 대해서만 지원 됩니다. 기본적으로 단일 포리스트의 AD DS 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 다른 포리스트에서 Azure 파일 공유에 액세스 해야 하는 경우 적절 한 포리스트 트러스트를 구성 했는지 확인 하세요. 자세한 내용은 [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) 를 참조 하세요.

@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 05/05/2020
 ms.author: trbye
 ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82875985"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002289"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>음성 텍스트 (하위 차트: 차트/speechToText)
 
 "파라솔" 차트를 재정의 하려면 매개 변수에 접두사를 추가 하 여 `speechToText.` 더 구체적으로 만듭니다. 예를 들어이 매개 변수는 재정의와 같이 해당 매개 변수를 재정의 `speechToText.numberOfConcurrentRequest` `numberOfConcurrentRequest` 합니다.
 
-|매개 변수|설명|기본값|
+|매개 변수|Description|기본값|
 | -- | -- | -- |
 | `enabled` | **음성 텍스트** 서비스의 사용 여부를 지정 합니다. | `false` |
 | `numberOfConcurrentRequest` | **음성 텍스트** 서비스에 대 한 동시 요청 수입니다. 이 차트는이 값에 따라 CPU 및 메모리 리소스를 자동으로 계산 합니다. | `2` |
@@ -45,7 +45,7 @@ ms.locfileid: "82875985"
 
 2.2.0 컨테이너의 v 및 투구 차트의 v 0.2.0에서 시작 하 여 다음 매개 변수는 텍스트 분석 API을 사용 하 여 감정 분석에 사용 됩니다.
 
-|매개 변수|설명|값|기본값|
+|매개 변수|Description|값|기본값|
 | --- | --- | --- | --- |
 |`textanalytics.enabled`| **텍스트 분석** 서비스의 설정 여부| true/false| `false`|
 |`textanalytics.image.registry`| **텍스트 분석** docker 이미지 레지스트리| 유효한 docker 이미지 레지스트리| |

@@ -3,16 +3,16 @@ title: Azure Advisor를 사용하여 서비스 비용 절감
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 767c82c818535304552c1c98ff50a252acc0d08a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075912"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96458515"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 서비스 비용 절감
 
-Azure Advisor를 사용 하면 유휴 리소스와 미달 사용 리소스를 식별 하 여 전체 Azure 사용을 최적화 하 고 절감할 수 있습니다.Advisor 대시보드의 **비용** 탭에서 비용 관련 권장 지침을 얻을 수 있습니다.
+Azure Advisor를 사용 하면 유휴 리소스와 미달 사용 리소스를 식별 하 여 전체 Azure 사용을 최적화 하 고 절감할 수 있습니다. Advisor 대시보드의 **비용** 탭에서 비용 관련 권장 지침을 얻을 수 있습니다.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>사용량이 낮은 인스턴스의 크기를 조정하거나 종료하여 가상 머신 소비 최적화 
 
@@ -71,7 +71,7 @@ Advisor는 지난 30 일 동안 Azure Blob 저장소 및 Azure Data Lake 저장�
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>MariaDB, MySQL 및 PostgreSQL reserved capacity
 Advisor는 지난 30 일 동안 Azure Database for MariaDB, Azure Database for MySQL 및 Azure Database for PostgreSQL에 대 한 사용 패턴을 분석 합니다. 그런 다음 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 Aadb, MySQL 및 PostgreSQL 시간별 사용량을 사전 구매 하 고 현재 비용을 절감할 수 있습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 3 년 예약 가격 및 사용 패턴을 사용 하 여 개별 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다.
 
-### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Azure Synapse Analytics (이전의 SQL Data Warehouse) reserved capacity
+### <a name="azure-synapse-analytics-reserved-capacity"></a>Azure Synapse Analytics 예약 된 용량
 Advisor는 지난 30 일 동안 Azure Synapse Analytics 사용 패턴을 분석 하 고 비용을 최적화 하는 예약 된 용량 구매를 권장 합니다. 예약 된 용량을 사용 하 여 Synapse Analytics 시간별 사용량을 사전에 구매 하 고 주문형 비용을 절감할 수 있습니다. 예약 된 용량은 청구 혜택이 며 새 배포 및 기존 배포에 자동으로 적용 됩니다. Advisor는 지난 30 일 동안 관찰 된 3 년 예약 가격 및 사용 패턴을 사용 하 여 개별 구독에 대 한 비용 절감 액을 계산 합니다. 공유 범위 권장 사항은 예약 된 용량 구매에 사용할 수 있으며 절감 액을 높일 수 있습니다.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>연결 되지 않은 공용 IP 주소를 삭제 하 여 비용 절감

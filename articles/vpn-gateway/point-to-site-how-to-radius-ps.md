@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 11/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 9d962d3a4757b4c7b2d217f91aaf73d6ad4164d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544786"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964850"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -119,7 +119,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. 가상 네트워크에 대한 서브넷 구성을 만들고 *FrontEnd* , *BackEnd* 및 *GatewaySubnet* 으로 이름을 지정합니다. 이러한 접두사는 선언된 VNet 주소 공간의 일부여야 합니다.
+2. 가상 네트워크에 대한 서브넷 구성을 만들고 *FrontEnd*, *BackEnd* 및 *GatewaySubnet* 으로 이름을 지정합니다. 이러한 접두사는 선언된 VNet 주소 공간의 일부여야 합니다.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -152,7 +152,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 2. RADIUS 서버에서 VPN 게이트웨이를 RADIUS 클라이언트로 구성합니다. 이 RADIUS 클라이언트를 추가하는 경우, 생성한 GatewaySubnet 가상 네트워크를 지정합니다. 
 3. RADIUS 서버가 설치되면 이 RADIUS 서버의 IP 주소 및 RADIUS 클라이언트에서 이 서버와 통신할 때 사용해야 하는 공유 비밀을 가져옵니다. RADIUS 서버가 Azure VNet에 있으면 RADIUS 서버 VM의 CA IP를 사용합니다.
 
-[NPS(네트워크 정책 서버)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) 문서에서는 AD 도메인 인증을 위해 Windows RADIUS 서버(NPS)를 구성하는 방법에 대한 지침을 제공하고 있습니다.
+[NPS(네트워크 정책 서버)](/windows-server/networking/technologies/nps/nps-top) 문서에서는 AD 도메인 인증을 위해 Windows RADIUS 서버(NPS)를 구성하는 방법에 대한 지침을 제공하고 있습니다.
 
 ## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> VPN gateway 만들기
 
@@ -224,7 +224,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-   **두** RADIUS 서버 **(미리 보기)** 를 지정 하려면 다음 구문을 사용 합니다. 필요에 따라 **-vpnclientprotocol 추가 됨** 값을 수정 합니다.
+   **두** RADIUS 서버를 지정 하려면 다음 구문을 사용 합니다. 필요에 따라 **-vpnclientprotocol 추가 됨** 값을 수정 합니다.
 
     ```azurepowershell-interactive
     $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
@@ -292,4 +292,4 @@ P2S 연결 문제를 해결하려면 [Azure 지점 및 사이트 간 연결 문�
 
 ## <a name="next-steps"></a>다음 단계
 
-연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/)를 참조하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/linux/azure-vm-network-overview.md)를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.

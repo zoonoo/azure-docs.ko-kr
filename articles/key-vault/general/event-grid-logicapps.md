@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284486"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013992"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Logic Apps를 사용하여 키 자격 증명 모음 비밀의 상태 변경에 대한 이메일 수신
 
@@ -60,7 +60,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 
 1. 이메일 템플릿을 작성합니다.
     - **받는 사람:** 알림 이메일을 받을 이메일 주소를 입력합니다. 이 자습서에서는 테스트를 위해 액세스할 수 있는 메일 계정을 사용합니다.
-    - **제목** 및 **본문** : 이메일에 텍스트를 작성합니다. 선택기 도구에서 이벤트 데이터를 기반으로 동적 콘텐츠를 포함할 JSON 속성을 선택합니다. `@{triggerBody()?['Data']}`를 사용하여 이벤트 데이터를 검색할 수 있습니다.
+    - **제목** 및 **본문**: 이메일에 텍스트를 작성합니다. 선택기 도구에서 이벤트 데이터를 기반으로 동적 콘텐츠를 포함할 JSON 속성을 선택합니다. `@{triggerBody()?['Data']}`를 사용하여 이벤트 데이터를 검색할 수 있습니다.
 
     이메일 템플릿은 다음 예와 같습니다.
 

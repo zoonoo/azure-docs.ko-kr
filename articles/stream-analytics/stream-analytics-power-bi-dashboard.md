@@ -6,17 +6,17 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 8/6/2020
-ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/16/2020
+ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123475"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006698"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 
-Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 실시간 대시보드를 만들고 사용하는 방법도 학습합니다.
+Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 도구 중 하나인 [Microsoft Power BI](https://powerbi.com/)를 이용할 수 있습니다. 이 문서에서는 Azure Stream Analytics 작업에 대한 출력으로 Power BI를 사용하여 비즈니스 인텔리전스 도구를 만드는 방법에 대해 알아봅니다. 또한 Stream Analytics 작업을 통해 지속적으로 업데이트 되는 실시간 대시보드를 만들고 사용 하는 방법에 대해 알아봅니다.
 
 이 문서는 Stream Analytics [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서로부터 내용이 이어집니다. 해당 자습서에서 만든 워크플로를 기반으로 하고 Power BI 출력을 추가하여 Streaming Analytics 작업에서 감지한 사기성 전화를 시각화할 수 있습니다. 
 
@@ -64,7 +64,7 @@ Azure Stream Analytics를 사용하면 최고의 비즈니스 인텔리전스 �
 데이터 세트는 다음과 같은 설정으로 만들어집니다.
 
 * **defaultRetentionPolicy: BasicFIFO** - 데이터는 FIFO이며 최대 200,000개의 행이 있습니다.
-* **defaultMode: pushStreaming** - 데이터 세트가 스트리밍 타일과 기존의 보고서 기반 시각적 개체(푸시라고도 함)를 모두 지원합니다.
+* **Defaultmode: 하이브리드** -데이터 집합은 스트리밍 타일 (푸시 라고도 함) 및 기존 보고서 기반 시각적 개체를 모두 지원 합니다. 푸시 콘텐츠의 경우이 경우 stream analytics 작업에서 데이터를 지속적으로 업데이트 하며, Power BI 쪽에서 새로 고침을 예약할 필요가 없습니다.
 
 지금은 다른 플래그로 데이터 세트를 만들 수 없습니다.
 
@@ -221,7 +221,7 @@ Streaming Analytics 작업이 들어오는 스트림에서 사기성 호출을 �
 ```
 
 ### <a name="renew-authorization"></a>권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure Multi-Factor Authentication가 Azure Active Directory(Azure AD) 테넌트에서 구성된 경우 2주마다 Power BI 권한 부여도 갱신해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우 Power BI 계정을 다시 인증해야 합니다. Azure AD Multi-Factor Authentication Azure Active Directory (Azure AD) 테 넌 트에서 구성 된 경우 2 주마다 Power BI 권한 부여를 갱신 해야 합니다. 갱신하지 않으면 작업 출력 부족 또는 작업 로그에 `Authenticate user error`와 같은 증상을 볼 수 있습니다.
 
 마찬가지로 토큰이 만료된 후 작업이 시작되면 오류가 발생하고 작업이 실패합니다. 이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. 데이터 손실을 방지하기 위해 **권한 부여 갱신** 링크를 클릭한 다음 **마지막 중지 시간** 부터 작업을 다시 시작합니다.
 

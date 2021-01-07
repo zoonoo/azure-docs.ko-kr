@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 04399dc82a3bd2d70b8b472b121e95a73ca43136
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 86c2d9585abd546acb3efb22256d3f3b70bfb972
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456469"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>자습서: Carlson Wagonlit Travel과 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Carlson Wagonlit Travel의 Azure AD 통합을 구성하려면 갤러리의 Carls
 
 4. 검색 상자에 **Carlson Wagonlit Travel** 을 입력하고 결과 패널에서 **Carlson Wagonlit Travel** 을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Carlson Wagonlit Travel](common/search-new-app.png)
+    ![결과 목록의 Carlson Wagonlit Travel](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -119,13 +119,13 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
 
 ### <a name="configure-carlson-wagonlit-travel-single-sign-on"></a>Carlson Wagonlit Travel Single Sign-On 구성
 
-**Carlson Wagonlit Travel** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Carlson Wagonlit Travel 지원 팀](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Carlson Wagonlit Travel** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Carlson Wagonlit Travel 지원 팀](https://www.mycwt.com/traveler-help/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -138,7 +138,7 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -150,7 +150,7 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Carlson Wagonlit Travel에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Carlson Wagonlit Travel** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Carlson Wagonlit Travel** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -174,7 +174,7 @@ Carlson Wagonlit Travel에서 Azure AD Single Sign-On을 구성하려면 다음 
 
 ### <a name="create-carlson-wagonlit-travel-test-user"></a>Carlson Wagonlit Travel 테스트 사용자 만들기
 
-이 섹션에서는 Carlson Wagonlit Travel에서 Britta Simon이라는 사용자를 만듭니다. [Carlson Wagonlit Travel 지원 팀](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html)과 협력하여 Carlson Wagonlit Travel 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Carlson Wagonlit Travel에서 Britta Simon이라는 사용자를 만듭니다. [Carlson Wagonlit Travel 지원 팀](https://www.mycwt.com/traveler-help/)과 협력하여 Carlson Wagonlit Travel 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

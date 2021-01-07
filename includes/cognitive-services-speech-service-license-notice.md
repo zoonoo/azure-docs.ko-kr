@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: dapine
 ms.openlocfilehash: 68a06bcb96e201efba5e8b394486e62702f9199e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86035853"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187564"
 ---
 > [!IMPORTANT]
 > 이 페이지에서 Azure Cognitive Services 음성 SDK를 다운로드하면 해당 라이선스를 승인하는 것입니다. 자세한 내용은 다음을 참조하세요.

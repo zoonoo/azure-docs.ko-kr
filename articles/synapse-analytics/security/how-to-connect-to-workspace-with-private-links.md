@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312261"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461334"
 ---
-# <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>프라이빗 링크를 사용하여 Azure Synapse 작업 영역에 연결(미리 보기)
+# <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Private Link를 사용하여 Azure Synapse 작업 영역에 연결
 
 이 문서에서는 Azure Synapse 작업 영역에 대 한 개인 끝점을 만드는 방법을 설명 합니다. 자세히 알아보려면 [프라이빗 링크 및 프라이빗 엔드포인트](https://docs.microsoft.com/azure/private-link/)를 참조하세요.
 

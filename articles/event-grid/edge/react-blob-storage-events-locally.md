@@ -8,11 +8,11 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87462023"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005064"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응 (미리 보기)
 이 문서에서는 IoT 모듈에 Azure Blob Storage를 배포 하는 방법을 보여 줍니다 .이 모듈은 Blob 만들기 및 Blob 삭제에 대 한 이벤트를 Event Grid에 전송 하는 Event Grid 게시자 역할을 합니다.  
@@ -41,7 +41,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. IoT Hub로 이동합니다.
 1. **자동 장치 관리** 섹션의 메뉴에서 **IoT Edge** 를 선택 합니다. 
 1. 장치 목록에서 대상 장치의 ID를 클릭 합니다.
-1. **모듈 설정**을 선택 합니다. 페이지를 열어 둡니다. 다음 섹션의 단계를 계속 진행 합니다.
+1. **모듈 설정** 을 선택 합니다. 페이지를 열어 둡니다. 다음 섹션의 단계를 계속 진행 합니다.
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
@@ -144,7 +144,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
    - `<event grid module name>`을 Event Grid 모듈의 이름으로 바꿉니다.
    - `<storage mount>`컨테이너 운영 체제에 따라 대체 합니다.
      - Linux 컨테이너의 경우 **내 볼륨:/blobroot**
-     - Windows 컨테이너의 경우**내 볼륨: C:/BlobRoot**
+     - Windows 컨테이너의 경우 **내 볼륨: C:/BlobRoot**
 
 5. 페이지 맨 아래에 있는 **저장**
 6. **다음** 을 클릭 하 여 경로 섹션으로 이동 합니다.
@@ -159,19 +159,19 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 ### <a name="review-deployment"></a>배포 검토
 
 1. 검토 섹션에는 이전 섹션에서 선택한 항목에 따라 만든 JSON 배포 매니페스트가 표시 됩니다. **$EdgeAgent**, **$edgeHub**, **eventgridmodule**, **subscriber** 및 **azureblobstorageoniotedge** 의 네 가지 모듈이 모두 배포 되는 것을 확인 합니다.
-2. 배포 정보를 검토한 다음 **제출**을 선택합니다.
+2. 배포 정보를 검토한 다음 **제출** 을 선택합니다.
 
 ## <a name="verify-your-deployment"></a>배포 확인
 
 1. 배포를 제출한 후 IoT Hub의 IoT Edge 페이지로 돌아갑니다.
 2. 배포의 대상으로 지정 된 **IoT Edge 장치** 를 선택 하 여 세부 정보를 엽니다.
-3. 장치 세부 정보에서 eventgridmodule, subscriber 및 azureblobstorageoniotedge 모듈이 **배포에 지정** 되어 있고 **장치에서 보고**되는 것으로 표시 되는지 확인 합니다.
+3. 장치 세부 정보에서 eventgridmodule, subscriber 및 azureblobstorageoniotedge 모듈이 **배포에 지정** 되어 있고 **장치에서 보고** 되는 것으로 표시 되는지 확인 합니다.
 
    모듈을 디바이스에서 시작한 다음, IoT Hub에 다시 보고하려면 몇 분 정도 걸릴 수 있습니다. 업데이트된 상태를 보려면 페이지를 새로 고칩니다.
 
 ## <a name="publish-blobcreated-and-blobdeleted-events"></a>BlobCreated 및 Blobcreated 이벤트 게시
 
-1. 이 모듈은 토픽 **MicrosoftStorage**을 자동으로 만듭니다. 존재 하는지 확인
+1. 이 모듈은 토픽 **MicrosoftStorage** 을 자동으로 만듭니다. 존재 하는지 확인
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview
     ```
@@ -213,7 +213,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
        ```
 
        >[!NOTE]
-       > **Endpointtype** 속성은 구독자가 **Webhook**임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure Function 샘플에 해당 합니다.
+       > **Endpointtype** 속성은 구독자가 **Webhook** 임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure Function 샘플에 해당 합니다.
 
     2. 항목에 대 한 구독을 만들려면 다음 명령을 실행 합니다. HTTP 상태 코드가 인지 확인 `200 OK` 합니다.
 
@@ -318,7 +318,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
             }
     ```
 
-축하합니다. 자습서를 완료 했습니다. 다음 섹션에서는 이벤트 속성에 대 한 세부 정보를 제공 합니다.
+축하합니다! 자습서를 완료 했습니다. 다음 섹션에서는 이벤트 속성에 대 한 세부 정보를 제공 합니다.
 
 ### <a name="event-properties"></a>이벤트 속성
 
@@ -337,16 +337,16 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | api | 문자열 | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated-허용 되는 값은 및입니다. `PutBlob``PutBlockList`</li><li>BlobDeleted-허용 되는 값은 `DeleteBlob` , `DeleteAfterUpload` 및 `AutoDelete` 입니다. <p>`DeleteAfterUpload`DeleteAfterUpload desired 속성이 true로 설정 되어 있으므로 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다. </p><p>`AutoDelete` deleteAfterMinutes desired 속성 값이 만료 되어 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다.</p></li></ul>|
 | clientRequestId | 문자열 | 저장소 API 작업에 대 한 클라이언트 제공 요청 ID입니다. 이 ID는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. 자세한 내용은 [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조 하세요. |
 | requestId | 문자열 | 저장소 API 작업에 대 한 서비스 생성 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | eTag | 문자열 | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
-| contentLength | 정수 | Blob의 크기(바이트)입니다. |
+| contentLength | integer | Blob의 크기(바이트)입니다. |
 | blobType | 문자열 | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
-| url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 * \<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\> *입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 * \<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\> *입니다. |
+| url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 *\<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\>* 입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 *\<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\>* 입니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

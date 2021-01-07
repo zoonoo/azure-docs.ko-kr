@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 819f84eeb7540050fb001111690fb6d2ba484b2a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632807"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452315"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -32,7 +32,7 @@ ms.locfileid: "92632807"
 Data Factory에 대 한 관리 id는 다음과 같은 기능을 제공 합니다.
 
 - [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다 .이 경우 데이터 팩터리 관리 id는 Azure Key Vault 인증에 사용 됩니다.
-- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)를 포함 하는 커넥터.
+- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)및 [azure Synapse Analytics](connector-azure-sql-data-warehouse.md)를 포함 하는 커넥터.
 - [웹 활동](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>관리 id 생성
@@ -79,7 +79,7 @@ ProvisioningState : Succeeded
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**요청 본문** : "identity": { "type": "SystemAssigned" }를 추가합니다.
+**요청 본문**: "identity": { "type": "SystemAssigned" }를 추가합니다.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**응답** : 관리 id가 자동으로 생성 되 고 "identity" 섹션이 그에 따라 채워집니다.
+**응답**: 관리 id가 자동으로 생성 되 고 "identity" 섹션이 그에 따라 채워집니다.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 관리 id 생성
 
-**템플릿** : "identity": { "type": "SystemAssigned" }를 추가합니다.
+**템플릿**: "identity": { "type": "SystemAssigned" }를 추가합니다.
 
 ```json
 {
@@ -201,7 +201,7 @@ Type                  : ServicePrincipal
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**응답** : 아래 예제에서와 같이 응답을 받게 됩니다. "Id" 섹션이 그에 따라 채워집니다.
+**응답**: 아래 예제에서와 같이 응답을 받게 됩니다. "Id" 섹션이 그에 따라 채워집니다.
 
 ```json
 {

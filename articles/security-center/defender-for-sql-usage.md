@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/23/2020
 ms.author: memildin
-ms.openlocfilehash: 236a604c2c1cecfb18a2d82c3796a88cc4341a34
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 3899b00038f3c12add4dbf49a7f05e07141d8606
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636387"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755857"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -30,7 +30,7 @@ ms.locfileid: "94636387"
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**컴퓨터의 SQL server에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |보호되는 SQL 버전:|Azure SQL Server (Microsoft 지원에 포함 된 모든 버전)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
@@ -68,7 +68,7 @@ ms.locfileid: "94636387"
 
         ![제목별로 기본이 아닌 작업 영역 찾기](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
-1. **컴퓨터 (미리 보기) 계획의 SQL server에 대 한 Azure Defender** 옵션을 **on** 으로 설정 합니다. 
+1. **컴퓨터의 SQL server에 대 한 Azure Defender** 옵션을 **on** 으로 설정 합니다. 
 
     ![선택적 요금제를 사용 하는 Security Center 가격 책정 페이지](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)
 
@@ -79,7 +79,7 @@ ms.locfileid: "94636387"
 
 
 1. 필요에 따라 보안 경고에 대 한 전자 메일 알림을 구성 합니다. 
-    Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 사람 목록을 설정할 수 있습니다. 전자 메일에는 관련 된 모든 세부 정보와 함께 Azure Security Center의 경고에 대 한 직접 링크가 포함 됩니다. 자세한 내용은 [보안 경고에 대 한 전자 메일 알림 설정](security-center-provide-security-contact-details.md)을 참조 하세요.
+    Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 사람 목록을 설정할 수 있습니다. 전자 메일에는 관련 된 모든 세부 정보를 포함 하는 Azure Security Center 경고에 대 한 직접가 포함 됩니다. 자세한 내용은 [보안 경고에 대 한 전자 메일 알림 설정](security-center-provide-security-contact-details.md)을 참조 하세요.
 
 
 
@@ -108,11 +108,11 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
     각 보기에서 보안 검사는 **심각도** 를 기준으로 정렬 됩니다. 특정 보안 검사를 클릭 하 여 세부 정보 창에 **설명** **,이를 수정 하는** 방법 및 **영향** 또는 **벤치 마크** 와 같은 기타 관련 정보를 표시 합니다.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Azure Defender for SQL 경고
-경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 [경고 참조 페이지의 SQL Database에 대 한 경고 및 Azure Synapse Analytics (이전의 SQL Data Warehouse) 섹션](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.
+경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 [경고 참조 페이지](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.
 
 ## <a name="explore-and-investigate-security-alerts"></a>보안 경고 탐색 및 조사
 
-Azure Defender 경고는 Security Center의 경고 페이지, 리소스의 보안 탭, [Azure defender 대시보드](azure-defender-dashboard.md)또는 경고 전자 메일의 직접 링크를 통해 사용할 수 있습니다.
+Azure Defender for SQL 경고는 Security Center의 경고 페이지, 리소스의 보안 탭, [Azure Defender 대시보드](azure-defender-dashboard.md)또는 경고 전자 메일의 직접 링크를 통해 사용할 수 있습니다.
 
 1. 경고를 보려면 Security Center의 메뉴에서 **보안 경고** 를 선택 하 고 경고를 선택 합니다.
 
@@ -126,9 +126,8 @@ Azure Defender 경고는 Security Center의 경고 페이지, 리소스의 보�
 
 ## <a name="next-steps"></a>다음 단계
 
-관련 자료는 다음 문서를 참조 하세요.
+관련 자료는 다음 문서를 참조하세요.
 
-- [SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 보안 경고](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [SQL Database 및 Azure Synapse 분석에 대 한 보안 경고](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [보안 경고에 대한 이메일 알림 설정](security-center-provide-security-contact-details.md)
 - [Azure 센티널에 대해 자세히 알아보기](../sentinel/index.yml)
-- [Azure Security Center의 데이터 보안 패키지](../azure-sql/database/azure-defender-for-sql.md)

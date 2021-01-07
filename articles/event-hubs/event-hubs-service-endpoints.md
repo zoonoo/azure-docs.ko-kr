@@ -4,11 +4,11 @@ description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서�
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427211"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96015584"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 
@@ -55,7 +55,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
     ![방화벽 - 모든 네트워크 옵션 선택됨](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. 특정 네트워크에 대 한 액세스를 제한 하려면 페이지 맨 위에 있는 **선택한 네트워크** 옵션을 선택 합니다 (아직 선택 하지 않은 경우).
-2. 페이지의 **Virtual Network** 섹션에서 **+ 기존 가상 네트워크 추가** _를 선택 합니다. 새 VNet을 만들려면 _ *+ 새 가상 네트워크 만들기* *를 선택 합니다. 
+2. 페이지의 **Virtual Network** 섹션에서 **+ 기존 가상 네트워크 추가** _를 선택 합니다. 새 VNet을 만들려면 _ *+ 새 가상 네트워크 만들기**를 선택 합니다. 
 
     ![기존 가상 네트워크 추가](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. 가상 네트워크 목록에서 가상 네트워크를 선택 하 고 **서브넷** 을 선택 합니다. 목록에 가상 네트워크를 추가 하기 전에 서비스 끝점을 사용 하도록 설정 해야 합니다. 서비스 끝점이 사용 되도록 설정 되지 않은 경우 포털에서 사용 하도록 설정 하 라는 메시지를 표시 합니다.

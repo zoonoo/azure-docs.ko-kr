@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 4fa2c724906c8a6bfb294541b6616ddc7ae22df6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591651"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915000"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
-Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로토콜을 사용 하 여 볼륨을 만들 수 있습니다. 이 문서에서는 LDAP 사용자 매핑을 지 원하는 NFSv3 및 SMB의 이중 프로토콜을 사용 하는 볼륨을 만드는 방법을 보여 줍니다.  
+Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로토콜을 사용 하 여 볼륨을 만들 수 있습니다. 이 문서에서는 LDAP 사용자 매핑을 지 원하는 NFSv3 및 SMB의 이중 프로토콜을 사용 하는 볼륨을 만드는 방법을 보여 줍니다.  
 
 
 ## <a name="before-you-begin"></a>시작하기 전에 
@@ -39,7 +39,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
 * NFS 클라이언트가 최신 상태이며 운영 체제에 대한 최신 업데이트를 실행 중인지 확인합니다.
 * Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여이 작업을 수행할 수 있습니다.
-* Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 AD에서 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
+* Ad [CS (Active Directory 인증서 서비스](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) ) 역할을 사용 하 여 ad에 대 한 CA (인증 기관)를 만들어 자체 서명 된 루트 CA 인증서를 생성 하 고 내보내야 합니다.   
 * 이중 프로토콜 볼륨은 현재 Azure Active Directory Domain Services (AADDS)를 지원 하지 않습니다.  
 * 이중 프로토콜 볼륨에서 사용 하는 NFS 버전은 NFSv3입니다. 따라서 다음과 같은 고려 사항이 적용 됩니다.
     * 이중 프로토콜은 NFS 클라이언트의 Windows ACL 확장 특성을 지원 하지 않습니다 `set/get` .
@@ -49,8 +49,10 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
     
     | 보안 스타일    | 사용 권한을 수정할 수 있는 클라이언트   | 클라이언트에서 사용할 수 있는 사용 권한  | 결과 유효 보안 스타일    | 파일에 액세스할 수 있는 클라이언트     |
     |-  |-  |-  |-  |-  |
-    | UNIX  | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
-    | NTFS  | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
+    | `Unix`    | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
+    | `Ntfs`    | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
+* NFS를 사용 하 여 NTFS 보안 스타일 볼륨을 탑재 하는 UNIX 사용자는 `root` unix `root` 및 `pcuser` 기타 모든 사용자로 인증 됩니다. NFS를 사용 하는 경우 볼륨을 탑재 하기 전에 Active Directory에 이러한 사용자 계정이 존재 하는지 확인 합니다. 
+
 
 ## <a name="create-a-dual-protocol-volume"></a>이중 프로토콜 볼륨 만들기
 
@@ -130,7 +132,11 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
     * 도메인에 가입 하 고 루트 인증서가 설치 된 Windows 기반 클라이언트 
     * 루트 인증서를 포함 하는 도메인의 다른 컴퓨터  
 
-3. 루트 인증서를 내보냅니다.  
+3. 루트 CA 인증서를 내보냅니다.  
+    다음 예와 같이 개인 또는 신뢰할 수 있는 루트 인증 기관 디렉터리에서 루트 CA 인증서를 내보낼 수 있습니다.   
+    ![개인 인증서를 표시 하는 스크린샷](../media/azure-netapp-files/personal-certificates.png)   
+    ![신뢰할 수 있는 루트 인증 기관을 보여 주는 스크린샷](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
+
     인증서를 Base-64로 인코딩된 x.509 ()로 내보내야 합니다. CER) 형식: 
 
     ![인증서 내보내기 마법사](../media/azure-netapp-files/certificate-export-wizard.png)

@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f979b55366d29ca8cf22a1e65ebdcc557ef594
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899493"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883370"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -168,6 +168,11 @@ ms.locfileid: "92899493"
 |실행된 검사|
 |---|
 |<ul><li>Application Gateway 성능이 저하되나요?</li><li>Application Gateway를 사용할 수 있나요?</li></ul>|
+
+## <a name="microsoftnetworkbastionhosts"></a>Microsoft. network/bastionhosts
+|실행된 검사|
+|---|
+|<ul><li>요새 호스트를 실행 하 고 있습니까?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |실행된 검사|

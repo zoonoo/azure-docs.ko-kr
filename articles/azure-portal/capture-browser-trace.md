@@ -1,20 +1,14 @@
 ---
-title: 문제 해결을 위한 브라우저 추적 캡처 | Microsoft Docs
+title: 문제 해결을 위한 브라우저 추적 캡처
 description: 브라우저 추적에서 네트워크 정보를 캡처하여 Azure Portal 문제를 해결할 수 있습니다.
-services: azure-portal
-keywords: ''
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145738"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745998"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>문제 해결을 위한 브라우저 추적 캡처
 
@@ -30,7 +24,7 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 포털에서 문제가 발생하는 단계의 바로 앞 단계로 이동합니다.
 
-1. F12 키를 누르거나 ![ 브라우저 설정 아이콘을 표시 하는 스크린샷을 선택 합니다.](media/capture-browser-trace/chromium-icon-settings.png) > **추가 도구**  >  **개발자 도구** .
+1. F12 키를 누르거나 ![ 브라우저 설정 아이콘을 표시 하는 스크린샷을 선택 합니다.](media/capture-browser-trace/chromium-icon-settings.png) > **추가 도구**  >  **개발자 도구**.
 
 1. 기본적으로 브라우저는 현재 로드된 페이지에 대해서만 추적 정보를 유지합니다. 브라우저가 모든 추적 정보를 유지하도록 하려면 다음 옵션을 설정합니다. 재현하기 위해 두 개 이상의 페이지로 이동해야 하는 경우에도 마찬가지입니다.
 
@@ -76,7 +70,7 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
 1. 포털에서 문제가 발생하는 단계의 바로 앞 단계로 이동합니다.
 
-1. F12 키를 누르거나 ![ 브라우저 설정 아이콘의 스크린샷을 선택 합니다.](media/capture-browser-trace/edge-icon-settings.png) > **추가 도구**  >  **개발자 도구** .
+1. F12 키를 누르거나 ![ 브라우저 설정 아이콘의 스크린샷을 선택 합니다.](media/capture-browser-trace/edge-icon-settings.png) > **추가 도구**  >  **개발자 도구**.
 
 1. 기본적으로 브라우저는 현재 로드된 페이지에 대해서만 추적 정보를 유지합니다. 브라우저가 모든 추적 정보를 유지하도록 하려면 다음 옵션을 설정합니다. 재현하기 위해 두 개 이상의 페이지로 이동해야 하는 경우에도 마찬가지입니다.
 

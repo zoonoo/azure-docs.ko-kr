@@ -1,24 +1,24 @@
 ---
-title: 서버리스 SQL 풀(미리 보기)로 데이터 스토리지 쿼리
-description: 이 문서에서는 Azure Synapse Analytics 내에서 서버리스 SQL 풀(미리 보기) 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
+title: 서버리스 SQL 풀을 사용하여 데이터 스토리지 쿼리
+description: 이 문서에서는 Azure Synapse Analytics 내에서 서버리스 SQL 풀 리소스를 사용하여 Azure 스토리지를 쿼리하는 방법을 설명합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310957"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462658"
 ---
-# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지 파일 쿼리
+# <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
-서버리스 SQL 풀(미리 보기)을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
+서버리스 SQL 풀을 사용하면 데이터 레이크의 데이터를 쿼리할 수 있습니다. 이는 반정형 및 비정형 데이터 쿼리를 수용하는 T-SQL 쿼리 노출 영역을 제공합니다. 쿼리에 지원되는 T-SQL 측면은 다음과 같습니다.
 
 - 대부분의 [SQL 함수 및 연산자](overview-features.md)를 포함하는 전체 [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 노출 영역.
 - CREATE EXTERNAL TABLE AS SELECT([CETAS](develop-tables-cetas.md))는 [외부 테이블](develop-tables-external-tables.md)을 만든 다음, Transact-SQL SELECT 문의 결과를 Azure Storage에 병렬로 내보냅니다.
@@ -47,7 +47,7 @@ Parquet 원본 데이터를 쿼리하려면 FORMAT = 'PARQUET'를 사용합니�
 ```syntaxsql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 사용 예제는 [Parquet 파일 쿼리](query-parquet-files.md) 문서를 검토하세요.
@@ -59,14 +59,14 @@ CSV 원본 데이터를 쿼리하려면 FORMAT = 'CSV'를 사용합니다. CSV �
 ```sql
 SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.csv', FORMAT = 'CSV', PARSER_VERSION='2.0') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
 구문 분석 규칙을 사용자 지정 CSV 형식으로 조정하는 데 사용할 수 있는 다음과 같은 추가 옵션이 있습니다.
 - ESCAPE_CHAR = 'char' - 자체 및 파일의 모든 구분 기호 값을 이스케이프하는 데 사용되는 파일의 문자를 지정합니다. 이스케이프 문자 뒤에 자체 또는 구분 기호 값 이외의 값이 있으면 값을 읽을 때 이스케이프 문자가 삭제됩니다.
 ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 - FIELDTERMINATOR ='field_terminator' - 사용할 필드 종결자를 지정합니다. 기본 필드 종결자는 쉼표(" **,** ")입니다.
-- ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n** )입니다.
+- ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n**)입니다.
 
 ## <a name="file-schema"></a>파일 스키마
 
@@ -85,7 +85,7 @@ OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolde
 WITH (
       C1 int, 
       C2 varchar(20),
-      C3 as varchar(max)
+      C3 varchar(max)
 ) as rows
 ```
 
@@ -222,7 +222,7 @@ Array 또는 Map의 요소와 같은 반복된 열의 요소에 액세스하려�
 ### <a name="tools"></a>도구
 
 쿼리를 실행하는 데 필요한 도구:
-    - Azure Synapse Studio(미리 보기)
+    - Azure Synapse Studio 
     - Azure Data Studio
     - SQL Server Management Studio
 

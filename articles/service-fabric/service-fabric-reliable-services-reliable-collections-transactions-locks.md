@@ -3,13 +3,12 @@ title: 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 description: Azure Service Fabric 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션 트랜잭션 및 잠금.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.custom: sfrev
-ms.openlocfilehash: d1094462ebabcea1fbead3d5b30fdfb8dda6463a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57ca46047641b79d5e4c50ede4a27e16dcec5d89
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500285"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576726"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric 신뢰할 수 있는 컬렉션의 트랜잭션 및 잠금 모드
 
@@ -46,7 +45,7 @@ ms.locfileid: "87500285"
 > 단일 엔터티 작업에 대한 일반적인 예제는 `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`입니다.
 > 
 
-신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 *쓰기를 읽도록*지원 합니다.
+신뢰할 수 있는 사전 및 신뢰할 수 있는 큐는 모두 *쓰기를 읽도록* 지원 합니다.
 즉, 특정 트랜잭션 내 모든 쓰기가 동일한 트랜잭션에 속하는 다음 읽기에 표시됩니다.
 
 ## <a name="locks"></a>잠금
@@ -68,9 +67,9 @@ FIFO를 유지하기 위해 `TryPeekAsync` 또는 `TryDequeueAsync`는 신뢰할
 
 잠금 호환성 매트릭스는 다음 테이블에서 확인할 수 있습니다.
 
-| 요청 \ 부여 | 없음 | 공유됨 | 업데이트 | 단독 |
+| 요청 \ 부여 | 없음 | 공유 | 업데이트 | 단독 |
 | --- |:--- |:--- |:--- |:--- |
-| 공유됨 |충돌 없음 |충돌 없음 |충돌 |충돌 |
+| 공유 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 업데이트 |충돌 없음 |충돌 없음 |충돌 |충돌 |
 | 단독 |충돌 없음 |충돌 |충돌 |충돌 |
 

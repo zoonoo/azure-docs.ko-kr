@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: eae7d0a34d6bd76dae5998f05f9d64e0d40f7d9b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c18d235977f1256a10e813fa8e02aa3590366fe1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321615"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936416"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics를 사용한 조건부 액세스
 
@@ -25,9 +25,9 @@ ms.locfileid: "93321615"
 
 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 Microsoft 조건부 액세스를 지원 합니다.
 
-다음 단계에서는 Azure SQL Database, SQL Managed Instance 또는 Azure Synapse를 구성 하 여 조건부 액세스 (CA) 정책을 적용 하는 방법을 보여 줍니다.  
+다음 단계에서는 Azure SQL Database, SQL Managed Instance 또는 Azure Synapse를 구성 하 여 조건부 액세스 정책을 적용 하는 방법을 보여 줍니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Active Directory (Azure AD) 인증을 지원 하기 위해 Azure Synapse에서 Azure SQL Database, Azure SQL Managed Instance 또는 전용 SQL 풀을 구성 해야 합니다. 특정 단계는 [SQL Database 또는 Azure Synapse를 사용 하 여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md)를 참조 하세요.  
 - Multi-Factor Authentication 사용 하도록 설정 된 경우 최신 SQL Server Management Studio (SSMS)와 같은 지원 되는 도구를 사용 하 여 연결 해야 합니다. 자세한 내용은 [SQL Server Management Studio에 대한 Azure SQL Database 다단계 인증 구성](authentication-mfa-ssms-configure.md)을 참조하세요.  

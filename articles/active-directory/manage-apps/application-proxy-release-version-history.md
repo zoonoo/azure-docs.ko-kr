@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210859"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658403"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 응용 프로그램 프록시: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory (Azure AD) 응용 프로그램 프록시의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 응용 프로그램 프록시를 정기적으로 업데이트 합니다. 응용 프로그램 프록시 커넥터는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
@@ -38,7 +38,7 @@ Azure AD 응용 프로그램 프록시 커넥터 다운로드 |  [최신 커넥�
 2020 년 7 월 22 일: 다운로드를 위해 출시 된이 버전은 다운로드 페이지를 통해서만 설치할 수 있습니다. 이 버전의 자동 업그레이드 릴리스는 나중에 출시 될 예정입니다.
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
--   Azure Government 클라우드 환경에 대 한 지원이 향상 되었습니다. Azure Government 클라우드에 대해 커넥터를 적절히 설치 하는 방법에 대 한 단계는 [필수](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) 구성 요소 및 [설치 단계](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud)를 검토 합니다.
+-   Azure Government 클라우드 환경에 대 한 지원이 향상 되었습니다. Azure Government 클라우드에 대해 커넥터를 적절히 설치 하는 방법에 대 한 단계는 [필수](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) 구성 요소 및 [설치 단계](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud)를 검토 합니다.
 - 응용 프로그램 프록시를 사용 하는 원격 데스크톱 서비스 웹 클라이언트 사용을 지원 합니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md) 를 참조 하세요.
 - Websocket 확장 협상이 향상 되었습니다. 
 

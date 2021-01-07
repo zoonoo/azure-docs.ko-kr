@@ -5,26 +5,34 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 68d890386d53b4115c773b128f8678bac9579e53
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043300"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844338"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
-이 문서는 이전 미리 보기 API를 사용하여 Azure 구독을 프로그래밍 방식으로 만드는 데 도움이 됩니다. [최신 API 버전](programmatically-create-subscription.md)이 릴리스되었습니다. 최신 버전을 사용하지 않으려면 이 문서의 정보를 사용할 수 있습니다. 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 구독을 만드는 방법을 알아봅니다.
+이 문서는 이전 미리 보기 API를 사용하여 Azure 구독을 프로그래밍 방식으로 만드는 데 도움이 됩니다. 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 구독을 만드는 방법을 알아봅니다.
 
-다음 계약 유형의 청구 계정이 있는 Azure 고객은 구독을 프로그래밍 방식으로 만들 수 있습니다.
+다양한 Azure 계약 구독 유형에 사용할 최신 API 버전에 대한 새 문서가 있습니다.
 
-- [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [MCA(Microsoft 고객 계약)](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [MPA(Microsoft 파트너 계약)](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement)
+- [최신 API를 사용하여 프로그래밍 방식으로 EA 구독 만들기](programmatically-create-subscription-enterprise-agreement.md)
+- [최신 API를 사용하여 프로그래밍 방식으로 MCA 구독 만들기](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [최신 API를 사용하여 프로그래밍 방식으로 MPA 구독 만들기](Programmatically-create-subscription-microsoft-customer-agreement.md)
+
+그러나 최신 API 버전을 사용하지 않으려면 이 문서의 정보를 계속 사용하면 됩니다.
+
+다음과 같은 계약 유형의 청구 계정이 있는 Azure 고객은 프로그래밍 방식으로 구독을 만들 수 있습니다.
+
+- 기업 계약
+- MCA(Microsoft 고객 계약)
+- MPA(Microsoft 파트너 계약)
 
 Azure 구독을 프로그래밍 방식으로 만드는 경우 해당 구독에는 Microsoft 또는 공인 재판매인으로부터 Azure 서비스를 구입한 계약이 적용됩니다. 자세한 내용은 [Microsoft Azure 법적 정보](https://azure.microsoft.com/support/legal/)를 참조하세요.
 
@@ -39,7 +47,7 @@ Azure 구독을 프로그래밍 방식으로 만드는 경우 해당 구독에�
 구독을 만들려면 등록 계정에 대한 소유자 역할이 있어야 합니다. 역할을 얻는 방법은 두 가지입니다.
 
 * 등록의 엔터프라이즈 관리자는 사용자를 등록 계정의 소유자가 되는 [계정 소유자](https://ea.azure.com/helpdocs/addNewAccount)(로그인 필요)로 만들 수 있습니다.
-* 등록 계정의 기존 소유자가 [액세스 권한을 부여](grant-access-to-create-subscription.md)할 수 있습니다. 마찬가지로, 서비스 주체를 사용하여 EA 구독을 만들려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](grant-access-to-create-subscription.md)해야 합니다.
+* 등록 계정의 기존 소유자가 [액세스 권한을 부여](grant-access-to-create-subscription.md)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](grant-access-to-create-subscription.md)해야 합니다.
 
 ### <a name="find-accounts-you-have-access-to"></a>액세스할 수 있는 계정 찾기
 
@@ -134,7 +142,7 @@ az billing enrollment-account list
 
 ### <a name="create-subscriptions-under-a-specific-enrollment-account"></a>특정 등록 계정 아래에서 구독 만들기
 
-다음 예에서는 이전 단계에서 선택한 등록 계정에 *Dev Team Subscription* 이라는 구독을 만듭니다. 구독 제안은 *MS-AZR-0017P* (일반 Microsoft 기업계약)입니다. 또한 구독에 대한 Azure RBAC 소유자로 두 명의 사용자를 선택적으로 추가합니다.
+다음 예에서는 이전 단계에서 선택한 등록 계정에 *Dev Team Subscription* 이라는 구독을 만듭니다. 구독 제안은 *MS-AZR-0017P*(일반 Microsoft 기업계약)입니다. 또한 구독에 대한 Azure RBAC 소유자로 두 명의 사용자를 선택적으로 추가합니다.
 
 ### <a name="rest"></a>[REST (영문)](#tab/rest)
 
@@ -157,7 +165,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| 요소 이름  | 필수 | Type   | 설명                                                                                               |
+| 요소 이름  | 필수 | Type   | Description                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | 예      | String | 구독의 표시 이름입니다. 지정되지 않은 경우 “Microsoft Azure 엔터프라이즈”와 같은 제품의 이름으로 설정됩니다.                                 |
 | `offerType`   | 예      | String | 구독의 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
@@ -175,9 +183,9 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
-| 요소 이름  | 필수 | Type   | 설명 |
+| 요소 이름  | 필수 | Type   | Description |
 |---------------|----------|--------|----|
-| `Name` | 예      | String | 구독의 표시 이름입니다. 지정하지 않으면 제안의 이름(예: *Microsoft Azure 엔터프라이즈* )으로 설정됩니다. |
+| `Name` | 예      | String | 구독의 표시 이름입니다. 지정하지 않으면 제안의 이름(예: *Microsoft Azure 엔터프라이즈*)으로 설정됩니다. |
 | `OfferType`   | 예      | String | 구독 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
 | `EnrollmentAccountObjectId`      | 예       | String | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. 값은 `Get-AzEnrollmentAccount`에서 가져오는 GUID입니다. |
 | `OwnerObjectId`      | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 개체 ID입니다.  |
@@ -196,9 +204,9 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| 요소 이름  | 필수 | Type   | 설명 |
+| 요소 이름  | 필수 | Type   | Description |
 |---------------|----------|--------|------------|
-| `display-name` | 예      | String | 구독의 표시 이름입니다. 지정하지 않으면 제안의 이름(예: *Microsoft Azure 엔터프라이즈* )으로 설정됩니다.|
+| `display-name` | 예      | String | 구독의 표시 이름입니다. 지정하지 않으면 제안의 이름(예: *Microsoft Azure 엔터프라이즈*)으로 설정됩니다.|
 | `offer-type`   | 예      | String | 구독의 제안입니다. EA에 대한 두 가지 옵션은 [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/)(프로덕션 사용) 및 [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/)(개발/테스트, [EA 포털을 사용하여 켜져야](https://ea.azure.com/helpdocs/DevOrTestOffer) 함)입니다.                |
 | `enrollment-account-object-id`      | 예       | String | 구독이 생성되고 비용이 청구되는 등록 계정의 개체 ID입니다. 값은 `az billing enrollment-account list`에서 가져오는 GUID입니다. |
 | `owner-object-id`      | 예       | String | 구독을 만들 때 Azure RBAC 소유자로 추가할 사용자의 개체 ID입니다.  |

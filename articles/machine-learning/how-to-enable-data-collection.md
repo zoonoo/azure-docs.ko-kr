@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fc890dbaf717d3eb9ec87afcb69c87e80c7f14bc
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532820"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680960"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
@@ -115,6 +115,12 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
     ```
 
 1. 새 이미지를 만들고 machine learning 모델을 배포 하려면 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+
+1. 웹 서비스 환경의 conda 종속성에 ' Azure 모니터링 ' pip 패키지를 추가 합니다.
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
 
 
 ## <a name="disable-data-collection"></a>데이터 수집 비활성화

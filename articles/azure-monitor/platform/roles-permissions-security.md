@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84ae5f6adfe2a02f62b5d4b1e776d8b5ac1d731b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533277"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95975356"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Azure Monitor의 역할, 권한 및 보안
 
@@ -68,7 +68,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 > 
 
 ## <a name="monitoring-permissions-and-azure-custom-roles"></a>권한 및 Azure 사용자 지정 역할 모니터링
-위의 기본 제공 역할이 팀의 정확한 요구를 충족 하지 않는 경우 보다 세분화 된 권한으로 [Azure 사용자 지정 역할을 만들](../../role-based-access-control/custom-roles.md) 수 있습니다. 다음은 공통 Azure 모니터 RBAC 작업과 그에 대한 설명입니다.
+위의 기본 제공 역할이 팀의 정확한 요구를 충족 하지 않는 경우 보다 세분화 된 권한으로 [Azure 사용자 지정 역할을 만들](../../role-based-access-control/custom-roles.md) 수 있습니다. 다음은 Azure Monitor에 대 한 일반적인 Azure RBAC 작업을 설명 하는 것입니다.
 
 | 작업(Operation) | Description |
 | --- | --- |
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 그런 다음 해당 스토리지 계정에서의 읽기가 필요한 개체에게 토큰을 부여하면 해당 스토리지 계정의 모든 Blob을 나열하고 읽을 수 있습니다.
 
-또는 RBAC로 이 권한을 제어해야 할 경우 해당 특정 스토리지 계정에서 개체에 Microsoft.Storage/storageAccounts/listkeys/action 권한을 부여할 수 있습니다. 스토리지 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어 하나의 저장소 계정에서 읽기만 하면 되는 사용자 또는 응용 프로그램에 대해 다음과 같은 Azure 사용자 지정 역할을 만들 수 있습니다.
+또는 Azure RBAC를 사용 하 여이 권한을 제어 해야 하는 경우 해당 특정 저장소 계정에 대 한 Microsoft Storage/storageAccounts/listkeys/action 권한을 해당 엔터티에 부여할 수 있습니다. 스토리지 계정에 보관하기 위해 로그 프로필이나 진단 설정을 구성할 수 있는 사용자에게 필요한 항목입니다. 예를 들어 하나의 저장소 계정에서 읽기만 하면 되는 사용자 또는 응용 프로그램에 대해 다음과 같은 Azure 사용자 지정 역할을 만들 수 있습니다.
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -159,7 +159,7 @@ New-AzRoleDefinition -Role $role
 이벤트 허브에서도 비슷한 패턴을 따를 수 있지만 먼저 전용 수신 권한 규칙을 만들어야 합니다. 관련 모니터링 이벤트 허브를 수신 대기 하도록 하는 애플리케이션에 대한 액세스 권한을 부여하려면 다음을 수행합니다.
 
 1. 수신 클레임만으로 모니터링 데이터를 스트리밍하기 위해 생성된 이벤트 허브에서 공유 액세스 정책을 만듭니다. 이 작업은 포털에서 수행할 수 있습니다. 예를 들어, 이 정책을 “monitoringReadOnly”라고 할 수 있습니다. 가능한 경우 소비자에게 직접 이 키를 제공하고 다음 단계를 건너뛰고자 할 수 있습니다.
-2. 소비자가 임시로 키를 가져올 수 있어야 할 경우 해당 이벤트 허브에 대해 사용자에게 ListKeys 작업을 부여합니다. 이벤트 허브에 스트리밍하기 위해 로그 프로필이나 진단 설정을 구성할 수 있어야 하는 사용자에게 필요한 항목입니다. 예를 들어, RBAC 규칙을 만들 수 있습니다.
+2. 소비자가 임시로 키를 가져올 수 있어야 할 경우 해당 이벤트 허브에 대해 사용자에게 ListKeys 작업을 부여합니다. 이벤트 허브에 스트리밍하기 위해 로그 프로필이나 진단 설정을 구성할 수 있어야 하는 사용자에게 필요한 항목입니다. 예를 들어, Azure RBAC 규칙을 만들 수 있습니다.
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -187,6 +187,6 @@ Azure Monitor에서 사용하도록 설정하는 서비스를 제공하려면 Az
 자세한 내용은 [네트워크 보안 및 Azure Storage](../../storage/common/storage-network-security.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager의 RBAC 및 권한에 대해 읽기](../../role-based-access-control/overview.md)
+* [리소스 관리자에서 Azure RBAC 및 사용 권한에 대해 읽어 보세요.](../../role-based-access-control/overview.md)
 * [Azure의 모니터링 개요 읽기](../overview.md)
 

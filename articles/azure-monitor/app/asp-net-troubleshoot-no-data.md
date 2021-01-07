@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 26ba586715c7b76ff8972c6574c3c29b837713a1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083170"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904468"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -39,12 +39,44 @@ ms.locfileid: "93083170"
 
 * [상태 모니터 문제 해결](./monitor-performance-live-website-now.md#troubleshoot)을 참조하세요.
 
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=net) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
+
+## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>System.io.filenotfoundexception: 파일 또는 어셈블리 ' Microsoft. AspNet TelemetryCorrelation을 (를) 로드할 수 없습니다.
+
+이 오류에 대 한 자세한 내용은 [GitHub 문제 1610] ( https://github.com/microsoft/ApplicationInsights-dotnet/issues/1610) 을 참조 하세요.
+
+보다 오래 된 Sdk (2.4)에서 업그레이드 하는 경우 및에 다음 변경 내용이 적용 되었는지 확인 해야 합니다 `web.config` `ApplicationInsights.config` .
+
+1. 하나 대신 두 개의 http 모듈이 있습니다. 에는 `web.config` 두 개의 http 모듈이 있어야 합니다. 일부 시나리오에서는 순서가 중요 합니다.
+
+    ``` xml
+    <system.webServer>
+      <modules>
+          <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="integratedMode,managedHandler" />
+          <add name="ApplicationInsightsHttpModule" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
+      </modules>
+    </system.webServer>
+    ```
+
+2. 또한에는 `ApplicationInsights.config` `RequestTrackingTelemetryModule` 다음과 같은 원격 분석 모듈이 있어야 합니다.
+
+    ``` xml
+    <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Web.AspNetDiagnosticTelemetryModule, Microsoft.AI.Web"/>
+    </TelemetryModules>
+    ```
+
+**_제대로 업그레이드 하지 못하면 예기치 않은 예외 또는 원격 분석을 수집 하지 않을 수 있습니다._* _
+
+
 ## <a name="no-add-application-insights-option-in-visual-studio"></a><a name="q01"></a>Visual Studio에 'Application Insights 추가' 옵션이 없음
-*Solution Explorer에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭할 때 Application Insights 옵션이 표시되지 않습니다.*
+솔루션 탐색기에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭 _When Application Insights 옵션이 표시 되지 않습니다. *
 
 * 이 도구가 모든 유형의 .NET 프로젝트를 지원하지는 않습니다. 웹 및 WCF 프로젝트는 지원됩니다. 데스크톱 또는 서비스 애플리케이션 같은 기타 프로젝트 유형은 여전히 [수동으로 프로젝트에 Application Insights SDK를 추가](./windows-desktop.md)할 수 있습니다.
 * [Visual Studio 2013 업데이트 3 이후](/visualstudio/releasenotes/vs2013-update3-rtm-vs)가 설치되어 있는지 확인하세요. Application Insights SDK를 제공하는 개발자 분석 도구가 사전 설치되어 제공됩니다.
-* **도구** , **확장 및 업데이트** 를 차례로 선택하고 **개발자 분석 도구** 가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
+* **도구**, **확장 및 업데이트** 를 차례로 선택하고 **개발자 분석 도구** 가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
 * 새 프로젝트 대화 상자를 열고 ASP.NET 웹 애플리케이션을 선택합니다. Application Insights 옵션이 보이면 도구가 설치된 것입니다. 옵션이 보이지 않으면 Developer Analytics Tools를 제거한 후 다시 설치해 보세요.
 
 ## <a name="adding-application-insights-failed"></a><a name="q02"></a>Application Insights 추가 실패
@@ -84,7 +116,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 해결 방법:
 
 * Visual Studio가 2013 업데이트 3 이상 버전인지 확인하세요.
-* **도구** , **확장 및 업데이트** 를 차례로 선택하고 **개발자 분석 도구** 가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
+* **도구**, **확장 및 업데이트** 를 차례로 선택하고 **개발자 분석 도구** 가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
 * 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **Application Insights > Application Insights 구성** 명령이 보이면 그 명령을 사용하여 Application Insights 서비스의 리소스에 프로젝트를 연결합니다.
 
 그렇지 않으면 프로젝트가 Developer Analytics Tools에서 바로 지원되지 않는 유형입니다. 원격 분석을 보려면 [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽의 탐색 모음에서 Application Insights를 선택하고, 애플리케이션을 선택합니다.
@@ -239,9 +271,9 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 필요에 따라 다음 매개 변수를 수정할 수 있습니다.
-- **MaxCollectSec** . PerfView가 무기한 실행되고 서버의 성능에 영향을 주지 않도록 하려면 이 매개 변수를 설정합니다.
-- **OnlyProviders** . SDK에서만 로그를 수집하려면 이 매개 변수를 설정합니다. 특정 조사에 따라 이 목록을 사용자 지정할 수 있습니다. 
-- **NoGui** . GUI 없이 로그를 수집하려면 이 매개 변수를 설정합니다.
+- **MaxCollectSec**. PerfView가 무기한 실행되고 서버의 성능에 영향을 주지 않도록 하려면 이 매개 변수를 설정합니다.
+- **OnlyProviders**. SDK에서만 로그를 수집하려면 이 매개 변수를 설정합니다. 특정 조사에 따라 이 목록을 사용자 지정할 수 있습니다. 
+- **NoGui**. GUI 없이 로그를 수집하려면 이 매개 변수를 설정합니다.
 
 
 자세한 내용은,

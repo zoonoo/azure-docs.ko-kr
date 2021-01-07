@@ -6,11 +6,11 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
 ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893099"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024047"
 ---
 # <a name="material-mapping-for-model-formats"></a>모델 형식에 대한 재질 매핑
 
@@ -20,7 +20,7 @@ ms.locfileid: "88893099"
 
 ## <a name="gltf"></a>글 Tf
 
-*EmissiveFactor* 및 *EmissiveTexture*를 제외 하 고, Azure 원격 렌더링에서는 글 tf 2.0 사양의 거의 모든 것이 지원 됩니다.
+*EmissiveFactor* 및 *EmissiveTexture* 를 제외 하 고, Azure 원격 렌더링에서는 글 tf 2.0 사양의 거의 모든 것이 지원 됩니다.
 
 다음 표에서 이러한 매핑을 보여줍니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "88893099"
 
 ### <a name="embedded-textures"></a>포함 된 질감
 
-* \* Bin* 또는 * \* .bb* 파일에 포함 된 질감이 지원 됩니다.
+*\* Bin* 또는 *\* .bb* 파일에 포함 된 질감이 지원 됩니다.
 
 ### <a name="supported-gltf-extension"></a>지원 되는 인 글 Tf 확장
 
@@ -62,14 +62,14 @@ ms.locfileid: "88893099"
 FBX 형식은 닫혀 있습니다. FBX 재질은 일반적으로 .PBR 자료와 호환 되지 않습니다. FBX는 다양 한 고유 매개 변수 및 속성이 있는 표면에 대 한 복잡 한 설명을 사용 하며, **일부는 Azure 원격 렌더링 파이프라인에서 사용 되지 않습니다**.
 
 > [!IMPORTANT]
-> Azure 원격 렌더링 모델 변환 파이프라인은 **FBX 2011 이상**만 지원 합니다.
+> Azure 원격 렌더링 모델 변환 파이프라인은 **FBX 2011 이상** 만 지원 합니다.
 
 FBX 형식은 공식 FBX 사양에는 두 가지 유형만 있습니다.
 
 * *램버트* -일반적으로는 상당한 시간에 사용 되지 않지만 변환 시 퐁로 변환 하 여 계속 지원 됩니다.
 * *퐁* -거의 모든 자료 및 대부분의 콘텐츠 도구는이 유형을 사용 합니다.
 
-퐁 모델은 보다 정확 하며 FBX 재질의 *유일한* 모델로 사용 됩니다. 아래는 *FBX 재질*이라고 합니다.
+퐁 모델은 보다 정확 하며 FBX 재질의 *유일한* 모델로 사용 됩니다. 아래는 *FBX 재질* 이라고 합니다.
 
 > Maya에서는 FBX에 대 한 사용자 지정 속성을 정의 하 여 두 개의 사용자 지정 확장을 사용 합니다. 이러한 세부 정보는 FBX 사양에 포함 되지 않으므로 현재 Azure 원격 렌더링에서 지원 되지 않습니다.
 

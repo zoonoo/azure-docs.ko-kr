@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 ms.openlocfilehash: e7d6a67f5322c5bb640430f66ccb0917f6faada1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339787"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96003500"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -59,17 +59,17 @@ ODBC 드라이버를 살펴보겠습니다.
 1. **Azure Cosmos DB ODBC 드라이버 SDN 설정** 창에서 다음 정보를 입력합니다. 
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC 드라이버 DSN 설정 창":::
-    - **데이터 원본 이름** : ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
-    - **설명** : 데이터 원본에 대한 짧은 설명입니다.
-    - **호스트** : Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
-    - **액세스 키** : 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
+    - **데이터 원본 이름**: ODBC DSN에 대한 고유한 이름입니다 이 이름은 Azure Cosmos DB 계정에 고유하므로 여러 계정이 있는 경우 적절히 이름을 지정합니다.
+    - **설명**: 데이터 원본에 대한 짧은 설명입니다.
+    - **호스트**: Azure Cosmos DB 계정에 대한 URI입니다. 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에서 이 URI를 검색할 수 있습니다. 
+    - **액세스 키**: 다음 스크린샷처럼 Azure Portal의 Azure Cosmos DB 키 페이지에 있는 기본 또는 보조 읽기-쓰기/읽기 전용 키입니다. DSN가 읽기 전용 데이터 처리 및 보고에 사용되는 경우 읽기 전용 키를 사용하는 것이 좋습니다.
     :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB 키 페이지":::
-    - **액세스 키 암호화** : 이 컴퓨터의 사용자 수에 따라 가장 적합한 옵션을 선택합니다. 
+    - **액세스 키 암호화**: 이 컴퓨터의 사용자 수에 따라 가장 적합한 옵션을 선택합니다. 
     
 1. Azure Cosmos DB 계정에 연결할 수 있는지 확인하려면 **테스트** 단추를 클릭합니다. 
 
 1.  **고급 옵션** 을 클릭하고 다음 값을 설정합니다.
-    *  **REST API 버전** : 작업에 대 한 [REST API 버전](/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
+    *  **REST API 버전**: 작업에 대 한 [REST API 버전](/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
         - REST API 버전에 **2018-12-31** 을 입력 합니다.
         - **시작** 메뉴에서 "regedit"를 입력 하 여 **레지스트리 편집기** 응용 프로그램을 찾아 엽니다.
         - 레지스트리 편집기에서 다음 경로로 이동 합니다. **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -79,9 +79,9 @@ ODBC 드라이버를 살펴보겠습니다.
             - 값 이름: **Ignoresessiontoken**
             - 값 데이터: **1** 
              :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="레지스트리 편집기 설정"::: 1 개
-    - **쿼리 일관성** : 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
-    - **재시도 횟수** : 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
-    - **스키마 파일** : 다양한 옵션이 있습니다.
+    - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
+    - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
+    - **스키마 파일**: 다양한 옵션이 있습니다.
         - 기본적으로이 항목을 그대로 두고 (비어 있음) 드라이버는 모든 컨테이너의 첫 번째 데이터 페이지를 검색 하 여 각 컨테이너의 스키마를 확인 합니다. 이를 컨테이너 매핑 이라고 합니다. 정의된 스키마 파일이 없이 경우 이 드라이버는 각 드라이버 세션을 검색하므로, DSN을 사용하는 애플리케이션의 시작 시간이 더 늘어날 수 있습니다. 따라서 DSN에 대한 스키마 파일을 항상 연결하는 것이 좋습니다.
         - 스키마 편집기를 사용 하 여 만든 스키마 파일이 이미 있는 경우 **찾아보기** 를 클릭 하 여 해당 파일로 이동 하 고 **저장** 을 클릭 한 다음 **확인** 을 클릭 합니다.
         - 새 스키마를 만들려면 **확인** 을 클릭하고 주 창에서 **스키마 편집기** 를 클릭합니다. 그런 다음, 스키마 편집기 정보로 이동합니다. 새 스키마 파일을 만든 후 **고급 옵션** 창으로 돌아가 새로 만든 스키마 파일을 포함해야 합니다.

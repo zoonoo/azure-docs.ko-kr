@@ -3,20 +3,20 @@ title: Azure Data Factory의 웹 활동
 description: Data Factory에서 지원하는 제어 흐름 작업 중 하나인 웹 작업을 사용하여 파이프라인에서 REST 엔드포인트를 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635102"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387720"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory에서 웹 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "92635102"
 
 > [!NOTE]
 > 웹 작업은 자체 호스팅 통합 런타임을 활용하여 프라이빗 가상 네트워크에서 호스트되는 URL을 호출하는 경우에도 지원됩니다. 통합 런타임에서 URL 엔드포인트를 직접 확인할 수 있어야 합니다. 
+
+> [!NOTE]
+> 지원 되는 최대 출력 응답 페이로드 크기는 4mb입니다.  
 
 ## <a name="syntax"></a>구문
 
@@ -74,7 +77,7 @@ ms.locfileid: "92635102"
 -------- | ----------- | -------------- | --------
 name | 웹 작업의 이름입니다. | String | 예
 type | **WebActivity** 로 설정해야 합니다. | String | 예
-method | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
+method | 대상 엔드포인트에 대한 Rest API 메서드입니다. | 문자열입니다. <br/><br/>지원되는 형식: "GET", "POST", "PUT" | 예
 url | 대상 엔드포인트 및 경로입니다. | 문자열(또는 resultType 문자열이 있는 식). 활동이 엔드포인트에서 응답을 수신하지 않는 경우 오류가 발생하여 1분에 시간이 초과됩니다. | 예
 headers | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 합니다. `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 문자열(또는 resultType 문자열이 있는 식) | 예, Content-Type 헤더가 필요합니다. `"headers":{ "Content-Type":"application/json"}`
 본문 | 엔드포인트에 전송된 페이로드를 나타냅니다.  | 문자열(또는 resultType 문자열이 있는 식). <br/><br/>[요청 페이로드 스키마](#request-payload-schema) 섹션에서 요청 페이로드의 스키마를 참조하세요. | POST/PUT 메서드에 필요합니다.
@@ -165,7 +168,7 @@ POST/PUT 메서드를 사용하는 경우 body 속성은 엔드포인트에 전�
 }
 ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 이 예제에서 파이프라인의 웹 작업은 REST 끝점을 호출하고 Azure SQL 연결된 서비스 및 Azure SQL 데이터 세트를 엔드포인트에 전달합니다. REST 끝점은 Azure SQL 연결 문자열을 사용 하 여 논리 SQL server에 연결 하 고 SQL server 인스턴스의 이름을 반환 합니다.
 
 ### <a name="pipeline-definition"></a>파이프라인 정의

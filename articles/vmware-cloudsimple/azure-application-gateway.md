@@ -1,19 +1,19 @@
 ---
 title: VMware 가상 머신과 Azure 애플리케이션 게이트웨이 사용
 description: Azure application gateway를 사용 하 여 VMware virtual machines에서 실행 되는 웹 서버에 대 한 들어오는 웹 트래픽을 관리 하는 방법에 대해 설명 합니다. CloudSimple 사설 클라우드 환경
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b7dce0181987b7e61b243a7eb0e13b7ed687eb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d14fdc4e2b2b1dfca8194077acc0453808611946
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82185696"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897946"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>CloudSimple 사설 클라우드 환경에서 VMware 가상 머신과 Azure 애플리케이션 게이트웨이 사용
 
@@ -71,7 +71,7 @@ Azure virtual network를 사설 클라우드에 연결 하려면이 프로세스
 
 1. 구독 및 리소스 그룹에 가상 네트워크를 만듭니다.
 2. 가상 네트워크 내에서 전용 서브넷으로 사용할 서브넷을 만듭니다.
-3. 표준 Application Gateway 만들기 (선택적으로 waf를 사용 하도록 설정): Azure Portal 홈 **Resource**  >  페이지에서 페이지 왼쪽 상단에 있는 리소스**네트워킹**  >  **Application Gateway** 을 클릭 합니다. 표준 SKU 및 크기를 선택 하 고 Azure 구독, 리소스 그룹 및 위치 정보를 제공 합니다. 필요한 경우이 응용 프로그램 게이트웨이에 대 한 새 공용 IP를 만들고 응용 프로그램 게이트웨이에 대 한 가상 네트워크 및 전용 서브넷에 대 한 세부 정보를 제공 합니다.
+3. 표준 Application Gateway 만들기 (선택적으로 waf를 사용 하도록 설정): Azure Portal 홈   >  페이지에서 페이지 왼쪽 상단에 있는 리소스 **네트워킹**  >  **Application Gateway** 을 클릭 합니다. 표준 SKU 및 크기를 선택 하 고 Azure 구독, 리소스 그룹 및 위치 정보를 제공 합니다. 필요한 경우이 응용 프로그램 게이트웨이에 대 한 새 공용 IP를 만들고 응용 프로그램 게이트웨이에 대 한 가상 네트워크 및 전용 서브넷에 대 한 세부 정보를 제공 합니다.
 4. 가상 컴퓨터를 사용 하 여 백 엔드 풀을 추가 하 고 응용 프로그램 게이트웨이에 추가 합니다.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. 사설 클라우드에서 웹 서버 VM 풀 만들기 및 구성

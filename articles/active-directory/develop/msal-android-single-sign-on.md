@@ -14,26 +14,26 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 7e53e21b6d929e2f0ba9a2e23e4e8e1b2278f828
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209902"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169497"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>방법: MSAL을 사용 하 여 Android에서 앱 간 SSO 사용
 
 SSO (Single sign-on)를 사용 하면 사용자가 자격 증명을 한 번만 입력 하면 해당 자격 증명이 응용 프로그램 간에 자동으로 작동 합니다.
 
-[Microsoft id 플랫폼](/azure/active-directory/develop/) 및 msal (Microsoft 인증 라이브러리)을 사용 하면 사용자 고유의 앱 모음에서 SSO를 사용 하도록 설정할 수 있습니다. Broker 기능 및 인증자 응용 프로그램을 사용 하 여 전체 장치에서 SSO를 확장할 수 있습니다.
+[Microsoft id 플랫폼](./index.yml) 및 msal (Microsoft 인증 라이브러리)을 사용 하면 사용자 고유의 앱 모음에서 SSO를 사용 하도록 설정할 수 있습니다. Broker 기능 및 인증자 응용 프로그램을 사용 하 여 전체 장치에서 SSO를 확장할 수 있습니다.
 
 이 방법에서는 응용 프로그램에서 사용자에 게 SSO를 제공 하는 데 사용 하는 Sdk를 구성 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 방법에서는 다음을 수행 하는 방법을 알고 있다고 가정 합니다.
 
-- Azure Portal를 사용 하 여 앱을 프로 비전 합니다. 이 항목에 대 한 자세한 내용은 [Android 자습서](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project) 에서 앱을 만드는 방법에 대 한 지침을 참조 하세요.
+- Azure Portal를 사용 하 여 앱을 프로 비전 합니다. 이 항목에 대 한 자세한 내용은 [Android 자습서](./tutorial-v2-android.md#create-a-project) 에서 앱을 만드는 방법에 대 한 지침을 참조 하세요.
 - 응용 프로그램을 [Android 용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-android)와 통합 합니다.
 
 ## <a name="methods-for-single-sign-on"></a>Single Sign-On에 대 한 메서드
@@ -81,7 +81,7 @@ Broker 호스팅 앱은 언제 든 지 앱 스토어 (일반적으로 Google Pla
 
 Broker가 장치에 설치 되 면 모든 후속 대화형 토큰 요청 (에 대 한 호출 `acquireToken()` )은 MSAL에 의해 로컬이 아닌 broker에서 처리 됩니다. 이전에 MSAL에서 사용할 수 있는 모든 SSO 상태를 broker에서 사용할 수 없습니다. 따라서 사용자가 다시 인증 하거나 장치에 알려진 기존 계정 목록에서 계정을 선택 해야 합니다.
 
-Broker를 설치 하는 경우에는 사용자가 다시 로그인 할 필요가 없습니다. 사용자가를 확인 해야 하는 경우에만 `MsalUiRequiredException` 다음 요청이 broker로 이동 합니다. `MsalUiRequiredException` 는 여러 가지 이유로 throw 될 수 있으므로 대화형으로 해결 해야 합니다. 예를 들면 다음과 같습니다.
+Broker를 설치 하는 경우에는 사용자가 다시 로그인 할 필요가 없습니다. 사용자가를 확인 해야 하는 경우에만 `MsalUiRequiredException` 다음 요청이 broker로 이동 합니다. `MsalUiRequiredException` 는 여러 가지 이유로 throw 될 수 있으므로 대화형으로 해결 해야 합니다. 예를 들어:
 
 - 사용자가 계정과 연결 된 암호를 변경 했습니다.
 - 사용자 계정이 더 이상 조건부 액세스 정책을 충족 하지 않습니다.
@@ -117,11 +117,11 @@ Windows:
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-*Keytool*을 사용 하 여 서명 해시를 생성 한 후에는 Azure Portal를 사용 하 여 리디렉션 URI를 생성 합니다.
+*Keytool* 을 사용 하 여 서명 해시를 생성 한 후에는 Azure Portal를 사용 하 여 리디렉션 URI를 생성 합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **앱 등록**에서 Android 앱을 선택 합니다.
-1. **인증**  >  **플랫폼 Android 추가를**선택  >  **Android**합니다.
-1. 열리는 **Android 앱 구성** 창에서 앞서 생성 한 **서명 해시** 와 **패키지 이름을**입력 합니다.
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **앱 등록** 에서 Android 앱을 선택 합니다.
+1. **인증**  >  **플랫폼 Android 추가를** 선택  >  **Android** 합니다.
+1. 열리는 **Android 앱 구성** 창에서 앞서 생성 한 **서명 해시** 와 **패키지 이름을** 입력 합니다.
 1. **구성** 단추를 선택 합니다.
 
 Azure Portal는 리디렉션 URI를 생성 하 고 **Android 구성** 창의 **리디렉션 uri** 필드에 표시 합니다.
@@ -159,7 +159,7 @@ MSAL은 다음 두 가지 방법으로 broker와 통신 합니다.
 Broker 통합이 작동 한다는 것을 즉시 알 수는 없지만 다음 단계를 사용 하 여 확인할 수 있습니다.
 
 1. Android 장치에서 broker를 사용 하 여 요청을 완료 합니다.
-1. Android 장치의 설정에서 인증 한 계정에 해당 하는 새로 만든 계정을 찾습니다. 계정은 *회사 계정*형식 이어야 합니다.
+1. Android 장치의 설정에서 인증 한 계정에 해당 하는 새로 만든 계정을 찾습니다. 계정은 *회사 계정* 형식 이어야 합니다.
 
 테스트를 반복 하려는 경우 설정에서 계정을 제거할 수 있습니다.
 

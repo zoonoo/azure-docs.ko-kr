@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 3225aa9eaff5c3cd0acca99261935feb9774810f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520679"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010268"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>자습서: RolePoint와 Azure Active Directory 통합
 
@@ -134,7 +134,7 @@ RolePoint 쪽에서 Single Sign-On을 설정하려면 [RolePoint 지원 팀](mai
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
@@ -158,7 +158,7 @@ RolePoint 쪽에서 Single Sign-On을 설정하려면 [RolePoint 지원 팀](mai
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 RolePoint에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **RolePoint** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **RolePoint** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

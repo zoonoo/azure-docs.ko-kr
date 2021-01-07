@@ -11,19 +11,19 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 09/21/2020
+ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672085"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462116"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 고급 기능을 제공 합니다.
+데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 고급 기능을 제공합니다.
 
 가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
 
@@ -55,8 +55,8 @@ ms.locfileid: "92672085"
 
 분류에는 두 개의 메타데이터 특성이 포함됩니다.
 
-- **레이블** : 열에 저장 된 데이터의 민감도 수준을 정의 하는 데 사용 되는 기본 분류 특성입니다.  
-- **정보 형식** : 열에 저장 된 데이터 형식에 대 한 보다 세부적인 정보를 제공 하는 특성입니다.
+- **레이블**: 열에 저장 된 데이터의 민감도 수준을 정의 하는 데 사용 되는 기본 분류 특성입니다.  
+- **정보 형식**: 열에 저장 된 데이터 형식에 대 한 보다 세부적인 정보를 제공 하는 특성입니다.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>분류 체계 정의 및 사용자 지정
 
@@ -77,7 +77,9 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-1. Azure SQL Database 창의 보안 제목 아래에서 **데이터 검색 & 분류** 로 이동 합니다. 개요 탭에는 데이터베이스의 현재 분류 상태 요약이 포함 되어 있습니다. 요약에는 특정 스키마 파트, 정보 유형 및 레이블만 표시 하도록 필터링 할 수 있는 모든 분류 된 열의 상세 목록이 포함 되어 있습니다. 아직 열을 분류 하지 않은 경우 [4 단계로 건너뜁니다](#step-4).
+1. Azure SQL Database 창의 **보안** 제목 아래에서 **데이터 검색 & 분류** 로 이동 합니다. 개요 탭에는 데이터베이스의 현재 분류 상태 요약이 포함 되어 있습니다. 요약에는 특정 스키마 파트, 정보 유형 및 레이블만 표시 하도록 필터링 할 수 있는 모든 분류 된 열의 상세 목록이 포함 되어 있습니다. 아직 열을 분류 하지 않은 경우 [4 단계로 건너뜁니다](#step-4).
+
+    ![개요](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Excel 형식으로 보고서를 다운로드 하려면 창의 최상위 메뉴에서 **내보내기** 를 선택 합니다.
 
@@ -93,6 +95,8 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 
    - 선택한 권장 사항을 적용 하려면 **선택한 권장 사항 적용** 을 선택 합니다.
 
+   ![분류에 대 한 권장 사항](./media/data-discovery-and-classification-overview/recommendation.png)
+
 1. 또한 다른 방법으로 또는 권장 사항 기반 분류를 비롯 하 여 열을 수동으로 분류할 수도 있습니다.
 
    1. 창의 위쪽 메뉴에서 **분류 추가** 를 선택 합니다.
@@ -101,7 +105,10 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 
    1. 컨텍스트 창의 아래쪽에서 **분류 추가** 를 선택 합니다.
 
-1. 분류를 완료 하 고 새 분류 메타 데이터를 사용 하 여 데이터베이스 열을 영구적으로 레이블 (태그) 하려면 창의 상단 메뉴에서 **저장** 을 선택 합니다.
+   ![수동으로 분류 추가](./media/data-discovery-and-classification-overview/manually-add-classification.png)
+
+
+1. 분류를 완료 하 고 새 분류 메타 데이터를 사용 하 여 데이터베이스 열을 영구적으로 레이블 (태그) 하려면 **분류** 페이지에서 **저장** 을 선택 합니다.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>중요 한 데이터에 대 한 액세스 감사
 

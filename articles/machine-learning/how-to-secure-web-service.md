@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 01/04/2021
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: how-to
+ms.openlocfilehash: 14e4fda6ef36dd8fc57529046473d8afa916ef2c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331161"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880973"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호
 
@@ -28,7 +28,7 @@ ms.locfileid: "94331161"
 > [!TIP]
 > Azure Machine Learning SDK는 보안 통신과 관련 된 속성에 "SSL" 이라는 용어를 사용 합니다. 이는 웹 서비스에서 *TLS* 를 사용 하지 않는다는 의미는 아닙니다. SSL은 보다 일반적으로 인식 되는 용어입니다.
 >
-> 특히 Azure Machine Learning를 통해 배포 된 웹 서비스는 TLS 버전 1.2을 지원 하 고 AKS 및 ACI 새 배포를 지원 합니다. ACI 배포의 경우 이전 TLS 버전을 사용할 경우 최신 TLS 버전을 얻기 위해 다시 배포 하는 것이 좋습니다.
+> 특히 Azure Machine Learning를 통해 배포 되는 웹 서비스는 TLS 버전 1.2 for AKS 및 ACI를 지원 합니다. ACI 배포의 경우 이전 TLS 버전을 사용할 경우 최신 TLS 버전을 얻기 위해 다시 배포 하는 것이 좋습니다.
 
 TLS 및 SSL은 모두 암호화 및 id 확인에 도움이 되는 *디지털 인증서* 를 사용 합니다. 디지털 인증서의 작동 방식에 대 한 자세한 내용은 위키백과 토픽 [공개 키 인프라](https://en.wikipedia.org/wiki/Public_key_infrastructure)를 참조 하세요.
 
@@ -73,33 +73,28 @@ TLS/SSL 인증서 (디지털 인증서)를 가져오는 방법에는 여러 가�
 
 ## <a name="enable-tls-and-deploy"></a><a id="enable"></a> TLS를 사용 하도록 설정 하 고 배포
 
-TLS를 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
+**AKS 배포의** 경우 AML 작업 영역에서 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md) 때 TLS 종료를 사용 하도록 설정할 수 있습니다. AKS 모델 배포 시간에 배포 구성 개체를 사용 하 여 TLS 종료를 사용 하지 않도록 설정할 수 있습니다. 그렇지 않으면 기본적으로 모든 AKS model 배포에서 AKS 클러스터 만들기 또는 연결 시간에 TLS 종료를 사용 하도록 설정 합니다.
 
-### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>AKS 및 필드 프로그래밍 가능 게이트 배열 (FPGA)에 배포
+ACI 배포의 경우 배포 구성 개체를 사용 하 여 모델 배포 시 TLS 종료를 사용 하도록 설정할 수 있습니다.
+
+
+### <a name="deploy-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
   > [!NOTE]
   > 이 단원의 정보는 디자이너에 대 한 보안 웹 서비스를 배포할 때에도 적용 됩니다. Python SDK를 사용 하는 방법을 잘 모르는 경우 [python 용 AZURE MACHINE LEARNING SDK 란 무엇 인가요?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)를 참조 하세요.
 
-AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를 연결할 수 있습니다. 클러스터를 만들거나 연결 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터에 모델 배포](how-to-deploy-azure-kubernetes-service.md)를 참조 하세요.
-  
--  새 클러스터를 만드는 경우 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 를 사용 합니다.
-- 기존 클러스터를 연결 하는 경우 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 를 사용 합니다. 둘 다 **enable_ssl** 메서드가 있는 구성 개체를 반환 합니다.
+AML 작업 영역에서 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md) 때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
 
-**Enable_ssl** 방법은 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
+Microsoft 인증서 또는 CA에서 구매한 사용자 지정 인증서를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다. 
 
-  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 도메인 이름 "contoso \<six-random-characters> . \<azureregion> cloudapp.azure.com ", 여기서 \<azureregion> 은 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label* 를 덮어쓸 수 있습니다.
-
-    TLS를 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
-
-    > [!IMPORTANT]
-    > Microsoft에서 인증서를 사용 하는 경우 사용자 고유의 인증서 또는 도메인 이름을 구입할 필요가 없습니다.
-
-    다음 예제에서는 Microsoft에서 TLS/SSL 인증서를 사용 하도록 설정 하는 구성을 만드는 방법을 보여 줍니다.
+* **Microsoft에서 인증서를 사용** 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "contoso" 값은 도메인 이름 "contoso \<six-random-characters> . \<azureregion> cloudapp.azure.com ", 여기서 \<azureregion> 은 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label* 를 덮어쓸 수 있습니다. 다음 예제에서는 Microsoft 인증서를 사용 하 여 TLS를 사용 하도록 설정 하는 구성을 만드는 방법을 보여 줍니다.
 
     ```python
     from azureml.core.compute import AksCompute
+
     # Config used to create a new AKS cluster and enable TLS
     provisioning_config = AksCompute.provisioning_configuration()
+
     # Leaf domain label generates a name using the formula
     #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
     #  where "######" is a random series of characters
@@ -109,20 +104,28 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
     # Config used to attach an existing AKS cluster to your workspace and enable TLS
     attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                           cluster_name = cluster_name)
+
     # Leaf domain label generates a name using the formula
     #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
     #  where "######" is a random series of characters
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
+    > [!IMPORTANT]
+    > Microsoft에서 인증서를 사용 하는 경우 사용자 고유의 인증서 또는 도메인 이름을 구입할 필요가 없습니다.
 
-  * *구매한 인증서* 를 사용 하는 경우 *ssl_cert_pem_file* , *ssl_key_pem_file* 및 *ssl_cname* 매개 변수를 사용 합니다. 다음 예제에서는 *pem* 파일을 사용 하 여 구매한 TLS/SSL 인증서를 사용 하는 구성을 만드는 방법을 보여 줍니다.
+    > [!WARNING]
+    > AKS 클러스터가 내부 부하 분산 장치로 구성 된 경우 Microsoft에서 제공 하는 인증서를 사용 하는 것은 __지원 되지__ 않으며 사용자 지정 인증서를 사용 하 여 TLS를 사용 하도록 설정 해야 합니다.
 
+* **구매한 사용자 지정 인증서를 사용** 하는 경우 *ssl_cert_pem_file*, *ssl_key_pem_file* 및 *ssl_cname* 매개 변수를 사용 합니다. 다음 예제에서는 pem 파일을 사용 하 여 구매한 TLS/SSL 인증서를 사용 하는 구성을 만드는 방법을 보여 줍니다.
+ 
     ```python
     from azureml.core.compute import AksCompute
+
     # Config used to create a new AKS cluster and enable TLS
     provisioning_config = AksCompute.provisioning_configuration()
     provisioning_config.enable_ssl(ssl_cert_pem_file="cert.pem",
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+
     # Config used to attach an existing AKS cluster to your workspace and enable SSL
     attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
@@ -132,7 +135,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
 
 *Enable_ssl* 에 대 한 자세한 내용은 [AksProvisioningConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
 
-### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에 배포
+### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에서 배포
 
 Azure Container Instances에 배포 하는 경우 다음 코드 조각에 나와 있는 것 처럼 TLS 관련 매개 변수에 대 한 값을 제공 합니다.
 
@@ -147,22 +150,17 @@ aci_config = AciWebservice.deploy_configuration(
 
 ## <a name="update-your-dns"></a>DNS 업데이트
 
-다음으로는 웹 서비스를 가리키도록 DNS를 업데이트해야 합니다.
+사용자 지정 인증서 또는 ACI 배포를 사용 하는 AKS 배포의 경우 점수 매기기 끝점의 IP 주소를 가리키도록 DNS 레코드를 업데이트 해야 합니다.
 
-+ **Container Instances:**
+  > [!IMPORTANT]
+  > AKS 배포를 위해 Microsoft의 인증서를 사용 하는 경우 클러스터에 대 한 DNS 값을 수동으로 업데이트 하지 않아도 됩니다. 값은 자동으로 설정 해야 합니다.
 
-  도메인 이름 등록자의 도구를 사용 하 여 도메인 이름에 대 한 DNS 레코드를 업데이트 합니다. 레코드는 서비스의 IP 주소를 가리켜야 합니다.
+다음 단계를 수행 하 여 사용자 지정 도메인 이름에 대 한 DNS 레코드를 업데이트할 수 있습니다.
+* 일반적으로 형식으로 지정 된 점수 매기기 끝점 URI에서 점수 매기기 끝점 IP 주소를 가져옵니다 *http://104.214.29.152:80/api/v1/service/<service-name>/score* . 
+* 도메인 이름 등록자의 도구를 사용 하 여 도메인 이름에 대 한 DNS 레코드를 업데이트 합니다. 레코드는 점수 매기기 끝점의 IP 주소를 가리켜야 합니다.
+* DNS 레코드 업데이트 후에 *nslookup 사용자 지정-도메인 이름* 명령을 사용 하 여 dns 확인의 유효성을 검사할 수 있습니다. DNS 레코드가 올바르게 업데이트 되 면 사용자 지정 도메인 이름은 점수 매기기 끝점의 IP 주소를 가리킵니다.
+* 클라이언트에서 도메인 이름에 대해 구성 된 등록 기관 및 "TTL (time to live)"에 따라 도메인 이름을 확인 하려면 몇 분 또는 몇 시간 동안 지연 될 수 있습니다.
 
-  클라이언트에서 도메인 이름에 대해 구성 된 등록 기관 및 "TTL (time to live)"에 따라 도메인 이름을 확인 하려면 몇 분 또는 몇 시간 동안 지연 될 수 있습니다.
-
-+ **AKS:**
-
-  > [!WARNING]
-  > Microsoft의 인증서를 사용 하 여 서비스를 만드는 *leaf_domain_label* 사용 하는 경우 클러스터에 대 한 DNS 값을 수동으로 업데이트 하지 마십시오. 값은 자동으로 설정 해야 합니다.
-
-  왼쪽 창의 **설정** 아래에 있는 **구성** 탭에서 AKS 클러스터의 공용 IP 주소에 대 한 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
-
-  [![Azure Machine Learning: TLS를 사용 하 여 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-tlsssl-certificate"></a>TLS/SSL 인증서 업데이트
 
@@ -170,7 +168,7 @@ TLS/SSL 인증서가 만료 되 고 갱신 되어야 합니다. 일반적으로�
 
 ### <a name="update-a-microsoft-generated-certificate"></a>Microsoft에서 생성 한 인증서 업데이트
 
-인증서가 원래 Microsoft에서 생성 된 경우 ( *leaf_domain_label* 를 사용 하 여 서비스를 만드는 경우) 다음 예제 중 하나를 사용 하 여 인증서를 업데이트 합니다.
+인증서가 원래 Microsoft에서 생성 된 경우 ( *leaf_domain_label* 를 사용 하 여 서비스를 만드는 경우) 필요한 경우 **자동으로 갱신 됩니다** . 수동으로 갱신 하려면 다음 예제 중 하나를 사용 하 여 인증서를 업데이트 합니다.
 
 > [!IMPORTANT]
 > * 기존 인증서가 여전히 유효한 경우 `renew=True` (SDK) 또는 `--ssl-renew` (CLI)를 사용 하 여 구성을 강제로 갱신 합니다. 예를 들어 기존 인증서가 여전히 10 일간 유효 하 고를 사용 하지 않는 경우 `renew=True` 인증서를 갱신 하지 못할 수 있습니다.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 9a6779f8624cf744d99c819e77784f26fb4ac799
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f5192176a6a0e174d5878c51defce70d949c1eb1
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790222"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922332"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database의 데이터베이스와 SQL Server 간에 SQL 데이터 동기화 설정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ SQL 데이터 동기화의 개요는 [SQL 데이터 동기화를 사용하여 �
 SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예제는 [SQL Database의 데이터베이스를 동기화하는 방법](scripts/sql-data-sync-sync-data-between-sql-databases.md) 또는 [Azure SQL Database와 SQL Server의 데이터베이스를 동기화하는 방법](scripts/sql-data-sync-sync-data-between-azure-onprem.md)을 참조하세요.
 
 > [!IMPORTANT]
-> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원하지 **않습니다** .
+> SQL 데이터 동기화는 현재 Azure SQL Managed Instance를 지원하지 **않습니다**.
 
 ## <a name="create-sync-group"></a>동기화 그룹 만들기
 
@@ -40,18 +40,18 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 1. 데이터 동기화를 위해 허브 데이터베이스로 사용할 데이터베이스를 선택합니다.
 
-    ![데이터베이스 목록에서 선택, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/select-sql-database.png" alt-text = "Select from the database list, Microsoft Azure portal":::
 
     > [!NOTE]
     > 허브 데이터베이스는 동기화 그룹에 여러 데이터베이스 엔드포인트가 있는 동기화 토폴로지의 중앙 엔드포인트입니다. 동기화 그룹에서 엔드포인트를 포함하는 기타 모든 멤버 데이터베이스는 허브 데이터베이스와 동기화됩니다.
 
 1. 선택한 데이터베이스의 **SQL 데이터베이스** 메뉴에서 **다른 데이터베이스와 동기화** 를 선택합니다.
 
-    ![다른 데이터베이스와 동기화, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    :::image type="content" source="./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png" alt-text = "Sync to other databases, Microsoft Azure portal":::
 
-1. **다른 데이터베이스와 동기화** 페이지에서 **새 동기화 그룹** 을 선택합니다. **동기화 그룹 만들기** (1단계)가 강조 표시된 상태로 **새 동기화 그룹** 페이지가 열립니다.
+1. **다른 데이터베이스와 동기화** 페이지에서 **새 동기화 그룹** 을 선택합니다. **동기화 그룹 만들기(1단계)** 에서 **새 동기화 그룹** 페이지가 열립니다.
 
-   ![1단계 설정](./media/sql-data-sync-sql-server-configure/stepone.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/new-sync-group-private-link.png" alt-text = "Set up new sync group with private link":::
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
@@ -59,13 +59,18 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스** 를 선택하는 경우 **새 데이터베이스 만들기** 를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인** 을 선택합니다.<br/><br/>**기존 데이터베이스 사용** 을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
-   | **자동 동기화** | **설정** 또는 **해제** 를 선택합니다.<br/><br/>**설정** 을 선택하는 경우 **동기화 빈도** 섹션에서 숫자를 입력하고 **초** , **분** , **시간** 또는 **일** 을 선택합니다.<br/> 첫 번째 동기화는 구성이 저장된 시간부터 선택한 간격 기간이 경과한 후에 시작됩니다.|
+   | **자동 동기화** | **설정** 또는 **해제** 를 선택합니다.<br/><br/>**설정** 을 선택하는 경우 **동기화 빈도** 섹션에서 숫자를 입력하고 **초**, **분**, **시간** 또는 **일** 을 선택합니다.<br/> 첫 번째 동기화는 구성이 저장된 시간부터 선택한 간격 기간이 경과한 후에 시작됩니다.|
    | **충돌 해결** | **허브 획득** 또는 **구성원 획득** 을 선택합니다.<br/><br/>**허브 획득** 을 선택하면 충돌이 발생할 경우 허브 데이터베이스의 데이터가 멤버 데이터베이스에서 충돌하는 데이터를 덮어씁니다.<br/><br/>**구성원 획득 획득** 을 선택하면 충돌이 발생할 경우 구성원 데이터베이스의 데이터가 허브 데이터베이스에서 충돌하는 데이터를 덮어씁니다. |
+   | **프라이빗 링크 사용** | 서비스 관리형 프라이빗 엔드포인트를 선택하여 동기화 서비스와 허브 데이터베이스 간에 보안 연결을 설정합니다. |
 
    > [!NOTE]
    > **동기화 메타데이터 데이터베이스** 로 사용할 비어 있는 새 데이터베이스를 만드는 것이 좋습니다. 데이터 동기화는 이 데이터베이스에서 테이블을 만들고 자주 실행되는 워크로드를 실행합니다. 이 데이터베이스는 선택한 지역 및 구독에서 모든 동기화 그룹의 **동기화 메타데이터 데이터베이스** 로 공유됩니다. 지역의 동기화 그룹 및 동기화 에이전트를 모두 제거해야만 데이터베이스 또는 이름을 변경할 수 있습니다.
 
    **확인** 을 선택하고 동기화 그룹이 생성되어 배포될 때까지 기다립니다.
+   
+1. **새 동기화 그룹** 페이지에서 **프라이빗 링크 사용** 을 선택한 경우 프라이빗 엔드포인트 연결을 승인해야 합니다. 정보 메시지의 링크를 통해 연결을 승인할 수 있는 프라이빗 엔드포인트 연결 환경으로 이동합니다. 
+
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/approve-private-link.png" alt-text = "Approve private link":::
 
 ## <a name="add-sync-members"></a>동기화 구성원 추가
 
@@ -73,14 +78,14 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 **허브 데이터베이스** 섹션에서 허브 데이터베이스가 있는 서버의 기존 자격 증명을 입력합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다.
 
-![2단계 설정](./media/sql-data-sync-sql-server-configure/steptwo.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo.png" alt-text = "Enter existing credentials for the hub database server":::
 
 ### <a name="to-add-a-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스를 추가하려면 다음을 수행합니다.
 
 **구성원 데이터베이스** 섹션에서 필요에 따라 **Azure SQL Database 추가** 를 선택하여 Azure SQL Database의 데이터베이스를 동기화 그룹에 추가합니다. **Azure SQL Database 구성** 페이지가 열립니다.
-
-  ![2단계 - 데이터베이스 구성](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
-
+  
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/step-two-configure.png" alt-text = "Add a database to the sync group":::
+   
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
   | 설정                       | 설명 |
@@ -89,8 +94,9 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
   | **Azure SQL Server** | 기존 서버를 선택합니다. |
   | **Azure SQL Database** | SQL Database의 기존 데이터베이스를 선택합니다. |
-  | **동기화 방향** | **양방향 동기화** , **허브 수신** 또는 **허브 발신** 을 선택합니다. |
+  | **동기화 방향** | **양방향 동기화**, **허브 수신** 또는 **허브 발신** 을 선택합니다. |
   | **사용자 이름** 및 **암호** | 구성원 데이터베이스가 있는 서버의 기존 자격 증명을 입력합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다. |
+  | **프라이빗 링크 사용** | 서비스 관리형 프라이빗 엔드포인트를 선택하여 동기화 서비스와 멤버 데이터베이스 간에 보안 연결을 설정합니다. |
 
   **확인** 을 선택하고 새 동기화 구성원을 만들고 배포할 때까지 기다립니다.
 
@@ -102,7 +108,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 1. **동기화 에이전트 게이트웨이 선택** 을 선택합니다. **동기화 에이전트 선택** 페이지가 열립니다.
 
-   ![동기화 에이전트 만들기](./media/sql-data-sync-sql-server-configure/steptwo-agent.png)
+   :::image type="content" source="./media/sql-data-sync-sql-server-configure/steptwo-agent.png" alt-text = "Creating a sync agent":::
 
 1. **동기화 에이전트 선택** 페이지에서 기존 에이전트를 사용할지 아니면 에이전트를 만들지를 선택합니다.
 
@@ -146,7 +152,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 1. 포털의 **온-프레미스 구성** 페이지에서 **데이터베이스 선택** 을 선택합니다.
 
-1. **데이터베이스 선택** 페이지의 **동기화 구성원 이름** 필드에서 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. 목록에서 데이터베이스를 선택합니다. **동기화 방향** 필드에서 **양방향 동기화** , **허브 수신** 또는 **허브 발신** 을 선택합니다.
+1. **데이터베이스 선택** 페이지의 **동기화 구성원 이름** 필드에서 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. 목록에서 데이터베이스를 선택합니다. **동기화 방향** 필드에서 **양방향 동기화**, **허브 수신** 또는 **허브 발신** 을 선택합니다.
 
     ![온-프레미스 데이터베이스 선택](./media/sql-data-sync-sql-server-configure/datasync-preview-selectdb.png)
 
@@ -230,6 +236,10 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 **클라이언트 에이전트에 대한 정보는 어디서 확인할 수 있나요?**
 
 클라이언트 에이전트에 대한 질문과 대답은 [에이전트 FAQ](sql-data-sync-agent-overview.md#agent-faq)를 참조하세요.
+
+**프라이빗 링크를 사용하기 전에 수동으로 승인해야 하나요?**
+
+예, 동기화 그룹 배포 중에 또는 PowerShell을 사용하여 Azure Portal의 프라이빗 엔드포인트 연결 페이지에서 서비스 관리형 프라이빗 엔드포인트를 수동으로 승인해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

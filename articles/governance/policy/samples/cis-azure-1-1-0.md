@@ -1,15 +1,15 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 규정 준수 세부 정보
 description: CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 06b74daff584c9df35d4c762c3115b95e4ed3179
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2ed1a40ba7589d25864cd5bdd90526635f189d6d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320601"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991318"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-privileged-users"></a>권한이 있는 모든 사용자에 대한 다단계 인증이 설정되어 있는지 확인
 
-**ID** : CIS Azure 1.1 **소유권** : Customer
+**ID**: CIS Azure 1.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -38,7 +38,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>권한이 없는 모든 사용자에 대한 다단계 인증이 설정되어 있는지 확인
 
-**ID** : CIS Azure 1.2 **소유권** : Customer
+**ID**: CIS Azure 1.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-there-are-no-guest-users"></a>게스트 사용자가 없는지 확인
 
-**ID** : CIS Azure 1.3 **소유권** : Customer
+**ID**: CIS Azure 1.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -56,7 +56,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-no-custom-subscription-owner-roles-are-created"></a>사용자 지정 구독 소유자 역할이 생성되지 않았는지 확인
 
-**ID** : CIS Azure 1.23 **소유권** : Customer
+**ID**: CIS Azure 1.23 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>'모니터링 에이전트의 자동 프로비저닝'이 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 2.2 **소유권** : Customer
+**ID**: CIS Azure 2.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -74,7 +74,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-system-updates-is-not-disabled"></a>ASC 기본 정책 설정 "시스템 업데이트 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.3 **소유권** : Customer
+**ID**: CIS Azure 2.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -82,7 +82,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>ASC 기본 정책 설정 "OS 취약성 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.4 **소유권** : Customer
+**ID**: CIS Azure 2.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -90,7 +90,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-endpoint-protection-is-not-disabled"></a>ASC 기본 정책 설정 "엔드포인트 보호 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.5 **소유권** : Customer
+**ID**: CIS Azure 2.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -98,7 +98,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-disk-encryption-is-not-disabled"></a>ASC 기본 정책 설정 "디스크 암호화 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.6 **소유권** : Customer
+**ID**: CIS Azure 2.6 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -106,15 +106,15 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>ASC 기본 정책 설정인 "네트워크 보안 그룹 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.7 **소유권** : Customer
+**ID**: CIS Azure 2.7 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[적응형 네트워크 강화 권장 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하고 잠재적 공격 노출 영역을 줄이는 네트워크 보안 그룹 규칙 권장 사항을 제공합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하고 잠재적 공격 노출 영역을 줄이는 네트워크 보안 그룹 규칙 권장 사항을 제공합니다. |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>ASC 기본 정책 설정인 "차세대 방화벽(NGFW) 모니터링을 사용하도록 설정"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.9 **소유권** : Customer
+**ID**: CIS Azure 2.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -123,7 +123,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>ASC 기본 정책 설정 "취약성 평가 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.10 **소유권** : Customer
+**ID**: CIS Azure 2.10 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -131,7 +131,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>ASC 기본 정책 설정 "JIT 네트워크 액세스 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.12 **소유권** : Customer
+**ID**: CIS Azure 2.12 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -139,7 +139,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-adaptive-application-whitelisting-is-not-disabled"></a>ASC 기본 정책 설정인 "적응형 애플리케이션 허용 목록 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.13 **소유권** : Customer
+**ID**: CIS Azure 2.13 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -147,7 +147,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-auditing-is-not-disabled"></a>ASC 기본 정책 설정 "SQL 감사 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.14 **소유권** : Customer
+**ID**: CIS Azure 2.14 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -155,7 +155,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>ASC 기본 정책 설정 "SQL 암호화 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
-**ID** : CIS Azure 2.15 **소유권** : Customer
+**ID**: CIS Azure 2.15 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -163,7 +163,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-security-contact-emails-is-set"></a>'보안 연락처 이메일'이 설정되어 있는지 확인
 
-**ID** : CIS Azure 2.16 **소유권** : Customer
+**ID**: CIS Azure 2.16 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -171,7 +171,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-security-contact-phone-number-is-set"></a>보안 연락처 '전화 번호'가 설정되어 있는지 확인
 
-**ID** : CIS Azure 2.17 **소유권** : Customer
+**ID**: CIS Azure 2.17 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -179,7 +179,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>'높은 심각도 경고의 이메일 알림 보내기'가 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 2.18 **소유권** : Customer
+**ID**: CIS Azure 2.18 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -187,7 +187,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-send-email-also-to-subscription-owners-is-set-to-on"></a>'구독 소유자에게도 이메일 보내기'가 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 2.19 **소유권** : Customer
+**ID**: CIS Azure 2.19 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -197,7 +197,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>'보안 전송 필요'가 '사용'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 3.1 **소유권** : Customer
+**ID**: CIS Azure 3.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -205,7 +205,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>스토리지 계정에 대한 기본 네트워크 액세스 규칙이 거부로 설정되어 있는지 확인
 
-**ID** : CIS Azure 3.7 **소유권** : Customer
+**ID**: CIS Azure 3.7 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-trusted-microsoft-services-is-enabled-for-storage-account-access"></a>'신뢰할 수 있는 Microsoft 서비스'에 스토리지 계정 액세스가 사용하도록 설정되어 있는지 확인
 
-**ID** : CIS Azure 3.8 **소유권** : Customer
+**ID**: CIS Azure 3.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-auditing-is-set-to-on"></a>'감사'가 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.1 **소유권** : Customer
+**ID**: CIS Azure 4.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -231,7 +231,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>SQL Server에 대한 '감사' 정책의 'AuditActionGroups'가 올바르게 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.2 **소유권** : Customer
+**ID**: CIS Azure 4.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -239,7 +239,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-auditing-retention-is-greater-than-90-days"></a>'감사' 보존 기간이 '90일 이상'인지 확인
 
-**ID** : CIS Azure 4.3 **소유권** : Customer
+**ID**: CIS Azure 4.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -247,7 +247,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>SQL Server의 'Advanced Data Security'가 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.4 **소유권** : Customer
+**ID**: CIS Azure 4.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -256,7 +256,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Azure Active Directory 관리자가 구성되어 있는지 확인
 
-**ID** : CIS Azure 4.8 **소유권** : Customer
+**ID**: CIS Azure 4.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -264,7 +264,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-data-encryption-is-set-to-on-on-a-sql-database"></a>SQL Database에서 '데이터 암호화'가 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.9 **소유권** : Customer
+**ID**: CIS Azure 4.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -272,7 +272,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-sql-servers-tde-protector-is-encrypted-with-byok-use-your-own-key"></a>SQL 서버의 TDE 보호기가 BYOK(사용자 고유 키 사용)로 암호화되어 있는지 확인
 
-**ID** : CIS Azure 4.10 **소유권** : Customer
+**ID**: CIS Azure 4.10 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -281,7 +281,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>MySQL Database Server에 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.11 **소유권** : Customer
+**ID**: CIS Azure 4.11 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -289,7 +289,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>PostgreSQL Database Server에 'log_checkpoints' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.12 **소유권** : Customer
+**ID**: CIS Azure 4.12 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -297,7 +297,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>PostgreSQL Database Server에 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.13 **소유권** : Customer
+**ID**: CIS Azure 4.13 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -305,7 +305,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>PostgreSQL Database Server에 'log_connections' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.14 **소유권** : Customer
+**ID**: CIS Azure 4.14 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -313,7 +313,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>PostgreSQL Database Server에 'log_disconnections' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.15 **소유권** : Customer
+**ID**: CIS Azure 4.15 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -321,7 +321,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>PostgreSQL Database Server에 'connection_throtling' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 4.17 **소유권** : Customer
+**ID**: CIS Azure 4.17 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -331,7 +331,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-a-log-profile-exists"></a>로그 프로필이 있는지 확인
 
-**ID** : CIS Azure 5.1.1 **소유권** : Customer
+**ID**: CIS Azure 5.1.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -339,7 +339,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-retention-is-set-365-days-or-greater"></a>활동 로그 보존이 365일 이상으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 5.1.2 **소유권** : Customer
+**ID**: CIS Azure 5.1.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -347,7 +347,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-audit-profile-captures-all-the-activities"></a>감사 프로필에서 모든 활동을 캡처하는지 확인
 
-**ID** : CIS Azure 5.1.3 **소유권** : Customer
+**ID**: CIS Azure 5.1.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -355,7 +355,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-the-log-profile-captures-activity-logs-for-all-regions-including-global"></a>로그 프로필에서 글로벌을 포함한 모든 지역의 활동 로그를 캡처하는지 확인
 
-**ID** : CIS Azure 5.1.4 **소유권** : Customer
+**ID**: CIS Azure 5.1.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -363,7 +363,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>활동 로그가 있는 컨테이너를 포함하는 스토리지 계정이 BYOK(사용자 고유 키 사용)로 암호화되어 있는지 확인
 
-**ID** : CIS Azure 5.1.6 **소유권** : Customer
+**ID**: CIS Azure 5.1.6 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -371,7 +371,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-logging-for-azure-keyvault-is-enabled"></a>Azure KeyVault에 대한 로깅이 '사용'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 5.1.7 **소유권** : Customer
+**ID**: CIS Azure 5.1.7 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -379,15 +379,15 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>정책 할당 만들기에 대한 활동 로그 경고가 있는지 확인
 
-**ID** : CIS Azure 5.2.1 **소유권** : Customer
+**ID**: CIS Azure 5.2.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[특정 정책 작업의 활동 로그 경고가 있어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |이 정책은 활동 로그 경고가 구성되지 않은 특정 정책 작업을 감사합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
+|[특정 정책 작업의 활동 로그 경고가 있어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |이 정책은 활동 로그 경고가 구성되지 않은 특정 정책 작업을 감사합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>네트워크 보안 그룹 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.2 **소유권** : Customer
+**ID**: CIS Azure 5.2.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -395,7 +395,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>네트워크 보안 그룹 삭제에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.3 **소유권** : Customer
+**ID**: CIS Azure 5.2.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.4 **소유권** : Customer
+**ID**: CIS Azure 5.2.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -411,7 +411,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>네트워크 보안 그룹 규칙 삭제에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.5 **소유권** : Customer
+**ID**: CIS Azure 5.2.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -419,7 +419,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>보안 솔루션 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.6 **소유권** : Customer
+**ID**: CIS Azure 5.2.6 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -427,7 +427,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>보안 솔루션 삭제에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.7 **소유권** : Customer
+**ID**: CIS Azure 5.2.7 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -435,7 +435,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>SQL Server 방화벽 규칙 만들기 또는 업데이트에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.8 **소유권** : Customer
+**ID**: CIS Azure 5.2.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -443,7 +443,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-activity-log-alert-exists-for-update-security-policy"></a>보안 정책 업데이트에 대한 활동 로그 경고가 존재하는지 확인
 
-**ID** : CIS Azure 5.2.9 **소유권** : Customer
+**ID**: CIS Azure 5.2.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -453,7 +453,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-rdp-access-is-restricted-from-the-internet"></a>인터넷의 RDP 액세스가 제한되는지 확인
 
-**ID** : CIS Azure 6.1 **소유권** : Customer
+**ID**: CIS Azure 6.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -461,7 +461,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-ssh-access-is-restricted-from-the-internet"></a>인터넷의 SSH 액세스가 제한되는지 확인
 
-**ID** : CIS Azure 6.2 **소유권** : Customer
+**ID**: CIS Azure 6.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -469,7 +469,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-network-watcher-is-enabled"></a>Network Watcher가 '사용'으로 설정되어 있는지 확인
 
-**ID** : CIS Azure 6.5 **소유권** : Customer
+**ID**: CIS Azure 6.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -479,7 +479,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-os-disk-are-encrypted"></a>'OS 디스크'가 암호화되어 있는지 확인
 
-**ID** : CIS Azure 7.1 **소유권** : Customer
+**ID**: CIS Azure 7.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -487,7 +487,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>'데이터 디스크'가 암호화되어 있는지 확인
 
-**ID** : CIS Azure 7.2 **소유권** : Customer
+**ID**: CIS Azure 7.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -495,7 +495,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>'연결되지 않은 디스크'가 암호화되어 있는지 확인
 
-**ID** : CIS Azure 7.3 **소유권** : Customer
+**ID**: CIS Azure 7.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -503,7 +503,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-only-approved-extensions-are-installed"></a>승인된 확장만 설치되어 있는지 확인
 
-**ID** : CIS Azure 7.4 **소유권** : Customer
+**ID**: CIS Azure 7.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -511,7 +511,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>모든 Virtual Machines에 최신 OS 패치가 적용되어 있는지 확인
 
-**ID** : CIS Azure 7.5 **소유권** : Customer
+**ID**: CIS Azure 7.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -519,7 +519,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>모든 Virtual Machines에 대한 엔드포인트 보호가 설치되어 있는지 확인
 
-**ID** : CIS Azure 7.6 **소유권** : Customer
+**ID**: CIS Azure 7.6 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -529,15 +529,15 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>키 자격 증명 모음을 복구할 수 있는지 확인
 
-**ID** : CIS Azure 8.4 **소유권** : Customer
+**ID**: CIS Azure 8.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault 개체를 복구할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |이 정책은 Key Vault 개체를 복구할 수 없는 경우 감사합니다. Soft Delete 기능은 DELETE 작업 후에도 지정된 보존 기간(90일) 동안 리소스를 효율적으로 유지하는 동시에 개체가 삭제된 것처럼 보이게 합니다. '제거 보호'가 켜져 있으면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 이러한 자격 증명 모음 및 개체는 계속 복구할 수 있으며, 고객에게 보존 정책을 준수하도록 합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[키 자격 증명 모음에서 제거 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있는 액세스 권한을 얻을 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="enable-role-based-access-control-rbac-within-azure-kubernetes-services"></a>Azure Kubernetes Services 내에서 RBAC(역할 기반 액세스 제어) 사용
 
-**ID** : CIS Azure 8.5 **소유권** : Customer
+**ID**: CIS Azure 8.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -547,7 +547,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-app-service-authentication-is-set-on-azure-app-service"></a>App Service 인증이 Azure App Service에 설정되어 있는지 확인
 
-**ID** : CIS Azure 9.1 **소유권** : Customer
+**ID**: CIS Azure 9.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -557,7 +557,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>Azure App Service에서 웹앱이 모든 HTTP 트래픽을 HTTPS로 리디렉션하는지 확인
 
-**ID** : CIS Azure 9.2 **소유권** : Customer
+**ID**: CIS Azure 9.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -565,7 +565,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>웹앱에서 최신 버전의 TLS 암호화를 사용하고 있는지 확인
 
-**ID** : CIS Azure 9.3 **소유권** : Customer
+**ID**: CIS Azure 9.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -575,7 +575,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>웹앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인
 
-**ID** : CIS Azure 9.4 **소유권** : Customer
+**ID**: CIS Azure 9.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -585,7 +585,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>App Service에 [Azure Active Directory에 등록]이 설정되어 있는지 확인
 
-**ID** : CIS Azure 9.5 **소유권** : Customer
+**ID**: CIS Azure 9.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -595,7 +595,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>웹앱을 실행하는 데 사용되는 경우 최신 'PHP 버전'인지 확인
 
-**ID** : CIS Azure 9.7 **소유권** : Customer
+**ID**: CIS Azure 9.7 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -604,7 +604,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>웹앱을 실행하는 데 사용되는 경우 최신 'Python 버전'인지 확인
 
-**ID** : CIS Azure 9.8 **소유권** : Customer
+**ID**: CIS Azure 9.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -614,7 +614,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>웹앱을 실행하는 데 사용되는 경우 최신 'Java 버전'인지 확인
 
-**ID** : CIS Azure 9.9 **소유권** : Customer
+**ID**: CIS Azure 9.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -624,7 +624,7 @@ ms.locfileid: "92320601"
 
 ### <a name="ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>웹앱을 실행하는 데 사용되는 경우 최신 'HTTP 버전'인지 확인
 
-**ID** : CIS Azure 9.10 **소유권** : Customer
+**ID**: CIS Azure 9.10 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

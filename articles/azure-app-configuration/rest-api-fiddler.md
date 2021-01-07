@@ -1,17 +1,17 @@
 ---
 title: Azure Active Directory REST API Fiddler를 사용 하 여 테스트
 description: Fiddler를 사용 하 여 Azure 앱 구성을 테스트 REST API
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 3766567fe58e8d2eb86556d3defa7a85efd9b2fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1142aa25212d87c5484963cda4e172df3d1fbafc
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424149"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932611"
 ---
 # <a name="test-the-azure-app-configuration-rest-api-using-fiddler"></a>Fiddler를 사용 하 여 Azure 앱 구성 REST API 테스트
 

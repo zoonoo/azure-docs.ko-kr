@@ -10,13 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0da0a56a64aa9b4500d36da2f6c86fc4c07f4c0f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5e61510965693e123c724d7b40d2fa6071fdd94c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786057"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97824815"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -24,7 +24,8 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
 이 자습서에서는 단일 인증 자격 증명 세트를 사용하는 데이터베이스 및 서비스의 비밀을 정기적으로 자동 순환하는 방법을 보여줍니다. 특히 이 자습서에서는 Azure Event Grid 알림에 의해 트리거되는 함수를 사용하여 Azure Key Vault에 저장된 SQL 서버 암호를 순환합니다.
 
-![순환 솔루션 다이어그램](../media/rotate-1.png)
+
+:::image type="content" source="../media/rotate-1.png" alt-text="순환 솔루션 다이어그램":::
 
 1. 비밀 만료 30일 전에 Key Vault는 "만료 임박" 이벤트를 Event Grid에 게시합니다.
 1. Event Grid는 이벤트 구독을 확인하고 HTTP POST를 사용하여 이벤트를 구독하는 함수 앱 엔드포인트를 호출합니다.
@@ -42,19 +43,19 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
 기존 키 자격 증명 모음 및 SQL Server가 없는 경우 아래의 배포 링크를 사용할 수 있습니다.
 
-[!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+[!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. **리소스 그룹** 에서 **새로 만들기** 를 선택합니다. 그룹 이름을 **akvrotation** 로 지정합니다.
 1. **Sql 관리자 로그인** 에서 Sql 관리자 로그인 이름을 입력합니다. 
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기**
 
-    ![리소스 그룹 만들기](../media/rotate-2.png)
+:::image type="content" source="../media/rotate-2.png" alt-text="리소스 그룹 만들기":::
 
 이제 키 자격 증명 모음 및 SQL Server 인스턴스가 있습니다. Azure CLI에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
 
 ```azurecli
-az resource list -o table
+az resource list -o table -g akvrotation
 ```
 
 결과는 다음 출력과 비슷합니다.
@@ -62,9 +63,11 @@ az resource list -o table
 ```console
 Name                     ResourceGroup         Location    Type                               Status
 -----------------------  --------------------  ----------  ---------------------------------  --------
-akvrotation-kv          akvrotation      eastus      Microsoft.KeyVault/vaults
-akvrotation-sql         akvrotation      eastus      Microsoft.Sql/servers
-akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-kv           akvrotation      eastus      Microsoft.KeyVault/vaults
+akvrotation-sql          akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql/master   akvrotation      eastus      Microsoft.Sql/servers/databases
+akvrotation-sql2         akvrotation      eastus      Microsoft.Sql/servers
+akvrotation-sql2/master  akvrotation      eastus      Microsoft.Sql/servers/databases
 ```
 
 ## <a name="create-and-deploy-sql-server-password-rotation-function"></a>Sql server 암호 순환 함수 만들기 및 배포
@@ -82,23 +85,24 @@ akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/datab
 
 1. Azure 템플릿 배포 링크를 선택합니다. 
 
-   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
+   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FFunction%2Fazuredeploy.json)
 
 1. **리소스 그룹** 목록에서 **akvrotation** 을 선택합니다.
 1. **Sql Server 이름** 에서 순환할 암호가 있는 Sql Server 이름을 입력합니다.
 1. **Key Vault 이름** 에 키 자격 증명 모음 이름을 입력합니다.
 1. **함수 앱 이름** 에 함수 앱 이름을 입력합니다.
 1. **비밀 이름** 에 암호가 저장될 비밀 이름을 입력합니다.
-1. **리포지토리 Url** 에 함수 코드 GitHub 위치( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp.git** )를 입력합니다.
+1. **리포지토리 Url** 에 함수 코드 GitHub 위치( **https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp.git** )를 입력합니다.
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 
-   ![검토+만들기 선택](../media/rotate-3.png)
+:::image type="content" source="../media/rotate-3.png" alt-text="검토+만들기 선택":::
+  
 
 위의 단계가 완료되면 스토리지 계정, 서버 팜 및 함수 앱이 만들어집니다. Azure CLI에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
 
 ```azurecli
-az resource list -o table
+az resource list -o table -g akvrotation
 ```
 
 결과는 다음 출력과 비슷합니다.
@@ -187,7 +191,7 @@ public static class SimpleRotationEventHandler
         }
 }
 ```
-전체 코드는 [GitHub](https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp)에서 확인할 수 있습니다.
+전체 코드는 [GitHub](https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp)에서 확인할 수 있습니다.
 
 ## <a name="add-the-secret-to-key-vault"></a>Key Vault에 비밀 추가
 사용자에게 *비밀 관리* 권한을 부여하도록 액세스 정책을 설정합니다.
@@ -209,11 +213,11 @@ az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "S
 
 비밀이 순환되었는지 확인하려면 **Key Vault** > **비밀** 로 이동합니다.
 
-![비밀로 이동](../media/rotate-8.png)
+:::image type="content" source="../media/rotate-8.png" alt-text="비밀로 이동":::
 
 **sqlPassword** 비밀을 열고, 원래 버전과 순환된 버전을 확인합니다.
 
-![sqluser 비밀 열기](../media/rotate-9.png)
+:::image type="content" source="../media/rotate-9.png" alt-text="비밀로 이동":::
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
@@ -225,13 +229,13 @@ SQL 자격 증명을 확인하려면 웹앱을 만듭니다. 이 웹앱은 Key V
 
 1. Azure 템플릿 배포 링크를 선택합니다. 
 
-   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json)
+   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmain%2FARM-Templates%2FWeb-App%2Fazuredeploy.json)
 
 1. **akvrotation** 리소스 그룹을 선택합니다.
 1. **Sql Server 이름** 에서 순환할 암호가 있는 Sql Server 이름을 입력합니다.
 1. **Key Vault 이름** 에 키 자격 증명 모음 이름을 입력합니다.
 1. **비밀 이름** 에 암호가 저장된 비밀 이름을 입력합니다.
-1. **리포지토리 Url** 에 웹앱 코드 GitHub 위치( **https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** )를 입력합니다.
+1. **리포지토리 Url** 에 웹앱 코드 GitHub 위치( **https://github.com/Azure-Samples/KeyVault-Rotation-SQLPassword-Csharp-WebApp.git** )를 입력합니다.
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기** 를 선택합니다.
 

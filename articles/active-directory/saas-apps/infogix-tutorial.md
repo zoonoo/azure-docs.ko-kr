@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: b59a764510b93daf358e00a4d75bcefd31d2980f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7ca566c554c02d20d21bd7eba87dfbcbf1f746da
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460235"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>자습서: Azure Active Directory와 Infogix Data3Sixty Govern 통합
 
@@ -64,7 +64,7 @@ Infogix Data3Sixty Govern과 Azure AD의 통합을 구성하려면 갤러리의 
 
 4. 검색 상자에 **Infogix Data3Sixty Govern** 을 입력하고 결과 패널에서 **Infogix Data3Sixty Govern** 을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Infogix Data3Sixty Govern](common/search-new-app.png)
+    ![결과 목록의 Infogix Data3Sixty Govern](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -124,8 +124,8 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
     | 속성 | 원본 특성|
     | -----------| -------------- |
     | firstname  | user.givenname |
-    | lastname   | user.surname |
-    | 사용자 이름   | user.mail    |
+    | lastname | user.surname |
+    | 사용자 이름 | user.mail |
 
     a. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -167,7 +167,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -180,7 +180,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
@@ -192,7 +192,7 @@ Infogix Data3Sixty Govern에서 Azure AD Single Sign-On을 구성하려면 다�
 
 이 섹션에서는 Infogix Data3Sixty Govern에 대한 액세스 권한을 부여하여 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Infogix Data3Sixty Govern** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Infogix Data3Sixty Govern** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

@@ -663,6 +663,8 @@
                   href: service-fabric-cluster-creation-via-portal.md
                 - name: 가용성 영역에서 Azure Service Fabric 클러스터 배포
                   href: service-fabric-cross-availability-zones.md
+                - name: 상태 비저장 노드 유형을 사용하여 Azure Service Fabric 클러스터 배포
+                  href: service-fabric-stateless-node-types.md
                 - name: Azure Active Directory 인증 설정
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: 사용자 지정 클러스터 템플릿 만들기
@@ -687,7 +689,7 @@
                   href: service-fabric-how-to-remove-node-type.md
             - name: 업그레이드
               items:
-                - name: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가
+                - name: 관리형 클러스터 노드 형식에 가상 머신 확장 집합 확장 추가
                   href: how-to-managed-cluster-vmss-extension.md
                 - name: Service Fabric 버전 업그레이드
                   href: service-fabric-cluster-upgrade-version-azure.md
@@ -797,6 +799,8 @@
               href: configure-existing-cluster-enable-managed-identity-token-service.md
             - name: 관리 ID를 사용하여 새 Azure Service Fabric 클러스터 구성
               href: configure-new-azure-service-fabric-enable-managed-identity.md
+            - name: 관리 ID를 사용하여 Service Fabric 관리형 클러스터 구성
+              href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: 애플리케이션 설정
           items:
             - name: 관리 ID를 사용하여 애플리케이션을 배포하는 방법

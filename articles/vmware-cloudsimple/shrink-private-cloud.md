@@ -1,19 +1,19 @@
 ---
 title: CloudSimple 사설 클라우드에서 Azure VMware 솔루션 축소
 description: 기존 vSphere 클러스터에서 노드를 제거 하거나 전체 클러스터를 제거 하 여 CloudSimple에서 사설 클라우드를 동적으로 축소 하는 방법에 대해 알아봅니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 07/01/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2759b35c9ba521a63eaf54c4c696598d545120b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a99b9b56f17b78a98f37d47dcefab26dd9c859de
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141740"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899136"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 축소
 
@@ -39,7 +39,7 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 
 3. 축소할 사설 클라우드를 클릭 합니다.
 
-4. 요약 페이지에서 **축소**를 클릭 합니다.
+4. 요약 페이지에서 **축소** 를 클릭 합니다.
 
     ![사설 클라우드 축소](media/shrink-private-cloud.png)
 
@@ -47,7 +47,7 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 
     ![사설 클라우드 축소-클러스터 선택](media/shrink-private-cloud-select-cluster.png)
 
-6. **단일 노드 제거** 또는 **전체 클러스터 삭제**를 선택 합니다. 
+6. **단일 노드 제거** 또는 **전체 클러스터 삭제** 를 선택 합니다. 
 
 7. 클러스터 용량 확인
 

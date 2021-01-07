@@ -3,12 +3,12 @@ title: Azure Lab Services에서 Linux용 그래픽 원격 데스크톱을 사용
 description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원격 데스크톱을 활성화하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251612"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647956"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Azure Lab Services에서 Linux 가상 머신에 대해 그래픽 원격 데스크톱을 사용하도록 설정
 이 문서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
@@ -19,7 +19,7 @@ ms.locfileid: "91251612"
 ## <a name="set-up-graphical-remote-desktop-solution"></a>그래픽 원격 데스크톱 솔루션 설정
 **Linux** 이미지에서 랩이 만들어지면 강사가 SSH를 사용하여 명령줄에서 템플릿 VM에 연결할 수 있도록 **SSH**(Secure Shell) 액세스가 자동으로 구성됩니다.  마찬가지로 템플릿 VM이 게시되면 학생이 SSH를 사용하여 VM에 연결할 수도 있습니다.
 
-**GUI**(그래픽 사용자 인터페이스)를 사용하여 Linux VM에 연결하려면 **RDP** 또는 **X2Go**를 사용하는 것이 좋습니다.  강사는 이 두 가지 옵션을 사용하기 위해 템플릿 VM에서 몇 가지 추가 설정을 수행해야 합니다.
+**GUI**(그래픽 사용자 인터페이스)를 사용하여 Linux VM에 연결하려면 **RDP** 또는 **X2Go** 를 사용하는 것이 좋습니다.  강사는 이 두 가지 옵션을 사용하기 위해 템플릿 VM에서 몇 가지 추가 설정을 수행해야 합니다.
 
 ### <a name="rdp-setup"></a>RDP 설정
 강사는 RDP를 사용하기 위해 다음을 수행해야 합니다.
@@ -38,17 +38,17 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
 > Ubuntu LTS 18.04를 사용할 때와 같은 몇몇 경우에는 X2Go가 더 나은 성능을 제공합니다.  RDP를 사용하여 그래픽 데스크톱 환경과 상호 작용할 때 대기 시간이 발생하는 경우 성능을 향상할 수 있는 X2Go를 사용해 보는 것이 좋습니다.
 
 > [!IMPORTANT]
->  일부 마켓플레이스 이미지에는 이미 그래픽 데스크톱 환경 및 원격 데스크톱 서버가 설치되어 있습니다.  예를 들어 [Linux(Ubuntu)용 Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804)에는 이미 [XFCE 및 X2Go 서버가 설치되어 있고 클라이언트 연결을 허용하도록 구성되어 있습니다](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  일부 마켓플레이스 이미지에는 이미 그래픽 데스크톱 환경 및 원격 데스크톱 서버가 설치되어 있습니다.  예를 들어 [Linux(Ubuntu)용 Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804)에는 이미 [XFCE 및 X2Go 서버가 설치되어 있고 클라이언트 연결을 허용하도록 구성되어 있습니다](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>RDP에 대해 원격 데스크톱 연결을 사용하도록 설정
 
 이 단계는 RDP를 사용하여 연결하는 경우에만 필요합니다.  대신 X2Go를 사용하려는 경우 X2Go에서는 SSH 포트를 사용하므로 다음 섹션으로 건너뛸 수 있습니다.
 
-1.  강사는 랩을 만드는 동안 **원격 데스크톱 연결 사용** 옵션을 선택할 수 있습니다.  강사는 이 옵션을 **사용하도록 설정**하여 RDP 원격 데스크톱 세션에 필요한 Linux VM의 포트를 열어야 합니다.  이 옵션을 **사용하지 않도록 설정한** 상태로 놔두면 SSH의 포트만 열립니다.
+1.  강사는 랩을 만드는 동안 **원격 데스크톱 연결 사용** 옵션을 선택할 수 있습니다.  강사는 이 옵션을 **사용하도록 설정** 하여 RDP 원격 데스크톱 세션에 필요한 Linux VM의 포트를 열어야 합니다.  이 옵션을 **사용하지 않도록 설정한** 상태로 놔두면 SSH의 포트만 열립니다.
   
     !["원격 데스크톱 연결 사용" 옵션을 사용 하 여 "새 랩" 창을 보여 주는 스크린샷](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-2. **원격 데스크톱 연결 활성화** 메시지 상자에서 **원격 데스크톱을 사용하여 계속**을 선택합니다. 
+2. **원격 데스크톱 연결 활성화** 메시지 상자에서 **원격 데스크톱을 사용하여 계속** 을 선택합니다. 
 
     ![Linux 이미지에 대해 원격 데스크톱 연결 활성화](./media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
@@ -62,10 +62,10 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
 
 템플릿 VM을 설정하려면 아래 단계를 따르세요.
 
-1. 도구 모음에서 **템플릿 사용자 지정**이 표시되는 경우 해당 항목을 선택합니다. 그런 다음, **템플릿 사용자 지정** 대화 상자에서 **계속**을 선택합니다. 이 작업을 수행하면 템플릿 VM이 시작됩니다.  
+1. 도구 모음에서 **템플릿 사용자 지정** 이 표시되는 경우 해당 항목을 선택합니다. 그런 다음, **템플릿 사용자 지정** 대화 상자에서 **계속** 을 선택합니다. 이 작업을 수행하면 템플릿 VM이 시작됩니다.  
 
     ![템플릿 사용자 지정](./media/how-to-enable-remote-desktop-linux/customize-template.png)
-1. 템플릿 VM을 시작한 후 **템플릿 연결**을 선택한 다음, 도구 모음에서 **SSH를 통해 연결**을 선택할 수 있습니다. 
+1. 템플릿 VM을 시작한 후 **템플릿 연결** 을 선택한 다음, 도구 모음에서 **SSH를 통해 연결** 을 선택할 수 있습니다. 
 
     ![랩을 만든 후 RDP를 통해 템플릿에 연결](./media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 1. 다음 **가상 머신에 연결** 대화 상자가 표시됩니다. 텍스트 상자 옆에 있는 **복사** 단추를 선택하여 클립보드에 복사합니다. SSH 연결 정보를 저장합니다. SSH 터미널(예: [Putty](https://www.putty.org/))에서 이 연결 정보를 사용하여 가상 머신에 연결합니다.
@@ -73,7 +73,7 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
     ![SSH 연결 문자열](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. 선택한 그래픽 데스크톱 환경과 함께 RDP 또는 X2Go를 설치합니다.  다음 지침을 참조하세요.
-    - [RDP 설치 및 구성](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [RDP 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)
     - [X2Go 설치 및 구성](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>GUI를 통해 템플릿 VM에 연결
@@ -82,21 +82,21 @@ X2Go는 SSH에 대해 이미 사용하도록 설정된 것과 동일한 포트�
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>RDP(Microsoft 원격 데스크톱) 클라이언트
 
-RDP(Microsoft 원격 데스크톱) 클라이언트는 RDP가 구성된 템플릿 VM에 연결하는 데 사용됩니다.  원격 데스크톱 클라이언트는 Windows, Chromebook, Mac 등에서 사용할 수 있습니다.  자세한 내용은 [원격 데스크톱 클라이언트](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)의 문서를 참조하세요.
+RDP(Microsoft 원격 데스크톱) 클라이언트는 RDP가 구성된 템플릿 VM에 연결하는 데 사용됩니다.  원격 데스크톱 클라이언트는 Windows, Chromebook, Mac 등에서 사용할 수 있습니다.  자세한 내용은 [원격 데스크톱 클라이언트](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)의 문서를 참조하세요.
 
 템플릿 VM에 연결하는 데 사용되는 컴퓨터의 유형에 따라 아래 단계를 따르세요.
 
 - Windows
-  1. 랩의 도구 모음에서 **템플릿에 연결**을 클릭하고 **RDP를 통해 연결**을 선택하여 템플릿 VM에 연결합니다. 
+  1. 랩의 도구 모음에서 **템플릿에 연결** 을 클릭하고 **RDP를 통해 연결** 을 선택하여 템플릿 VM에 연결합니다. 
   1. RDP 파일을 저장한 다음에 원격 데스크톱 클라이언트를 사용하여 템플릿 VM에 연결하는 데 이 파일을 사용합니다. 
   1. 일반적으로 원격 데스크톱 클라이언트는 Windows에 이미 설치 및 구성되어 있습니다.  따라서 RDP 파일을 클릭하여 열고 원격 세션을 시작하기만 하면 됩니다.
 
 - Mac
-  1. 랩의 도구 모음에서 **템플릿에 연결**을 클릭한 후 **RDP를 통해 연결**을 선택하여 RDP 파일을 저장합니다.  
+  1. 랩의 도구 모음에서 **템플릿에 연결** 을 클릭한 후 **RDP를 통해 연결** 을 선택하여 RDP 파일을 저장합니다.  
   1. 그런 다음, [Mac에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-mac-remote-desktop.md) 방법 문서를 참조하세요.
 
 - Chromebook
-  1. 랩의 도구 모음에서 **템플릿에 연결**을 클릭한 후 **RDP를 통해 연결**을 선택하여 RDP 파일을 저장합니다.  
+  1. 랩의 도구 모음에서 **템플릿에 연결** 을 클릭한 후 **RDP를 통해 연결** 을 선택하여 RDP 파일을 저장합니다.  
   1. 그런 다음, [Chromebook에서 RDP를 사용하여 VM에 연결](connect-virtual-machine-chromebook-remote-desktop.md) 방법 문서를 참조하세요.
 
 ### <a name="x2go-client"></a>X2Go 클라이언트

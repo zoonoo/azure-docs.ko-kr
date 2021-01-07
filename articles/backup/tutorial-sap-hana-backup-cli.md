@@ -1,15 +1,15 @@
 ---
-title: 자습서 - CLI를 사용하여 Azure에서 SAP HANA DB 백업
+title: 자습서 - Azure CLI를 사용하여 Azure에서 SAP HANA DB 백업
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324963"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746748"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -26,9 +26,9 @@ Azure CLI는 명령줄 또는 스크립트를 통해 Azure 리소스를 만들�
 
 [현재 SAP HANA를 지원하는 시나리오](./sap-hana-backup-support-matrix.md#scenario-support)를 확인하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 xx.xxx.x 이상을 실행해야 합니다. CLI 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+ - 이 자습서에는 Azure CLI 버전 2.0.30 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -38,11 +38,11 @@ Recovery Services 자격 증명 모음은 Azure VM 또는 Azure VM에서 실행�
 
 이 자습서에서는 다음을 사용합니다.
 
-* *saphanaResourceGroup*이라는 이름의 리소스 그룹
-* *saphanaVM*이라는 VM
+* *saphanaResourceGroup* 이라는 이름의 리소스 그룹
+* *saphanaVM* 이라는 VM
 * *westus2* 위치의 리소스
 
-*saphanaVault*라는 자격 증명 모음을 만들겠습니다.
+*saphanaVault* 라는 자격 증명 모음을 만들겠습니다.
 
 ```azurecli-interactive
 az backup vault create --resource-group saphanaResourceGroup \
@@ -71,7 +71,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 Azure 서비스에서 SAP HANA 인스턴스(SAP HANA가 설치된 VM)를 검색하려면 SAP HANA 머신에서 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 실행해야 합니다. 스크립트를 실행하기 전에 모든 [필수 구성 요소](./tutorial-backup-sap-hana-db.md#prerequisites)를 충족하는지 확인합니다. 스크립트가 수행하는 작업에 대한 자세한 내용은 [사전 등록 스크립트의 기능](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 섹션을 참조하세요.
 
-스크립트가 실행되면 앞에서 만든 Recovery Services 자격 증명 모음에 SAP HANA 인스턴스를 등록할 수 있습니다. 인스턴스를 등록하려면 [az backup container register](/cli/azure/backup/container#az-backup-container-register) cmdlet을 사용합니다. *VMResourceId*는 SAP HANA를 설치하기 위해 만든 VM의 리소스 ID입니다.
+스크립트가 실행되면 앞에서 만든 Recovery Services 자격 증명 모음에 SAP HANA 인스턴스를 등록할 수 있습니다. 인스턴스를 등록하려면 [az backup container register](/cli/azure/backup/container#az-backup-container-register) cmdlet을 사용합니다. *VMResourceId* 는 SAP HANA를 설치하기 위해 만든 VM의 리소스 ID입니다.
 
 ```azurecli-interactive
 az backup container register --resource-group saphanaResourceGroup \
@@ -83,7 +83,7 @@ az backup container register --resource-group saphanaResourceGroup \
 ```
 
 >[!NOTE]
->VM이 자격 증명 모음과 동일한 리소스 그룹에 있지 않으면 *saphanaResourceGroup*은 자격 증명 모음이 생성된 리소스 그룹을 참조합니다.
+>VM이 자격 증명 모음과 동일한 리소스 그룹에 있지 않으면 *saphanaResourceGroup* 은 자격 증명 모음이 생성된 리소스 그룹을 참조합니다.
 
 SAP HANA 인스턴스를 등록하면 해당 인스턴스의 모든 현재 데이터베이스가 자동으로 검색됩니다. 그러나 나중에 추가될 수 있는 새 데이터베이스를 검색하려면 [등록된 SAP HANA 인스턴스에 추가된 새 데이터베이스 검색](tutorial-sap-hana-manage-cli.md#protect-new-databases-added-to-an-sap-hana-instance) 섹션을 참조하세요.
 
@@ -96,7 +96,7 @@ VMAppContainer;Compute;saphanaResourceGroup;saphanaVM   saphanaVM        saphana
 ```
 
 >[!NOTE]
-> 위의 출력에서 열 "name"은 컨테이너 이름을 참조합니다. 이 컨테이너 이름은 다음 섹션에서 백업을 사용하도록 설정하고 트리거하는 데 사용됩니다. 여기서는 *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*입니다.
+> 위의 출력에서 열 "name"은 컨테이너 이름을 참조합니다. 이 컨테이너 이름은 다음 섹션에서 백업을 사용하도록 설정하고 트리거하는 데 사용됩니다. 여기서는 *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM* 입니다.
 
 ## <a name="enable-backup-on-sap-hana-database"></a>SAP HANA 데이터베이스에서 백업 사용
 
@@ -126,8 +126,8 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
-    --protectable-item-name saphanadatabase;hxe;hxe  \
-    --protectable-item-type SAPHANADatabse \
+    --protectable-item-name "saphanadatabase;hxe;hxe"  \
+    --protectable-item-type SAPHANADatabase \
     --server-name hxehost \
     --workload-type SAPHANA \
     --output table

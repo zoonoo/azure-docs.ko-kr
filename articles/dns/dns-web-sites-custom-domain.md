@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 151d5f083fe0e945b330d65095c908be93e3330f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316392"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952950"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임합니다.
 
-   1. DNS 영역을 만들려면 [DNS 영역 만들기](dns-getstarted-create-dnszone.md)의 단계를 수행합니다.
+   1. DNS 영역을 만들려면 [DNS 영역 만들기](./dns-getstarted-powershell.md)의 단계를 수행합니다.
    2. 영역을 Azure DNS로 위임하려면 [DNS 도메인 위임](dns-delegate-domain-azure-dns.md)의 단계를 수행합니다.
 
 영역을 만들어서 Azure DNS에 위임한 후에는, 사용자 지정 도메인에 대한 레코드를 만들 수 있습니다.
@@ -62,7 +62,7 @@ A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. �
 
 ### <a name="get-the-ipv4-address"></a>IPv4 주소 가져오기
 
-Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
+Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인** 을 선택합니다. 
 
 ![사용자 지정 도메인 메뉴](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 

@@ -27,6 +27,8 @@
       href: learn/automation-tutorial-runbook-textual.md
     - name: Python Runbook 만들기
       href: learn/automation-tutorial-runbook-textual-python2.md
+    - name: Python 3 Runbook 만들기
+      href: learn/automation-tutorial-runbook-textual-python-3.md
 - name: 개념
   items:
     - name: Automation 계정 인증 개요
@@ -96,6 +98,8 @@
           href: shared-resources/variables.md
         - name: Python 2 패키지 관리
           href: python-packages.md
+        - name: Python 3 패키지 관리
+          href: python-3-packages.md
         - name: 공유 리소스 문제 해결
           href: troubleshoot/shared-resources.md
     - name: 프로세스 자동화

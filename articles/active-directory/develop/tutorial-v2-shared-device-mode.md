@@ -13,16 +13,16 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 2aa786f78d3e730bb351d1fa84b0c7fbb32d6786
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 981d3a0c5d01d70625fc0d022318c5bc866f23a0
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611234"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95756403"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>자습서: Android 애플리케이션에서 공유 디바이스 모드 사용
 
-이 자습서에서는 개발자 및 테넌트 관리자가 Android 앱을 공유 디바이스 모드로 설정하고 지원하는 방법에 대한 지침을 제공합니다.
+이 자습서에서 Android 개발자 및 Azure AD(Azure Active Directory) 테넌트 관리자는 Android 앱에 대한 공유 디바이스 모드를 사용하도록 설정하는 데 필요한 코드, Authenticator 앱 및 테넌트 설정에 대해 알아봅니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -220,17 +220,17 @@ private void onSignOutClicked()
 이 작업을 수행하는 방법에 대한 자세한 내용은 [애플리케이션 등록](./tutorial-v2-android.md#register-your-application)을 참조하세요.
 
 > [!NOTE]
-> 앱을 등록하는 경우 왼쪽에 있는 빠른 시작 가이드를 사용하고 **Android**를 선택하세요. 그러면 **패키지 이름** 및 **서명 해시**를 앱에 제공하라는 페이지가 표시됩니다. 이러한 항목은 앱 구성이 작동하는지 확인하는 데 매우 중요합니다. 그런 다음, 앱에 사용할 수 있는 구성 개체를 받고 이를 잘라내어 auth_config.json 파일에 붙여넣습니다.
+> 앱을 등록하는 경우 왼쪽에 있는 빠른 시작 가이드를 사용하고 **Android** 를 선택하세요. 그러면 **패키지 이름** 및 **서명 해시** 를 앱에 제공하라는 페이지가 표시됩니다. 이러한 항목은 앱 구성이 작동하는지 확인하는 데 매우 중요합니다. 그런 다음, 앱에 사용할 수 있는 구성 개체를 받고 이를 잘라내어 auth_config.json 파일에 붙여넣습니다.
 
 :::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
 
 **Make this change for me(내게 맞게 변경)** 를 선택한 다음, 빠른 시작에서 요청하는 값을 Azure Portal에서 제공해야 합니다. 이 작업이 완료되면 필요한 모든 구성 파일이 생성됩니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Azure Portal 빠른 시작의 [프로젝트 구성] 페이지":::
 
 ## <a name="set-up-a-tenant"></a>테넌트 설정
 
-테스트 목적으로 2명 이상의 직원, 1명의 클라우드 디바이스 관리자 및 1명의 전역 관리자를 테넌트에 설정합니다. Azure Portal에서 조직 역할을 수정하여 클라우드 디바이스 관리자를 설정합니다. Azure Portal에서 **Azure Active Directory** > **역할 및 관리자** > **클라우드 디바이스 관리자**를 차례로 선택하여 [조직 역할]에 액세스합니다. 디바이스를 공유 모드로 전환할 수 있는 사용자를 추가합니다.
+테스트 목적으로 2명 이상의 직원, 1명의 클라우드 디바이스 관리자 및 1명의 전역 관리자를 테넌트에 설정합니다. Azure Portal에서 조직 역할을 수정하여 클라우드 디바이스 관리자를 설정합니다. Azure Portal에서 **Azure Active Directory** > **역할 및 관리자** > **클라우드 디바이스 관리자** 를 차례로 선택하여 [조직 역할]에 액세스합니다. 디바이스를 공유 모드로 전환할 수 있는 사용자를 추가합니다.
 
 ## <a name="set-up-an-android-device-in-shared-mode"></a>Android 디바이스를 공유 모드로 설정
 
@@ -242,39 +242,39 @@ Google Play 스토어에서 Microsoft Authenticator 앱을 다운로드합니다
 
 Authenticator 앱을 시작하고, 주 계정 페이지로 이동합니다. **계정 추가** 페이지가 표시되면 디바이스를 공유할 준비가 되었습니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Authenticator 계정 추가 화면":::
 
-오른쪽 메뉴 모음을 사용하여 **설정** 창으로 이동합니다. **회사 및 학교 계정** 아래에서 **디바이스 등록**을 선택합니다.
+오른쪽 메뉴 모음을 사용하여 **설정** 창으로 이동합니다. **회사 및 학교 계정** 아래에서 **디바이스 등록** 을 선택합니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Authenticator 설정 화면":::
 
-이 단추를 클릭하면 디바이스 연락처에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. 이는 디바이스에 대한 Android의 계정 통합 때문입니다. **허용**을 선택합니다.
+이 단추를 클릭하면 디바이스 연락처에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. 이는 디바이스에 대한 Android의 계정 통합 때문입니다. **허용** 을 선택합니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Authenticator 액세스 허용 확인 화면":::
 
 클라우드 디바이스 관리자는 **또는 공유 디바이스로 등록** 아래에서 조직 이메일을 입력해야 합니다. 그런 다음, **공유 디바이스로 등록** 단추를 클릭하고 해당 자격 증명을 입력합니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="앱의 디바이스 등록 화면":::
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="Microsoft 로그인 페이지를 보여주는 앱 스크린샷":::
 
 디바이스는 이제 공유 모드에 있습니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="공유 디바이스 모드를 사용하는 앱 화면":::
 
  디바이스의 로그인 및 로그아웃은 글로벌이므로 디바이스에서 MSAL 및 Microsoft Authenticator와 통합된 모든 앱에 적용됩니다. 이제 공유 디바이스 모드 기능을 사용하는 디바이스에 애플리케이션을 배포할 수 있습니다.
 
 ## <a name="view-the-shared-device-in-the-azure-portal"></a>Azure Portal에서 공유 디바이스 보기
 
-디바이스가 공유 모드로 전환되면 해당 디바이스가 조직에서 인식되고 조직 테넌트에서 추적됩니다. Azure Portal의 Azure Active Directory 블레이드에서 **조인 유형**을 살펴보면 공유 디바이스를 볼 수 있습니다.
+디바이스가 공유 모드로 전환되면 해당 디바이스가 조직에서 인식되고 조직 테넌트에서 추적됩니다. Azure Portal의 Azure Active Directory 블레이드에서 **조인 유형** 을 살펴보면 공유 디바이스를 볼 수 있습니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="Azure Portal에 표시되는 [모든 디바이스] 창":::
 
 ## <a name="running-the-sample-app"></a>샘플 앱 실행
 
 샘플 애플리케이션은 조직의 Graph API를 호출하는 간단한 앱입니다. 처음 실행하는 경우 애플리케이션이 직원 계정에서 새로운 것이므로 동의하라는 메시지가 표시됩니다.
 
-:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Azure Portal 빠른 시작의 [Android 앱 구성] 페이지":::
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="애플리케이션 구성 정보 화면":::
 
 ## <a name="next-steps"></a>다음 단계
 

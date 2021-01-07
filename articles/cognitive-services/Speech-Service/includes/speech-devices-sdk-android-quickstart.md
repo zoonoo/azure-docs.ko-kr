@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c341ba20ece26e15255faf086e5bd2904fbaa797
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135959"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95097340"
 ---
-이 빠른 시작에서는 Android용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다.
+이 빠른 시작에서는 Android용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](../conversation-transcription.md) 디바이스로 사용하는 방법을 알아봅니다.
 
-이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](../get-started.md) 계정이 필요합니다.
+이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](../overview.md#try-the-speech-service-for-free) 계정이 필요합니다.
 
 샘플 애플리케이션의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -24,18 +24,18 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
 - [개발 키트](../get-speech-devices-sdk.md)에 제공된 지침에 따라 디바이스의 전원을 켭니다.
 
-- [Speech Devices SDK](https://aka.ms/sdsdk-download)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
+- [Speech Devices SDK](../speech-devices-sdk.md)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
 
   > [!NOTE]
   > 이 빠른 시작에서는 앱이 C:\SDSDK\Android-Sample-Release로 추출되었다고 가정합니다.
 
-- [Speech Service에 대한 Azure 구독 키](../get-started.md)를 가져옵니다.
+- [Speech Service에 대한 Azure 구독 키](../overview.md#try-the-speech-service-for-free)를 가져옵니다.
 
 - 대화 전사를 사용하려는 경우 [순환 마이크 디바이스](../get-speech-devices-sdk.md)를 사용해야 하며, 이 기능은 현재 "미국 중부" 및 "동아시아" 지역에서 "en-US" 및 "zh-CN"으로만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
-- Speech Service를 사용하여 사용자의 발언에서 의도(또는 작업)을 식별하려는 경우에는 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요.
+- Speech Service를 사용하여 사용자의 발언에서 의도(또는 작업)을 식별하려는 경우에는 [LUIS(Language Understanding Service)](../../luis/luis-how-to-azure-subscription.md) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](../how-to-recognize-intents-from-speech-csharp.md)을 참조하세요.
 
-  [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://aka.ms/sdsdk-luis)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기** 를 선택한 다음, JSON 파일을 선택합니다.
+  [간단한 LUIS 모델을 만들거나](../../luis/index.yml) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://aka.ms/sdsdk-luis)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기** 를 선택한 다음, JSON 파일을 선택합니다.
 
 - PC에 [Android Studio](https://developer.android.com/studio/) 및 [Vysor](https://vysor.io/download/)을 설치합니다.
 
@@ -122,7 +122,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 1. 기본 키워드는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 키워드 중 하나를 사용해 볼 수도 있습니다. 이러한 대체 키워드에 대한 리소스 파일은 Speech Devices SDK의 키워드 폴더에 있습니다. 예를 들어 C:\SDSDK\Android-Sample-Release\keyword\Computer에는 키워드 "Computer"에 사용되는 파일이 포함되어 있습니다.
 
    > [!TIP]
-   > [사용자 지정 키워드를 만들](../speech-devices-sdk-create-kws.md) 수도 있습니다.
+   > [사용자 지정 키워드를 만들](../custom-keyword-basics.md) 수도 있습니다.
 
    새 키워드를 사용하려면 `MainActivity.java`에서 다음 두 줄을 업데이트하고 키워드 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 kws-machine.zip에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
 
@@ -162,7 +162,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
    ![샘플 Speech Devices SDK 예제 애플리케이션 및 옵션](../media/speech-devices-sdk/qsg-8.png)
 
-1. 새로운 대화 전사 데모를 시도해봅니다. 'Start Session'을 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 디바이스의 `/video/participants.properties` 파일에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription-service.md)을 참조하세요.
+1. 새로운 대화 전사 데모를 시도해봅니다. 'Start Session'을 문자로 기록하기 시작합니다. 기본적으로 모든 사람은 게스트입니다. 단, 참가자의 음성 서명이 있으면 디바이스의 `/video/participants.properties` 파일에 넣을 수 있습니다. 음성 서명을 생성하려면 [대화 기록(SDK)](../how-to-use-conversation-transcription.md)을 참조하세요.
 
    ![데모 대화 전사 애플리케이션](../media/speech-devices-sdk/qsg-15.png)
 

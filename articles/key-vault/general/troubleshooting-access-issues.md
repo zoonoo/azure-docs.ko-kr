@@ -7,16 +7,19 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: f9bbf6e9d1d932f7225807613b789821c1462932
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441854"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616391"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
 ## <a name="frequently-asked-questions"></a>자주 묻는 질문
+
+### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>비밀/키/인증서를 나열하거나 가져올 수 없습니다. "문제가 발생했습니다."라는 메시지가 표시됩니다. 오류가 표시됩니다.
+비밀을 나열/가져오기/만들기 또는 액세스하는 데 문제가 있는 경우 해당 작업을 수행하도록 정의된 액세스 정책이 있는지 확인합니다. [Key Vault 액세스 정책](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>키 자격 증명 모음을 어떻게 언제 액세스하는지 어떻게 식별할 수 있나요?
 

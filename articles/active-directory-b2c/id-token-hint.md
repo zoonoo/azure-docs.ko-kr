@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132077"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669162"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필을 정의 합니다.
 
@@ -36,10 +36,10 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 | 속성 | 클레임 | 예제 값 | Description |
 | ---- | ----- | ------------- | ----------- |
-| 사용자 | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | 토큰의 의도한 수신자를 식별합니다. 토큰 발급자에 의해 정의 되는 임의의 문자열입니다. Azure AD B2C는이 값의 유효성을 검사 하 고 토큰이 일치 하지 않을 경우 토큰을 거부 합니다.  |
-| 발급자 | `iss` |`https://localhost` | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 토큰 발급자에 의해 정의 되는 임의의 URI입니다. Azure AD B2C는이 값의 유효성을 검사 하 고 토큰이 일치 하지 않을 경우 토큰을 거부 합니다.  |
-| 만료 시간 | `exp` | `1600087315` | epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. Azure AD B2C는이 클레임의 유효성을 검사 하지 않습니다. |
-| 이전이 아님 | `nbf` | `1599482515` | epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 일반적으로 토큰이 발급된 시간과 같습니다. Azure AD B2C는이 클레임의 유효성을 검사 하지 않습니다. |
+| 사용자 | `aud` | `a489fc44-3cc0-4a78-92f6-e413cd853eae` | 토큰의 의도한 수신자를 식별합니다. 대상은 토큰 발급자에 의해 정의 되는 임의의 문자열입니다. Azure AD B2C는이 값의 유효성을 검사 하 고 토큰이 일치 하지 않을 경우 토큰을 거부 합니다.  |
+| 발급자 | `iss` |`https://localhost` | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 발급자는 토큰 발급자에 의해 정의 되는 임의의 URI입니다. Azure AD B2C는이 값의 유효성을 검사 하 고 토큰이 일치 하지 않을 경우 토큰을 거부 합니다.  |
+| 만료 시간 | `exp` | `1600087315` | epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. Azure AD B2C는이 값의 유효성을 검사 하 고 토큰이 만료 되 면 토큰을 거부 합니다.|
+| 이전이 아님 | `nbf` | `1599482515` | epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 일반적으로 토큰이 발급된 시간과 같습니다. Azure AD B2C는이 값의 유효성을 검사 하 고 토큰 수명이 유효 하지 않을 경우 토큰을 거부 합니다. |
 
  다음 토큰은 유효한 ID 토큰의 예입니다.
 
@@ -82,24 +82,24 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 다음 메타 데이터는 대칭 키를 사용할 때 관련 됩니다. 
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. | 
-| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . | 
+| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. `aud`JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. | 
 
 다음 메타 데이터는 비대칭 키를 사용 하는 경우와 관련이 있습니다. 
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | METADATA| 예 | Openid connect 잘 알려진 구성 끝점이 라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | No | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
-| IdTokenAudience | No | 토큰의 의도한 수신자를 식별합니다. JWT 토큰 클레임을 트 내의 하는 클레임과 동일 해야 합니다 `aud` . |  
+| 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
+| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. `aud`JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 대칭 키를 사용 하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함 됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | JWT 토큰 서명의 유효성을 검사 하는 데 사용 되는 암호화 키입니다.|
 
@@ -108,7 +108,7 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 ### <a name="issue-a-token-with-symmetric-keys"></a>대칭 키가 있는 토큰 발급
 
-#### <a name="step-1-create-a-shared-key"></a>1단계. 공유 키 만들기 
+#### <a name="step-1-create-a-shared-key"></a>1단계: 공유 키 만들기 
 
 토큰에 서명 하는 데 사용할 수 있는 키를 만듭니다. 예를 들어 다음 PowerShell 코드를 사용 하 여 키를 생성 합니다.
 
@@ -129,19 +129,19 @@ $newClientSecret
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal에서 **Azure AD B2C**를 검색하고 선택합니다.
-1. 개요 페이지의 **정책**에서 **Identity Experience Framework**를 선택합니다.
+1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
+1. 개요 페이지의 **정책** 에서 **Identity Experience Framework** 를 선택합니다.
 1. **정책 키** 선택 
-1. **수동**을 선택 합니다.
-1. **이름**에는 `IdTokenHintKey`를 사용합니다.  
+1. **수동** 을 선택 합니다.
+1. **이름** 에는 `IdTokenHintKey`를 사용합니다.  
    `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **비밀** 상자에 이전에 생성 한 로그인 키를 입력 합니다.
-1. **키 사용**에는 **암호화**를 사용합니다.
-1. **만들기**를 선택합니다.
+1. **키 사용** 에는 **암호화** 를 사용합니다.
+1. **만들기** 를 선택합니다.
 1. `B2C_1A_IdTokenHintKey` 키를 만들었는지 확인합니다.
 
 
-#### <a name="step-3-add-the-id-token-hint-technical-profile"></a>3단계: ID 토큰 힌트 기술 프로필 추가
+#### <a name="step-3-add-the-id-token-hint-technical-profile"></a>3단계. ID 토큰 힌트 기술 프로필 추가
 
 다음 기술 프로필은 토큰의 유효성을 검사 하 고 클레임을 추출 합니다. 
 
@@ -187,9 +187,9 @@ $newClientSecret
 
 [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .net MVC controller 샘플을 참조 하세요.
 
-#### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계. 자체 서명 된 인증서 준비
+#### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계: 자체 서명 된 인증서 준비
 
-인증서가 아직 없는 경우이 방법 가이드에 대해 자체 서명 된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+인증서가 아직 없는 경우이 방법 가이드에 대해 자체 서명 된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
 이 PowerShell 명령을 실행 하 여 자체 서명 된 인증서를 생성 합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 
@@ -230,7 +230,7 @@ New-SelfSignedCertificate `
 </ClaimsProvider>
 ```
 
-#### <a name="step-3-prepare-your-policy"></a>3단계: 정책 준비
+#### <a name="step-3-prepare-your-policy"></a>3단계. 정책 준비
 
 [정책 구성](#configure-your-policy) 단계를 완료 합니다.
 
@@ -272,7 +272,7 @@ New-SelfSignedCertificate `
     </RelyingParty>
     ```
 
-비즈니스 요구 사항에 따라 토큰 만료, 전자 메일 주소 형식 등을 확인 하는 토큰 유효성 검사를 추가 해야 할 수도 있습니다. 이렇게 하려면 [클레임 변환 기술 프로필](claims-transformation-technical-profile.md)을 호출 하는 오케스트레이션 단계를 추가 합니다. 또한 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 을 추가 하 여 오류 메시지를 표시 합니다. 
+비즈니스 요구 사항에 따라 토큰 유효성 검사를 추가 해야 할 수도 있습니다. 예를 들어 전자 메일 주소의 형식을 확인 합니다. 이렇게 하려면 [클레임 변환 기술 프로필](claims-transformation-technical-profile.md)을 호출 하는 오케스트레이션 단계를 추가 합니다. 또한 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 을 추가 하 여 오류 메시지를 표시 합니다. 
 
 ### <a name="create-and-sign-a-token"></a>토큰 만들기 및 서명
 

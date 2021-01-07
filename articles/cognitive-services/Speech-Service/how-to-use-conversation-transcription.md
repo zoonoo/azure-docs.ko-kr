@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: trbye
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: 6cb338e8b7baa45e1c84f59a5730a9a500e71a79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ae3d7b329c55ce0be101cee73e1fc7674a2d75aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486794"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026542"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>실시간 대화 기록 시작
 
@@ -25,7 +25,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는를 사용 
 ## <a name="limitations"></a>제한 사항
 
 * 다음 구독 지역 에서만 사용할 수 있습니다. `centralus` , `eastasia` , `eastus` , `westeurope`
-* 재생 참조 스트림이 있는 7-mic 원형 다중 마이크 배열이 필요 합니다. 마이크 배열은 [사양을](https://aka.ms/sdsdk-microphone)충족 해야 합니다.
+* 재생 참조 스트림이 있는 7-mic 원형 다중 마이크 배열이 필요 합니다. 마이크 배열은 [사양을](./speech-devices-sdk-microphone.md)충족 해야 합니다.
 * [음성 장치 SDK](speech-devices-sdk.md) 는 적절 한 장치 및 대화 기록을 보여 주는 샘플 앱을 제공 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항

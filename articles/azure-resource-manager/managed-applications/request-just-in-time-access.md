@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: 5e1a929924e2c291e0044da99f3ae5d7d1c3b894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371571"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435691"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청
 
@@ -72,7 +72,7 @@ JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관�
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에서 상용 Marketplace 포털에 로그인 합니다.
 
-1. 새 관리 되는 응용 프로그램을 만드는 방법에 대 한 지침은 [Azure 응용 프로그램 제품 만들기](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)의 단계를 따르세요.
+1. 새 관리 되는 응용 프로그램을 만드는 방법에 대 한 지침은 [Azure 응용 프로그램 제품 만들기](../../marketplace/create-new-azure-apps-offer.md)의 단계를 따르세요.
 
 1. **기술 구성** 페이지에서 **JIT (Just-in-time) 액세스 사용** 확인란을 선택 합니다.
 
@@ -88,7 +88,7 @@ JIT 액세스 요청을 보내려면 다음을 수행 합니다.
 
 1. 액세스 해야 하는 관리 되는 응용 프로그램에 대 한 **JIT 액세스** 를 선택 합니다.
 
-1. **적격 역할**을 선택 하 고 원하는 역할에 대 한 작업 열에서 **활성화** 를 선택 합니다.
+1. **적격 역할** 을 선택 하 고 원하는 역할에 대 한 작업 열에서 **활성화** 를 선택 합니다.
 
    ![액세스 요청 활성화](./media/request-just-in-time-access/send-request.png)
 
@@ -102,7 +102,7 @@ JIT 액세스 요청을 보내려면 다음을 수행 합니다.
 
    이제 소비자가 [요청을 승인할](approve-just-in-time-access.md#approve-requests)때까지 기다려야 합니다.
 
-1. 관리 되는 응용 프로그램에 대 한 모든 JIT 요청의 상태를 보려면 **Jit 액세스** 및 **요청 기록**을 선택 합니다.
+1. 관리 되는 응용 프로그램에 대 한 모든 JIT 요청의 상태를 보려면 **Jit 액세스** 및 **요청 기록** 을 선택 합니다.
 
    ![상태 보기](./media/request-just-in-time-access/view-status.png)
 

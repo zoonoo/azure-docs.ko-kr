@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 4378a648b8b7a545c9e4b638d08592aa32fff3aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427669"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350928"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "94427669"
 > [!NOTE]
 > 아래 지침에 따라 기존 기술 자료를 관리 되는 새 QnA Maker (미리 보기)로 마이그레이션합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 * 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
@@ -34,7 +34,7 @@ ms.locfileid: "94427669"
 1. [QnA Maker 포털](https://qnamaker.ai)에 로그인 합니다.
 1. 마이그레이션할 원본 기술 자료를 선택 합니다.
 
-1. **설정** 페이지에서 **기술 자료 내보내기** 를 선택 하 여 원래 기술 자료의 내용, 질문, 답변, 메타 데이터, 추가 작업 프롬프트 및 추출 된 데이터 원본 이름을 포함 하는 tsv 파일을 다운로드 합니다. 질문 및 답변을 사용 하 여 내보낸 QnA Id는 [업데이트 API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 특정 QnA 쌍을 업데이트 하는 데 사용할 수 있습니다. 특정 QnA 쌍의 QnA ID는 여러 내보내기 작업에서 변경 되지 않은 상태로 유지 됩니다.
+1. **설정** 페이지에서 **기술 자료 내보내기** 를 선택 하 여 원래 기술 자료의 내용, 질문, 답변, 메타 데이터, 추가 작업 프롬프트 및 추출 된 데이터 원본 이름을 포함 하는 tsv 파일을 다운로드 합니다. 질문 및 답변을 사용 하 여 내보낸 QnA Id는 [업데이트 API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용 하 여 특정 QnA 쌍을 업데이트 하는 데 사용할 수 있습니다. 특정 QnA 쌍의 QnA ID는 여러 내보내기 작업에서 변경 되지 않은 상태로 유지 됩니다.
 
 1. 상단 메뉴에서 **기술 자료 만들기** 를 선택 하 고 _빈_ 기술 자료를 만듭니다. 이 파일은 만들 때 Url 또는 파일을 추가 하지 않기 때문에 비어 있습니다. 이러한 작업은 생성 후 가져오기 단계에서 추가 됩니다.
 
@@ -59,16 +59,16 @@ ms.locfileid: "94427669"
 
 **내보내기**
 
-* [기술 자료 API 다운로드](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
+* [기술 자료 API 다운로드](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/download)
 
 **가져오기**
 
-* [API 바꾸기 (동일한 기술 자료 ID로 다시 로드)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
-* [API 만들기 (새 기술 자료 ID로 로드)](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
+* [API 바꾸기 (동일한 기술 자료 ID로 다시 로드)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/replace)
+* [API 만들기 (새 기술 자료 ID로 로드)](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase/create)
 
 
 ## <a name="chat-logs-and-alterations"></a>채팅 로그 및 변경 내용
-대/소문자를 구분하지 않는 변경 내용(동의어)은 자동으로 가져오지 않습니다. [V4 api](https://go.microsoft.com/fwlink/?linkid=2092179) 를 사용 하 여 새 기술 자료의 변경 사항을 이동 합니다.
+대/소문자를 구분하지 않는 변경 내용(동의어)은 자동으로 가져오지 않습니다. [V4 api](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) 를 사용 하 여 새 기술 자료의 변경 사항을 이동 합니다.
 
 새 기술 자료는 Application Insights를 사용하여 채팅 로그를 저장하기 때문에 채팅 로그를 마이그레이션할 방법이 없습니다.
 

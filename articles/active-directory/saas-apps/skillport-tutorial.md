@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ed71311125229a7575c675dd3338b4908ea1be95
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8b49e3594754e8eed38e3b1ef44648bc065558b8
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518435"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>자습서: Skillport와 Azure Active Directory 통합
 
@@ -101,23 +101,23 @@ Skillport에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Skillport 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다.
+    1. **로그온 URL** 텍스트 상자에  URL을 입력합니다.
 
-    EU 데이터 센터: `https://adfs.skillport.eu`
+        EU 데이터 센터: `https://adfs.skillport.eu`
 
-    미국 데이터 센터: `https://sso.skillport.com`
+        미국 데이터 센터: `https://sso.skillport.com`
 
-    b. **식별자** 상자에 다음 URL을 입력합니다.
+    1. **식별자** 상자에 URL 을 입력합니다.
 
-    EU 데이터 센터: `http://adfs.skillport.eu/adfs/services/trust`
+        EU 데이터 센터: `http://adfs.skillport.eu/adfs/services/trust`
 
-    미국 데이터 센터: `https://sso.skillport.com`
+        미국 데이터 센터: `https://sso.skillport.com`
 
-    다. **회신 URL** 텍스트 상자에서 다음 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에서 URL 을 입력합니다.
 
-    EU 데이터 센터: `https://adfs.skillport.eu/adfs/ls/`
+        EU 데이터 센터: `https://adfs.skillport.eu/adfs/ls/`
 
-      미국 데이터 센터: `https://sso.skillport.com/sp/ACS.saml2`
+        미국 데이터 센터: `https://sso.skillport.com/sp/ACS.saml2`
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -141,7 +141,7 @@ Skillport에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -166,7 +166,7 @@ Skillport에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Skillport에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Skillport** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Skillport** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

@@ -34,24 +34,24 @@ Microsoft 고객 계약 계정을 만든 사용자만 결제 방법을 삭제할
 Microsoft 고객 계약에 대한 결제 방법을 삭제하려면 다음 단계를 수행합니다.
 
 1. [https://portal.azure.com](https://portal.azure.com/ ) 에서 Azure Portal에 로그인합니다.
-1. **Cost Management + 청구**로 이동합니다.
+1. **Cost Management + 청구** 로 이동합니다.
 1. 필요한 경우 청구 범위를 선택합니다.
-1. 왼쪽 메뉴 목록의 **청구** 아래에서 **청구 프로필**을 선택합니다.  
+1. 왼쪽 메뉴 목록의 **청구** 아래에서 **청구 프로필** 을 선택합니다.  
     :::image type="content" source="./media/delete-azure-payment-method/billing-profiles.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" lightbox="./media/delete-azure-payment-method/billing-profiles.png" :::
 1. 청구 프로필 목록에서 결제 방법이 사용되는 프로필을 선택합니다.  
-    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" :::
-1. 왼쪽 메뉴 목록의 **설정** 아래에서 **결제 방법**을 선택합니다.
-1. 청구 프로필에 대한 결제 방법 페이지의 **신용 카드** 섹션 아래에 결제 방법 표가 표시됩니다. 삭제하려는 신용 카드를 찾고, 줄임표( **…** ), **삭제**를 차례로 선택합니다.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" :::
+    :::image type="content" source="./media/delete-azure-payment-method/select-billing-profile.png" alt-text="청구 프로필 목록을 보여 주는 이미지의 예" :::
+1. 왼쪽 메뉴 목록의 **설정** 아래에서 **결제 방법** 을 선택합니다.
+1. 청구 프로필에 대한 결제 방법 페이지의 **신용 카드** 섹션 아래에 결제 방법 표가 표시됩니다. 삭제하려는 신용 카드를 찾고, 줄임표( **…** ), **삭제** 를 차례로 선택합니다.  
+    :::image type="content" source="./media/delete-azure-payment-method/delete-credit-card.png" alt-text="신용 카드를 삭제할 위치를 보여 주는 예" :::
 1. [결제 방법 삭제] 페이지가 표시됩니다. Azure에서 결제 방법이 사용되는지 확인합니다.
     - 결제 방법이 사용되지 않는 경우 **삭제** 옵션을 사용하도록 설정됩니다. 신용 카드 정보를 삭제하려면 이 옵션을 선택합니다.
-    - 결제 방법이 사용되는 경우 바꾸거나 분리해야 합니다. 다음 섹션을 계속 읽습니다. 여기서는 구독에서 사용하는 결제 방법을 **분리**하는 방법을 설명합니다.
+    - 결제 방법이 사용되는 경우 바꾸거나 분리해야 합니다. 다음 섹션을 계속 읽습니다. 여기서는 구독에서 사용하는 결제 방법을 **분리** 하는 방법을 설명합니다.
 
 ### <a name="detach-payment-method-used-by-an-mca-billing-profile"></a>MCA 청구 프로필에서 사용하는 결제 방법 분리
 
 MCA 청구 프로필에서 결제 방법을 사용하는 경우 다음 예와 비슷한 메시지가 표시됩니다.
 
-:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" :::
+:::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Microsoft 고객 계약에서 결제 방법을 사용하고 있음을 보여 주는 이미지의 예" :::
 
 결제 방법을 분리하려면 조건 목록을 충족해야 합니다. 조건이 충족되지 않으면 해당 조건을 충족하는 방법을 설명하는 지침이 표시됩니다. 또한 조건을 확인할 수 있는 위치로 이동하는 링크도 표시됩니다.
 
@@ -63,12 +63,12 @@ MCA 청구 프로필에서 결제 방법을 사용하는 경우 다음 예와 �
 #### <a name="to-detach-a-payment-method"></a>결제 방법 분리
 
 1. 결제 방법 삭제 영역에서 **현재 결제 방법 분리** 링크를 선택합니다.
-1. 모든 조건이 충족되면 **분리**를 선택합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
+1. 모든 조건이 충족되면 **분리** 를 선택합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 1. [분리]를 사용할 수 없는 경우 조건 목록이 표시됩니다. 나열된 작업을 수행합니다. 기본 결제 방법 분리 영역에 표시된 링크를 선택합니다. 수행해야 하는 작업을 설명하는 정정 작업의 예는 다음과 같습니다.  
-    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" :::
+    :::image type="content" source="./media/delete-azure-payment-method/azure-subscriptions.png" alt-text="MCA 결제 방법을 분리하는 데 필요한 정정 작업을 보여 주는 예" :::
 1. 정정 작업 링크를 선택하면 작업을 수행하는 Azure 페이지로 리디렉션됩니다. 필요한 모든 정정 작업을 수행합니다.
 1. 필요한 경우 다른 모든 정정 작업을 완료합니다.
-1. **Cost Management + 청구** > **청구 프로필** > **결제 방법**으로 차례로 다시 이동합니다. **분리**를 선택합니다. 기본 결제 방법 분리 페이지의 아래쪽에서 **분리**를 선택합니다.
+1. **Cost Management + 청구** > **청구 프로필** > **결제 방법** 으로 차례로 다시 이동합니다. **분리** 를 선택합니다. 기본 결제 방법 분리 페이지의 아래쪽에서 **분리** 를 선택합니다.
 
 > [!NOTE]
 > - 구독을 취소한 후 구독이 삭제되는 데 최대 90일이 걸릴 수 있습니다. 대기 시간을 단축하려면 Azure 지원 요청을 열고 구독을 즉시 삭제하도록 요청하세요.
@@ -81,18 +81,18 @@ MCA 청구 프로필에서 결제 방법을 사용하는 경우 다음 예와 �
 MOSP 구독에서 결제 방법을 사용하는 경우 다음 단계를 수행합니다.
 
 1. [https://portal.azure.com](https://portal.azure.com/ ) 에서 Azure Portal에 로그인합니다.
-1. **Cost Management + 청구**로 이동합니다.
+1. **Cost Management + 청구** 로 이동합니다.
 1. 필요한 경우 청구 범위를 선택합니다.
-1. 왼쪽 메뉴 목록의 **청구** 아래에서 **결제 방법**을 선택합니다.
-1. 결제 방법 영역에서 결제 방법이 설정된 _줄_을 선택합니다. 결제 방법 링크는 선택하지 마세요. 결제 방법을 선택했다는 시각적 표시가 없을 수 있습니다.
-1. **삭제**를 선택합니다.  
-    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" :::
-1. 모든 조건이 충족되면 결제 방법 삭제 영역에서 **삭제**를 선택합니다. [삭제]를 사용할 수 없는 경우 다음 단계로 계속 진행합니다.
+1. 왼쪽 메뉴 목록의 **청구** 아래에서 **결제 방법** 을 선택합니다.
+1. 결제 방법 영역에서 결제 방법이 설정된 _줄_ 을 선택합니다. 결제 방법 링크는 선택하지 마세요. 결제 방법을 선택했다는 시각적 표시가 없을 수 있습니다.
+1. **삭제** 를 선택합니다.  
+    :::image type="content" source="./media/delete-azure-payment-method/delete-mosp-payment-method.png" alt-text="MOSP 결제 방법을 분리하는 데 필요한 정정 작업을 보여 주는 예" :::
+1. 모든 조건이 충족되면 결제 방법 삭제 영역에서 **삭제** 를 선택합니다. [삭제]를 사용할 수 없는 경우 다음 단계로 계속 진행합니다.
 1. 조건 목록이 표시됩니다. 나열된 작업을 수행합니다. 결제 방법 삭제 영역에 표시된 링크를 선택합니다.  
-    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="Azure Portal의 청구 프로필을 보여 주는 스크린샷의 예" :::
+    :::image type="content" source="./media/delete-azure-payment-method/payment-method-in-use-mosp.png" alt-text="MOSP 구독에서 결제 방법을 사용하고 있음을 보여 주는 이미지의 예" :::
 1. 정정 작업 링크를 선택하면 작업을 수행하는 Azure 페이지로 리디렉션됩니다. 필요한 모든 정정 작업을 수행합니다.
 1. 필요한 경우 다른 모든 정정 작업을 완료합니다.
-1. **Cost Management + 청구** > **청구 프로필** > **결제 방법**으로 차례로 다시 이동하여 결제 방법을 삭제합니다.
+1. **Cost Management + 청구** > **청구 프로필** > **결제 방법** 으로 차례로 다시 이동하여 결제 방법을 삭제합니다.
 
 > [!NOTE]
 > 구독을 취소한 후 구독이 삭제되는 데 최대 90일이 걸릴 수 있습니다. 대기 시간을 단축하려면 Azure 지원 요청을 열고 구독을 즉시 삭제하도록 요청하세요.

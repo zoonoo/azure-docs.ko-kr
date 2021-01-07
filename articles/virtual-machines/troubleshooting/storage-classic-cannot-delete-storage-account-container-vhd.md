@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361860"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002598"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
 이 문서에서는 Azure 클래식 Storage 계정, 컨테이너 또는 *.vhd 페이지 Blob 파일을 삭제하려고 할 때 다음 오류 중 하나가 발생할 경우의 문제 해결 지침을 제공합니다. 
@@ -48,7 +48,7 @@ Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/ma
 사용자가 더 이상 필요하지 않은 클래식 스토리지 계정을 삭제하려고 하면 다음과 같은 동작이 나타날 수 있습니다.
 
 #### <a name="azure-portal"></a>Azure portal 
-[Azure Portal](https://portal.azure.com)에서 클래식 스토리지 계정으로 이동한 후 **삭제**를 클릭하면 다음 메시지가 표시됩니다. 
+[Azure Portal](https://portal.azure.com)에서 클래식 스토리지 계정으로 이동한 후 **삭제** 를 클릭하면 다음 메시지가 표시됩니다. 
 
 디스크가 가상 머신에 “연결된”된 경우
 

@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cfda4d7970c734d92c9f2355d553721ef6165e43
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911854"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903890"
 ---
 # <a name="create-human-reviews"></a>사용자 리뷰 만들기
 
 이 가이드에서는 검토 도구 웹 사이트에서 [리뷰](../review-api.md#reviews) 를 설정 하는 방법을 알아봅니다. 평가를 위해 인적 중재자의 콘텐츠를 저장 하 고 표시 합니다. 중재자는 적용 된 태그를 변경 하 고 적절 한 사용자 지정 태그를 적용할 수 있습니다. 사용자가 검토를 완료 하면 결과가 지정 된 콜백 끝점으로 전송 되 고 사이트에서 콘텐츠가 제거 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만드세요.
 
@@ -56,4 +56,4 @@ ms.locfileid: "92911854"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 검토를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 참조 하세요.
+이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 프로그래밍 방식으로 리뷰를 만드는 방법을 알아보려면 [API 콘솔 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 참조 하세요.

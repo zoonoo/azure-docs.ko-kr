@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Synapse SQL 풀에 대한 컴퓨팅 크기 조정(Azure PowerShell)'
-description: Azure PowerShell을 사용하여 Synapse SQL 풀(데이터 웨어하우스)에 대한 컴퓨팅을 크기 조정할 수 있습니다.
+title: '빠른 시작: 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 크기 조정(Azure PowerShell)'
+description: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅을 확장할 수 있습니다.
 services: synapse-analytics
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8077b1a52e44ce3a5160309c92288f756bed1014
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87e10740e6081431bad96daa930f61238ca495bd
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91566145"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921910"
 ---
-# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀에 대한 컴퓨팅 크기 조정
+# <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 크기 조정
 
-Azure PowerShell을 사용하여 Synapse SQL 풀(데이터 웨어하우스)에 대한 컴퓨팅을 크기 조정할 수 있습니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다.
+Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅을 확장할 수 있습니다. 더 나은 성능을 위해 [컴퓨팅 능력을 확장](sql-data-warehouse-manage-compute-overview.md)하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 빠른 시작에서는 규모를 조정할 수 있는 SQL 풀이 이미 있다고 가정합니다. 만들어야 하는 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 SQL 풀을 만듭니다.
+이 빠른 시작에서는 크기를 조정할 수 있는 전용 SQL 풀(이전의 SQL DW)이 이미 있다고 가정합니다. 만들어야 하는 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse** 라는 전용 SQL 풀(이전의 SQL DW)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -58,18 +58,18 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal의 왼쪽 탐색 페이지에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 클릭합니다.
-3. **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse**를 선택하여 데이터 웨어하우스를 엽니다.
+3. **Azure Synapse Analytics(이전의 SQL DW)** 페이지에서 **mySampleDataWarehouse** 를 선택하여 데이터 웨어하우스를 엽니다.
 
     ![서버 이름 및 리소스 그룹](./media/quickstart-scale-compute-powershell/locate-data-warehouse-information.png)
 
 4. 데이터베이스 이름으로 사용되는 데이터 웨어하우스 이름을 적어 둡니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. 또한 서버 이름 및 리소스 그룹도 적어 둡니다. 일시 중지 및 다시 시작 명령에서 서버 이름과 리소스 그룹 이름을 사용합니다.
-5. PowerShell cmdlet에서 서버 이름의 첫 부분만 사용합니다. 위 그림에서 전체 서버 이름은 sqlpoolservername.database.windows.net입니다. PowerShell cmdlet에서는 **sqlpoolservername**을 서버 이름으로 사용합니다.
+5. PowerShell cmdlet에서 서버 이름의 첫 부분만 사용합니다. 위 그림에서 전체 서버 이름은 sqlpoolservername.database.windows.net입니다. PowerShell cmdlet에서는 **sqlpoolservername** 을 서버 이름으로 사용합니다.
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
 
-SQL 풀에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
+전용 SQL 풀(이전의 SQL DW)에서 데이터 웨어하우스 단위를 조정하여 컴퓨팅 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse** 를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse** 에 대해 DWU를 조정합니다.
 
-데이터 웨어하우스 단위를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **sqlpoolservername** 서버의 리소스 그룹 **resourcegroupname**에서 호스트되는 데이터베이스 **mySampleDataWarehouse**에 대해 데이터 웨어하우스 단위를 DW300c로 설정합니다.
+데이터 웨어하우스 단위를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용합니다. 다음 예제에서는 **sqlpoolservername** 서버의 리소스 그룹 **resourcegroupname** 에서 호스트되는 데이터베이스 **mySampleDataWarehouse** 에 대해 데이터 웨어하우스 단위를 DW300c로 설정합니다.
 
 ```Powershell
 Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySampleDataWarehouse" -ServerName "sqlpoolservername" -RequestedServiceObjectiveName "DW300c"
@@ -77,7 +77,7 @@ Set-AzSqlDatabase -ResourceGroupName "resourcegroupname" -DatabaseName "mySample
 
 ## <a name="check-data-warehouse-state"></a>데이터 웨어하우스 상태 확인
 
-데이터 웨어하우스의 현재 상태를 보려면 [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용합니다. 이 cmdlet에는 리소스 그룹 **resourcegroupname** 및 서버 **sqlpoolservername.database.windows.net**에 있는 **mySampleDataWarehouse** 데이터베이스의 상태가 표시됩니다.
+데이터 웨어하우스의 현재 상태를 보려면 [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet을 사용합니다. 이 cmdlet에는 리소스 그룹 **resourcegroupname** 및 서버 **sqlpoolservername.database.windows.net** 에 있는 **mySampleDataWarehouse** 데이터베이스의 상태가 표시됩니다.
 
 ```powershell
 $database = Get-AzSqlDatabase -ResourceGroupName resourcegroupname -ServerName sqlpoolservername -DatabaseName mySampleDataWarehouse
@@ -111,7 +111,7 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-출력에서 데이터베이스의 **상태**를 확인할 수 있습니다. 이 경우 이 데이터베이스가 온라인 상태인지 확인할 수 있습니다.  이 명령을 실행하면 온라인, 일시 중지 중, 다시 시작 중, 크기 조정 또는 일시 중지됨의 상태가 표시됩니다.
+출력에서 데이터베이스의 **상태** 를 확인할 수 있습니다. 이 경우 이 데이터베이스가 온라인 상태인지 확인할 수 있습니다.  이 명령을 실행하면 온라인, 일시 중지 중, 다시 시작 중, 크기 조정 또는 일시 중지됨의 상태가 표시됩니다.
 
 상태를 자체적으로 확인하려면 다음 명령을 실행합니다.
 
@@ -121,7 +121,7 @@ $database | Select-Object DatabaseName,Status
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 SQL 풀에 대한 컴퓨팅 규모를 조정하는 방법을 알아보았습니다. SQL 풀에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
+지금까지 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅을 확장하는 방법을 알아보았습니다. 전용 SQL 풀(이전의 SQL DW)에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)
+>[전용 SQL 풀에 데이터 로드](load-data-from-azure-blob-storage-using-copy.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 742c69709eee19a37abdb3e5330cd7fb8ce315b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436394"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452290"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>호환되지 않는 행을 건너뛰어 복사 작업에 내결함성 추가
 
@@ -48,9 +48,9 @@ Azure Data Factory [복사 작업](data-factory-data-movement-activities.md)은 
     다음은 그 예입니다.  SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
->이 기능은 복사 작업이 [Azure Synapse Analytics (이전의 SQL Data Warehouse) PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) 또는 [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift)를 비롯 한 외부 데이터 로드 메커니즘을 호출 하도록 구성 된 경우에는 적용 되지 않습니다. PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하려면 복사 작업에서 "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)"을 지정 하 여 polybase의 기본 내결함성 지원을 사용 합니다.
+>이 기능은 복사 작업이 [Azure Synapse Analytics PolyBase](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) 또는 [Amazon Redshift Unload](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift)를 비롯 한 외부 데이터 로드 메커니즘을 호출 하도록 구성 된 경우에는 적용 되지 않습니다. PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하려면 복사 작업에서 "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)"을 지정 하 여 polybase의 기본 내결함성 지원을 사용 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 다음 예제에서는 복사 작업에서 호환되지 않는 행을 건너뛰도록 구성하기 위한 JSON 정의를 제공합니다.
 
 ```json

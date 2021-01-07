@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 36e61c8d1e0e41fd981f5483eff1f30814b22b92
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905321"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814196"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDoS 빠른 응답
 
-Azure DDoS Protection Standard 고객은 활성 액세스 중에, 공격 및 공격 후 분석을 통해 공격 조사에 도움을 주는 DRR (DDoS 신속한 응답) 팀에 액세스할 수 있습니다.
+Azure DDoS Protection Standard 고객은 활성 액세스 중에, 공격 및 공격 후 분석 중에 공격 조사에 도움을 주는 DRR (DDoS 신속한 응답) 팀에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 자습서의 단계를 완료 하기 전에 먼저 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md)을 만들어야 합니다.
 
@@ -51,10 +51,10 @@ Azure DDoS Protection Standard 고객은 활성 액세스 중에, 공격 및 공
 
 DRR은 Azure Rapid Response 지원 모델을 따릅니다. 빠른 응답에 대 한 자세한 내용은 [지원 범위 및 응답성](https://azure.microsoft.com/en-us/support/plans/response/) 을 참조 하세요.
 
-자세히 알아보려면 [DDoS Protection 표준 설명서](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview)를 참조 하세요.
+자세히 알아보려면 [DDoS Protection 표준 설명서](./ddos-protection-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [시뮬레이션을 통해 테스트](test-through-simulations.md)하는 방법을 알아봅니다.
-- [DDoS protection 원격 분석을 보고 구성](telemetry-monitoring-alerting.md)하는 방법에 대해 알아봅니다.
-- [DDoS 공격 완화 보고서 및 흐름 로그를 구성](reports-and-flow-logs.md)하는 방법에 대해 알아봅니다.
+- [DDoS protection 원격 분석을 보고 구성](telemetry.md)하는 방법에 대해 알아봅니다.
+- [DDoS 진단 로깅을 보고 구성](diagnostic-logging.md)하는 방법에 대해 알아봅니다.

@@ -1,19 +1,19 @@
 ---
 title: Azure 공간 앵커 Unity 개요
 description: Unity 앱 내에서 Azure 공간 앵커를 사용 하는 방법에 대해 알아봅니다. HoloLens 용 Unity, Android 용 Unity 및 iOS 용 unity의 빠른 시작을 검토 하세요.
-author: rgarcia
-ms.author: rgarcia
-manager: vriveras
+author: msftradford
+ms.author: parkerra
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
-ms.date: 02/26/2020
+ms.date: 11/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: d55890fc97ff24bd4b77628791bdda60c5f54347
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 51df8ff31c6f86608b7cae53ca779a2a03068e57
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096150"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95487268"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Azure 공간 앵커를 사용 하 여 Unity에서 빌드
 

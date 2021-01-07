@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: bb134a2fb784e02f5e00c9e88ab0df1794489e0c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441881"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860595"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 협업 초대 이메일의 요소
 
@@ -69,7 +69,7 @@ ms.locfileid: "92441881"
 
 ### <a name="blocking-an-organization-unsubscribing"></a>조직 차단 (구독 취소)
 
-조직의 초대에서 바닥글에는 **이후 초대를 차단**하는 옵션이 포함 되어 있습니다. 게스트 사용자는이 링크를 선택 하 여 조직에서 향후 초대를 차단할 수 있습니다. 이 작업은 또한에서 사용자의 구독 목록에 조직을 추가 합니다 [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+조직의 초대에서 바닥글에는 **이후 초대를 차단** 하는 옵션이 포함 되어 있습니다. 게스트 사용자는이 링크를 선택 하 여 조직에서 향후 초대를 차단할 수 있습니다. 이 작업은 또한에서 사용자의 구독 목록에 조직을 추가 합니다 [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
 
 ### <a name="viewing-organizations-youve-blocked"></a>차단 된 조직 보기
 
@@ -79,14 +79,14 @@ ms.locfileid: "92441881"
 2. 전자 메일을 입력 하 고 일회용 암호 인증을 위한 로그인 단계를 따르세요.
 3. 차단 된 조직을 보거나 복사 및 붙여넣기를 사용 하 여 이름을 내보냅니다.
    > [!NOTE]
-   > 사용자를 다시 초대 하도록 차단한 조직을 허용 하려면 조직을 선택 하 고 **다음**을 선택 합니다.
+   > 사용자를 다시 초대 하도록 차단한 조직을 허용 하려면 조직을 선택 하 고 **다음** 을 선택 합니다.
 
 ## <a name="how-the-language-is-determined"></a>언어를 결정하는 방법
 
 초대 이메일에서 게스트 사용자에게 표시되는 언어는 다음 설정에 의해 결정됩니다. 이러한 설정은 우선 순위 순서대로 나열됩니다. 설정이 구성되지 않은 경우 목록의 다음 설정이 언어를 결정합니다.
 
-- 초대 만들기 API를 사용하는 경우 [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) 개체의 **messageLanguage** 속성
--   게스트의 [사용자 개체](/graph/api/resources/user?view=graph-rest-1.0)에 지정한 **preferredLanguage** 속성
+- 초대 만들기 API를 사용하는 경우 [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo) 개체의 **messageLanguage** 속성
+-   게스트의 [사용자 개체](/graph/api/resources/user)에 지정한 **preferredLanguage** 속성
 -   게스트 사용자의 홈 테넌트의 속성에 설정된 **알림 언어**(Azure AD 테넌트만 해당)
 -   리소스 테넌트의 속성에 설정된 **알림 언어**
 

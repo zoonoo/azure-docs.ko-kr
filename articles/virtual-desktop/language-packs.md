@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱에서 Windows 10 Vm에 언어 팩 설치-Azur
 description: Windows 가상 데스크톱에서 Windows 10 다중 세션 Vm 용 언어 팩을 설치 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 780324d1a6f7d9edfb552377c3e966e6a186c231
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354039"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347934"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Windows 10 다중 세션 이미지에 언어 팩 추가
 
@@ -34,20 +34,25 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
      
      - 언어 ISO:
         - [Windows 10, 버전 1903 또는 1909 언어 팩 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, 버전 2004 언어 팩 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, 버전 2004 또는 20H2 언어 팩 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - D 디스크 1 ISO:
         - [Windows 10, 버전 1903 또는 1909 OD 디스크 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, 버전 2004 OD 디스크 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, 버전 2004 또는 20H2 FD 디스크 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - 수신함 앱 ISO:
         - [Windows 10, 버전 1903 또는 1909 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, 버전 2004 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Windows 10, 버전 20H2 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
-     - Windows 10, 버전 2004 또는 20H2를 사용 하는 경우 LXP (Local Experience Pack) Iso를 사용 하 여 새 언어를 다운로드할 수 있습니다. [Windows 10에서 언어 추가:](/windows-hardware/manufacture/desktop/language-packs-known-issue) 9B 했으면 또는 9C 버전을 다운로드 해야 하는지 여부를 파악 하기 위한 알려진 문제에 대 한 정보를 사용 합니다.
-        - [Windows 10, 버전 2004 또는 20H2 **9b 했으면** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-        - [Windows 10, 버전 2004 또는 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
+     - LXP (로컬 환경 팩) ISO 파일을 사용 하 여 이미지를 지역화 하는 경우 최상의 언어 경험을 위해 적절 한 LXP ISO를 다운로드 해야 합니다.
+        - Windows 10, 버전 1903 또는 1909을 사용 하는 경우:
+          - [Windows 10, 버전 1903 또는 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
+        - Windows 10, 버전 2004 또는 20H2를 사용 하는 경우 [windows 10의 언어 추가: 알려진 문제](/windows-hardware/manufacture/desktop/language-packs-known-issue) 에 대 한 정보를 사용 하 여 사용자에 게 적합 한 다음 Lxp iso을 파악 합니다.
+          - [Windows 10, 버전 2004 또는 20H2 **9b 했으면** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, 버전 2004 또는 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, 버전 2004 또는 20H2 **10Clxp** ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, 버전 2004 또는 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
 
 - Windows 파일 서버 가상 컴퓨터의 Azure Files 공유 또는 파일 공유
 

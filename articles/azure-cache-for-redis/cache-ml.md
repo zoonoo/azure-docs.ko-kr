@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537578"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734235"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 Azure Functions에 machine learning 모델 배포 
 
@@ -23,7 +23,7 @@ Redis 용 Azure Cache는 매우 성능이 뛰어나고 확장 가능 합니다. 
 > Azure Machine Learning와 Azure Functions를 모두 사용할 수 있지만 함수에 대 한 Machine Learning 서비스에서 모델을 패키징하는 기능은 미리 보기 상태입니다.  
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](../machine-learning/how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)
@@ -283,14 +283,14 @@ print(model_package.location)
 > [!IMPORTANT]
 > 이미지가 로드 되기까지 몇 분 정도 걸릴 수 있습니다. Azure Portal를 사용 하 여 진행률을 모니터링할 수 있습니다.
 
-## <a name="test-azure-function-http-trigger"></a>Azure Function HTTP 트리거 테스트 
+## <a name="test-azure-functions-http-trigger"></a>HTTP 트리거 테스트 Azure Functions 
 
-이제 Azure Function HTTP 트리거를 실행 하 고 테스트 합니다.
+이제 Azure Functions HTTP 트리거를 실행 하 고 테스트 합니다.
 
-1. Azure Portal에서 Azure 함수 앱으로 이동 합니다.
+1. Azure Portal의 함수 앱으로 이동 합니다.
 1. 개발자에서 **코드 + 테스트** 를 선택 합니다. 
 1. 오른쪽에서 **입력** 탭을 선택 합니다. 
-1. **실행** 단추를 클릭 하 여 AZURE Function HTTP 트리거를 테스트 합니다. 
+1. **실행** 단추를 클릭 하 Azure Functions HTTP 트리거를 테스트 합니다. 
 
 이제 Redis 용 Azure Cache 인스턴스를 사용 하 여 Azure Machine Learning에서 함수 앱으로 모델을 성공적으로 배포 했습니다. 아래 섹션의 링크로 이동 하 여 Azure Cache for Redis에 대해 자세히 알아보세요.
 
@@ -316,6 +316,6 @@ print(model_package.location)
 ## <a name="next-steps"></a>다음 단계 
 
 * [Redis 용 Azure 캐시](./cache-overview.md) 에 대 한 자세한 정보
-* [함수](../azure-functions/functions-create-function-linux-custom-image.md) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
+* [함수 설명서에서](../azure-functions/functions-create-function-linux-custom-image.md) 함수 앱을 구성 하는 방법에 대해 알아봅니다.
 * [API 참조](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
 * [Redis 용 Azure Cache를 사용 하는 Python 앱](./cache-python-get-started.md) 만들기

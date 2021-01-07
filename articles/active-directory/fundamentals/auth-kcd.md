@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a1c7aa4d2300a6dee44da067b122fc7af97f7aa9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577127"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172859"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Windows 인증-Azure Active Directory를 사용 하는 Kerberos 제한 위임
 
@@ -36,24 +36,23 @@ IWA (Windows 통합 인증)를 사용 하는 온-프레미스 KCD 응용 프로�
 
 ## <a name="components-of-system"></a>시스템의 구성 요소
 
-* **사용자** : 응용 프로그램 프록시에서 제공 하는 레거시 응용 프로그램에 액세스 합니다.
+* **사용자**: 응용 프로그램 프록시에서 제공 하는 레거시 응용 프로그램에 액세스 합니다.
 
-* **웹 브라우저** : 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
+* **웹 브라우저**: 응용 프로그램의 외부 URL에 액세스 하기 위해 사용자가 상호 작용 하는 구성 요소입니다.
 
-* **AZURE AD** : 사용자를 인증 합니다. 
+* **AZURE AD**: 사용자를 인증 합니다. 
 
-* **응용 프로그램 프록시 서비스** : 사용자 로부터 온-프레미스 응용 프로그램으로 요청을 보내는 역방향 프록시로 작동 합니다. Azure AD에 있습니다. 응용 프로그램 프록시는 모든 조건부 액세스 정책을 적용할 수도 있습니다.
+* **응용 프로그램 프록시 서비스**: 사용자 로부터 온-프레미스 응용 프로그램으로 요청을 보내는 역방향 프록시로 작동 합니다. Azure AD에 있습니다. 응용 프로그램 프록시는 모든 조건부 액세스 정책을 적용할 수도 있습니다.
 
-* **응용 프로그램 프록시 커넥터** : 응용 프로그램에 대 한 연결을 제공 하기 위해 Windows server의 온-프레미스에 설치 됩니다. Azure AD에 대 한 응답을 반환 합니다. Active Directory와 함께 KCD 협상을 수행 하 고, 사용자를 가장 하 여 응용 프로그램에 대 한 Kerberos 토큰을 가져옵니다.
+* **응용 프로그램 프록시 커넥터**: 응용 프로그램에 대 한 연결을 제공 하기 위해 Windows server의 온-프레미스에 설치 됩니다. Azure AD에 대 한 응답을 반환 합니다. Active Directory와 함께 KCD 협상을 수행 하 고, 사용자를 가장 하 여 응용 프로그램에 대 한 Kerberos 토큰을 가져옵니다.
 
-* **Active Directory** : 응용 프로그램 프록시 커넥터에 응용 프로그램에 대 한 Kerberos 토큰을 보냅니다.
+* **Active Directory**: 응용 프로그램 프록시 커넥터에 응용 프로그램에 대 한 Kerberos 토큰을 보냅니다.
 
-* **레거시 응용 프로그램** : 응용 프로그램 프록시에서 사용자 요청을 수신 하는 응용 프로그램입니다. 레거시 응용 프로그램은 응용 프로그램 프록시 커넥터에 대 한 응답을 반환 합니다.
+* **레거시 응용 프로그램**: 응용 프로그램 프록시에서 사용자 요청을 수신 하는 응용 프로그램입니다. 레거시 응용 프로그램은 응용 프로그램 프록시 커넥터에 대 한 응답을 반환 합니다.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Azure AD를 사용 하 여 Windows 인증 (KCD) 구현
 
-* [애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd) 
+* [애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) 
 
-* [Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+* [Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../manage-apps/application-proxy-add-on-premises-application.md)
 
- 

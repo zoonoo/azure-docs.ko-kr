@@ -5,20 +5,20 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 1b72224441741990a1fc94400dfe718ea9d1b0b3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e9c49d472f6cf0b9f0e5b3e2f7728417034059b1
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88961485"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007096"
 ---
 # <a name="app-service-overview"></a>App Service 개요
 
-*Azure App Service*는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 [Linux](#app-service-on-linux) 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다.
+*Azure App Service* 는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다. Windows 및 [Linux](#app-service-on-linux) 기반 환경에서 애플리케이션을 쉽게 실행하고 확장할 수 있습니다.
 
 App Service는 보안, 부하 분산, 자동 크기 조정 및 자동화된 관리와 같이 Microsoft Azure의 강력한 기능을 애플리케이션에 추가합니다. 또한 Azure DevOps, GitHub, Docker 허브 및 기타 원본, 패키지 관리, 스테이징 환경, 사용자 지정 도메인 및 TLS/SSL 인증서의 지속적인 배포와 같은 DevOps 기능도 활용할 수 있습니다. 
 
-App Service를 사용하면 Azure 컴퓨팅 리소스에 대한 비용을 지불하게 됩니다. 사용할 컴퓨팅 리소스는 앱을 실행하는 _App Service 계획_에 따라 결정됩니다. 자세한 내용은 [Azure App Service 계획 개요](overview-hosting-plans.md)를 참조하세요.
+App Service를 사용하면 Azure 컴퓨팅 리소스에 대한 비용을 지불하게 됩니다. 사용할 컴퓨팅 리소스는 앱을 실행하는 _App Service 계획_ 에 따라 결정됩니다. 자세한 내용은 [Azure App Service 계획 개요](overview-hosting-plans.md)를 참조하세요.
 
 ## <a name="why-use-app-service"></a>App Service를 사용하는 이유는 무엇인가요?
 
@@ -44,7 +44,7 @@ App Service는 지원되는 애플리케이션 스택에 대해 기본적으로 
 
 ### <a name="built-in-languages-and-frameworks"></a>기본 제공 언어 및 프레임워크
 
-Linux의 App Service는 다양한 언어별 기본 제공 이미지를 지원합니다. 코드를 배포하기만 하면 됩니다. 지원되는 언어는 다음과 같습니다. Node.js, Java(JRE 8 & JRE 11), PHP, Python, .NET Core 및 Ruby. [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행하여 최신 언어 및 지원되는 버전을 확인합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에서 지원되지 않는 경우 사용자 지정 컨테이너를 사용하여 배포할 수 있습니다.
+Linux의 App Service는 다양한 언어별 기본 제공 이미지를 지원합니다. 코드를 배포하기만 하면 됩니다. 지원되는 언어는 다음과 같습니다. Node.js, Java(JRE 8 & JRE 11), PHP, Python, .NET Core 및 Ruby. [`az webapp list-runtimes --linux`](/cli/azure/webapp#az-webapp-list-runtimes)를 실행하여 최신 언어 및 지원되는 버전을 확인합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에서 지원되지 않는 경우 사용자 지정 컨테이너를 사용하여 배포할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 

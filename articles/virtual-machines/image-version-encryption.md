@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: b19dab8dffaa0c9c888e8a9974a43cbb48006fd7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 0f5eb6a2964cdb679c2a83bd9d9b6296e3e962ed
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504325"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499291"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "94504325"
 
 고객이 관리 하는 키를 통한 서버 쪽 암호화는 Azure Key Vault을 사용 합니다. [Rsa 키](../key-vault/keys/hsm-protected-keys.md) 를 주요 자격 증명 모음으로 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 이미지를 복제 하려는 각 지역에 디스크 암호화가 설정 되어 있어야 합니다.
 
@@ -220,6 +220,6 @@ Shared Image Gallery에서 VM을 만들고, 고객 관리형 키를 사용하여
 
 ## <a name="next-steps"></a>다음 단계
 
-[서버 쪽 디스크 암호화](./windows/disk-encryption.md)에 대해 알아봅니다.
+[서버 쪽 디스크 암호화](./disk-encryption.md)에 대해 알아봅니다.
 
 구매 계획 정보를 제공 하는 방법에 대 한 자세한 내용은 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](marketplace-images.md)을 참조 하세요.

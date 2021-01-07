@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/02/2020
-ms.openlocfilehash: 15a4a0ea78ef169480d4494683cb929cfefd16f2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f55364fe0eabae4bb1698bd655cde8d3e01b127a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026975"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590463"
 ---
 # <a name="managing-the-mapping-data-flow-graph"></a>매핑 데이터 흐름 그래프 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "93026975"
 
 데이터 흐름 매핑은 데이터 흐름 그래프로 알려진 디자인 화면을 사용 하 여 작성 됩니다. 그래프에서 변환 논리는 왼쪽에서 오른쪽으로 빌드되고 추가 데이터 스트림은 하향식으로 추가 됩니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다.
 
-![캔버스](media/data-flow/canvas2.png "캔버스")
+![캔버스](media/data-flow/canvas-2.png)
 
 데이터 흐름이 더 복잡해 지 면 다음 메커니즘을 사용 하 여 데이터 흐름 그래프를 효과적으로 탐색 하 고 관리할 수 있습니다. 
 

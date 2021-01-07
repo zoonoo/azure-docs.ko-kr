@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning Studio란?
-description: Azure Machine Learning 스튜디오는 Azure Machine Learning 작업 영역에 대한 웹 포털입니다. 스튜디오는 코드 없는 환경과 코드 우선 환경을 결합하여 포괄적인 데이터 과학 플랫폼을 만듭니다.
+description: 스튜디오는 Azure Machine Learning 작업 영역에 대한 웹 포털입니다. 스튜디오는 포괄적인 데이터 과학 플랫폼을 위해 코드 없는 환경과 코드 우선 환경을 결합합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310171"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565911"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -103,3 +103,4 @@ ms.locfileid: "93310171"
   + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
   + [자동화된 기계 학습을 사용하여 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md)  
   + [디자이너를 사용하여 모델 학습 및 배포](tutorial-designer-automobile-price-train-score.md)
+  + [보안 가상 네트워크에서 스튜디오 사용](how-to-enable-studio-virtual-network.md)

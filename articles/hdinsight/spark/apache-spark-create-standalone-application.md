@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 02192f3960b8021ee32203620893620c7b96f076
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5be4ce97e6087847f084f9b9ec2a6b8b0df84e14
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539448"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033513"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 
@@ -66,7 +66,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 수행합니다.
 3. 주 창에서 **Spark 프로젝트(Scala)** 를 선택합니다.
 
 4. **빌드 도구** 드롭다운 목록에서 다음 값 중 하나를 선택합니다.
-      * **Maven** : Scala 프로젝트 만들기 마법사 지원의 경우
+      * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
       * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
    ![IntelliJ 새 프로젝트 대화 상자](./media/apache-spark-create-standalone-application/intellij-project-apache-spark.png)
@@ -197,7 +197,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 수행합니다.
 
         ![모듈의 IntelliJ IDEA 프로젝트 구조 jar](./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png)
 
-    6. **출력 레이아웃** 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 애플리케이션을 선택하고 삭제할 수 있습니다. 여기에서 만드는 애플리케이션의 경우 마지막 것( **SparkSimpleApp 컴파일 출력** )을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음, 빼기 기호 **-** 를 선택합니다.
+    6. **출력 레이아웃** 탭에는 Maven 프로젝트의 일부분으로 포함된 jar이 모두 나열됩니다. 직접 종속성이 없는 Scala 애플리케이션을 선택하고 삭제할 수 있습니다. 여기에서 만드는 애플리케이션의 경우 마지막 것(**SparkSimpleApp 컴파일 출력**)을 제외한 모두를 제거할 수 있습니다. jar을 선택하여 삭제한 다음, 빼기 기호 **-** 를 선택합니다.
 
         ![`출력을 삭제하는 IntelliJ IDEA 프로젝트 구조`](./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png)
 

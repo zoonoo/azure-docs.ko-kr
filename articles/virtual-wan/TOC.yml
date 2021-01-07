@@ -27,7 +27,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: Architecture
+    - name: 아키텍처
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -67,6 +67,10 @@
           href: virtual-wan-ipsec.md
         - name: 여러 ISP 링크 - Azure 경로 선택
           href: path-selection-multiple-links.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 가격 책정 개념
       href: pricing-concepts.md
     - name: 가상 허브의 NVA 정보
@@ -137,6 +141,8 @@
           href: howto-firewall.md
         - name: Private Link 연결 구성
           href: howto-private-link.md
+        - name: 리소스에 대한 액세스 관리 - Spoke VNet P2S
+          href: manage-secure-access-resources-spoke-p2s.md
     - name: 모니터링
       items:
         - name: 로그 및 메트릭

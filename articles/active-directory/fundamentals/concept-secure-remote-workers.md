@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370205"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836685"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
 
@@ -34,7 +34,7 @@ ms.locfileid: "92370205"
 - 클라우드 인텔리전스를 활용합니다.
 - 최종 사용자 셀프 서비스를 사용하도록 설정합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드에서는 Azure AD에서 클라우드 전용 또는 하이브리드 id가 이미 설정 되어 있다고 가정 합니다. Id 유형 선택에 대 한 도움말은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 문서를 참조 하세요. 
 
@@ -75,7 +75,7 @@ ms.locfileid: "92370205"
 
 | 권장 조치 | 세부 정보 |
 | --- | --- |
-| [사용자 등록 환경을 간소화 하기 위해 Azure MFA 및 SSPR에 대해 결합 된 등록 환경 사용](../authentication/howto-registration-mfa-sspr-combined.md) | 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정을 위해 하나의 공통된 환경에서 등록할 수 있도록 합니다. |
+| [사용자 등록 환경을 간소화 하기 위해 Azure AD MFA 및 SSPR에 대해 결합 된 등록 환경 사용](../authentication/howto-registration-mfa-sspr-combined.md) | 사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 대해 하나의 공통 환경에서 등록할 수 있습니다. |
 | [조직에 대 한 MFA 설정 구성](../authentication/howto-mfa-getstarted.md) | 계정이 multi-factor authentication을 사용 하 여 손상 되지 않도록 보호 합니다. |
 | [셀프 서비스 암호 재설정 사용](../authentication/tutorial-enable-sspr.md) | 이 기능을 통해 사용자가 장치 또는 응용 프로그램에 로그인 할 수 없는 경우 지원 센터 호출 및 생산성 저하를 줄일 수 있습니다. |
 | [비밀 번호 쓰기 저장 구현](../authentication/tutorial-enable-sspr-writeback.md) (하이브리드 id를 사용 하는 경우) | 클라우드에서 암호 변경 내용을 온-프레미스 Windows Server Active Directory 환경에 다시 쓸 수 있도록 합니다. |
@@ -105,11 +105,11 @@ ms.locfileid: "92370205"
 
 | 권장 조치 | 세부 정보 |
 | --- | --- |
-| [사용자 등록 환경을 간소화 하기 위해 Azure MFA 및 SSPR에 대해 결합 된 등록 환경 사용](../authentication/howto-registration-mfa-sspr-combined.md) | 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정을 위해 하나의 공통된 환경에서 등록할 수 있도록 합니다. |
+| [사용자 등록 환경을 간소화 하기 위해 Azure AD MFA 및 SSPR에 대해 결합 된 등록 환경 사용](../authentication/howto-registration-mfa-sspr-combined.md) | 사용자가 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 대해 하나의 공통 환경에서 등록할 수 있습니다. |
 | [조직에 대 한 MFA 설정 구성](../authentication/howto-mfa-getstarted.md) | 계정이 multi-factor authentication을 사용 하 여 손상 되지 않도록 보호 합니다. |
 | [셀프 서비스 암호 재설정 사용](../authentication/tutorial-enable-sspr.md) | 이 기능을 통해 사용자가 장치 또는 응용 프로그램에 로그인 할 수 없는 경우 지원 센터 호출 및 생산성 저하를 줄일 수 있습니다. |
 | [비밀 번호 쓰기 저장 구현](../authentication/tutorial-enable-sspr-writeback.md) (하이브리드 id를 사용 하는 경우) | 클라우드에서 암호 변경 내용을 온-프레미스 Windows Server Active Directory 환경에 다시 쓸 수 있도록 합니다. |
-| [Id 보호 정책을 사용 하도록 설정 하 여 MFA 등록 적용](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | MFA (Azure Multi-Factor Authentication의 롤아웃)를 관리 합니다. |
+| [Id 보호 정책을 사용 하도록 설정 하 여 MFA 등록 적용](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | MFA (Azure AD Multi-Factor Authentication)의 롤아웃 관리 |
 | [Id 보호 사용자 및 로그인 위험 정책 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Id 보호 사용자 및 로그인 정책을 사용 하도록 설정 합니다. 권장 되는 로그인 정책은 중간 위험 로그인을 대상으로 하 고 MFA를 요구 하는 것입니다. 사용자 정책의 경우 암호 변경 작업을 필요로 하는 높은 위험 사용자를 대상으로 해야 합니다. |
 | 조건부 액세스 정책 만들기 및 사용 | [관리 권한이 할당 된 계정을 보호 하는 관리자 용 MFA](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [레거시 인증 프로토콜과 관련 된 위험이 증가 하 여 레거시 인증 프로토콜을 차단 합니다.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Azure 리소스에 액세스 하는 모든 사용자에 대해 multi-factor authentication을 요구 하 여 권한 있는 리소스를 보호 하려면 Azure 관리를 위한 MFA를 요구 합니다.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |

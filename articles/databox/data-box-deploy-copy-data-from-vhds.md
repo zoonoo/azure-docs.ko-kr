@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124016"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337681"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
@@ -33,7 +33,7 @@ ms.locfileid: "92124016"
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box 설정](data-box-deploy-set-up.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다.
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨** 입니다.
 3. 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용해도 되지만, 이 경우 복사 속도가 떨어집니다.
 4. 다음을 검토했습니다.
 
@@ -71,16 +71,16 @@ ms.locfileid: "92124016"
 
 Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 Data Box에 연결합니다.
 
-1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사**로 이동합니다. **자격 증명 가져오기**를 클릭하여 리소스 그룹과 연결된 공유의 액세스 자격 증명을 가져옵니다. Azure Portal의 **디바이스 세부 정보**에서 액세스 자격 증명을 가져올 수도 있습니다.
+1. 첫 번째 단계는 세션을 인증하고 시작하는 것입니다. **연결 및 복사** 로 이동합니다. **자격 증명 가져오기** 를 클릭하여 리소스 그룹과 연결된 공유의 액세스 자격 증명을 가져옵니다. Azure Portal의 **디바이스 세부 정보** 에서 액세스 자격 증명을 가져올 수도 있습니다.
 
     > [!NOTE]
     > 관리 디스크에 대한 모든 공유의 자격 증명은 동일합니다.
 
-    ![공유 자격 증명 가져오기](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![연결 및 복사, 공유 자격 증명 가져오기](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. 액세스 공유 및 데이터 복사 대화 상자에서 공유에 대한 **사용자 이름** 및 **암호**를 복사합니다. **확인**을 클릭합니다.
+2. **액세스 공유 및 데이터 복사** 대화 상자에서 공유에 대한 **사용자 이름** 및 **암호** 를 복사합니다. **확인** 을 클릭합니다.
     
-    ![공유 자격 증명 가져오기 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![연결 및 복사, 공유 자격 증명 복사](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. 호스트 컴퓨터에서 리소스와 연결된 공유(다음 예제의 *mydbmdrg1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
@@ -100,26 +100,26 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     C: \>
     ```
 
-4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>\<ShareName>`를 지정합니다. **확인**을 클릭하여 파일 탐색기를 엽니다.
+5. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>\<ShareName>`를 지정합니다. **확인** 을 클릭하여 파일 탐색기를 엽니다.
     
     ![파일 탐색기를 통해 공유에 연결](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     이제 각 공유 내에 사전 생성된 다음과 같은 폴더가 표시됩니다.
     
-    ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![파일 탐색기, 공유 폴더를 통해 공유에 연결](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### <a name="connect-to-data-box-via-nfs"></a>NFS를 통한 Data Box에 연결
 
 Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클라이언트에 대한 액세스를 허용하도록 Data Box를 구성합니다.
 
-1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다. 로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스**를 클릭합니다.
+1. 공유에 액세스할 수 있도록 허용된 클라이언트의 IP 주소를 입력합니다. 로컬 웹 UI에서 **연결 및 복사** 페이지로 이동합니다. **NFS 설정** 아래에서 **NFS 클라이언트 액세스** 를 클릭합니다.
 
     ![NFS 클라이언트 액세스 구성](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. NFS 클라이언트의 IP 주소를 입력하고 **추가**를 클릭합니다. 이 단계를 반복하여 여러 NFS 클라이언트에 대한 액세스를 구성할 수 있습니다. **확인**을 클릭합니다.
+2. NFS 클라이언트의 IP 주소를 입력하고 **추가** 를 클릭합니다. 이 단계를 반복하여 여러 NFS 클라이언트에 대한 액세스를 구성할 수 있습니다. **확인** 을 클릭합니다.
 
-    ![NFS 클라이언트 액세스 구성 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![NFS 클라이언트 IP 주소 구성](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Linux 호스트 컴퓨터에 [지원되는 버전](data-box-system-requirements.md)의 NFS 클라이언트를 설치합니다. 해당 Linux 배포판에 맞는 버전을 사용하세요.
 
@@ -166,7 +166,7 @@ SMB 또는 NFS를 통해 연결하는지 여부에 따라 다음을 사용할 �
     
 ![대시보드에서 여유 공간 및 사용 중인 공간 확인](media/data-box-deploy-copy-data-from-vhds/verify-used-space-dashboard.png)
 
-복사 작업이 완료되면 **배송 준비**로 이동할 수 있습니다.
+복사 작업이 완료되면 **배송 준비** 로 이동할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237051"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921619"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -30,7 +30,7 @@ Microsoft Azure Attestation과 관련된 몇 가지 기본 개념은 다음과 �
 
 증명 공급자는 Microsoft.Attestation이라는 Azure 리소스 공급자에 속합니다. 리소스 공급자는 Azure Attestation REST 계약을 제공하고 [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하여 배포되는 서비스 엔드포인트입니다. 각 증명 공급자는 검색 가능한 특정 정책을 적용합니다. 
 
-증명 공급자는 각 TEE 형식에 대한 기본 정책을 사용하여 만들어집니다(VBS enclave에는 기본 정책이 없음). SGX에 대한 기본 정책에 대한 자세한 내용은 [증명 정책 예제](policy-examples.md)를 참조하세요.
+증명 공급자는 각 증명 형식에 대한 기본 정책을 사용하여 만들어집니다(VBS enclave에는 기본 정책이 없음). SGX에 대한 기본 정책에 대한 자세한 내용은 [증명 정책 예제](policy-examples.md)를 참조하세요.
 
 ### <a name="regional-default-provider"></a>지역별 기본 공급자
 
@@ -38,11 +38,11 @@ Azure Attestation은 각 지역에서 기본 공급자를 제공합니다. 고�
 
 | 지역 | 증명 URI | 
 |--|--|
-| 영국 남부 | https://shareduks.uks.attest.azure.net | 
-| 미국 동부 2 | https://sharedeus2.eus2.attest.azure.net | 
-| 미국 중부 | https://sharedcus.cus.attest.azure.net | 
-| 미국 동부| https://sharedeus.eus.attest.azure.net | 
-| 캐나다 중부 | https://sharedcac.cac.attest.azure.net | 
+| 영국 남부 | `https://shareduks.uks.attest.azure.net` | 
+| 미국 동부 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| 미국 중부 | `https://sharedcus.cus.attest.azure.net` | 
+| 미국 동부| `https://sharedeus.eus.attest.azure.net` | 
+| 캐나다 중부 | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>증명 요청
 
@@ -50,13 +50,13 @@ Azure Attestation은 각 지역에서 기본 공급자를 제공합니다. 고�
 - "Quote" – 이 속성의 값은 Base64URL로 인코딩된 증명 따옴표의 표현이 포함된 문자열입니다.
 - "EnclaveHeldData" – 이 "EnclaveHeldData" 속성의 값은 Base64URL로 인코딩된 enclave 보유 데이터의 표현이 포함된 문자열입니다.
 
-Azure Attestation은 TEE에서 제공된 "Quote"의 유효성을 검사한 다음, 제공된 enclave 보유 데이터의 SHA256 해시가 따옴표에 있는 reportData 필드의 처음 32바이트에 표시되어 있는지 확인합니다. 
+Azure Attestation은 제공된 "Quote"의 유효성을 검사한 다음, 제공된 Enclave 보유 데이터의 SHA256 해시가 따옴표에 있는 reportData 필드의 처음 32바이트에 표시되어 있는지 확인합니다. 
 
 ## <a name="attestation-policy"></a>증명 정책
 
 증명 정책은 증명 증거를 처리하는 데 사용되며 고객이 구성할 수 있습니다. Azure Attestation의 핵심에는 증거를 구성하는 클레임을 처리하는 정책 엔진이 있습니다. 정책은 Azure Attestation에서 증거를 기반으로 하여 증명 토큰을 발급하는지 여부를 결정하고 이에 따라 증명자를 보증하는지 여부를 결정하는 데 사용됩니다. 따라서 모든 정책을 통과하지 못하면 JWT 토큰이 발급되지 않습니다.
 
-증명 공급자의 기본 TEE 정책이 요구 사항을 충족하지 않는 경우 고객은 Azure Attestation에서 지원되는 모든 지역에서 사용자 지정 정책을 만들 수 있습니다. 정책 관리는 Azure Attestation에서 고객에게 제공하는 주요 기능입니다. 정책은 TEE에 따라 다르며, enclave를 식별하거나 클레임을 출력 토큰에 추가하거나 출력 토큰에서 클레임을 수정하는 데 사용할 수 있습니다. 
+증명 공급자의 기본 정책이 요구 사항을 충족하지 않는 경우 고객은 Azure Attestation에서 지원되는 모든 지역에서 사용자 지정 정책을 만들 수 있습니다. 정책 관리는 Azure Attestation에서 고객에게 제공하는 주요 기능입니다. 정책은 증명 형식에 따라 다르며, enclave를 식별하거나 클레임을 출력 토큰에 추가하거나 출력 토큰에서 클레임을 수정하는 데 사용할 수 있습니다. 
 
 기본 정책 콘텐츠 및 샘플은 [증명 정책 예제](policy-examples.md)를 참조하세요.
 
@@ -99,6 +99,15 @@ SGX enclave에 대해 생성된 JWT의 예제는 다음과 같습니다.
 }.[Signature]
 ```
 "exp", "iat", "iss", "nbf"와 같은 클레임은 [JWT RFC](https://tools.ietf.org/html/rfc7517)에서 정의되고, 나머지는 Azure Attestation에서 생성됩니다. 자세한 내용은 [Azure Attestation을 통해 발급된 클레임](claim-sets.md)을 참조하세요.
+
+## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
+
+고객 데이터를 보호하기 위해 Azure Attestation은 해당 데이터를 Azure Storage에 유지합니다. Azure 스토리지는 데이터 센터에 기록되는 대로 미사용 데이터의 암호화를 제공하고, 고객이 액세스하도록 암호를 해독합니다. 이 암호화는 Microsoft 관리형 암호화 키를 사용하여 수행됩니다. 
+
+Azure Attestation은 Azure 스토리지의 데이터를 보호하는 것 외에도 ADE(Azure Disk Encryption)를 활용하여 서비스 VM을 암호화합니다. Azure 기밀 컴퓨팅 환경의 enclave에서 실행되는 Azure Attestation의 경우 현재 ADE 확장이 지원되지 않습니다. 이러한 시나리오에서는 데이터가 메모리 내에 저장되지 않도록 페이지 파일을 사용할 수 없습니다. 
+
+Azure Attestation 인스턴스 로컬 하드 디스크 드라이브에는 고객 데이터가 유지되지 않습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

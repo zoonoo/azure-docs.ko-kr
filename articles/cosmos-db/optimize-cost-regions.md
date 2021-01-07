@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a559a51feafa310a4645282dc6368f520fc6b972
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097514"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96459620"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 여러 지역 비용 최적화
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,14 +26,14 @@ ms.locfileid: "93097514"
 
 ### <a name="example"></a>예제
 
-단일 지역 쓰기를 위해 구성 되 고 1, 000 r u/s로 프로 비전 된 1 TB의 데이터를 저장 하는 경우 미국 서 부에 구성 된 컨테이너가 있다고 가정 합니다. 동일한 저장소 및 처리량을 사용 하 여 지역, 미국 동부를 추가 하 고 앱에서 두 지역의 컨테이너에 쓰는 기능을 원하는 경우를 가정해 보겠습니다. 총 월간 청구 금액은 다음과 같습니다(1개월은 31일로 가정).
+미국 서 부에는 1 개 지역 쓰기에 대해 구성 되 고, 1, 000 r u/s의 처리량으로 프로 비전 되 고, 이번 달에 0.5 TB의 데이터를 저장 하는 컨테이너가 있다고 가정 합니다. 동일한 저장소 및 처리량을 사용 하 여 지역 동부를 추가 하 고 앱에서 두 지역의 컨테이너에 쓰는 기능을 원하는 경우를 가정해 보겠습니다. 새 총 월별 요금 청구 (한 달에 730 시간 가정)는 다음과 같습니다.
 
 |**Item**|**사용량(월간)**|**비용**|**월간 비용**|
 |----|----|----|----|
-|미국 서 부의 컨테이너에 대 한 처리량 청구서 (단일 쓰기 지역) |10K r u/초 * 24 시간 * 31 일 |시간당 100 $0.008/초 |$584.06 |
-|2 개 지역에 있는 컨테이너에 대 한 처리량 청구-미국 서 부 & 미국 동부 (여러 쓰기 지역) |2 * 10K r u/초 * 24 시간 * 31 일|100RU당 $0.016/시간 |$2336.26 |
-|미국 서부의 컨테이너에 대한 스토리지 청구 |1TB (또는 1024 GB) |$0.25/GB |$256 |
-|2 지역에 대 한 저장소 청구서-미국 서 부 & 미국 동부 |2 * 1TB (또는 3072 g b) |$0.25/GB |$768 |
+|미국 서 부의 컨테이너에 대 한 처리량 청구서 (단일 쓰기 지역) |10K r u/초 * 730 시간 |시간당 100 $0.008/초 |$584 |
+|2 개 지역에 있는 컨테이너에 대 한 처리량 청구-미국 서 부 & 미국 동부 (여러 쓰기 지역) |2 * 10K r u/초 * 730 시간 |100RU당 $0.016/시간 |$2336 |
+|미국 서부의 컨테이너에 대한 스토리지 청구 |0.5 TB (또는 512 GB) |$0.25/GB |$128 |
+|2 개 지역에 있는 컨테이너에 대 한 저장소 청구서-미국 서 부 & 미국 동부 |2 * 0.5 TB (또는 1024 GB) |$0.25/GB |$256 |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>지역별 처리량 사용률 개선
 

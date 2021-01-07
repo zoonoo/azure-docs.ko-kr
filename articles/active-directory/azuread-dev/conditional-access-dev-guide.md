@@ -13,19 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b08b07ebcd6e45e95e23dff8686148889e9d4b39
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575886"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173922"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Azure Active Directory 조건부 액세스 기능에 대 한 개발자 지침
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
 > [!NOTE]
-> 이 문서의 Microsoft id 플랫폼 버전에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스를 위한 개발자 가이드](/azure/active-directory/develop/v2-conditional-access-dev-guide)를 참조 하세요.
+> 이 문서의 Microsoft id 플랫폼 버전에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스를 위한 개발자 가이드](../develop/v2-conditional-access-dev-guide.md)를 참조 하세요.
 
 Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안을 유지하고 서비스를 보호하는 데 사용할 수 있는 여러 가지 방법 중 하나를 제공합니다. 조건부 액세스를 통해 개발자 및 기업 고객은 다음과 같은 다양한 방법으로 서비스를 보호할 수 있습니다.
 

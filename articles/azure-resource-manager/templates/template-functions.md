@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수
-description: Azure Resource Manager 템플릿에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 검색 하 고, 문자열과 숫자를 작업 하 고, 배포 정보를 검색 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961173"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931710"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
-이 문서에서는 ARM (Azure Resource Manager) 템플릿에서 사용할 수 있는 모든 기능을 설명 합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조 하세요.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 모든 함수에 대해 설명 합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조 하세요.
 
 함수를 직접 만들려면 [사용자 정의 함수](template-syntax.md#functions)를 참조하세요.
 
@@ -250,7 +250,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿 제작](template-syntax.md) 을 참조 하세요.
-* 여러 템플릿을 병합 하려면 [Azure Resource Manager 연결 된 템플릿 사용](linked-templates.md) 을 참조 하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
-* 만든 템플릿을 배포 하는 방법을 보려면 [ARM 템플릿을 사용 하 여 응용 프로그램 배포](deploy-powershell.md) 를 참조 하세요.
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 여러 템플릿을 병합 하려면 [Azure 리소스를 배포할 때 연결 된 템플릿 및 중첩 된 템플릿 사용](linked-templates.md)을 참조 하세요.
+* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.
+* 만든 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md)을 참조 하세요.

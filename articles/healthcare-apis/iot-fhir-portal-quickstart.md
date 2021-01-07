@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: f36d842e14c91850bfeba47e9fef61d4747c33a9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394512"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630569"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
-Azure IoT Connector for FHIR*는 IoMT(의료 사물 인터넷) 디바이스에서 데이터를 수집하는 기능을 제공하는 Azure API for FHIR의 선택적 기능입니다. 미리 보기 단계 중에는 Azure IoT Connector for FHIR 기능을 무료로 사용할 수 있습니다. 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
+Azure IoT Connector for FHIR(전자 의료 기록 교환)*은 IoMT(의료 사물 인터넷) 디바이스에서 데이터를 수집하는 기능을 제공하는 Azure API for FHIR의 선택적 기능입니다. 미리 보기 단계 중에는 Azure IoT Connector for FHIR 기능을 무료로 사용할 수 있습니다. 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 - Azure Portal을 사용하여 Azure IoT Connector for FHIR 배포 및 구성
 - 시뮬레이션된 디바이스를 사용하여 Azure IoT Connector for FHIR로 데이터 전송
 - Azure API for FHIR에서 Azure IoT Connector for FHIR가 만든 리소스 보기
@@ -207,6 +207,4 @@ Azure IoT Connector for FHIR 내에서 데이터 흐름의 여러 단계를 이�
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR 매핑 템플릿](iot-mapping-templates.md)
 
-*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
-
-FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.
+*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다. FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.

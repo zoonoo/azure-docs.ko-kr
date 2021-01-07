@@ -6,14 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124020"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029144"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>리소스 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -66,7 +66,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
     ![리소스 로그에 대 한 블레이드 탐색](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그** 에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics** 확인란을 선택 합니다. **AllMetrics** 그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장** 을 클릭합니다.
+2.  **진단 설정 이름** 에 **이름을** 입력 하 고, **로그** 에서 **실행** 및 **제작** 확인란을 선택 하 고, 메트릭 아래의 **allmetrics** 확인란을 선택 합니다.  그런 다음 **Log Analytics 보내기를** 선택 하 고 작업 영역을 선택 합니다. **저장** 을 클릭합니다.
 
     ![리소스 로그 설정](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -82,9 +82,9 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 Azure Stream Analytics는 두 가지 범주의 리소스 로그를 캡처합니다.
 
-* **작성** : 작업 만들기, 입력과 출력 추가 및 삭제, 쿼리 추가 및 업데이트, 작업 시작 또는 중지와 같은 작업 작성 작업과 관련 된 로그 이벤트를 캡처합니다.
+* **작성**: 작업 만들기, 입력과 출력 추가 및 삭제, 쿼리 추가 및 업데이트, 작업 시작 또는 중지와 같은 작업 작성 작업과 관련 된 로그 이벤트를 캡처합니다.
 
-* **실행** : 작업 실행 중에 발생 하는 이벤트를 캡처합니다.
+* **실행**: 작업 실행 중에 발생 하는 이벤트를 캡처합니다.
     * 연결 오류
     * 다음을 포함하는 데이터 처리 오류
         * 쿼리 정의를 따르지 않는 이벤트(필드 형식 및 값 불일치, 필드 누락 등)
@@ -95,14 +95,14 @@ Azure Stream Analytics는 두 가지 범주의 리소스 로그를 캡처합니�
 
 모든 로그는 JSON 형식으로 저장됩니다. 각 항목에는 다음과 같은 일반적인 문자열 필드가 있습니다.
 
-Name | 설명
+Name | Description
 ------- | -------
 time | 로그의 타임스탬프(UTC)입니다.
-resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB** .
+resourceId | 작업이 수행되는 리소스의 ID(대문자)입니다. 여기에는 구독 ID, 리소스 그룹 및 작업 이름이 포함됩니다. 예: **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | 로그 범주로, **실행** 또는 **작성** 중 하나입니다.
 operationName | 기록된 작업의 이름 예 **: 이벤트 전송: 전송: mysqloutput에 대 한 SQL 출력 쓰기 실패**
-상태 | 작업의 상태입니다. 예: **실패** 또는 **성공** .
-수준 | 로그 수준. 예: **오류** , **경고** 또는 **정보** .
+상태 | 작업의 상태입니다. 예: **실패** 또는 **성공**.
+수준 | 로그 수준. 예: **오류**, **경고** 또는 **정보**.
 properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩니다. 자세한 내용은 이 문서의 다음 섹션을 참조하세요.
 
 ### <a name="execution-log-properties-schema"></a>실행 로그 속성 스키마
@@ -117,16 +117,16 @@ Name | Description
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 메시지 | 오류와 연결된 메시지
-형식 | 오류 유형입니다. 예: **DataConversionError** , **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError** .
+형식 | 오류 유형입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 데이터 | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
 
 * 이벤트 **직렬화** 는 이벤트 읽기 작업 중에 발생 합니다. 이는 데이터 입력 시 쿼리 스키마를 충족하지 않을 때 다음과 같은 이유 중 하나로 발생합니다.
 
-   * *이벤트 (역)직렬화 도중 형식 불일치* : 오류를 발생시키는 필드를 식별합니다.
+   * *이벤트 (역)직렬화 도중 형식 불일치*: 오류를 발생시키는 필드를 식별합니다.
 
-   * *이벤트를 읽을 수 없음, 잘못된 serialization* : 입력 데이터에서 오류가 발생하는 위치에 대한 정보를 나열합니다. Blob 입력에 대한 Blob 이름, 오프셋 및 데이터 샘플이 포함됩니다.
+   * *이벤트를 읽을 수 없음, 잘못된 serialization*: 입력 데이터에서 오류가 발생하는 위치에 대한 정보를 나열합니다. Blob 입력에 대한 Blob 이름, 오프셋 및 데이터 샘플이 포함됩니다.
 
 * **송신 이벤트** 는 쓰기 작업 중에 발생 합니다. 오류를 발생시키는 스트리밍 이벤트를 식별합니다.
 
@@ -134,11 +134,11 @@ Name | Description
 
 일반 이벤트는 다른 모든 항목을 처리합니다.
 
-Name | 설명
+Name | Description
 -------- | --------
 오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
 메시지| 로그 메시지
-형식 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure** .
+형식 | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 GUID. 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

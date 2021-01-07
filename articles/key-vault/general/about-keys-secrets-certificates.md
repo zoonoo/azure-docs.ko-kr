@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357779"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96327086"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault 키, 비밀 및 인증서 개요
 
@@ -46,10 +46,10 @@ HSM 보호 키|/keys|지원됨|지원됨
 인증서|/certificates|지원됨|지원되지 않음
 Storage 계정 키|/storageaccount|지원됨|지원되지 않음
 |||
-- **암호화 키** : 여러 키 형식 및 알고리즘을 지원하고 소프트웨어 보호 및 HSM 보호 키를 사용할 수 있도록 합니다. 자세한 내용은 [키 정보](../keys/about-keys.md)를 참조하세요.
-- **비밀** : 암호, 데이터베이스 연결 문자열 등의 비밀을 안전하게 스토리지합니다. 자세한 내용은 [비밀 정보](../secrets/about-secrets.md)를 참조하세요.
-- **인증서** : 인증서를 지원합니다. 인증서는 키와 비밀을 기반으로 하며 자동 갱신 기능을 추가합니다. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md)를 참조하세요.
-- **Azure Storage 계정 키** : 관리자를 대신하여 Azure Storage 계정의 키를 관리할 수 있습니다. 내부적으로 Key Vault는 Azure Storage 계정을 사용하여 키를 나열(동기화)하고, 주기적으로 키를 다시 생성(회전)할 수 있습니다. 자세한 내용은 [Key Vault를 사용하여 스토리지 계정 키 관리](../secrets/overview-storage-keys.md)를 참조하세요.
+- **암호화 키**: 여러 키 형식 및 알고리즘을 지원하고 소프트웨어 보호 및 HSM 보호 키를 사용할 수 있도록 합니다. 자세한 내용은 [키 정보](../keys/about-keys.md)를 참조하세요.
+- **비밀**: 암호, 데이터베이스 연결 문자열 등의 비밀을 안전하게 스토리지합니다. 자세한 내용은 [비밀 정보](../secrets/about-secrets.md)를 참조하세요.
+- **인증서**: 인증서를 지원합니다. 인증서는 키와 비밀을 기반으로 하며 자동 갱신 기능을 추가합니다. 자세한 내용은 [인증서 정보](../certificates/about-certificates.md)를 참조하세요.
+- **Azure Storage 계정 키**: 관리자를 대신하여 Azure Storage 계정의 키를 관리할 수 있습니다. 내부적으로 Key Vault는 Azure Storage 계정을 사용하여 키를 나열(동기화)하고, 주기적으로 키를 다시 생성(회전)할 수 있습니다. 자세한 내용은 [Key Vault를 사용하여 스토리지 계정 키 관리](../secrets/overview-storage-keys.md)를 참조하세요.
 
 Key Vault에 대한 일반적 내용은 [Azure Key Vault 정보](overview.md)를 참조하세요. 관리형 HSM 풀에 대한 자세한 내용은 [Azure Key Vault 관리형 HSM이란?](../managed-hsm/overview.md)을 참조하세요.
 
@@ -75,15 +75,16 @@ Key Vault에 저장된 개체는 개체의 새 인스턴스가 만들어질 때�
 
 Key Vault의 개체는 버전을 지정하거나 현재 버전의 개체에서 작업할 버전을 생략하여 해결할 수 있습니다. 예를 들어 이름이 `MasterKey`인 키가 지정되는 경우 버전을 지정하지 않고 작업을 수행하면 시스템에서 사용 가능한 최신 버전을 사용할 수 있습니다. 버전별 식별자를 사용하여 작업을 수행하면 시스템에서 해당 특정 버전의 개체를 사용하게 됩니다.  
 
+### <a name="vault-name-and-object-name"></a>자격 증명 모음 이름 및 개체 이름
 개체는 URL을 사용하여 Key Vault 내에서 고유하게 식별됩니다. 지리적 위치에 관계 없이, 시스템의 두 개체가 동일한 URL을 가질 수 없습니다. 개체의 전체 URL을 개체 식별자라고 합니다. URL은 Key Vault를 식별하는 접두사, 개체 형식, 사용자가 입력한 개체 이름 및 개체 버전으로 구성됩니다. 개체 이름은 대/소문자를 구분하지 않으며 변경할 수 없습니다. 개체 버전이 포함되지 않은 식별자를 기본 식별자라고 합니다.  
 
 자세한 내용은 [인증, 요청 및 응답](authentication-requests-and-responses.md)을 참조하세요.
 
 개체 식별자의 일반적인 형식은 다음과 같습니다(컨테이너 유형에 따라 다름).  
 
-- **자격 증명 모음의 경우** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **자격 증명 모음의 경우**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **관리형 HSM 풀의 경우** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **관리형 HSM 풀의 경우**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > 각 컨테이너 형식에서 지원되는 개체 형식은 [개체 형식 지원](#object-types)을 참조하세요.

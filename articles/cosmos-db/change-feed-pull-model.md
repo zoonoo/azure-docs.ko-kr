@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 01/04/2021
 ms.reviewer: sngun
-ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e227e230c4de1234e068f72958367dc2ac709426
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340195"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881976"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 끌어오기 모델
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -115,7 +115,8 @@ while (iteratorForThePartitionKey.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -157,7 +158,8 @@ while (iteratorA.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -178,7 +180,8 @@ while (iteratorB.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
     }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }
@@ -205,7 +208,8 @@ while (iterator.HasMoreResults)
                 Console.WriteLine($"Detected change for user with id {user.id}");
             }
    }
-    catch {
+    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
         Thread.Sleep(5000);
     }   

@@ -9,19 +9,19 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88264075"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655904"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Azure WAF (웹 응용 프로그램 방화벽)에서 데이터 연결
 
-일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. Azure WAF (웹 응용 프로그램 방화벽)는 코드 삽입 및 사이트 간 스크립팅과 같은 일반적인 악용 및 위협 으로부터 웹 응용 프로그램에 대 한 중앙 집중식 보호를 제공 합니다. Azure WAF는 [Azure 애플리케이션 Gateway](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) 서비스, [azure Front 도어](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) 서비스 및 [azure Content Delivery Network (CDN)](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) waf 정책 (현재 공개 미리 보기로 제공 됨)을 통해 배포할 수 있습니다.
+일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. Azure WAF (웹 응용 프로그램 방화벽)는 코드 삽입 및 사이트 간 스크립팅과 같은 일반적인 악용 및 위협 으로부터 웹 응용 프로그램에 대 한 중앙 집중식 보호를 제공 합니다. Azure WAF는 [Azure 애플리케이션 Gateway](../web-application-firewall/ag/ag-overview.md) 서비스, [azure Front 도어](../web-application-firewall/afds/afds-overview.md) 서비스 및 [azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) waf 정책 (현재 공개 미리 보기로 제공 됨)을 통해 배포할 수 있습니다.
 Azure WAF 로그를 Azure 센티널에 연결 하 여 통합 문서에서 로그 데이터를 확인 하 고이를 사용 하 여 사용자 지정 경고를 만든 다음이를 통합 하 여 조사를 개선할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -29,13 +29,13 @@ Azure WAF 로그를 Azure 센티널에 연결 하 여 통합 문서에서 로그
 
 ### <a name="instructions-tab"></a>명령 탭
 
-1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터**를 선택 합니다.
+1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 
 1. 데이터 커넥터 갤러리에서 **Azure WAF (웹 응용 프로그램 방화벽)** 를 선택한 다음 미리 보기 창에서 **커넥터 페이지 열기** 를 선택 합니다.
 
 1. 연결할 로그가 포함 된 WAF 리소스의 유형에 대 한 링크를 선택 합니다. **Application Gateway 리소스 >** 을 열거나, **전방 도어 리소스 >** 를 열거나 **Content Delivery Network, CDN (CDN) waf 정책 >** 를 엽니다. 리소스 목록의 화면에서 한 번은 목록에서 waf 리소스를 선택 합니다.
 
-    1. WAF 리소스의 탐색 메뉴에서 **진단 설정**을 선택 합니다.
+    1. WAF 리소스의 탐색 메뉴에서 **진단 설정** 을 선택 합니다.
 
     1. 목록의 맨 아래에 있는 **+ 진단 설정 추가** 를 선택 합니다.
 
@@ -52,13 +52,13 @@ Azure WAF 로그를 Azure 센티널에 연결 하 여 통합 문서에서 로그
         | CDN WAF 정책      | WebApplicationFirewallLogs |
         |
 
-    1. **저장**을 선택합니다.
+    1. **저장** 을 선택합니다.
 
 ### <a name="next-steps-tab"></a>다음 단계 탭
 
 - Azure WAF 로그 데이터에 대 한 정보를 얻으려면 **azure 웹 응용 프로그램 방화벽** 데이터 커넥터와 함께 제공 되는 권장 통합 문서, 쿼리 샘플 및 분석 규칙 템플릿을 참조 하세요.
 
-- **로그**에서 Azure waf 데이터를 쿼리하려면 쿼리 창에서 **azurediagnostics** 를 입력 합니다.
+- **로그** 에서 Azure waf 데이터를 쿼리하려면 쿼리 창에서 **azurediagnostics** 를 입력 합니다.
 
 > [!NOTE]
 >

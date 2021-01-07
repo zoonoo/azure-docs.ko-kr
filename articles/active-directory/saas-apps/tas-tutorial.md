@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: f2687909a7067bc135f6fcf27fce2e1694325887
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504143"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95988062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>자습서: TAS와 Azure Active Directory 통합
 
@@ -132,23 +132,23 @@ TAS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 
 1. 다른 웹 브라우저 창에서 TAS에 관리자 권한으로 로그인합니다.
 
-2. 메뉴의 왼쪽에서 **Settings** (설정)를 클릭하고, **Administrator** (관리자)로 이동한 다음, **Manage Single sign on** (Single Sign-On 관리)을 클릭합니다.
+2. 메뉴의 왼쪽에서 **Settings**(설정)를 클릭하고, **Administrator**(관리자)로 이동한 다음, **Manage Single sign on**(Single Sign-On 관리)을 클릭합니다.
 
     ![스크린샷은 선택된 Single Sign-On 관리를 보여줍니다.](./media/tas-tutorial/configure01.png)
 
-3. **Manage Single sign on** (Single Sign-On 관리) 페이지에서 다음 단계를 수행합니다.
+3. **Manage Single sign on**(Single Sign-On 관리) 페이지에서 다음 단계를 수행합니다.
 
     ![스크린샷은 설명된 값을 입력할 수 있는 Single Sign-On 관리 페이지를 보여줍니다.](./media/tas-tutorial/configure02.png)
 
-    a. **Name** (이름) 텍스트 상자에서 환경 이름을 입력합니다.
+    a. **Name**(이름) 텍스트 상자에서 환경 이름을 입력합니다.
     
-    b. **Authentication Type** (인증 유형)으로 **SAML2** 를 선택합니다.
+    b. **Authentication Type**(인증 유형)으로 **SAML2** 를 선택합니다.
 
-    다. Azure Portal에서 복사한 **로그인 URL** 값을 **Enter URL** (URL 입력) 텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **로그인 URL** 값을 **Enter URL**(URL 입력) 텍스트 상자에 붙여넣습니다.
 
     d. Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 메모장에서 열고, 해당 콘텐츠를 복사한 다음, **인증 입력** 상자에 붙여넣습니다.
 
-    e. **Enter New IP** (새 IP 입력) 텍스트 상자에서 IP 주소를 입력합니다.
+    e. **Enter New IP**(새 IP 입력) 텍스트 상자에서 IP 주소를 입력합니다.
 
     >[!NOTE]
     > 해당 IP 주소를 얻으려면 [TAS 지원 팀](mailto:support@combtas.com)에 문의하세요.
@@ -157,13 +157,13 @@ TAS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 
     g. 설정 페이지에서 **Assertion Service** URL을 복사하여 Azure Portal에서 **기본 SAML 구성** 의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    h. **Insert SSO row** (SSO 행 삽입)를 클릭합니다.
+    h. **Insert SSO row**(SSO 행 삽입)를 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -188,7 +188,7 @@ TAS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 TAS에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **TAS** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **TAS** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

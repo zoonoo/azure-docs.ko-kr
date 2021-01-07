@@ -2,17 +2,17 @@
 title: Azure 앱 구성 FAQ
 description: Azure Key Vault와 다른 Azure 앱 구성에 대 한 FAQ (질문과 대답)를 참조 하세요.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
-ms.author: lcozzens
-ms.openlocfilehash: 5d74b17bdd9c264a983bfdd2e374001dd4a0e2c0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.author: alkemper
+ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242112"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929568"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
 
@@ -41,7 +41,7 @@ Key Vault에 저장 된 암호를 참조 하는 앱 구성 값을 만들 수 있
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>앱 구성이 내 데이터를 암호화 하나요?
 
-예. 앱 구성은 보유 하 고 있는 모든 키 값을 암호화 하 고 네트워크 통신을 암호화 합니다. 키 이름과 레이블은 구성 데이터 검색을 위한 인덱스로 사용 되며 암호화 되지 않습니다.
+예. App Configuration은 보유하고 있는 모든 키 값을 암호화하고 네트워크 통신을 암호화합니다. 키 이름과 레이블은 구성 데이터 검색을 위한 인덱스로 사용 되며 암호화 되지 않습니다.
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>앱 구성에 저장 된 데이터는 어디에 있나요? 
 
@@ -86,16 +86,16 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
 
 계층을 선택 하기 위한 고려 사항은 다음과 같습니다.
 
-- **구독 당 리소스** : 리소스는 단일 구성 저장소로 구성 됩니다. 각 구독은 무료 계층의 구성 저장소 하나로 제한 됩니다. 구독은 표준 계층에 무제한의 구성 저장소를 포함할 수 있습니다.
-- **리소스 당 저장소** : 무료 계층에서 각 구성 저장소는 10mb의 저장소로 제한 됩니다. 표준 계층에서 각 구성 저장소는 최대 1gb의 저장소를 사용할 수 있습니다.
-- **수정 기록** : 앱 구성은 키에 대 한 모든 변경 내용에 대 한 기록을 저장 합니다. 무료 계층에서는 7 일 동안이 기록이 저장 됩니다. 표준 계층에서는이 기록이 30 일 동안 저장 됩니다.
-- **요청 할당량** : 무료 계층 저장소는 하루에 1000 요청으로 제한 됩니다. 저장소는 1000 요청에 도달 하면 UTC 자정 까지의 모든 요청에 대해 HTTP 상태 코드 429을 반환 합니다.
+- **구독 당 리소스**: 리소스는 단일 구성 저장소로 구성 됩니다. 각 구독은 무료 계층의 구성 저장소 하나로 제한 됩니다. 구독은 표준 계층에 무제한의 구성 저장소를 포함할 수 있습니다.
+- **리소스 당 저장소**: 무료 계층에서 각 구성 저장소는 10mb의 저장소로 제한 됩니다. 표준 계층에서 각 구성 저장소는 최대 1gb의 저장소를 사용할 수 있습니다.
+- **수정 기록**: 앱 구성은 키에 대 한 모든 변경 내용에 대 한 기록을 저장 합니다. 무료 계층에서는 7 일 동안이 기록이 저장 됩니다. 표준 계층에서는이 기록이 30 일 동안 저장 됩니다.
+- **요청 할당량**: 무료 계층 저장소는 하루에 1000 요청으로 제한 됩니다. 저장소는 1000 요청에 도달 하면 UTC 자정 까지의 모든 요청에 대해 HTTP 상태 코드 429을 반환 합니다.
 
     표준 계층 저장소는 시간당 2만 요청으로 제한 됩니다. 할당량이 모두 사용 되 면 시간 (분)이 끝날 때까지 모든 요청에 대해 HTTP 상태 코드 429이 반환 됩니다.
 
-- **서비스 수준 계약** : 표준 계층의 SLA는 99.9%입니다. 무료 계층에는 SLA가 없습니다.
-- **보안 기능** : 두 계층에는 Microsoft에서 관리 하는 키로 암호화, HMAC 또는 Azure Active Directory를 통한 인증, Azure RBAC 지원, 관리 id 및 서비스 태그를 포함 하는 기본 보안 기능이 포함 되어 있습니다. 표준 계층은 개인 링크 지원 및 고객 관리 키를 통한 암호화를 비롯 한 고급 보안 기능을 제공 합니다.
-- **비용** : 표준 계층 저장소에는 일일 사용 요금이 청구 됩니다. 매일 처음 20만 요청이 매일 요금으로 포함 됩니다. 또한 일일 할당을 지난 요청에 대해서는 초과분 요금이 부과 됩니다. 무료 계층 저장소를 사용 하는 것은 비용이 없습니다.
+- **서비스 수준 계약**: 표준 계층의 SLA는 99.9%입니다. 무료 계층에는 SLA가 없습니다.
+- **보안 기능**: 두 계층에는 Microsoft에서 관리 하는 키로 암호화, HMAC 또는 Azure Active Directory를 통한 인증, Azure RBAC 지원, 관리 id 및 서비스 태그를 포함 하는 기본 보안 기능이 포함 되어 있습니다. 표준 계층은 개인 링크 지원 및 고객 관리 키를 통한 암호화를 비롯 한 고급 보안 기능을 제공 합니다.
+- **비용**: 표준 계층 저장소에는 일일 사용 요금이 청구 됩니다. 매일 처음 20만 요청이 매일 요금으로 포함 됩니다. 또한 일일 할당을 지난 요청에 대해서는 초과분 요금이 부과 됩니다. 무료 계층 저장소를 사용 하는 것은 비용이 없습니다.
 
 ## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>무료 계층에서 표준 계층으로 저장소를 업그레이드할 수 있나요? 저장소를 표준 계층에서 무료 계층으로 다운 그레이드할 수 있나요?
 
@@ -111,7 +111,7 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
 
 응용 프로그램에서 HTTP 상태 코드 429 응답을 정기적으로 실행 하는 경우이를 다시 디자인 하 여 요청 수를 줄이는 것이 좋습니다. 자세한 내용은 [앱 구성에 대 한 요청 축소](./howto-best-practices.md#reduce-requests-made-to-app-configuration) 를 참조 하세요.
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>응용 프로그램에서 HTTP 상태 코드 429 응답을 수신 합니다. 그 이유는
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>응용 프로그램에서 HTTP 상태 코드 429 응답을 수신 합니다. 이유가 무엇일까요?
 
 다음과 같은 상황에서 HTTP 상태 코드 429 응답을 받게 됩니다.
 

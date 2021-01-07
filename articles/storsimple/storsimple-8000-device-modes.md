@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: c7b0ea489c1d70ab86d677aad666ea6728fa76b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511611"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017086"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>StorSimple 디바이스에서 디바이스 모드 변경
 
@@ -72,13 +72,13 @@ StorSimple용 Windows PowerShell을 통해서만 시스템을 유지 관리 모�
 StorSimple 디바이스를 유지 관리 모드(표준 모드에서)에 배치하여 유지 관리를 수행하거나 유지 관리 모드 업데이트를 설치할 수 있습니다. 유지 관리 모드로 들어가거나 종료하려면 다음 절차를 수행하세요.
 
 > [!IMPORTANT]
-> 유지 관리 모드에 들어가기 전에 Azure Portal에서 디바이스에 대한 **디바이스 설정 &gt; 하드웨어 상태**에 액세스하여 두 디바이스 컨트롤러 모두가 정상 상태인지 확인합니다. 하나 또는 모든 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 [Contact Microsoft 지원](storsimple-8000-contact-microsoft-support.md)로 이동 하세요.
+> 유지 관리 모드에 들어가기 전에 Azure Portal에서 디바이스에 대한 **디바이스 설정 &gt; 하드웨어 상태** 에 액세스하여 두 디바이스 컨트롤러 모두가 정상 상태인지 확인합니다. 하나 또는 모든 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 [Contact Microsoft 지원](storsimple-8000-contact-microsoft-support.md)로 이동 하세요.
  
 
 #### <a name="to-enter-maintenance-mode"></a>유지 관리 모드로 전환하려면
 
 1. [디바이스 직렬 콘솔 연결에 PuTTY 사용](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)단계를 수행하여 디바이스 직렬 콘솔에 로그온합니다.
-2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
+2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
 3. 명령 프롬프트에 다음을 입력합니다. 
    
     `Enter-HcsMaintenanceMode`
@@ -122,7 +122,7 @@ StorSimple 디바이스를 유지 관리 모드(표준 모드에서)에 배치�
 #### <a name="to-exit-maintenance-mode"></a>유지 관리 모드를 종료하려면
 
 1. 디바이스 직렬 콘솔에 로그온합니다. 배너 메시지에서 디바이스가 유지 관리 모드에 있는지 확인합니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
     `Exit-HcsMaintenanceMode`
 3. 경고 메시지와 확인 메시지가 표시됩니다. **Y** 를 입력하여 유지 관리 모드를 종료합니다.

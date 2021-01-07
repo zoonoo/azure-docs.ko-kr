@@ -1,22 +1,22 @@
 ---
 title: 자습서 - 로컬 Azure Resource Manager 템플릿 배포
-description: 로컬 컴퓨터에서 Azure Resource Manager 템플릿을 배포하는 방법 알아보기
+description: 로컬 컴퓨터에서 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법 알아보기
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: fe13376ced428713703f2bd5cf33941129dec1d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640d314711e34119dac5e1c5bf9fa245685b6f38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611625"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368139"
 ---
-# <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>자습서: 로컬 Azure Resource Manager 템플릿 배포
+# <a name="tutorial-deploy-a-local-arm-template"></a>자습서: 로컬 ARM 템플릿 배포
 
-로컬 머신에서 Azure Resource Manager 템플릿을 배포하는 방법을 알아봅니다. 완료하는 데 **8분** 정도 걸립니다.
+로컬 머신에서 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법을 알아봅니다. 완료하는 데 **8분** 정도 걸립니다.
 
-이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 연결된 템플릿을 만들어서 템플릿을 모듈화하고, 연결된 계정을 스토리지 계정에 저장하고, SAS 토큰을 사용하여 연결된 템플릿을 보호하고, 템플릿을 배포하는 DevOp 파이프라인을 만드는 방법을 알아볼 수 있습니다. 이 시리즈에서는 템플릿 배포에 중점을 둡니다.  템플릿 개발을 알아보려면 [초보자를 위한 자습서](./template-tutorial-create-first-template.md)를 참조하세요.
+이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 연결된 템플릿을 만들어서 템플릿을 모듈화하고, 연결된 계정을 스토리지 계정에 저장하고, SAS 토큰을 사용하여 연결된 템플릿을 보호하고, 템플릿을 배포하는 DevOps 파이프라인을 만드는 방법을 알아볼 수 있습니다. 이 시리즈에서는 템플릿 배포에 중점을 둡니다. 템플릿 개발을 알아보려면 [초보자를 위한 자습서](./template-tutorial-create-first-template.md)를 참조하세요.
 
 ## <a name="get-tools"></a>도구 가져오기
 
@@ -29,12 +29,13 @@ ms.locfileid: "91611625"
 - [Azure PowerShell 설치](/powershell/azure/install-az-ps)
 - [Windows에 Azure CLI 설치](/cli/azure/install-azure-cli-windows)
 - [Linux에 Azure CLI 설치](/cli/azure/install-azure-cli-linux)
+- [macOS에 Azure CLI 설치](/cli/azure/install-azure-cli-macos)
 
 Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 합니다. 도움을 받으려면 [로그인 - PowerShell](/powershell/azure/install-az-ps#sign-in) 또는 [로그인 - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in)를 참조하세요.
 
 ### <a name="editor-optional"></a>편집기(선택 사항)
 
-템플릿은 JSON 파일입니다. 템플릿을 검토/편집하려면 적합한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
+템플릿은 JSON 파일입니다. 템플릿을 검토/편집하려면 적합한 JSON 편집기가 필요합니다. Resource Manager 도구 확장이 있는 Visual Studio Code를 사용하는 것이 좋습니다. 이러한 도구를 설치해야 하는 경우 [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="review-template"></a>템플릿 검토
 
@@ -43,9 +44,9 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 
 > [!IMPORTANT]
-> Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다. 템플릿에서 스토리지 계정 이름은 "store"가 추가된 프로젝트 이름이며, 프로젝트 이름은 3-11자 사이여야 합니다. 따라서 프로젝트 이름은 스토리지 계정 이름 요구 사항을 충족해야 하며 11자 미만이어야 합니다.
+> Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이름은 고유해야 합니다. 템플릿에서 스토리지 계정 이름은 **store** 가 추가된 프로젝트 이름이며, 프로젝트 이름은 3-11자 사이여야 합니다. 따라서 프로젝트 이름은 스토리지 계정 이름 요구 사항을 충족해야 하며 11자 미만이어야 합니다.
 
-확장명이 .json인 템플릿(예: azuredeploy.json)의 복사본을 로컬 컴퓨터에 저장합니다. 이 템플릿은 자습서의 뒷부분에서 배포합니다.
+확장명이 _.json_ 인 템플릿 _(예: azuredeploy.json_)의 복사본을 로컬 컴퓨터에 저장합니다. 이 템플릿은 자습서의 뒷부분에서 배포합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -65,7 +66,7 @@ az login
 
 ---
 
-Azure 구독이 여러 개 있으면 사용할 구독을 선택합니다.
+Azure 구독이 여러 개 있는 경우 사용할 구독을 선택합니다. `[SubscriptionID/SubscriptionName]` 및 대괄호 `[]`을(를) 구독 정보로 바꿉니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -129,7 +130,7 @@ New-AzResourceGroupDeployment `
   -verbose
 ```
 
-Azure PowerShell을 사용하여 템플릿을 배포하는 방법에 대해 자세히 알아보려면 [Resource Manager 템플릿과 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.
+Azure PowerShell을 사용하여 템플릿을 배포하는 방법에 대해 자세히 알아보려면 [ARM 템플릿과 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md)를 참조하세요.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -148,7 +149,7 @@ az deployment group create \
   --verbose
 ```
 
-Azure CLI를 사용하여 템플릿을 배포하는 방법에 대해 자세히 알아보려면 [Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](./deploy-cli.md)를 참조하세요.
+Azure CLI를 사용하여 템플릿을 배포하는 방법에 대해 자세히 알아보려면 [ARM 템플릿과 Azure CLI를 사용하여 리소스 배포](./deploy-cli.md)를 참조하세요.
 
 ---
 
@@ -156,10 +157,10 @@ Azure CLI를 사용하여 템플릿을 배포하는 방법에 대해 자세히 �
 
 리소스 그룹을 삭제하여 배포된 리소스를 정리합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
 3. 해당 리소스 그룹 이름을 선택합니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
+4. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

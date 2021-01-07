@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7585c91e42b2d3591532756c1ead9ea60b7035e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266581"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837586"
 ---
 # <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
@@ -35,7 +35,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 ![조건부 액세스의 사용자 지정 컨트롤 인터페이스](./media/controls/custom-controls-conditional-access.png)
 
-**새 사용자 지정 컨트롤**을 클릭하면 컨트롤의 JSON 데이터에 대한 텍스트 상자가 있는 블레이드가 열립니다.  
+**새 사용자 지정 컨트롤** 을 클릭하면 컨트롤의 JSON 데이터에 대한 텍스트 상자가 있는 블레이드가 열립니다.  
 
 ![새 사용자 지정 컨트롤](./media/controls/new-custom-controls-conditional-access.png)
 
@@ -45,7 +45,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 1. 사용자 지정 컨트롤 목록으로 이동합니다.
 1. …를 클릭합니다.  
-1. **삭제**를 선택합니다.
+1. **삭제** 를 선택합니다.
 
 ## <a name="editing-custom-controls"></a>사용자 지정 컨트롤 편집
 
@@ -53,7 +53,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-사용자 지정 컨트롤은 Azure Multi-Factor Authentication, azure AD 셀프 서비스 암호 다시 설정 (SSPR), multi-factor Authentication 클레임 요구 사항 충족, Intune 장치 등록의 일부로 또는 장치를 Azure AD에 조인할 때 azure AD에 대 한 권한 있는 Id 관리자의 역할을 승격 하는 Id 보호의 자동화에 사용할 수 없습니다.
+사용자 지정 컨트롤은 Azure AD Multi-Factor Authentication, azure AD 셀프 서비스 암호 다시 설정 (SSPR), multi-factor Authentication 클레임 요구 사항 충족, Intune 장치 등록의 일부로 또는 장치를 Azure AD에 가입 하는 경우에 azure ad에 대 한 역할을 해제 하기 위해 azure ad, azure ad 셀프 서비스 암호 재설정 () 요구 사항 충족에 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

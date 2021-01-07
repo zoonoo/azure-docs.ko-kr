@@ -1,6 +1,6 @@
 ---
-title: 'Azure Synapse Analytics의 Synapse SQL 풀에 대한 모범 사례(이전 명칭: SQL DW)'
-description: 'Azure Synapse Analytics(이전 명칭: SQL DW)에서 SQL 풀 솔루션을 개발하기 위한 권장 사항 및 모범 사례입니다.'
+title: 전용 SQL 풀에 대 한 모범 사례 (이전의 SQL DW)
+description: Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 대 한 솔루션을 개발 하기 위한 권장 사항 및 모범 사례입니다.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489645"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462880"
 ---
-# <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics의 Synapse SQL 풀에 대한 모범 사례(이전 명칭: SQL DW)
+# <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 (이전의 SQL DW)에 대 한 모범 사례
 
-이 문서는 [SQL 풀](sql-data-warehouse-overview-what-is.md) 배포에서 최적의 성능을 달성할 수 있는 모범 사례 모음입니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 중요한 주요 영역을 중점적으로 설명하는 것입니다.  
+이 문서는 [전용 sql 풀 (이전의 SQL DW)](sql-data-warehouse-overview-what-is.md) 배포에서 최적의 성능을 얻는 데 도움이 되는 모범 사례 모음입니다.  이 문서의 목적은 몇 가지 기본 지침을 제공하고 중요한 주요 영역을 중점적으로 설명하는 것입니다.  
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>일시 중지 및 규모 조정으로 비용 절감
 
@@ -27,7 +27,7 @@ ms.locfileid: "92489645"
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
 
-열에 대한 통계를 자동으로 검색하고 만들도록 SQL 풀을 구성할 수 있습니다.  최적화 프로그램으로 만든 쿼리 계획은 사용 가능한 통계만큼 훌륭합니다.  
+열에 대 한 통계를 자동으로 검색 하 고 만들기 위해 전용 SQL 풀 (이전의 SQL DW)을 구성할 수 있습니다.  최적화 프로그램으로 만든 쿼리 계획은 사용 가능한 통계만큼 훌륭합니다.  
 
 데이터베이스에 대해 AUTO_CREATE_STATISTICS를 사용하도록 설정하고 쿼리에 사용된 열에 대한 통계를 항상 최신 상태를 유지하도록 매일 또는 각 로드 후에 통계를 업데이트하는 것이 좋습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "92489645"
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>DMV를 사용하여 쿼리 모니터링 및 최적화
 
-SQL 풀에는 쿼리 실행을 모니터링하는 데 사용할 수 있는 여러 DMV가 있습니다.  DMV를 사용하여 워크로드 관리 문서에서는 쿼리 실행의 세부 정보를 확인하는 방법에 대한 단계별 지침을 자세히 설명합니다.  
+전용 SQL 풀 (이전의 SQL DW)에는 쿼리 실행을 모니터링 하는 데 사용할 수 있는 여러 Dmv가 있습니다.  [Dmv를 사용 하 여 워크 로드 모니터링](sql-data-warehouse-manage-monitor.md) 문서에서는 실행 중인 쿼리의 세부 정보를 확인 하는 방법에 대 한 단계별 지침을 설명 합니다.  
 
 이러한 DMV에서 쿼리를 신속하게 찾으려면 쿼리에 LABEL 옵션을 사용하는 것이 도움이 될 수 있습니다.
 
@@ -62,7 +62,7 @@ INSERT 문을 이용한 작은 테이블에 대한 일회성 로드 또는 조�
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>PolyBase를 사용하여 데이터를 신속하고 로드하고 내보내기
 
-SQL 풀은 Azure Data Factory, PolyBase, BCP 등의 여러 도구를 통해 데이터 로드 및 내보내기를 지원합니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  그러나 대량의 데이터를 로드 또는 내보내거나 빠른 성능이 필요한 경우 PolyBase가 가장 좋습니다.  
+전용 SQL 풀 (이전의 SQL DW)에서는 Azure Data Factory, PolyBase 및 BCP를 비롯 한 여러 도구를 통해 데이터를 로드 하 고 내보낼 수 있습니다.  성능이 중요하지 않은 소량의 데이터에는 어떤 도구를 사용해도 사용자 요구 사항을 충족할 수 있습니다.  그러나 대량의 데이터를 로드 또는 내보내거나 빠른 성능이 필요한 경우 PolyBase가 가장 좋습니다.  
 
 PolyBase는 시스템의 분산 된 특성을 활용 하도록 설계 되었으며 다른 도구 보다 더 빠르게 크고 많을 데이터를 로드 하 고 내보냅니다.  PolyBase 로드는 CTAS 또는 INSERT INTO를 사용하여 실행할 수 있습니다.   
 
@@ -74,13 +74,13 @@ PolyBase는 시스템의 분산 된 특성을 활용 하도록 설계 되었으�
 > [!NOTE]
 > gzip 텍스트 파일을 사용할 때 처리량을 최대화하려면 파일을 60개 이상의 파일로 나누어 로드의 병렬 처리를 최대화합니다.  총 처리량을 더 빠르게 하기 위해 데이터를 동시에 로드하는 것이 좋습니다.
 
-또한 [데이터 로드](design-elt-data-loading.md), [PolyBase 사용 지침](guidance-for-loading-data.md), [SQL 풀 로딩 패턴 및 전략](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Azure Data Factory를 사용하여 데이터 로드]( ../../data-factory/load-azure-sql-data-warehouse.md), [Azure Data Factory를 사용하여 데이터 이동](../../data-factory/transform-data-using-machine-learning.md), [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [CTAS(Create Table As Select)](sql-data-warehouse-develop-ctas.md)도 참조하세요.
+또한 [데이터 로드](design-elt-data-loading.md), [PolyBase 사용을 위한 가이드](guidance-for-loading-data.md), [전용 SQL 풀 로드 패턴 및 전략](https://blogs.msdn.microsoft.com/sqlcat/20../../), [Azure Data Factory를 사용 하 여 데이터 로드]( ../../data-factory/load-azure-sql-data-warehouse.md), [Azure Data Factory 데이터 이동](../../data-factory/transform-data-using-machine-learning.md), [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [ctas (create table as select)](sql-data-warehouse-develop-ctas.md)를 참조 하세요.
 
 ## <a name="load-then-query-external-tables"></a>외부 테이블 로드 후 쿼리
 
 외부 테이블이라고도 하는 Polybase는 데이터를 로드하는 가장 빠른 방법일 수 있지만 쿼리에 적합하지는 않습니다. Polybase 테이블은 현재 Azure Blob 파일 및 Azure Data Lake 스토리지만 지원합니다. 이러한 파일에는 지원 컴퓨팅 리소스가 없습니다.  
 
-결과적으로 SQL 풀이 이 작업을 오프로드할 수 없으므로, 데이터를 읽기 위해서는 tempdb에 로드하여 전체 파일을 읽어야 합니다.  따라서 이 데이터를 쿼리하는 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다.
+따라서 전용 SQL 풀은이 작업을 오프 로드할 수 없으므로 데이터를 읽기 위해 tempdb로 로드 하 여 전체 파일을 읽어야 합니다.  따라서 이 데이터를 쿼리하는 쿼리가 여러 개 있는 경우 이 데이터를 한 번 로드한 후 쿼리에서 로컬 테이블을 사용하는 것이 더 좋습니다.
 
 또한 [PolyBase 사용 지침](guidance-for-loading-data.md)도 참조하세요.
 
@@ -101,9 +101,9 @@ PolyBase는 시스템의 분산 된 특성을 활용 하도록 설계 되었으�
 
 ## <a name="do-not-over-partition"></a>과도한 분할 피하기
 
-데이터를 분할하면 파티션 전환 또는 파티션 제거로 스캔 최적화를 통해 데이터를 효율적으로 유지 관리할 수 있지만 과도하게 분할할 경우 쿼리 속도가 느려질 수 있습니다.  SQL Server에서 제대로 작동할 수 있는 높은 세분성 파티션 전략이 SQL 풀에서는 제대로 작동하지 않을 수 있습니다.  
+데이터를 분할하면 파티션 전환 또는 파티션 제거로 스캔 최적화를 통해 데이터를 효율적으로 유지 관리할 수 있지만 과도하게 분할할 경우 쿼리 속도가 느려질 수 있습니다.  일반적으로 SQL Server에서 잘 작동 하는 높은 세분성 분할 전략은 전용 SQL 풀 (이전의 SQL DW)에서 제대로 작동 하지 않을 수 있습니다.  
 
-너무 많은 파티션을 포함하면 각 파티션에 100만 개 미만의 행이 포함된 경우 클러스터형 columnstore 인덱스의 효율성이 떨어질 수도 있습니다.  배후에서 SQL 풀이 사용자 데이터를 60개 데이터베이스로 분할하므로 100개 파티션이 있는 테이블을 만들면 실제로는 6000개의 파티션이 생성됩니다.  
+너무 많은 파티션을 포함하면 각 파티션에 100만 개 미만의 행이 포함된 경우 클러스터형 columnstore 인덱스의 효율성이 떨어질 수도 있습니다.  내부적으로는 전용 SQL 풀에서 데이터를 60 데이터베이스로 분할 하므로 100 파티션이 포함 된 테이블을 만들면 실제로 6000 파티션이 발생 합니다.  
 
 각 워크로드가 서로 다르므로 가장 좋은 방법은 분할 실험을 통해 사용자의 워크로드에 가장 적합한 방법을 찾는 것입니다.  SQL Server에서 작업한 것보다 낮은 세분성을 고려합니다.  예를 들어 매일 분할보다는 매주 또는 매달 분할을 사용하는 것이 좋습니다.
 
@@ -145,13 +145,13 @@ DDL을 정의할 때 데이터를 지원할 가장 작은 데이터 형식을 �
 
 ## <a name="optimize-clustered-columnstore-tables"></a>클러스터형 Columnstore 테이블 최적화
 
-columnstore 클러스터형 인덱스는 SQL 풀에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 SQL 풀의 테이블은 클러스터형 ColumnStore로 만들어집니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  
+클러스터형 columnstore 인덱스는 전용 SQL 풀에 데이터를 저장할 수 있는 가장 효율적인 방법 중 하나입니다.  기본적으로 전용 SQL 풀의 테이블은 클러스터형 ColumnStore로 생성 됩니다.  columnstore 테이블에서 쿼리에 대해 최상의 성능을 얻으려면 좋은 세그먼트 품질을 갖는 것이 중요합니다.  
 
 메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  세그먼트 품질은 압축된 행 그룹에 있는 행의 수로 측정할 수 있습니다.  클러스터형 columnstore 테이블에 대해 세그먼트 품질을 감지하고 개선하는 단계별 지침은 [테이블 인덱스](sql-data-warehouse-tables-index.md) 문서의 [Columnstore 인덱스 품질 저하 원인](sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality)을 참조하세요.  
 
 고품질 columnstore 세그먼트가 중요하므로 데이터를 로드하기 위해서는 중간 규모 또는 대규모 리소스 클래스에 속하는 사용자 ID를 사용하는 것이 좋습니다. 낮은 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)를 사용하면 로드하는 사용자에게 더 큰 리소스 클래스를 할당하려는 것입니다.
 
-columnstore 테이블은 일반적으로 테이블당 100만개 이상의 행이 있고 각 SQL 풀 테이블이 60개 테이블로 파티션될 때까지 데이터를 압축된 columnstore 세그먼트에 푸시하지 않으므로 경험에 따르면 테이블에서 행 수가 6천만 개를 초과하지 않는다면 columnstore 테이블은 쿼리에 이점을 제공하지 않습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  
+Columnstore 테이블은 일반적으로 테이블당 100만 개 이상의 행이 있을 때까지 데이터를 압축 된 columnstore 세그먼트로 푸시 하지 않으며 각 전용 SQL 풀 테이블이 60 테이블로 분할 되기 때문에, 테이블에 6000만 개 이상의 행이 있는 경우를 제외 하 고 columnstore 테이블은 쿼리에 유용 하지 않습니다.  6천만 개 미만의 행이 있는 테이블의 경우 columnstore 인덱스를 포함하는 것이 적절하지 않을 수 있습니다.  오히려 상황을 악화시킬 수 있습니다.  
 
 또한 데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 각 파티션에는 100개의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore에서 이점을 얻으려면 60억 개 이상의 행을 포함해야 합니다(60개 배포 *100개 파티션* 1백만 개 행).  
 
@@ -164,7 +164,7 @@ columnstore 테이블은 일반적으로 테이블당 100만개 이상의 행이
 
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>더 큰 리소스 클래스를 사용하여 쿼리 성능 향상
 
-SQL 풀은 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 사용합니다.  기본적으로 모든 사용자가 배포당 100MB의 메모리를 부여하는 소형 리소스 클래스에 할당됩니다.  항상 60개의 배포가 있고 각 배포에는 최소 100MB가 부여되므로 시스템 전체에서 총 메모리 할당량은 6,000MB이거나 6GB가 약간 못됩니다.  
+전용 SQL 풀은 쿼리에 메모리를 할당 하는 방법으로 리소스 그룹을 사용 합니다.  기본적으로 모든 사용자가 배포당 100MB의 메모리를 부여하는 소형 리소스 클래스에 할당됩니다.  항상 60개의 배포가 있고 각 배포에는 최소 100MB가 부여되므로 시스템 전체에서 총 메모리 할당량은 6,000MB이거나 6GB가 약간 못됩니다.  
 
 큰 조인 또는 클러스터형 columnstore 테이블에 로드와 같은 특정 쿼리는 큰 메모리를 할당하는 것이 도움이 됩니다.  순수 검색과 같은 일부 쿼리에는 어떤 이점도 없습니다.  하지만 더 큰 리소스 클래스를 활용하면 동시성이 축소되므로 모든 사용자를 큰 리소스 클래스로 이동하기 전에 이러한 영향을 고려하는 것이 좋습니다.
 

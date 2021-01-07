@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d085d59dc1dbe09c014dcaf5aa239805824354f0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 6559de2b94879ac8643f4945fd5adcf4fc7e1045
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279967"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350826"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -103,7 +103,7 @@ await client.CreateOrReplaceEventRouteAsync("routeName", er);
 
 배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 끝점을 만들 때이 컨테이너의 URL을 제공 합니다. 배달 못 한 편지는 SAS 토큰을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-SAS 토큰에 대 한 자세한 내용은 [ *sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여* 를 참조 하세요.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+SAS 토큰에 대 한 자세한 내용은 [ *sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여* 를 참조 하세요.](../storage/common/storage-sas-overview.md)
 
 배달 못 한 문자를 사용 하 여 끝점을 설정 하는 방법을 알아보려면 [*방법: Azure 디지털 쌍의 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조 하세요.
 

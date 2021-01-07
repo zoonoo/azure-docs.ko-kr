@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401047"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95994930"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
 
@@ -27,25 +27,25 @@ ms.locfileid: "89401047"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
-1. Azure Portal의 왼쪽 창에서 **리소스 그룹**을 선택합니다.
-2. 페이지 맨 위에 있는 **리소스 그룹**에서 **추가**를 선택합니다.
-3. **리소스 그룹 이름**에서 이름 *myResourceGroupTM1*을 입력합니다. **리소스 그룹 위치**에 대해서는 **미국 동부**를 선택한 다음, **확인**을 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **리소스 그룹** 을 선택합니다.
+2. 페이지 맨 위에 있는 **리소스 그룹** 에서 **추가** 를 선택합니다.
+3. **리소스 그룹 이름** 에서 이름 *myResourceGroupTM1* 을 입력합니다. **리소스 그룹 위치** 에 대해서는 **미국 동부** 를 선택한 다음, **확인** 을 선택합니다.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 대기 시간이 가장 짧은 엔드포인트로 사용자 트래픽을 보내서 트래픽을 향하게 하는 Traffic Manager 프로필을 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스 만들기**  >  **네트워킹**  >  **Traffic Manager 프로필**  >  **만들기**를 선택 합니다.
-2. **Traffic Manager 프로필 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
+1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필** > **만들기** 를 선택합니다.
+2. **Traffic Manager 프로필 만들기** 에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기** 를 선택합니다.
     
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
+    | 속성                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **다중값** 라우팅 방법을 선택합니다.                                       |
     | Subscription            | 구독을 선택합니다.                          |
-    | Resource group          | *myResourceGroupTM1*을 선택합니다. |
+    | 리소스 그룹          | *myResourceGroupTM1* 을 선택합니다. |
     | 위치                | 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.                              |
    |        |           | 
   
@@ -56,8 +56,8 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 이전 단계에서 만든 다중값 Traffic Manager 프로필에 외부 엔드포인트로 두 개의 IP 주소를 추가합니다.
 
 1. 포털의 검색 창에서 이전 섹션에서 만든 Traffic Manager 프로필 이름을 검색하고, 표시되는 결과에서 해당 프로필을 선택합니다.
-2. **Traffic Manager 프로필**의 **설정** 섹션에서 **엔드포인트**를 클릭한 다음, **추가**를 클릭합니다.
-3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
+2. **Traffic Manager 프로필** 의 **설정** 섹션에서 **엔드포인트** 를 클릭한 다음, **추가** 를 클릭합니다.
+3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인** 을 선택합니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
@@ -66,8 +66,8 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
     | FQDN(정규화된 도메인 이름) 또는 IP           | 이 Traffic Manager 프로필에 추가하려는 엔드포인트의 공용 IP 주소를 입력합니다.                         |
     |        |           |
 
-4. **FQDN(정규화된 도메인 이름) 또는 IP**에 *myEndpoint2*라는 다른 엔드포인트를 추가하려면 2-3단계를 반복하고, 두 번째 엔드포인트의 공용 IP 주소를 입력합니다.
-5. 두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
+4. **FQDN(정규화된 도메인 이름) 또는 IP** 에 *myEndpoint2* 라는 다른 엔드포인트를 추가하려면 2-3단계를 반복하고, 두 번째 엔드포인트의 공용 IP 주소를 입력합니다.
+5. 두 엔드포인트 추가가 완료되면 **온라인** 인 모니터링 상태와 함께 **Traffic Manager 프로필** 에 표시됩니다.
 
    ![Traffic Manager 엔드포인트 추가](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

@@ -2,13 +2,14 @@
 title: 개념-Azure VMware 솔루션 사설 클라우드 모니터링 및 복구
 description: Azure vmware 솔루션 사설 클라우드에서 VMware ESXi 서버를 모니터링 하 고 복구 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: bee08304cd14f2aeec6995203638b5a37d9a861c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q2
+ms.date: 11/20/2020
+ms.openlocfilehash: 7f367a6ef9b86f235a16a698735cfb58a11f6862
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343902"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033598"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Azure VMware 솔루션 사설 클라우드 모니터링 및 복구
 
@@ -42,4 +43,10 @@ Azure VMware 솔루션은 테 넌 트의 사설 클라우드에서 Azure VMware 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure VMware 솔루션 사설 클라우드 업그레이드](concepts-upgrades.md)에 대해 알아봅니다.  
+다음은에 대 한 자세한 내용을 확인할 수 있는 몇 가지 항목입니다.
+
+- [Azure VMware 솔루션 사설 클라우드 업그레이드](concepts-upgrades.md)
+- [Azure VMware 솔루션 Vm의 수명 주기 관리](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호](azure-security-integration.md)
+- [Azure Backup Server를 사용 하 여 Azure VMware 솔루션 Vm 백업](backup-azure-vmware-solution-virtual-machines.md)
+- [Azure VMware 솔루션을 사용 하 여 가상 머신의 전체 재해 복구](disaster-recovery-for-virtual-machines.md)

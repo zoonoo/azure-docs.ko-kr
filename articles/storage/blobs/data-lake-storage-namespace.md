@@ -8,16 +8,16 @@ ms.date: 02/11/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6ce94590a1d0de6941c27d972bdd1c4194080e95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26062d73ae4c61af77b15dd2cac0541f2a988d11
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77153080"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912997"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 계층 구조 네임스페이스
 
-Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가격에 파일 시스템 성능을 제공할 수 있는 주요 메커니즘은 **계층 구조 네임스페이스**를 추가한 것입니다. 이렇게 하면 계정 내의 개체/파일 컬렉션이 컴퓨터의 파일 시스템이 구성되는 것과 동일한 방식으로 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성될 수 있습니다. 계층적 네임 스페이스를 사용 하는 경우 저장소 계정은 분석 엔진과 프레임 워크에 익숙한 파일 시스템 의미 체계를 사용 하 여 개체 저장소의 확장성과 비용 효율성을 제공할 수 있게 됩니다.
+Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가격에 파일 시스템 성능을 제공할 수 있는 주요 메커니즘은 **계층 구조 네임스페이스** 를 추가한 것입니다. 이렇게 하면 계정 내의 개체/파일 컬렉션이 컴퓨터의 파일 시스템이 구성되는 것과 동일한 방식으로 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성될 수 있습니다. 계층적 네임 스페이스를 사용 하는 경우 저장소 계정은 분석 엔진과 프레임 워크에 익숙한 파일 시스템 의미 체계를 사용 하 여 개체 저장소의 확장성과 비용 효율성을 제공할 수 있게 됩니다.
 
 ## <a name="the-benefits-of-a-hierarchical-namespace"></a>계층적 네임 스페이스의 이점
 
@@ -47,4 +47,4 @@ Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [저장소 계정 만들기](./data-lake-storage-quickstart-create-account.md)
+- [저장소 계정 만들기](../common/storage-account-create.md)

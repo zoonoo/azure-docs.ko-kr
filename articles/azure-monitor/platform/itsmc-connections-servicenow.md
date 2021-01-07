@@ -1,0 +1,142 @@
+---
+title: IT 서비스 관리 커넥터를 사용 하 여 ServiceNow 연결
+description: 이 문서에서는 ITSMC 작업 항목을 중앙에서 모니터링 하 고 관리 하기 위해 Azure Monitor에서 IT 서비스 관리 커넥터 (ITSMC)를 사용 하 여 ServiceNow 하는 방법에 대 한 정보를 제공 합니다.
+ms.subservice: logs
+ms.topic: conceptual
+author: nolavime
+ms.author: v-jysur
+ms.date: 12/21/2020
+ms.openlocfilehash: 662c36e4f0082c376a6e250e9a0885f0cd225964
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97729661"
+---
+# <a name="connect-servicenow-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ServiceNow 연결
+
+이 문서에서는 Log Analytics의 ServiceNow 인스턴스와 IT 서비스 관리 커넥터 (ITSMC) 간에 연결을 구성 하 여 작업 항목을 중앙에서 관리 하는 방법에 대 한 정보를 제공 합니다.
+
+다음 섹션에서는 ServiceNow 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+다음 필수 조건이 충족되는지 확인합니다.
+- ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-definition.md#add-it-service-management-connector).
+- ServiceNow 지원 버전: 올랜도, 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
+- 현재 Azure Monitor에서 전송 되는 경고는 ServiceNow에서 이벤트, 인시던트 또는 경고 요소 중 하나를 만들 수 있습니다.
+> [!NOTE]
+> ITSMC는 Service Now의 공식 SaaS 제품만 지원합니다. Service Now의 비공개 배포는 지원되지 않습니다. 
+
+**ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
+- ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
+
+    - [올랜도에 대 한 OAuth 설정](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [New York에 대해 OAuth 설정](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Madrid에 대해 OAuth 설정](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [London에 대해 OAuth 설정](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Kingston에 대해 OAuth 설정](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Jakarta에 대해 OAuth 설정](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Istanbul에 대해 OAuth 설정](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Helsinki에 대해 OAuth 설정](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Geneva에 대해 OAuth 설정](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+> [!NOTE]
+> "OAuth 설정" 정의의 일부로 다음을 권장합니다.
+>
+> 1) **새로 고침 토큰 수명을 90일(7,776,000초)로 업데이트:** [OAuth 설정](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0)의 2단계 [인스턴스에 액세스할 때 사용할 클라이언트 엔드포인트 만들기](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0)에서 엔드포인트 정의 후 ServiceNow 블레이드에서 시스템 OAuth를 검색한 후 애플리케이션 레지스트리를 선택합니다. 정의된 OAuth의 이름을 선택하고 새로 고침 토큰 수명 필드를 7,776,000(초, 90일)로 업데이트합니다.
+> 마지막으로, 업데이트를 클릭합니다.
+> 2) **연결이 활성 상태로 유지되도록 내부 프로시저 설정(권장):** 새로 고침 토큰 수명에 따라 토큰을 새로 고칩니다. 새로 고침 토큰의 예상 만료 시간 전에 다음 작업을 수행해야 합니다(새로 고침 토큰 수명이 만료되기 며칠 전에 수행할 것을 권장):
+>
+>     1. [ITSM 커넥터 구성에 대한 수동 동기화 프로세스 완료](./itsmc-resync-servicenow.md)
+>     2. 보안상의 이유로 이전 키를 유지하지 않는 것이 좋으므로 이전 새로 고침 토큰을 철회하세요. ServiceNow 블레이드에서 시스템 OAuth를 검색한 후 토큰 관리를 선택합니다. OAuth 이름 및 만료 날짜에 따라 목록에서 이전 토큰을 선택합니다.
+> ![SNOW 시스템 OAuth 정의](media/itsmc-connections/snow-system-oauth.png)
+>     3. 액세스 철회, 철회를 차례로 클릭합니다.
+
+- Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> ITSMC는 ServiceNow 저장소에서 다운로드 된 Microsoft Log Analytics 통합을 위한 공식 사용자 앱만 지원 합니다. ITSMC는 ServiceNow 쪽의 코드 수집과 공식 ServiceNow 솔루션에 포함 되지 않은 응용 프로그램을 지원 하지 않습니다. 
+- 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
+
+## <a name="connection-procedure"></a>**연결 절차**
+다음 절차에 따라 ServiceNow 연결을 만듭니다.
+
+
+1. Azure Portal에서 **모든 리소스** 로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
+
+2.  **작업 영역 데이터 원본** 에서 **ITSM 연결** 을 클릭합니다.
+    ![새 연결](media/itsmc-connections/add-new-itsm-connection.png)
+
+3. 왼쪽 창의 맨 위에 있는 **추가** 를 클릭합니다.
+
+4. 다음 표에 설명된 대로 정보를 제공하고 **확인** 을 클릭하여 연결을 만듭니다.
+
+
+> [!NOTE]
+> 이러한 모든 매개 변수는 필수입니다.
+
+| **필드** | **설명** |
+| --- | --- |
+| **연결 이름**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM/보기의 자세한 로그 분석에서 작업 항목을 구성할 때 Log Analytics에서 사용합니다. |
+| **파트너 유형**   | **ServiceNow** 를 선택합니다. |
+| **사용자 이름**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할](#create-integration-user-role-in-servicenow-app).|
+| **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.  |
+| **서버 URL**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 URL을 입력합니다. URL은 ".servicenow.com" 접미사를 사용하여 지원되는 SaaS 버전을 가리켜야 합니다.|
+| **클라이언트 ID**   | 이전에 생성한 OAuth2 인증에 사용하려는 클라이언트 ID를 입력합니다.  클라이언트 ID 및 암호 생성에 대한 추가 정보:   [OAuth 설정](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+| **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
+| **데이터 동기화 범위**   | ITSMC를 통해 Azure Log Analytics와 동기화할 ServiceNow 작업 항목을 선택합니다.  선택한 값을 로그 분석으로 가져옵니다.   **옵션:**  인시던트 및 변경 요청.|
+| **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일. |
+| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다. |
+
+![ServiceNow 연결](media/itsmc-connections/itsm-connection-servicenow-connection-latest.png)
+
+**성공적으로 연결 및 동기화된 경우**:
+
+- ServiceNow 인스턴스에서 선택한 작업 항목을 Azure **Log Analytics** 로 가져옵니다. IT Service Management Connector 타일에서 이러한 작업 항목에 대한 요약을 볼 수 있습니다.
+
+- Log Analytics 경고 또는 로그 레코드에서, 또는 이 ServiceNow 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
+
+> [!NOTE]
+> ServiceNow에는 시간당 요청에 대 한 요금 제한이 있습니다. 이 제한을 구성 하려면 ServiceNow 인스턴스에서 "인바운드 REST API 전송률 제한"을 정의 하 여이를 사용 합니다.
+
+## <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow 앱에서 통합 사용자 역할 만들기
+
+다음 절차를 수행합니다.
+
+1. [ServiceNow 스토어](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)를 방문하고 **ServiceNow 및 Microsoft OMS 통합용 사용자 앱** 을 ServiceNow 인스턴스에 설치합니다.
+   
+   >[!NOTE]
+   >Microsoft OMS(Operations Management Suite)에서 Azure Monitor로의 진행 중인 전환의 일부로, OMS를 이제 Log Analytics라고 합니다.     
+2. 설치 후 ServiceNow 인스턴스의 왼쪽 탐색 모음으로 가서 Microsoft OMS 통합기를 검색한 후 선택합니다.  
+3. **설치 검사 목록** 을 클릭합니다.
+
+   사용자 역할을 아직 생성해야 할 경우 상태가 **완료되지 않음** 으로 표시됩니다.
+
+4. **통합 사용자 만들기** 옆의 텍스트 상자에 Azure의 ITSMC에 연결할 수 있는 사용자의 사용자 이름을 입력합니다.
+5. 이 사용자에 대한 암호를 입력하고 **확인** 을 클릭합니다.  
+
+> [!NOTE]
+> 이러한 자격 증명을 사용하여 Azure에서 ServiceNow 연결을 만듭니다.
+
+새로 만든 사용자는 기본 역할이 할당된 상태로 표시됩니다.
+
+**기본 역할**:
+- personalize_choices
+- import_transformer
+-   x_mioms_microsoft.user
+-   itil
+-   template_editor
+-   view_changer
+
+사용자가 성공적으로 만들어지면 **설치 검사 목록 확인** 의 상태가 완료됨으로 바뀌고 해당 앱에 대해 만들어진 사용자의 역할 세부 정보가 표시됩니다.
+
+> [!NOTE]
+> ITSM 커넥터는 ServiceNow 인스턴스에 설치된 다른 모듈 없이 ServiceNow에 인시던트를 보낼 수 있습니다. ServiceNow 인스턴스에서 EventManagement 모듈을 사용하고 커넥터를 사용하여 ServiceNow에서 이벤트 또는 경고를 만들려는 경우 통합 사용자에게 다음 역할을 추가합니다.
+> 
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
+
+
+## <a name="next-steps"></a>다음 단계
+
+* [ITSM 커넥터 개요](itsmc-overview.md)
+* [Azure 경고에서 ITSM 작업 항목 만들기](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
+* [ITSM 커넥터의 문제 해결](./itsmc-resync-servicenow.md)

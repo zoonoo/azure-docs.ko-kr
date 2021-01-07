@@ -16,11 +16,11 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90090060"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019483"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 사용자에게 알림 보내기
 
@@ -58,12 +58,12 @@ ms.locfileid: "90090060"
 이 섹션에서는 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서에서 완료한 프로젝트의 코드를 업데이트합니다. 프로젝트는 Windows 스토어와 이미 연결되어 있어야 합니다. 또한 알림 허브를 사용하도록 구성되어야 합니다. 이 섹션에서는 새 WebAPI 백 엔드를 호출할 코드를 추가하고, 알림을 등록하고 보내는 데 이 코드를 사용합니다.
 
 1. Visual Studio에서 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)에서 만든 솔루션을 엽니다.
-2. 솔루션 탐색기에서 UWP(유니버설 Windows 플랫폼) 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
-3. 왼쪽에서 **찾아보기**를 선택합니다.
-4. **검색** 상자에 **Http 클라이언트**를 입력합니다.
-5. 결과 목록에서 **System.Net.Http**를 클릭하고, **설치**를 클릭합니다. 설치를 완료합니다.
-6. 다시 NuGet **검색** 상자에 **Json.net**을 입력합니다. **Newtonsoft.json** 패키지를 설치한 다음, NuGet 패키지 관리자 창을 닫습니다.
-7. 솔루션 탐색기의 **WindowsApp** 프로젝트에서 **MainPage.xaml**을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+2. 솔루션 탐색기에서 UWP(유니버설 Windows 플랫폼) 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 클릭합니다.
+3. 왼쪽에서 **찾아보기** 를 선택합니다.
+4. **검색** 상자에 **Http 클라이언트** 를 입력합니다.
+5. 결과 목록에서 **System.Net.Http** 를 클릭하고, **설치** 를 클릭합니다. 설치를 완료합니다.
+6. 다시 NuGet **검색** 상자에 **Json.net** 을 입력합니다. **Newtonsoft.json** 패키지를 설치한 다음, NuGet 패키지 관리자 창을 닫습니다.
+7. 솔루션 탐색기의 **WindowsApp** 프로젝트에서 **MainPage.xaml** 을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 8. `MainPage.xaml` 파일에서 `<Grid>` 섹션을 다음 코드로 바꿉니다. 이 코드는 사용자가 인증하는 데 사용하는 사용자 이름 및 암호 텍스트 상자를 추가합니다. 또한 알림 메시지 및 알림을 받을 사용자 이름 태그용 텍스트 상자도 추가합니다.
 
     ```xml
@@ -225,7 +225,7 @@ ms.locfileid: "90090060"
         //InitNotificationsAsync();
     ```
 
-13. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가**를 클릭한 다음, **클래스**를 클릭합니다. 클래스 이름을 `RegisterClient.cs`로 지정한 다음, **확인**을 클릭하여 클래스를 생성합니다.
+13. **WindowsApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **추가** 를 클릭한 다음, **클래스** 를 클릭합니다. 클래스 이름을 `RegisterClient.cs`로 지정한 다음, **확인** 을 클릭하여 클래스를 생성합니다.
 
     이 클래스는 푸시 알림에 등록하기 위해 앱 백 엔드에 접속하는 데 필요한 REST 호출을 래핑합니다. 또한 *앱 백 엔드에서 등록* 에 설명된 대로 알림 허브에서 생성된 [registrationId](/previous-versions/azure/azure-services/dn743807(v=azure.100))를 로컬로 저장합니다. 이 구성 요소는 **로그인 및 등록** 단추를 클릭할 때 로컬 스토리지에 저장된 인증 토큰을 사용합니다.
 14. RegisterClient.cs 파일의 맨 위에 다음 `using` 문을 추가합니다.
@@ -333,7 +333,7 @@ ms.locfileid: "90090060"
 ## <a name="test-the-application"></a>애플리케이션 테스트
 
 1. 두 Windows에서 애플리케이션을 시작합니다.
-2. 아래 화면에 표시된 것처럼 **사용자 이름** 및 **암호**를 입력합니다. Windows Phone에서 입력하는 사용자 이름 및 암호와 달라야 합니다.
+2. 아래 화면에 표시된 것처럼 **사용자 이름** 및 **암호** 를 입력합니다. Windows Phone에서 입력하는 사용자 이름 및 암호와 달라야 합니다.
 3. **Log in and register(로그인 및 등록)** 를 클릭하고 대화 상자에 로그인되었다고 표시되는지 확인합니다. 이 코드는 **푸시 전송** 단추도 활성화합니다.
 
     ![입력한 사용자 이름과 암호를 표시하는 Notification Hubs 애플리케이션의 스크린샷.][14]

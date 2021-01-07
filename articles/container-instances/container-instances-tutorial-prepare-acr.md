@@ -111,7 +111,7 @@ v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05
 az acr repository list --name <acrName> --output table
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```azurecli
 az acr repository list --name mycontainerregistry082 --output table

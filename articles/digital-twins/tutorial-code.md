@@ -8,11 +8,11 @@ ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: 3225fff1c82822dee990804f934ada86068841e8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280289"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011305"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -43,7 +43,7 @@ Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 �
 
 Azure Digital Twins 인스턴스로 이동할 준비가 되면 클라이언트 앱 프로젝트 설정을 시작합니다. 
 
-머신에서 명령 프롬프트 또는 다른 콘솔 창을 열고, 이 자습서를 진행하는 동안 작업을 저장할 빈 프로젝트 디렉터리를 만듭니다. 디렉터리 이름을 원하는 대로 지정합니다(예: *DigitalTwinsCodeTutorial* ).
+머신에서 명령 프롬프트 또는 다른 콘솔 창을 열고, 이 자습서를 진행하는 동안 작업을 저장할 빈 프로젝트 디렉터리를 만듭니다. 디렉터리 이름을 원하는 대로 지정합니다(예: *DigitalTwinsCodeTutorial*).
 
 새 디렉터리로 이동합니다.
 
@@ -267,7 +267,7 @@ for(int i=0; i<3; i++) {
 }
 ```
 
-명령 창에서 `dotnet run`을 사용하여 프로그램을 실행합니다. 출력에서 *sampleTwin-0* , *sampleTwin-1* 및 *sampleTwin-2* 가 생성된 인쇄 메시지를 찾습니다. 
+명령 창에서 `dotnet run`을 사용하여 프로그램을 실행합니다. 출력에서 *sampleTwin-0*, *sampleTwin-1* 및 *sampleTwin-2* 가 생성된 인쇄 메시지를 찾습니다. 
 
 그런 다음, 프로그램을 다시 실행합니다. 
 

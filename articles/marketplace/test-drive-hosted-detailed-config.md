@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491616"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462954"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>호스트 된 테스트 드라이브에 대 한 자세한 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "94491616"
 
     - **테스트 드라이브의 유형** – **Microsoft 호스트 (고객 Engagement & PowerApps의 경우 Dynamics 365)** 를 선택 합니다. 이는 Microsoft가 사용자 프로 비전 및 프로 비전 해제 테스트를 수행 하는 서비스를 호스트 하 고 유지 관리 함을 나타냅니다.
 
-5. [이러한 지침](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md)을 사용 하 여 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 해제 하는 Microsoft AppSource 권한을 부여 합니다. 이 단계에서는 아래에 설명 된 **AZURE AD 앱 ID** 와 **Azure AD 앱 키** 값을 생성 합니다.
+5. [이러한 지침](./test-drive-azure-subscription-setup.md)을 사용 하 여 테 넌 트에서 테스트 드라이브 사용자를 프로 비전 하 고 프로 비전 해제 하는 Microsoft AppSource 권한을 부여 합니다. 이 단계에서는 아래에 설명 된 **AZURE AD 앱 ID** 와 **Azure AD 앱 키** 값을 생성 합니다.
 6. **Test drive 기술 구성** 페이지에서 이러한 필드를 완료 합니다.
 
     [![테스트 드라이브 기술 구성 페이지.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)
@@ -81,7 +81,7 @@ ms.locfileid: "94491616"
     - **Azure Active Directory 테 넌 트 이름** – Dynamics 365 인스턴스의 Azure 테 넌 트 이름입니다. `<tenantname>.onmicrosoft.com` 형식을 사용합니다. 예제 `testdrive.onmicrosoft.com` 값:
     - **Azure Active Directory 응용 프로그램 id** – 5 단계에서 만든 AZURE ACTIVE DIRECTORY (AD) 앱의 id입니다. 예제 `53852862-a2ae-4e43-9461-faa49650a096` 값:
     - **Azure Active Directory 응용 프로그램 클라이언트 암호** – 5 단계에서 만든 Azure AD 앱에 대 한 암호입니다. 예제 `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` 값:
-    - **평가판 법률 엔터티** – 평가판 사용자를 할당 하기 위한 법적 엔터티를 제공 합니다. [법적 엔터티 만들기 또는 수정](https://technet.microsoft.com/library/hh242184.aspx)에서 새 항목을 만들 수 있습니다.
+    - **평가판 법률 엔터티** – 평가판 사용자를 할당 하기 위한 법적 엔터티를 제공 합니다. [법적 엔터티 만들기 또는 수정](/dynamicsax-2012/appuser-itpro/create-or-modify-a-legal-entity)에서 새 항목을 만들 수 있습니다.
     - **역할 이름** – 테스트 드라이브에 대해 만든 사용자 지정 Dynamics 365 보안 역할의 AOT (응용 프로그램 개체 트리) 이름입니다. 이 역할은 테스트 드라이브 중에 사용자에 게 할당 되는 역할입니다.
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="보안 구성 페이지입니다.":::

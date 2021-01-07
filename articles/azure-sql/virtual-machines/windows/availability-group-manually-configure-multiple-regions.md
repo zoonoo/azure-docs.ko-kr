@@ -8,18 +8,19 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 335cc707cb1192d3dbf08f51e78d4e82441dd05a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094458"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359084"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -113,7 +114,7 @@ ms.locfileid: "93094458"
 
 1. 클러스터의 가용성 그룹 역할에 IP 주소 리소스를 추가합니다. 
 
-   장애 조치(Failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭 하 고 **리소스 추가** , 추가 **리소스** 를 선택한 다음 **IP 주소** 를 선택 합니다.
+   장애 조치(Failover) 클러스터 관리자에서 가용성 그룹 역할을 마우스 오른쪽 단추로 클릭 하 고 **리소스 추가**, 추가 **리소스** 를 선택한 다음 **IP 주소** 를 선택 합니다.
 
    ![IP 주소 만들기](./media/availability-group-manually-configure-multiple-regions/20-add-ip-resource.png)
 
@@ -170,7 +171,7 @@ ms.locfileid: "93094458"
 원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용합니다.
 
 1. **개체 탐색기** 에서 주 복제본을 호스트하는 SQL Server의 인스턴스에 연결합니다.
-1. **AlwaysOn 가용성 그룹** , **가용성 그룹** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
+1. **AlwaysOn 가용성 그룹**, **가용성 그룹** 에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
 1. **일반** 페이지의 **가용성 복제본** 에서 DR 사이트의 보조 복제본을 **동기 커밋** 가용성 모드 및 **자동** 장애 조치 모드를 사용하도록 설정합니다.
 1. 보조 복제본의 고가용성을 위해 주 복제본과 같은 사이트에 있는 경우 이 복제본을 **비동기 커밋** 및 **수동** 으로 설정합니다.
 1. 확인을 선택합니다.

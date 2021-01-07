@@ -4,12 +4,12 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. �
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 935291c461e275902cb6905c4440fe4d289f0c16
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533738"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653353"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -27,8 +27,6 @@ ms.locfileid: "94533738"
 다음 표는 각 런타임 버전에서 현재 지원되는 프로그래밍 언어를 나타냅니다.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
-
-자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>특정 버전에서 실행
 
@@ -118,7 +116,7 @@ Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니�
 ##### <a name="version-1x"></a>버전 1.x
 
 ```xml
-<TargetFramework>net461</TargetFramework>
+<TargetFramework>net472</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 

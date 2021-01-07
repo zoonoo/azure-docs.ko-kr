@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: be38d3e78108a15c9f7875a15156e0eeba5a6211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167762"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533063"
 ---
 # <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "88167762"
 * 합성 음성 끝점은 실시간 일괄 처리 모드가 아닌 음성으로 배포할 필요가 없습니다.
 
 > [!NOTE]
-> 이제 긴 오디오 API는 [공용 신경망](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) 및 [사용자 지정 신경망](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices)을 모두 지원 합니다.
+> 이제 긴 오디오 API는 [공용 신경망](./language-support.md#neural-voices) 및 [사용자 지정 신경망](./how-to-custom-voice.md#custom-neural-voices)을 모두 지원 합니다.
 
 ## <a name="workflow"></a>워크플로
 
@@ -44,7 +44,7 @@ ms.locfileid: "88167762"
 * 일반 텍스트 (.txt) 또는 SSML 텍스트 (.txt) 중 하나입니다.
 * 는 [BOM (바이트 순서 표시)을 사용 하 여 u t f-8](https://www.w3.org/International/questions/qa-utf8-bom.en#bom) 로 인코딩됩니다.
 * 는 zip이 아니라 단일 파일입니다.
-* 일반 텍스트의 경우 400 자 보다 크거나, SSML 텍스트에 대 한 400 [청구 가능 문자](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#pricing-note) 를 포함 하며, 1만 단락 보다 작음
+* 일반 텍스트의 경우 400 자 보다 크거나, SSML 텍스트에 대 한 400 [청구 가능 문자](./text-to-speech.md#pricing-note) 를 포함 하며, 1만 단락 보다 작음
   * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
   * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. [Ssml 부분은](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 다른 단락으로 구분 해야 합니다.
 > [!NOTE]
@@ -107,14 +107,14 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
-**Publicvoice** 매개 변수가 **True**인 경우 음성은 공용 신경망입니다. 그렇지 않으면 사용자 지정 신경망입니다.
+**Publicvoice** 매개 변수가 **True** 인 경우 음성은 공용 신경망입니다. 그렇지 않으면 사용자 지정 신경망입니다.
 
-### <a name="convert-text-to-speech"></a>텍스트를 음성으로 변환
+### <a name="convert-text-to-speech"></a>텍스트 음성 변환
 
 일반 텍스트 또는 SSML 텍스트에서 입력 텍스트 파일을 준비한 후에 다음 코드를 추가 합니다 `voice_synthesis_client.py` .
 
 > [!NOTE]
-> ' concatenateResult '은 선택적 매개 변수입니다. 이 매개 변수를 설정 하지 않으면 오디오 출력이 단락 단위로 생성 됩니다. 매개 변수를 설정 하 여 오디오 된 os를 1 개의 출력으로 연결할 수도 있습니다. 기본적으로 오디오 출력은 riff-16khz-16 비트로 설정 됩니다. 지원 되는 오디오 출력에 대 한 자세한 내용은 [오디오 출력 형식](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats)을 참조 하세요.
+> ' concatenateResult '은 선택적 매개 변수입니다. 이 매개 변수를 설정 하지 않으면 오디오 출력이 단락 단위로 생성 됩니다. 매개 변수를 설정 하 여 오디오 된 os를 1 개의 출력으로 연결할 수도 있습니다. 기본적으로 오디오 출력은 riff-16khz-16 비트로 설정 됩니다. 지원 되는 오디오 출력에 대 한 자세한 내용은 [오디오 출력 형식](#audio-output-formats)을 참조 하세요.
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -278,7 +278,7 @@ ID : xxx , Name : xxx : Succeeded
 |        | 404 | 음성 합성 정의에 선언 된 모델을 찾을 수 없습니다. {modelID}. | {ModelID}가 올바른지 확인 하세요. |
 |        | 429 | 활성 음성 합성 제한을 초과 합니다. 일부 요청이 완료 될 때까지 기다려 주세요. | 서버를 실행 하 고 각 Azure 계정에 대해 최대 120 개의 요청을 큐에 대기 시킬 수 있습니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요. |
 | 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5 개의 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄이십시오. |
-| DELETE    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패**한 요청만 삭제할 수 있습니다. |
+| DELETE    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
 | GetByID   | 404 | 지정 된 엔터티를 찾을 수 없습니다. | 합성 ID가 올바른지 확인 합니다. |
 
 ## <a name="regions-and-endpoints"></a>지역 및 엔드포인트
@@ -287,15 +287,11 @@ ID : xxx , Name : xxx : Succeeded
 
 | 지역 | 엔드포인트 |
 |--------|----------|
-| 오스트레일리아 동부 | `https://australiaeast.customvoice.api.speech.microsoft.com` |
-| 캐나다 중부 | `https://canadacentral.customvoice.api.speech.microsoft.com` |
 | 미국 동부 | `https://eastus.customvoice.api.speech.microsoft.com` |
 | 인도 중부 | `https://centralindia.customvoice.api.speech.microsoft.com` |
-| 미국 중남부 | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | 동남아시아 | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | 영국 남부 | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | 서유럽 | `https://westeurope.customvoice.api.speech.microsoft.com` |
-| 미국 서부 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>오디오 출력 형식
 

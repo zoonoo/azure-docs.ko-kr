@@ -4,16 +4,16 @@ description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181683"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841021"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
-맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 이제 하이브리드 백업을 보호하는 데 도움이 되는 보안 기능을 제공합니다. 이 문서는 Azure Recovery Services 에이전트와 Azure Backup Server를 사용하여 이러한 기능을 활성화하고 사용하는 방법을 다룹니다. 이러한 기능으로는 다음이 포함됩니다.
+맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 이제 하이브리드 백업을 보호하는 데 도움이 되는 보안 기능을 제공합니다. 이 문서는 Azure Recovery Services 에이전트와 Azure Backup Server를 사용하여 이러한 기능을 활성화하고 사용하는 방법을 다룹니다. 이러한 기능은 다음과 같습니다.
 
 - **예방**. 암호 변경과 같은 중요한 작업이 수행될 때마다 추가적인 인증 계층이 제공됩니다. 이 유효성 검사는 유효한 Azure 자격 증명을 가진 사용자만 이러한 작업을 수행할 수 있는지 확인합니다.
 - **경고**. 백업 데이터 삭제와 같은 중요한 작업이 수행될 때마다 구독 관리자에게 전자 메일 알림이 전송됩니다. 이 전자 메일은 사용자에게 이러한 작업을 신속하게 알립니다.
@@ -22,7 +22,7 @@ ms.locfileid: "89181683"
 > [!NOTE]
 > IaaS (infrastructure as a service) VM 백업을 사용 하는 경우 보안 기능을 사용 하도록 설정 해서는 안 됩니다. 이러한 기능은 아직 IaaS VM 백업에 사용할 수 없으므로 사용 하도록 설정 해도 아무런 영향을 주지 않습니다. 다음을 사용 하는 경우에만 보안 기능을 사용 하도록 설정 해야 합니다. <br/>
 >
-> - **에이전트를 Azure Backup**합니다. 최소 에이전트 버전 2.0.9052. 이러한 기능을 사용 하도록 설정한 후에는 중요 한 작업을 수행 하기 위해이 에이전트 버전으로 업그레이드 해야 합니다. <br/>
+> - **에이전트를 Azure Backup** 합니다. 최소 에이전트 버전 2.0.9052. 이러한 기능을 사용 하도록 설정한 후에는 중요 한 작업을 수행 하기 위해이 에이전트 버전으로 업그레이드 해야 합니다. <br/>
 > - **Azure Backup Server**. Azure Backup Server 업데이트 1을 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
 > - **System Center Data Protection Manager**. Data Protection Manager 2012 R2 UR12 또는 Data Protection Manager 2016 UR2를 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
 
@@ -35,23 +35,23 @@ ms.locfileid: "89181683"
 Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능을 사용할 수 있습니다. 기존 자격 증명 모음을 사용 하 여 작업 하는 경우 다음 단계를 수행 하 여 보안 기능을 사용 하도록 설정 합니다.
 
 1. Azure 자격 증명을 사용하여 Azure Portal에 로그인합니다.
-2. **찾아보기**를 선택하고 **Recovery Services**를 입력합니다.
+2. **찾아보기** 를 선택하고 **Recovery Services** 를 입력합니다.
 
     ![Azure Portal의 찾아보기 옵션의 스크린샷](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
     Recovery Services 자격 증명 모음의 목록이 표시됩니다. 이 목록에서 자격 증명 모음을 선택합니다. 선택한 자격 증명 모음 대시보드가 열립니다.
-3. 자격 증명 모음 아래에 표시 되는 항목 목록에서 **설정**아래에 있는 **속성**을 선택 합니다.
+3. 자격 증명 모음 아래에 표시 되는 항목 목록에서 **설정** 아래에 있는 **속성** 을 선택 합니다.
 
     ![Recovery Services 자격 증명 모음 옵션의 스크린샷](./media/backup-azure-security-feature/vault-list-properties.png)
-4. **보안 설정**에서 **업데이트**를 선택 합니다.
+4. **보안 설정** 에서 **업데이트** 를 선택 합니다.
 
     ![Recovery Services 자격 증명 모음 속성의 스크린샷](./media/backup-azure-security-feature/security-settings-update.png)
 
     업데이트 링크를 누르면 기능 요약을 제공 하 고 사용 하도록 설정할 수 있는 **보안 설정** 창이 열립니다.
-5. **Azure Multi-Factor Authentication를 구성 했습니까?** 드롭다운 목록에서 [azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)를 사용 하도록 설정 했는지 확인 하는 값을 선택 합니다. 사용 하도록 설정 된 경우 Azure Portal 로그인 하는 동안 다른 장치 (예: 휴대폰)에서 인증을 요청 하는 메시지가 표시 됩니다.
+5. **AZURE ad Multi-Factor Authentication를 구성** 하 고 드롭다운 목록에서 [azure ad Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)를 사용 하도록 설정 했는지 확인 하는 값을 선택 합니다. 사용 하도록 설정 된 경우 Azure Portal 로그인 하는 동안 다른 장치 (예: 휴대폰)에서 인증을 요청 하는 메시지가 표시 됩니다.
 
-   Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
-6. 보안 설정을 저장 하려면 **사용** 을 선택 하 고 **저장**을 선택 합니다. 이전 단계에서 **Azure Multi-Factor Authentication을 구성했습니까?** 목록에서 값을 선택한 후에만 **사용**을 선택할 수 있습니다.
+   Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure AD Multi-Factor Authentication를 사용 하도록 설정 하면 보안 계층이 추가 됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
+6. 보안 설정을 저장 하려면 **사용** 을 선택 하 고 **저장** 을 선택 합니다. 이전 단계에서 **AZURE AD Multi-Factor Authentication를 구성 했습니까?** 목록에서 값을 선택한 후에만 **사용** 을 선택할 수 있습니다.
 
     ![보안 설정의 스크린샷](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -89,18 +89,18 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
 이 PIN을 받으려면 다음을 수행합니다.
 
 1. Azure Portal에 로그인합니다.
-2. **Recovery Services 자격 증명 모음**  >  **설정**  >  **속성**으로 이동 합니다.
-3. **보안 PIN**아래에서 **생성**을 선택 합니다. 그러면 Azure Recovery Services agent 사용자 인터페이스에 입력 하는 핀이 포함 된 창이 열립니다.
+2. **Recovery Services 자격 증명 모음**  >  **설정**  >  **속성** 으로 이동 합니다.
+3. **보안 PIN** 아래에서 **생성** 을 선택 합니다. 그러면 Azure Recovery Services agent 사용자 인터페이스에 입력 하는 핀이 포함 된 창이 열립니다.
     이 PIN은 5분 동안만 유효하며 해당 시간이 지나면 자동으로 생성됩니다.
 
 ### <a name="maintain-a-minimum-retention-range"></a>최소 보존 범위 유지 관리
 
 항상 사용 가능한 유효한 복구 지점이 존재하도록 하기 위해 다음과 같은 검사가 추가되었습니다.
 
-- 일일 보존의 경우 최소 **7**일 보존이 수행되어야 합니다.
-- 주간 보존의 경우 최소 **4**주 보존이 수행되어야 합니다.
-- 월간 보존의 경우 최소 **3**개월 보존이 수행되어야 합니다.
-- 연간 보존의 경우 최소 **1**년 보존이 수행되어야 합니다.
+- 일일 보존의 경우 최소 **7** 일 보존이 수행되어야 합니다.
+- 주간 보존의 경우 최소 **4** 주 보존이 수행되어야 합니다.
+- 월간 보존의 경우 최소 **3** 개월 보존이 수행되어야 합니다.
+- 연간 보존의 경우 최소 **1** 년 보존이 수행되어야 합니다.
 
 ## <a name="notifications-for-critical-operations"></a>중요한 작업에 대한 알림
 

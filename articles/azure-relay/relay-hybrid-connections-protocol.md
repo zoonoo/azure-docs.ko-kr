@@ -3,12 +3,12 @@ title: Azure 릴레이 하이브리드 연결 프로토콜 가이드 | Microsoft
 description: 이 문서에서는 수신기 또는 발신기 역할의 클라이언트와 연결하기 위해 Hybrid 연결 릴레이를 통한 클라이언트 측 상호 작용을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a812aa401077b81934d89ada99cf1dc312d8dbc
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531448"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862329"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 릴레이 하이브리드 연결 프로토콜
 
@@ -197,7 +197,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | 예      | 소켓을 수락하기 위해 매개 변수는 `sb-hc-action=accept`여야 합니다.
 | `{path}`       | 예      | (다음 단락 참조)
-| `sb-hc-id`     | 아니요       | **ID**에 대한 앞의 설명을 참조하세요.
+| `sb-hc-id`     | 아니요       | **ID** 에 대한 앞의 설명을 참조하세요.
 
 `{path}`는 이 수신기를 등록할 미리 구성된 하이브리드 연결에 대한 URL로 인코드된 네임스페이스 경로입니다. 이 식은 고정 `$hc/` 경로 부분에 추가됩니다.
 
@@ -208,7 +208,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 
 오류가 없으면 서비스는 다음과 같이 회신할 수 있습니다.
 
-| 코드 | Error          | 설명
+| 코드 | Error          | Description
 | ---- | -------------- | -----------------------------------
 | 403  | 사용할 수 없음      | URL이 올바르지 않습니다.
 | 500  | 내부 오류 | 서비스에 오류가 발생함
@@ -230,7 +230,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 
  소켓을 거부하기 위해 클라이언트는 `accept` 메시지에서 주소 URI을 가져와서 여기에 두 개의 쿼리 문자열 매개 변수를 다음과 같이 추가합니다.
 
-| 매개 변수                   | 필수 | 설명                              |
+| 매개 변수                   | 필수 | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
 | sb-hc-statusCode        | 예      | 숫자 HTTP 상태 코드                |
 | sb-hc-statusDescription | 예      | 거부 이유를 읽을 수 있는 사람 |
@@ -239,7 +239,7 @@ URL은 수락 소켓을 설정하는 데 현재 상태로 사용되어야 하지
 
 올바르게 완료한 경우 이 핸드셰이크는 WebSocket이 설정되지 않았기 때문에 HTTP 오류 코드 410과 함께 의도적으로 실패합니다. 문제가 발생하는 경우 다음 코드를 통해 오류를 설명합니다.
 
-| 코드 | Error          | 설명                          |
+| 코드 | Error          | Description                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | 사용할 수 없음      | URL이 올바르지 않습니다.                |
 | 500  | 내부 오류 | 서비스에 오류가 발생했습니다. |
@@ -371,7 +371,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 오류가 없으면 서비스는 다음과 같이 회신할 수 있습니다.
 
-| 코드 | Error           | 설명
+| 코드 | Error           | Description
 | ---- | --------------- | -----------------------------------
 | 400  | 잘못된 요청 | 동작을 인식할 수 없거나 URL이 유효하지 않습니다.
 | 403  | 사용할 수 없음       | URL이 만료되었습니다.
@@ -404,7 +404,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 토큰 유효성 검사에 실패하면 액세스가 거부되고, 클라우드 서비스가 오류와 함께 컨트롤 채널 WebSocket을 닫습니다. 그렇지 않으면 회신이 없습니다.
 
-| WS 상태 | 설명                                                                     |
+| WS 상태 | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
 | 1008      | 보안 토큰이 만료되어 권한 부여 정책을 위반했습니다. |
 
@@ -414,10 +414,10 @@ FEFEFEFEFEFEFEFEFEFEF...
 목표는 엔드투엔드 WebSocket에 대한 투명도를 최대화하는 것입니다. 연결할 주소는 수신기의 경우와 동일하지만 "작업"이 다르며 토큰에는 다음과 같이 다른 권한이 필요합니다.
 
 ```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sbc-hc-token=...
+wss://{namespace-address}/$hc/{path}?sb-hc-action=...&sb-hc-id=...&sb-hc-token=...
 ```
 
-_namespace-address_는 하이브리드 연결을 호스팅하는 Azure 릴레이 네임스페이스의 정규화된 도메인 이름으로, 일반적인 형태는 `{myname}.servicebus.windows.net`입니다.
+_namespace-address_ 는 하이브리드 연결을 호스팅하는 Azure 릴레이 네임스페이스의 정규화된 도메인 이름으로, 일반적인 형태는 `{myname}.servicebus.windows.net`입니다.
 
 요청에 애플리케이션 정의 헤더를 비롯한 임의의 추가 HTTP 헤더를 포함할 수 있습니다. 제공된 모든 헤더는 수신기로 전달되고 **수락** 제어 메시지의 `connectHeader` 개체에서 확인할 수 있습니다.
 
@@ -433,7 +433,7 @@ _namespace-address_는 하이브리드 연결을 호스팅하는 Azure 릴레이
  `{path}`은 이 수신기를 등록하기 위해 미리 구성된 하이브리드 연결의 URL 인코딩 네임스페이스 경로입니다. 추가 통신을 위해 `path` 식을 접미사 및 쿼리 문자열 식으로 확장할 수 있습니다. 하이브리드 연결이 `hyco` 경로 아래에 등록된 경우 `path` 식은 `hyco/suffix?param=value&...`와 여기서 정의한 쿼리 문자열 매개 변수일 수 있습니다. 그러면 전체 식은 다음과 같을 수 있습니다.
 
 ```
-wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
+wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sb-hc-token=...
 ```
 
 `path` 식은 "허용" 제어 메시지에 포함된 주소 URI의 수신기에 전달됩니다.
@@ -449,7 +449,7 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 처음 설정한 이후 WebSocket 연결이 서비스에 의해 의도적으로 종료된 경우, 설명 및 추적 ID를 포함하는 오류 메시지와 함께 적절한 WebSocket 프로토콜 오류 코드를 사용하여 종료 이유가 전달됩니다.
 
-| WS 상태 | 설명
+| WS 상태 | Description
 | --------- | ------------------------------------------------------------------------------- 
 | 1000      | 수신기는 소켓을 종료합니다.
 | 1001      | 하이브리드 연결 경로가 삭제되었거나 사용되지 않았습니다.
@@ -462,16 +462,16 @@ HTTP 요청 프로토콜은 프로토콜 업그레이드를 제외한 임의의 
 HTTP 요청은 하이브리드 연결 WebSocket 클라이언트에 사용되는 $ hc 중위 없이 엔터티의 일반 런타임 주소를 가리킵니다.
 
 ```
-https://{namespace-address}/{path}?sbc-hc-token=...
+https://{namespace-address}/{path}?sb-hc-token=...
 ```
 
-_namespace-address_는 하이브리드 연결을 호스팅하는 Azure 릴레이 네임스페이스의 정규화된 도메인 이름으로, 일반적인 형태는 `{myname}.servicebus.windows.net`입니다.
+_namespace-address_ 는 하이브리드 연결을 호스팅하는 Azure 릴레이 네임스페이스의 정규화된 도메인 이름으로, 일반적인 형태는 `{myname}.servicebus.windows.net`입니다.
 
 요청에 애플리케이션 정의 헤더를 비롯한 임의의 추가 HTTP 헤더를 포함할 수 있습니다. RFC7230 ( [요청 메시지](#request-message)참조)에서 직접 정의 된 헤더를 제외 하 고 제공 된 모든 헤더는 수신기로 전달 되 고 `requestHeader` **요청** 메시지의 개체에서 찾을 수 있습니다.
 
 쿼리 문자열 매개 변수 옵션은 다음과 같습니다.
 
-| 매개 변수          | 필수 여부 | 설명
+| 매개 변수          | 필수 여부 | Description
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | 예\*     | 수신기는 네임스페이스 또는 **발신** 권한을 부여하는 하이브리드 연결의 유효한 URL 인코딩 Service Bus 공유 액세스 토큰을 제공해야 합니다.
 

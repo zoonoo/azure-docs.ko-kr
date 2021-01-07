@@ -11,18 +11,18 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73211790557665ddb4cc4d28322a1ff14bc4c76a
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578062"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630720"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
 이 문서에서는 특수 한 사용 사례에 대 한 입력 스크립트를 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 하려는 학습 된 machine learning 모델이 이미 있다고 가정 합니다. 모델 배포에 대해 자세히 알아보려면 [이 자습서](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -40,55 +40,14 @@ ms.locfileid: "94578062"
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 `inference-schema` 종속성 파일에 오픈 소스 패키지 버전 1.1.0을 포함 합니다. 이 패키지에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . 준수 하는 swagger 자동화 웹 서비스 사용을 생성 하기 위해 스크립트 실행 () 함수에는 다음과 같은 API 셰이프가 있어야 합니다.
-* PandasDataframeParameterTypes를 포함 하는 "StandardPythonParameterType" 형식의 첫 번째 매개 변수, 명명 된 입력입니다.
-* 형식이 "StandardPythonParameterType"이 고 중첩 되지 않은 GlobalParameter 라는 선택적인 두 번째 매개 변수입니다.
-* PandasDataFrameParameterTypes를 포함 하는 중첩 된 "StandardPythonParameterType" 형식의 사전을 반환 합니다.
+스키마 생성을 사용 하려면 `inference-schema` 종속성 파일에 오픈 소스 패키지 버전 1.1.0을 포함 합니다. 이 패키지에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . 자동화 된 웹 서비스 사용에 대 한 준수 swagger를 생성 하려면 스크립트 실행 () 함수에 다음의 API 셰이프를 사용 해야 합니다.
+* **입력 및 중첩** 된 "StandardPythonParameterType" 형식의 첫 번째 매개 변수입니다.
+* **Globalparameters** 라고 하는 "StandardPythonParameterType" 형식의 선택적 두 번째 매개 변수입니다.
+* "StandardPythonParameterType" 형식의 사전을 **결과** 와 중첩 된 형식으로 반환 합니다.
+
 `input_sample`및 `output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 `run()` 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
 
 
-
-```python
-#Example: scikit-learn and Swagger
-import json
-import numpy as np
-import os
-from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
-
-
-def init():
-    global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
-    model = joblib.load(model_path)
-
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
-def run(data):
-    try:
-        result = model.predict(data)
-        # You can return any data type, as long as it is JSON serializable.
-        return result.tolist()
-    except Exception as e:
-        error = str(e)
-        return error
-```
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI 호환 끝점 
 
@@ -116,25 +75,34 @@ def init():
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
-# providing 3 sample inputs for schema generation
-numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-standard_sample_input = StandardPythonParameterType(0.0)
 
-# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+    # providing 3 sample inputs for schema generation
+    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+    standard_sample_input = StandardPythonParameterType(0.0)
+
+    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
                                             'input2': pandas_sample_input, 
                                             'input3': standard_sample_input})
 
-sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
-sample_output = StandardPythonParameterType([1.0, 1.0])
+    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+    sample_output = StandardPythonParameterType([1.0, 1.0])
+    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-@input_schema('inputs', sample_input)
-@input_schema('global_parameters', sample_global_parameters) #this is optional
-@output_schema(sample_output)
-def run(inputs, global_parameters):
+    @input_schema('Inputs', sample_input) 
+    # 'Inputs' is case sensitive
+    
+    @input_schema('GlobalParameters', sample_global_parameters) 
+    # this is optional, 'GlobalParameters' is case sensitive
+
+    @output_schema(outputs)
+
+def run(Inputs, GlobalParameters): 
+    # the parameters here have to match those in decorator, both 'Inputs' and 
+    # 'GlobalParameters' here are case sensitive
     try:
-        data = inputs['input1']
+        data = Inputs['input1']
         # data will be convert to target format
         assert isinstance(data, np.ndarray)
         result = model.predict(data)
@@ -154,30 +122,34 @@ def run(inputs, global_parameters):
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+from PIL import Image
+import json
 
 
 def init():
     print("This is init()")
-
+    
 
 @rawhttp
 def run(request):
     print("This is run()")
-    print("Request: [{0}]".format(request))
+    
     if request.method == 'GET':
         # For this example, just return the URL for GETs.
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
-        reqBody = request.get_data(False)
+        file_bytes = request.files["image"]
+        image = Image.open(file_bytes).convert('RGB')
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
 
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
+        # For demonstration purposes, this example just returns the size of the image as the response..
+        return AMLResponse(json.dumps(image.size), 200)
     else:
         return AMLResponse("bad request", 500)
 ```
+
 
 > [!IMPORTANT]
 > `AMLRequest` 클래스가 `azureml.contrib` 네임스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
@@ -192,10 +164,13 @@ def run(request):
 
 ```python
 import requests
-# Load image data
-data = open('example.jpg', 'rb').read()
-# Post raw data to scoring URI
-res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+
+uri = service.scoring_uri
+image_path = 'test.jpg'
+files = {'image': open(image_path, 'rb').read()}
+response = requests.post(url, files=files)
+
+print(response.json)
 ```
 
 <a id="cors"></a>
@@ -211,6 +186,7 @@ CORS를 지원 하도록 모델 배포를 구성 하려면 `AMLResponse` 항목 
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")

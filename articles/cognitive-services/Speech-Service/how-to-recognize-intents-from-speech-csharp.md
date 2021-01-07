@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a3adf00203e317be912e3e72de7a3f7ca666c6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918794"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "96001105"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>C 용 Speech SDK를 사용 하 여 음성에서 의도를 인식 하는 방법 #
 
-Cognitive Services [Speech SDK](speech-sdk.md)는 [LUIS(Language Understanding) 서비스](https://www.luis.ai/home)와 통합되어 **의도를 인식**합니다. 의도란 항공권 예약, 날씨 확인, 호출 등 사용자가 수행하려는 것을 말합니다. 사용자는 편한 용어를 사용할 수 있습니다. 기계 학습을 사용하면 LUIS는 사용자 요청을 개발자가 정의한 의도에 매핑합니다.
+Cognitive Services [Speech SDK](speech-sdk.md)는 [LUIS(Language Understanding) 서비스](https://www.luis.ai/home)와 통합되어 **의도를 인식** 합니다. 의도란 항공권 예약, 날씨 확인, 호출 등 사용자가 수행하려는 것을 말합니다. 사용자는 편한 용어를 사용할 수 있습니다. 기계 학습을 사용하면 LUIS는 사용자 요청을 개발자가 정의한 의도에 매핑합니다.
 
 > [!NOTE]
 > LUIS 애플리케이션은 인식할 의도와 엔터티를 정의합니다. 음성 서비스를 사용하는 C# 애플리케이션과는 다릅니다. 이 문서에서 "앱"은 LUIS 앱을 의미하고, "애플리케이션"은 C# 코드를 의미합니다.
@@ -36,7 +36,7 @@ Cognitive Services [Speech SDK](speech-sdk.md)는 [LUIS(Language Understanding) 
 > - 파일에서 음성 인식
 > - 비동기, 이벤트 중심 연속 인식 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 가이드를 시작 하기 전에 다음 항목이 있어야 합니다.
 
@@ -55,22 +55,22 @@ LUIS는 다음과 같은 세 가지 종류의 키를 사용합니다.
 | Starter   | 텍스트만 사용하여 LUIS 애플리케이션을 테스트할 수 있습니다.   |
 | 엔드포인트  | 특정 LUIS 앱에 대한 액세스 권한 부여            |
 
-이 가이드에서는 끝점 키 형식이 필요 합니다. 이 가이드에서는 미리 작성 된 [홈 자동화 앱 사용](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 빠른 시작을 수행 하 여 만들 수 있는 HOME automation LUIS app 예제를 사용 합니다. LUIS 앱을 직접 만든 경우 그 앱을 사용해도 됩니다.
+이 가이드에서는 끝점 키 형식이 필요 합니다. 이 가이드에서는 미리 작성 된 [홈 자동화 앱 사용](../luis/luis-get-started-create-app.md) 빠른 시작을 수행 하 여 만들 수 있는 HOME automation LUIS app 예제를 사용 합니다. LUIS 앱을 직접 만든 경우 그 앱을 사용해도 됩니다.
 
 LUIS 앱을 만들 때 LUIS에서 텍스트 쿼리를 사용하여 앱을 테스트할 수 있도록 시작 키가 자동으로 생성됩니다. 이 키는 음성 서비스 통합을 사용 하지 않으며이 가이드에서는 작동 하지 않습니다. Azure 대시보드에서 LUIS 리소스를 만들고 LUIS 앱에 할당합니다. 이 가이드의 무료 구독 계층을 사용할 수 있습니다.
 
-Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https://www.luis.ai/home)에 로그인하고, **내 앱** 페이지에서 애플리케이션을 선택한 다음, 앱의 **관리** 페이지로 전환합니다. 마지막으로, 사이드바에서 **키 및 엔드포인트**를 선택합니다.
+Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https://www.luis.ai/home)에 로그인하고, **내 앱** 페이지에서 애플리케이션을 선택한 다음, 앱의 **관리** 페이지로 전환합니다. 마지막으로, 사이드바에서 **키 및 엔드포인트** 를 선택합니다.
 
 ![LUIS 포털 키 및 엔드포인트 설정](media/sdk/luis-keys-endpoints-page.png)
 
 **키 및 엔드포인트 설정** 페이지에서
 
-1. **리소스 및 키** 섹션이 나올 때까지 아래로 스크롤한 후 **리소스 할당**을 선택합니다.
+1. **리소스 및 키** 섹션이 나올 때까지 아래로 스크롤한 후 **리소스 할당** 을 선택합니다.
 1. **앱에 키 할당** 대화 상자에서 다음과 같이 변경합니다.
 
-   - **테넌트**에서 **Microsoft**를 선택합니다.
-   - **구독 이름**에서 사용하려는 LUIS 리소스가 포함된 Azure 구독을 선택합니다.
-   - **키**에서 앱에 사용하려는 LUIS 리소스를 선택합니다.
+   - **테넌트** 에서 **Microsoft** 를 선택합니다.
+   - **구독 이름** 에서 사용하려는 LUIS 리소스가 포함된 Azure 구독을 선택합니다.
+   - **키** 에서 앱에 사용하려는 LUIS 리소스를 선택합니다.
 
    잠시 후 페이지 아래쪽의 표에 새 구독이 나타납니다.
 
@@ -86,7 +86,7 @@ Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https:
 
 다음으로, 프로젝트에 코드를 추가합니다.
 
-1. **솔루션 탐색기**에서 **Program.cs** 파일을 엽니다.
+1. **솔루션 탐색기** 에서 **Program.cs** 파일을 엽니다.
 
 1. 파일 시작 부분의 `using` 문 블록을 다음 선언으로 바꿉니다.
 
@@ -117,7 +117,7 @@ Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https:
 
 1. 이 메서드의 자리 표시자를 다음과 같이 LUIS 구독 키, 지역 및 앱 ID로 바꿉니다.
 
-   | 자리표시자 | 다음 항목으로 교체 |
+   | 자리 표시자 | 다음 항목으로 교체 |
    | ----------- | ------------ |
    | `YourLanguageUnderstandingSubscriptionKey` | LUIS 엔드포인트 키 다시, “시작 키”가 아닌 Azure 대시보드에서 이 항목을 가져와야 합니다. [LUIS 포털](https://www.luis.ai/home)의 **관리** 아래에 있는 앱의 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다. |
    | `YourLanguageUnderstandingServiceRegion` | LUIS 구독이 있는 지역의 짧은 식별자(예: 미국 서부를 의미하는 `westus`). [지역](regions.md)을 참조하세요. |
@@ -201,4 +201,4 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 마이크에서 음성 인식](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [빠른 시작: 마이크에서 음성 인식](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore)

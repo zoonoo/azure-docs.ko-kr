@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
-ms.openlocfilehash: 19a0446cc0e69b860d6238ef7d7823cfa0afbb7c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/09/2020
+ms.openlocfilehash: 172ebb5f5b7896b6b642c1fe6c5d01afb1dbf479
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636224"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553610"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 
@@ -110,7 +110,7 @@ ms.locfileid: "92636224"
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory** 를 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -178,7 +178,7 @@ ms.locfileid: "92636224"
 
     d. **인증 유형** 아래에서 Data Factory가 SQL Server 데이터베이스에 연결하는 데 사용해야 하는 적절한 인증 유형을 선택합니다.
 
-    e. **사용자 이름** 및 **암호** 아래에서 사용자 이름과 암호를 입력합니다. 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser* 를 사용합니다.
+    e. **사용자 이름** 및 **암호** 아래에서 사용자 이름과 암호를 입력합니다. 필요한 경우 *mydomain\\myuser* 를 사용자 이름으로 사용합니다.
 
     f. **연결 테스트** 를 클릭합니다. 이 단계는 사용자가 만든 자체 호스팅 통합 런타임을 사용하여 Data Factory에서 SQL Server 데이터베이스에 연결할 수 있는지 확인합니다.
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 3b2fc1ea37b09f6e4813d2a3c2333bc6d744293d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 08c5b5d8351105744f7a912b352a940df3b4baa7
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491497"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462137"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 목록 가이드라인
 
@@ -40,7 +40,7 @@ ms.locfileid: "94491497"
 
 | 아니요. | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
-|  | 상태 나열 (목록 옵션) | 링크를 클릭하면 고객 주도 *평가판* 체험으로 이동합니다. | 다른 나열 옵션 (예: *지금 구매* )도 사용할 수 있습니다. | 
+|  | 상태 나열 (목록 옵션) | 링크를 클릭하면 고객 주도 *평가판* 체험으로 이동합니다. | 다른 나열 옵션 (예: *지금 구매*)도 사용할 수 있습니다. | 
 |||
 
 ## <a name="saas-application-requirements"></a>SaaS 애플리케이션 요구 사항
@@ -48,7 +48,7 @@ ms.locfileid: "94491497"
 | 아니요. | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 | 
 |:--- |:--- |:--- |:--- |
 | 1 | 제품 이름 |<ul><li>소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. 게시된 후에는 제목을 수정할 수 없습니다.</li><li>솔루션 제품에 대해 설명합니다.</li><li>파트너 웹 사이트의 솔루션 온라인 프로모션을 찾습니다. | 주요 검색어를 포함합니다. |
-| 2 | 기술 정보: 구성 |<ul><li>SaaS(Software as a Service) 앱의 경우 앱만 표시하거나 고객이 Azure를 통해 앱을 구매할 수 있도록 할지를 선택합니다.</li><li>제품 획득 단추에 표시할 적절한 텍스트로 *체험판* , *평가판* 또는 *연락처* 등을 선택합니다.</li><li>앱이 Cortana Intelligence, Power BI 솔루션 템플릿, Power Apps 기술을 활용하는 경우에만 팝업 상자에서 해당 제품 중 하나를 선택합니다. |  |
+| 2 | 기술 정보: 구성 |<ul><li>SaaS(Software as a Service) 앱의 경우 앱만 표시하거나 고객이 Azure를 통해 앱을 구매할 수 있도록 할지를 선택합니다.</li><li>제품 획득 단추에 표시할 적절한 텍스트로 *체험판*, *평가판* 또는 *연락처* 등을 선택합니다.</li><li>앱이 Cortana Intelligence, Power BI 솔루션 템플릿, Power Apps 기술을 활용하는 경우에만 팝업 상자에서 해당 제품 중 하나를 선택합니다. |  |
 | 3 | 시험 사용 | *예* 또는 *아니요* 를 선택합니다. | 고객이 다음 단계를 쉽게 이해할 수 있습니다. <ol><li>평가판 사용</li><li>지금 구입</li><li>메일 또는 전화 번호를 통해 연락하여 POC, 평가 또는 브리핑 준비</li></ol> |
 | 4 | 온라인 스토어 세부 정보: 제안 요약 | 앱의 검색 페이지에 최대 100자까지 표시됩니다. | |
 | 5 | 온라인 스토어 세부 정보: 산업 | 산업(최대 2개): 앱이 가장 일치하고 적용 가능한 산업을 선택합니다. | |
@@ -74,7 +74,7 @@ ms.locfileid: "94491497"
 
 | 아니요. | 목록 요소 | 기본 요구 사항 | 최적 요구 사항 |
 |:--- |:--- |:--- |:--- |
-| 1 | 제품 이름  |  서비스 유형 및 지속 기간을 *이름: 기간 유형* (예: "제품 참여: 1-Week Proof-of-Concept") 형식으로 명확하게 나열합니다.  | <ul><li>게시자 이름을 반복하지 않습니다.</li><li>설명에서 이미 사용 가능한 이름 스타일을 미러링합니다. 자세한 이름을 사용하지 않습니다. | 
+| 1 | 제품 이름  |  서비스 유형 및 지속 기간을 *이름: 기간 유형*(예: "제품 참여: 1-Week Proof-of-Concept") 형식으로 명확하게 나열합니다.  | <ul><li>게시자 이름을 반복하지 않습니다.</li><li>설명에서 이미 사용 가능한 이름 스타일을 미러링합니다. 자세한 이름을 사용하지 않습니다. | 
 | 2 | 제품 설명  |<ul><li>[Microsoft 제품 이름](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)이 적절히 사용되는지 확인합니다.</li><li>*가격: 예상* 으로 표시된 제품의 맨 위 또는 맨 아래에 가변성(클라이언트 방문, 마이그레이션되는 서버 수 등)을 설명하는 메모가 있어야 합니다.</li><li>각 제품 유형에 다음과 같은 설명 요구 사항이 있습니다. <ul><li>브리핑에는 다룰 토픽에 대한 정보를 포함하는 4~5개 이상의 글머리 기호가 필요합니다.</li><li>모든 워크샵에 어젠더가 필요합니다.</li><li>워크샵의 지속 기간에 따라 모든 어젠더가 일별 또는 주별로 분석되어야 합니다.</li><li>평가, POC, 비교육 워크샵, 구현 제품에 결과물이 필요합니다.</li><li>교육 워크샵에는 결과물이 필요하지 않지만 다루는 토픽을 포함하는 자세한 어젠더가 필요합니다.</li></ul></ul> | <ul><li>모든 제품에 어젠더 및 결과물이 있습니다.</li><li>제품의 최상위 섹션에 서비스를 제공하는 회사에 대한 컨텍스트 단락이 포함됩니다.</li><li>제품의 최상위 섹션에 서비스 자체의 가치에 대한 단락이 포함됩니다. |
 | 3 | Markdown 서식  | 모든 제품은 HTML로 변환 시 올바르게 렌더링되도록 Markdown 서식을 사용해야 합니다.  |  |
 | 4 | 범주 및 산업 | 범주는 관련이 없습니다. |  | 
@@ -93,5 +93,5 @@ ms.locfileid: "94491497"
 * Azure Marketplace의 다양한 제품 유형에 대해 알아보세요.
   * [SaaS 앱](./plan-saas-offer.md)
   * [컨테이너](./marketplace-containers.md)
-  * [컨설팅 서비스](./consulting-services.md)
+  * [컨설팅 서비스](./plan-consulting-service-offer.md)
 * [게시 옵션 확인](./determine-your-listing-type.md)

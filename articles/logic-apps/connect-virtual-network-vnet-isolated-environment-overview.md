@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616929"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996324"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -117,7 +117,7 @@ ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하
 > [!IMPORTANT]
 > ISE를 만드는 동안에만 액세스 끝점을 선택할 수 있으며 나중에이 옵션을 변경할 수 없습니다.
 
-* **내부** : 개인 끝점은 *가상 네트워크 내부 에서만* 논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 합니다.
+* **내부**: 개인 끝점은 *가상 네트워크 내부 에서만* 논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 ISE에서 논리 앱에 대 한 호출을 허용 합니다.
 
   > [!IMPORTANT]
   > 이러한 webhook 기반 트리거를 사용 해야 하는 경우 ISE를 만들 때 내부 끝점이 *아닌* 외부 끝점을 사용 합니다.
@@ -134,7 +134,7 @@ ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하
   >
   > 예를 들어 클라이언트 컴퓨터는 ISE의 가상 네트워크 내에 있거나 피어 링 또는 가상 사설망을 통해 ISE의 가상 네트워크에 연결 된 가상 네트워크 내부에 있을 수 있습니다. 
 
-* **외부** : 공용 끝점은 ISE에서 논리 앱에 대 한 호출을 허용 하며, *가상 네트워크 외부에서* 논리 앱 실행 기록의 입력 및 출력을 보고 액세스할 수 있습니다. NSGs (네트워크 보안 그룹)를 사용 하는 경우 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 인바운드 규칙으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [ISE에 대 한 액세스 사용](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)을 참조 하세요.
+* **외부**: 공용 끝점은 ISE에서 논리 앱에 대 한 호출을 허용 하며, *가상 네트워크 외부에서* 논리 앱 실행 기록의 입력 및 출력을 보고 액세스할 수 있습니다. NSGs (네트워크 보안 그룹)를 사용 하는 경우 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 인바운드 규칙으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [ISE에 대 한 액세스 사용](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)을 참조 하세요.
 
 ISE가 내부 또는 외부 액세스 끝점을 사용 하는지 확인 하려면 ISE의 메뉴에서 **설정** 아래에 있는 **속성** 을 선택 하 고 **액세스 끝점** 속성을 찾습니다.
 

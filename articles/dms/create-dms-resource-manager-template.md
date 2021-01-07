@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a9c68bca4d50af734a0a2cd8a91c7e46d9b56ff1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88661183"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963218"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database Migration Service의 인스턴스 만들기
 
@@ -55,7 +55,7 @@ Azure Database Migration Service ARM 템플릿에는 다음이 필요합니다.
 2. 다음 값을 선택하거나 입력합니다.
 
     * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: 드롭다운에서 기존 리소스 그룹을 선택하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다. 
+    * **리소스 그룹**: 드롭다운에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하여 새 리소스 그룹을 만듭니다. 
     * **지역**: 리소스가 배포될 위치입니다.
     * **서비스 이름**: 새 마이그레이션 서비스의 이름입니다.
     * **위치**: 리소스 그룹의 위치를 `[resourceGroup().location]`의 기본값으로 둡니다.
@@ -64,7 +64,7 @@ Azure Database Migration Service ARM 템플릿에는 다음이 필요합니다.
 
 
 
-3. **검토 + 만들기**를 선택합니다. Azure Database Migration Service의 인스턴스가 성공적으로 배포되면 알림이 표시됩니다. 
+3. **검토 + 만들기** 를 선택합니다. Azure Database Migration Service의 인스턴스가 성공적으로 배포되면 알림이 표시됩니다. 
 
 
 Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.
@@ -109,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ 자습서: 첫 번째 ARM 템플릿 만들기 및 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Azure Database Migration Service를 배포하는 다른 방법은 다음을 참조하세요. 
 - [Azure Portal](quickstart-create-data-migration-service-portal.md)

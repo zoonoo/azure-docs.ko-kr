@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816238"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964714"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -21,7 +21,7 @@ ms.locfileid: "88816238"
 
 ### <a name="which-azure-regions-are-supported"></a>지원 되는 Azure 지역은 무엇 인가요?
 
-Azure Red Hat OpenShift 4.x에 대해 지원 되는 지역 목록은 [사용 가능한 지역](https://docs.openshift.com/aro/4/welcome/index.html#available-regions)을 참조 하세요.
+Azure Red Hat OpenShift 4.x에 대해 지원 되는 지역 목록은 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all)을 참조 하세요.
 
 Azure Red Hat OpenShift 3.11에 대해 지원 되는 지역 목록은 [지역별 사용 가능한 제품](supported-resources.md#azure-regions)을 참조 하세요.
 
@@ -186,13 +186,13 @@ oc adm policy \
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>마스터/인프라/앱 노드에 사용할 수 있는 UNIX 권한 (IaaS)은 무엇 인가요?
 
-4.x 클러스터의 경우 클러스터 관리자 역할을 통해 노드 액세스를 사용할 수 있습니다. 자세한 내용은 [RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
+4.x 클러스터의 경우 클러스터 관리자 역할을 통해 노드 액세스를 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
 
 3.11 클러스터의 경우 노드 액세스는 사용할 수 없습니다.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>어떤 OCP 권한이 있나요? 클러스터 관리자 인가요? 프로젝트 관리자 인가요?
 
-4.x 클러스터의 경우 클러스터 관리자 역할을 사용할 수 있습니다. 자세한 내용은 [RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
+4.x 클러스터의 경우 클러스터 관리자 역할을 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
 
 3.11 클러스터는 [클러스터 관리 개요](https://docs.openshift.com/aro/admin_guide/index.html) 에서 자세한 내용을 참조 하세요.
 

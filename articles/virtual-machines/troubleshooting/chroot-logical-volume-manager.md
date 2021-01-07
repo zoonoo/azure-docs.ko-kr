@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
 ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167919"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96002700"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -29,7 +29,7 @@ ms.locfileid: "92167919"
 
 영향을 받는 VM의 스냅숏을 만듭니다. 
 
-그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을**만드는 방법 [에 대 한 지침을](../linux/snapshot-copy-managed-disk.md#use-azure-portal) 따르세요.
+그러면 스냅숏이 **복구** VM에 연결 됩니다. **스냅숏을** 만드는 방법 [에 대 한 지침을](../linux/snapshot-copy-managed-disk.md#use-azure-portal) 따르세요.
 
 ## <a name="create-a-rescue-vm"></a>복구 VM 만들기
 일반적으로 동일한 운영 체제 버전 또는 유사한 운영 체제 버전의 복구 VM을 권장 합니다. 영향을 받는 VM의 동일한 **지역** 및 **리소스 그룹** 사용
@@ -65,9 +65,9 @@ Azure Portal- **> VM >** **디스크** 를 선택 합니다.
 
 ![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
-는 **\*** 부팅 파티션을 나타내며 두 파티션이 모두 탑재 됩니다.
+* *\** _는 부팅 파티션을 나타내며 두 파티션이 모두 탑재 됩니다.
 
-**Lsblk** 명령을 실행 하 여 영향을 받는 Vm의 lvms을 확인 합니다.
+_ *Lsblk** 명령을 실행 하 여 영향을 받는 Vm의 lvms을 확인 합니다.
 
 `lsblk`
 
@@ -75,7 +75,7 @@ Azure Portal- **> VM >** **디스크** 를 선택 합니다.
 
 
 영향을 받는 VM의 LVMs이 표시 되는지 확인 합니다.
-그렇지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정 하 고 **lsblk**를 다시 실행 합니다.
+그렇지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정 하 고 **lsblk** 를 다시 실행 합니다.
 계속 하기 전에 연결 된 디스크의 LVMs이 표시 되는지 확인 합니다.
 
 ```

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: ef09ef7d2ca6dd68def732831f9341dcd3aa6d62
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 284ec65955de60f41d7bb0f97bf608faba3d4b79
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458084"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>자습서: AnswerHub와 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ AnswerHub와 Azure AD의 통합을 설정하려면 갤러리의 AnswerHub를 관
 
 4. 검색 상자에 **AnswerHub** 를 입력합니다. 결과 목록에서 **AnswerHub** 를 선택한 다음, **추가** 를 선택합니다.
 
-     ![결과 목록의 AnswerHub](common/search-new-app.png)
+    ![결과 목록의 AnswerHub](common/search-new-app.png)
 
 ## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 설정 및 테스트
 
@@ -141,13 +141,13 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 4. **IDP 구성** 탭에서 다음 단계를 완료합니다.
 
     ![스크린샷은 사용자 및 그룹 탭이 선택된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785172.png "SAML 설정")  
-  
+
     a. **IDP 로그인 URL** 상자에 Azure Portal에서 복사한 **로그인 URL** 을 붙여넣습니다.
-  
+
     b. **IDP 로그아웃 URL** 상자에 Azure Portal에서 복사한 **로그아웃 URL** 을 붙여넣습니다.
 
     다. Azure Portal의 **사용자 특성** 섹션에서 선택한 **식별자** 값을 **IDP 이름 식별자 형식** 상자에 입력합니다.
-  
+
     d. **키 및 인증서** 를 선택합니다.
 
 5. **키 및 인증서** 섹션에서 다음 단계를 완료합니다.
@@ -155,7 +155,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
     ![키 및 인증서 섹션](./media/answerhub-tutorial/ic785173.png "키 및 인증서")  
 
     a. 메모장의 Azure Portal에서 다운로드한 Base64로 인코딩된 인증서를 열고 콘텐츠를 복사한 다음, **IDP 공유 키(x509 형식)** 상자에 붙여넣습니다.
-  
+
     b. **저장** 을 선택합니다.
 
 6. **IDP 구성** 탭에서 다시 **저장** 을 선택합니다.
@@ -166,7 +166,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 **Azure AD 테스트 사용자를 만들려면:**
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![Azure Active Directory, 사용자, 모든 사용자 선택](common/users.png)
 
@@ -179,7 +179,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
     ![사용자 속성](common/user-properties.png)
 
     a. **이름** 상자에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 상자에 **brittasimon\@<yourcompanydomain.extension>** 을 입력합니다.  
     BrittaSimon@contoso.com)을 입력합니다.
 
@@ -193,7 +193,7 @@ AnswerHub에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이�
 
 **Azure AD 테스트 사용자를 할당하려면:**
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **AnswerHub** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **AnswerHub** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -231,9 +231,9 @@ Azure AD 사용자가 AnswerHub에 로그인하도록 설정하려면 해당 사
 
 4. 왼쪽 창의 **사용자 관리** 섹션에서 **사용자 만들기 또는 가져오기** 를 선택한 다음, **사용자 및 그룹** 을 선택합니다.
 
-   ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785175.png "사용자 및 그룹")
+    ![스크린샷은 사용자 및 그룹 탭이 선택되고 사용자 만들기 또는 가져오기 링크가 호출된 AnswerHub 페이지를 보여줍니다.](./media/answerhub-tutorial/ic785175.png "사용자 및 그룹")
 
-5. 추가하려는 유효한 Azure AD 계정의 **이메일 주소** , **사용자 이름** 및 **암호** 를 적절한 상자에 입력한 다음, **저장** 을 선택합니다.
+5. 추가하려는 유효한 Azure AD 계정의 **이메일 주소**, **사용자 이름** 및 **암호** 를 적절한 상자에 입력한 다음, **저장** 을 선택합니다.
 
 > [!NOTE]
 > 기타 모든 사용자 계정 생성 도구 또는 AnswerHub에서 제공된 API를 사용하여 Azure AD 사용자 계정을 설정할 수 있습니다.

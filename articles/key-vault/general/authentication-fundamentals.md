@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 30c26fcc48b1051944c181c0d24ae9e3c89ce477
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565826"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530921"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 인증 기본 사항
 
@@ -116,8 +116,6 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 �
 * 사용자가 구독, 리소스 그룹 또는 개별 키 자격 증명 모음 수준에서 이러한 역할을 할당할 수 있도록 허용 하 여 Azure RBAC 사용 권한을 대규모로 관리할 수 있습니다. 사용자에 게는 Azure RBAC 할당 범위 내에서 모든 key vault에 대 한 데이터 평면 권한이 있습니다. 이렇게 하면 키 자격 증명 모음 당 사용자/응용 프로그램 마다 개별 액세스 정책 권한을 할당할 필요가 없습니다.
 
 * Azure RBAC 권한은 Privileged Identity Management 또는 PIM과 호환 됩니다. 이를 통해 Key Vault 관리자와 같은 권한 있는 역할에 대 한 just-in-time 액세스 제어를 구성할 수 있습니다. 이는 최상의 보안 방법 이며 주요 자격 증명 모음에 대 한 액세스를 제거 하 여 최소 권한 보안 주체를 따릅니다.
-
-* Azure RBAC 권한은 개체별 세부적인 권한과 호환 되므로 일부 주요 자격 증명 모음 개체에 대 한 작업만 수행 하도록 사용자를 제한할 수 있습니다. 이렇게 하면 여러 응용 프로그램에서 응용 프로그램 간의 액세스를 격리 하면서 단일 키 자격 증명 모음을 공유할 수 있습니다.
 
 Key Vault에 대 한 Azure RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 

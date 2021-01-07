@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
 ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403129"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995100"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -35,25 +35,25 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 �
 
 ## <a name="create-an-activity-log-alert-administrative"></a>활동 로그 경고 만들기 - 관리
 
-1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
+1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
 
-2.  **논리 앱**을 검색하여 선택한 다음, **만들기**를 선택합니다.
+2.  **논리 앱** 을 검색하여 선택한 다음, **만들기** 를 선택합니다.
 
-3.  논리 앱 **이름**을 지정하고 **리소스 그룹** 등을 선택합니다.
+3.  논리 앱 **이름** 을 지정하고 **리소스 그룹** 등을 선택합니다.
 
     ![논리 앱 만들기](media/action-groups-logic-app/create-logic-app-dialog.png "논리 앱 만들기")
 
-4.  **만들기**를 선택하여 논리 앱을 만듭니다. 팝업 메시지가 논리 앱을 만들었음을 나타냅니다. **리소스 시작**을 선택하여 **Logic Apps 디자이너**를 엽니다.
+4.  **만들기** 를 선택하여 논리 앱을 만듭니다. 팝업 메시지가 논리 앱을 만들었음을 나타냅니다. **리소스 시작** 을 선택하여 **Logic Apps 디자이너** 를 엽니다.
 
 5.  트리거 선택: **HTTP 요청을 받은 경우**.
 
     ![논리 앱 트리거](media/action-groups-logic-app/logic-app-triggers.png "논리 앱 트리거")
 
-6.  **편집**을 선택하여 HTTP 요청 트리거를 변경합니다.
+6.  **편집** 을 선택하여 HTTP 요청 트리거를 변경합니다.
 
     ![HTTP 요청 트리거](media/action-groups-logic-app/http-request-trigger-shape.png "HTTP 요청 트리거")
 
-7.  **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+7.  **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
     ![샘플 페이로드 사용](media/action-groups-logic-app/use-sample-payload-button.png "샘플 페이로드 사용")
 
@@ -96,11 +96,11 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 �
         }
     ```
 
-9. **Logic App 디자이너**는 논리 앱에 전송된 요청이 **Content-Type** 헤더를 **application/json**으로 설정해야 함을 사용자에게 알리는 팝업 창을 표시합니다. 팝업 창을 닫습니다. Azure Monitor 경고는 헤더를 설정합니다.
+9. **Logic App 디자이너** 는 논리 앱에 전송된 요청이 **Content-Type** 헤더를 **application/json** 으로 설정해야 함을 사용자에게 알리는 팝업 창을 표시합니다. 팝업 창을 닫습니다. Azure Monitor 경고는 헤더를 설정합니다.
 
     ![Content-type 헤더 설정](media/action-groups-logic-app/content-type-header.png "Content-type 헤더 설정")
 
-10. **+** **새 단계** 를 선택한 다음 **작업 추가**를 선택 합니다.
+10. **+** **새 단계** 를 선택한 다음 **작업 추가** 를 선택 합니다.
 
     ![작업 추가](media/action-groups-logic-app/add-action.png "작업 추가")
 
@@ -108,7 +108,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 �
 
     ![Microsoft 팀 작업](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft 팀 작업")
 
-12. Microsoft Teams 작업을 구성합니다. **Logic Apps Designer** 는 회사 또는 학교 계정에 인증 하 라는 메시지를 표시 합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID**를 선택합니다.
+12. Microsoft Teams 작업을 구성합니다. **Logic Apps Designer** 는 회사 또는 학교 계정에 인증 하 라는 메시지를 표시 합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID** 를 선택합니다.
 
 13. 정적 텍스트와 동적 콘텐츠에서의 참조를 조합 하 여 메시지를 구성 \<fields\> 합니다. 다음 텍스트를 잘라내어 **메시지** 필드에 붙여넣습니다.
 
@@ -122,11 +122,11 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](./action-groups.md)을 �
     그런 다음를 검색 하 여 \<fields\> 동일한 이름의 동적 콘텐츠 태그로 바꿉니다.
 
     > [!NOTE]
-    > **상태**라는 두 개의 동적 필드가 있습니다. 메시지에 이러한 필드를 모두 추가합니다. **activityLog** 속성 모음에서 하나를 사용하고 다른 필드는 삭제합니다. **상태** 필드 위로 커서를 가져가면 다음 스크린샷에 표시된 것과 같이 정규화된 필드 참조가 나타납니다.
+    > **상태** 라는 두 개의 동적 필드가 있습니다. 메시지에 이러한 필드를 모두 추가합니다. **activityLog** 속성 모음에서 하나를 사용하고 다른 필드는 삭제합니다. **상태** 필드 위로 커서를 가져가면 다음 스크린샷에 표시된 것과 같이 정규화된 필드 참조가 나타납니다.
 
     ![Microsoft 팀 작업: 메시지 게시](media/action-groups-logic-app/teams-action-post-message.png "Microsoft 팀 작업: 메시지 게시")
 
-14. **Logic Apps 디자이너** 맨 위에서 **저장**을 선택하여 논리 앱을 저장합니다.
+14. **Logic Apps 디자이너** 맨 위에서 **저장** 을 선택하여 논리 앱을 저장합니다.
 
 15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](./action-groups.md) 를 참조 하 여 새로 만듭니다. 변경 내용은 반드시 저장해야 합니다.
 
@@ -186,7 +186,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 -  9-10단계는 동일합니다.
 -  11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-   1. **+** **새 단계** 를 선택한 다음 **조건 추가를**선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.  버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("0.1.1").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다.   
+   1. **+** **새 단계** 를 선택한 다음 **조건 추가를** 선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.  버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("0.1.1").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
@@ -274,7 +274,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 - 9-10단계는 동일합니다.
 - 11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-  1. **+** **새 단계** 를 선택한 다음 **조건 추가를**선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
+  1. **+** **새 단계** 를 선택한 다음 **조건 추가를** 선택 합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
      - `schemaId == AzureMonitorMetricAlert`
      - `version == "2.0"`
        

@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543239"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005370"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -75,13 +75,13 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
   
     | 필드 | 값 |
     | --- | --- |
-    |Subscription |내게 적합한 구독을 선택합니다.|
+    |구독 |내게 적합한 구독을 선택합니다.|
     |리소스 그룹 |앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.|
     |가상 머신 이름 | 이 가상 머신을 식별하는 이름을 입력합니다. 이 예제에서는 **DNSProxy** 를 사용합니다.|
     |지역 | 앞에서 만든 가상 네트워크와 동일한 지역을 선택합니다.  일부 VM 크기는 일부 지역에서 사용할 수 없습니다.  |
     |가용성 옵션 |  원하는 가용성 수준을 선택합니다.  Azure에서는 애플리케이션 가용성과 복원력을 관리하는 다양한 옵션을 제공합니다.  가용성 영역 또는 가용성 집합에 복제된 VM을 사용하도록 솔루션을 설계하면 데이터 센터 중단 및 유지 관리 이벤트 시 앱과 데이터를 보호할 수 있습니다. 이 예제에서는 **인프라 중복이 필요하지 않습니다** 를 사용합니다. |
     |이미지 | **Ubuntu Server 18.04 LTS** 에 그대로 둡니다. |
-    |인증 유형 | __암호__ 또는 __ssh 공개 키__ : ssh 계정에 대 한 인증 방법입니다. 공개 키를 사용 하는 것이 더 안전 하므로 공개 키를 사용 하는 것이 좋습니다. 이 예제에서는 **암호** 를 사용 합니다.  자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.|
+    |인증 유형 | __암호__ 또는 __ssh 공개 키__: ssh 계정에 대 한 인증 방법입니다. 공개 키를 사용 하는 것이 더 안전 하므로 공개 키를 사용 하는 것이 좋습니다. 이 예제에서는 **암호** 를 사용 합니다.  자세한 내용은 [Linux VM에 대한 SSH 키 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md) 문서를 참조하세요.|
     |사용자 이름 |VM의 관리자 이름을 입력합니다.  이 예제에서는 **sshuser** 를 사용합니다.|
     |암호 또는 SSH 공개 키 | 사용 가능한 필드는 **인증 형식** 에 대한 사용자의 선택에 따라 결정됩니다.  적절한 값을 입력합니다.|
     |공용 인바운드 포트|**선택한 포트 허용** 을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH (22)** 를 선택 합니다.|
@@ -95,7 +95,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     | 필드 | 값 |
     | --- | --- |
     |가상 네트워크 | 이전에 만든 가상 네트워크를 선택합니다.|
-    |서브넷 | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__ .|
+    |서브넷 | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__.|
     |공용 IP | 자동으로 채워진 값을 사용합니다.  |
 
     ![HDInsight 가상 네트워크 설정](./media/connect-on-premises-network/virtual-network-settings.png)
@@ -168,7 +168,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     sudo nano /etc/bind/named.conf.options
     ```
 
-    파일을 저장하려면 __Ctrl+X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 4. SSH 세션에서 다음 명령을 사용합니다.
 
@@ -203,7 +203,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     sudo nano /etc/bind/named.conf.local
     ```
 
-    파일을 저장하려면 __Ctrl+X__ , __Y__ 및 __Enter__ 키를 사용합니다.
+    파일을 저장하려면 __Ctrl+X__, __Y__ 및 __Enter__ 키를 사용합니다.
 
 6. Bind를 시작하려면 다음 명령을 사용합니다.
 

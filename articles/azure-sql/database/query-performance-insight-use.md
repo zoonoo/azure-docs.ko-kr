@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790375"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501263"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database에 대한 Query Performance Insight
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,19 +30,19 @@ Query Performance Insight는 단일 및 풀링된 데이터베이스에 대한 �
 
 ![쿼리](./media/query-performance-insight-use/opening-title.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 가 활성 상태여야 합니다. 기본적으로 Azure SQL Database의 모든 데이터베이스에 대해 자동으로 사용 하도록 설정 됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
 
 > [!NOTE]
 > 포털에서 “쿼리 저장소가 이 데이터베이스에서 올바르게 구성되지 않음” 메시지가 표시되는 경우 [쿼리 저장소 구성 최적화](#optimize-the-query-store-configuration)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Query Performance Insight를 사용 하려면 다음 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 권한이 필요 합니다.
 
-* 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기** , **소유자** , **기여자** , **SQL DB 기여자** 또는 **SQL Server 기여자** 권한이 필요합니다.
-* 쿼리 텍스트를 보려면 **소유자** , **참여자** , **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
+* 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **기여자**, **SQL DB 기여자** 또는 **SQL Server 기여자** 권한이 필요합니다.
+* 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
 
 ## <a name="use-query-performance-insight"></a>Query Performance Insight 사용
 
@@ -238,14 +238,14 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 오류 
 
 보존 정책에는 다음과 같은 두 종류가 있습니다.
 
-* **크기 기반** :이 정책이 **자동** 으로 설정 된 경우 최대 크기에 도달 하면 데이터가 자동으로 정리 됩니다.
-* **시간 기준** : 기본적으로이 정책은 30 일로 설정 됩니다. 쿼리 저장소 공간이 부족하면 30일이 지난 쿼리 정보를 삭제합니다.
+* **크기 기반**:이 정책이 **자동** 으로 설정 된 경우 최대 크기에 도달 하면 데이터가 자동으로 정리 됩니다.
+* **시간 기준**: 기본적으로이 정책은 30 일로 설정 됩니다. 쿼리 저장소 공간이 부족하면 30일이 지난 쿼리 정보를 삭제합니다.
 
 캡처 정책을 다음으로 설정할 수 있습니다.
 
-* **All** : 쿼리 저장소 모든 쿼리를 캡처합니다.
-* **Auto** : 쿼리 저장소는 드물게 발생 하는 쿼리 및 쿼리를 무시 하 고 실행 기간이 중요 하지 않습니다. 실행 횟수, 컴파일 기간 및 런타임 기간에 대한 임계값은 내부적으로 결정됩니다. 기본 옵션입니다.
-* **없음** : 쿼리 저장소 새 쿼리 캡처를 중지 하지만 이미 캡처된 쿼리에 대 한 런타임 통계는 계속 수집 됩니다.
+* **All**: 쿼리 저장소 모든 쿼리를 캡처합니다.
+* **Auto**: 쿼리 저장소는 드물게 발생 하는 쿼리 및 쿼리를 무시 하 고 실행 기간이 중요 하지 않습니다. 실행 횟수, 컴파일 기간 및 런타임 기간에 대한 임계값은 내부적으로 결정됩니다. 기본 옵션입니다.
+* **없음**: 쿼리 저장소 새 쿼리 캡처를 중지 하지만 이미 캡처된 쿼리에 대 한 런타임 통계는 계속 수집 됩니다.
 
 [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 또는 Azure Portal에서 다음 명령을 실행하여 모든 정책은 **자동** 으로, 삭제 정책은 30일로 설정하는 것이 좋습니다. (`YourDB`를 데이터베이스 이름으로 바꿉니다.)
 

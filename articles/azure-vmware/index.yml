@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 10/19/2020
-  ms.openlocfilehash: b72ec69edaae7681cd3310c66bcd209b3eae1a4e
-  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+  ms.date: 11/19/2020
+  ms.openlocfilehash: c460df29183cbf40bee1f539435669121b3ee6ed
+  ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/10/2020
-  ms.locfileid: "94412581"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96608421"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -32,15 +32,17 @@ landingContent:
       url: concepts-storage.md
     - text: 프라이빗 클라우드의 액세스 및 ID
       url: concepts-identity.md
-    - text: 역할 기반 액세스 제어
+    - text: vSphere 역할 기반 액세스 제어
       url: concepts-role-based-access-control.md
+    - text: 프라이빗 클라우드 모니터링 및 복구
+      url: concepts-monitor-repair-private-cloud.md
     - text: 프라이빗 클라우드 업그레이드
       url: concepts-upgrades.md
 - title: 시작
   linkLists:
   - linkListType: deploy
     links:
-    - text: 배포 계획
+    - text: 0- 배포 계획
       url: production-ready-deployment-steps.md
     - text: 1 - Azure VMware Solution 배포
       url: deploy-azure-vmware-solution.md
@@ -122,8 +124,10 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Azure CLI
+      url: /cli/azure/ext/vmware/vmware
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.vmware
+      url: /powershell/module/az.vmware
     - text: FAQ
       url: faq.md
 - title: 문제 해결

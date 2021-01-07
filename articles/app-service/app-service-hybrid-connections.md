@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739764"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825979"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결
 
@@ -94,10 +94,10 @@ App Service 하이브리드 연결은 기본, 표준, 프리미엄 및 격리 �
 
 | 요금제 | 요금제에서 사용 가능한 하이브리드 연결 수 |
 |----|----|
-| 기본 | 플랜당 5개 |
-| Standard | 플랜당 25개 |
+| Basic | 플랜당 5개 |
+| 표준 | 플랜당 25개 |
 | PremiumV2 | 앱당 200개 |
-| Isolated | 앱당 200개 |
+| 격리 | 앱당 200개 |
 
 App Service 계획 UI는 어떤 앱에서 얼마나 많은 하이브리드 연결을 사용하고 있는지 보여줍니다.  
 
@@ -126,7 +126,7 @@ HCM UI를 시작하면 가장 먼저 이 HCM 인스턴스로 구성된 하이브
 HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수행합니다.
 
 1. HCM UI를 시작합니다.
-2. **Configure another Hybrid Connection** (다른 하이브리드 연결 구성)을 클릭합니다.
+2. **Configure another Hybrid Connection**(다른 하이브리드 연결 구성)을 클릭합니다.
 ![새 하이브리드 연결 구성 스크린샷][8]
 
 1. Azure 계정으로 로그인 하 여 구독에 사용할 수 있는 하이브리드 연결을 받으세요. HCM은 계속 해 서 Azure 계정을 사용 하지 않습니다. 

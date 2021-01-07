@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -14,12 +15,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e52925acb099190305e1f0609ac389565336e24b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556508"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359917"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,8 +67,8 @@ SQL Server Vm을 SQL IaaS 에이전트 확장에 등록 한 후에는 SQL Server
    | **구독** |  SQL Server VM이 있는 구독입니다. |
    |**리소스 그룹** | SQL Server VM이 있는 리소스 그룹입니다. | 
    |**장애 조치(failover) 클러스터 이름** | 새 Windows 장애 조치(failover) 클러스터에 사용할 이름입니다. |
-   | **기존 VM 목록** | 가용성 그룹에 참여하고 새 클러스터의 일부로 포함하려는 SQL Server VM입니다. 이러한 값을 쉼표와 공백으로 구분합니다(예: *SQLVM1, SQLVM2* ). |
-   | **SQL Server 버전** : | SQL Server VM의 SQL Server 버전입니다. 드롭다운 목록에서 이를 선택합니다. 현재 SQL Server 2016 및 SQL Server 2017 이미지만 지원됩니다. |
+   | **기존 VM 목록** | 가용성 그룹에 참여하고 새 클러스터의 일부로 포함하려는 SQL Server VM입니다. 이러한 값을 쉼표와 공백으로 구분합니다(예: *SQLVM1, SQLVM2*). |
+   | **SQL Server 버전**: | SQL Server VM의 SQL Server 버전입니다. 드롭다운 목록에서 이를 선택합니다. 현재 SQL Server 2016 및 SQL Server 2017 이미지만 지원됩니다. |
    | **기존 정규화된 도메인 이름** | SQL Server VM이 있는 도메인의 기존 FQDN입니다. |
    | **기존 도메인 계정** | 템플릿 배포 중에 [CNO](/windows-server/failover-clustering/prestage-cluster-adds)가 생성될 때 도메인에 **컴퓨터 개체 만들기** 권한이 있는 기존 도메인 사용자 계정입니다. 예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.| 
    | **도메인 계정 암호** | 이전에 언급한 도메인 사용자 계정의 암호입니다. | 
@@ -123,7 +124,7 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
    | 설정 | 값 |
    | --- | --- |
    | **이름** |부하 분산 장치를 나타내는 텍스트 이름을 입력합니다. 예를 들어 **sqlLB** 를 입력합니다. |
-   | **형식** |**내부** : 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부** : 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
+   | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
    | **가상 네트워크** | SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** | SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
    | **IP 주소 할당** |**정적** |
@@ -163,11 +164,11 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
    |**리소스 그룹** | SQL Server VM 및 가용성 그룹이 있는 리소스 그룹입니다. | 
    |**기존 장애 조치(failover) 클러스터 이름** | SQL Server VM이 연결된 클러스터의 이름입니다. |
    | **기존 SQL 가용성 그룹**| SQL Server VM이 속한 가용성 그룹의 이름입니다. |
-   | **기존 VM 목록** | 이전에 언급한 가용성 그룹에 속한 SQL Server VM의 이름입니다. 이름을 쉼표와 공백으로 구분합니다(예: *SQLVM1, SQLVM2* ). |
+   | **기존 VM 목록** | 이전에 언급한 가용성 그룹에 속한 SQL Server VM의 이름입니다. 이름을 쉼표와 공백으로 구분합니다(예: *SQLVM1, SQLVM2*). |
    | **수신기** | 수신기에 할당하려는 DNS 이름입니다. 기본적으로 이 템플릿은 "aglistener"라는 이름을 지정하지만 변경할 수 있습니다. 이름은 15자를 초과할 수 없습니다. |
    | **수신기 포트** | 수신기에서 사용할 포트입니다. 일반적으로 이 포트의 기본값은 1433입니다. 템플릿에서 지정하는 포트 번호입니다. 그러나 기본 포트가 변경된 경우에는 수신기 포트에서 해당 값을 대신 사용해야 합니다. | 
    | **수신기 IP** | 수신기에서 사용할 IP 주소입니다. 이 주소는 템플릿 배포 중에 생성되므로 아직 사용되지 않은 주소를 제공합니다.  |
-   | **기존 서브넷** | SQL Server VM의 내부 서브넷 이름(예: *default* )입니다. **리소스 그룹** 으로 이동하고, 가상 네트워크를 선택하고, **설정** 창에서 **서브넷** 을 선택하고, **이름** 아래의 값을 복사하여 이 값을 확인할 수 있습니다. |
+   | **기존 서브넷** | SQL Server VM의 내부 서브넷 이름(예: *default*)입니다. **리소스 그룹** 으로 이동하고, 가상 네트워크를 선택하고, **설정** 창에서 **서브넷** 을 선택하고, **이름** 아래의 값을 복사하여 이 값을 확인할 수 있습니다. |
    | **기존 내부 Load Balancer** | 3단계에서 만든 내부 부하 분산 장치의 이름입니다. |
    | **프로브 포트** | 내부 부하 분산 장치에서 사용할 프로브 포트입니다. 템플릿은 기본적으로 59999를 사용하지만 이 값을 변경할 수 있습니다. |
    | &nbsp; | &nbsp; |

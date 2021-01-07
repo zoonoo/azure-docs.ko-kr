@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/24/2017
 ms.author: alkohli
-ms.openlocfilehash: e984531feced2d61332e4c399848c12cd245a34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24bddb47a32a7b8ad4ea659d52c2d5b2730be9ad
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60870709"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000915"
 ---
 # <a name="storsimple-virtual-array-update-06-release-notes"></a>StorSimple 가상 배열 업데이트 0.6 릴리스 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "60870709"
 
 릴리스 정보는 계속 업데이트되며, 해결 방법이 필요한 중대한 문제가 발견되면 해당 내용이 추가됩니다. StorSimple 가상 배열을 배포하기 전에 릴리스 정보에 포함된 정보를 주의 깊게 검토하세요.
 
-업데이트 0.6은 소프트웨어 버전 **10.0.10293.0**에 해당합니다.
+업데이트 0.6은 소프트웨어 버전 **10.0.10293.0** 에 해당합니다.
 
 > [!IMPORTANT]
 > - 업데이트는 작업 중단 업데이트이며 디바이스를 다시 시작합니다. I/O가 진행 중인 경우 디바이스에 가동 중지 시간이 발생합니다. 업데이트를 적용하는 방법에 대한 자세한 내용은 [업데이트 0.6 설치](storsimple-virtual-array-install-update-06.md)를 참조하세요.
@@ -40,7 +40,7 @@ ms.locfileid: "60870709"
 ## <a name="whats-new-in-the-update-06"></a>업데이트 0.6의 새로운 기능
 업데이트 0.6은 중요 업데이트이므로 즉시 배포되어야 합니다. 이 업데이트에는 다음 수정이 포함되어 있습니다. 
 
-- **Windows 보안 수정** - 이 릴리스에는 **Windows 중요 보안 수정**이 있습니다. 보안 문제 및 관련된 수정에 대한 자세한 내용은 다음 보안 업데이트를 검토하세요.
+- **Windows 보안 수정** - 이 릴리스에는 **Windows 중요 보안 수정** 이 있습니다. 보안 문제 및 관련된 수정에 대한 자세한 내용은 다음 보안 업데이트를 검토하세요.
     - [2016년 12월 Windows 8.1 및 Windows Server 2012 R2용 보안 전용 품질 업데이트](https://support.microsoft.com/help/3205400/december-2016-security-only-quality-update-for-windows-8.1-and-windows-server-2012-r2)
     - [2017년 3월 Windows 8.1 및 Windows Server 2012 R2용 보안 전용 품질 업데이트](https://support.microsoft.com/help/4012213/march-2017-security-only-quality-update-for-windows-8-1-and-windows-server-2012-r23)
     - [2017년 5월 9일-KB4019213(보안 전용 업데이트)](https://support.microsoft.com/help/4019213/windows-8-update-kb4019213)
@@ -92,5 +92,4 @@ StorSimple 가상 배열에 [업데이트 0.6 설치](storsimple-virtual-array-i
 * [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](storsimple-ova-update-03-release-notes.md)
 * [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](storsimple-ova-update-01-release-notes.md)
-* [StorSimple 가상 배열 일반 공급 릴리스 정보](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple 가상 배열 일반 공급 릴리스 정보]()

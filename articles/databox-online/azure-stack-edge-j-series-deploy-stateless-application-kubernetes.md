@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890740"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447382"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 상태 비저장 응용 프로그램 배포
 
 이 문서에서는 기존 Kubernetes 클러스터에서 kubectl 명령을 사용 하 여 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다. 또한이 문서에서는 상태 비저장 응용 프로그램에서 pod을 만들고 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `kubectl` 다음을 확인 해야 합니다.
 
 - 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
 
-- Windows PowerShell 5.0 이상이 Windows 클라이언트 시스템에 설치 되어 Azure Stack Edge Pro 장치에 액세스 합니다. 지원 되는 운영 체제를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
+- Windows PowerShell 5.0 이상이 Windows 클라이언트 시스템에 설치 되어 Azure Stack Edge Pro 장치에 액세스 합니다. 지원 되는 운영 체제를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
 
-- Compute는 Azure Stack Edge Pro 장치에서 사용 하도록 설정 됩니다. 계산을 사용 하도록 설정 하려면 장치의 로컬 UI에서 **계산** 페이지로 이동 합니다. 그런 다음 계산에 사용할 네트워크 인터페이스를 선택 합니다. **사용**을 선택합니다. 계산을 사용 하도록 설정 하면 장치에서 해당 네트워크 인터페이스의 가상 스위치가 생성 됩니다. 자세한 내용은 [Azure Stack Edge Pro에서 compute 네트워크 사용](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조 하세요.
+- Compute는 Azure Stack Edge Pro 장치에서 사용 하도록 설정 됩니다. 계산을 사용 하도록 설정 하려면 장치의 로컬 UI에서 **계산** 페이지로 이동 합니다. 그런 다음 계산에 사용할 네트워크 인터페이스를 선택 합니다. **사용** 을 선택합니다. 계산을 사용 하도록 설정 하면 장치에서 해당 네트워크 인터페이스의 가상 스위치가 생성 됩니다. 자세한 내용은 [Azure Stack Edge Pro에서 compute 네트워크 사용](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조 하세요.
 
 - Azure Stack Edge Pro 장치에는 버전 v 1.9 이상 버전을 실행 하는 Kubernetes 클러스터 서버가 있습니다. 자세한 내용은 [Microsoft Azure Stack Edge Pro 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
 

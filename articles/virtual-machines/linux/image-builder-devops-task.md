@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 88bbd83d7ac5b834255c9b4d46d7cef4394f15d3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968670"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499257"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
 
@@ -26,7 +26,7 @@ ms.locfileid: "91968670"
 
 * [' 불안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)으로,이를 통해 최신 업데이트 및 기능을 사용 하 여 고객을 ' 안정적인 ' 작업으로 승격 하기 전에 테스트할 수 있습니다. 보고 된 문제가 없고 원격 분석에서 약 1 주일 후에 문제를 표시 하지 않으면 작업 코드를 ' 안정 '로 승격 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "91968670"
 
 **릴리스 파이프라인**  >  **편집** 선택
 
-사용자 에이전트에서 *+* 추가를 선택 하 여 **이미지 작성기**를 검색 합니다. **추가**를 선택합니다.
+사용자 에이전트에서 *+* 추가를 선택 하 여 **이미지 작성기** 를 검색 합니다. **추가** 를 선택합니다.
 
 다음 태스크 속성을 설정 합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "91968670"
 
 드롭다운 메뉴에서 이미지 작성기를 실행 하는 데 사용할 구독을 선택 합니다. 원본 이미지가 있고 이미지를 배포할 위치와 동일한 구독을 사용 합니다. 구독 또는 리소스 그룹에 대 한 이미지 작성기 참가자 액세스 권한을 부여 해야 합니다.
 
-### <a name="resource-group"></a>Resource Group
+### <a name="resource-group"></a>리소스 그룹
 
 임시 이미지 템플릿 아티팩트가 저장 될 리소스 그룹을 사용 합니다. 템플릿 아티팩트를 만들 때 추가 임시 이미지 작성기 리소스 그룹이 `IT_<DestinationResourceGroup>_<TemplateName>_guid` 만들어집니다. 임시 리소스 그룹은 스크립트와 같은 이미지 메타 데이터를 저장 합니다. 작업이 끝나면 이미지 템플릿 아티팩트와 임시 이미지 작성기 리소스 그룹이 삭제 됩니다.
  
@@ -104,7 +104,7 @@ ms.locfileid: "91968670"
 
 #### <a name="provisioner"></a>Provisioner
 
-처음에는 두 가지 방법, 즉 **Shell** 및 **PowerShell**이 지원 됩니다. 인라인이 유일 하 게 지원 됩니다. 스크립트를 다운로드 하려는 경우 인라인 명령을 전달 하 여이 작업을 수행할 수 있습니다.
+처음에는 두 가지 방법, 즉 **Shell** 및 **PowerShell** 이 지원 됩니다. 인라인이 유일 하 게 지원 됩니다. 스크립트를 다운로드 하려는 경우 인라인 명령을 전달 하 여이 작업을 수행할 수 있습니다.
 
 OS의 경우 PowerShell 또는 Shell을 선택 합니다.
 
@@ -139,7 +139,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
 
 다음 예제에서는이 작업을 수행 하는 방법을 설명 합니다.
 
-:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="릴리스 파이프라인에서 아티팩트 추가를 선택 합니다.":::
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="계층을 보여 주는 디렉터리 구조입니다.":::
 
 
 * Windows-파일은에 `C:\` 있습니다. 디렉터리를 포함 하는 라는 디렉터리를 `buildArtifacts` 만듭니다 `webapp` .
@@ -154,7 +154,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
-* Linux 기반 Linux 시스템 빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 많은 Linux OSs에서 다시 부팅 하면/tmp 디렉터리 콘텐츠가 삭제 됩니다. 아티팩트가 이미지에 존재 하도록 하려면 다른 디렉터리를 만들고이를 복사 해야 합니다.  예를 들면 다음과 같습니다.
+* Linux 기반 Linux 시스템 빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 많은 Linux OSs에서 다시 부팅 하면/tmp 디렉터리 콘텐츠가 삭제 됩니다. 아티팩트가 이미지에 존재 하도록 하려면 다른 디렉터리를 만들고이를 복사 해야 합니다.  다음은 그 예입니다. 
 
     ```bash
     sudo mkdir /lib/buildArtifacts
@@ -176,7 +176,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
 > 이미지 작성기는 빌드 아티팩트를 자동으로 제거 하지 않으며 항상 빌드 아티팩트를 제거 하는 코드를 포함 하는 것이 좋습니다.
 > 
 
-* Windows 이미지 작성기는 디렉터리에 파일을 배포 `c:\buildArtifacts` 합니다. 디렉터리가 지속형 디렉터리를 제거 해야 합니다. 실행 하는 스크립트에서이를 제거할 수 있습니다. 예를 들면 다음과 같습니다.
+* Windows 이미지 작성기는 디렉터리에 파일을 배포 `c:\buildArtifacts` 합니다. 디렉터리가 지속형 디렉터리를 제거 해야 합니다. 실행 하는 스크립트에서이를 제거할 수 있습니다. 다음은 그 예입니다. 
 
     ```PowerShell
     # Clean up buildArtifacts directory
@@ -186,7 +186,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     Remove-Item -Path "C:\buildArtifacts" -Force 
     ```
     
-* Linux-빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 대부분의 Linux OSs에서 다시 부팅 하면 `/tmp` 디렉터리 내용이 삭제 됩니다. 콘텐츠를 제거 하는 코드를 사용 하 고 OS를 사용 하 여 콘텐츠를 제거 하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+* Linux-빌드 아티팩트가 디렉터리에 배치 됩니다 `/tmp` . 그러나 대부분의 Linux OSs에서 다시 부팅 하면 `/tmp` 디렉터리 내용이 삭제 됩니다. 콘텐츠를 제거 하는 코드를 사용 하 고 OS를 사용 하 여 콘텐츠를 제거 하는 것이 좋습니다. 다음은 그 예입니다. 
 
     ```bash
     sudo rm -R "/tmp/AppsAndImageBuilderLinux"
@@ -194,7 +194,7 @@ Windows의 경우에만 작업이 사용자 지정의 끝에 Windows 업데이�
     
 #### <a name="total-length-of-image-build"></a>이미지 빌드의 총 길이
 
-DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다. 240 분의 기본값을 사용 합니다. [BuildTimeoutInMinutes](./image-builder-json.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json#properties-buildtimeoutinminutes)를 증가 시키려면 릴리스 파이프라인에서 AZ CLI 작업을 사용할 수 있습니다. 템플릿을 복사 하 고 제출 하도록 태스크를 구성 합니다. 예제는이 [솔루션](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)을 참조 하거나 Az PowerShell을 사용 합니다.
+DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다. 240 분의 기본값을 사용 합니다. [BuildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes)를 증가 시키려면 릴리스 파이프라인에서 AZ CLI 작업을 사용할 수 있습니다. 템플릿을 복사 하 고 제출 하도록 태스크를 구성 합니다. 예제는이 [솔루션](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)을 참조 하거나 Az PowerShell을 사용 합니다.
 
 
 #### <a name="storage-account"></a>스토리지 계정
@@ -237,11 +237,11 @@ DevOps 파이프라인 작업에서 전체 길이를 변경할 수 없습니다.
 
 ### <a name="optional-settings"></a>선택적 설정
 
-* [Vm 크기](image-builder-json.md#vmprofile) -vm 크기를 기본값 *Standard_D1_v2*에서 재정의할 수 있습니다. 를 재정의 하 여 총 사용자 지정 시간을 줄이거나, GPU/HPC 등의 특정 VM 크기에 따라 달라 지는 이미지를 만들 수 있습니다.
+* [Vm 크기](image-builder-json.md#vmprofile) -vm 크기를 기본값 *Standard_D1_v2* 에서 재정의할 수 있습니다. 를 재정의 하 여 총 사용자 지정 시간을 줄이거나, GPU/HPC 등의 특정 VM 크기에 따라 달라 지는 이미지를 만들 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
-릴리스를 만들 때 작업은 저장소 계정에 *imagebuilder-vststask*라는 컨테이너를 만듭니다. 빌드 아티팩트를 zips 및 업로드 하 고 zip 파일에 대 한 SAS 토큰을 만듭니다.
+릴리스를 만들 때 작업은 저장소 계정에 *imagebuilder-vststask* 라는 컨테이너를 만듭니다. 빌드 아티팩트를 zips 및 업로드 하 고 zip 파일에 대 한 SAS 토큰을 만듭니다.
 
 작업은 작업에 전달 된 속성을 사용 하 여 이미지 작성기 템플릿 아티팩트를 만듭니다. 작업은 다음을 수행 합니다.
 * 빌드 아티팩트 zip 파일 및 기타 관련 스크립트를 다운로드 합니다. 파일은 임시 이미지 작성기 리소스 그룹의 저장소 계정에 저장 됩니다 `IT_<DestinationResourceGroup>_<TemplateName>` .
@@ -312,9 +312,9 @@ starting run template...
 
 빌드 오류가 발생 하는 경우 DevOps 작업은 준비 리소스 그룹을 삭제 하지 않습니다. 빌드 사용자 지정 로그가 포함 된 준비 리소스 그룹에 액세스할 수 있습니다.
 
-VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 예를 들면 다음과 같습니다.
+VM 이미지 작성기 태스크에 대 한 DevOps 로그에 오류가 표시 되 고 사용자 지정. 로그 위치를 확인 합니다. 다음은 그 예입니다. 
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="릴리스 파이프라인에서 아티팩트 추가를 선택 합니다.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="오류를 표시 하는 DevOps 태스크의 예입니다.":::
 
 문제 해결에 대 한 자세한 내용은 [Azure 이미지 작성기 서비스 문제 해결](image-builder-troubleshoot.md)을 참조 하세요. 
 
@@ -330,7 +330,7 @@ template name:  t_1556938436xxx
 
 ```
 
-이미지 템플릿 리소스 아티팩트가 작업에서 처음 지정 된 리소스 그룹에 있습니다. 문제 해결이 완료 되 면 아티팩트를 삭제 합니다. Azure Portal 사용 하 여 삭제 하는 경우 리소스 그룹 내에서 **숨겨진 형식 표시**를 선택 하 여 아티팩트를 봅니다.
+이미지 템플릿 리소스 아티팩트가 작업에서 처음 지정 된 리소스 그룹에 있습니다. 문제 해결이 완료 되 면 아티팩트를 삭제 합니다. Azure Portal 사용 하 여 삭제 하는 경우 리소스 그룹 내에서 **숨겨진 형식 표시** 를 선택 하 여 아티팩트를 봅니다.
 
 
 ## <a name="next-steps"></a>다음 단계

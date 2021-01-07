@@ -8,20 +8,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 07/07/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50915aebc9cb76c7bb67235e40564ff32ce656b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 050ae95c79e7ecb98f8508c2fdb41b90fc1b1da0
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376678"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546542"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Azure Active Directory에서 사용자 또는 그룹에 대 한 라이선스 할당 변경
 
@@ -46,30 +46,30 @@ ms.locfileid: "92376678"
 **라이선스 할당 업데이트** 페이지에서 일부 확인란을 사용할 수 없는 경우 그룹 라이선스에서 상속 되므로 변경할 수 없는 서비스를 나타냅니다.
 
 1. Azure AD 조직의 라이선스 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. **Azure Active Directory**  >  **사용자**를 선택 하 고 사용자에 대 한 **프로필** 페이지를 엽니다.
-1. **라이선스**를 선택합니다.
+1. **Azure Active Directory**  >  **사용자** 를 선택 하 고 사용자에 대 한 **프로필** 페이지를 엽니다.
+1. **라이선스** 를 선택합니다.
 1. **할당** 을 선택 하 여 사용자 또는 그룹에 대 한 라이선스 할당을 편집 합니다. **할당** 페이지에서 라이선스 할당 충돌을 해결할 수 있습니다.
 1. Office 365 E3의 확인란을 선택 하 고 최소한 사용자에 게 할당 된 모든 E1 서비스가 선택 되어 있는지 확인 합니다.
 1. Office 365 E1의 확인란을 선택 취소 합니다.
 
     ![Office 365 E1의 선택을 취소 하 고 Office 365 E3을 선택한 사용자에 대 한 라이선스 할당 페이지](./media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 Azure AD는 새 라이선스를 적용 하 고 이전 라이선스를 동시에 제거 하 여 서비스 연속성을 제공 합니다.
 
 ## <a name="change-group-license-assignments"></a>그룹 라이선스 할당 변경
 
 1. Azure AD 조직의 라이선스 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. **Azure Active Directory**  >  **그룹**을 선택 하 고 그룹에 대 한 **개요** 페이지를 엽니다.
-1. **라이선스**를 선택합니다.
+1. **Azure Active Directory**  >  **그룹** 을 선택 하 고 그룹에 대 한 **개요** 페이지를 엽니다.
+1. **라이선스** 를 선택합니다.
 1. **할당** 명령을 선택 하 여 사용자 또는 그룹에 대 한 라이선스 할당을 편집 합니다.
 1. Office 365 E3의 확인란을 선택 합니다. 서비스 연속성을 유지 하려면 사용자에 게 이미 할당 된 모든 E1 서비스를 선택 했는지 확인 합니다.
 1. Office 365 E1의 확인란을 선택 취소 합니다.
 
     ![사용자 또는 그룹 라이선스 페이지에서 할당 명령 선택](./media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 서비스 연속성을 제공 하기 위해 Azure AD는 새 라이선스를 적용 하 고 그룹의 모든 사용자에 대해 이전 라이선스를 동시에 제거 합니다.
 

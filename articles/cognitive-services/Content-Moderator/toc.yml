@@ -12,7 +12,7 @@
   items:
     - name: 웹에서 Content Moderator 사용해 보기
       href: quick-start.md
-    - name: 클라이언트 라이브러리 사용
+    - name: 클라이언트 라이브러리 또는 REST API 사용
       href: client-libraries.md
 - name: 자습서
   items:
@@ -20,8 +20,6 @@
       href: ecommerce-retail-catalog-moderation.md
     - name: Facebook 콘텐츠 조정
       href: facebook-post-moderation.md
-    - name: 비디오 및 대본 조정
-      href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: 개념
   items:
     - name: 이미지 조정
@@ -38,7 +36,7 @@
   items:
     - name: 보통 콘텐츠
       items:
-        - name: REST API
+        - name: API 콘솔
           items:
             - name: 이미지 - API 콘솔
               href: try-image-api.md
@@ -60,7 +58,7 @@
       items:
         - name: 검토 도구(브라우저)
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: REST API
+        - name: API 콘솔
           href: try-review-api-review.md
         - name: 비디오 검토(.NET)
           href: video-reviews-quickstart-dotnet.md
@@ -70,11 +68,11 @@
       items:
         - name: 검토 도구(브라우저)
           href: Review-Tool-User-Guide/Workflows.md
-        - name: REST API
+        - name: API 콘솔
           href: try-review-api-workflow.md
     - name: 작업 정의 및 사용
       items:
-        - name: REST API
+        - name: API 콘솔
           href: try-review-api-job.md
         - name: .NET SDK
           href: moderation-jobs-quickstart-dotnet.md

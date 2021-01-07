@@ -3,12 +3,12 @@ title: '빠른 시작: 첫 번째 REST API 쿼리'
 description: 이 빠른 시작에서는 REST API용 Resource Graph 엔드포인트를 호출하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057232"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566081"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>빠른 시작: REST API를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -30,7 +30,7 @@ Azure Resource Graph 사양은 [Azure Resource Graph REST API](/rest/api/azure-r
 
 ### <a name="rest-api-and-powershell"></a>REST API 및 PowerShell
 
-REST API 호출을 만드는 도구가 없는 경우 지침에 대해 PowerShell을 사용하는 것이 좋습니다. 다음 코드 샘플은 Azure로 인증하기 위한 헤더를 가져옵니다. 인증 헤더(다른 이름: **전달자 토큰**)를 생성하고 모든 매개 변수 또는 **요청 본문**에 연결할 REST API URI를 제공합니다.
+REST API 호출을 만드는 도구가 없는 경우 지침에 대해 PowerShell을 사용하는 것이 좋습니다. 다음 코드 샘플은 Azure로 인증하기 위한 헤더를 가져옵니다. 인증 헤더(다른 이름: **전달자 토큰**)를 생성하고 모든 매개 변수 또는 **요청 본문** 에 연결할 REST API URI를 제공합니다.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -50,11 +50,11 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
 `$restUri` 변수의 `{subscriptionId}`를 대체하여 구독에 대한 정보를 가져옵니다.
-`$response` 변수는 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)과 같은 cmdlet으로 구문 분석할 수 있는 `Invoke-RestMethod` cmdlet의 결과를 보관합니다. REST API 서비스 엔드포인트에 **요청 본문**이 필요하면 JSON 형식의 변수를 `Invoke-RestMethod`의 `-Body` 매개 변수에 제공합니다.
+`$response` 변수는 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)과 같은 cmdlet으로 구문 분석할 수 있는 `Invoke-RestMethod` cmdlet의 결과를 보관합니다. REST API 서비스 엔드포인트에 **요청 본문** 이 필요하면 JSON 형식의 변수를 `Invoke-RestMethod`의 `-Body` 매개 변수에 제공합니다.
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-원하는 환경에 REST API 도구가 추가되었으므로, 이제 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**과 함께 처음 5개 Azure 리소스를 반환합니다.
+원하는 환경에 REST API 도구가 추가되었으므로, 이제 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 각 REST API 호출의 요청 본문에는 사용자 고유의 값으로 바꿔야 하는 다음과 같은 변수가 있습니다.
 
@@ -76,14 +76,13 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
    > [!NOTE]
    > 이 쿼리 예제에서는 `order by`와 같은 정렬 한정자를 제공하지 않으므로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 세트가 생성될 수 있습니다.
 
-1. 다음과 같이 **Name** 속성을 기준으로 `order by`하도록 `resouces` 엔드포인트 호출을 업데이트하고 **쿼리**를 변경합니다.
+1. 다음과 같이 **Name** 속성을 기준으로 `order by`하도록 `resouces` 엔드포인트 호출을 업데이트하고 **쿼리** 를 변경합니다.
 
    - REST API URI
 
@@ -99,14 +98,13 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
    > [!NOTE]
    > 첫 번째 쿼리와 마찬가지로 이 쿼리를 여러 번 실행하면 요청마다 다른 리소스 집합이 생성될 수 있습니다. 쿼리 명령의 순서는 중요합니다. 이 예제에서 `order by`는 `limit` 뒤에 옵니다. 이 명령 순서는 먼저 쿼리 결과를 제한한 다음, 정렬합니다.
 
-1. 다음과 같이 `resources` 엔드포인트 호출을 업데이트하고 **쿼리**를 변경하여 먼저 **Name** 속성을 기준으로 `order by`한 다음, 상위 5개 결과로 `limit`합니다.
+1. 다음과 같이 `resources` 엔드포인트 호출을 업데이트하고 **쿼리** 를 변경하여 먼저 **Name** 속성을 기준으로 `order by`한 다음, 상위 5개 결과로 `limit`합니다.
 
    - REST API URI
 
@@ -122,7 +120,6 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

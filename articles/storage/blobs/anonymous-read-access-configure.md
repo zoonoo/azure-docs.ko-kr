@@ -10,12 +10,12 @@ ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313972"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533879"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성
 
@@ -53,7 +53,7 @@ Azure Storage는 컨테이너 및 blob에 대 한 선택적 익명 공용 읽기
 
 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않으려면 계정의 **Allowblobpublicaccess** 속성을 구성 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. 자세한 내용은 [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
-**Allowblobpublicaccess** 속성은 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 또는 **true** 일 때 공용 액세스를 허용 합니다.
+**Allowblobpublicaccess** 속성은 기본적으로 저장소 계정에 대해 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정은 속성 값이 **null** 또는 **true** 일 때 공용 액세스를 허용 합니다.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 

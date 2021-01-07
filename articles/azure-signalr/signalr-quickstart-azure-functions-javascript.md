@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: 02bcbf0b4f6f6021c157a8ba3c5d2783fc94f1aa
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 061dce01d2437d04d371ac65c115a1d95136fb5d
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425317"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874698"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
@@ -32,21 +32,21 @@ Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 
 > [!NOTE]
 > 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 로그인합니다.
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Azure 함수 앱을 구성하고 실행합니다.
 
@@ -78,16 +78,16 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
     ```
 
     ![SignalR Service 만들기](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
-
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+    
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)
+문제가 있나요? [문제 해결 가이드](signalr-howto-troubleshoot-guide.md)를 사용해 보거나 [알려주세요](https://aka.ms/asrs/qsjs).
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -96,4 +96,3 @@ Azure 계정을 사용하여 <https://portal.azure.com/>에서 Azure Portal에 �
 > [!div class="nextstepaction"]
 > [VS Code로 Azure Functions 배포](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
 
-[문제가 있나요? 알려주세요.](https://aka.ms/asrs/qsjs)

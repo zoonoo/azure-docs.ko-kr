@@ -7,14 +7,16 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d9c8df4fe296bcd40f26847233fcd49bcab573c0
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789117"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709451"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
+
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Azure Security Center의 기능은 다음과 같은 클라우드 보안의 두 가지 핵심 요소를 지원합니다.
 
@@ -39,6 +41,8 @@ Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defende
 - [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)
 - [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)
 - [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)
+- [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Azure Defender for DNS](defender-for-dns-introduction.md)
 
 각 플랜은 Security Center 설명서에 별도로 설명되어 있습니다.
 
@@ -61,9 +65,9 @@ Azure 환경을 방어할 수 있을 뿐 아니라, 하이브리드 클라우드
 
 
 
-## <a name="azure-defender-alerts"></a>Azure Defender 경고 
+## <a name="azure-defender-security-alerts"></a>Azure Defender 보안 경고 
 
-Azure Defender는 환경의 모든 영역에서 위협을 탐지하면 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.
+Azure Defender는 환경의 모든 영역에서 위협을 탐지하면 보안 경고를 생성합니다. 이러한 경고는 영향을 받는 리소스의 세부 정보, 제안된 수정 단계 및 경우에 따라 응답으로 논리 앱을 트리거하는 옵션을 설명합니다.
 
 Security Center가 경고를 직접 생성하든 아니면 통합된 보안 제품으로부터 경고를 수신하든, 경고를 내보낼 수 있습니다. 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)의 지침을 따릅니다.
 

@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9ec2c51f01d6b13f33bc2d537a8f73a6721967d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748544"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572527"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -28,7 +28,7 @@ ms.locfileid: "92748544"
 
 디바이스에서 원격 분석을 받는 것뿐만 아니라 백 엔드 서비스에서 디바이스를 구성해야 할 수도 있습니다. 원하는 구성을 디바이스로 보내면 해당 디바이스에서 상태 및 준수 업데이트를 받을 수도 있습니다. 예를 들어 디바이스의 대상 작동 온도 범위를 설정하거나 디바이스의 펌웨어 버전 정보를 수집할 수 있습니다.
 
-디바이스와 IoT 허브 간에 상태 정보를 동기화하려면 _디바이스 쌍_ 을 사용합니다. [디바이스 쌍](iot-hub-devguide-device-twins.md)은 특정 디바이스와 관련된 JSON 문서이며, IoT Hub를 통해 [쿼리](iot-hub-devguide-query-language.md)할 수 있는 클라우드에 저장됩니다. 디바이스 쌍에는 _desired 속성_ , _reported 속성_ 및 _태그_ 가 있습니다. desired 속성은 백 엔드 애플리케이션에서 설정하고 디바이스에서 읽습니다. reported 속성은 디바이스에서 설정하고 백 엔드 애플리케이션에서 읽습니다. 태그는 백 엔드 애플리케이션에서 설정하고 디바이스로 보내지 않습니다. 태그를 사용하여 디바이스를 구성합니다. 이 자습서에서는 desired 속성과 reported 속성을 사용하여 상태 정보를 동기화하는 방법을 보여 줍니다.
+디바이스와 IoT 허브 간에 상태 정보를 동기화하려면 _디바이스 쌍_ 을 사용합니다. [디바이스 쌍](iot-hub-devguide-device-twins.md)은 특정 디바이스와 관련된 JSON 문서이며, IoT Hub를 통해 [쿼리](iot-hub-devguide-query-language.md)할 수 있는 클라우드에 저장됩니다. 디바이스 쌍에는 _desired 속성_, _reported 속성_ 및 _태그_ 가 있습니다. desired 속성은 백 엔드 애플리케이션에서 설정하고 디바이스에서 읽습니다. reported 속성은 디바이스에서 설정하고 백 엔드 애플리케이션에서 읽습니다. 태그는 백 엔드 애플리케이션에서 설정하고 디바이스로 보내지 않습니다. 태그를 사용하여 디바이스를 구성합니다. 이 자습서에서는 desired 속성과 reported 속성을 사용하여 상태 정보를 동기화하는 방법을 보여 줍니다.
 
 ![쌍 요약](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -39,11 +39,9 @@ ms.locfileid: "92748544"
 > * desired 속성을 사용하여 시뮬레이션된 디바이스에 상태 정보를 보냅니다.
 > * reported 속성을 사용하여 시뮬레이션된 디바이스에서 상태 정보를 받습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Node.js를 사용하여 작성되었습니다. 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
 

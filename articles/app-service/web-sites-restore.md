@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084860"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95999402"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
 이 문서에서는 이전에 백업한 [Azure App Service](../app-service/overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](manage-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "87084860"
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>기존 백업에서 앱 복원
-1. Azure Portal에서 앱의 **설정** 페이지에서 **백업**을 클릭하여 **백업** 페이지를 표시합니다. 그런 다음 **복원**을 클릭합니다.
+1. Azure Portal에서 앱의 **설정** 페이지에서 **백업** 을 클릭하여 **백업** 페이지를 표시합니다. 그런 다음 **복원** 을 클릭합니다.
    
     ![지금 복원 선택][ChooseRestoreNow]
 2. **복원** 페이지에서 먼저 백업 원본을 선택합니다.
@@ -34,12 +34,12 @@ ms.locfileid: "87084860"
     **앱 백업** 옵션에는 현재 앱의 모든 기존 백업을 표시하며 백업 중 하나를 쉽게 선택할 수 있습니다.
     **스토리지** 옵션을 사용하면 구독의 기존 Azure Storage 계정 및 컨테이너에서 백업 ZIP 파일을 선택할 수 있습니다.
     다른 앱의 백업을 복원하려는 경우 **스토리지** 옵션을 사용합니다.
-3. 그런 다음 **복원 대상**에서 앱 복원 대상을 지정합니다.
+3. 그런 다음 **복원 대상** 에서 앱 복원 대상을 지정합니다.
    
     ![앱 복원 대상을 지정할 위치를 보여 주는 스크린샷](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
-   > **덮어쓰기**를 선택하면 현재 앱의 기존 데이터를 모두 지우고 덮어씁니다. **확인**을 클릭하기 전에 수행하려는 작업이 정확히 맞는지 확인하세요.
+   > **덮어쓰기** 를 선택하면 현재 앱의 기존 데이터를 모두 지우고 덮어씁니다. **확인** 을 클릭하기 전에 수행하려는 작업이 정확히 맞는지 확인하세요.
    > 
    > 
    
@@ -50,12 +50,12 @@ ms.locfileid: "87084860"
    
     **기존 앱** 을 선택하여 같은 리소스 그룹에 있는 다른 앱으로 앱 백업을 복원할 수 있습니다. 이 옵션을 사용하려면 리소스 그룹에 미러링 데이터베이스가 앱 백업에 정의된 것으로 구성되어 있는 다른 앱이 이미 만들어져 있어야 합니다. **새** 앱을 만들어 콘텐츠를 복원할 수도 있습니다.
 
-4. **확인**을 클릭합니다.
+4. **확인** 을 클릭합니다.
 
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>스토리지 계정에서 백업 다운로드 또는 삭제
-1. Azure Portal의 기본 **찾아보기** 페이지에서 **Storage 계정**을 선택합니다. 기존 스토리지 계정 목록이 표시됩니다.
+1. Azure Portal의 기본 **찾아보기** 페이지에서 **Storage 계정** 을 선택합니다. 기존 스토리지 계정 목록이 표시됩니다.
 2. 다운로드 또는 삭제하려는 백업을 포함하는 스토리지 계정을 선택합니다. 스토리지 계정에 대한 페이지가 표시됩니다.
 3. 스토리지 계정 페이지에서 원하는 컨테이너를 선택합니다.
    
@@ -63,7 +63,7 @@ ms.locfileid: "87084860"
 4. 다운로드 또는 삭제하려는 백업 파일을 선택합니다.
    
     ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
-5. 수행하려는 작업에 따라 **다운로드** 또는 **삭제**를 클릭합니다.  
+5. 수행하려는 작업에 따라 **다운로드** 또는 **삭제** 를 클릭합니다.  
 
 <a name="OperationLogs"></a>
 

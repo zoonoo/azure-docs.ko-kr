@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb51e8590e2859a9fe8692f79c5b1238ed5a2098
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0112ab53c501d639d3f8e0d09d82ef3a12cb93a8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948184"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837249"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>What If 도구를 사용하여 조건부 액세스 문제 해결
 
 조건부 액세스의 [What If 도구](what-if-tool.md)는 특정 상황에서 정책이 사용자에게 적용되거나 적용되지 않은 이유 또는 정책이 알려진 상태에서 적용되는지 여부를 파악하려는 경우 강력합니다.
 
-What If 도구는 **Azure Portal** > **Azure Active Directory** > **조건부 액세스** > **What If**에 있습니다.
+What If 도구는 **Azure Portal** > **Azure Active Directory** > **조건부 액세스** > **What If** 에 있습니다.
 
 ![기본 상태의 조건부 액세스 What If 도구](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
@@ -31,7 +31,7 @@ What If 도구는 **Azure Portal** > **Azure Active Directory** > **조건부 �
 
 ## <a name="gathering-information"></a>정보 수집
 
-What If 도구를 시작하려면 **사용자**만 있으면 됩니다. 
+What If 도구를 시작하려면 **사용자** 만 있으면 됩니다. 
 
 다음 추가 정보는 선택 사항이지만 특정 사례의 범위를 좁히는 데 도움이 됩니다.
 
@@ -47,9 +47,9 @@ What If 도구를 시작하려면 **사용자**만 있으면 됩니다.
 
 ## <a name="generating-results"></a>결과 생성
 
-이전 섹션에서 수집한 조건을 입력하고 **What If**를 선택하여 결과 목록을 생성합니다. 
+이전 섹션에서 수집한 조건을 입력하고 **What If** 를 선택하여 결과 목록을 생성합니다. 
 
-언제든지 **다시 설정**을 선택하여 모든 조건 입력을 지우고 기본 상태로 돌아갈 수 있습니다.
+언제든지 **다시 설정** 을 선택하여 모든 조건 입력을 지우고 기본 상태로 돌아갈 수 있습니다.
 
 ## <a name="evaluating-results"></a>결과 평가
 
@@ -78,4 +78,4 @@ What If 도구를 시작하려면 **사용자**만 있으면 됩니다.
 * [조건부 액세스란?](overview.md)
 * [Azure Active Directory Identity Protection이란?](../identity-protection/overview-identity-protection.md)
 * [디바이스 ID란?](../devices/overview.md)
-* [작동 방법: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) 문서를 참조하세요
+* [작동 방법: Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

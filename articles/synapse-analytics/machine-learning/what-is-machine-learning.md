@@ -9,16 +9,14 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 382ba871f95b3b36c3f819de8d582ba2c5dc358a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 906d3d28aabf8f6ecd6e04c38b4519937fa95c2b
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316082"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092162"
 ---
-# <a name="machine-learning-capabilities-in-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics의 Machine Learning 기능(작업 영역 미리 보기)
-
-[!INCLUDE [preview](../includes/note-preview.md)]
+# <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Machine Learning 기능
 
 Azure Synapse Analytics는 다양한 기계 학습 기능을 제공합니다. 이 문서에서는 Azure Synapse의 컨텍스트에서 Machine Learning을 적용하는 방법에 대한 개요를 제공합니다.
 
@@ -48,11 +46,11 @@ Azure Synapse의 고유하게 통합된 부분인 [Azure Data Factory](/azure/da
 
 기계 학습 프로세스의 중요한 부분은 탐색 및 시각화를 통해 데이터를 이해하는 것입니다.
 
-데이터가 저장되는 위치에 따라 Synapse는 분석 및 기계 학습을 위해 탐색하고 준비하는 다양한 도구 세트를 제공합니다. 데이터 탐색을 시작하는 가장 빠른 방법 중 하나는 데이터 레이크의 데이터에 대해 직접 Apache Spark 또는 Synapse SQL 서버리스 풀을 사용하는 것입니다.
+데이터가 저장되는 위치에 따라 Synapse는 분석 및 기계 학습을 위해 탐색하고 준비하는 다양한 도구 세트를 제공합니다. 데이터 탐색을 시작하는 가장 빠른 방법 중 하나는 데이터 레이크의 데이터에 직접 Apache Spark 또는 서버리스 SQL 풀을 사용하는 것입니다.
 
 * [Apache Spark for Azure Synapse](../spark/apache-spark-overview.md)는 대규모로 데이터를 변환, 준비 및 탐색하는 기능을 제공합니다. 이러한 Spark 풀은 데이터를 대규모로 처리하기 위해 PySpark/Python, Scala 및 .NET 등의 도구를 제공합니다. 강력한 시각화 라이브러리를 사용하면 데이터를 더 잘 이해할 수 있도록 데이터 탐색 환경을 향상시킬 수 있습니다. [Spark를 사용하여 Synapse에서 데이터를 탐색하고 시각화하는 방법에 대해 자세히 알아보세요](../get-started-analyze-spark.md).
 
-* [Synapse SQL 서버리스 풀](../sql/on-demand-workspace-overview.md)은 데이터 레이크에서 직접 TSQL을 사용하여 데이터를 탐색하는 방법을 제공합니다. Synapse SQL 서버리스 풀은 Synapse Studio에서 일부 기본 제공 시각화도 제공합니다. [Synapse SQL 서버리스 풀을 사용하여 데이터를 탐색하는 방법에 대해 자세히 알아보세요](../get-started-analyze-sql-on-demand.md).
+* [서버리스 SQL 풀](../sql/on-demand-workspace-overview.md)은 데이터 레이크에서 직접 TSQL을 사용하여 데이터를 탐색하는 방법을 제공합니다. 서버리스 SQL 풀은 Synapse Studio에서 몇 가지 기본 제공 시각화도 제공합니다. [서버리스 SQL 풀을 사용하여 데이터를 탐색하는 방법에 대해 자세히 알아보세요](../get-started-analyze-sql-on-demand.md).
 
 ### <a name="modeling"></a>모델링
 
@@ -64,9 +62,9 @@ Azure Synapse에서 기계 학습 모델 학습은 PySpark/Python, Scala 또는 
 
 MLlib 외에도 [Scikit Learn](https://scikit-learn.org/stable/)과 같이 인기 있는 라이브러리를 사용하여 모델을 개발할 수도 있습니다. Synapse Spark 풀에 라이브러리를 설치하는 방법에 대한 자세한 내용은 [Azure Synapse Analytics에서 Apache Spark를 위한 라이브러리 관리](../spark/apache-spark-azure-portal-add-libraries.md)를 참조하세요.
 
-#### <a name="train-models-with-azure-machine-learning-automl"></a>Azure Machine Learning AutoML을 사용하여 모델 학습
+#### <a name="train-models-with-azure-machine-learning-automated-ml"></a>Azure Machine Learning 자동화된 ML을 사용하여 모델 학습
 
-기계 학습에 대해 사전 지식이 크게 필요하지 않은 기계 학습 모델을 교육하는 또 다른 방법은 AutoML을 사용하는 것입니다. [AutoML](/azure/machine-learning/concept-automated-ml)은 일련의 기계 학습 모델을 자동으로 학습하고 사용자가 특정 메트릭에 따라 최상의 모델을 선택할 수 있게 해 주는 기능입니다. Azure Synapse Notebooks의 Azure Machine Learning과 원활한 통합 덕분에 사용자는 통과 Azure Active Directory 인증으로 Synapse에서 AutoML을 손쉽게 활용할 수 있습니다.  즉, Azure Machine Learning 작업 영역을 지정할 필요가 없으며 자격 증명을 입력하지 않아도 됩니다. [AutoML 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md)에서 Synapse Spark 풀에서 Azure Machine Learning AutoML을 사용하여 모델을 학습하는 방법을 설명합니다.
+기계 학습에 대해 사전 지식이 크게 필요하지 않은 기계 학습 모델을 학습하는 또 다른 방법은 자동화된 ML을 사용하는 것입니다. [자동화된 ML](/azure/machine-learning/concept-automated-ml)은 기계 학습 모델 세트를 자동으로 학습하고 사용자가 특정 메트릭에 따라 최상의 모델을 선택할 수 있게 해 주는 기능입니다. Azure Synapse Notebooks의 Azure Machine Learning과 원활한 통합 덕분에 사용자는 통과 Azure Active Directory 인증으로 Synapse에서 자동화된 ML을 손쉽게 활용할 수 있습니다.  즉, Azure Machine Learning 작업 영역을 지정할 필요가 없으며 자격 증명을 입력하지 않아도 됩니다. 다음은 Synapse Spark 풀에서 Azure Machine Learning 자동화된 ML을 사용하여 모델을 학습하는 방법을 설명하는 [자동화된 ML 자습서](../spark/apache-spark-azure-machine-learning-tutorial.md)입니다.
 
 ### <a name="model-deployment-and-scoring"></a>모델 배포 및 점수 매기기
 

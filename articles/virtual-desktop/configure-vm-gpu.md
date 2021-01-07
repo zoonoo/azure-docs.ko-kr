@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505311"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018344"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
 
@@ -23,27 +23,27 @@ Windows Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가�
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>적절 한 GPU에 최적화 된 Azure 가상 컴퓨터 크기를 선택 합니다.
 
-Azure의 [NV 시리즈](/azure/virtual-machines/nv-series), [NVv3 시리즈](/azure/virtual-machines/nvv3-series)또는 [NVv4 시리즈](/azure/virtual-machines/nvv4-series) VM 크기 중 하나를 선택 합니다. 이러한 기능은 앱 및 데스크톱 가상화에 맞게 조정 되며 앱 및 Windows 사용자 인터페이스를 GPU 가속으로 설정 합니다. 호스트 풀에 적합한 선택은 특정 앱 워크로드, 원하는 사용자 환경의 품질 및 비용을 비롯한 다양한 요인에 따라 달라집니다. 일반적으로 더 크고, 지원 되는 Gpu는 지정 된 사용자 밀도에서 더 나은 사용자 환경을 제공 하는 반면, 작고 작은 GPU 크기는 비용 및 품질에 대 한 세분화 된 제어를 허용 합니다.
+Azure의 [NV 시리즈](../virtual-machines/nv-series.md), [NVv3 시리즈](../virtual-machines/nvv3-series.md)또는 [NVv4 시리즈](../virtual-machines/nvv4-series.md) VM 크기 중 하나를 선택 합니다. 이러한 기능은 앱 및 데스크톱 가상화에 맞게 조정 되며 앱 및 Windows 사용자 인터페이스를 GPU 가속으로 설정 합니다. 호스트 풀에 적합한 선택은 특정 앱 워크로드, 원하는 사용자 환경의 품질 및 비용을 비롯한 다양한 요인에 따라 달라집니다. 일반적으로 더 크고, 지원 되는 Gpu는 지정 된 사용자 밀도에서 더 나은 사용자 환경을 제공 하는 반면, 작고 작은 GPU 크기는 비용 및 품질에 대 한 세분화 된 제어를 허용 합니다.
 
 >[!NOTE]
 >Azure의 NC, NCv2, NCv3, ND 및 NDv2 시리즈 Vm은 일반적으로 Windows 가상 데스크톱 세션 호스트에 적합 하지 않습니다. 이러한 Vm은 NVIDIA를 사용 하 여 빌드된 특수 한 고성능 계산 또는 기계 학습 도구에 맞게 조정 됩니다. NVIDIA Gpu를 사용 하는 일반 앱 및 데스크톱 가속에는 NVIDIA 그리드 라이선스가 필요 합니다. 이는 권장 되는 VM 크기에 대해 Azure에서 제공 되지만, NC/ND 시리즈 Vm에 대해서는 별도로 정렬 해야 합니다.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>호스트 풀 생성, 가상 머신 프로비저닝 및 앱 그룹 구성
 
-선택한 크기의 VM을 사용하여 새 호스트 풀을 만듭니다. 자세한 내용은 [자습서: Azure Portal로 호스트 풀 만들기](/azure/virtual-desktop/create-host-pools-azure-marketplace)를 참조하세요.
+선택한 크기의 VM을 사용하여 새 호스트 풀을 만듭니다. 자세한 내용은 [자습서: Azure Portal로 호스트 풀 만들기](./create-host-pools-azure-marketplace.md)를 참조하세요.
 
 Windows Virtual Desktop은 다음과 같은 운영 체제에서 GPU 가속 렌더링 및 인코딩을 지원합니다.
 
 * Windows 10 버전 1511 이상
 * Windows Server 2016 이상
 
-또한 앱 그룹을 구성하거나 새 호스트 풀을 만들 때 자동으로 생성되는 기본 데스크톱 앱 그룹(“데스크톱 애플리케이션 그룹”이라고 함)을 사용해야 합니다. 자세한 내용은 [자습서: Windows Virtual Desktop에 대한 앱 그룹 관리](/azure/virtual-desktop/manage-app-groups)를 참조하세요.
+또한 앱 그룹을 구성하거나 새 호스트 풀을 만들 때 자동으로 생성되는 기본 데스크톱 앱 그룹(“데스크톱 애플리케이션 그룹”이라고 함)을 사용해야 합니다. 자세한 내용은 [자습서: Windows Virtual Desktop에 대한 앱 그룹 관리](./manage-app-groups.md)를 참조하세요.
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>가상 머신에서 지원되는 그래픽 드라이버 설치
 
-Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원되는 운영 체제 및 드라이버](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers)의 지침에 따라 적절한 그래픽 공급 업체의 드라이버를 수동이나 Azure VM 확장을 사용하여 설치합니다.
+Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원되는 운영 체제 및 드라이버](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers)의 지침에 따라 적절한 그래픽 공급 업체의 드라이버를 수동이나 Azure VM 확장을 사용하여 설치합니다.
 
-Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니다. Nvidia Gpu를 사용 하는 Azure NV 시리즈 Vm의 경우, nvidia [그리드 드라이버만](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers), AZURE (nvidia Tesla) 드라이버는 범용 앱 및 데스크톱에 대 한 GPU 가속을 지원 합니다.
+Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니다. Nvidia Gpu를 사용 하는 Azure NV 시리즈 Vm의 경우, nvidia [그리드 드라이버만](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), AZURE (nvidia Tesla) 드라이버는 범용 앱 및 데스크톱에 대 한 GPU 가속을 지원 합니다.
 
 드라이버를 설치한 후에는 VM을 다시 시작해야 합니다. 위 지침의 확인 단계에 따라 그래픽 드라이버가 성공적으로 설치되었는지 확인합니다.
 
@@ -92,7 +92,7 @@ Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니
 
 앱이 렌더링에 GPU를 사용하는지 확인하려면 다음 중 하나를 수행합니다.
 
-* NVIDIA GPU를 사용 하는 Azure Vm의 경우 `nvidia-smi` [드라이버 설치 확인](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) 에 설명 된 대로 유틸리티를 사용 하 여 앱을 실행할 때 GPU 사용률을 확인 합니다.
+* NVIDIA GPU를 사용 하는 Azure Vm의 경우 `nvidia-smi` [드라이버 설치 확인](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) 에 설명 된 대로 유틸리티를 사용 하 여 앱을 실행할 때 GPU 사용률을 확인 합니다.
 * 지원되는 운영 체제 버전에서는 작업 관리자를 사용하여 GPU 사용률을 확인할 수 있습니다. “성능” 탭에서 GPU를 선택하여 앱에서 GPU를 활용하는지 확인합니다.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 확인
@@ -115,5 +115,5 @@ Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니
 
 이러한 지침을 따르면 하나의 세션 호스트(하나의 VM)에서 GPU 가속을 실행할 수 있습니다. 더 큰 호스트 풀에서 GPU 가속을 사용하기 위한 몇 가지 추가 고려 사항은 다음과 같습니다.
 
-* [VM 확장](/azure/virtual-machines/extensions/overview)을 사용하여 여러 VM에서 드라이버 설치 및 업데이트를 간소화하는 것이 좋습니다. NVIDIA GPU를 사용하는 VM에 대해 [NVIDIA GPU 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-gpu-windows)을 사용하고 AMD GPU를 사용하는 VM에 대해 [AMD GPU 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows)을 사용합니다.
-* 여러 VM에서 그룹 정책 구성을 간소화하기 위해서는 Active Directory 그룹 정책을 사용하는 것이 좋습니다. Active Directory 도메인에 그룹 정책을 배포하는 방법에 대한 자세한 내용은 [그룹 정책 개체로 작업하기](https://go.microsoft.com/fwlink/p/?LinkId=620889)를 참조하세요.
+* [VM 확장](../virtual-machines/extensions/overview.md)을 사용하여 여러 VM에서 드라이버 설치 및 업데이트를 간소화하는 것이 좋습니다. NVIDIA GPU를 사용하는 VM에 대해 [NVIDIA GPU 드라이버 확장](../virtual-machines/extensions/hpccompute-gpu-windows.md)을 사용하고 AMD GPU를 사용하는 VM에 대해 [AMD GPU 드라이버 확장](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md)을 사용합니다.
+* 여러 VM에서 그룹 정책 구성을 간소화하기 위해서는 Active Directory 그룹 정책을 사용하는 것이 좋습니다. Active Directory 도메인에 그룹 정책을 배포하는 방법에 대한 자세한 내용은 [그룹 정책 개체로 작업하기](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11))를 참조하세요.

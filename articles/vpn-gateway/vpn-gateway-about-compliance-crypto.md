@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 12/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 499d184d373b896ba7bffcf990693ef5e6ac466b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d14c5ee7f6c4816bf15351e9cb28a2aaa72b4c
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032427"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96546848"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>암호화 요구 사항 및 Azure VPN Gateway 정보
 
@@ -20,7 +20,7 @@ ms.locfileid: "88032427"
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Azure VPN 연결에 대 한 IKEv1 및 IKEv2 정보
 
-일반적으로 기본 sku에 대해서만 IKEv1 연결을 허용 하 고 기본 Sku 이외의 모든 VPN gateway Sku에 대해 허용 되는 IKEv2 연결을 허용 했습니다. 기본 Sku는 1 개의 연결 및 성능 등의 기타 제한 사항을 허용 하 고, IKEv1 프로토콜만 지 원하는 레거시 장치를 사용 하는 고객은 제한 된 환경을 보유 하 고 있습니다. 이제 IKEv1 프로토콜을 사용 하는 고객의 경험을 향상 시키기 위해 기본 SKU를 제외 하 고 모든 VPN gateway Sku에 대 한 IKEv1 연결을 허용 합니다. 자세한 내용은 [VPN Gateway sku](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)를 참조 하세요.
+일반적으로 기본 sku에 대해서만 IKEv1 연결을 허용 하 고 기본 Sku 이외의 모든 VPN gateway Sku에 대해 허용 되는 IKEv2 연결을 허용 했습니다. 기본 Sku는 1 개의 연결 및 성능 등의 기타 제한 사항을 허용 하 고, IKEv1 프로토콜만 지 원하는 레거시 장치를 사용 하는 고객은 제한 된 환경을 보유 하 고 있습니다. 이제 IKEv1 프로토콜을 사용 하는 고객의 경험을 향상 시키기 위해 기본 SKU를 제외 하 고 모든 VPN gateway Sku에 대 한 IKEv1 연결을 허용 합니다. 자세한 내용은 [VPN Gateway sku](./vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조 하세요.
 
 ![Azure VPN Gateway IKEv1 및 IKEv2 연결](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
@@ -29,6 +29,8 @@ IKEv1 및 IKEv2 연결이 동일한 VPN gateway에 적용 되는 경우 이러�
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Azure VPN Gateway에 대한 IPsec 및 IKE 정책 매개 변수 정보
 
 IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 알고리즘을 지원합니다. 암호화 알고리즘과 매개 변수의 특정 조합을 요청 하지 않으면 Azure VPN 게이트웨이에서 기본 제안 집합을 사용 합니다. 기본 정책 집합은 기본 구성에서 광범위한 타사 VPN 디바이스와의 상호 운용성을 극대화하기 위해 선택되었습니다. 따라서 정책 및 제안 수에서 사용 가능한 암호화 알고리즘 및 키 길이의 가능한 모든 조합을 다룰 수는 없습니다.
+
+### <a name="default-policy"></a>기본 정책
 
 Azure VPN gateway에 대 한 기본 정책 집합은 [사이트 간 VPN Gateway 연결에 대 한 vpn 장치 및 IPsec/IKE 매개 변수 정보](vpn-gateway-about-vpn-devices.md)문서에 나열 되어 있습니다.
 

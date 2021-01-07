@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: Azure DB for MySQL 만들기 - ARM 템플릿'
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만드는 방법을 알아봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041199"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542272"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -74,26 +74,26 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 2. 새 리소스 그룹을 만든 경우 리소스 그룹 및 새 서버에 대한 **위치** 를 선택합니다.
 
-3. **서버 이름** , **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
+3. **서버 이름**, **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
 
     :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="VNet 창, Azure 빠른 시작 템플릿, Azure Portal을 사용하여 Azure Database for MySQL 배포":::
 
 4. 원하는 경우 다른 기본 설정을 변경합니다.
 
-    * **구독** : 서버에 사용하려는 Azure 구독
-    * **SKU 용량** : vCore 용량( *2* (기본값), *4* , *8* , *16* , *32* 또는 *64* 일 수 있음)
-    * **SKU 이름** : 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1* , *GP_Gen5_2* (기본값) 또는 *MO_Gen5_32* )
-    * **SKU 크기(MB)** : Azure Database for MySQL 서버의 스토리지 크기(메가바이트 단위)(기본값: *5120* )
-    * **SKU 계층** : 배포 계층(예: *기본* , *범용* (기본값) 또는 *메모리 최적화* )
-    * **SKU 제품군** : *Gen4* 또는 *Gen5* (기본값) - 서버 배포용 하드웨어 세대를 나타냄
-    * **MySQL 버전** : 배포할 MySQL 서버 버전(예: *5.6* 또는 *5.7* (기본값))
-    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7* )
-    * **지역 중복 백업** : Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함* (기본값)
-    * **가상 네트워크 이름** : 가상 네트워크의 이름(기본값: *azure_mysql_vnet* )
-    * **서브넷 이름** : 서브넷의 이름(기본값: *azure_mysql_subnet* )
-    * **가상 네트워크 규칙 이름** : 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet* )
-    * **Vnet 주소 접두사** : 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16* )
-    * **서브넷 접두사** : 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16* )
+    * **구독**: 서버에 사용하려는 Azure 구독
+    * **SKU 용량**: vCore 용량(*2*(기본값), *4*, *8*, *16*, *32* 또는 *64* 일 수 있음)
+    * **SKU 이름**: 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1*, *GP_Gen5_2*(기본값) 또는 *MO_Gen5_32*)
+    * **SKU 크기(MB)** : Azure Database for MySQL 서버의 스토리지 크기(메가바이트 단위)(기본값: *5120*)
+    * **SKU 계층**: 배포 계층(예: *기본*, *범용*(기본값) 또는 *메모리 최적화*)
+    * **SKU 제품군**: *Gen4* 또는 *Gen5*(기본값) - 서버 배포용 하드웨어 세대를 나타냄
+    * **MySQL 버전**: 배포할 MySQL 서버 버전(예: *5.6* 또는 *5.7*(기본값))
+    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7*)
+    * **지역 중복 백업**: Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함*(기본값)
+    * **가상 네트워크 이름**: 가상 네트워크의 이름(기본값: *azure_mysql_vnet*)
+    * **서브넷 이름**: 서브넷의 이름(기본값: *azure_mysql_subnet*)
+    * **가상 네트워크 규칙 이름**: 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet*)
+    * **Vnet 주소 접두사**: 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16*)
+    * **서브넷 접두사**: 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16*)
 
 5. 사용 약관을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 

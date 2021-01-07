@@ -10,47 +10,47 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0eeff0c8c338b09fbe375587db2b955a143138c2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214960"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949822"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
  액세스 토큰을 제공 하는 클라이언트 응용 프로그램에서 요청을 수락 하 고 응답할 수 있도록 테 넌 트에 web API 리소스를 등록 합니다. 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 web API를 등록 하는 방법을 보여 줍니다.
 
-Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용하면 됩니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
-1. 애플리케이션의 **이름**을 입력합니다. 예를 들어 *webapi1*과 같습니다.
-1. **리디렉션 URI**에서 **Web**을 선택한 다음, Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환해야 하는 엔드포인트를 입력합니다. 프로덕션 응용 프로그램에서와 같은 끝점에 리디렉션 URI를 설정할 수 있습니다 `https://localhost:5000` . 개발 또는 테스트 중에는 `https://jwt.ms` 토큰의 디코딩된 콘텐츠를 표시 하는 Microsoft 소유의 웹 응용 프로그램 (토큰의 내용이 브라우저에서 벗어나면 안 됨)로 설정할 수 있습니다. 언제든지 등록된 애플리케이션에서 리디렉션 URI를 추가하고 수정할 수 있습니다.
-1. **등록**을 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+1. **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 예를 들어 *webapi1* 과 같습니다.
+1. **리디렉션 URI** 에서 **Web** 을 선택한 다음, Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환해야 하는 엔드포인트를 입력합니다. 프로덕션 응용 프로그램에서와 같은 끝점에 리디렉션 URI를 설정할 수 있습니다 `https://localhost:5000` . 개발 또는 테스트 중에는 `https://jwt.ms` 토큰의 디코딩된 콘텐츠를 표시 하는 Microsoft 소유의 웹 응용 프로그램 (토큰의 내용이 브라우저에서 벗어나면 안 됨)로 설정할 수 있습니다. 언제든지 등록된 애플리케이션에서 리디렉션 URI를 추가하고 수정할 수 있습니다.
+1. **등록** 을 선택합니다.
 1. 웹 API의 코드에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
 
 [JavaScript 기반 SPA (단일 페이지 응용 프로그램)](tutorial-register-spa.md)와 같이 암시적 권한 부여 흐름을 구현 하는 응용 프로그램이 있는 경우 다음 단계를 수행 하 여 흐름을 사용 하도록 설정할 수 있습니다.
 
-1. **관리**에서 **인증**을 선택합니다.
-1. **암시적 권한 부여**에서 **액세스 토큰** 및 **ID 토큰** 확인란을 둘 다 선택합니다.
-1. **저장**을 선택합니다.
+1. **관리** 에서 **인증** 을 선택합니다.
+1. **암시적 권한 부여** 에서 **액세스 토큰** 및 **ID 토큰** 확인란을 둘 다 선택합니다.
+1. **저장** 을 선택합니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **애플리케이션(레거시)** 을 선택한 다음, **추가**를 선택합니다.
-5. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1*과 같습니다.
-6. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
-7. **회신 URL**에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 프로덕션 응용 프로그램에서 회신 URL을와 같은 값으로 설정할 수 있습니다 `https://localhost:44332` . 테스트 목적으로 회신 URL을로 설정 `https://jwt.ms` 합니다.
-8. **앱 ID URI**에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예들 들어 `https://contosotenant.onmicrosoft.com/api`입니다.
-9. **만들기**를 클릭합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+4. **애플리케이션(레거시)** 을 선택한 다음, **추가** 를 선택합니다.
+5. 애플리케이션의 이름을 입력합니다. 예를 들어 *webapi1* 과 같습니다.
+6. **웹앱/웹 API 포함** 및 **암시적 흐름 허용** 에 **예** 를 선택합니다.
+7. **회신 URL** 에는 Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 프로덕션 응용 프로그램에서 회신 URL을와 같은 값으로 설정할 수 있습니다 `https://localhost:44332` . 테스트 목적으로 회신 URL을로 설정 `https://jwt.ms` 합니다.
+8. **앱 ID URI** 에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예들 들어 `https://contosotenant.onmicrosoft.com/api`입니다.
+9. **만들기** 를 클릭합니다.
 10. 속성 페이지에서 웹 애플리케이션을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
 
 * * *

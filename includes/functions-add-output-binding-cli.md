@@ -4,17 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 121f6ffa5c1a7c903e59be8a5bc3e1e1db0834fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef3bd0f401ba54d56ed42df34cd2e761681dbc7
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80673318"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904076"
 ---
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+
 ## <a name="add-an-output-binding-definition-to-the-function"></a>함수에 출력 바인딩 정의 추가
 
 함수에는 하나의 트리거만 있을 수 있지만 여러 개의 입력 및 출력 바인딩이 있을 수 있으므로 사용자 지정 통합 코드를 작성하지 않고도 다른 Azure 서비스 및 리소스에 연결할 수 있습니다. 
-
+::: zone-end
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
 이러한 바인딩은 함수 폴더의 *function.json* 파일에서 선언합니다. 이전 빠른 시작에서 *HttpExample* 폴더의 *function.json* 파일에 있는 `bindings` 컬렉션에는 두 개의 바인딩이 포함되어 있습니다.  
 ::: zone-end
@@ -60,5 +62,5 @@ ms.locfileid: "80673318"
 ::: zone-end  
 
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
-이 경우 `msg`가 출력 인수로 함수에 제공됩니다. `queue` 형식의 경우 `queueName`에는 큐 이름을 지정하고, `connection`에는 *local.settings.json*에 있는 Azure Storage 연결의 *name*을 제공해야 합니다. 
+이 경우 `msg`가 출력 인수로 함수에 제공됩니다. `queue` 형식의 경우 `queueName`에는 큐 이름을 지정하고, `connection`에는 *local.settings.json* 에 있는 Azure Storage 연결의 *name* 을 제공해야 합니다. 
 ::: zone-end  

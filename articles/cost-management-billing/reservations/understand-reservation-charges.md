@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 99f2c9c16f2ca2147a6e6da333ff64116e42aecc
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057878"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96338091"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Azure SQL Database에 예약 할인이 적용되는 방법
 
@@ -55,7 +55,7 @@ SQL Database 예약 용량 할인은 매시간으로 실행 중인 SQL 데이터
 Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약 용량을 사용하여 SQL Database 컴퓨팅 리소스 요금 선결제](../../azure-sql/database/reserved-capacity-overview.md)
 - [Azure Reservations 관리](manage-reserved-vm-instance.md)
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)

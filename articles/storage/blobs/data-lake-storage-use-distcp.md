@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035674"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912487"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
 
@@ -27,7 +27,7 @@ DistCp는 다양한 명령줄 매개 변수를 제공하며, 이 도구의 사�
 * Data Lake Storage Gen2 기능(계층 구조 네임스페이스)을 사용하도록 설정되지 않은 기존 Azure Storage 계정
 * Data Lake Storage Gen2 기능(계층 구조 네임스페이스)을 사용하도록 설정한 Azure Storage 계정 데이터베이스를 만드는 방법에 대한 지침은 [Azure Storage 계정 만들기](../common/storage-account-create.md)를 참조하세요.
 * 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정에 만든 컨테이너
-* 계층 구조 네임스페이스 기능을 사용하도록 설정한 스토리지 계정에 대한 액세스 권한이 있는 Azure HDInsight 클러스터 [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* 계층 구조 네임스페이스 기능을 사용하도록 설정한 스토리지 계정에 대한 액세스 권한이 있는 Azure HDInsight 클러스터 [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>HDInsight Linux 클러스터에서 DistCp 사용
 
@@ -65,7 +65,7 @@ HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 �
     hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
     ```
 
-    이 명령은 Data Lake Store 계정에 있는 **/myfolder**의 콘텐츠를 WASB의 **/example/data/gutenberg/** 폴더에 복사합니다.
+    이 명령은 Data Lake Store 계정에 있는 **/myfolder** 의 콘텐츠를 WASB의 **/example/data/gutenberg/** 폴더에 복사합니다.
 
 ## <a name="performance-considerations-while-using-distcp"></a>DistCp 사용에 대한 성능 고려 사항
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 648de447a08e593af28d11a3be206a2cfee80902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cf379b051ba42be2d7df7d288f07cdc2a0002a1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790095"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657638"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 거부 할당 나열
 
@@ -32,7 +32,7 @@ ms.locfileid: "84790095"
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 
 - `Microsoft.Authorization/denyAssignments/read`대부분의 [Azure 기본 제공 역할](built-in-roles.md) 에 포함 된 사용 권한
-- Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](../cloud-shell/overview.md)
 
 ## <a name="list-deny-assignments"></a>거부 할당 목록
 

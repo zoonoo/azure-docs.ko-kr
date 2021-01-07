@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: f8948bdeb2f8b82fbabacdbbb73c7b43741c75df
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: b8d5c763b68a9f69add14ab8430c117e5705a515
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938443"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955092"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 RDS MySQL을 Azure Database for MySQL로 온라인 마이그레이션
 
-Azure Database Migration Service를 사용하면 마이그레이션 중에 원본 데이터베이스를 온라인 상태로 유지하면서 RDS MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 RDS MySQL 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
+Azure Database Migration Service를 사용하면 마이그레이션 중에 원본 데이터베이스를 온라인 상태로 유지하면서 RDS MySQL 인스턴스에서 [Azure Database for MySQL](../mysql/index.yml)로 데이터베이스를 마이그레이션할 수 있습니다. 즉, 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service의 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 RDS MySQL 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -52,13 +52,13 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     SELECT @@version;
     ```
 
-    자세한 내용은 [지원되는 Azure Database for MySQL 버전](https://docs.microsoft.com/azure/mysql/concepts-supported-versions) 문서를 참조하세요.
+    자세한 내용은 [지원되는 Azure Database for MySQL 버전](../mysql/concepts-supported-versions.md) 문서를 참조하세요.
 
 * [MySQL **Employees** 샘플 데이터베이스](https://dev.mysql.com/doc/employee/en/employees-installation.html)를 다운로드하여 설치합니다.
-* [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal) 인스턴스를 만듭니다.
-* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
-* 데이터베이스 엔진 액세스를 허용하도록 [Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)(또는 Linux 방화벽)을 구성합니다. MySQL 서버의 경우 연결을 위해 포트 3306을 허용합니다.
+* [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md) 인스턴스를 만듭니다.
+* Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
+* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* 데이터베이스 엔진 액세스를 허용하도록 [Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)(또는 Linux 방화벽)을 구성합니다. MySQL 서버의 경우 연결을 위해 포트 3306을 허용합니다.
 
 > [!NOTE]
 > Azure Database for MySQL은 InnoDB 테이블만 지원합니다. MyISAM 테이블을 InnoDB로 변환하는 방법은 [MyISAM에서 InnoDB로 테이블 변환](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 문서를 참조하세요.
@@ -129,7 +129,7 @@ call mysql.rds_set_configuration('binlog retention hours', 120);
 
 > [!NOTE]
 > 부모 테이블에서 행이 삭제되거나 업데이트되는 경우 Azure DMS는 자식 테이블에서 일치하는 행을 자동으로 삭제하거나 업데이트하는 CASCADE 참조 작업을 지원하지 않습니다. 자세한 내용은 MySQL 설명서의 [외래 키 제약 조건](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) 문서에서 '참조 작업' 섹션을 참조하세요.
-> Azure DMS를 사용하려면 초기 데이터 로드 중에 대상 데이터베이스 서버에서 외래 키 제약 조건을 삭제해야 하며, 참조 작업은 사용할 수 없습니다. 워크로드에서 이 참조 작업을 통해 관련 자식 테이블을 업데이트해야 하는 경우 [덤프 및 복원](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore)을 대신 수행하는 것이 좋습니다. 
+> Azure DMS를 사용하려면 초기 데이터 로드 중에 대상 데이터베이스 서버에서 외래 키 제약 조건을 삭제해야 하며, 참조 작업은 사용할 수 없습니다. 워크로드에서 이 참조 작업을 통해 관련 자식 테이블을 업데이트해야 하는 경우 [덤프 및 복원](../mysql/concepts-migrate-dump-restore.md)을 대신 수행하는 것이 좋습니다. 
 
 5. 데이터에 트리거(트리거 삽입 또는 업데이트)가 있으면 원본의 데이터를 복제하기 전에 대상에 데이터 무결성이 적용됩니다. 마이그레이션 중에 *대상의* 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
 
@@ -144,25 +144,25 @@ call mysql.rds_set_configuration('binlog retention hours', 120);
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
-1. Azure Portal에 로그인하고, **모든 서비스**를 선택한 다음, **구독**을 선택합니다.
+1. Azure Portal에 로그인하고, **모든 서비스** 를 선택한 다음, **구독** 을 선택합니다.
 
    ![포털 구독 표시](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-subscription1.png)
 
-2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자**를 선택합니다.
+2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음, **리소스 공급자** 를 선택합니다.
 
     ![리소스 공급자 보기](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-select-resource-provider.png)
 
-3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
+3. 마이그레이션을 검색한 다음 **Microsoft.DataMigration** 의 오른쪽에서 **등록** 을 선택합니다.
 
     ![리소스 공급자 등록](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance-of-azure-database-migration-service"></a>Azure Database Migration Service 인스턴스 만들기
 
-1. Azure Portal에서 **+ 리소스 만들기**를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service**를 선택합니다.
+1. Azure Portal에서 **+ 리소스 만들기** 를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service** 를 선택합니다.
 
     ![Azure Marketplace](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/portal-marketplace.png)
 
-2. **Azure Database Migration Service** 화면에서 **만들기**를 선택합니다.
+2. **Azure Database Migration Service** 화면에서 **만들기** 를 선택합니다.
 
     ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-create1.png)
   
@@ -174,19 +174,19 @@ call mysql.rds_set_configuration('binlog retention hours', 120);
 
     가상 네트워크는 원본 MySQL 인스턴스 및 대상 Azure Database for MySQL 인스턴스에 대한 액세스 권한을 Azure Database Migration Service에 제공합니다.
 
-    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
+    Azure Portal에서 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 문서를 참조하세요.
 
 6. 이 온라인 마이그레이션의 가격 책정 계층을 선택합니다. 프리미엄: 4vCore 가격 책정 계층을 선택하세요.
 
     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-settings3.png)
 
-7. **만들기**를 선택하여 서비스를 만듭니다.
+7. **만들기** 를 선택하여 서비스를 만듭니다.
 
 ## <a name="create-a-migration-project"></a>마이그레이션 프로젝트 만들기
 
 서비스가 생성된 후 Azure Portal에서 서비스를 찾아 연 다음, 새로운 마이그레이션 프로젝트를 만듭니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services**를 선택합니다.
+1. Azure Portal에서 **모든 서비스** 를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services** 를 선택합니다.
 
       ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-search.png)
 
@@ -194,21 +194,21 @@ call mysql.rds_set_configuration('binlog retention hours', 120);
 
      ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-instance-search.png)
 
-3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
-4. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **MySQL**을 선택한 다음, **대상 서버 유형** 텍스트 상자에서 **AzureDbForMySQL**을 선택합니다.
-5. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택합니다.
+3. **+ 새 마이그레이션 프로젝트** 를 선택합니다.
+4. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **MySQL** 을 선택한 다음, **대상 서버 유형** 텍스트 상자에서 **AzureDbForMySQL** 을 선택합니다.
+5. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션** 을 선택합니다.
 
     > [!IMPORTANT]
-    > **온라인 데이터 마이그레이션**을 선택합니다. 이 시나리오에서는 오프라인 마이그레이션이 지원되지 않습니다.
+    > **온라인 데이터 마이그레이션** 을 선택합니다. 이 시나리오에서는 오프라인 마이그레이션이 지원되지 않습니다.
 
     ![Database Migration Service 프로젝트 만들기](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-create-project6.png)
 
     > [!NOTE]
-    > 또는 **프로젝트만 만들기**를 선택하여 지금 마이그레이션 프로젝트를 만들고, 나중에 마이그레이션을 실행할 수도 있습니다.
+    > 또는 **프로젝트만 만들기** 를 선택하여 지금 마이그레이션 프로젝트를 만들고, 나중에 마이그레이션을 실행할 수도 있습니다.
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
-7. **작업 만들기 및 실행**을 선택하여 프로젝트를 만들고 마이그레이션 작업을 실행합니다.
+7. **작업 만들기 및 실행** 을 선택하여 프로젝트를 만들고 마이그레이션 작업을 실행합니다.
 
     > [!NOTE]
     > 프로젝트 만들기 블레이드에서 온라인 마이그레이션을 설정하는 데 필요한 필수 조건을 기록해 둡니다.
@@ -221,35 +221,35 @@ call mysql.rds_set_configuration('binlog retention hours', 120);
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1. **저장**을 선택한 다음, **대상 세부 정보** 화면에서 대상 Azure Database for MySQL 서버의 연결 세부 정보를 지정합니다. 이 서버는 MySQLDump를 사용하여 미리 프로비저닝되었고 **Employees** 스키마가 배포되어 있습니다.
+1. **저장** 을 선택한 다음, **대상 세부 정보** 화면에서 대상 Azure Database for MySQL 서버의 연결 세부 정보를 지정합니다. 이 서버는 MySQLDump를 사용하여 미리 프로비저닝되었고 **Employees** 스키마가 배포되어 있습니다.
 
     ![대상 선택](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-select-target5.png)
 
-2. **저장**을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
+2. **저장** 을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 
     대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 이 대상 데이터베이스를 선택합니다.
 
     ![대상 데이터베이스에 매핑](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-map-targets-activity5.png)
 
-3. **저장**을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
+3. **저장** 을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
 
     ![마이그레이션 요약](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-migration-summary2.png)
 
 ## <a name="run-the-migration"></a>마이그레이션 실행
 
-* **마이그레이션 실행**을 선택합니다.
+* **마이그레이션 실행** 을 선택합니다.
 
-    마이그레이션 작업 창이 나타나고, 작업 **상태**는 **초기화 중**입니다.
+    마이그레이션 작업 창이 나타나고, 작업 **상태** 는 **초기화 중** 입니다.
 
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 
-1. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 마이그레이션 **상태**가 **실행 중**으로 표시될 때까지 디스플레이를 업데이트합니다.
+1. 마이그레이션 작업 화면에서 **새로 고침** 을 선택하여 마이그레이션 **상태** 가 **실행 중** 으로 표시될 때까지 디스플레이를 업데이트합니다.
 
     ![작업 상태 - 실행 중](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
 
 2. **데이터베이스 이름** 아래에서 특정 데이터베이스를 선택하여 **전체 데이터 로드** 및 **증분 데이터 동기화** 작업의 마이그레이션 상태로 이동합니다.
 
-    **전체 데이터 로드**는 초기 로드 마이그레이션 상태를 보여주고, **증분 데이터 동기화**는 CDC(변경 데이터 캡처) 상태를 보여줍니다.
+    **전체 데이터 로드** 는 초기 로드 마이그레이션 상태를 보여주고, **증분 데이터 동기화** 는 CDC(변경 데이터 캡처) 상태를 보여줍니다.
 
     ![인벤토리 화면 - 전체 데이터 로드](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-full-load.png)
 
@@ -257,20 +257,20 @@ call mysql.rds_set_configuration('binlog retention hours', 120);
 
 ## <a name="perform-migration-cutover"></a>마이그레이션 중단 수행
 
-초기 전체 로드가 완료되면 데이터베이스가 **중단 준비 완료**로 표시됩니다.
+초기 전체 로드가 완료되면 데이터베이스가 **중단 준비 완료** 로 표시됩니다.
 
-1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
+1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작** 을 선택합니다.
 
     ![중단 시작](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-inventory-start-cutover.png)
 
-2. 원본 데이터베이스로 들어오는 모든 트랜잭션을 중지해야 합니다. **보류 중인 변경 내용** 카운터가 **0**으로 표시될 때까지 기다립니다.
-3. **확인**, **적용**을 차례로 선택합니다.
-4. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 새로운 대상 Azure Database for MySQL 데이터베이스에 연결합니다.
+2. 원본 데이터베이스로 들어오는 모든 트랜잭션을 중지해야 합니다. **보류 중인 변경 내용** 카운터가 **0** 으로 표시될 때까지 기다립니다.
+3. **확인**, **적용** 을 차례로 선택합니다.
+4. 데이터베이스 마이그레이션 상태가 **완료됨** 으로 표시되면 애플리케이션을 새로운 대상 Azure Database for MySQL 데이터베이스에 연결합니다.
 
 MySQL 온-프레미스 인스턴스를 Azure Database for MySQL로 온라인 마이그레이션하는 작업이 완료되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](https://docs.microsoft.com/azure/dms/dms-overview) 문서를 참조하세요.
-* Azure Database for MySQL에 대한 자세한 내용은 [Azure Database for MySQL이란?](https://docs.microsoft.com/azure/mysql/overview) 문서를 참조하세요.
+* Azure Database Migration Service에 대한 자세한 내용은 [Azure Database Migration Service란?](./dms-overview.md) 문서를 참조하세요.
+* Azure Database for MySQL에 대한 자세한 내용은 [Azure Database for MySQL이란?](../mysql/overview.md) 문서를 참조하세요.
 * 기타 질문은 [Azure 데이터베이스 마이그레이션 관련 질문](mailto:AskAzureDatabaseMigrations@service.microsoft.com)이라는 별칭으로 이메일을 보내주세요.

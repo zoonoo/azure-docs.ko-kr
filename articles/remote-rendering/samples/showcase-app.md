@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 04/01/2020
 ms.topic: sample
-ms.openlocfilehash: e1e91a892a1c8b69b3dc7f6c79109377e13bd7ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3d74dbfde2f65d2d4048f589f160ea3c091bf2b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804455"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566285"
 ---
 # <a name="unity-showcase-application"></a>Unity 소개 애플리케이션
 
@@ -20,7 +20,7 @@ Unity 소개 애플리케이션은 Azure Remote Rendering 기능을 시연하는
 
 ## <a name="source-repository"></a>소스 리포지토리
 
-빌드/배포 지침과 함께 이 애플리케이션의 소스 코드는 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase)에서 찾을 수 있습니다.
+빌드/배포 지침과 함께 이 애플리케이션의 소스 코드는 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

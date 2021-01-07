@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ba903793844e44b26931a70183860c983adaf18a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 52f0bcbb332b5d5e47440accff9d9895dcef7056
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743406"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96449373"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
@@ -228,7 +228,7 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 7. 하나 이상의 PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 데이터 센터 네트워크/인터넷에 연결합니다.
 
     - PORT 2를 연결하는 경우 1-GbE RJ-45 네트워크 케이블을 사용합니다.
-    - 10/25-GbE 네트워크 인터페이스의 경우 SFP+ 동선 케이블을 사용합니다.
+    - 10/25-GbE 네트워크 인터페이스의 경우 SFP+ 동선 케이블 또는 파이버를 사용합니다. 파이버를 사용하는 경우에는 광학 SFP 어댑터를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

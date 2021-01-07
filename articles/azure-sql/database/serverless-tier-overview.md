@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 9/17/2020
-ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/8/2020
+ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743164"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97687394"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 - **최소 vcores** 및 **최대 vcores** 는 데이터베이스에 사용할 수 있는 계산 용량의 범위를 정의 하는 구성 가능한 매개 변수입니다. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
 - **Autopause delay** 는 데이터베이스를 자동으로 일시 중지 하기 전에 비활성 상태로 유지 해야 하는 기간을 정의 하는 구성 가능한 매개 변수입니다. 데이터베이스는 다음 로그인 또는 다른 작업이 발생할 때 자동으로 다시 시작 됩니다.  또는 autopausing를 사용 하지 않도록 설정할 수 있습니다.
 
-### <a name="cost"></a>비용
+### <a name="cost"></a>Cost
 
 - 서버를 사용 하지 않는 데이터베이스에 대 한 비용은 계산 비용 및 저장소 비용의 합계입니다.
 - 계산 사용법이 구성 된 최소 및 최대 한도 사이에 있는 경우 계산 비용은 vCore 및 사용 되는 메모리를 기반으로 합니다.
@@ -68,8 +68,8 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 | 시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
 | **성능 관리 작업** |더 낮음|더 높음|
-|**컴퓨팅 크기 조정**|자동|설명서|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
+|**컴퓨팅 크기 조정**|자동|수동|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
@@ -135,9 +135,10 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |데이터 검색 및 분류|민감도 레이블 추가, 수정, 삭제 또는 보기|
 |감사|감사 레코드 보기,<br>감사 정책 업데이트 또는 보기|
 |데이터 마스킹|데이터 마스킹 규칙 추가, 수정, 삭제 또는 보기|
-|투명한 데이터 암호화|투명한 데이터 암호화 상태 또는 상태 보기|
+|투명한 데이터 암호화|투명 한 데이터 암호화 상태 보기|
 |취약점 평가|임시 검색 및 정기적 검색 사용 (사용 하도록 설정 된 경우)|
 |쿼리(성능) 데이터 저장소|쿼리 저장소 설정 수정 또는 보기|
+|성능 권장 사항|성능 권장 사항 보기 또는 적용|
 |자동 튜닝|자동 인덱싱과 같은 자동 실행 추천 사항의 적용 및 확인|
 |데이터베이스 복사|복사본으로 데이터베이스를 만듭니다.<br>BACPAC 파일로 내보냅니다.|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
@@ -195,7 +196,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 
@@ -315,16 +316,16 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 
 - **청구** 되는 리소스: CPU 및 메모리
-- **청구 금액** : vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
-- **청구 빈도** : 초당
+- **청구 금액**: vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
+- **청구 빈도**: 초당
 
 VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
 
 요금이 청구되는 컴퓨팅 양은 다음 메트릭에서 공개됩니다.
 
-- **메트릭** : app_cpu_billed(vCore 시간(초))
-- **정의** : 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3)
-- **보고 빈도** : 분당
+- **메트릭**: app_cpu_billed(vCore 시간(초))
+- **정의**: 최댓값(최소 vCore 수, 사용된 vCore 수, 최소 메모리 GB * 1/3, 사용된 메모리 GB * 1/3)
+- **보고 빈도**: 분당
 
 이 수량은 초 단위로 계산되어 1분 동안 집계됩니다.
 

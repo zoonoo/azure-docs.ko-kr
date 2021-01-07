@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5506a54193efc813927663533ddfd89be3ddf40a
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738303"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461292"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Azure Synapse 작업 영역 관리 ID(미리 보기)
+# <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse 작업 영역 관리 ID
 
 이 문서에서는 Azure Synapse 작업 영역의 관리 ID에 대해 알아봅니다.
 

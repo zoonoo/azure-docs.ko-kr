@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 01/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 0818d113b5475e847c009f979345e103d6e089bb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 919a9831731a8f7c8065f2f1c496691ae33ba659
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938868"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861993"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -39,6 +39,9 @@ ms.locfileid: "91938868"
 * [Oracle VM 이미지 및 Microsoft Azure에 대 한 배포: 공유 저장소 구성 옵션](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점](solutions-benefits-azure-netapp-files-oracle-database.md)
 
+### <a name="machine-learning"></a>Machine Learning
+*   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
+
 ## <a name="windows-apps-and-sql-server-solutions"></a>Windows 앱 및 SQL Server 솔루션
 
 이 섹션에서는 Windows 응용 프로그램 및 SQL Server 솔루션에 대 한 참조를 제공 합니다.
@@ -47,6 +50,7 @@ ms.locfileid: "91938868"
 
 * [사용자 고유의 Azure NFS 빌드 Wrestling Linux 파일 공유를 클라우드로](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [전역 파일 캐시/Azure NetApp Files 배포](https://youtu.be/91LKb1qsLIM)
+* [Azure NetApp Files에 대 한 클라우드 규정 준수](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -95,6 +99,7 @@ ms.locfileid: "91938868"
 * [Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](../virtual-desktop/create-fslogix-profile-container.md)
 * [엔터프라이즈 규모의 Windows Virtual Desktop](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 * [엔터프라이즈 Azure NetApp Files 모범 사례에 대 한 Microsoft FSLogix](/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#azure-netapp-files-best-practices)
+* [MSIX 앱 연결에 대 한 Azure NetApp Files 설정](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/setting-up-azure-netapp-files-for-msix-app-attach-step-by-step/m-p/1990021)
 
 ## <a name="hpc-solutions"></a>HPC 솔루션
 
@@ -119,7 +124,7 @@ ms.locfileid: "91938868"
 
 ### <a name="analytics"></a>분석
 
-* [Azure NetApp Files: Microsoft Azure의 SAS 표와 함께 사용할 새 공유 파일 시스템](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
+* [Azure NetApp Files: Microsoft Azure에서 SAS 그리드와 함께 사용할 공유 파일 시스템](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [SAS®에서 Microsoft Azure 사용에 대 한 모범 사례](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
 ## <a name="azure-platform-services-solutions"></a>Azure platform services 솔루션

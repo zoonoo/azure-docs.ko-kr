@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 711da24b3edf08f4867109d0d70165955236c39a
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743423"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184657"
 ---
 # <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성
 
@@ -45,11 +45,11 @@ Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 설정하기 전에 
 
 Azure Stack Edge Pro에 컴퓨팅을 구성하려면 Azure Portal을 통해 IoT Hub 리소스를 만들어야 합니다.
 
-1. Azure Stack Edge 리소스의 Azure Portal에서 **개요**로 이동합니다. 오른쪽에 있는 **컴퓨팅** 타일에서 **시작**을 선택합니다.
+1. Azure Stack Edge 리소스의 Azure Portal에서 **개요** 로 이동합니다. 오른쪽에 있는 **컴퓨팅** 타일에서 **시작** 을 선택합니다.
 
     ![컴퓨팅 시작](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. **Edge 컴퓨팅 구성** 타일에서 **컴퓨팅 구성**을 선택합니다.
+2. **Edge 컴퓨팅 구성** 타일에서 **컴퓨팅 구성** 을 선택합니다.
 
     ![컴퓨팅 구성](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
@@ -63,11 +63,11 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 Azure Portal을 통해 IoT 
 
     ![컴퓨팅 시작 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. **만들기**를 선택합니다. IoT Hub 리소스 만들기는 몇 분 정도 걸립니다. IoT Hub 리소스가 만들어지면 컴퓨팅 구성을 표시하도록 **컴퓨팅 구성** 타일이 업데이트됩니다. 
+4. **만들기** 를 선택합니다. IoT Hub 리소스 만들기는 몇 분 정도 걸립니다. IoT Hub 리소스가 만들어지면 컴퓨팅 구성을 표시하도록 **컴퓨팅 구성** 타일이 업데이트됩니다. 
 
     ![컴퓨팅 시작 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **컴퓨팅 구성** 타일의 **컴퓨팅 보기**를 선택합니다.
+5. Edge 컴퓨팅 역할이 구성되었는지 확인하려면 **컴퓨팅 구성** 타일의 **컴퓨팅 보기** 를 선택합니다.
     
     ![컴퓨팅 시작 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
@@ -76,7 +76,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 Azure Portal을 통해 IoT 
     
 Edge 컴퓨팅 역할이 Edge 디바이스에 설정되면 두 가지 디바이스, 즉 IoT 디바이스와 IoT Edge 디바이스가 만들어집니다. 이 두 디바이스는 모두 IoT Hub 리소스에서 볼 수 있습니다. IoT Edge 런타임 역시 이 IoT Edge 디바이스에서 실행됩니다. 이 시점에서 IoT Edge 디바이스에는 Linux 플랫폼만 사용할 수 있습니다.
 
-가상 머신과 Kubernetes 클러스터가 생성되는 동안 백그라운드에서 컴퓨팅을 구성하는 데 20~30분 정도 걸릴 수 있습니다. 
+가상 머신과 Kubernetes 클러스터가 생성되는 동안 백그라운드에서 컴퓨팅을 구성하는 데 20~30분 정도 걸릴 수 있습니다. 
 
 Azure Portal에서 컴퓨팅을 성공적으로 구성한 후에는 Kubernetes 클러스터와 IoT 네임스페이스(Azure Stack Edge Pro에서 제어하는 시스템 네임 스페이스)와 연결된 기본 사용자가 존재합니다. 
 
@@ -85,7 +85,7 @@ Azure Portal에서 컴퓨팅을 성공적으로 구성한 후에는 Kubernetes �
 Kubernetes 클러스터에 액세스하도록 클라이언트를 구성하려면 Kubernetes 엔드포인트가 필요합니다. Azure Stack Edge Pro 디바이스의 로컬 UI에서 Kubernetes API 엔드포인트를 가져오려면 다음 단계를 수행합니다.
 
 1. 디바이스의 로컬 웹 UI에서 **디바이스** 페이지로 이동합니다.
-2. **디바이스 엔드포인트**에서 **Kubernetes API 서비스** 엔드포인트를 복사합니다. 이 엔드포인트는 `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` 같은 형식의 문자열입니다. 
+2. **디바이스 엔드포인트** 에서 **Kubernetes API 서비스** 엔드포인트를 복사합니다. 이 엔드포인트는 `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]` 같은 형식의 문자열입니다. 
 
     ![로컬 UI의 디바이스 페이지](./media/azure-stack-edge-j-series-create-kubernetes-cluster/device-kubernetes-endpoint-1.png)
 
@@ -93,7 +93,7 @@ Kubernetes 클러스터에 액세스하도록 클라이언트를 구성하려면
 
 4. 로컬 웹 UI에 있는 동안 다음을 수행할 수 있습니다.
 
-    - Kubernetes API로 이동하고, **고급 설정**을 선택하고, Kubernetes에 대한 고급 구성 파일을 다운로드합니다. 
+    - Kubernetes API로 이동하고, **고급 설정** 을 선택하고, Kubernetes에 대한 고급 구성 파일을 다운로드합니다. 
 
         ![로컬 UI 1의 디바이스 페이지](./media/azure-stack-edge-gpu-deploy-configure-compute/download-advanced-config-1.png)
 

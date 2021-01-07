@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 29a693ac8ff0b170abf59c9671d4b411b456b540
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 02c0ecfc24b65afd46d75464b5411cfd5cf61857
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346981"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591534"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -45,7 +45,7 @@ Azure Database for MariaDB sslmode를 이해 하려면 [SSL 모드 설명을](co
 
 인증서가 예기치 않게 취소 되어 응용 프로그램의 가용성이 중단 되지 않도록 하거나 해지 된 인증서를 업데이트 하려면 다음 단계를 수행 합니다. 현재 인증서와 새 pem 파일을 결합 하는 새 *pem* 파일을 만드는 것이 좋습니다 .이 파일은 허용 되는 값이 사용 되 면 SSL 인증서 유효성 검사 중에 사용 됩니다. 다음 단계를 참조 하세요.
 
-*   **BaltimoreCyberTrustRoot**  &  아래 링크에서 baltimorecybertrustroot.crt.pem **DigiCertGlobalRootG2** CA를 다운로드 합니다.
+*     &  아래 링크에서 baltimorecybertrustroot.crt.pem **DigiCertGlobalRootG2** CA를 다운로드 합니다.
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
@@ -129,8 +129,12 @@ Azure Database for MariaDB에서 사용 하는 이러한 인증서는 신뢰할 
 이 업데이트는 클라이언트 쪽 변경 이기 때문에 클라이언트가 복제본 서버에서 데이터를 읽는 데 사용 되는 경우에도 해당 클라이언트에 대 한 변경 내용을 적용 해야 합니다.
 
 ###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. 데이터 복제를 사용 하는 경우 어떤 작업을 수행 해야 하나요?
+
 [데이터에서 복제](concepts-data-in-replication.md) 를 사용 하 여 Azure Database for MySQL에 연결 하는 경우 다음 두 가지 사항을 고려해 야 합니다.
-*   가상 컴퓨터 (온-프레미스 또는 Azure 가상 컴퓨터)에서 Azure Database for MySQL로 데이터를 복제 하는 경우에는 SSL을 사용 하 여 복제본을 만들 수 있는지 확인 해야 합니다. **슬레이브 상태 표시** 를 실행 하 고 다음 설정을 선택 합니다.  
+
+> [!NOTE]
+>  이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 종속 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+*   가상 컴퓨터 (온-프레미스 또는 Azure 가상 컴퓨터)에서 Azure Database for MySQL로 데이터를 복제 하는 경우에는 SSL을 사용 하 여 복제본을 만들 수 있는지 확인 해야 합니다. **슬레이브 상태 표시** 를 실행 하 고 다음 설정을 선택 합니다. 
 
     ```azurecli-interactive
     Master_SSL_Allowed            : Yes

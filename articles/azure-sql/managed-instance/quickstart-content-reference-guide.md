@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 936e4f8f54e92ba90372fff1c9d8dfc1982bbd62
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788165"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325119"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ SQL Managed Instance를 배포하려는 곳에 VNet과 서브넷이 이미 있�
 그러나 일부 성능 테스트에 사용하려는 프로덕션 데이터베이스 또는 개발/테스트 데이터베이스를 마이그레이션하려면 다음과 같은 몇 가지 추가 기술을 사용하는 것을 고려해야 합니다.
 
 - 성능 테스트 - 원본 SQL Server 인스턴스에서 기준 성능 메트릭을 측정하고 데이터베이스가 마이그레이션된 대상인 SQL Managed Instance의 성능 메트릭과 비교해야 합니다. [성능 비교 모범 사례](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)에 대해 자세히 알아봅니다.
-- 온라인 마이그레이션 - 이 문서에 설명된 네이티브 `RESTORE`를 사용할 경우 데이터베이스가 복원될 때까지(그리고 Azure Blob Storage에 저장되지 않은 경우에는 복사될 때까지) 기다려야 합니다. 이렇게 하면 특히 대규모 데이터베이스에서 애플리케이션의 가동 중지 시간이 발생합니다. 프로덕션 데이터베이스를 이동하려면 [DMS(Data Migration Service)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json)를 사용하여 최소 가동 중지 시간으로 데이터베이스를 마이그레이션하세요. DMS는 복원 중인 SQL Managed Instance 데이터베이스에 원본 데이터베이스의 변경 사항을 점진적으로 보냄으로써 데이터베이스를 이동합니다. 이 방식을 사용하면 가동 중지 시간을 최소화하면서 원본에서 대상 데이터베이스로 애플리케이션을 신속하게 전환할 수 있습니다.
+- 온라인 마이그레이션 - 이 문서에 설명된 네이티브 `RESTORE`를 사용할 경우 데이터베이스가 복원될 때까지(그리고 Azure Blob Storage에 저장되지 않은 경우에는 복사될 때까지) 기다려야 합니다. 이렇게 하면 특히 대규모 데이터베이스에서 애플리케이션의 가동 중지 시간이 발생합니다. 프로덕션 데이터베이스를 이동하려면 [DMS(Data Migration Service)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%2fazure%2fsql-database%2ftoc.json)를 사용하여 최소 가동 중지 시간으로 데이터베이스를 마이그레이션하세요. DMS는 복원 중인 SQL Managed Instance 데이터베이스에 원본 데이터베이스의 변경 사항을 점진적으로 보냄으로써 데이터베이스를 이동합니다. 이 방식을 사용하면 가동 중지 시간을 최소화하면서 원본에서 대상 데이터베이스로 애플리케이션을 신속하게 전환할 수 있습니다.
 
 [권장 마이그레이션 프로세스](migrate-to-instance-from-sql-server.md)에 대해 자세히 알아봅니다.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 9a5cb1e589481bb424507d08879da8cc1b14ff1c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0dd66e246e5e172ad359f5e6e953b360e6e74ebd
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92448200"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796978"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>자습서: Google Cloud (G Suite) Connector와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -82,7 +82,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Google Cloud (G Suite) Connector에서 **SP** 시작 SSO를 지원합니다.
 
-* Google Cloud (G Suite) Connector에서 [**자동** 사용자 프로비저닝](./google-apps-provisioning-tutorial.md)을 지원합니다.
+* Google Cloud (G Suite) Connector에서 [**자동** 사용자 프로비저닝](g-suite-provisioning-tutorial.md)을 지원합니다.
 * Google Cloud (G Suite) Connector가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-google-cloud-g-suite-connector-from-the-gallery"></a>갤러리에서 Google Cloud (G Suite) Connector 추가
@@ -179,7 +179,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -221,7 +221,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![SSL 구성][12]
 
-    a. **Setup SSO with third party identity provider** (타사 ID 공급자로 SSO 설정)을 선택합니다.
+    a. **Setup SSO with third party identity provider**(타사 ID 공급자로 SSO 설정)을 선택합니다.
 
     b. Azure Portal에서 복사한 **로그인 URL** 값을 Google Cloud (G Suite) Connector의 **Sign-in page URL(로그인 페이지 URL)** 필드에 붙여넣습니다.
 
@@ -242,7 +242,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 [Google Cloud (G Suite) Connector에서 B.Simon이라는 사용자를 만듭니다](https://support.google.com/a/answer/33310?hl=en). Google Cloud (G Suite) Connector에서 사용자가 수동으로 만들어지면 이제 사용자가 해당 Microsoft 365 로그인 자격 증명을 사용하여 로그인할 수 있습니다.
 
-Google Cloud (G Suite) Connector는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝을 구성하려면 먼저 [자동 사용자 프로비저닝을 수행하도록 Google Cloud (G Suite) Connector를 구성](./google-apps-provisioning-tutorial.md)해야 합니다.
+Google Cloud (G Suite) Connector는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝을 구성하려면 먼저 [자동 사용자 프로비저닝을 수행하도록 Google Cloud (G Suite) Connector를 구성](g-suite-provisioning-tutorial.md)해야 합니다.
 
 > [!NOTE]
 > Single Sign-On을 테스트하기 전에 Azure AD에서 프로비전이 설정되지 않은 경우 해당 사용자가 Google Cloud (G Suite) Connector에 이미 있는지 확인하세요.
@@ -264,7 +264,7 @@ Google Cloud (G Suite) Connector는 자동 사용자 프로비저닝도 지원�
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 
-- [사용자 프로비저닝 구성](./google-apps-provisioning-tutorial.md)
+- [사용자 프로비저닝 구성](g-suite-provisioning-tutorial.md)
 
 - [Azure AD에서 Google Cloud (G Suite) Connector 사용해 보기](https://aad.portal.azure.com/)
 

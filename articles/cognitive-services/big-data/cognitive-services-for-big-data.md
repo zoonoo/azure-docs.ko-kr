@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: overview
 ms.date: 07/09/2020
 ms.author: marhamil
-ms.openlocfilehash: 1b08925db12edffdaf5c85f1fa6f5934a412d81f
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: aaade03edbbb109656fb7371a063cdc2512c5a20
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363309"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461631"
 ---
 # <a name="azure-cognitive-services-for-big-data"></a>빅 데이터용 Azure Cognitive Services
 
@@ -84,11 +84,11 @@ Scala 및 Java 기반 Spark API를 [Microsoft ML for Apache Spark](https://aka.m
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics)(이전의 SQL Data Warehouse)는 대규모 병렬 처리를 사용하는 엔터프라이즈 데이터 웨어하우스입니다. Synapse Analytics를 사용하면 페타바이트 단위의 데이터에서 복합 쿼리를 빠르게 실행할 수 있습니다. Azure Synapse Analytics는 직관적인 Jupyter Notebook 인터페이스를 사용하여 Spark 작업을 실행할 수 있는 관리형 Spark 풀을 제공합니다.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics)는 대규모 병렬 처리를 사용하는 엔터프라이즈 데이터 웨어하우스입니다. Synapse Analytics를 사용하면 페타바이트 단위의 데이터에서 복합 쿼리를 빠르게 실행할 수 있습니다. Azure Synapse Analytics는 직관적인 Jupyter Notebook 인터페이스를 사용하여 Spark 작업을 실행할 수 있는 관리형 Spark 풀을 제공합니다.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-[AKS(Azure Kubernetes Service)](../../aks/index.yml)는 Docker 컨테이너 및 분산 애플리케이션을 대규모로 조정합니다. AKS는 Azure에서 Kubernetes 사용을 간소화하는 관리되는 Kubernetes 제품입니다. Kubernetes는 Cognitive Service 크기 조정, 대기 시간 및 네트워킹을 세부적으로 제어할 수 있습니다. 그러나 Apache Spark에 익숙하지 않은 경우 Azure Databricks 또는 Synapse Analytics를 사용하는 것이 좋습니다.
+[AKS(Azure Kubernetes Service)](../../aks/index.yml)는 Docker 컨테이너 및 분산 애플리케이션을 대규모로 조정합니다. AKS는 Azure에서 Kubernetes 사용을 간소화하는 관리되는 Kubernetes 제품입니다. Kubernetes는 Cognitive Service 크기 조정, 대기 시간 및 네트워킹을 세부적으로 제어할 수 있습니다. 그러나 Apache Spark에 익숙하지 않은 경우 Azure Databricks 또는 Azure Synapse Analytics를 사용하는 것이 좋습니다.
 
 ### <a name="data-connectors"></a>데이터 커넥터
 

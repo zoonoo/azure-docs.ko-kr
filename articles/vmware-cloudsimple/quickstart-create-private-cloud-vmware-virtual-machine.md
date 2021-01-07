@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작-사설 클라우드에서 Azure VMware VM 만들기-CloudSimple 별 Azure VMware 솔루션
 description: CloudSimple 사설 클라우드에서 VMware 가상 머신을 만드는 방법에 대해 알아봅니다. Azure Portal에서 CloudSimple 포털에 액세스 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427763"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899289"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
 
@@ -25,8 +25,8 @@ ms.locfileid: "92427763"
 
 ## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
 
-1. **모든 서비스**를 선택합니다.
-2. **Cloudsimple 서비스**를 검색 합니다.
+1. **모든 서비스** 를 선택합니다.
+2. **Cloudsimple 서비스** 를 검색 합니다.
 3. 사설 클라우드를 만들려는 CloudSimple 서비스를 선택 합니다.
 4. **개요** 페이지에서 **Cloudsimple 포털로 이동** 을 클릭 하 여 cloudsimple 포털에 대 한 새 브라우저 탭을 엽니다.  메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다.  
 
@@ -36,7 +36,7 @@ ms.locfileid: "92427763"
 
 이제 vCenter를 실행 하 여 가상 컴퓨터 및 정책을 설정할 수 있습니다.
 
-VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 페이지의 **일반 작업**에서 **Vsphere 클라이언트 시작**을 클릭 합니다.  사설 클라우드를 선택 하 고 사설 클라우드에서 **vSphere 클라이언트 시작** 을 클릭 합니다.
+VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 페이지의 **일반 작업** 에서 **Vsphere 클라이언트 시작** 을 클릭 합니다.  사설 클라우드를 선택 하 고 사설 클라우드에서 **vSphere 클라이언트 시작** 을 클릭 합니다.
 
    ![VSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
 
@@ -46,42 +46,42 @@ VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 �
   > ISO 업로드의 경우 vSphere HTML5 클라이언트를 사용 합니다.  플래시 클라이언트를 사용 하면 오류가 발생할 수 있습니다.
 
 1. VM을 만들고 로컬 시스템에서 사용할 수 있도록 vCenter에 업로드 하려는 ISO 또는 vSphere 템플릿을 가져옵니다.
-2. VCenter에서 **디스크** 아이콘을 클릭 하 고 **vsandatastore 저장소**를 선택 합니다. **파일** , **새 폴더**를 차례로 클릭 합니다.
+2. VCenter에서 **디스크** 아이콘을 클릭 하 고 **vsandatastore 저장소** 를 선택 합니다. **파일** , **새 폴더** 를 차례로 클릭 합니다.
     ![vCenter ISO](media/vciso00.png)
 
 3. ' Iso and Template ' 이라는 폴더를 만듭니다.
 
-4. Iso 및 템플릿의 Iso 폴더로 이동 하 고 **파일 업로드**를 클릭 합니다. 화면의 지시에 따라 ISO를 업로드 합니다.
+4. Iso 및 템플릿의 Iso 폴더로 이동 하 고 **파일 업로드** 를 클릭 합니다. 화면의 지시에 따라 ISO를 업로드 합니다.
 
 ## <a name="create-a-virtual-machine-in-vcenter"></a>VCenter에서 가상 컴퓨터 만들기
 
 1. VCenter에서 **호스트 및 클러스터** 아이콘을 클릭 합니다.
 
-2. **작업** 을 마우스 오른쪽 단추로 클릭 하 고 **새 가상 컴퓨터**를 선택 합니다.
+2. **작업** 을 마우스 오른쪽 단추로 클릭 하 고 **새 가상 컴퓨터** 를 선택 합니다.
     ![새 가상 컴퓨터 메뉴 옵션을 강조 표시 하는 스크린샷](media/vcvm01.png)
 
-3. **새 가상 컴퓨터 만들기** 를 선택 하 고 **다음**을 클릭 합니다.
+3. **새 가상 컴퓨터 만들기** 를 선택 하 고 **다음** 을 클릭 합니다.
     ![새 가상 컴퓨터 만들기 옵션을 강조 표시 하는 스크린샷](media/vcvm02.png)
 
-4. 컴퓨터 이름을로, **작업 VM의** 위치를 선택 하 고 **다음**을 클릭 합니다.
+4. 컴퓨터 이름을로, **작업 VM의** 위치를 선택 하 고 **다음** 을 클릭 합니다.
     ![워크 로드 Vm 옵션을 강조 표시 하는 스크린샷](media/vcvm03.png)
 
-5. **작업** 계산 리소스를 선택 하 고 **다음**을 클릭 합니다.
+5. **작업** 계산 리소스를 선택 하 고 **다음** 을 클릭 합니다.
     ![워크 로드 계산 리소스를 강조 표시 하는 스크린샷](media/vcvm04.png)
 
-6. **Vsandatastore 저장소** 를 선택 하 고 **다음**을 클릭 합니다.
+6. **Vsandatastore 저장소** 를 선택 하 고 **다음** 을 클릭 합니다.
     ![VsanDatastore 저장소 옵션을 강조 표시 하는 스크린샷](media/vcvm05.png)
 
-7. 기본 ESXi 6.5 호환성 선택 항목을 유지 하 고 **다음**을 클릭 합니다.
+7. 기본 ESXi 6.5 호환성 선택 항목을 유지 하 고 **다음** 을 클릭 합니다.
     ![선택한 ESXi 6.5 호환성 옵션을 보여 주는 스크린샷](media/vcvm06.png)
 
-8. 만들려는 VM에 대 한 ISO의 게스트 OS를 선택 하 고 **다음**을 클릭 합니다.
+8. 만들려는 VM에 대 한 ISO의 게스트 OS를 선택 하 고 **다음** 을 클릭 합니다.
     ![VM에 대 한 ISO의이 ISO OS를 선택 하는 방법을 보여 주는 스크린샷](media/vcvm07.png)
 
-9. 하드 디스크 및 네트워크 옵션을 선택 합니다. 새 CD/DVD 드라이브의 경우 **데이터 저장소 ISO 파일**을 선택 합니다.  공용 IP 주소에서이 VM으로의 트래픽을 허용 하려면 **vm-1**로 네트워크를 선택 합니다.
+9. 하드 디스크 및 네트워크 옵션을 선택 합니다. 새 CD/DVD 드라이브의 경우 **데이터 저장소 ISO 파일** 을 선택 합니다.  공용 IP 주소에서이 VM으로의 트래픽을 허용 하려면 **vm-1** 로 네트워크를 선택 합니다.
     ![데이터 저장소 ISO 파일을 선택 하는 위치를 강조 표시 하는 스크린샷](media/vcvm08.png)
 
-10. 선택 창이 열립니다. 이전에 Iso 및 Templates 폴더에 업로드 한 파일을 선택 하 고 **확인**을 클릭 합니다.
+10. 선택 창이 열립니다. 이전에 Iso 및 Templates 폴더에 업로드 한 파일을 선택 하 고 **확인** 을 클릭 합니다.
     ![새 VM](media/vcvm10.png)
 
 11. 설정을 검토 하 고 **확인** 을 클릭 하 여 VM을 만듭니다.
@@ -102,7 +102,7 @@ CloudSimple은 사용자 이름으로 기본 vCenter 사용자 계정을 할당 
 
 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
 
-필수 구성 요소
+필수 조건
 
 * VLAN이 구성 된 분산 포트 그룹
 
@@ -133,13 +133,13 @@ CloudSimple 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방
 ### <a name="allocate-public-ips"></a>공용 Ip 할당
 
 1. CloudSimple 포털에서 **네트워크 > 공용 IP** 로 이동 합니다.
-2. **공용 IP 할당**을 클릭 합니다.
+2. **공용 IP 할당** 을 클릭 합니다.
 3. IP 주소 항목을 식별 하는 이름을 입력 합니다.
 4. 기본 위치를 유지 합니다.
 5. 원하는 경우 슬라이더를 사용 하 여 유휴 시간 제한을 변경 합니다.
 6. 공용 IP 주소를 할당 하려는 로컬 IP 주소를 입력 합니다.
 7. 원하는 경우 연결 된 DNS 이름을 입력 합니다.
-8. **Done**을 클릭합니다.
+8. **완료** 를 클릭합니다.
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 
@@ -179,7 +179,7 @@ sudo ifdown eth0
 sudo ifup eth0
 ```
 
-기본적으로 인터넷에서 들어오는 모든 트래픽이 **거부**됩니다. 다른 포트를 열려면 [방화벽 테이블](firewall.md)을 만듭니다.
+기본적으로 인터넷에서 들어오는 모든 트래픽이 **거부** 됩니다. 다른 포트를 열려면 [방화벽 테이블](firewall.md)을 만듭니다.
 
 내부 IP 주소를 고정 IP 주소로 구성한 후에는 VM 내에서 인터넷에 연결할 수 있는지 확인 합니다.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cd813c6db9d03b0b7c84497e5b44f6ecdb591437
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912857"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853535"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
 
@@ -24,7 +24,7 @@ ms.locfileid: "92912857"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전
 
 ## <a name="set-up-azure-resources"></a>Azure 리소스 설정
@@ -121,7 +121,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들면 다음과 같습니다.
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들어 다음과 같습니다.
 
 ```JSON
 {
@@ -365,9 +365,9 @@ static void StateChanged(object sender, JobStateChangedEventArgs e)
 Content Moderation 작업이 완료되면 JSON 응답을 분석합니다. 응답은 다음 요소로 구성됩니다.
 
 - 비디오 정보 요약
-- **Shots** 를 " **fragments** "로 지정
-- **Key frames** 를 **Adult** 및 **Racy** 점수를 기준으로 하는 **reviewRecommended" (= true or false)"** 플래그를 사용하여 " **events** "로 지정
-- **start** , **duration** , **totalDuration** 및 **timestamp** 는 "ticks"로 지정합니다. **timescale** 로 나누어 초 수를 가져옵니다.
+- **Shots** 를 "**fragments**"로 지정
+- **Key frames** 를 **Adult** 및 **Racy** 점수를 기준으로 하는 **reviewRecommended" (= true or false)"** 플래그를 사용하여 "**events**"로 지정
+- **start**, **duration**, **totalDuration** 및 **timestamp** 는 "ticks"로 지정합니다. **timescale** 로 나누어 초 수를 가져옵니다.
  
 > [!NOTE]
 > - `adultScore`는 잠재적으로 특정 상황에서 성적으로 노골적이거나 성인용으로 간주될 수 있는 콘텐츠의 존재 가능성 및 예측 점수를 나타냅니다.
@@ -430,9 +430,5 @@ Content Moderation 작업이 완료되면 JSON 응답을 분석합니다. 응답
 ## <a name="next-steps"></a>다음 단계
 
 조정 출력에서 [비디오 검토](video-reviews-quickstart-dotnet.md)를 생성하는 방법을 알아봅니다.
-
-비디오 검토에 [기록 조정](video-transcript-moderation-review-tutorial-dotnet.md)을 추가합니다.
-
-[완전한 비디오 및 기록 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 빌드하는 방법에 대한 자세한 자습서를 살펴봅니다.
 
 이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Visual Studio 솔루션을 다운로드](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)합니다.

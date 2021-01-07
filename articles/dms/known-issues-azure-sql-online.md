@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 6648a20e03facad4b791cacba8513f9f1aa7d2f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 748c3f8e38b98b2cbdcfecdf7d755827230fdb3d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291914"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962470"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항
 
@@ -54,7 +54,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **리소스**
 
-자세한 내용은 [임시 테이블](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017) 문서를 참조하세요.
+자세한 내용은 [임시 테이블](/sql/relational-databases/tables/temporal-tables?view=sql-server-2017) 문서를 참조하세요.
 
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>테이블의 마이그레이션은 hierarchyid 데이터 형식의 열을 하나 이상 포함합니다.
 
@@ -90,7 +90,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
      select * from sys.triggers where is_disabled =0
      ```
 
-2. [트리거 사용 안 함(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 문서에 나와 있는 단계를 사용하여 원본 데이터베이스에서 트리거를 사용하지 않도록 설정합니다.
+2. [트리거 사용 안 함(Transact-SQL)](/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 문서에 나와 있는 단계를 사용하여 원본 데이터베이스에서 트리거를 사용하지 않도록 설정합니다.
 
 3. 마이그레이션 작업을 다시 실행합니다.
 
@@ -134,7 +134,7 @@ Azure Database Migration Service은 원본 타임 스탬프 값을 마이그레�
 
      ![마이그레이션 작업 화면](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
-2. **오류 세부 정보 참조**를 선택하여 마이그레이션 오류를 해결하는 데 도움이 되는 특정 오류 메시지를 확인합니다.
+2. **오류 세부 정보 참조** 를 선택하여 마이그레이션 오류를 해결하는 데 도움이 되는 특정 오류 메시지를 확인합니다.
 
 ### <a name="geography-datatype-not-supported-in-sqldb-online-migration"></a>SQLDB 온라인 마이그레이션에서 지리 데이터 형식이 지원 되지 않음
 

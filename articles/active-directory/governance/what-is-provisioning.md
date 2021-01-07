@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ef6f6068bce7a676e55eca10ae9198b2238a143
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 640367d1b833f61e8a83fe9ce6b14d6d799cf9b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135092"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96172455"
 ---
 # <a name="what-is-provisioning"></a>프로비저닝이란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "93135092"
 
 **프로비저닝** 은 특정 조건에 따라 대상 시스템에서 ID를 만드는 프로세스입니다.  **프로비저닝 해제** 는 조건이 더 이상 충족되지 않을 때 대상 시스템에서 ID를 제거하는 프로세스입니다. **동기화** 는 원본 개체와 대상 개체가 비슷하도록 프로비저닝된 개체를 최신 상태로 유지하는 프로세스입니다.
 
-예를 들어 새 직원이 조직에 참가하면 해당 직원이 HR 시스템에 입력됩니다.  이 시점에서 HR **에서** Azure AD(Azure Active Directory) **로** 프로비저닝하면 Azure AD에서 해당 사용자 계정을 만들 수 있습니다. Azure AD를 쿼리하는 애플리케이션에서 해당 새 직원의 계정을 볼 수 있습니다.  Azure AD를 사용하지 않는 애플리케이션이 있는 경우 Azure AD **에서** 해당 애플리케이션의 데이터베이스 **로** 프로비저닝하면 사용자가 액세스해야 하는 모든 애플리케이션에 액세스할 수 있습니다.  이 프로세스를 통해 사용자는 작업을 시작하고, 첫 번째 작업일에 필요한 애플리케이션과 시스템에 액세스할 수 있습니다.  마찬가지로 HR 시스템에서 부서 또는 고용 상태와 같은 속성이 변경되는 경우 HR 시스템에서 Azure AD로, 더 나아가 다른 애플리케이션 및 대상 데이터베이스로의 업데이트 동기화에서 일관성을 보장합니다.
+예를 들어 새 직원이 조직에 참가하면 해당 직원이 HR 시스템에 입력됩니다.  이 시점에서 HR **에서** Azure AD(Azure Active Directory)**로** 프로비저닝하면 Azure AD에서 해당 사용자 계정을 만들 수 있습니다. Azure AD를 쿼리하는 애플리케이션에서 해당 새 직원의 계정을 볼 수 있습니다.  Azure AD를 사용하지 않는 애플리케이션이 있는 경우 Azure AD **에서** 해당 애플리케이션의 데이터베이스 **로** 프로비저닝하면 사용자가 액세스해야 하는 모든 애플리케이션에 액세스할 수 있습니다.  이 프로세스를 통해 사용자는 작업을 시작하고, 첫 번째 작업일에 필요한 애플리케이션과 시스템에 액세스할 수 있습니다.  마찬가지로 HR 시스템에서 부서 또는 고용 상태와 같은 속성이 변경되는 경우 HR 시스템에서 Azure AD로, 더 나아가 다른 애플리케이션 및 대상 데이터베이스로의 업데이트 동기화에서 일관성을 보장합니다.
 
 Azure AD는 현재 세 가지 영역의 자동화된 프로비저닝을 제공합니다.  다음 창이 여기에 포함됩니다.  
 
@@ -59,7 +59,7 @@ Azure AD를 사용하는 HR 기반 프로비저닝이 적합한 세 가지 배�
 
 ![앱 프로비저닝](media/what-is-provisioning/cloud-3b.png)
 
-Azure AD에서 **[앱 프로비저닝](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** 이라는 용어는 Azure AD 또는 Active Directory와는 다른 고유한 데이터 저장소가 있는 애플리케이션의 경우 사용자가 액세스해야 하는 애플리케이션에서 사용자 ID의 복사본을 자동으로 만드는 것을 의미합니다. 앱 프로비저닝에는 사용자 ID를 만드는 것 외에도 사용자의 상태 또는 역할이 변경됨에 따라 해당 앱에서 사용자 ID를 유지 관리 및 제거하는 작업이 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)와 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다. 이러한 각 애플리케이션에는 Azure AD와 다른 고유한 사용자 리포지토리가 있기 때문입니다.
+Azure AD에서 **[앱 프로비저닝](../app-provisioning/user-provisioning.md)** 이라는 용어는 Azure AD 또는 Active Directory와는 다른 고유한 데이터 저장소가 있는 애플리케이션의 경우 사용자가 액세스해야 하는 애플리케이션에서 사용자 ID의 복사본을 자동으로 만드는 것을 의미합니다. 앱 프로비저닝에는 사용자 ID를 만드는 것 외에도 사용자의 상태 또는 역할이 변경됨에 따라 해당 앱에서 사용자 ID를 유지 관리 및 제거하는 작업이 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)와 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다. 이러한 각 애플리케이션에는 Azure AD와 다른 고유한 사용자 리포지토리가 있기 때문입니다.
 
 자세한 내용은 [앱 프로비저닝이란?](what-is-app-provisioning.md)을 참조하세요.
 

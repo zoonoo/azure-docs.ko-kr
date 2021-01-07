@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 2dc3df81a62e9a844db2d951b9146b08bdae5ed9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360805"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683121"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,6 +38,13 @@ Azure Cosmos DB Java SDK v4는 Azure Cosmos DB SQL API에 액세스하기 위한
 * [GitHub의 오픈 소스](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos)에서 제공되는 Azure Cosmos DB 중앙 리포지토리에서 Java SDK를 살펴봅니다. 여기에는 능동적으로 모니터링되는 [문제 섹션](https://github.com/Azure/azure-sdk-for-java/issues)이 있습니다. 해결 방법이 있는 유사한 문제가 이미 제출되었는지 확인합니다. 한 가지 유용한 팁은 *cosmos:v4-item* 태그를 기준으로 문제를 필터링하는 것입니다.
 * Azure Cosmos DB Java SDK v4에 대한 [성능 팁](performance-tips-java-sdk-v4-sql.md)을 검토하고 제안된 사례를 따릅니다.
 * 솔루션을 찾지 못한 경우 이 문서의 나머지 부분을 읽어봅니다. 그런 후, [GitHub 문제](https://github.com/Azure/azure-sdk-for-java/issues)를 제출합니다. GitHub 문제에 태그를 추가하는 옵션이 있는 경우 *cosmos:v4-item* 태그를 추가합니다.
+
+### <a name="retry-logic"></a>다시 시도 논리 <a id="retry-logics"></a>
+SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한 작업을 다시 시도 합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
+
+1. 읽기 및 쿼리 IO 오류는 SDK에서 최종 사용자에 게 표시 하지 않고 다시 시도 됩니다.
+2. 쓰기 (Create, Upsert, Replace, Delete)는 "not" idempotent 이므로 SDK는 항상 실패 한 쓰기 작업을 무조건 다시 시도할 수 없습니다. 사용자의 응용 프로그램 논리에서 오류를 처리 하 고 다시 시도 해야 합니다.
+3. [Sdk 가용성 문제](troubleshoot-sdk-availability.md) 는 다중 지역 Cosmos DB 계정의 재시도에 대해 설명 합니다.
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>일반적인 문제 및 해결 방법
 
@@ -120,9 +127,9 @@ Netty IO 스레드는 비차단 Netty IO 작업에만 사용해야 합니다. SD
 
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다.
 
-### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터 연결 오류
+### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터에 연결 하지 못했습니다.
 
-Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조하세요.
+Azure Cosmos DB Emulator HTTPS 인증서는 자체 서명 됩니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조 하세요.
 
 ### <a name="dependency-conflict-issues"></a>종속성 충돌 문제
 
@@ -136,7 +143,7 @@ mvn dependency:tree
 ```
 자세한 내용은 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)를 참조하세요.
 
-이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다( *reactor-core* 는 오래된 종속성이라고 가정).
+이전 버전에 종속된 프로젝트 종속성을 아는 경우, 아래 예와 같이 pom 파일에서 해당 lib에 대한 종속성을 수정하고 전이적 종속성을 제외할 수 있습니다(*reactor-core* 는 오래된 종속성이라고 가정).
 
 ```xml
 <dependency>

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15e2d7a144b54f443b8298b20dbfacf78a50f9e1
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891172"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447542"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성
 
@@ -38,11 +38,11 @@ Windows 클라이언트를 사용 하 여 Azure Stack Edge Pro 장치에 액세�
 
 사용자 환경에 대 한 시스템 수준 TLS 1.2을 설정 하려면 다음 문서의 지침을 따르세요.
 
-- [일반-TLS 1.2을 사용 하도록 설정 하는 방법](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)
-- [클라이언트에서의 TLS 1.2 사용 설정 방법](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-client)
-- [사이트 서버 및 원격 사이트 시스템에서의 TLS 1.2 사용 방법](https://docs.microsoft.com/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [TLS/SSL의 프로토콜 (Schannel SSP)](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
-- [암호 그룹](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12): 특히 [TLS 암호 그룹 순서를 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) 하면 현재 암호 그룹을 나열 하 고 다음 목록에 누락 된 항목이 추가 되었는지 확인 합니다.
+- [일반-TLS 1.2을 사용 하도록 설정 하는 방법](/windows-server/security/tls/tls-registry-settings#tls-12)
+- [클라이언트에서의 TLS 1.2 사용 설정 방법](/configmgr/core/plan-design/security/enable-tls-1-2-client)
+- [사이트 서버 및 원격 사이트 시스템에서의 TLS 1.2 사용 방법](/configmgr/core/plan-design/security/enable-tls-1-2-server)
+- [TLS/SSL의 프로토콜 (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [암호 그룹](/windows-server/security/tls/tls-registry-settings#tls-12): 특히 [TLS 암호 그룹 순서를 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) 하면 현재 암호 그룹을 나열 하 고 다음 목록에 누락 된 항목이 추가 되었는지 확인 합니다.
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
     - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -68,7 +68,7 @@ Windows 클라이언트를 사용 하 여 Azure Stack Edge Pro 장치에 액세�
     New-ItemProperty -Path "$HklmSoftwarePath\Policies\Microsoft\Cryptography\Configuration\SSL\00010002" -Name "EccCurves" -PropertyType MultiString -Value @("NistP256", "NistP384")
     ```
     
-    - [최소 RSA 키 교환 크기를 2048으로 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes)합니다.
+    - [최소 RSA 키 교환 크기를 2048으로 설정](/windows-server/security/tls/tls-registry-settings#keyexchangealgorithm---client-rsa-key-sizes)합니다.
 
 
 

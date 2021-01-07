@@ -7,18 +7,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544514"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585771"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Redis 개발용 Azure Cache Faq
 
 이 문서에서는 Redis 용 Azure Cache를 개발 하는 방법에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 
-## <a name="common-questions-and-answers"></a>일반적인 질문과 답변
+## <a name="common-questions-and-answers"></a>일반적인 질문 및 답변
 이 섹션에서는 다음 Faq를 다룹니다.
 
 * [Azure Cache for Redis를 시작하려면 어떻게 해야 하나요?](#how-can-i-get-started-with-azure-cache-for-redis)
@@ -55,7 +55,7 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
 
 * **재시도**
   * ConnectRetry 및 ConnectTimeout에 대한 일반적인 지침은 페일 패스트 및 다시 시도입니다. 이 지침은 클라이언트가 Redis 명령을 실행하고 응답을 수신하는 데 걸리는 평균 시간 및 워크로드에 따라 달라집니다.
-  * 연결 상태를 확인하고 직접 다시 연결하는 대신 StackExchange.Redis가 자동으로 다시 연결하도록 합니다. **ConnectionMultiplexer.IsConnected 속성을 사용하지 마세요** .
+  * 연결 상태를 확인하고 직접 다시 연결하는 대신 StackExchange.Redis가 자동으로 다시 연결하도록 합니다. **ConnectionMultiplexer.IsConnected 속성을 사용하지 마세요**.
   * 때로는 사용자가 다시 시도하면 사태가 더욱 심각해지고 결코 복구되지 않는 문제가 발생할 수도 있습니다. 이 경우 Microsoft Patterns & Practices 그룹이 게시한 [다시 시도 일반 지침](/azure/architecture/best-practices/transient-faults)의 설명에 따라 지수 백오프 다시 시도 알고리즘 사용을 고려해야 합니다.
   
 * **시간 제한 값**
@@ -64,12 +64,12 @@ StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇
   * 애플리케이션에 단일 ConnectionMultiplexer 인스턴스를 사용합니다. [ConnectionMultiplexer 클래스를 사용하여 캐시에 연결](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)에 표시된 대로, LazyConnection을 사용하여 Connection 속성에 의해 반환되는 단일 인스턴스를 만들 수 있습니다.
   * 진단 목적으로 `ConnectionMultiplexer.ClientName` 속성을 앱 인스턴스 고유 이름으로 설정합니다.
   * 사용자 지정 작업에 여러 개의 `ConnectionMultiplexer` 인스턴스를 사용합니다.
-      * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 다음은 그 예입니다.
-      * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
-      * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
-      * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 다시 시도 논리에 대해 다른 값을 설정할 수 있습니다.
-      * 진단에 도움이 되도록 각 멀티플렉서의 `ClientName` 속성을 설정합니다.
-      * 이 지침을 따르면 `ConnectionMultiplexer`당 대기 시간이 감소할 수 있습니다.
+    * 애플리케이션에 다양한 부하가 있는 경우 이 모델을 따를 수 있습니다. 다음은 그 예입니다.
+    * 큰 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
+    * 작은 키를 처리하기 위한 멀티플렉서 1개가 있습니다.
+    * 사용하는 각 ConnectionMultiplexer의 연결 시간 제한 및 다시 시도 논리에 대해 다른 값을 설정할 수 있습니다.
+    * 진단에 도움이 되도록 각 멀티플렉서의 `ClientName` 속성을 설정합니다.
+    * 이 지침을 따르면 `ConnectionMultiplexer`당 대기 시간이 감소할 수 있습니다.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>사용할 수 있는 Azure Cache for Redis 클라이언트는 어떻게 되나요?
 Redis의 장점 중 하나는 여러 가지 개발 언어를 지원하는 많은 클라이언트가 있다는 것입니다. 클라이언트의 현재 목록에 대해서는 [Redis 클라이언트](https://redis.io/clients)를 참조하세요. 여러 다른 언어 및 클라이언트를 포함하는 자습서에 대해서는 [Azure Cache for Redis 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)과 목차에 포함된 관련 문서를 참조하세요.

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412955"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635607"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -138,7 +138,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |$lookup    |    예|
 |$out        |예|
 |$indexStats|        예|
-|$facet    |Yes|
+|$facet    |예|
 |$bucket|    예|
 |$bucketAuto|    예|
 |$sortByCount|    예|
@@ -148,7 +148,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 |$currentOp|    예|
 |$listLocalSessions    |예|
 |$listSessions    |예|
-|$graphLookup    |Yes|
+|$graphLookup    |예|
 
 ### <a name="boolean-expressions"></a>부울 식
 
@@ -496,10 +496,10 @@ $nearSphere |  예 |
 $geometry |  예 |
 $minDistance | 예 |
 $maxDistance | 예 |
-$center | 아니요 |
-$centerSphere | 아니요 |
-$box | 아니요 |
-$polygon |  아니요 |
+$center | 예 |
+$centerSphere | 예 |
+$box | 예 |
+$polygon |  예 |
 
 ## <a name="cursor-methods"></a>커서 메서드
 
@@ -576,7 +576,7 @@ Cosmos DB는 문서의 타임스탬프를 기반으로 TTL(Time to Live)을 지�
 
 ## <a name="user-and-role-management"></a>사용자 및 역할 관리
 
-Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. 그러나 Cosmos DB는 [Azure Portal](https://portal.azure.com)(연결 문자열 페이지)을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다.
+Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. 그러나 Cosmos DB는 [Azure Portal](https://portal.azure.com)(연결 문자열 페이지)을 통해 가져올 수 있는 Azure RBAC(Azure 역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다.
 
 ## <a name="replication"></a>복제
 

@@ -10,20 +10,20 @@ ms.subservice: team-data-science-process
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
+ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322020"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031864"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 
 이 문서에서는 기계 학습에서 데이터를 향상시키는 기능 엔지니어링 및 해당 역할에 대해 알아봅니다. [Azure Machine Learning Studio(클래식)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 실험에서 얻은 설명 예제에 대해 알아보세요. 
 
-* **기능 엔지니어링** : 원시 데이터에서 새로운 기능을 만들어 학습 알고리즘의 예측 능력을 높이는 프로세스입니다. 엔지니어링된 기능은 원래 기능 집합에서 쉽게 드러나지 않는 추가 정보를 캡처해야 합니다.
-* **기능 선택** : 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 기능의 주요 하위 집합을 선택합니다.
+* **기능 엔지니어링**: 원시 데이터에서 새로운 기능을 만들어 학습 알고리즘의 예측 능력을 높이는 프로세스입니다. 엔지니어링된 기능은 원래 기능 집합에서 쉽게 드러나지 않는 추가 정보를 캡처해야 합니다.
+* **기능 선택**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 기능의 주요 하위 집합을 선택합니다.
 
 일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링** 을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 이 실행됩니다.
 

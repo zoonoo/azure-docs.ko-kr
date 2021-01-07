@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420cc2bc38d079fa95f6b90ed20cb31e994f4ea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6be0720b7eafb251b262d5cd182bdf06e201402d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027077"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173076"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Azure Active Directory의 외부 ID란?
 
@@ -51,7 +51,7 @@ Azure AD 외부 ID를 사용하여 조직 외부에 있는 고객과 파트너�
 
 ## <a name="about-multitenant-applications"></a>다중 테넌트 애플리케이션 정보
 
-앱을 서비스로 제공하고 고객의 사용자 계정을 관리하지 않으려는 경우 다중 테넌트 앱을 선택하는 것이 좋습니다. 다른 Azure AD 테넌트용 애플리케이션을 개발하는 경우 단일 조직(단일 테넌트)의 사용자 또는 이미 Azure AD 테넌트가 있는 조직(다중 테넌트 애플리케이션)의 사용자를 대상으로 지정할 수 있습니다. Azure AD의 앱 등록은 기본적으로 단일 테넌트이지만 등록을 다중 테넌트로 만들 수 있습니다. 이 다중 테넌트 애플리케이션은 사용자 고유의 Azure AD에 한 번만 직접 등록됩니다. 그러나 조직의 모든 Azure AD 사용자는 사용자 부분에 대한 추가 작업 없이 애플리케이션을 사용할 수 있습니다. 자세한 내용은 [다중 테넌트 애플리케이션의 ID 관리](https://docs.microsoft.com/azure/architecture/multitenant-identity/), [방법 가이드](../develop/howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
+앱을 서비스로 제공하고 고객의 사용자 계정을 관리하지 않으려는 경우 다중 테넌트 앱을 선택하는 것이 좋습니다. 다른 Azure AD 테넌트용 애플리케이션을 개발하는 경우 단일 조직(단일 테넌트)의 사용자 또는 이미 Azure AD 테넌트가 있는 조직(다중 테넌트 애플리케이션)의 사용자를 대상으로 지정할 수 있습니다. Azure AD의 앱 등록은 기본적으로 단일 테넌트이지만 등록을 다중 테넌트로 만들 수 있습니다. 이 다중 테넌트 애플리케이션은 사용자 고유의 Azure AD에 한 번만 직접 등록됩니다. 그러나 조직의 모든 Azure AD 사용자는 사용자 부분에 대한 추가 작업 없이 애플리케이션을 사용할 수 있습니다. 자세한 내용은 [다중 테넌트 애플리케이션의 ID 관리](/azure/architecture/multitenant-identity/), [방법 가이드](../develop/howto-convert-app-to-be-multi-tenant.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 3abfffcfb47a9530b6a04762624eee9d6ee9bc81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 09651ed5c7472c12d82108fdbd450cca6e84349f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780464"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447086"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용 하 여 테 넌 트 별 데이터베이스 패턴을 사용 하는 다중 테 넌 트 SaaS 앱 소개
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>SQL Database Wingtip SaaS 자습서
 
-앱을 배포한 후 초기 배포를 기반으로 하는 다음 자습서를 탐색합니다. 이러한 자습서에서는 SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse) 및 기타 Azure 서비스의 기본 제공 기능을 활용 하는 일반적인 SaaS 패턴을 살펴봅니다. 자습서에는 PowerShell 스크립트와 자세한 설명이 포함되어 있습니다. 쉽게 이해하고 애플리케이션에서 동일한 SaaS 관리 패턴을 구현할 수 있도록 설명되어 있습니다.
+앱을 배포한 후 초기 배포를 기반으로 하는 다음 자습서를 탐색합니다. 이러한 자습서에서는 SQL Database, Azure Synapse Analytics 및 기타 Azure 서비스의 기본 제공 기능을 활용 하는 일반적인 SaaS 패턴을 살펴봅니다. 자습서에는 PowerShell 스크립트와 자세한 설명이 포함되어 있습니다. 쉽게 이해하고 애플리케이션에서 동일한 SaaS 관리 패턴을 구현할 수 있도록 설명되어 있습니다.
 
 
 | 자습서 | Description |

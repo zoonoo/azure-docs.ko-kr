@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 0704f076ef7c5d1a39af67d3ec6ec2baece1fda5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517304"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95498472"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel의 권한
 
@@ -54,11 +54,11 @@ Azure RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할
 
 - 플레이 북을 사용 하 여 위협에 대 한 응답 자동화
 
-    Azure 센티널은 자동화 된 위협 대응을 위해 플레이 **북** 을 사용 합니다. Playbooks는 **Azure Logic Apps**을 기반으로 하며 별도의 Azure 리소스입니다. 보안 작업 팀의 특정 멤버에 게 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 작업에 대 한 Logic Apps를 사용 하는 기능을 할당 하는 것이 좋습니다. [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 역할 또는 [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 역할을 사용 하 여 playbooks 사용에 대 한 명시적 권한을 할당할 수 있습니다.
+    Azure 센티널은 자동화 된 위협 대응을 위해 플레이 **북** 을 사용 합니다. Playbooks는 **Azure Logic Apps** 을 기반으로 하며 별도의 Azure 리소스입니다. 보안 작업 팀의 특정 멤버에 게 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 작업에 대 한 Logic Apps를 사용 하는 기능을 할당 하는 것이 좋습니다. [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 역할 또는 [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 역할을 사용 하 여 playbooks 사용에 대 한 명시적 권한을 할당할 수 있습니다.
 
 - Azure 센티널에 데이터 원본 연결
 
-    사용자가 **데이터 커넥터**를 추가 하려면 Azure 센티널 작업 영역에 대 한 사용자 쓰기 권한을 할당 해야 합니다. 또한 관련 커넥터 페이지에 나열 된 대로 각 커넥터에 필요한 추가 사용 권한을 기록해 둡니다.
+    사용자가 **데이터 커넥터** 를 추가 하려면 Azure 센티널 작업 영역에 대 한 사용자 쓰기 권한을 할당 해야 합니다. 또한 관련 커넥터 페이지에 나열 된 대로 각 커넥터에 필요한 추가 사용 권한을 기록해 둡니다.
 
 - 인시던트를 할당 하는 게스트 사용자
 
@@ -80,7 +80,7 @@ Azure 센티널 특정 Azure 역할을 할당 하는 경우 다른 용도로 사
 
 다음 표에는 Azure Sentinel에서의 역할 및 허용되는 작업이 요약되어 있습니다. 
 
-| Role | 플레이북 만들기 및 실행| 통합 문서, 분석 규칙 및 기타 Azure Sentinel 리소스 만들기 및 편집 | 인시던트 관리 (해제, 할당 등) | 데이터, 인시던트, 통합 문서 및 기타 Azure 센티널 리소스 보기 |
+| 역할 | 플레이북 만들기 및 실행| 통합 문서, 분석 규칙 및 기타 Azure Sentinel 리소스 만들기 및 편집 | 인시던트 관리 (해제, 할당 등) | 데이터, 인시던트, 통합 문서 및 기타 Azure 센티널 리소스 보기 |
 |---|---|---|---|---|
 | Azure Sentinel 읽기 권한자 | -- | -- | -- | &#10003; |
 | Azure Sentinel 응답자 | -- | -- | &#10003; | &#10003; |
@@ -91,7 +91,7 @@ Azure 센티널 특정 Azure 역할을 할당 하는 경우 다른 용도로 사
 
 - Azure 기본 제공 역할을 사용 하는 것 외에도 azure에 대 한 azure 사용자 지정 역할을 만들 수 있습니다. Azure 센티널에 대 한 azure 사용자 지정 역할은 azure 센티널 및 [azure Log Analytics 리소스](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights)에 대 한 [특정 권한을](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) 기반으로 하 여 다른 [azure 사용자 지정 역할](../role-based-access-control/custom-roles-rest.md#create-a-custom-role)을 만드는 것과 동일한 방식으로 만들어집니다.
 
-- Azure 센티널 작업 영역의 데이터에서 Log Analytics 고급 역할 기반 액세스 제어를 사용할 수 있습니다. 여기에는 데이터 형식 기반 Azure RBAC 및 리소스 중심 Azure RBAC가 모두 포함 됩니다. Log Analytics 역할에 대 한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역 관리](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions)를 참조 하세요.
+- Azure 센티널 작업 영역에서 데이터에 대해 고급 Azure 역할 기반 액세스 제어를 Log Analytics 사용할 수 있습니다. 여기에는 데이터 형식 기반 Azure RBAC 및 리소스 중심 Azure RBAC가 모두 포함 됩니다. Log Analytics 역할에 대 한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역 관리](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

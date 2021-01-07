@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2625698ae1d76dbae3ed8a8855b88dd6ac7bb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc43bb2fa99f95a462dcc4c68d27840199b45c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763689"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658539"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
 
@@ -54,14 +54,14 @@ Azure AD는 SAML 응답에 서명 하는 두 가지 서명 알고리즘 또는 S
 응용 프로그램의 SAML 인증서 서명 옵션과 인증서 서명 알고리즘을 변경 하려면 해당 응용 프로그램을 선택 합니다.
 
 1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에서 계정에 로그인 합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
-1. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 계정의 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
+1. 왼쪽 창에서 **엔터프라이즈 애플리케이션** 을 선택합니다. 계정의 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
 1. 애플리케이션을 선택합니다. 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
 
    ![예: 응용 프로그램 개요 페이지](./media/certificate-signing-options/application-overview-page.png)
 
 그런 다음 해당 응용 프로그램에 대 한 SAML 토큰에서 인증서 서명 옵션을 변경 합니다.
 
-1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on**을 선택 합니다.
+1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on** 을 선택 합니다.
 1. **SAML 미리 보기를 사용 하 여 Single Sign-On 설정** 페이지가 표시 되 면 5 단계로 이동 합니다.
 1. **Single Sign-On 방법 선택** 페이지가 표시 되지 않으면 **Single Sign-On 모드 변경** 을 선택 하 여 해당 페이지를 표시 합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 사용 가능한 경우 **SAML** 을 선택 합니다. ( **Saml** 을 사용할 수 없는 경우 응용 프로그램은 saml을 지원 하지 않으며,이 절차와 문서의 나머지 부분을 무시할 수 있습니다.)
@@ -69,11 +69,11 @@ Azure AD는 SAML 응답에 서명 하는 두 가지 서명 알고리즘 또는 S
 
    ![예: SAML 서명 인증서 페이지](./media/certificate-signing-options/saml-signing-page.png)
 
-1. **서명 옵션** 드롭다운 목록에서 **SAML 응답 서명**, **SAML 어설션 서명** 또는 **SAML 응답 및 어설션 서명**을 선택합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 옵션](#certificate-signing-options)에 나와 있습니다.
-1. **서명 알고리즘** 드롭다운 목록에서 **SHA-1** 또는 **SHA-256**을 선택합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 알고리즘](#certificate-signing-algorithms) 섹션에 나와 있습니다.
+1. **서명 옵션** 드롭다운 목록에서 **SAML 응답 서명**, **SAML 어설션 서명** 또는 **SAML 응답 및 어설션 서명** 을 선택합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 옵션](#certificate-signing-options)에 나와 있습니다.
+1. **서명 알고리즘** 드롭다운 목록에서 **SHA-1** 또는 **SHA-256** 을 선택합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 알고리즘](#certificate-signing-algorithms) 섹션에 나와 있습니다.
 1. 선택 사항에 만족 하는 경우 **저장** 을 선택 하 여 새 SAML 서명 인증서 설정을 적용 합니다. 그렇지 않으면 **X** 를 선택 하 여 변경 내용을 취소 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Active Directory 앱 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](configure-federated-single-sign-on-non-gallery-applications.md)
-* [SAML 기반 Single Sign-On 문제 해결](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+* [Azure Active Directory 앱 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](./configure-saml-single-sign-on.md)
+* [SAML 기반 Single Sign-On 문제 해결](./debug-saml-sso-issues.md)

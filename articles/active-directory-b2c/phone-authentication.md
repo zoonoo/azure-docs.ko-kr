@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122727"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953579"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
@@ -64,7 +64,7 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 
 ![사용자가 전화를 등록 하는 동안 코드 확인](media/phone-authentication/phone-signup-verify-code.png)
 
- 사용자는 등록 페이지에서 요청 된 다른 정보 (예: **표시 이름** , **지정 된 이름** 및 **성** (국가 및 전화 번호는 계속 입력 됨))를 입력 합니다. 사용자가 다른 전화 번호를 사용 하려는 경우 **번호 변경** 을 선택 하 여 등록을 다시 시작할 수 있습니다. 완료 되 면 사용자는 **계속** 을 선택 합니다.
+ 사용자는 등록 페이지에서 요청 된 다른 정보 (예: **표시 이름**, **지정 된 이름** 및 **성** (국가 및 전화 번호는 계속 입력 됨))를 입력 합니다. 사용자가 다른 전화 번호를 사용 하려는 경우 **번호 변경** 을 선택 하 여 등록을 다시 시작할 수 있습니다. 완료 되 면 사용자는 **계속** 을 선택 합니다.
 
 ![사용자가 추가 정보를 제공 합니다.](media/phone-authentication/phone-signup-additional-info.png)
 
@@ -82,13 +82,13 @@ SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보�
 
 ## <a name="deleting-a-user-account"></a>사용자 계정 삭제
 
-경우에 따라 Azure AD B2C 디렉터리에서 사용자 및 연결 된 데이터를 삭제 해야 할 수도 있습니다. Azure Portal를 통해 사용자 계정을 삭제 하는 방법에 대 한 자세한 내용은 [다음 지침](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete)을 참조 하세요. 
+경우에 따라 Azure AD B2C 디렉터리에서 사용자 및 연결 된 데이터를 삭제 해야 할 수도 있습니다. Azure Portal를 통해 사용자 계정을 삭제 하는 방법에 대 한 자세한 내용은 [다음 지침](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete)을 참조 하세요. 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 OTP를 설정 하기 전에 다음 리소스를 준비 해야 합니다.
 
@@ -144,7 +144,7 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```http
 GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
@@ -153,7 +153,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>다음 단계
 
 GitHub에서 전화 등록 및 로그인 사용자 지정 정책 시작 팩 (및 기타 시작 팩)을 찾을 수 있습니다. [Azure-Samples/b2c-사용자 지정 정책-starterpack/시나리오/전화 번호-암호][starter-pack-phone] 없는 시작 팩 정책 파일은 multi-factor authentication 기술 프로필 및 전화 번호 클레임 변환을 사용 합니다.
-* [Azure Multi-Factor Authentication 기술 프로필 정의](multi-factor-auth-technical-profile.md)
+* [Azure AD Multi-Factor Authentication 기술 프로필 정의](multi-factor-auth-technical-profile.md)
 * [전화 번호 클레임 변환 정의](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

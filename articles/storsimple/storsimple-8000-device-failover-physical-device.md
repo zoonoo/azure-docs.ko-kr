@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803945"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96017137"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>StorSimple 8000 시리즈 실제 디바이스에 장애 조치
 
@@ -32,7 +32,7 @@ ms.locfileid: "91803945"
 StorSimple 물리적 디바이스를 StorSimple Cloud Appliance로 장애 조치(failover)하려면 [StorSimple Cloud Appliance로 장애 조치(failover)](storsimple-8000-device-failover-cloud-appliance.md)로 이동하세요. 실제 디바이스를 자체 디바이스로 장애 조치(failover)하려면 [동일한 StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-same-device.md)로 이동하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 디바이스 장애 조치(failover)에 대한 고려 사항을 검토했는지 확인하세요. 자세한 내용을 보려면 [디바이스 장애 조치(failover)에 대한 일반적인 고려 사항](storsimple-8000-device-failover-disaster-recovery.md)으로 이동하세요.
 
@@ -44,24 +44,24 @@ StorSimple 물리적 디바이스를 StorSimple Cloud Appliance로 장애 조치
 대상 실제 디바이스에 디바이스를 복원하려면 다음 단계를 수행합니다.
 
 1. 장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅샷이 있는지 확인합니다. 자세한 내용을 보려면 [StorSimple 디바이스 관리자 서비스를 사용하여 백업 만들기](storsimple-8000-manage-backup-policies-u2.md)로 이동합니다.
-2. StorSimple 디바이스 관리자로 이동한 다음 **디바이스**를 클릭합니다. **디바이스** 블레이드에서 서비스와 연결된 디바이스 목록으로 이동합니다.
+2. StorSimple 디바이스 관리자로 이동한 다음 **디바이스** 를 클릭합니다. **디바이스** 블레이드에서 서비스와 연결된 디바이스 목록으로 이동합니다.
     ![디바이스 선택](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
-3. 원본 디바이스를 선택하고 클릭합니다. 원본 디바이스에는 장애 조치(failover)하려는 볼륨 컨테이너가 있습니다. **설정 > 볼륨 컨테이너**로 이동합니다.
-4. 다른 디바이스에 장애 조치하려는 볼륨 컨테이너를 선택합니다. 볼륨 컨테이너를 클릭하여 이 컨테이너 내에 볼륨의 목록을 표시합니다. 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음, **오프라인으로 전환**을 클릭하여 볼륨을 오프라인으로 전환합니다. 볼륨 컨테이너의 모든 볼륨에 이 프로세스를 반복합니다.
+3. 원본 디바이스를 선택하고 클릭합니다. 원본 디바이스에는 장애 조치(failover)하려는 볼륨 컨테이너가 있습니다. **설정 > 볼륨 컨테이너** 로 이동합니다.
+4. 다른 디바이스에 장애 조치하려는 볼륨 컨테이너를 선택합니다. 볼륨 컨테이너를 클릭하여 이 컨테이너 내에 볼륨의 목록을 표시합니다. 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음, **오프라인으로 전환** 을 클릭하여 볼륨을 오프라인으로 전환합니다. 볼륨 컨테이너의 모든 볼륨에 이 프로세스를 반복합니다.
 5. 다른 디바이스에 장애 조치하려는 모든 볼륨 컨테이너에 이전 단계를 반복합니다.
 6. **디바이스** 블레이드로 다시 이동합니다. 명령 모음에서 **장애 조치(failover)** 를 클릭합니다.
     ![장애 조치(failover) 클릭](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev2.png)
     
 7. **장애 조치(failover)** 블레이드에서 다음 단계를 수행합니다.
    
-   1. **원본**을 클릭 합니다. 클라우드 스냅샷과 연결된 볼륨이 있는 볼륨 컨테이너가 표시됩니다. 표시된 컨테이너만이 장애 조치의 대상이 됩니다. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다. **클라우드 스냅샷과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
+   1. **원본** 을 클릭 합니다. 클라우드 스냅샷과 연결된 볼륨이 있는 볼륨 컨테이너가 표시됩니다. 표시된 컨테이너만이 장애 조치의 대상이 됩니다. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다. **클라우드 스냅샷과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
 
        ![원본 선택](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev5.png)
-   2. **대상**을 클릭합니다. 이전 단계에서 선택한 볼륨 컨테이너의 경우 사용 가능한 디바이스의 드롭다운 목록에서 대상 디바이스를 선택합니다. 원본 볼륨 컨테이너를 수용할 용량이 충분한 디바이스만 목록에 표시됩니다.
+   2. **대상** 을 클릭합니다. 이전 단계에서 선택한 볼륨 컨테이너의 경우 사용 가능한 디바이스의 드롭다운 목록에서 대상 디바이스를 선택합니다. 원본 볼륨 컨테이너를 수용할 용량이 충분한 디바이스만 목록에 표시됩니다.
 
         ![대상 선택](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. 마지막으로 **요약**에서 모든 장애 조치 설정을 검토합니다. 설정을 검토한 후에 선택한 볼륨 컨테이너의 볼륨이 오프라인 상태임을 나타내는 확인란을 선택합니다. **확인**을 클릭합니다.
+   3. 마지막으로 **요약** 에서 모든 장애 조치 설정을 검토합니다. 설정을 검토한 후에 선택한 볼륨 컨테이너의 볼륨이 오프라인 상태임을 나타내는 확인란을 선택합니다. **확인** 을 클릭합니다.
 
        ![장애 조치(failover) 설정 검토](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   

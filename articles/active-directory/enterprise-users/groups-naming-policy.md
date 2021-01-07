@@ -6,20 +6,20 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a4c1c30e4651136ada7264cad8ff4d3921c3aeeb
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489457"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96547919"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 명명 정책 적용
 
@@ -48,7 +48,7 @@ ms.locfileid: "94489457"
 
 #### <a name="fixed-strings"></a>고정 문자열
 
-문자열을 사용하여 전체 주소 목록의 그룹과 그룹 워크로드의 왼쪽 탐색 링크에 있는 그룹을 쉽게 검색하고 구별할 수 있습니다. 일부 공통 접두사는 ‘Grp\_Name’ , ‘\#Name’, ‘\_Name’과 같은 키워드입니다.
+문자열을 사용하여 전체 주소 목록의 그룹과 그룹 워크로드의 왼쪽 탐색 링크에 있는 그룹을 쉽게 검색하고 구별할 수 있습니다. 일부 일반적인 접두사는 ' Grp \_ Name ', ' \# name ', ' \_ name '과 같은 키워드입니다.
 
 #### <a name="user-attributes"></a>사용자 특성
 
@@ -80,7 +80,6 @@ ms.locfileid: "94489457"
 - 파트너 계층 1 지원
 - 파트너 계층 2 지원
 - 사용자 관리자
-- 디렉터리 작성자
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Azure Portal에서 명명 정책 구성
 

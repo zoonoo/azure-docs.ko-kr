@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 3ed4f8d4d8ca0a68a4ccf01a38ae5f8e66cc26df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 3b85f6238bec4ef85d724a2fc48ea5988c3fceb2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757832"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031728"
 ---
 # <a name="data-processing-optimization-for-apache-spark"></a>Apache Spark에 대 한 데이터 처리 최적화
 
@@ -21,7 +21,7 @@ ms.locfileid: "88757832"
 
 ## <a name="overview"></a>개요
 
-조인 또는 순서 섞기에서 작업 속도가 느린 경우 그 원인은 *데이터 기울이기* 때문일 수 있습니다. 데이터 기울이기는 작업 데이터에서 비대칭입니다. 예를 들어 맵 작업에는 20초가 소요될 수 있습니다. 그러나 데이터가 조인되거나 순서를 섞는 작업을 실행하는 데는 몇 시간이 걸립니다. 데이터 기울이기를 수정하려면 전체 키를 솔트하거나 일부 하위 키 집합에만 *격리된 솔트*를 사용해야 합니다. 격리된 솔트를 사용하는 경우 맵 조인에서 솔트된 하위 키 집합을 격리하려면 추가로 필터링해야 합니다. 또 다른 옵션은 버킷 열을 도입하고 버킷에 미리 집계하는 것입니다.
+조인 또는 순서 섞기에서 작업 속도가 느린 경우 그 원인은 *데이터 기울이기* 때문일 수 있습니다. 데이터 기울이기는 작업 데이터에서 비대칭입니다. 예를 들어 맵 작업에는 20초가 소요될 수 있습니다. 그러나 데이터가 조인되거나 순서를 섞는 작업을 실행하는 데는 몇 시간이 걸립니다. 데이터 기울이기를 수정하려면 전체 키를 솔트하거나 일부 하위 키 집합에만 *격리된 솔트* 를 사용해야 합니다. 격리된 솔트를 사용하는 경우 맵 조인에서 솔트된 하위 키 집합을 격리하려면 추가로 필터링해야 합니다. 또 다른 옵션은 버킷 열을 도입하고 버킷에 미리 집계하는 것입니다.
 
 조인 유형에 따라 느린 조인이 발생할 수도 있습니다. 기본적으로 Spark는 `SortMerge` 조인 유형을 사용합니다. 이 유형의 조인은 대량 데이터 세트에 가장 적합합니다. 그러나 병합하기 전에 먼저 데이터의 왼쪽과 오른쪽을 정렬해야 하기 때문에 계산 비용이 많이 듭니다.
 

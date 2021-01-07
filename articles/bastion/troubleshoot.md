@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: f3c142491363f30513877ae4368f291430aa3675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85831933"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915558"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Azure Bastion 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "85831933"
 
 **Q:** Azure 방호 서브넷에 NSG를 만들려고 하면 다음 오류가 발생 합니다. *' 네트워크 보안 그룹에는 <NSG name> Azure 방호 서브넷 AzureBastionSubnet에 대 한 필수 규칙이 없습니다. "*
 
-**A:** *AzureBastionSubnet*에 nsg를 만들고 적용 하는 경우 nsg에서 다음 규칙을 추가 했는지 확인 합니다. 이러한 규칙을 추가 하지 않으면 NSG 생성/업데이트가 실패 합니다.
+**A:** *AzureBastionSubnet* 에 nsg를 만들고 적용 하는 경우 nsg에서 다음 규칙을 추가 했는지 확인 합니다. 이러한 규칙을 추가 하지 않으면 NSG 생성/업데이트가 실패 합니다.
 
 1. 제어 평면 연결-Gmanager의 443에 대 한 인바운드
 2. 진단 로깅 및 기타 – AzureCloud에서 443에 대 한 아웃 바운드 (이 서비스 태그 내의 지역 태그는 아직 지원 되지 않음)
@@ -81,7 +81,7 @@ The key's randomart image is:
 
 ## <a name="black-screen-in-the-azure-portal"></a><a name="blackscreen"></a>Azure Portal의 검정 화면
 
-**Q:** Azure 방호를 사용 하 여 연결 하려고 하면 Azure Portal에 검은색 화면이 표시 됩니다.
+**Q:** Azure 방호를 사용 하 여 연결 하려고 하면 대상 VM에 office 수 없으며, Azure Portal에 검은색 화면이 표시 됩니다.
 
 **A:** 이는 웹 브라우저와 Azure 방호 사이에 네트워크 연결 문제가 있거나 (클라이언트 인터넷 방화벽에서 Websocket 트래픽 또는 유사한 현상이 발생할 수 있음) Azure 방호와 대상 VM 간에 네트워크 연결 문제가 있는 경우에 발생 합니다. 대부분의 경우에는 AzureBastionSubnet에 적용 되는 NSG가 있거나 가상 네트워크에서 RDP/SSH 트래픽을 차단 하는 대상 VM 서브넷에 포함 됩니다. 클라이언트 인터넷 방화벽에서 Websocket 트래픽을 허용 하 고 대상 VM 서브넷의 NSGs를 확인 합니다.
 

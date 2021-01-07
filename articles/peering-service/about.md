@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400182"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026732"
 ---
 # <a name="azure-peering-service-overview"></a>Azure 피어 링 서비스 개요
 
@@ -45,7 +45,7 @@ Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service
 피어 링 서비스는 Azure Express 경로 또는 VPN 제품과 같은 개인 연결 제품이 아닙니다.
 
 > [!NOTE]
-> Express 경로에 대 한 자세한 내용은 [express 경로 설명서](https://docs.microsoft.com/azure/expressroute/)를 참조 하세요.
+> Express 경로에 대 한 자세한 내용은 [express 경로 설명서](../expressroute/index.yml)를 참조 하세요.
 >
 
 ## <a name="background"></a>배경
@@ -57,7 +57,7 @@ Microsoft 및 파트너 서비스 공급자는 피어 링 서비스 연결에 �
 ![Microsoft 네트워크 및 공용 연결](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Microsoft 글로벌 네트워크에 대 한 자세한 내용은 [microsoft 글로벌 네트워크](https://docs.microsoft.com/azure/networking/microsoft-global-network)를 참조 하세요.
+> Microsoft 글로벌 네트워크에 대 한 자세한 내용은 [microsoft 글로벌 네트워크](../networking/microsoft-global-network.md)를 참조 하세요.
 >
 
 ## <a name="why-use-peering-service"></a>피어 링 서비스를 사용 하는 이유
@@ -80,7 +80,7 @@ Microsoft 및 파트너 서비스 공급자는 피어 링 서비스 연결에 �
 
    각 피어 링 위치는 중복 및 다양 한 피어 링 링크를 사용 하 여 프로 비전 됩니다.
 
-- **지리적 중복**
+- **지역 중복**
 
    Microsoft는에 지 노드 중 하나가 성능이 저하 되는 경우 트래픽이 대체 사이트를 통해 Microsoft와 상호 연결 되도록 여러 metro 위치에서 서비스 공급자와 상호 연결 되어 있습니다. Microsoft는 최적의 성능을 위해 SDN 기반 라우팅 정책을 사용 하 여 글로벌 네트워크에서 트래픽을 라우팅합니다.
 

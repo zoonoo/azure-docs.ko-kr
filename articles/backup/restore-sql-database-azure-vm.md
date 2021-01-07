@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다. 지역 간 복원을 사용 하 여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172179"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734405"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,20 +23,20 @@ ms.locfileid: "92172179"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="restore-prerequisites"></a>복원 필수 조건
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
 - 동일한 Azure 지역의 SQL Server 인스턴스에 데이터베이스를 복원할 수 있습니다.
 - 대상 서버를 원본과 동일한 자격 증명 모음에 등록해야 합니다.
+- 서버에서 여러 인스턴스를 실행 하는 경우 모든 인스턴스가 실행 되 고 있어야 합니다. 그렇지 않으면 데이터베이스를 복원할 대상 서버 목록에 서버가 나타나지 않습니다. 자세한 내용은 [문제 해결 단계](backup-sql-server-azure-troubleshoot.md#faulty-instance-in-a-vm-with-multiple-sql-server-instances)를 참조 하세요.
 - TDE로 암호화 된 데이터베이스를 다른 SQL Server 복원 하려면 먼저 [대상 서버에 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다.
 - [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) 사용 데이터베이스는 [파일로 복원](#restore-as-files) 옵션을 사용 하 여 복원 해야 합니다.
-- "Master" 데이터베이스를 복원 하기 전에 시작 옵션인 **-m AzureWorkloadBackup**을 사용 하 여 SQL Server 인스턴스를 단일 사용자 모드로 시작 합니다.
+- "Master" 데이터베이스를 복원 하기 전에 시작 옵션인 **-m AzureWorkloadBackup** 을 사용 하 여 SQL Server 인스턴스를 단일 사용자 모드로 시작 합니다.
   - **-M** 에 대 한 값은 클라이언트 이름입니다.
   - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.
 - 모든 시스템 데이터베이스 (모델, master, msdb)에 대해 복원을 트리거하기 전에 SQL Server 에이전트 서비스를 중지 합니다.
 - 이러한 데이터베이스에 대 한 연결을 시도할 수 있는 응용 프로그램을 모두 닫습니다.
-- 서버에서 여러 인스턴스를 실행 하는 경우 모든 인스턴스를 실행 해야 합니다. 그렇지 않으면 데이터베이스를 복원할 대상 서버 목록에 서버가 나타나지 않습니다.
 
 ## <a name="restore-a-database"></a>데이터베이스 복원
 
@@ -51,8 +51,8 @@ ms.locfileid: "92172179"
 다음과 같이 복원합니다.
 
 1. SQL Server VM이 등록된 자격 증명 모음을 엽니다.
-2. 자격 증명 모음 대시보드의 **사용 현황** 아래에서 **백업 항목**을 선택합니다.
-3. **백업 항목**의 **백업 관리 유형**에서 **Azure VM의 SQL**을 선택합니다.
+2. 자격 증명 모음 대시보드의 **사용 현황** 아래에서 **백업 항목** 을 선택합니다.
+3. **백업 항목** 의 **백업 관리 유형** 에서 **Azure VM의 SQL** 을 선택합니다.
 
     ![Azure VM의 SQL 선택](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -65,27 +65,27 @@ ms.locfileid: "92172179"
     - 가장 오래된 복원 지점 및 최신 복원 지점
     - 전체 및 대량 로그 복구 모드 이며 트랜잭션 로그 백업용으로 구성 된 데이터베이스의 경우 지난 24 시간 동안의 로그 백업 상태입니다.
 
-6. **복원**을 선택합니다.
+6. **복원** 을 선택합니다.
 
     ![복원 선택](./media/backup-azure-sql-database/restore-db.png)
 
-7. **복원 구성**에서 데이터를 복원할 위치 (또는 방법)를 지정 합니다.
+7. **복원 구성** 에서 데이터를 복원할 위치 (또는 방법)를 지정 합니다.
    - **대체 위치**: 데이터베이스를 대체 위치로 복원 하 고 원래 원본 데이터베이스를 유지 합니다.
    - **DB 덮어쓰기**: 원래 원본과 동일한 SQL Server 인스턴스에 데이터를 복원합니다. 이 옵션은 원래 데이터베이스를 덮어씁니다.
 
         > [!IMPORTANT]
-        > 선택한 데이터베이스가 Always On 가용성 그룹에 속하면 SQL Server에서 데이터베이스를 덮어쓸 수 없습니다. **대체 위치**만 사용할 수 있습니다.
+        > 선택한 데이터베이스가 Always On 가용성 그룹에 속하면 SQL Server에서 데이터베이스를 덮어쓸 수 없습니다. **대체 위치** 만 사용할 수 있습니다.
         >
    - **파일로 복원**: 데이터베이스로 복원 하는 대신 SQL Server Management Studio를 사용 하 여 파일이 있는 컴퓨터에서 나중에 데이터베이스로 복구할 수 있는 백업 파일을 복원 합니다.
      ![복원 구성 메뉴](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>대체 위치에 복원
 
-1. **복원 구성** 메뉴의 **복원 위치**에서 **대체 위치**를 선택 합니다.
+1. **복원 구성** 메뉴의 **복원 위치** 에서 **대체 위치** 를 선택 합니다.
 1. 데이터베이스를 복원하려는 SQL Server 이름 및 인스턴스를 선택합니다.
 1. **복원된 DB 이름** 상자에 대상 데이터베이스의 이름을 입력합니다.
-1. 해당 하는 경우 **선택한 SQL 인스턴스에 동일한 이름의 DB가 이미 있는 경우 덮어쓰기**를 선택 합니다.
-1. **복원 지점**을 선택 하 고 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
+1. 해당 하는 경우 **선택한 SQL 인스턴스에 동일한 이름의 DB가 이미 있는 경우 덮어쓰기** 를 선택 합니다.
+1. **복원 지점** 을 선택 하 고 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
 
     ![복원 지점 선택](./media/backup-azure-sql-database/select-restore-point.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "92172179"
 
 1. **고급 구성** 메뉴에서:
 
-    - 복원 후 데이터베이스 nonoperational을 유지 하려면 **restore WITH NORECOVERY**를 사용 하도록 설정 합니다.
+    - 복원 후 데이터베이스 nonoperational을 유지 하려면 **restore WITH NORECOVERY** 를 사용 하도록 설정 합니다.
     - 대상 서버에서 복원 위치를 변경 하려면 새 대상 경로를 입력 합니다.
 
         ![대상 경로 입력](./media/backup-azure-sql-database/target-paths.png)
@@ -105,20 +105,20 @@ ms.locfileid: "92172179"
 
 ### <a name="restore-and-overwrite"></a>복원 및 덮어쓰기
 
-1. **복원 구성** 메뉴의 **복원 위치**에서 **DB로 덮어쓰기**  >  **확인**을 선택 합니다.
+1. **복원 구성** 메뉴의 **복원 위치** 에서 **DB로 덮어쓰기**  >  **확인** 을 선택 합니다.
 
     ![DB 덮어쓰기 선택](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
-2. **복원 지점 선택**에서 **로그 (지정 시간)** 를 선택 하 여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 & 차등** 을 선택 하 여 [특정 복구 지점](#restore-to-a-specific-restore-point)으로 복원 합니다.
+2. **복원 지점 선택** 에서 **로그 (지정 시간)** 를 선택 하 여 [특정 시점으로 복원](#restore-to-a-specific-point-in-time)합니다. 또는 **전체 & 차등** 을 선택 하 여 [특정 복구 지점](#restore-to-a-specific-restore-point)으로 복원 합니다.
 
     > [!NOTE]
     > 지정 시간 복원은 전체 및 대량 로그 복구 모드에 있는 데이터베이스의 로그 백업에 대해서만 사용할 수 있습니다.
 
 ### <a name="restore-as-files"></a>파일로 복원
 
-데이터베이스 대신 .bak 파일로 백업 데이터를 복원 하려면 **파일로 복원**을 선택 합니다. 지정 된 경로에 파일을 덤프 한 후에는 이러한 파일을 데이터베이스로 복원 하려는 모든 컴퓨터로 가져올 수 있습니다. 이러한 파일을 컴퓨터로 이동할 수 있으므로 이제 구독과 지역 간에 데이터를 복원할 수 있습니다.
+데이터베이스 대신 .bak 파일로 백업 데이터를 복원 하려면 **파일로 복원** 을 선택 합니다. 지정 된 경로에 파일을 덤프 한 후에는 이러한 파일을 데이터베이스로 복원 하려는 모든 컴퓨터로 가져올 수 있습니다. 이러한 파일을 컴퓨터로 이동할 수 있으므로 이제 구독과 지역 간에 데이터를 복원할 수 있습니다.
 
-1. **복원 위치 및 방법**에서 **파일로 복원**을 선택 합니다.
+1. **복원 위치 및 방법** 에서 **파일로 복원** 을 선택 합니다.
 1. 백업 파일을 복원 하려는 SQL Server 이름을 선택 합니다.
 1. **서버의 대상 경로** 에서 2 단계에서 선택한 서버의 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다. 일반적으로 네트워크 공유 경로 또는 탑재된 Azure 파일 공유 경로가 대상 경로로 지정되면 이를 통해 동일한 네트워크의 다른 컴퓨터 또는 동일한 Azure 파일 공유가 탑재된 다른 컴퓨터에서 이러한 파일에 더 쉽게 액세스할 수 있습니다.<BR>
 
@@ -130,11 +130,11 @@ ms.locfileid: "92172179"
     >- 백업 자격 증명 모음에서 경로로 복원 파일을 시작 합니다. `\\<storageacct>.file.core.windows.net\<filesharename>`<BR>
     [Sysinternals](/sysinternals/downloads/psexec) 페이지에서 PsExec를 다운로드할 수 있습니다.
 
-1. **확인**을 선택합니다.
+1. **확인** 을 선택합니다.
 
     ![파일로 복원 선택](./media/backup-azure-sql-database/restore-as-files.png)
 
-1. **복원 지점**을 선택 하 고 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
+1. **복원 지점** 을 선택 하 고 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
 
 1. 선택한 복구 지점과 연결 된 모든 백업 파일은 대상 경로로 덤프 됩니다. SQL Server Management Studio 사용 하 여 있는 모든 컴퓨터의 데이터베이스로 파일을 복원할 수 있습니다.
 
@@ -144,19 +144,19 @@ ms.locfileid: "92172179"
 
 복원 유형으로 **로그(시점)** 을 선택한 경우 다음을 수행합니다.
 
-1. **복원 날짜/시간**에서 달력을 엽니다. 달력에서 복구 지점이 있는 날짜는 굵은 형식으로 표시 되 고 현재 날짜는 강조 표시 됩니다.
+1. **복원 날짜/시간** 에서 달력을 엽니다. 달력에서 복구 지점이 있는 날짜는 굵은 형식으로 표시 되 고 현재 날짜는 강조 표시 됩니다.
 1. 복구 지점이 있는 날짜를 선택 합니다. 복구 지점이 없는 날짜는 선택할 수 없습니다.
 
     ![일정 열기](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. 날짜를 선택한 후에는 타임라인 그래프에 사용 가능한 복구 지점이 연속적인 범위로 표시됩니다.
-1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음, **확인**을 선택합니다.
+1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음, **확인** 을 선택합니다.
 
 ### <a name="restore-to-a-specific-restore-point"></a>특정 복원 지점으로 복원
 
-복원 유형으로 **전체 및 차등**을 선택한 경우 다음을 수행합니다.
+복원 유형으로 **전체 및 차등** 을 선택한 경우 다음을 수행합니다.
 
-1. 목록에서 복구 지점을 선택하고 **확인**을 선택하여 복원 지점 절차를 완료합니다.
+1. 목록에서 복구 지점을 선택하고 **확인** 을 선택하여 복원 지점 절차를 완료합니다.
 
     ![전체 복구 지점 선택](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
@@ -181,7 +181,7 @@ CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복
 
 CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습니다.
 
-1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목**으로 이동 합니다.
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목** 으로 이동 합니다.
 1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
 
 >[!NOTE]

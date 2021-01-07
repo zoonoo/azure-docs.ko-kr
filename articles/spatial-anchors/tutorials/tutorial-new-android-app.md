@@ -1,19 +1,19 @@
 ---
 title: '자습서: 새 Android 앱 만들기'
 description: 이 자습서에서는 Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 방법에 대해 알아봅니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 06/22/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0d01a20728d2332d4a8d71819f73baf68a65a4
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85296205"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95998392"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침
 
@@ -28,13 +28,13 @@ ms.locfileid: "85296205"
 
 ## <a name="getting-started"></a>시작
 
-Android Studio를 시작합니다. **Android Studio 시작** 창에서 **새 Android Studio 프로젝트 시작**을 클릭합니다. 또는 프로젝트가 이미 열려 있는 경우 **파일**->**새 프로젝트**를 차례로 선택합니다.
+Android Studio를 시작합니다. **Android Studio 시작** 창에서 **새 Android Studio 프로젝트 시작** 을 클릭합니다. 또는 프로젝트가 이미 열려 있는 경우 **파일**->**새 프로젝트** 를 차례로 선택합니다.
 
-**새 프로젝트 만들기** 창의 **휴대폰 및 태블릿** 섹션 아래에서 **빈 활동**을 선택하고 **다음**을 클릭합니다. 그런 다음, **최소 API 수준** 아래에서 `API 26: Android 8.0 (Oreo)`을 선택하고 **언어**가 `Java`로 설정되어 있는지 확인합니다. 프로젝트 이름과 위치 및 패키지 이름은 변경할 수 있습니다. 다른 옵션은 있는 그대로 둡니다. **Finish**를 클릭합니다. **구성 요소 설치 관리자**가 실행됩니다. 작업이 완료되면 **마침**을 클릭합니다. 일부가 처리되면 Android Studio에서 IDE를 엽니다.
+**새 프로젝트 만들기** 창의 **휴대폰 및 태블릿** 섹션 아래에서 **빈 활동** 을 선택하고 **다음** 을 클릭합니다. 그런 다음, **최소 API 수준** 아래에서 `API 26: Android 8.0 (Oreo)`을 선택하고 **언어** 가 `Java`로 설정되어 있는지 확인합니다. 프로젝트 이름과 위치 및 패키지 이름은 변경할 수 있습니다. 다른 옵션은 있는 그대로 둡니다. **Finish** 를 클릭합니다. **구성 요소 설치 관리자** 가 실행됩니다. 작업이 완료되면 **마침** 을 클릭합니다. 일부가 처리되면 Android Studio에서 IDE를 엽니다.
 
 ## <a name="trying-it-out"></a>사용해 보기
 
-새 앱을 테스트하려면 USB 케이블을 사용하여 개발자가 사용하는 디바이스를 개발 머신에 연결합니다. **실행**-> **'앱' 실행**을 차례로 클릭합니다. **배포 대상 선택** 창에서 디바이스를 선택하고 **확인**을 클릭합니다. Android Studio에서 앱을 연결된 디바이스에 설치하고 시작합니다. 이제 디바이스에서 실행되는 앱에 "Hello World!"가 표시됩니다. **실행**-> **'앱' 중지**를 차례로 클릭합니다.
+새 앱을 테스트하려면 USB 케이블을 사용하여 개발자가 사용하는 디바이스를 개발 머신에 연결합니다. **실행**-> **'앱' 실행** 을 차례로 클릭합니다. **배포 대상 선택** 창에서 디바이스를 선택하고 **확인** 을 클릭합니다. Android Studio에서 앱을 연결된 디바이스에 설치하고 시작합니다. 이제 디바이스에서 실행되는 앱에 "Hello World!"가 표시됩니다. **실행**-> **'앱' 중지** 를 차례로 클릭합니다.
 
 ## <a name="integrating-_arcore_"></a>_ARCore_ 통합
 
@@ -57,7 +57,7 @@ Android Studio를 시작합니다. **Android Studio 시작** 창에서 **새 And
 </application>
 ```
 
-다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드에서는 앱이 ARCore 버전 1.8을 대상으로 하는지 확인합니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
+다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드에서는 앱이 ARCore 버전 1.8을 대상으로 하는지 확인합니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화** 를 클릭합니다.
 
 ```
 dependencies {
@@ -71,7 +71,7 @@ dependencies {
 
 [_Sceneform_](https://developers.google.com/sceneform/develop/)을 사용하면 OpenGL을 익히지 않고도 증강 현실 앱에서 사실적인 3D 장면을 간단하게 렌더링할 수 있습니다.
 
-다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드를 사용하면 앱에서 `Sceneform`에 필요한 Java 8의 언어 구문을 사용할 수 있습니다. 또한 앱에서 사용하는 ARCore 버전과 일치해야 하므로 앱에서 `Sceneform` 버전 1.8을 대상으로 하는지도 확인할 수 있습니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화**를 클릭합니다.
+다음 항목이 포함되도록 `Gradle Scripts\build.gradle (Module: app)`을 수정합니다. 이 코드를 사용하면 앱에서 `Sceneform`에 필요한 Java 8의 언어 구문을 사용할 수 있습니다. 또한 앱에서 사용하는 ARCore 버전과 일치해야 하므로 앱에서 `Sceneform` 버전 1.8을 대상으로 하는지도 확인할 수 있습니다. 이렇게 변경되면 Gradle에서 동기화를 요청하는 알림이 표시될 수 있습니다. 그러면 **지금 동기화** 를 클릭합니다.
 
 ```
 android {
@@ -134,7 +134,7 @@ dependencies {
 }
 ```
 
-마우스 오른쪽 단추로 `app\java\<PackageName>`->**새로 만들기**->**Java 클래스**를 차례로 클릭합니다. **이름**을 _MyFirstApp_으로 설정하고, **슈퍼클래스**를 _android.app.Application_으로 설정합니다. 다른 옵션은 있는 그대로 둡니다. **확인**을 클릭합니다. `MyFirstApp.java`라는 파일이 만들어집니다. 다음 가져오기를 여기에 추가합니다.
+마우스 오른쪽 단추로 `app\java\<PackageName>`->**새로 만들기**->**Java 클래스** 를 차례로 클릭합니다. **이름** 을 _MyFirstApp_ 으로 설정하고, **슈퍼클래스** 를 _android.app.Application_ 으로 설정합니다. 다른 옵션은 있는 그대로 둡니다. **확인** 을 클릭합니다. `MyFirstApp.java`라는 파일이 만들어집니다. 다음 가져오기를 여기에 추가합니다.
 
 ```java
 import com.microsoft.CloudServices;

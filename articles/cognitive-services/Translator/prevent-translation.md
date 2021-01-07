@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: ec39b3692a90f22409e85b5502d3ea874e3282d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8923c1090669caa46ef51a26418933b1cda023
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742063"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563435"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>변환기를 사용 하 여 콘텐츠 번역을 방지 하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "91742063"
 
 1. 콘텐츠에 `notranslate`를 태그로 지정합니다. 이는 입력 textType이 HTML로 설정 된 경우에만 작동 하도록 설계 된 것입니다.
 
-   예제:
+   예:
 
    ```html
    <span class="notranslate">This will not be translated.</span>
@@ -39,7 +39,7 @@ ms.locfileid: "91742063"
 
 2. 콘텐츠에 `translate="no"`를 태그로 지정합니다. 입력 textType이 HTML로 설정 된 경우에만 작동 합니다.
 
-   예제:
+   예:
 
    ```html
    <span translate="no">This will not be translated.</span>
@@ -49,14 +49,15 @@ ms.locfileid: "91742063"
    ```html
    <div translate="no">This will not be translated.</div>
    <div>This will be translated. </div>
+   ```
+   
+3. [동적 사전](dynamic-dictionary.md)을 사용하여 특정 번역을 규정합니다.
 
-3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+4. 번역을 위해 문자열을 변환기에 전달 하지 마세요.
 
-4. Don't pass the string to the Translator for translation.
-
-5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
+5. 사용자 지정 변환기: [사용자 지정 변환기에서 사전을](custom-translator/what-is-dictionary.md) 사용 하 여 100% 확률의 구에 대 한 변환을 규정 합니다.
 
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Use the Translate operation to translate text](reference/v3-0-translate.md)
+> [변환 작업을 사용 하 여 텍스트 번역](reference/v3-0-translate.md)

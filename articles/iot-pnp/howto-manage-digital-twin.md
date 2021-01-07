@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ddb8027c145f6a38bfcd953be66dae2943a20c3a
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042850"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654611"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>IoT 플러그 앤 플레이 디지털 쌍 관리
 
@@ -26,7 +26,7 @@ IoT 플러그 앤 플레이 장치는 [DTDL (디지털 Twins 정의 언어 v2)](
 
 이 문서에서 예로 사용 된 IoT 플러그 앤 플레이 장치는 [자동 온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) 구성 요소를 사용 하 여 [온도 컨트롤러 모델](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) 을 구현 합니다.
 
-다음 코드 조각에서는 JSON 개체로 형식이 지정 된 **Get digital** 쌍 요청에 대 한 응답을 보여 줍니다. 디지털 쌍 형식에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 디지털 쌍 이해](./concepts-digital-twin.md#digital-twin-json-format)를 참조 하세요.
+다음 코드 조각에서는 JSON 개체로 형식이 지정 된 **Get digital** 쌍 요청에 대 한 응답을 보여 줍니다. 디지털 쌍 형식에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 디지털 쌍 이해](./concepts-digital-twin.md#digital-twin-example)를 참조 하세요.
 
 ```json
 {
@@ -193,6 +193,6 @@ Digital 쌍를 사용 하면 [JSON 패치](http://jsonpatch.com/)를 사용 하 
 
 이제 디지털 쌍에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
-- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service.md)
 - [IoT 디지털 쌍 REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

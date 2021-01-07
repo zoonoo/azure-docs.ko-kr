@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083000"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "94683627"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 그래프 지원 및 TinkerPop 기능과의 호환성
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,6 +32,7 @@ Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/
 | [Node.JS](https://www.npmjs.com/package/gremlin) | [Github의 Gremlin-JavaScript](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Node.js를 사용하여 그래프 만들기](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Github의 Gremlin Python](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python을 사용하여 그래프 만들기](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [GitHub의 Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [PHP를 사용하여 그래프 만들기](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | 이 라이브러리는 외부 기여자가 빌드했습니다. Azure Cosmos DB 팀은 라이브러리를 지원하거나 유지 관리하지 않습니다. |
 | [Gremlin 콘솔](https://tinkerpop.apache.org/downloads.html) | [TinkerPop 문서](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin 콘솔을 사용하여 그래프 만들기](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>지원되는 그래프 개체
@@ -168,7 +169,7 @@ Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 �
 
 ## <a name="behavior-differences"></a>동작 차이점
 
-* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 * **폭 우선** _ 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
+* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 ***폭 우선** _ 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 
@@ -178,13 +179,13 @@ _ * **`property(set, 'xyz', 1)`** _ 세트 카디널리티는 현재 지원되�
 
 _ * **`match()` 단계** _는 현재 사용할 수 없습니다. 이 단계는 선언적 쿼리 기능을 제공합니다.
 
-_ 꼭짓점 또는 에지에 대한 * **속성인 개체** _는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
+_ 꼭짓점 또는 에지에 대한 ***속성인 개체** _는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
 
-_ * **배열 속성 정렬** _ `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
+_ ***배열 속성 정렬** _ `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
 
-_ * **기본이 아닌 JSON 형식** _은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
+_ ***기본이 아닌 JSON 형식** _은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
 
-_ * **GraphSONv3** _ 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
+_ ***GraphSONv3** _ 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
 
 _ **람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`, `.by{<expression>}` 및 `.filter{<expression>}` 함수가 포함됩니다. 자세한 내용을 알아보고 Gremlin 단계를 사용하여 다시 작성하는 방법에 대해 알아보려면 [람다에 대한 참고 사항](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)을 참조하세요.
 
@@ -192,7 +193,7 @@ _ **람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-**중간 순회 `.V()` 단계를 사용하는 Gremlin 쿼리의 인덱스 사용률** : 현재는 순회의 첫 번째 `.V()` 호출만 인덱스를 사용하여 연결된 필터 또는 조건자를 확인합니다. 후속 호출에서는 인덱스를 참조하지 않으므로 쿼리의 대기 시간과 비용이 늘어날 수 있습니다.
+**중간 순회 `.V()` 단계를 사용하는 Gremlin 쿼리의 인덱스 사용률**: 현재는 순회의 첫 번째 `.V()` 호출만 인덱스를 사용하여 연결된 필터 또는 조건자를 확인합니다. 후속 호출에서는 인덱스를 참조하지 않으므로 쿼리의 대기 시간과 비용이 늘어날 수 있습니다.
     
     Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 

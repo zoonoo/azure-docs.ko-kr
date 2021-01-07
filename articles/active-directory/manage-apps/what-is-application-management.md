@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abe222ff783032c5d6d19a42bfb3d8aeffc284a1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a157396318075522d5b3263c9cf0f749eafc2476
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604124"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658811"
 ---
 # <a name="what-is-application-management"></a>애플리케이션 관리란?
 
@@ -55,9 +55,9 @@ Azure AD는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID �
 
 ## <a name="what-types-of-applications-can-i-integrate-with-azure-ad"></a>어떤 유형의 애플리케이션을 Azure AD와 통합할 수 있나요?
 
-**엔터프라이즈 애플리케이션**에 추가하여 Azure AD로 관리할 수 있는 애플리케이션에는 주요 네 가지 유형이 있습니다.
+**엔터프라이즈 애플리케이션** 에 추가하여 Azure AD로 관리할 수 있는 애플리케이션에는 주요 네 가지 유형이 있습니다.
 
-- **Azure AD Gallery 애플리케이션** – Azure AD에는 Azure AD과의 Single Sign-On을 위해 사전 통합된 수천 개의 애플리케이션이 포함된 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 이 갤러리에 있을 것입니다. [앱 통합 계획에 대해 알아보거나](plan-an-application-integration.md), [SaaS 애플리케이션 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/)에서 개별 앱에 대한 자세한 통합 단계를 확인하세요.
+- **Azure AD Gallery 애플리케이션** – Azure AD에는 Azure AD과의 Single Sign-On을 위해 사전 통합된 수천 개의 애플리케이션이 포함된 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 이 갤러리에 있을 것입니다. [앱 통합 계획에 대해 알아보거나](plan-an-application-integration.md), [SaaS 애플리케이션 자습서](/azure/active-directory/saas-apps/)에서 개별 앱에 대한 자세한 통합 단계를 확인하세요.
 
 - **애플리케이션 프록시 지원 온-프레미스 애플리케이션** – Azure AD 애플리케이션 프록시를 통해 Azure AD와 온-프레미스 웹앱을 통합하여 Single Sign-On을 지원할 수 있습니다. 그런 다음, 최종 사용자가 Microsoft 365 및 기타 SaaS 앱에 액세스하는 것과 같은 방식으로 온-프레미스 웹앱에 액세스할 수 있습니다. [Azure AD의 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 대한 원격 액세스 제공](application-proxy.md)을 참조하세요.
 
@@ -66,9 +66,9 @@ Azure AD는 사용자의 클라우드 및 온-프레미스 앱에 단일한 ID �
 - **비 갤러리 애플리케이션** – 사용자 고유의 애플리케이션을 구현하세요! Azure AD에 추가하여 다른 앱에 대한 Single Sign-On을 지원합니다. 애플리케이션을 통합하는 방법에는 여러 가지가 있으며, 이 중 일부는 아래에 나열되어 있습니다. 자세한 내용은 [SAML Single Sign-On 구성](configure-saml-single-sign-on.md)을 참조하세요.
 
 >[!TIP]
->Azure AD는 아직 미리 구성되지 않은 애플리케이션 및 앱 갤러리에도 통합할 수 있습니다. **Azure AD를 다음과 통합**할 수 있습니다.
-> - **사용자 이름 및 암호 필드**를 렌더링하는 모든 웹 링크 또는 애플리케이션입니다.
-> - **SAML 또는 OpenID Connect 프로토콜**을 지원하는 모든 애플리케이션
+>Azure AD는 아직 미리 구성되지 않은 애플리케이션 및 앱 갤러리에도 통합할 수 있습니다. **Azure AD를 다음과 통합** 할 수 있습니다.
+> - **사용자 이름 및 암호 필드** 를 렌더링하는 모든 웹 링크 또는 애플리케이션입니다.
+> - **SAML 또는 OpenID Connect 프로토콜** 을 지원하는 모든 애플리케이션
 > - **SCIM(System for Cross-domain Identity Management)** 표준을 지원하는 모든 애플리케이션
 
 ## <a name="manage-risk-with-conditional-access-policies"></a>조건부 액세스 정책을 사용하여 위험 관리
@@ -79,7 +79,7 @@ Azure AD SSO(Single Sign-On)를 [조건부 액세스](../conditional-access/conc
 
 애플리케이션 및 Microsoft 365에서 SSO(Single Sign-On)를 사용하도록 설정하면 로그인 프롬프트가 감소하거나 제거되어 기존 사용자를 위한 우수한 환경이 제공됩니다. 사용자 환경은 더 응집력이 있는 것으로 느껴지고 여러 프롬프트가 없거나 여러 암호를 관리할 필요가 없어 덜 산만합니다. 비즈니스 그룹은 셀프 서비스 및 동적 멤버 자격을 통해 액세스를 관리하고 승인할 수 있습니다. 비즈니스에서 적합한 사용자가 애플리케이션에 대한 액세스를 관리하도록 하면 ID 시스템의 보안이 향상됩니다.
 
-SSO는 보안을 개선합니다. ‘Single Sign-On을 사용하지 않으면’ 관리자가 각 개별 애플리케이션의 사용자 계정을 만들고 업데이트해야 하며 이 작업에는 시간이 걸립니다.** 또한, 사용자는 애플리케이션에 액세스하기 위해 여러 자격 증명을 추적해야 합니다. 결과적으로 사용자는 암호를 적어 두거나 다른 암호 관리 솔루션을 사용하기 쉬우므로 데이터 보안 위험이 도입될 수 있습니다. [Single Sign-On에 대해 자세히 읽어보세요](what-is-single-sign-on.md).
+SSO는 보안을 개선합니다. ‘Single Sign-On을 사용하지 않으면’ 관리자가 각 개별 애플리케이션의 사용자 계정을 만들고 업데이트해야 하며 이 작업에는 시간이 걸립니다. 또한, 사용자는 애플리케이션에 액세스하기 위해 여러 자격 증명을 추적해야 합니다. 결과적으로 사용자는 암호를 적어 두거나 다른 암호 관리 솔루션을 사용하기 쉬우므로 데이터 보안 위험이 도입될 수 있습니다. [Single Sign-On에 대해 자세히 읽어보세요](what-is-single-sign-on.md).
 
 ## <a name="address-governance-and-compliance"></a>거버넌스 및 규정 준수 처리
 

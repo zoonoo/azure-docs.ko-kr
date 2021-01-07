@@ -3,18 +3,18 @@ title: Azure Monitor Application Insights 클래식 리소스를 작업 영역 �
 description: Azure Monitor Application Insights 클래식 리소스를 새 작업 영역 기반 모델로 업그레이드 하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0d2c7d1b9ee57e6d201205c04557e1b5f5623eb0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930580"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536526"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
 이 가이드에서는 클래식 Application Insights 리소스를 작업 영역 기반 리소스로 마이그레이션하는 과정을 안내 합니다. 작업 영역 기반 리소스는 Application Insights와 Log Analytics 간의 완전한 통합을 지원합니다. 작업 영역 기반 리소스는 일반적인 Log Analytics 작업 영역에 Application Insights 원격 분석을 보냅니다 .이를 통해 응용 프로그램, 인프라 및 플랫폼 로그를 통합 된 단일 위치에 유지 하면서 [Azure Monitor의 최신 기능](#new-capabilities) 에 액세스할 수 있습니다.
 
-작업 영역 기반 리소스를 사용 하면 리소스에서 RBAC (common Role-Based Access Control)를 사용할 수 있으며 앱 간/작업 영역 쿼리가 필요 하지 않습니다.
+작업 영역 기반 리소스를 사용 하면 리소스에서 일반적인 Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용할 수 있으며 앱 간/작업 영역 쿼리가 필요 하지 않습니다.
 
 **작업 영역 기반 리소스는 현재 모든 상용 지역 및 Azure 미국 정부에서 사용할 수 있습니다.**
 
@@ -51,7 +51,7 @@ ms.locfileid: "91930580"
 - 연속 내보내기는 작업 영역 기반 리소스에 대해 지원 되지 않으므로 사용 하지 않도록 설정 해야 합니다.
 마이그레이션이 완료 되 면 [진단 설정을](../platform/diagnostic-settings.md) 사용 하 여 저장소 계정에 대 한 데이터 보관 또는 Azure 이벤트 허브로의 스트리밍을 구성할 수 있습니다.  
 
-- **General**  >  Log Analytics 작업 영역에 대 한 일반**사용량 및 예상 비용**  >  **데이터 보존** 에서 현재 보존 설정을 확인 합니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다. 현재 Application Insights 데이터를 기본 90 일 보다 오래 저장 하 고이 더 큰 보존 기간을 유지 하려는 경우 작업 영역 보존 설정을 조정 해야 할 수 있습니다.
+- **General**  >  Log Analytics 작업 영역에 대 한 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 현재 보존 설정을 확인 합니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다. 현재 Application Insights 데이터를 기본 90 일 보다 오래 저장 하 고이 더 큰 보존 기간을 유지 하려는 경우 작업 영역 보존 설정을 조정 해야 할 수 있습니다.
 
 ## <a name="migrate-your-resource"></a>리소스 마이그레이션
 
@@ -201,7 +201,7 @@ az monitor app-insights component update --app your-app-insights-resource-name -
 
 작업 영역 기반 Application Insights 리소스를 만든 후에는 연결된 Log Analytics 작업 영역을 수정할 수 있습니다.
 
-Application Insights 리소스 창에서 **속성**  >  **작업 영역**Log Analytics 작업 영역 변경을 선택  >  **Log Analytics Workspaces**합니다.
+Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log Analytics 작업 영역 변경을 선택  >  **Log Analytics Workspaces** 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -209,7 +209,7 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역**Log Ana
 
 **오류 메시지:** *선택한 작업 영역은 작업 영역 기반 액세스 모드로 구성 되어 있습니다. 일부 APM 기능이 영향을 받을 수 있습니다. 작업 영역 설정에서 다른 작업 영역을 선택 하거나 리소스 기반 액세스를 허용 합니다. CLI를 사용 하 여이 오류를 재정의할 수 있습니다.* 
 
-작업 영역 기반 Application Insights 리소스가 제대로 작동 하도록 하려면 대상 Log Analytics 작업 영역의 액세스 제어 모드를 **리소스 또는 작업 영역 권한** 설정으로 변경 해야 합니다. 이 설정은 Log Analytics 작업 영역 UI의 **속성**  >  **액세스 제어 모드**에 있습니다. 자세한 지침은 [Log Analytics access control mode 구성 지침](../platform/manage-access.md#configure-access-control-mode)을 참조 하세요. 액세스 제어 모드가 전용 **필요 작업 영역 권한** 설정으로 설정 된 경우 포털 마이그레이션 환경을 통한 마이그레이션은 차단 된 상태로 유지 됩니다.
+작업 영역 기반 Application Insights 리소스가 제대로 작동 하도록 하려면 대상 Log Analytics 작업 영역의 액세스 제어 모드를 **리소스 또는 작업 영역 권한** 설정으로 변경 해야 합니다. 이 설정은 Log Analytics 작업 영역 UI의 **속성**  >  **액세스 제어 모드** 에 있습니다. 자세한 지침은 [Log Analytics access control mode 구성 지침](../platform/manage-access.md#configure-access-control-mode)을 참조 하세요. 액세스 제어 모드가 전용 **필요 작업 영역 권한** 설정으로 설정 된 경우 포털 마이그레이션 환경을 통한 마이그레이션은 차단 된 상태로 유지 됩니다.
 
 현재 대상 작업 영역에 대 한 보안 이유로 액세스 제어 모드를 변경할 수 없는 경우 마이그레이션에 사용할 새 Log Analytics 작업 영역을 만드는 것이 좋습니다. 
 
@@ -219,11 +219,11 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역**Log Ana
 
 작업 영역 기반 리소스에는 레거시 연속 내보내기 기능이 지원되지 않습니다. 마이그레이션하기 전에 연속 내보내기를 사용 하지 않도록 설정 해야 합니다.
 
-1. Application Insights 리소스 보기의 **구성** 제목에서 **연속 내보내기**를 선택 합니다.
+1. Application Insights 리소스 보기의 **구성** 제목에서 **연속 내보내기** 를 선택 합니다.
 
     ![연속 내보내기 메뉴 항목](./media/convert-classic-resource/continuous-export.png)
 
-2. **사용 안 함**을 선택합니다.
+2. **사용 안 함** 을 선택합니다.
 
     ![연속 내보내기 사용 안 함 단추](./media/convert-classic-resource/disable.png)
 
@@ -237,7 +237,7 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역**Log Ana
 
 마이그레이션하기 전에 변경 작업을 수행할 필요는 없지만,이 메시지는 현재 Application Insights 보존 설정이 기본 90 일 보존 기간으로 설정 되어 있지 않은지 경고 하는 것입니다. 이 경고 메시지는 마이그레이션 전에 Log Analytics 작업 영역에 대 한 보존 설정을 수정 하 고 새 데이터 수집을 시작 하는 것을 의미 합니다. 
 
-**General**  >  Log Analytics UI 내에서 일반**사용량 및 예상 비용**  >  **데이터 보존** 에서 Log Analytics에 대 한 현재 보존 설정을 확인할 수 있습니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다.
+**General**  >  Log Analytics UI 내에서 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 Log Analytics에 대 한 현재 보존 설정을 확인할 수 있습니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

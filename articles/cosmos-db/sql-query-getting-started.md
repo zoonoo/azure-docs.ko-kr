@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356623"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353666"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,16 +34,16 @@ Azure Cosmos DB에 대 한 대부분의 읽기 작업은 지점 읽기와 SQL �
 
 다음은 각 SDK를 사용 하 여 **SQL 쿼리** 를 수행 하는 방법에 대 한 몇 가지 예입니다.
 
-- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
-- [Java SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
-- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
-- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](./sql-api-python-samples.md#item-examples)
 
 이 문서의 나머지 부분에서는 Azure Cosmos DB에서 SQL 쿼리 작성을 시작 하는 방법을 보여 줍니다. SQL 쿼리는 SDK 또는 Azure Portal를 통해 실행할 수 있습니다.
 
 ## <a name="upload-sample-data"></a>샘플 데이터 업로드
 
-SQL API Cosmos DB 계정에서 [데이터 탐색기](https://docs.microsoft.com/azure/cosmos-db/data-explorer) 를 열어 라는 컨테이너를 만듭니다 `Families` . 만든 후에는 데이터 구조 브라우저를 사용 하 여 찾아서 엽니다. 컨테이너에서 `Families` `Items` 컨테이너 이름 바로 아래에 옵션이 표시 됩니다. 이 옵션을 선택 하면 화면 가운데의 메뉴 모음에서 ' 새 항목 '을 만들 수 있는 단추가 표시 됩니다. 이 기능을 사용 하 여 아래 JSON 항목을 만듭니다.
+SQL API Cosmos DB 계정에서 [데이터 탐색기](./data-explorer.md) 를 열어 라는 컨테이너를 만듭니다 `Families` . 만든 후에는 데이터 구조 브라우저를 사용 하 여 찾아서 엽니다. 컨테이너에서 `Families` `Items` 컨테이너 이름 바로 아래에 옵션이 표시 됩니다. 이 옵션을 선택 하면 화면 가운데의 메뉴 모음에서 ' 새 항목 '을 만들 수 있는 단추가 표시 됩니다. 이 기능을 사용 하 여 아래 JSON 항목을 만듭니다.
 
 ### <a name="create-json-items"></a>JSON 항목 만들기
 

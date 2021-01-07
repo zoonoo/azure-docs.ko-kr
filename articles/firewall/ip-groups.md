@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 97d8d10e30d0d0c1654c82651220489785a37059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c56298d68bddd326ed2b32215f30a9057fa51e85
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87460221"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653116"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Azure 방화벽의 IP 그룹
 
@@ -50,7 +50,7 @@ IP 그룹은 Azure Portal, Azure CLI 또는 REST API를 사용 하 여 만들 �
 IP 그룹의 모든 IP 주소와 연결 된 규칙 또는 리소스를 볼 수 있습니다. IP 그룹을 삭제 하려면 먼저 ip 그룹을 사용 하는 리소스에서 IP 그룹을 분리 해야 합니다.
 
 1. IP 주소를 보거나 편집 하려면 왼쪽 창의 **설정** 에서 **ip 주소** 를 선택 합니다.
-2. 단일 또는 여러 IP 주소를 추가 하려면 **ip 주소 추가**를 선택 합니다. 업로드에 대 한 **끌기 또는 찾아보기** 페이지가 열리거나 수동으로 주소를 입력할 수 있습니다.
+2. 단일 또는 여러 IP 주소를 추가 하려면 **ip 주소 추가** 를 선택 합니다. 업로드에 대 한 **끌기 또는 찾아보기** 페이지가 열리거나 수동으로 주소를 입력할 수 있습니다.
 3.    오른쪽에 있는 줄임표 (**...**)를 선택 하 여 IP 주소를 편집 하거나 삭제 합니다. 여러 IP 주소를 편집 하거나 삭제 하려면 상자를 선택 하 고 위쪽에서 **편집** 또는 **삭제** 를 선택 합니다.
 4. 마지막으로는 CSV 파일 형식으로 파일을 내보낼 수 있습니다.
 
@@ -76,13 +76,13 @@ IP 그룹의 모든 IP 주소와 연결 된 규칙 또는 리소스를 볼 수 �
 
 다음 Azure PowerShell cmdlet을 사용 하 여 IP 그룹을 만들고 관리할 수 있습니다.
 
-- [New-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
-- [AzIPGroup](https://docs.microsoft.com/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
-- [Get-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
-- [Set-AzIpGroup](https://docs.microsoft.com/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
-- [AzFirewallNetworkRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
-- [New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
-- [AzFirewallNatRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
+- [New-AzIpGroup](/powershell/module/az.network/new-azipgroup?view=azps-3.4.0)
+- [AzIPGroup](/powershell/module/az.network/remove-azipgroup?view=azps-3.4.0)
+- [Get-AzIpGroup](/powershell/module/az.network/get-azipgroup?view=azps-3.4.0)
+- [Set-AzIpGroup](/powershell/module/az.network/set-azipgroup?view=azps-3.4.0)
+- [AzFirewallNetworkRule](/powershell/module/az.network/new-azfirewallnetworkrule?view=azps-3.4.0)
+- [New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule?view=azps-3.4.0)
+- [AzFirewallNatRule](/powershell/module/az.network/new-azfirewallnatrule?view=azps-3.4.0)
 
 ## <a name="next-steps"></a>다음 단계
 

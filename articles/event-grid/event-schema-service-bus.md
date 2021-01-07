@@ -3,16 +3,16 @@ title: Event Grid 원본으로 Azure Service Bus
 description: Azure Event Grid를 사용하여 Service Bus 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 81293321b3a8fb989023a231c905996b4059bd81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c6990c4e6e87304c457a5b2ca6459c404c8d9a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121137"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008115"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Service Bus
 
-이 문서에서는 Service Bus 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 Service Bus 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 ## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
@@ -20,12 +20,16 @@ ms.locfileid: "86121137"
 
 Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | 큐 또는 구독에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | 배달 못한 편지 큐에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
+| ServiceBus. ActiveMessagesAvailablePeriodicNotifications | 큐 또는 구독에 활성 메시지가 있는 경우 해당 특정 큐 또는 구독에 활성 수신기가 있는 경우에도 주기적으로 발생 합니다. |
+| ServiceBus. DeadletterMessagesAvailablePeriodicNotifications | 큐 또는 구독의 배달 못한 편지 엔터티에 메시지가 있는 경우 해당 특정 큐 또는 구독의 배달 못한 편지 엔터티에 활성 수신기가 있는 경우에도 주기적으로 발생 합니다. | 
 
 ### <a name="example-event"></a>예제 이벤트
+
+#### <a name="active-messages-available-with-no-listeners"></a>수신기 없이 사용 가능한 활성 메시지
 
 다음 예제에서는 수신기 이벤트가 없는 활성 메시지의 스키마를 보여줍니다.
 
@@ -49,6 +53,8 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
+#### <a name="deadletter-messages-available-with-no-listener"></a>수신기 없이 사용할 수 있는 배달 못한 편지 메시지
+
 배달 못한 편지 큐 이벤트에 대한 스키마는 다음과 같이 유사합니다.
 
 ```json
@@ -61,6 +67,50 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
   "data": {
     "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
     "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="active-messages-available-periodic-notifications"></a>활성 메시지 사용 가능한 정기 알림
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
+    "entityType": "subscriber",
+    "queueName": "QUEUE NAME IF QUEUE",
+    "topicName": "TOPIC NAME IF TOPIC",
+    "subscriptionName": "SUBSCRIPTION NAME"
+  },
+  "dataVersion": "1",
+  "metadataVersion": "1"
+}]
+```
+
+#### <a name="deadletter-messages-available-periodic-notifications"></a>배달 못한 편지 메시지의 사용 가능한 정기 알림
+
+```json
+[{
+  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
+  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
+  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
+  "eventTime": "2018-02-14T05:12:53.4133526Z",
+  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
+  "data": {
+    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
+    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
     "entityType": "subscriber",
     "queueName": "QUEUE NAME IF QUEUE",
     "topicName": "TOPIC NAME IF TOPIC",
@@ -88,7 +138,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
 | namespaceName | 문자열 | 리소스가 있는 Service Bus 네임스페이스입니다. |
 | requestUri | 문자열 | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
@@ -98,7 +148,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 | subscriptionName | 문자열 | 활성 메시지가 있는 Service Bus 구독입니다. 큐를 사용하는 경우 null 값입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |설명  |
+|제목  |Description  |
 |---------|---------|
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 | [Event Grid 통합에 Azure Service Bus](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |

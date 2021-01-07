@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288981"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022669"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop YARN 문제를 해결합니다.
 
@@ -24,11 +24,11 @@ Apache Ambari에서 Apache Hadoop YARN 페이로드를 사용할 때의 주요 �
 
 Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐에 용량이 균형 있게 할당되도록 조정합니다.
 
-이 예제에서는 기존 큐 두 개( **default** 및 **thriftsvr** ) 모두 새 큐(spark)를 50% 용량으로 하여 50% 용량에서 25% 용량으로 변경됩니다.
+이 예제에서는 기존 큐 두 개(**default** 및 **thriftsvr**) 모두 새 큐(spark)를 50% 용량으로 하여 50% 용량에서 25% 용량으로 변경됩니다.
 
 | 큐 | 용량 | 최대 용량 |
 | --- | --- | --- |
-| 기본값 | 25% | 50% |
+| default | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
@@ -129,7 +129,7 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
     containerlogs.txt라는 로그 파일이 만들어집니다.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>추가 자료
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>추가 참고 자료
 
 - [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN 개념 및 응용 프로그램](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

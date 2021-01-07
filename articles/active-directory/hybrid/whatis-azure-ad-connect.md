@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338f957d3e881a76b39b0b7c00288ae2ebf2be59
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 74a6c816979732e21813a0f2024167c68ca1c5dc
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018614"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874103"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
 
@@ -59,7 +59,7 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012,
 |-----|-----|
 |향상된 보안|[엑스트라넷 잠금 추세](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[실패한 로그인 보고서](how-to-connect-health-adfs-risky-ip.md)</br>[개인 정보 보호 준수](reference-connect-health-user-privacy.md)|
 |[모든 심각한 ADFS 시스템 문제](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)에 대한 알림 받기|서버 구성 및 가용성</br>[성능 및 연결](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>정기적인 유지 관리|
-|쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
+|쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#install-the-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
 다양한 [사용량 메트릭](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|상위 애플리케이션 사용량</br>네트워크 위치 및 TCP 연결</br>서버당 토큰 요청|
 |멋진 사용자 환경|Azure Portal에서 대시보드 방식</br>[이메일 경고](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
 

@@ -4,12 +4,12 @@ description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86516127"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708435"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고
 
@@ -18,7 +18,8 @@ ms.locfileid: "86516127"
 활동 로그 경고는 경고에 지정 된 조건과 일치 하는 새 [활동 로그 이벤트가](activity-log-schema.md) 발생할 때 활성화 되는 경고입니다. [Azure 활동 로그](platform-logs-overview.md)에 기록 된 이벤트의 순서와 볼륨에 따라 경고 규칙이 실행 됩니다. 활동 로그 경고 규칙은 Azure 리소스 이므로 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 활동 로그 경고 규칙을 만들거나 사용 하는 방법에 대 한 자세한 내용은 [활동 로그 경고 만들기 및 관리](alerts-activity-log.md)를 참조 하세요.
 
 > [!NOTE]
-> 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 **없습니다** .
+> * 활동 로그의 경고 범주에 있는 이벤트에 대 한 경고를 만들 수 **없습니다** .
+> * 보안 범주를 포함 하는 활동 로그 경고를 [새 업그레이드 된 흐름](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) 에서 [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem) 로 정의할 수도 있습니다.
 
 일반적으로 다음과 같은 경우에 알림을 수신하도록 활동 로그 경고를 만들 수 있습니다.
 
@@ -40,7 +41,7 @@ ms.locfileid: "86516127"
     - 구독 수준: 구독의 모든 가상 머신 (또는) 구독의 모든 리소스
 - **리소스 그룹**: 기본적으로 경고 규칙은 범위에 정의된 대상과 동일한 리소스 그룹에 저장됩니다. 경고 규칙을 저장할 리소스 그룹도 정의할 수 있습니다.
 - **리소스 종류**: Resource Manager가 경고의 대상 네임스페이스를 정의합니다.
-- **작업 이름**: Role-Based Access Control에 사용 되는 [Azure Resource Manager 작업](../../role-based-access-control/resource-provider-operations.md) 이름입니다. Azure Resource Manager에 등록 되지 않은 작업은 활동 로그 경고 규칙에서 사용할 수 없습니다.
+- **작업 이름**: azure 역할 기반 액세스 제어에 사용 되는 [azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md) 이름입니다. Azure Resource Manager에 등록 되지 않은 작업은 활동 로그 경고 규칙에서 사용할 수 없습니다.
 - **수준**: 이벤트의 심각도 수준 (정보, 경고, 오류 또는 중요)입니다.
 - **상태**: 이벤트의 상태로, 일반적으로 시작됨, 실패 또는 성공입니다.
 - **이벤트를 시작한 사람**: "호출자" 라고도 합니다. 작업을 수행한 사용자의 이메일 주소 또는 Active Directory 식별자입니다.
@@ -48,7 +49,7 @@ ms.locfileid: "86516127"
 > [!NOTE]
 > 한 구독에서, 단일 리소스, 리소스 그룹의 모든 리소스 또는 전체 구독 수준 범위의 활동에 대해 최대 100개의 경고 규칙을 만들 수 있습니다.
 
-활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음과 같습니다.
+활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 * 활동 로그 경고에서 기존 작업 그룹을 사용합니다.
 * 새 작업 그룹을 만듭니다.
@@ -60,5 +61,5 @@ ms.locfileid: "86516127"
 
 - [경고에 대 한 개요](alerts-overview.md)를 가져옵니다.
 - [활동 로그 경고 만들기 및 수정](alerts-activity-log.md)에 관해 알아보세요.
-- [활동 로그 경고 webhook 스키마](activity-log-alerts-webhook.md)를 검토 합니다.
+- [활동 로그 경고 웹후크 스키마](activity-log-alerts-webhook.md)를 검토하세요.
 - [서비스 상태 알림](../../service-health/service-notifications.md)에 대해 자세히 알아보세요.

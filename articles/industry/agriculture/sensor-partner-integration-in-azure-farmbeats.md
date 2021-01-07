@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: ef74c4b799c3a24636f88a8e704bf726104b034f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674322"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001595"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -126,10 +126,10 @@ JSON은 임의 데이터 구조의 단순한 텍스트 표현을 제공하는 �
 
 FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메타데이터를 만들고 관리하는 데 사용할 수 있는 다음과 같은 API가 있습니다.
 
-- /**DeviceModel** : DeviceModel은 제조업체 및 디바이스 유형(게이트웨이 또는 노드)과 같은 디바이스 메타데이터에 해당합니다.
-- /**Device** : Device는 팜에 있는 물리적 디바이스에 해당합니다.
-- /**SensorModel** : SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
-- /**Sensor** : Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
+- /**DeviceModel**: DeviceModel은 제조업체 및 디바이스 유형(게이트웨이 또는 노드)과 같은 디바이스 메타데이터에 해당합니다.
+- /**Device**: Device는 팜에 있는 물리적 디바이스에 해당합니다.
+- /**SensorModel**: SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
+- /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
   DeviceModel | Description |
   --- | ---

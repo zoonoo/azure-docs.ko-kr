@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: acb4290a90532b38f44a957e33c69f7d2b3f11f8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 167e7c447fe43851255677a44043c508cbdc4239
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104821"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934835"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 
-이 문서에서는 Maven 명령줄 도구를 사용하여 Kotlin 함수 프로젝트를 빌드하고 Azure Functions에 게시하는 방법을 안내합니다. 완료되면 함수 코드가 Azure의 [사용 플랜](functions-scale.md#consumption-plan)에서 실행되고 HTTP 요청을 사용하여 트리거될 수 있습니다.
+이 문서에서는 Maven 명령줄 도구를 사용하여 Kotlin 함수 프로젝트를 빌드하고 Azure Functions에 게시하는 방법을 안내합니다. 완료되면 함수 코드가 Azure의 [사용 플랜](consumption-plan.md)에서 실행되고 HTTP 요청을 사용하여 트리거될 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -186,7 +186,7 @@ mvn azure-functions:deploy
 `cURL`을 사용하여 Azure에서 실행 중인 함수 앱을 테스트합니다. 아래 예제에서는 이전 단계에서 만든 사용자 고유의 함수 앱에 배포한 URL과 일치하도록 URL을 변경해야 합니다.
 
 > [!NOTE]
-> **액세스 권한**을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 제공해야 합니다.
+> **액세스 권한** 을 `Anonymous`로 설정해야 합니다. 기본 수준 `Function`을 선택하면 함수 엔드포인트에 액세스하기 위해 요청에 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 제공해야 합니다.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions

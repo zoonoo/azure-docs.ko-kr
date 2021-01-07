@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: e377f910e1c1ddda864ea312b40fe3608c166376
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541393"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845454"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -28,14 +28,14 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
+| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
-| 영어(미국) |`en-US` | ✔ | ✔  |✔|✔|
 | 아랍어 (미리 보기-최신 표준 아랍어) |`ar-AR`|-|-|-|-|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | 네덜란드어 |`nl-NL` |✔|-|-|✔|
-| 프랑스어(프랑스) |`fr-FR` |✔| ✔ |✔ |✔|
+| 영어(미국) |`en-US` | ✔ | ✔  |✔|✔|
 | 프랑스어(캐나다) |`fr-CA` |-|-|-|✔|
+| 프랑스어(프랑스) |`fr-FR` |✔| ✔ |✔ |✔|
 | 독일어 |`de-DE` |✔| ✔ |✔ |✔|
 | 구자라트어 | `gu-IN`|-|-|-|-|
 | 힌디어 | `hi-IN`|-|✔|-|-|
@@ -44,8 +44,8 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 한국어 |`ko-KR` |✔|-|-|주요 구문만|
 | 마라티어 | `mr-IN`|-|-|-|-|
 | 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
-| 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
 | 스페인어(멕시코)|`es-MX` |-|-|✔|✔|
+| 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
 | 타밀어 | `ta-IN`|-|-|-|-|
 | 텔루구어 | `te-IN`|-|-|-|-|
 | 터키어 | `tr-TR` |✔|✔|-|감정만|
@@ -69,7 +69,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](../speech-service/speech-to-text.md)를 참조하세요.
 
 ### <a name="bing-spell-check-supported-languages"></a>Bing Spell Check 지원되는 언어
-지원되는 언어 및 상태 목록은 Bing Spell Check [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)를 참조하세요.
+지원되는 언어 및 상태 목록은 Bing Spell Check [지원되는 언어](../bing-spell-check/language-support.md)를 참조하세요.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>애플리케이션의 희귀 또는 외래 단어
 `en-us` 문화권에서 LUIS는 은어를 포함하여 대부분의 영어 단어를 구분하도록 학습됩니다. `zh-cn` 문화권에서 LUIS는 대부분의 중국어 문자를 구분하도록 학습됩니다. `en-us`의 희귀 단어 또는 `zh-cn`의 문자를 사용할 때 LUIS가 해당 단어나 문자를 구분할 수 없는 것으로 보이면 해당 단어나 문자를 [구문 목록 기능](luis-how-to-add-features.md)에 추가할 수 있습니다. 예를 들어, 애플리케이션 문화권 외부의 단어(외래 단어)는 구문 목록 기능에 추가해야 합니다.
@@ -109,7 +109,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](.
 
 다음 문화권에는 사용자 지정 토크 버전이 있습니다.
 
-|문화권|버전|목적|
+|문화|버전|목적|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 `Ich fahre einen krankenwagen` utterance으로 들어가면로 설정 됩니다 `Ich fahre einen kranken wagen` . `kranken`및를 `wagen` 다른 엔터티로 독립적으로 표시할 수 있습니다.|
 |독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 `Ich fahre einen krankenwagen` utterance으로 들어가면 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 는 단일 엔터티로 표시 됩니다. |

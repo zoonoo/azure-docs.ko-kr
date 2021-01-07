@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81842fb3a9a68e818a3e8c94aa6db690cb1d94f5
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307984"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486282"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>빠른 시작: Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -78,7 +78,7 @@ ms.locfileid: "93307984"
 
 ![데이터 시각화 창에서 자동차 데이터 보기](./media/create-experiment/visualize-auto-data.png)
 
-오른쪽 위 모서리에서 " **x** "를 클릭하여 시각화 창을 닫습니다.
+오른쪽 위 모서리에서 "**x**"를 클릭하여 시각화 창을 닫습니다.
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
@@ -174,7 +174,7 @@ ms.locfileid: "93307984"
 
 1. [데이터 분할][split] 모듈을 선택하여 실험 캔버스로 끌어 놓고 마지막 [데이터 세트에서 열 선택][select-columns] 모듈에 연결합니다.
 
-1. [데이터 분할][split] 모듈을 클릭하여 선택합니다. **첫 번째 출력 데이터 세트의 행 분수** (캔버스의 오른쪽에 있는 **속성** 창에서)를 찾아서 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
+1. [데이터 분할][split] 모듈을 클릭하여 선택합니다. **첫 번째 출력 데이터 세트의 행 분수**(캔버스의 오른쪽에 있는 **속성** 창에서)를 찾아서 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
 
     !["데이터 분할" 모듈의 분할 비율을 0.75로 설정](./media/create-experiment/set-split-data-percentage.png)
 
@@ -225,11 +225,11 @@ ms.locfileid: "93307984"
 
 모델에 대한 다음 통계가 표시됩니다.
 
-- MAE( **절대 평균 오차** ): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임).
-- RMSE( **제곱 평균 오차** ): 테스트 데이터 세트에 대해 예측한 제곱 평균 오차의 제곱근입니다.
-- **상대 절대 오차** : 실제 값과 모든 실제 값 평균 사이의 절대값 차에 대해 상대적인 절대 평균 오차입니다.
-- **상대 제곱 오차** : 실제 값과 모든 실제 값 평균 사이의 제곱 차에 대해 상대적인 제곱 평균 오차입니다.
-- **결정 계수** : **R 제곱 값** 이라고도 하며, 모델이 데이터에 얼마나 적합한지 나타내는 통계 메트릭입니다.
+- MAE(**절대 평균 오차**): 절대 평균 오차입니다(‘오차’는 예측 값과 실제 값 사이의 차이임).
+- RMSE(**제곱 평균 오차**): 테스트 데이터 세트에 대해 예측한 제곱 평균 오차의 제곱근입니다.
+- **상대 절대 오차**: 실제 값과 모든 실제 값 평균 사이의 절대값 차에 대해 상대적인 절대 평균 오차입니다.
+- **상대 제곱 오차**: 실제 값과 모든 실제 값 평균 사이의 제곱 차에 대해 상대적인 제곱 평균 오차입니다.
+- **결정 계수**: **R 제곱 값** 이라고도 하며, 모델이 데이터에 얼마나 적합한지 나타내는 통계 메트릭입니다.
 
 각 오차 통계는 작을수록 좋습니다. 값이 작을수록 예측이 실제 값과 더 근접하게 일치함을 나타냅니다. **결정 계수** 의 경우 값이 1(1.0)에 가까울수록 더 잘 예측한 것입니다.
 

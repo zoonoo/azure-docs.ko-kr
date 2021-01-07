@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 44f6d700ff25f0c2f2cb8bedc5c2d15ad2adcb83
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: c25f3965775c6518629c92ccc371855d9178e648
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320830"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033717"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 계산 대상 설정
 
@@ -70,14 +70,14 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 이 시나리오에서 azure VM (azure Data Science Virtual Machine (DSVM)을 선택 하는 것이 좋습니다. 이 VM은 Azure에서 미리 구성된 데이터 과학 및 AI 개발 환경입니다. 이 VM은 전체 수명 주기 기계 학습을 위해 큐레이팅된 도구 및 프레임워크 옵션을 제공합니다. Azure Machine Learning과 함께 DSVM을 사용하는 방법에 관한 자세한 내용은 [개발 환경 구성](./how-to-configure-environment.md#dsvm)을 참조하세요.
 
-1. **만들기** : 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](./data-science-virtual-machine/dsvm-ubuntu-intro.md)을 참조하세요.
+1. **만들기**: 모델 학습에 사용할 DSVM을 만듭니다. 이 리소스를 만들려면 [Linux(Ubuntu) 용 Data Science Virtual Machine 프로비전](./data-science-virtual-machine/dsvm-ubuntu-intro.md)을 참조하세요.
 
     > [!WARNING]
     > Azure Machine Learning는 **Ubuntu** 를 실행 하는 가상 컴퓨터만 지원 합니다. VM을 만들거나 기존 VM을 선택하는 경우 Ubuntu를 사용하는 VM을 선택해야 합니다.
     > 
     > 또한 Azure Machine Learning에는 가상 머신에 __공용 IP 주소가__ 있어야 합니다.
 
-1. **연결** : 기존 가상 머신을 컴퓨팅 대상으로 연결하려면 가상 머신의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. VM의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>` 문자열 형식으로 생성할 수 있습니다.
+1. **연결**: 기존 가상 머신을 컴퓨팅 대상으로 연결하려면 가상 머신의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. VM의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 VM 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>` 문자열 형식으로 생성할 수 있습니다.
 
  
    ```python
@@ -102,7 +102,7 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
     > [!WARNING]
     > 작업 영역에서 동일한 DSVM에 대 한 동시 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
-1. **구성** : DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
+1. **구성**: DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
 
    ```python
    from azureml.core import ScriptRunConfig
@@ -128,7 +128,7 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니다. 플랫폼은 모델을 학습하는 데 사용할 수 있는 Apache Spark를 제공합니다.
 
-1. **만들기** :  모델을 학습하는 데 사용할 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 참조하세요. 
+1. **만들기**:  모델을 학습하는 데 사용할 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Spark를 만들려면 [HDInsight에서 Spark 클러스터 만들기](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 참조하세요. 
 
     > [!WARNING]
     > Azure Machine Learning 하려면 HDInsight 클러스터에 __공용 IP 주소가__ 있어야 합니다.
@@ -137,7 +137,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
     
     클러스터를 만든 후에 \<clustername> 는 호스트 이름-ssh.azurehdinsight.net을 사용 하 여 연결 \<clustername> 합니다. 여기서은 클러스터에 대해 제공한 이름입니다. 
 
-1. **연결** : HDInsight 클러스터를 컴퓨팅 대상으로 연결하려면 HDInsight 클러스터의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. HDInsight 클러스터의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 HDInsight 클러스터 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>` 문자열 형식으로 생성할 수 있습니다.
+1. **연결**: HDInsight 클러스터를 컴퓨팅 대상으로 연결하려면 HDInsight 클러스터의 리소스 ID, 사용자 이름 및 암호를 입력해야 합니다. HDInsight 클러스터의 리소스 ID는 구독 ID, 리소스 그룹 이름 및 HDInsight 클러스터 이름을 사용하여 `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>` 문자열 형식으로 생성할 수 있습니다.
 
     ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
@@ -165,7 +165,7 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
     > [!WARNING]
     > 작업 영역에서 동일한 HDInsight로 동시에 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
-1. **구성** : HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
+1. **구성**: HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
@@ -178,9 +178,9 @@ Azure Batch는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 
 
 Azure Batch를 컴퓨팅 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
 
--    **Azure Batch 컴퓨팅 이름** : 작업 영역 내에서 컴퓨팅에 사용되는 식별 이름입니다.
--    **Azure Batch 계정 이름** : Azure Batch 계정의 이름
--    **리소스 그룹** : Azure Batch 계정을 포함하는 리소스 그룹입니다.
+-    **Azure Batch 컴퓨팅 이름**: 작업 영역 내에서 컴퓨팅에 사용되는 식별 이름입니다.
+-    **Azure Batch 계정 이름**: Azure Batch 계정의 이름
+-    **리소스 그룹**: Azure Batch 계정을 포함하는 리소스 그룹입니다.
 
 다음 코드는 컴퓨팅 대상으로 Azure Batch를 연결하는 방법을 보여줍니다.
 
@@ -223,11 +223,11 @@ Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. �
 
 Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제공합니다.
 
-* __Databricks compute name__ :이 계산 리소스에 할당할 이름입니다.
-* __Databricks 작업 영역 이름__ : Azure Databricks 작업 영역의 이름입니다.
-* __Databricks access token__ : Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) 문서를 참조하세요.
+* __Databricks compute name__:이 계산 리소스에 할당할 이름입니다.
+* __Databricks 작업 영역 이름__: Azure Databricks 작업 영역의 이름입니다.
+* __Databricks access token__: Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) 문서를 참조하세요.
 
-다음 코드는 Azure Machine Learning SDK를 사용 하 여 Azure Databricks를 계산 대상으로 연결 하는 방법을 보여 줍니다. __Databricks 작업 영역은 AML 작업 영역과 동일한 구독에 있어야 합니다__.
+다음 코드는 Azure Machine Learning SDK를 사용 하 여 Azure Databricks를 계산 대상으로 연결 하는 방법을 보여 줍니다.__Databricks 작업 영역은 AML 작업 영역과 동일한 구독에 있어야 합니다__.
 
 ```python
 import os
@@ -279,9 +279,9 @@ Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫�
 
 Data Lake Analytics를 컴퓨팅 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
 
-* __컴퓨팅 이름__ : 이 컴퓨팅 리소스에 할당하려는 이름입니다.
-* __리소스 그룹__ : Data Lake Analytics 계정이 포함 된 리소스 그룹입니다.
-* __계정 이름__ : Data Lake Analytics 계정 이름입니다.
+* __컴퓨팅 이름__: 이 컴퓨팅 리소스에 할당하려는 이름입니다.
+* __리소스 그룹__: Data Lake Analytics 계정이 포함 된 리소스 그룹입니다.
+* __계정 이름__: Data Lake Analytics 계정 이름입니다.
 
 다음 코드는 컴퓨팅 대상으로 Data Lake Analytics에 연결하는 방법을 보여 줍니다.
 

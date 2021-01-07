@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 122c95fe9ac017ad7a6957dcdb8323837be34f21
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538651"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96545386"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
     family.children[n].grade; //n is an int variable
   ```
   
-- 숫자 및 부울 값에 대 한 일반적인 산술 식을 포함 하는 산술 식 전체 목록은 [AZURE COSMOS DB SQL 사양을](sql-query-system-functions.md)참조 하십시오.
+- 숫자 및 부울 값에 대 한 일반적인 산술 식을 포함 하는 산술 식 전체 목록은 [AZURE COSMOS DB SQL 사양을](sql-query-aggregate-functions.md)참조 하십시오.
   
   ```
     2 * family.children[0].grade;
@@ -81,19 +81,19 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
 
 SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지원 합니다.
 
-- **Select** : 개체 생성을 포함 하 여 [선택](sql-query-select.md)하는 프로젝션 변환을 선택 합니다.
-- **Where** : 필터를 [where](sql-query-where.md)로 변환 하 고, 및 `&&` 에서 `||` `!` SQL 연산자로의 변환을 지원 합니다.
-- **SelectMany** : [JOIN](sql-query-join.md) 절에 배열을 해제할 수 있습니다. 를 사용 하 여 배열 요소를 필터링 하는 식을 연결 하거나 중첩 합니다.
-- **OrderBy** 및 **OrderByDescending** : ASC 또는 DESC를 사용 하 [여 ORDER by](sql-query-order-by.md) 로 변환 합니다.
-- [집계](sql-query-aggregates.md)에 대 한 **Count** , **Sum** , **Min** , **Max** 및 **Average** 연산자와 해당 비동기 해당 **CountAsync** , **sumasync** , **minasync** , **maxasync** 및 **AverageAsync** 입니다.
-- **CompareTo** : 범위 비교로 변환합니다. .NET에서는 비교할 수 없기 때문에 일반적으로 문자열에 사용 됩니다.
-- **Skip** 및 **Take** : 쿼리에서 결과를 제한 하 고 페이지 매김을 수행 하기 위한 [오프셋 및 제한](sql-query-offset-limit.md) 으로 변환 합니다.
-- **수치 연산 함수** : .net,,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` 및에서 `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` 해당 하는 [기본 제공 수학 함수로](sql-query-mathematical-functions.md)의 변환을 지원 합니다.
-- **문자열 함수** : .net,,,,,,,,,,, `Concat` `Contains` 및에서 `Count` `EndsWith` 해당 하 `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` 는 [기본 제공 문자열 함수로](sql-query-string-functions.md)의 변환을 지원 합니다.
-- **배열 함수** : .net `Concat` , `Contains` 및에서 `Count` 해당 하는 [기본 제공 배열 함수로](sql-query-array-functions.md)의 변환을 지원 합니다.
-- **지리 공간적 확장 함수** : 스텁 메서드 `Distance` , `IsValid` , 및에서 해당 하는 `IsValidDetailed` `Within` [기본 제공 지리 공간적 함수로](sql-query-geospatial-query.md)의 변환을 지원 합니다.
-- **사용자 정의 함수 확장 함수** : 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 [사용자 정의 함수로](sql-query-udfs.md)의 변환을 지원 합니다.
-- **기타** : `Coalesce` 및 조건부 [연산자](sql-query-operators.md)의 변환을 지원 합니다. 는 `Contains` 컨텍스트에 따라 STRING CONTAINS, ARRAY_CONTAINS 또는 IN으로 변환할 수 있습니다.
+- **Select**: 개체 생성을 포함 하 여 [선택](sql-query-select.md)하는 프로젝션 변환을 선택 합니다.
+- **Where**: 필터를 [where](sql-query-where.md)로 변환 하 고, 및 `&&` 에서 `||` `!` SQL 연산자로의 변환을 지원 합니다.
+- **SelectMany**: [JOIN](sql-query-join.md) 절에 배열을 해제할 수 있습니다. 를 사용 하 여 배열 요소를 필터링 하는 식을 연결 하거나 중첩 합니다.
+- **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 [여 ORDER by](sql-query-order-by.md) 로 변환 합니다.
+- [집계](sql-query-aggregate-functions.md)에 대 한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 해당 **CountAsync**, **sumasync**, **minasync**, **maxasync** 및 **AverageAsync** 입니다.
+- **CompareTo**: 범위 비교로 변환합니다. .NET에서는 비교할 수 없기 때문에 일반적으로 문자열에 사용 됩니다.
+- **Skip** 및 **Take**: 쿼리에서 결과를 제한 하 고 페이지 매김을 수행 하기 위한 [오프셋 및 제한](sql-query-offset-limit.md) 으로 변환 합니다.
+- **수치 연산 함수**: .net,,,,,,,,,,,,,,, `Abs` `Acos` `Asin` `Atan` `Ceiling` `Cos` `Exp` 및에서 `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` 해당 하는 [기본 제공 수학 함수로](sql-query-mathematical-functions.md)의 변환을 지원 합니다.
+- **문자열 함수**: .net,,,,,,,,,,, `Concat` `Contains` 및에서 `Count` `EndsWith` 해당 하 `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` 는 [기본 제공 문자열 함수로](sql-query-string-functions.md)의 변환을 지원 합니다.
+- **배열 함수**: .net `Concat` , `Contains` 및에서 `Count` 해당 하는 [기본 제공 배열 함수로](sql-query-array-functions.md)의 변환을 지원 합니다.
+- **지리 공간적 확장 함수**: 스텁 메서드 `Distance` , `IsValid` , 및에서 해당 하는 `IsValidDetailed` `Within` [기본 제공 지리 공간적 함수로](sql-query-geospatial-query.md)의 변환을 지원 합니다.
+- **사용자 정의 함수 확장 함수**: 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 [사용자 정의 함수로](sql-query-udfs.md)의 변환을 지원 합니다.
+- **기타**: `Coalesce` 및 조건부 [연산자](sql-query-operators.md)의 변환을 지원 합니다. 는 `Contains` 컨텍스트에 따라 STRING CONTAINS, ARRAY_CONTAINS 또는 IN으로 변환할 수 있습니다.
 
 ## <a name="examples"></a>예제
 

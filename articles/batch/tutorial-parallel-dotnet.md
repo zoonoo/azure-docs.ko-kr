@@ -1,16 +1,16 @@
 ---
-title: .NET API를 사용하여 병렬 워크로드 실행
+title: 자습서 - .NET API를 사용하여 병렬 워크로드 실행
 description: 자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335658"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106549"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "94335658"
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
-* [Windows 64비트 버전의 ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
+* [Windows 64비트 버전의 ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -317,7 +317,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Batch 계정에 애플리케이션 패키지 추가
@@ -332,6 +332,3 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 > [!div class="nextstepaction"]
 > [Batch C# 샘플](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-인스턴스 변수 LowPriorityNodeCount=0 및 DedicatedNodeCount=5로 설정하면 문제가 해결되고 작업을 완료할 수 있습니다.

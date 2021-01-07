@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight에서 Jupyter를 사용한 Python 패키지용 스크립트 작업
-description: 스크립트 작업을 사용하여 HDInsight Spark 클러스터와 함께 제공되는 Jupyter 노트북에서 외부 python 패키지를 사용하도록 구성하는 방법에 대한 단계별 지침입니다.
+description: 스크립트 작업을 사용 하 여 HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 외부 python 패키지를 사용 하도록 구성 하는 방법에 대 한 단계별 지침입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 5a0f9f9f972ec42987d6152c16e4377e399cdba5
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 21423f7200d25c9a5b3b63d2371e56977cd9d227
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896415"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821378"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -167,5 +167,5 @@ Anaconda 버전을 확인하려면 클러스터 헤더 노드로 SSH를 실행�
 ## <a name="next-steps"></a>다음 단계
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-* [Apache Spark에서 Jupyter Notebook을 사용하는 외부 패키지](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Apache Spark에서 Jupyter 노트북을 사용 하는 외부 패키지](apache-spark-jupyter-notebook-use-external-packages.md)
 * [HDInsight의 Apache Spark 클러스터에서 실행되는 작업 추적 및 디버그](apache-spark-job-debugging.md)

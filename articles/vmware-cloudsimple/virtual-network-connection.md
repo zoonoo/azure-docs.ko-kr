@@ -1,19 +1,19 @@
 ---
 title: Express 경로를 사용 하 여 Azure 가상 네트워크를 CloudSimple에 연결-CloudSimple 별 Azure VMware 솔루션
 description: Azure 가상 네트워크와 CloudSimple 환경 간의 연결에 대 한 피어 링 정보를 얻는 방법에 대해 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6b20ee4e04a4443529ecceca8c6fc2206f7df39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fedfbe55fd8ea3d2b4cc910df631e40bc74e210
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77563983"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97899068"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 Azure 가상 네트워크를 CloudSimple에 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "77563983"
 
 ## <a name="get-peering-information-from-cloudsimple-portal"></a>CloudSimple 포털에서 피어 링 정보 가져오기
 
-연결을 설정 하려면 Azure virtual network와 CloudSimple 환경 간의 연결을 설정 해야 합니다.  절차의 일부로 피어 회로 URI 및 권한 부여 키를 제공 해야 합니다. [Cloudsimple 포털](access-cloudsimple-portal.md)에서 URI 및 권한 부여 키를 가져옵니다.  측면 메뉴에서 **네트워크** 를 선택한 다음 **Azure 네트워크 연결**을 선택 합니다. 또는 측면 메뉴에서 **계정** 을 선택 하 고 **Azure 네트워크 연결**을 선택 합니다.
+연결을 설정 하려면 Azure virtual network와 CloudSimple 환경 간의 연결을 설정 해야 합니다.  절차의 일부로 피어 회로 URI 및 권한 부여 키를 제공 해야 합니다. [Cloudsimple 포털](access-cloudsimple-portal.md)에서 URI 및 권한 부여 키를 가져옵니다.  측면 메뉴에서 **네트워크** 를 선택한 다음 **Azure 네트워크 연결** 을 선택 합니다. 또는 측면 메뉴에서 **계정** 을 선택 하 고 **Azure 네트워크 연결** 을 선택 합니다.
 
 *복사* 아이콘을 사용 하 여 각 지역에 대 한 인증 키와 피어 회로 URI를 복사 합니다. 연결할 각 CloudSimple 영역에 대해 다음을 수행 합니다.
 

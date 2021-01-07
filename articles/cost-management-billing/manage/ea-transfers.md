@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/11/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: 3222c934998febe79c36121ca816f949b78d374e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411561"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030096"
 ---
 # <a name="azure-enterprise-transfers"></a>Azure Enterprise 전송
 
@@ -98,9 +98,9 @@ Azure 선불은 등록 간에 양도할 수 없습니다. Azure 선불 잔액은
 
 Enterprise 구독을 종량제를 사용하는 개별 구독으로 전환하려면 Azure Enterprise Portal에서 새 지원 요청을 작성해야 합니다. 지원 요청을 작성하려면 **도움말 및 지원** 영역에서 **+ 새 지원 요청** 을 선택합니다.
 
-## <a name="change-account-owner"></a>계정 소유자 변경
+## <a name="change-azure-subscription-or-account-ownership"></a>Azure 구독 또는 계정 소유권 변경
 
-Azure EA Portal에서는 한 계정 소유자에서 다른 계정 소유자로 구독을 양도할 수 있습니다. 자세한 내용은 [계정 소유자 변경](ea-portal-administration.md#change-account-owner)을 참조하세요.
+Azure EA Portal에서는 한 계정 소유자에서 다른 계정 소유자로 구독을 양도할 수 있습니다. 자세한 내용은 [Azure 구독 또는 계정 소유권 변경](ea-portal-administration.md#change-azure-subscription-or-account-ownership)을 참조하세요.
 
 ## <a name="subscription-transfer-effects"></a>구독 양도 효과
 

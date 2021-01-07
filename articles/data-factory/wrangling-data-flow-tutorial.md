@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory에서 랭 글 링 데이터 흐름 시작
 description: 랭 글 링 데이터 흐름을 사용 하 여 Azure Data Factory에서 데이터를 준비 하는 방법에 대 한 자습서
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: e9a4f7266522fc17c33e2086af6cb7367bbed39e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee1069ca24dc16a52d30450c0f2163130f549cb
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650683"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96494905"
 ---
 # <a name="prepare-data-with-wrangling-data-flow"></a>랭 글 링 데이터 흐름을 사용 하 여 데이터 준비
 
@@ -29,7 +29,7 @@ Azure Data Factory에서 랭 글 링 데이터 흐름을 만드는 방법에는 
 
 다른 메서드는 파이프라인 캔버스의 작업 창에 있습니다. **이동 및 변환** 아코디언을 열고 **데이터 흐름** 작업을 캔버스로 끌어 옵니다.
 
-두 방법 모두 열리는 측면 창에서 **새 데이터 흐름 만들기** 를 선택 하 고 **랭 글 링 data flow**를 선택 합니다. 확인을 클릭합니다.
+두 방법 모두 열리는 측면 창에서 **새 데이터 흐름 만들기** 를 선택 하 고 **랭 글 링 data flow** 를 선택 합니다. 확인을 클릭합니다.
 
 ![랭 글 링 데이터 흐름 옵션을 강조 표시 하는 스크린샷](media/wrangling-data-flow/tutorial1.png)
 

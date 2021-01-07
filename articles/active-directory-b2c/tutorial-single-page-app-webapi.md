@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9fe1363ffc714754c1de333a77d36595ce4223e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442340"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421093"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>자습서: Azure AD B2C를 사용하여 단일 페이지 애플리케이션에서 Node.js 웹 API를 보호하고 액세스 권한 부여
 
@@ -56,11 +56,11 @@ ms.locfileid: "92442340"
 
 다른 애플리케이션에서 보호된 웹 API를 호출하려면 해당 애플리케이션 권한을 웹 API에 부여해야 합니다.
 
-필수 조건 자습서에서 *webapp1* 이라는 웹 애플리케이션을 만들었습니다. 이 자습서에서는 이전 섹션에서 만든 웹 API( *webapi1* )를 호출하도록 해당 애플리케이션을 구성합니다.
+필수 구성 요소 자습서에서 *spaapp1* 이라는 단일 페이지 애플리케이션을 만들었습니다. 이 자습서에서는 이전 섹션에서 만든 웹 API(*spaapp1*)를 호출하도록 해당 애플리케이션을 구성합니다.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-이제 지정된 범위에서 보호된 웹 API에 대한 권한이 단일 페이지 웹 애플리케이션에 부여되었습니다. 사용자는 단일 페이지 애플리케이션을 사용하기 위해 Azure AD B2C에서 인증됩니다. 단일 페이지 앱은 권한 부여 흐름을 통해 Azure AD B2C에서 반환된 액세스 토큰을 사용하여 보호된 웹 API에 액세스합니다.
+이제 지정된 범위에서 보호된 웹 API에 대한 권한이 단일 페이지 웹 애플리케이션에 부여되었습니다. 사용자는 단일 페이지 애플리케이션을 사용하기 위해 Azure AD B2C에서 인증됩니다. 단일 페이지 앱은 Azure AD B2C로부터 액세스 토큰을 받아 보호된 웹 API에 액세스합니다.
 
 ## <a name="configure-the-sample"></a>샘플 구성
 
@@ -161,7 +161,7 @@ SPA의 설정을 변경하려면 다음을 수행합니다.
 1. 다른 콘솔 창을 열고, JavaScript SPA 샘플이 있는 디렉터리로 변경합니다. 다음은 그 예입니다.
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. 다음 명령을 실행합니다.

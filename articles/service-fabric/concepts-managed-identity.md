@@ -3,13 +3,12 @@ title: Azure에 대 한 관리 id
 description: Service Fabric에서 Azure에 관리 되는 id를 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.custom: sfrev
-ms.openlocfilehash: 786d9b4b577f4a686367a103542ae4f8fa5453da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c992792d4572a43e12f5d32855f8411b0f4c6f
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257632"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574754"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Service Fabric에서 Azure에 관리 id 사용
 
@@ -33,7 +32,7 @@ Azure에 대 한 관리 되는 id는 다음과 같은 몇 가지 주요 개념�
 두 가지 종류의 관리 ID가 있습니다.
 
 - **시스템 할당 관리 id** 는 Azure 서비스 인스턴스에서 직접 사용 하도록 설정 됩니다.  시스템 할당 id의 수명 주기는 사용 하도록 설정 된 Azure 서비스 인스턴스에 고유 합니다.
-- **사용자 할당 관리 ID**는 독립 실행형 Azure 리소스로 생성됩니다. Id는 하나 이상의 Azure 서비스 인스턴스에 할당 될 수 있으며 해당 인스턴스의 주기와 별도로 관리 됩니다.
+- **사용자 할당 관리 ID** 는 독립 실행형 Azure 리소스로 생성됩니다. Id는 하나 이상의 Azure 서비스 인스턴스에 할당 될 수 있으며 해당 인스턴스의 주기와 별도로 관리 됩니다.
 
 관리 되는 id 형식 간의 차이점을 추가로 이해 하려면 [Azure 리소스에 대 한 관리 되는 Id는 어떻게 작동 하나요?](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d44f9109540c3899ab50bd5c4c02afa19045bafb
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397708"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96182940"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
@@ -95,7 +95,7 @@ DhcpOptions            : {
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
 * `http://127.0.0.1:port` 호출은 HTTP 결과 코드 200을 반환해야 합니다. 이는 30 초 제한 시간 내에 반환 되어야 합니다.
 * 구성 된 포트가 열려 있고 구성 된 포트에서 들어오거나 나가는 트래픽을 차단 하는 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지 확인 합니다.
-* Azure 클래식 Vm 또는 클라우드 서비스를 FQDN 또는 공용 IP와 함께 사용 하는 경우 해당 [끝점이](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) 열려 있는지 확인 합니다.
+* Azure 클래식 Vm 또는 클라우드 서비스를 FQDN 또는 공용 IP와 함께 사용 하는 경우 해당 [끝점이](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%2fazure%2fapplication-gateway%2ftoc.json) 열려 있는지 확인 합니다.
 * VM이 Azure Resource Manager를 통해 구성 되 고 응용 프로그램 게이트웨이가 배포 된 VNet 외부에 있는 경우, 원하는 포트에서 액세스를 허용 하도록 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md) 을 구성 해야 합니다.
 
 ## <a name="problems-with-custom-health-probe"></a>사용자 지정 상태 검색의 문제

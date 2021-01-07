@@ -3,20 +3,24 @@ title: Azure Functions 런타임 버전을 대상으로 지정하는 방법
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅된 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: a7d86ef26d50d60389ae09bf3245ed97fea2c3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bf7849888033b2bbb7e9b9669ee3eae4de10e9
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88926578"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916527"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
 함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1. x, 2.x 및 3(sp3)](functions-versions.md)의 세 가지 주요 버전이 있습니다. 기본적으로 함수 앱은 런타임의 버전 3.x에 생성 됩니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
 
+특정 버전을 수동으로 대상으로 지정 하는 방법은 Windows 또는 Linux를 실행 하 고 있는지 여부에 따라 달라 집니다.
+
 ## <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트
 
-Azure Functions를 사용 하면 `FUNCTIONS_EXTENSION_VERSION` 함수 앱에서 응용 프로그램 설정을 사용 하 여 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다. 주 버전만 지정 하는 경우 함수 앱은 사용할 수 있게 되 면 런타임의 새로운 부 버전으로 자동 업데이트 됩니다. 새 부 버전에는 주요 변경 내용이 도입 되지 않습니다. 
+_[Linux에서](#manual-version-updates-on-linux)함수 앱을 실행 하는 경우에는이 섹션이 적용 되지 않습니다._
+
+Azure Functions를 사용 하면 `FUNCTIONS_EXTENSION_VERSION` 함수 앱의 응용 프로그램 설정을 사용 하 여 Windows에서 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다. 주 버전만 지정 하는 경우 함수 앱은 사용할 수 있게 되 면 런타임의 새로운 부 버전으로 자동 업데이트 됩니다. 새 부 버전에는 주요 변경 내용이 도입 되지 않습니다. 
 
 부 버전(예: "2.0.12345")을 지정하면 버전을 명시적으로 변경할 때까지 함수 앱은 특정 버전으로 고정됩니다. 이전 부 버전은 프로덕션 환경에서 정기적으로 제거 됩니다. 이 경우 함수 앱은에 설정 된 버전 대신 최신 버전에서 실행 됩니다 `FUNCTIONS_EXTENSION_VERSION` . 따라서 주 버전을 대상으로 지정할 수 있도록 특정 부 버전이 필요한 함수 앱의 문제를 신속 하 게 해결 해야 합니다. 부 버전 제거는 [App Service 알림에서](https://github.com/Azure/app-service-announcements/issues)발표 됩니다.
 
@@ -36,6 +40,8 @@ Azure Functions를 사용 하면 `FUNCTIONS_EXTENSION_VERSION` 함수 앱에서 
 런타임 버전을 변경하면 함수 앱을 다시 시작하게 됩니다.
 
 ## <a name="view-and-update-the-current-runtime-version"></a>현재 런타임 버전 확인 및 업데이트
+
+_[Linux에서](#manual-version-updates-on-linux)함수 앱을 실행 하는 경우에는이 섹션이 적용 되지 않습니다._
 
 함수 앱에서 사용 하는 런타임 버전을 변경할 수 있습니다. 주요 변경 사항이 있으므로 함수 앱에서 함수를 만들기 전에 런타임 버전만 변경할 수 있습니다. 
 
@@ -120,6 +126,65 @@ Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE
 ---
 
 응용 프로그램 설정을 변경한 후 함수 앱이 다시 시작 됩니다.
+
+## <a name="manual-version-updates-on-linux"></a>Linux의 수동 버전 업데이트
+
+특정 호스트 버전에 Linux 함수 앱을 고정 하려면 사이트 구성의 ' LinuxFxVersion ' 필드에 이미지 URL을 지정 합니다. 예: 호스트 버전 3.0.13142에 노드 10 함수 앱을 고정 하려면
+
+**Linux app service/탄력적 프리미엄 앱** 의 경우- `LinuxFxVersion` 로 설정 `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice` 합니다.
+
+**Linux 소비 앱** 의 경우- `LinuxFxVersion` 로 설정 `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10` 합니다.
+
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli-linux)
+
+Azure CLI에서을 보고 설정할 수 있습니다 `LinuxFxVersion` .  
+
+Azure CLI를 사용 하 여 [az functionapp config show](/cli/azure/functionapp/config) 명령을 사용 하 여 현재 런타임 버전을 확인 합니다.
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+이 코드에서 `<function_app>`을 함수 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. 
+
+다음 출력의 `linuxFxVersion`은 보기 편하도록 잘린 상태입니다.
+
+```output
+{
+  ...
+
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+`linuxFxVersion` [Az functionapp config set](/cli/azure/functionapp/config) 명령을 사용 하 여 함수 앱에서 설정을 업데이트할 수 있습니다.
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+`<FUNCTION_APP>`은 함수 앱 이름으로 바꿉니다. 또한 `<RESOURCE_GROUP>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. 또한을 `<LINUX_FX_VERSION>` 위에서 설명한 값으로 바꿉니다.
+
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
+
+
+마찬가지로, 사이트 구성을 변경한 후 함수 앱이 다시 시작 됩니다.
+
+> [!NOTE]
+> `LinuxFxVersion`소비 앱에 대 한 이미지 url로 직접 설정 하면 자리 표시자 및 기타 콜드 부팅 최적화에서 옵트아웃 (opt out) 할 수 있습니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

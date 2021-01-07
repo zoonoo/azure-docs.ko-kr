@@ -6,6 +6,7 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -13,13 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c82ea3328938b42a26df03c7e83776e1a1a69b20
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
+ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557798"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505633"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +45,7 @@ SQL IaaS 에이전트 확장을 사용 하려면 먼저 [ **SqlVirtualMachine** 
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 
-- [Azure 구독](https://azure.microsoft.com/free/).
+- [Azure 구독](https://azure.microsoft.com/free/)
 - [SQL Server 2008](https://www.microsoft.com/sql-server/sql-server-downloads) 이상이 있는 Azure 리소스 모델 [Windows Server 2008 이상 가상 컴퓨터](../../../virtual-machines/windows/quick-create-portal.md) (또는 그 이상)가 공용 또는 Azure Government 클라우드에 배포 되었습니다. 
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 Azure PowerShell의 최신 버전 [(5.0 이상)](/powershell/azure/install-az-ps) 
 
@@ -59,7 +60,7 @@ SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM를 등록 하려면
 1. **구독** 으로 이동하여 원하는 구독을 선택합니다.  
 1. **구독** 페이지에서 **확장** 으로 이동 합니다. 
 1. Sql 관련 확장을 가져오려면 필터에 **sql** 을 입력 합니다. 
-1. 원하는 작업에 따라 **Microsoft.SqlVirtualMachine** 공급자에 대해 **등록** , **다시 등록** 또는 **등록 해제** 를 선택합니다. 
+1. 원하는 작업에 따라 **Microsoft.SqlVirtualMachine** 공급자에 대해 **등록**, **다시 등록** 또는 **등록 해제** 를 선택합니다. 
 
    ![공급자 수정](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
 
@@ -104,7 +105,7 @@ Azure CLI를 사용 하 여 SQL Server VM를 경량 모드로 등록 합니다.
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> 
   ```
 
 
@@ -119,7 +120,7 @@ Azure PowerShell를 사용 하 여 SQL Server VM를 경량 모드로 등록 합�
           
   # Register SQL VM with 'Lightweight' SQL IaaS agent
   New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-    -LicenseType PAYG -SqlManagementType LightWeight  
+    -LicenseType <license_type>  -SqlManagementType LightWeight  
   ```
 
 ---
@@ -140,7 +141,7 @@ SQL Server VM를 전체 모드로 직접 등록 하 고 (SQL Server 서비스를
 
 ### <a name="noagent-management-mode"></a>에이전트 없음 관리 모드 
 
-Windows Server 2008 ( _R2 아님_ )에 설치 된 SQL Server 2008 및 2008 r 2는 [NOAGENT 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)의 SQL IaaS 에이전트 확장을 사용 하 여 등록할 수 있습니다. 이 옵션은 규정 준수를 보장하고 제한된 기능으로 Azure Portal에서 SQL Server VM을 모니터링할 수 있도록 합니다.
+Windows Server 2008 (_R2 아님_)에 설치 된 SQL Server 2008 및 2008 r 2는 [NOAGENT 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)의 SQL IaaS 에이전트 확장을 사용 하 여 등록할 수 있습니다. 이 옵션은 규정 준수를 보장하고 제한된 기능으로 Azure Portal에서 SQL Server VM을 모니터링할 수 있도록 합니다.
 
 
 **라이선스 형식** 에 대해, 또는 중 하나를 지정 `AHUB` `PAYG` `DR` 합니다. **이미지 제품** 의 경우 또는 중 하나를 지정 합니다. `SQL2008-WS2008``SQL2008R2-WS2008`

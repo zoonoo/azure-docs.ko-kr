@@ -1,26 +1,24 @@
 ---
 title: Python에서 ML 모델의 공평 평가 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 모델의 공평을 평가 하는 방법을 알아봅니다.
+description: Fairlearn 및 Azure Machine Learning Python SDK를 사용 하 여 기계 학습 모델의 공평을 평가 하 고 완화 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337885"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901150"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
-
-
 
 이 방법 가이드에서는 다음 작업을 수행 하는 Azure Machine Learning [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지를 사용 하는 방법을 배웁니다.
 
@@ -40,80 +38,99 @@ Azure Machine Learning 공평 SDK는 `azureml-contrib-fairness` Azure Machine Le
 pip install azureml-contrib-fairness
 pip install fairlearn==0.4.6
 ```
+이후 버전의 Fairlearn는 다음 예제 코드 에서도 작동 합니다.
 
 
 
 ## <a name="upload-fairness-insights-for-a-single-model"></a>단일 모델에 대 한 공평 정보 업로드
 
-다음 예에서는 공평 패키지를 사용 하 여 Azure Machine Learning에 모델 공평 통찰력을 업로드 하 고 Azure Machine Learning studio에서 공평 평가 대시보드를 확인 하는 방법을 보여 줍니다.
+다음 예에서는 공평 패키지를 사용 하는 방법을 보여 줍니다. Azure Machine Learning에 모델 공평 정보를 업로드 하 고 Azure Machine Learning studio의 공평 평가 대시보드를 확인 합니다.
 
-1. Jupyter 노트북에서 샘플 모델을 학습 합니다. 
+1. Jupyter Notebook에서 샘플 모델을 학습 합니다. 
 
-    데이터 집합에 대해 잘 알려진 성인 인구 조사 데이터 집합을 사용 합니다 .이 데이터 집합은 편의를 위해를 사용 하 여 로드 `shap` 합니다. 이 예제의 목적을 위해이 데이터 집합을 대출 결정 문제로 간주 하 고 각 개인이 과거에 대출을 다시 지불 했는지 여부를 레이블에 나타냅니다. 데이터를 사용 하 여 이전에 보이지 않는 사용자가 대출을 다시 지불할 지 여부를 예측 하는 예측을 학습 합니다. 모델 예측은 개별를 대출으로 제공할지 여부를 결정 하는 데 사용 됩니다.
+    데이터 집합에 대해 잘 알려진 성인 인구 조사 데이터 집합을 사용 합니다 .이 데이터 집합은 OpenML에서 가져옵니다. 개인이 이전 대출을 다시 지불 했는지 여부를 나타내는 레이블에 대출 결정 문제가 있는 것으로 가정 합니다. 이전에 보이지 않는 사람이 대출을 다시 지불할 지를 예측 하는 모델을 학습 합니다. 이러한 모델은 대출 결정을 내리는 데 사용 될 수 있습니다.
 
     ```python
-    from sklearn.model_selection import train_test_split
-    from fairlearn.widget import FairlearnDashboard
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.preprocessing import LabelEncoder, StandardScaler
+    import copy
+    import numpy as np
     import pandas as pd
-    import shap
+
+    from sklearn.compose import ColumnTransformer
+    from sklearn.datasets import fetch_openml
+    from sklearn.impute import SimpleImputer
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+    from sklearn.preprocessing import StandardScaler, OneHotEncoder
+    from sklearn.compose import make_column_selector as selector
+    from sklearn.pipeline import Pipeline
+    
+    from fairlearn.widget import FairlearnDashboard
 
     # Load the census dataset
-    X_raw, Y = shap.datasets.adult()
-    X_raw["Race"].value_counts().to_dict()
+    data = fetch_openml(data_id=1590, as_frame=True)
+    X_raw = data.data
+    y = (data.target == ">50K") * 1
     
-
     # (Optional) Separate the "sex" and "race" sensitive features out and drop them from the main data prior to training your model
-    A = X_raw[['Sex','Race']]
-    X = X_raw.drop(labels=['Sex', 'Race'],axis = 1)
-    X = pd.get_dummies(X)
+    X_raw = data.data
+    y = (data.target == ">50K") * 1
+    A = X_raw[["race", "sex"]]
+    X = X_raw.drop(labels=['sex', 'race'],axis = 1)
     
-    sc = StandardScaler()
-    X_scaled = sc.fit_transform(X)
-    X_scaled = pd.DataFrame(X_scaled, columns=X.columns)
+    # Split the data in "train" and "test" sets
+    (X_train, X_test, y_train, y_test, A_train, A_test) = train_test_split(
+        X_raw, y, A, test_size=0.3, random_state=12345, stratify=y
+    )
 
-    # Perform some standard data preprocessing steps to convert the data into a format suitable for the ML algorithms
-    le = LabelEncoder()
-    Y = le.fit_transform(Y)
-
-    # Split data into train and test
-    from sklearn.model_selection import train_test_split
-    from sklearn.model_selection import train_test_split
-    X_train, X_test, Y_train, Y_test, A_train, A_test = train_test_split(X_scaled, 
-                                                        Y, 
-                                                        A,
-                                                        test_size = 0.2,
-                                                        random_state=0,
-                                                        stratify=Y)
-
-    # Work around indexing issue
+    # Ensure indices are aligned between X, y and A,
+    # after all the slicing and splitting of DataFrames
+    # and Series
     X_train = X_train.reset_index(drop=True)
-    A_train = A_train.reset_index(drop=True)
     X_test = X_test.reset_index(drop=True)
+    y_train = y_train.reset_index(drop=True)
+    y_test = y_test.reset_index(drop=True)
+    A_train = A_train.reset_index(drop=True)
     A_test = A_test.reset_index(drop=True)
 
-    # Improve labels
-    A_test.Sex.loc[(A_test['Sex'] == 0)] = 'female'
-    A_test.Sex.loc[(A_test['Sex'] == 1)] = 'male'
+    # Define a processing pipeline. This happens after the split to avoid data leakage
+    numeric_transformer = Pipeline(
+        steps=[
+            ("impute", SimpleImputer()),
+            ("scaler", StandardScaler()),
+        ]
+    )
+    categorical_transformer = Pipeline(
+        [
+            ("impute", SimpleImputer(strategy="most_frequent")),
+            ("ohe", OneHotEncoder(handle_unknown="ignore")),
+        ]
+    )
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("num", numeric_transformer, selector(dtype_exclude="category")),
+            ("cat", categorical_transformer, selector(dtype_include="category")),
+        ]
+    )
 
+    # Put an estimator onto the end of the pipeline
+    lr_predictor = Pipeline(
+        steps=[
+            ("preprocessor", copy.deepcopy(preprocessor)),
+            (
+                "classifier",
+                LogisticRegression(solver="liblinear", fit_intercept=True),
+            ),
+        ]
+    )
 
-    A_test.Race.loc[(A_test['Race'] == 0)] = 'Amer-Indian-Eskimo'
-    A_test.Race.loc[(A_test['Race'] == 1)] = 'Asian-Pac-Islander'
-    A_test.Race.loc[(A_test['Race'] == 2)] = 'Black'
-    A_test.Race.loc[(A_test['Race'] == 3)] = 'Other'
-    A_test.Race.loc[(A_test['Race'] == 4)] = 'White'
-
-
-    # Train a classification model
-    lr_predictor = LogisticRegression(solver='liblinear', fit_intercept=True)
-    lr_predictor.fit(X_train, Y_train)
+    # Train the model on the test data
+    lr_predictor.fit(X_train, y_train)
 
     # (Optional) View this model in Fairlearn's fairness dashboard, and see the disparities which appear:
     from fairlearn.widget import FairlearnDashboard
     FairlearnDashboard(sensitive_features=A_test, 
-                       sensitive_feature_names=['Sex', 'Race'],
-                       y_true=Y_test,
+                       sensitive_feature_names=['Race', 'Sex'],
+                       y_true=y_test,
                        y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
 
@@ -151,11 +168,11 @@ pip install fairlearn==0.4.6
 
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
-    sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
+    sf = { 'Race': A_test.race, 'Sex': A_test.sex}
     ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
-    dash_dict = _create_group_metric_set(y_true=Y_test,
+    dash_dict = _create_group_metric_set(y_true=y_test,
                                         predictions=ys_pred,
                                         sensitive_features=sf,
                                         prediction_type='binary_classification')
@@ -205,32 +222,37 @@ pip install fairlearn==0.4.6
     1. 이전 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
     1. 모델을 선택 하 고 **공평** 탭을 클릭 하 여 설명 시각화 대시보드를 표시 합니다.
 
-    시각화 대시보드 및 여기에 포함 된 내용에 대 한 자세한 내용은 Fairlearn의 [사용자 가이드](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard)를 확인 하세요.
+    시각화 대시보드 및 여기에 포함 된 내용에 대 한 자세한 내용은 Fairlearn의 [사용자 가이드를 참조](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard)하세요.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>여러 모델에 대 한 공평 정보 업로드
 
-여러 모델을 비교 하 고 공평 평가가 어떻게 다른 지 확인 하는 데 관심이 있는 경우 둘 이상의 모델을 시각화 대시보드에 전달 하 고 성능 우선 절충을 탐색할 수 있습니다.
+여러 모델을 비교 하 고 상호 평가가 어떻게 다른 지 확인 하기 위해 둘 이상의 모델을 시각화 대시보드에 전달 하 고 성능에 대 한 장단점을 비교할 수 있습니다.
 
 1. 모델 학습:
     
-    이전 로지스틱 회귀 모델 외에도 이제 지원 벡터 컴퓨터 평가기를 기반으로 하는 두 번째 분류자를 만들고 Fairlearn의 패키지를 사용 하 여 공평 대시보드 사전을 업로드 `metrics` 합니다. 여기서는 데이터를 로드 하 고 전처리 하는 단계를 건너뛰고 모델 학습 단계로 바로 이동 합니다.
+    이제 지원 벡터 컴퓨터 평가기을 기반으로 두 번째 분류자를 만들고 Fairlearn의 패키지를 사용 하 여 공평 대시보드 사전을 업로드 `metrics` 합니다. 이전에 학습 된 모델을 계속 사용할 수 있다고 가정 합니다.
 
 
     ```python
-    # Train your first classification model
-    from sklearn.linear_model import LogisticRegression
-    lr_predictor = LogisticRegression(solver='liblinear', fit_intercept=True)
-    lr_predictor.fit(X_train, Y_train)
+    # Put an SVM predictor onto the preprocessing pipeline
+    from sklearn import svm
+    svm_predictor = Pipeline(
+        steps=[
+            ("preprocessor", copy.deepcopy(preprocessor)),
+            (
+                "classifier",
+                svm.SVC(),
+            ),
+        ]
+    )
 
     # Train your second classification model
-    from sklearn import svm
-    svm_predictor = svm.SVC()
-    svm_predictor.fit(X_train, Y_train)
+    svm_predictor.fit(X_train, y_train)
     ```
 
 2. 모델 등록
 
-    그런 다음 Azure Machine Learning 내에서 두 모델을 등록 합니다. 후속 메서드 호출의 편의를 위해 결과를 사전에 저장 합니다. 그러면 등록 된 `id` 모델의 ( `name:version` 형식 문자열)을 예측 자체에 매핑합니다.
+    그런 다음 Azure Machine Learning 내에서 두 모델을 등록 합니다. 편의를 위해 결과를 사전에 저장 합니다. 그러면 등록 된 `id` 모델의 ( `name:version` 형식 문자열)을 예측 자체에 매핑합니다.
 
     ```python
     model_dict = {}
@@ -257,8 +279,8 @@ pip install fairlearn==0.4.6
     from fairlearn.widget import FairlearnDashboard
 
     FairlearnDashboard(sensitive_features=A_test, 
-                    sensitive_feature_names=['Sex', 'Race'],
-                    y_true=Y_test.tolist(),
+                    sensitive_feature_names=['Race', 'Sex'],
+                    y_true=y_test.tolist(),
                     y_pred=ys_pred)
     ```
 
@@ -267,7 +289,7 @@ pip install fairlearn==0.4.6
     Fairlearn의 패키지를 사용 하 여 대시보드 사전을 만듭니다 `metrics` .
 
     ```python
-    sf = { 'Race': A_test.Race, 'Sex': A_test.Sex }
+    sf = { 'Race': A_test.race, 'Sex': A_test.sex }
 
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
@@ -306,16 +328,16 @@ pip install fairlearn==0.4.6
     ```
 
 
-    이전 섹션과 마찬가지로 Azure Machine Learning studio에서 위에 설명 된 경로 중 하나를 수행 하 여 시각화 **Experiments** 대시보드에 액세스 하 고 **두 모델을** 공평 성과 성능 측면에서 비교할 수 있습니다.
+    이전 섹션과 마찬가지로 Azure Machine Learning studio에서 위에 설명 된 경로 중 하나를 수행 하 여 시각화  대시보드에 액세스 하 고 **두 모델을** 공평 성과 성능 측면에서 비교할 수 있습니다.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Unmitigated 업로드 및 완화 되는 공평 통찰력
 
 Fairlearn의 [완화 알고리즘](https://fairlearn.github.io/master/user_guide/mitigation.html)을 사용 하 여 생성 된 완화 된 모델을 원래 unmitigated 모델과 비교 하 고 비교 된 모델 간에 성능/공평 절충을 탐색할 수 있습니다.
 
-다양 한 공평 성과 절충으로 완화 된 모델의 컬렉션을 만드는 [그리드 검색](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) 완화 알고리즘을 사용 하는 방법을 보여 주는 예제를 보려면이 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb)을 확인 하세요. 
+[표 검색](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) 완화 알고리즘을 사용 하는 방법을 보여 주는 예제를 보려면 (다양 한 공평 및 성능 절충으로 완화 된 모델의 컬렉션을 만드는 경우)이 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb)을 확인 하세요. 
 
-단일 실행에서 여러 모델의 공평 정보를 업로드 하는 것은 공평 성과 성능을 고려 하 여 모델을 비교할 수 있습니다. 모델 비교 차트에 표시 된 모델을 클릭 하 여 특정 모델에 대 한 자세한 정보를 볼 수 있습니다.
+단일 실행에서 여러 모델의 공평 정보를 업로드 하는 것은 공평 성과 성능을 고려 하 여 모델을 비교할 수 있습니다. 모델 비교 차트에 표시 된 모델 중 하나를 클릭 하 여 특정 모델에 대 한 자세한 정보를 볼 수 있습니다.
 
 
 [![모델 비교 Fairlearn 대시보드](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)

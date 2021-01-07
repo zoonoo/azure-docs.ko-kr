@@ -1,21 +1,25 @@
 ---
-title: Azure Maps Creator 실내 지도를 위한 동적 스타일 구현
-description: Creator 실내 지도를 위한 동적 스타일 구현 방법 알아보기
+title: Azure Maps Creator (미리 보기) 실내 맵에 대 한 동적 스타일 구현
+description: 작성자 (미리 보기) 실내 지도에 대해 동적 스타일을 구현 하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895378"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903448"
 ---
-# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Creator 실내 지도를 위한 동적 스타일 구현
+# <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>작성자 (미리 보기) 실내 지도에 대 한 동적 스타일 구현
+
+> [!IMPORTANT]
+> Azure Maps 작성자 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 Azure Maps Creator [기능 상태 서비스](/rest/api/maps/featurestate)를 사용하여 실내 지도 데이터 기능의 동적 속성에 따라 스타일을 적용할 수 있습니다.  예를 들어 특정 색을 사용하여 재실 상태를 나타내도록 시설 회의실을 렌더링할 수 있습니다. 이 문서에서는 [기능 상태 서비스](/rest/api/maps/featurestate) 및 [실내 웹 모듈](how-to-use-indoor-module.md)을 사용하여 실내 지도 기능을 동적으로 렌더링하는 방법을 보여 줍니다.
 
@@ -23,7 +27,7 @@ Azure Maps Creator [기능 상태 서비스](/rest/api/maps/featurestate)를 사
 
 1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-3. [Creator 리소스 만들기](how-to-manage-creator.md)
+3. [작성자 (미리 보기) 리소스 만들기](how-to-manage-creator.md)
 4. [샘플 그리기 패키지](https://github.com/Azure-Samples/am-creator-indoor-data-examples)를 다운로드합니다.
 5. `tilesetId` 및 `statesetId`를 얻기 위해 [실내 지도를 만듭니다](tutorial-creator-indoor-maps.md).
 6. [실내 지도 모듈 사용 방법](how-to-use-indoor-module.md)의 단계를 수행하여 웹 애플리케이션을 빌드합니다.
@@ -113,7 +117,7 @@ map.events.add("click", function(e){
 자세한 정보는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [실내 지도 제작용 Creator](creator-indoor-maps.md)
+> [실내 매핑을 위한 작성자 (미리 보기)](creator-indoor-maps.md)
 
 이 문서에서 언급한 API에 대한 참조를 확인하세요.
 

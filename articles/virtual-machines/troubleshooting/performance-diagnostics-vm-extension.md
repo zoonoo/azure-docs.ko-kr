@@ -1,7 +1,7 @@
 ---
 title: Windows용 Azure Performance Diagnostics VM 확장 | Microsoft Docs
 description: Windows용 Azure Performance Diagnostics VM 확장을 소개합니다.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
 manager: dcscontentpm
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 16af8b8c1258ef7945e88a7af42e86a7bba2003b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9edba575b35613abb8bc3081964a37b838bb358b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963264"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656598"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -27,10 +27,10 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 > [!NOTE]
 > 클래식이 아닌 VM에 대한 Azure Portal의 VM에서 진단을 실행하려는 경우 새 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 머신에 대한 진단 수행](performance-diagnostics.md)을 참조 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 확장은 다음에 설치할 수 있습니다.
-* Windows Server 2019
+* 시작
 * Windows Server 2016
 * Windows Server 2012 R2
 * Windows Server 2012
@@ -54,16 +54,16 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameter('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
@@ -74,23 +74,23 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 
 ### <a name="property-values"></a>속성 값
 
-|   **이름**   |**값/예제**|       **설명**      |
-|--------------|-------------------|----------------------------|
-|apiVersion|2015-06-15|API 버전입니다.
-|게시자|Microsoft.Azure.Performance.Diagnostics|확장의 게시자 네임스페이스입니다.
-|type|AzurePerformanceDiagnostics|VM 확장의 형식입니다.
-|typeHandlerVersion|1.0|확장 처리기 버전입니다.
-|performanceScenario|basic|데이터를 캡처할 성능 시나리오입니다. 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom**
-|traceDurationInSeconds|300|추적 옵션을 선택한 경우 추적 기간입니다.
-|perfCounterTrace|p|성능 카운터 추적을 사용하는 옵션. 유효한 값은 **p** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
-|networkTrace|n|네트워크 추적을 사용하는 옵션입니다. 유효한 값은 **n** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
-|xperfTrace|x|XPerf 추적을 사용하는 옵션. 유효한 값은 **x** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
-|storPortTrace|초|StorPort 추적을 사용하는 옵션. 유효한 값은 **s** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
-|srNumber|123452016365929|사용 가능한 경우 지원 티켓 번호입니다. 값이 없으면 비워 둡니다.
-|requestTimeUtc|2017-09-28T22:08:53.736Z|현재 날짜 시간(UTC). 포털을 사용하여 이 확장을 설치하는 경우 이 값을 제공하지 않아도 됩니다.
-|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM의 고유 식별자
-|storageAccountName|mystorageaccount|진단 로그 및 결과를 저장할 스토리지 계정의 이름입니다.
-|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|스토리지 계정의 키입니다.
+| Name | 값/예제 | Description |
+|--|--|--|
+| apiVersion | 2015-06-15 | API 버전입니다. |
+| 게시자 | Microsoft.Azure.Performance.Diagnostics | 확장의 게시자 네임스페이스입니다. |
+| type | AzurePerformanceDiagnostics | VM 확장의 형식입니다. |
+| typeHandlerVersion | 1.0 | 확장 처리기 버전입니다. |
+| performanceScenario | basic | 데이터를 캡처할 성능 시나리오입니다. 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom** |
+| traceDurationInSeconds | 300 | 추적 옵션을 선택한 경우 추적 기간입니다. |
+| perfCounterTrace | p | 성능 카운터 추적을 사용하는 옵션. 유효한 값은 **p** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다. |
+| networkTrace | n | 네트워크 추적을 사용하는 옵션입니다. 유효한 값은 **n** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다. |
+| xperfTrace | x | XPerf 추적을 사용하는 옵션. 유효한 값은 **x** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다. |
+| storPortTrace | 초 | StorPort 추적을 사용하는 옵션. 유효한 값은 **s** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다. |
+| srNumber | 123452016365929 | 사용 가능한 경우 지원 티켓 번호입니다. 값이 없으면 비워 둡니다. |
+| requestTimeUtc | 2017-09-28T22:08:53.736Z | 현재 날짜 시간(UTC). 포털을 사용하여 이 확장을 설치하는 경우 이 값을 제공하지 않아도 됩니다. |
+| resourceId | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName} | VM의 고유 식별자 |
+| storageAccountName | mystorageaccount | 진단 로그 및 결과를 저장할 스토리지 계정의 이름입니다. |
+| storageAccountKey | lDuVvxuZB28NNP…hAiRF3voADxLBTcc== | 스토리지 계정의 키입니다. |
 
 ## <a name="install-the-extension"></a>확장 설치
 
@@ -100,13 +100,13 @@ Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니
 2. 이 확장을 설치하려는 가상 컴퓨터를 선택합니다.
 
     ![가상 머신을 강조 표시한 Azure Portal의 스크린샷](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
-3. **확장** 블레이드를 선택하고 **추가**를 선택합니다.
+3. **확장** 블레이드를 선택하고 **추가** 를 선택합니다.
 
     ![추가를 강조 표시한 확장 블레이드 스크린샷](media/performance-diagnostics-vm-extension/select-extensions.png)
-4. **Azure 성능 진단**을 선택하고, 사용 약관을 검토하고, **만들기**를 선택합니다.
+4. **Azure 성능 진단** 을 선택하고, 사용 약관을 검토하고, **만들기** 를 선택합니다.
 
     ![Azure 성능 진단을 강조 표시한 새 리소스 화면 스크린샷](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. 설치를 위한 매개 변수 값을 제공하고 **확인**을 선택하여 확장을 설치합니다. 지원되는 시나리오에 대한 자세한 내용은 [PerfInsights를 사용하는 방법](how-to-use-perfinsights.md#supported-troubleshooting-scenarios)을 참조하세요. 
+5. 설치를 위한 매개 변수 값을 제공하고 **확인** 을 선택하여 확장을 설치합니다. 지원되는 시나리오에 대한 자세한 내용은 [PerfInsights를 사용하는 방법](how-to-use-perfinsights.md#supported-troubleshooting-scenarios)을 참조하세요. 
 
     ![설치 확장 대화 상자 스크린샷](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. 설치에 성공하면 이 상태를 나타내는 메시지가 표시됩니다.
@@ -117,10 +117,11 @@ Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니
     > 프로비전이 성공하는 경우 확장이 실행됩니다. 기본 시나리오에서 완료하는 데 최대 2분이 걸립니다. 다른 시나리오의 경우 설치 중 지정한 기간 동안 실행됩니다.
 
 ## <a name="remove-the-extension"></a>확장 제거
+
 가상 머신에서 확장을 제거하려면 다음 단계를 따릅니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이 확장을 제거하려는 가상 머신을 선택한 다음 **확장** 블레이드를 선택합니다. 
-2. 목록에서 성능 진단 확장 항목에 대해 (**...**)를 클릭하고 **제거**를 선택합니다.
+2. 목록에서 성능 진단 확장 항목에 대해 (**...**)를 클릭하고 **제거** 를 선택합니다.
 
     ![제거를 강조 표시한 확장 블레이드 스크린샷](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -128,9 +129,10 @@ Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니
     > 확장 항목을 선택하고 **제거** 옵션을 선택할 수도 있습니다.
 
 ## <a name="template-deployment"></a>템플릿 배포
+
 Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명된 JSON 스키마는 Azure Resource Manager 템플릿에서 사용할 수 있습니다. 그러면 Azure Resource Manager 템플릿을 배포하는 동안 Azure 성능 진단 VM 확장을 실행합니다. 샘플 템플릿은 다음과 같습니다.
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -144,11 +146,11 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
       "defaultValue": "southcentralus"
     },
     "storageAccountName": {
-      "type": "securestring"
+      "type": "securestring",
       "defaultValue": "yourStorageAccount"
     },
     "storageAccountKey": {
-      "type": "securestring"
+      "type": "securestring",
       "defaultValue": "yourStorageAccountKey"
     },
     "performanceScenario": {
@@ -159,10 +161,10 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
       "type": "string",
       "defaultValue": ""
     },
-    "traceDurationInSeconds": {
-      "type": "int",
+  "traceDurationInSeconds": {
+    "type": "int",
     "defaultValue": 300
-    },
+  },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -196,16 +198,16 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
-            "performanceScenario": "[parameters('performanceScenario')]",
-            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-            "perfCounterTrace": "[parameters('perfCounterTrace')]",
-            "networkTrace": "[parameters('networkTrace')]",
-            "xperfTrace": "[parameters('xperfTrace')]",
-            "storPortTrace": "[parameters('storPortTrace')]",
-            "srNumber": "[parameters('srNumber')]",
-            "requestTimeUtc":  "[parameters('requestTimeUtc')]",
-            "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+          "storageAccountName": "[parameters('storageAccountName')]",
+          "performanceScenario": "[parameters('performanceScenario')]",
+          "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+          "perfCounterTrace": "[parameters('perfCounterTrace')]",
+          "networkTrace": "[parameters('networkTrace')]",
+          "xperfTrace": "[parameters('xperfTrace')]",
+          "storPortTrace": "[parameters('storPortTrace')]",
+          "srNumber": "[parameters('srNumber')]",
+          "requestTimeUtc":  "[parameters('requestTimeUtc')]",
+          "resourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
         },
         "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"
@@ -217,6 +219,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
 ```
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
+
 `Set-AzVMExtension` 명령을 사용하여 Azure 성능 진단 VM 확장을 기존 가상 머신에 배포할 수 있습니다.
 
 PowerShell
@@ -241,7 +244,7 @@ PerfInsights 도구는 선택한 시나리오에 따라 다양한 로그, 구성
 
 ## <a name="view-and-share-the-results"></a>결과 확인 및 공유
 
-확장의 출력은 설치 중 지정된 스토리지 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대 한 SAS 링크는 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version> **폴더에 있는 *zipfilename*_saslink.txt 이라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
+확장의 출력은 설치 중 지정된 스토리지 계정에 업로드된 zip 파일에서 찾을 수 있으며 [SAS(공유 액세스 서명)](../../storage/common/storage-sas-overview.md)를 사용하여 30일 동안 공유됩니다. 이 zip 파일은 진단 로그 및 결과 및 권장 사항이 있는 보고서를 포함합니다. 출력 zip 파일에 대 한 SAS 링크는 **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version>** 폴더에 있는 *zipfilename* _saslink.txt 이라는 텍스트 파일 내에서 찾을 수 있습니다. 이 링크가 있는 모든 사람은 zip 파일을 다운로드할 수 있습니다.
 
 Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지원하기 위해 이 SAS 링크를 사용하여 진단 데이터를 다운로드할 수 있습니다.
 
@@ -263,4 +266,4 @@ Microsoft에서는 지원 티켓에서 작업하는 지원 엔지니어를 지�
 
     `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>`
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기**를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기** 를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.

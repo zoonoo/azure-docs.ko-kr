@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a646588616b874e40b1ed2a5a0b5e691b075075d
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791293"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487306"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Azure SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "92791293"
 1. 시연하는 데 사용할 데이터를 포함하는 테이블을 만듭니다.
 2. 기존 확장 이벤트에 대한 세션 즉, **sqlserver.sql_statement_starting** 을 만듭니다.
 
-   * 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문( **statement LIKE '%UPDATE tabEmployee%'** )으로 제한됩니다.
+   * 이 이벤트는 특정 업데이트 문자열을 포함하는 SQL 문( **statement LIKE '%UPDATE tabEmployee%'**)으로 제한됩니다.
    * 링 버퍼 유형의 대상 즉, **package0.ring_buffer** 로 이벤트 출력을 보내도록 선택합니다.
 3. 이벤트 세션을 시작합니다.
 4. 몇 가지 간단한 SQL UPDATE 문을 실행합니다.

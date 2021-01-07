@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: 3cc4bdc0fabd9d1e209634a88bed1bf063db917c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597879"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518450"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
@@ -23,11 +23,13 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
 > [!NOTE]
 > 이 가이드는 자격 증명 모음에 적용됩니다. 관리형 HSM 풀은 다른 고가용성 및 재해 복구 모델을 사용합니다. 자세한 내용은 [관리형 HSM 재해 복구 가이드](../managed-hsm/disaster-recovery-guide.md)를 참조하세요.
 
-주요 자격 증명 모음의 내용은 키와 비밀의 높은 내구성을 유지하기 위해 지역 내에 복제되고 동일한 지리 내 최소 150마일 떨어진 보조 지역에도 복제됩니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 문서를 참조하세요.
+키 자격 증명 모음의 콘텐츠는 키와 비밀의 높은 내구성을 유지하기 위해 지역 내에 복제되고 동일한 지리 내 최소 150마일 떨어진 보조 지역에도 복제됩니다. 특정 지역 쌍에 대한 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 쌍을 이루는 지역 모델에 대한 예외는 브라질 남부입니다. 브라질 남부 내에 데이터를 보관할 수 있는 옵션만 허용합니다. 브라질 남부에서는 ZRS(영역 중복 스토리지)를 사용하여 단일 위치/지역 내에서 데이터를 세 번 복제합니다.   
 
 주요 자격 증명 모음 서비스 내에서 개별 구성 요소가 실패하면 기능이 저하되지 않도록 하기 위해 해당 지역 내의 대체 구성 요소가 요청을 처리하도록 개입됩니다. 이 프로세스를 시작하기 위해 어떤 작업도 수행할 필요가 없습니다. 이 프로세스는 자동으로 수행되며 사용자에게 투명하게 공개됩니다.
 
-전체 Azure 지역을 사용할 수 없는 드문 경우, 해당 지역에 Azure Key Vault를 활용하는 요청이 보조 지역으로 자동 라우팅(*장애 조치*)됩니다. 기본 지역을 다시 사용할 수 있는 경우 요청은 주 지역으로 다시 라우팅(*장애 복구(failback)* )됩니다. 다시 한 번 말씀드리지만, 이 작업은 자동으로 이루어지므로 어떤 조치도 필요하지 않습니다.
+드물게 전체 Azure 지역을 사용할 수 없는 경우, 해당 지역에 Azure Key Vault를 활용하는 요청이 브라질 남부 지역을 제외한 보조 지역으로 자동 라우팅(*장애 조치(fail over)* )됩니다. 기본 지역을 다시 사용할 수 있는 경우 요청은 주 지역으로 다시 라우팅(*장애 복구(failback)* )됩니다. 다시 한 번 말씀드리지만, 이 작업은 자동으로 이루어지므로 어떤 조치도 필요하지 않습니다.
+
+브라질 남부 지역에서는 지역 장애 시나리오에서 Azure 키 자격 증명 모음의 복구를 계획해야 합니다. 원하는 지역에 Azure 키 자격 증명 모음을 백업하고 복원하려면 [Azure Key Vault 백업](backup.md)에 자세히 설명된 단계를 완료합니다. 
 
 이 고가용성 디자인을 통해 Azure Key Vault는 유지 관리 작업을 위한 가동 중지 시간이 필요하지 않습니다.
 

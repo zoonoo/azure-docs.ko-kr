@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 29b3cdde328a994e5806df810db15b529a6da9af
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208116"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188669"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>자습서: Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
@@ -52,17 +52,17 @@ ms.locfileid: "92208116"
 
 1. **만들기** 를 선택하고, Traffic Manager 프로필을 배포합니다.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Traffic Manager 프로필 만들기":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Traffic Manager 프로필 만들기 페이지":::
 
 ## <a name="add-endpoints"></a>엔드포인트 추가
 
 1. 목록에서 Traffic Manager 프로필을 선택합니다.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Traffic Manager 프로필 만들기":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-list-geographic.png" alt-text="Traffic Manager 지리적 목록":::
 
 1. *설정* 아래에서 **엔드포인트** 를 선택하고, **+ 추가** 를 선택하여 새 엔드포인트를 추가합니다.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="Traffic Manager 프로필 만들기":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-geographic-endpoint.png" alt-text="엔드포인트 추가":::
 
 1. 다음 설정을 선택하거나 입력합니다. 
 
@@ -83,23 +83,23 @@ ms.locfileid: "92208116"
 
 1. 이 프로필 아래에 추가하려는 모든 엔드포인트에 대해 마지막 단계를 반복한 다음, **저장** 을 선택합니다.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Traffic Manager 프로필 만들기":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Traffic Manager 엔드포인트 추가":::
 
 ## <a name="use-the-traffic-manager-profile"></a>Traffic Manager 프로필 사용
 
 1.  포털의 검색 창에서 이전 섹션에서 만든 **Traffic Manager 프로필** 이름을 검색하고, 표시되는 결과에서 해당 Traffic Manager 프로필을 선택합니다.
     
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Traffic Manager 프로필 만들기":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/search-traffic-manager-profile.png" alt-text="Traffic Manager 프로필 검색":::
 
 1. **Traffic Manager 프로필** 에 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다. 이 이름은 모든 클라이언트에서 라우팅 유형에 따라 결정된 올바른 엔드포인트로 라우팅(예: 웹 브라우저를 사용하여 이동)하는 데 사용할 수 있습니다. 지리적 라우팅을 사용하면 Traffic Manager에서 들어오는 요청의 원본 IP를 확인하여 해당 요청이 시작되는 지역을 결정합니다. 해당 지역이 엔드포인트에 매핑된 경우 트래픽은 그곳으로 라우팅됩니다. 이 지역이 엔드포인트에 매핑되지 않은 경우 Traffic Manager에서 NODATA 쿼리 응답을 반환합니다.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="Traffic Manager 프로필 만들기":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-geographic-overview.png" alt-text="지리적 Traffic Manager 개요":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Traffic Manager 프로필이 더 이상 필요하지 않은 경우 해당 프로필을 찾아서 **프로필 삭제** 를 선택합니다.
 
-:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Traffic Manager 프로필 만들기":::
+:::image type="content" source="./media/traffic-manager-geographic-routing-method/delete-traffic-manager-profile.png" alt-text="Traffic Manager 프로필 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 

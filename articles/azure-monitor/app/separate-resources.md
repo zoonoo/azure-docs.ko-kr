@@ -3,12 +3,12 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258721"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536356"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
@@ -18,7 +18,7 @@ ms.locfileid: "88258721"
 
 ## <a name="about-resources-and-instrumentation-keys"></a>리소스 및 계측 키 정보
 
-사용자 웹앱에 대해 Application Insights 모니터링을 설정할 경우 Microsoft Azure에서 Application Insights *리소스*를 만듭니다. 앱에서 수집된 원격 분석을 보고 분석하기 위해서는 Azure Portal에서 이 리소스를 엽니다. 리소스는 해당 *계측 키*(ikey)로 식별됩니다. 앱을 모니터링하기 위해 Application Insights 패키지를 설치하는 경우 원격 분석을 보낼 위치를 파악할 수 있도록 계측 키로 구성합니다.
+사용자 웹앱에 대해 Application Insights 모니터링을 설정할 경우 Microsoft Azure에서 Application Insights *리소스* 를 만듭니다. 앱에서 수집된 원격 분석을 보고 분석하기 위해서는 Azure Portal에서 이 리소스를 엽니다. 리소스는 해당 *계측 키*(ikey)로 식별됩니다. 앱을 모니터링하기 위해 Application Insights 패키지를 설치하는 경우 원격 분석을 보낼 위치를 파악할 수 있도록 계측 키로 구성합니다.
 
 각 Application Insights 리소스에는 기본 제공되는 메트릭이 제공됩니다. 완전히 별개의 구성 요소가 동일한 Application Insights 리소스에 보고되는 경우 이러한 메트릭은 대시보드/경고에 적합하지 않을 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "88258721"
 
 -   함께 배포되는 애플리케이션 구성 요소의 경우 일반적으로 단일 팀에서 개발되며 동일한 DevOps/ITOps 사용자 세트를 통해 관리됩니다.
 -   기본적으로 응답 기간, 대시보드의 실패율 등과 같은 KPI(핵심 성과 지표)를 전체적으로 집계하는 것이 적절한 경우에는 메트릭 탐색기 환경에서 역할 이름별로 분류하도록 선택할 수 있습니다.
--   애플리케이션 구성 요소 간에 RBAC(역할 기반 액세스 제어)를 다르게 관리할 필요가 없는 경우
+-   응용 프로그램 구성 요소 간에 azure RBAC (역할 기반 액세스 제어)를 다르게 관리할 필요가 없는 경우
 -   구성 요소 간에 다른 메트릭 경고 조건이 필요하지 않은 경우
 -   구성 요소 간에 연속 내보내기를 다르게 관리할 필요가 없는 경우
 -   구성 요소 간에 청구/할당량을 다르게 관리할 필요가 없는 경우
@@ -35,7 +35,7 @@ ms.locfileid: "88258721"
 
 ### <a name="other-things-to-keep-in-mind"></a>주의해야 할 기타 사항
 
--   의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE*이 작동합니다.
+-   의미 있는 값이 [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) 특성으로 설정되도록 사용자 지정 코드를 추가해야 할 수 있습니다. 이 특성에 대해 의미 있는 값이 설정되지 않으면 포털 환경의 *NONE* 이 작동합니다.
 - Service Fabric 애플리케이션 및 클래식 클라우드 서비스의 경우 SDK는 Azure 역할 환경에서 자동으로 읽고 이를 설정합니다. 다른 모든 유형의 앱의 경우 이를 명시적으로 설정해야 할 수도 있습니다.
 -   라이브 메트릭 환경은 역할 이름별로 분할하는 것을 지원하지 않습니다.
 
@@ -132,7 +132,7 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 </PropertyGroup>
 ```
 
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전** 을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성됩니다.
 

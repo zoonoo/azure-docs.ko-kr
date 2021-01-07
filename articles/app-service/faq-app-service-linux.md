@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961723"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008557"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -56,7 +56,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 **SDK 또는 Azure Resource Manager 템플릿을 통해 Linux App Service 계획을 어떻게 만들 수 있나요?**
 
-App service의 **예약** 된 필드를 *true*로 설정 합니다.
+App service의 **예약** 된 필드를 *true* 로 설정 합니다.
 
 ## <a name="continuous-integration-and-deployment"></a>연속 통합 및 배포
 
@@ -70,7 +70,7 @@ App service의 **예약** 된 필드를 *true*로 설정 합니다.
 
 ***WebDeploy/MSDeploy* 를 사용하여 내 웹앱을 배포할 수 있나요?**
 
-예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false*로 설정해야 합니다.
+예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false* 로 설정해야 합니다.
 
 **Linux 웹 앱을 사용 하는 경우 내 응용 프로그램의 Git 배포가 실패 합니다. 문제를 해결 하려면 어떻게 해야 하나요?**
 
@@ -94,7 +94,7 @@ Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 �
 
 ```nodejs
 const io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 
@@ -110,7 +110,7 @@ const io = require('socket.io')(server,{
 
 **사용자 지정 컨테이너를 사용 하 고 있습니다. 플랫폼에서 디렉터리에 SMB 공유를 탑재 하려고 합니다 `/home/` .**
 
-`WEBSITES_ENABLE_APP_SERVICE_STORAGE`설정이 **지정** 되지 않았거나 *true*로 설정 된 경우 `/home/` 디렉터리는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
+`WEBSITES_ENABLE_APP_SERVICE_STORAGE`설정이 **지정** 되지 않았거나 *true* 로 설정 된 경우 `/home/` 디렉터리는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 
@@ -122,7 +122,7 @@ const io = require('socket.io')(server,{
 
 **프라이빗 레지스트리 옵션에서 이미지 이름의 형식은 무엇인가요?**
 
-프라이빗 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). 설정 하려면 `docker-custom-image-name` [ `az` 명령줄 도구](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)를 사용 합니다.
+프라이빗 레지스트리 URL(예: myacr.azurecr.io/dotnet:latest)을 포함하여 전체 이미지 이름을 추가합니다. 사용자 지정 포트를 사용하는 이미지 이름은 [포털을 통해 입력할 수 없습니다](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). 설정 하려면 `docker-custom-image-name` [ `az` 명령줄 도구](/cli/azure/webapp/config/container#az-webapp-config-container-set)를 사용 합니다.
 
 **사용자 지정 컨테이너 이미지에 포트를 두 개 이상 표시할 수 있나요?**
 
@@ -138,7 +138,7 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 **사용자 지정 컨테이너는 포트 80 이외의 포트를 수신 대기 합니다. 앱을 구성 하 여 요청을 해당 포트로 라우팅하도록 하려면 어떻게 해야 하나요?**
 
-자동 포트 검색이 있습니다. *WEBSITES_PORT*라는 앱 설정을 지정하고 예상되는 포트 번호 값을 지정할 수도 있습니다. 이전에 플랫폼은 *포트* 앱 설정을 사용했습니다. 이 앱 설정의 사용을 중단하고 *WEBSITES_PORT*를 단독으로 사용할 계획입니다.
+자동 포트 검색이 있습니다. *WEBSITES_PORT* 라는 앱 설정을 지정하고 예상되는 포트 번호 값을 지정할 수도 있습니다. 이전에 플랫폼은 *포트* 앱 설정을 사용했습니다. 이 앱 설정의 사용을 중단하고 *WEBSITES_PORT* 를 단독으로 사용할 계획입니다.
 
 **사용자 지정 컨테이너에서 HTTPS를 구현해야 하나요?**
 
@@ -148,7 +148,7 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 **다중 컨테이너를 사용하도록 ACR(Azure Container Registry)을 구성하려면 어떻게 할까요?**
 
-다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 있는 경우 응용 프로그램 설정을 만든 다음 ACR 이미지 이름을 포함 하도록 Docker Compose 구성 파일을 업데이트 해야 합니다.
+다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지** 는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 있는 경우 응용 프로그램 설정을 만든 다음 ACR 이미지 이름을 포함 하도록 Docker Compose 구성 파일을 업데이트 해야 합니다.
 
 다음 애플리케이션 설정을 만듭니다.
 

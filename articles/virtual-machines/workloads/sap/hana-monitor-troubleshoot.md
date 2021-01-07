@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e560fc996393969eecb45a3fdda24bc940436dc0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77617069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967723"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
 
@@ -35,7 +36,7 @@ SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에
 
 ## <a name="sap-hana-alerts"></a>SAP HANA 경고
 
-첫 번째 단계로 현재 SAP HANA 경고 로그를 확인합니다. SAP HANA Studio에서 **관리 콘솔: 경고: 표시: 모든 경고**로 이동 합니다. 이 탭에서는 최소 및 최대 임계값 설정 범위에 속하지 않는 특정 값(사용 가능한 실제 메모리, CPU 사용률 등)에 대한 모든 SAP HANA 경고를 표시합니다. 기본적으로 검사는 15분마다 자동으로 새로 고쳐집니다.
+첫 번째 단계로 현재 SAP HANA 경고 로그를 확인합니다. SAP HANA Studio에서 **관리 콘솔: 경고: 표시: 모든 경고** 로 이동 합니다. 이 탭에서는 최소 및 최대 임계값 설정 범위에 속하지 않는 특정 값(사용 가능한 실제 메모리, CPU 사용률 등)에 대한 모든 SAP HANA 경고를 표시합니다. 기본적으로 검사는 15분마다 자동으로 새로 고쳐집니다.
 
 ![SAP HANA Studio에서 [관리 콘솔: 경고: 표시: 모든 경고]로 이동합니다.](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
@@ -71,9 +72,9 @@ SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에
 Linux의 SAP HANA에 대한 가장 중요한 검사 중 하나는 Transparent Huge Pages를 사용하지 않도록 설정하는 것입니다. [SAP 참고 사항 #2131662 - SAP HANA 서버의 THP(Transparent Huge Pages)](https://launchpad.support.sap.com/#/notes/2131662)를 참조하세요.
 
 - 다음 Linux 명령을 통해 Transparent Huge Pages를 사용할 수 있는지 확인할 수 있습니다. **cat /sys/kernel/mm/transparent\_hugepage/enabled**
-- _always_가 아래와 같이 대괄호로 묶이면 Transparent Huge Pages를 사용할 수 있다는 의미입니다. [always] madvise never _never_가 아래와 같이 대괄호로 묶이면 Transparent Huge Pages를 사용할 수 없다는 의미입니다. always madvise [never]
+- _always_ 가 아래와 같이 대괄호로 묶이면 Transparent Huge Pages를 사용할 수 있다는 의미입니다. [always] madvise never _never_ 가 아래와 같이 대괄호로 묶이면 Transparent Huge Pages를 사용할 수 없다는 의미입니다. always madvise [never]
 
-다음 Linux 명령은 아무것도 반환하지 않습니다. **rpm -qa | grep ulimit.** _ulimit_가 표시되는 경우 즉시 설치를 제거합니다.
+다음 Linux 명령은 아무것도 반환하지 않습니다. **rpm -qa | grep ulimit.** _ulimit_ 가 표시되는 경우 즉시 설치를 제거합니다.
 
 ## <a name="memory"></a>메모리
 
@@ -98,8 +99,8 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 2. 노드 간 통신을 분석합니다.
   A. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
 
-3. Linux 명령 **ifconfig**를 실행합니다(패킷 손실이 발생하는 경우 출력에서 표시).
-4. Linux 명령 **tcpdump**를 실행합니다.
+3. Linux 명령 **ifconfig** 를 실행합니다(패킷 손실이 발생하는 경우 출력에서 표시).
+4. Linux 명령 **tcpdump** 를 실행합니다.
 
 또한 오픈 소스 [IPERF](https://iperf.fr/) 도구(또는 유사한 기능)를 사용하여 실제 애플리케이션 네트워크 성능을 측정합니다.
 
@@ -123,13 +124,13 @@ HANA\_Configuration\_Minichecks를 통해 SAP HANA 상태 검사를 수행합니
 
 [SAP 참고 사항 #1969700 - SAP HANA에 대한 SQL 문 컬렉션](https://launchpad.support.sap.com/#/notes/1969700)을 참조하고 참고 사항에 연결된 SQL Statements.zip 파일을 다운로드합니다. 로컬 하드 드라이브에서 이.zip 파일을 저장합니다.
 
-SAP HANA Studio의 **시스템 정보** 탭에서 **이름** 열을 마우스 오른쪽 단추로 클릭 하 고 **SQL 문 가져오기**를 선택 합니다.
+SAP HANA Studio의 **시스템 정보** 탭에서 **이름** 열을 마우스 오른쪽 단추로 클릭 하 고 **SQL 문 가져오기** 를 선택 합니다.
 
 ![SAP HANA Studio의 [시스템 정보] 탭에서 [이름] 열을 마우스 오른쪽 단추로 클릭하고 [가져오기 SQL 문]을 선택합니다.](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
 로컬에 저장된 SQL Statements.zip 파일을 선택하고 해당 SQL 문을 포함한 폴더를 가져옵니다. 이 시점에서 이러한 SQL 문으로 다른 여러 진단 검사를 실행할 수 있습니다.
 
-예를 들어 SAP HANA 시스템 복제 대역폭 요구 사항을 테스트하려면 **복제: 대역폭** 아래에서 **대역폭** 문을 마우스 오른쪽 단추로 클릭하고 SQL 콘솔에서 **열기**를 선택합니다.
+예를 들어 SAP HANA 시스템 복제 대역폭 요구 사항을 테스트하려면 **복제: 대역폭** 아래에서 **대역폭** 문을 마우스 오른쪽 단추로 클릭하고 SQL 콘솔에서 **열기** 를 선택합니다.
 
 입력 매개 변수(수정 섹션)을 변경한 다음 실행할 수 있도록 전체 SQL 문이 열립니다.
 

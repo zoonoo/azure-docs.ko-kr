@@ -1,27 +1,22 @@
 ---
-title: Azure Portal에서 삭제 된 대시보드 복구 | Microsoft Docs
+title: Azure Portal에서 삭제된 대시보드 복구
 description: Azure Portal에서 게시 된 대시보드를 삭제 하면 대시보드를 복구할 수 있습니다.
-services: azure-portal
-author: mgblythe
-ms.author: mblythe
 ms.date: 01/21/2020
 ms.topic: troubleshooting
-ms.service: azure-portal
-manager: mtillman
-ms.openlocfilehash: 7b3cc088a87731d2a118a4fe5183831e4d1bd6cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 095964691a3cb22f8a805af2e8fe37af4c47cb28
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763978"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745624"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Azure Portal에서 삭제된 대시보드 복구
 
 공용 Azure 클라우드에 있는 경우 Azure Portal에서 _게시_ 된 대시보드를 삭제 하면 삭제 후 14 일 내에 해당 대시보드를 복구할 수 있습니다. Azure 정부 클라우드에 있거나 대시보드가 게시 되지 않은 경우에는 복구할 수 없으며 다시 빌드해야 합니다. 대시보드를 게시 하는 방법에 대 한 자세한 내용은 [대시보드 게시](azure-portal-dashboard-share-access.md#publish-dashboard)를 참조 하세요. 게시 된 대시보드를 복구 하려면 다음 단계를 따르세요.
 
-1. Azure Portal 메뉴에서 **리소스 그룹**을 선택한 다음 대시보드를 게시 한 리소스 그룹을 선택 합니다 (기본적으로 **대시보드**이름이 지정 됨).
+1. Azure Portal 메뉴에서 **리소스 그룹** 을 선택한 다음 대시보드를 게시 한 리소스 그룹을 선택 합니다 (기본적으로 **대시보드** 이름이 지정 됨).
 
-1. **활동 로그**에서 **대시보드 삭제** 작업을 확장 합니다. **변경 기록** 탭을 선택 하 고를 선택 **\<deleted resource\>** 합니다.
+1. **활동 로그** 에서 **대시보드 삭제** 작업을 확장 합니다. **변경 기록** 탭을 선택 하 고를 선택 **\<deleted resource\>** 합니다.
 
     ![변경 기록 탭의 스크린샷](media/recover-shared-deleted-dashboard/change-history-tab.png)
 
@@ -29,7 +24,7 @@ ms.locfileid: "84763978"
 
     ![변경 기록 차이의 스크린샷](media/recover-shared-deleted-dashboard/change-history-diff.png)
 
-1. Azure Portal 메뉴에서 **대시보드**를 선택한 다음 **업로드**를 선택 합니다.
+1. Azure Portal 메뉴에서 **대시보드** 를 선택한 다음 **업로드** 를 선택 합니다.
 
     ![대시보드 업로드 스크린샷](media/recover-shared-deleted-dashboard/dashboard-upload.png)
 

@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 07/20/2020
-  ms.openlocfilehash: bdfb4f0a31f655cf71b6117e9c0ef73be18c8e45
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.date: 12/17/2020
+  ms.openlocfilehash: 46a3f48c4f9548e24709a0d56fe4c750ae9a76a8
+  ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92018732"
+  ms.lasthandoff: 12/19/2020
+  ms.locfileid: "97693948"
 landingContent:
 - title: Azure Lighthouse
   linkLists:
@@ -41,12 +41,14 @@ landingContent:
     links:
     - text: 권장 보안 방법
       url: ./concepts/recommended-security-practices.md
+    - text: 테넌트, 역할 및 사용자
+      url: ./concepts/tenants-users-roles.md
     - text: 클라우드 솔루션 공급자 프로그램 고려 사항
       url: ./concepts/cloud-solution-provider.md
     - text: 엔터프라이즈 시나리오
       url: ./concepts/enterprise.md
-    - text: 테넌트, 역할 및 사용자
-      url: ./concepts/tenants-users-roles.md
+    - text: ISV 시나리오
+      url: ./concepts/isv-scenarios.md
 - title: Marketplace 제품
   linkLists:
   - linkListType: how-to-guide
@@ -89,6 +91,8 @@ landingContent:
       url: ./how-to/deploy-policy-remediation.md
     - text: Azure Arc를 사용하여 하이브리드 컴퓨터 관리
       url: ./how-to/manage-hybrid-infrastructure-arc.md
+    - text: 마이그레이션 프로젝트 관리
+      url: ./how-to/migration-at-scale.md
 - title: 참조 - SDK
   linkLists:
   - linkListType: reference

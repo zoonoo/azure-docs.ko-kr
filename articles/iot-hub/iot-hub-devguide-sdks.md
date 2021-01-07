@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8b3212dd7e1544d734c0f409bd4bcdf8ec22fbc2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9921ed500f831f2a002335fe83eae8f1bb47ecd4
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147611"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095341"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
@@ -29,9 +29,9 @@ IoT Hub를 사용하기 위한 SDK(소프트웨어 개발 키트)의 범주는 �
 
 또한 [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md)와 함께 작동하는 SDK 세트도 제공됩니다.
 
-* **프로비저닝 디바이스 SDK**를 사용하면 IoT 디바이스에서 실행되는 앱을 빌드하여 디바이스 프로비저닝 서비스와 통신할 수 있습니다.
+* **프로비저닝 디바이스 SDK** 를 사용하면 IoT 디바이스에서 실행되는 앱을 빌드하여 디바이스 프로비저닝 서비스와 통신할 수 있습니다.
 
-* **프로비저닝 서비스 SDK**를 사용하면 백엔드 애플리케이션을 빌드하여 디바이스 프로비저닝 서비스의 등록을 관리할 수 있습니다.
+* **프로비저닝 서비스 SDK** 를 사용하면 백엔드 애플리케이션을 빌드하여 디바이스 프로비저닝 서비스의 등록을 관리할 수 있습니다.
 
 [Azure IoT SDK를 사용한 개발의 이점](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)을 알아봅니다.
 
@@ -53,6 +53,14 @@ Microsoft Azure IoT 디바이스 SDK에는 Azure IoT Hub 서비스에 연결되�
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-csharp)
 * [API 참조](/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [모듈 참조](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
+
+
+임베디드 C에 대 한 Azure IoT Hub 장치 SDK (ANSI C-C99):
+* [임베디드 C SDK 빌드](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#build)
+* [소스 코드](https://github.com/Azure/azure-sdk-for-c)
+* 제한 된 장치에 대 한 [차트 크기 조정](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot#size-chart)
+* [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.0.0/api/index.html)
+
 
 C(ANSI C - C99)용 Azure IoT Hub 디바이스 SDK:
 
@@ -139,7 +147,7 @@ iOS용 Azure IoT Hub 서비스 SDK:
 
 ## <a name="microsoft-azure-provisioning-sdks"></a>Microsoft Azure 프로비저닝 SDK
 
-**Microsoft Azure 프로비저닝 SDK**를 사용하면 [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md)를 통해 디바이스를 IoT Hub에 프로비전할 수 있습니다.
+**Microsoft Azure 프로비저닝 SDK** 를 사용하면 [디바이스 프로비저닝 서비스](../iot-dps/about-iot-dps.md)를 통해 디바이스를 IoT Hub에 프로비전할 수 있습니다.
 
 C#용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 

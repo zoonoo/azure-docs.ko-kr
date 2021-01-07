@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e3f7b877818056fc73f10d54b94a6b6c26c605e8
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911276"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853461"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "92911276"
 - 검토에 조정된 대본 추가
 - 검토 게시
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 아직 수행 하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만듭니다.
 - 이 문서에서는 사용자 결정을 위한 검토 도구에서 [비디오를 조정](video-moderation-api.md)하고 [비디오 검토를 생성](video-reviews-quickstart-dotnet.md)했다고 가정합니다. 이제 검토 도구에서 조정된 비디오 대본을 추가하려고 합니다.
@@ -81,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>프라이빗 속성 추가
 
-다음 개인 속성을 **videorec** # 클래스 **프로그램** 의 네임 스페이스에 추가 합니다. `AzureEndpoint`및 필드를 `CMSubscriptionKey` 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+다음 개인 속성을 **videorec**# 클래스 **프로그램** 의 네임 스페이스에 추가 합니다. `AzureEndpoint`및 필드를 `CMSubscriptionKey` 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 namespace VideoReviews
@@ -148,9 +148,9 @@ public static ContentModeratorClient NewClient()
 1. **IList\<CreateVideoReviewsBodyItem>** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem** 에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
-- **콘텐츠** . 검토할 비디오의 URL입니다.
-- **ContentId** . 비디오 검토에 할당할 ID입니다.
-- **상태** . 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
+- **콘텐츠**. 검토할 비디오의 URL입니다.
+- **ContentId**. 비디오 검토에 할당할 ID입니다.
+- **상태**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
 > **CreateVideoReviews** 는 IList\<string>을(를) 반환합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
@@ -236,10 +236,10 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews** 에서 반환된 비디오 검토 ID입니다.
 1. IList\<TranscriptModerationBodyItem>입니다. **TranscriptModerationBodyItem** 에는 다음 속성이 있습니다.
-1. **용어** . IList\<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem** 에는 다음 속성이 있습니다.
-1. **인덱스** . 용어의 0부터 시작하는 인덱스입니다.
-1. **용어** . 용어를 포함하는 문자열입니다.
-1. **타임 스탬프** . 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
+1. **용어**. IList\<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem** 에는 다음 속성이 있습니다.
+1. **인덱스**. 용어의 0부터 시작하는 인덱스입니다.
+1. **용어**. 용어를 포함하는 문자열입니다.
+1. **타임 스탬프**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
 대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
@@ -381,5 +381,3 @@ Press any key to close the application.
 이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 및 [Visual Studio 솔루션](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)을 가져옵니다.
 
 검토 도구에서 [비디오 검토](video-reviews-quickstart-dotnet.md)를 생성하는 방법을 알아봅니다.
-
-[완전한 비디오 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 개발하는 방법에 대한 자세한 자습서를 살펴봅니다.

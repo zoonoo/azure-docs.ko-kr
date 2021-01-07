@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 9/30/2020
+ms.date: 12/15/2020
 ms.subservice: alerts
-ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566489"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510685"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -41,10 +41,10 @@ ms.locfileid: "94566489"
 |Microsoft.ClassicCompute/domainNames/slots/roles | 예 | 예 | [클래식 Cloud Services](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
 |Microsoft.ClassicCompute/virtualMachines | 예 | 예 | [클래식 Virtual Machines](./metrics-supported.md#microsoftclassiccomputevirtualmachines) |
 |Microsoft.ClassicStorage/storageAccounts | 예 | 예 | [저장소 계정 (클래식)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
-|Microsoft.ClassicStorage/storageAccounts/blobServices | 예 | 예 | |
-|Microsoft.ClassicStorage/storageAccounts/fileServices | 예 | 예 | |
-|Microsoft.ClassicStorage/storageAccounts/queueServices | 예 | 예 | |
-|Microsoft.ClassicStorage/storageAccounts/tableServices | 예 | 예 | |
+|Microsoft.ClassicStorage/storageAccounts/blobServices | 예 | 예 | [저장소 계정 (클래식)-Blob](./metrics-supported.md#microsoftclassicstoragestorageaccountsblobservices) |
+|Microsoft.ClassicStorage/storageAccounts/fileServices | 예 | 예 | [저장소 계정 (클래식)-파일](./metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
+|Microsoft.ClassicStorage/storageAccounts/queueServices | 예 | 예 | [저장소 계정 (클래식)-큐](./metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
+|Microsoft.ClassicStorage/storageAccounts/tableServices | 예 | 예 | [저장소 계정 (클래식)-테이블](./metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | 예 | 예 | [Cognitive Services](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | 예 | 예<sup>1</sup> | [Virtual Machines](./metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | 예 | 예 |[가상 머신 확장 집합](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
@@ -57,10 +57,9 @@ ms.locfileid: "94566489"
 |Microsoft.DataShare/accounts | 예 | 예 | |
 |Microsoft.DBforMariaDB/servers | 예 | 예 | [MariaDB 용 DB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | 예 | 예 |[MySQL용 DB](./metrics-supported.md#microsoftdbformysqlservers)|
-|Microsoft.DBforPostgreSQL/flexibleServers | 예 | 예 | |
 |Microsoft.DBforPostgreSQL/servers | 예 | 예 | [PostgreSQL용 DB](./metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | 예 | 예 | [PostgreSQL V2 용 DB](./metrics-supported.md#microsoftdbforpostgresqlserversv2)|
-|DBforPostgreSQL/singleservers | 예 | 예 | [PostgreSQL 용 DB (단일 서버)](./metrics-supported.md#microsoftdbforpostgresqlsingleservers)|
+|Microsoft.DBforPostgreSQL/flexibleServers | 예 | 예 | [PostgreSQL 용 DB (유연한 서버)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | 예 | 예 |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| 예 | 예 | [장치 프로 비전 서비스](./metrics-supported.md#microsoftdevicesprovisioningservices) |
 |DigitalTwins/digitalTwinsInstances | 예 | 예 | |
@@ -85,7 +84,8 @@ ms.locfileid: "94566489"
 |Microsoft.Network/applicationGateways | 예 | 예 | [응용 프로그램 게이트웨이](./metrics-supported.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/azurefirewalls | 예 | 예 | [방화벽](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | 예 | 예 | [DNS 영역](./metrics-supported.md#microsoftnetworkdnszones) |
-|Microsoft.Network/expressRouteCircuits | 해당 없음 | 예 |[ExpressRoute 회로](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRouteCircuits | 예 | 예 |[Express 경로 회로](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
+|Microsoft.Network/expressRoutePorts | 예 | 예 |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (표준 SKU 전용)| 예| 예 | [부하 분산 장치](./metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft. Network/natGateways| 예 | 예 | |
 |Microsoft. Network/privateEndpoints| 예 | 예 | |
@@ -103,15 +103,21 @@ ms.locfileid: "94566489"
 |Microsoft.Sql/servers/databases | 예 | 예 | [SQL Databases](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servers/elasticPools | 예 | 예 | [SQL 탄력적 풀](./metrics-supported.md#microsoftsqlserverselasticpools) |
 |Microsoft.Storage/storageAccounts |예 | 예 | [Storage 계정](./metrics-supported.md#microsoftstoragestorageaccounts)|
-|Microsoft.Storage/storageAccounts/services | 예| 예 | [Blob 서비스](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [파일 서비스](./metrics-supported.md#microsoftstoragestorageaccountsfileservices), [큐 서비스](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) 및 [테이블 서비스](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.Storage/storageAccounts/blobServices | 예| 예 | [저장소 계정-Blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
+|Microsoft.Storage/storageAccounts/fileServices | 예| 예 | [저장소 계정-파일](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
+|Microsoft.Storage/storageAccounts/queueServices | 예| 예 | [저장소 계정-큐](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
+|Microsoft.Storage/storageAccounts/tableServices | 예| 예 | [저장소 계정-테이블](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
 |Microsoft.StorageCache/caches | 예 | 예 | |
 |Microsoft.storagesync/storageSyncServices | 예 | 예 | [스토리지 동기화 서비스](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | 예 | 예 | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
+|Microsoft.Synapse/workspaces | 예 | 예 | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |
+|Synapse/작업 영역/bigDataPools | 예 | 예 | [Synapse Analytics Apache Spark 풀](./metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
+|Synapse/workspaces/sqlPools | 예 | 예 | [Synapse Analytics SQL 풀](./metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |VMWareCloudSimple/virtualMachines | 예 | 예 | [CloudSimple Virtual Machines](./metrics-supported.md#microsoftvmwarecloudsimplevirtualmachines) |
 |Microsoft.Web/hostingEnvironments/multiRolePools | 예 | 예 | [App Service Environment 다중 역할 풀](./metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | 예 | 예 | [App Service Environment 작업자 풀](./metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | 예 | 예 | [App Service 계획](./metrics-supported.md#microsoftwebserverfarms)|
-|Microsoft.Web/sites | 예 | 예 | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) 및 [Functions](./metrics-supported.md#microsoftwebsites-functions)|
+|Microsoft.Web/sites | 예 | 예 | [App Services 및 Functions](./metrics-supported.md#microsoftwebsites)|
 |Microsoft.Web/sites/slots | 예 | 예 | [App Service 슬롯](./metrics-supported.md#microsoftwebsitesslots)|
 
 <sup>1</sup> 가상 컴퓨터 네트워크 메트릭 (총 네트워크, 총 네트워크, 인바운드 흐름, 아웃 바운드 흐름, 인바운드 흐름 최대 생성 비율, 아웃 바운드 흐름 최대 생성 비율) 및 사용자 지정 메트릭은 지원 되지 않습니다.

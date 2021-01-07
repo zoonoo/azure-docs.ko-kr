@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 0adb8d62d02325f92c77d2171eaafd6c2de16f0c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516348"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608819"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>자습서: TimeOffManager와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -114,7 +114,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -168,7 +168,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **Single Sign-On 설정** 페이지에서 **Assertion Consumer Service URL** 값을 복사하고 Azure Portal의 **기본 SAML 구성** 섹션 아래의 **회신 URL** 텍스트 상자에 붙여넣습니다. 
 
-      ![스크린샷은 Assertion Consumer Service URL 링크를 보여줍니다.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On 설정")
+    ![스크린샷은 Assertion Consumer Service URL 링크를 보여줍니다.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On 설정")
 
 ### <a name="create-timeoffmanager-test-user"></a>TimeOffManager 테스트 사용자 만들기
 

@@ -3,12 +3,12 @@ title: Azure 가상 네트워크와 Azure Functions 통합
 description: Azure 가상 네트워크에 함수를 연결 하는 방법을 보여 주는 단계별 자습서입니다.
 ms.topic: article
 ms.date: 4/23/2020
-ms.openlocfilehash: f50c923104fdfcf26f400f20f0de66a82eb3d245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efc936111d162d73b1cc5465ae6b677c9006ab32
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387526"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937022"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>자습서: Azure Virtual Network에 Azure Functions 통합
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 포털의 왼쪽 탐색 창에서 **+ 리소스 만들기** 를 선택 하 고 검색 필드에 `WordPress LEMP7 Max Performance` 를 입력 한 다음 enter 키를 누릅니다.
 
-1. 검색 결과에서 **Wordpress LEMP 최대 성능** 을 선택 합니다. **소프트웨어 요금제** 로 **Wordpress Lemp Max Performance** 의 소프트웨어 요금제를 선택 하 고 **만들기**를 선택 합니다.
+1. 검색 결과에서 **Wordpress LEMP 최대 성능** 을 선택 합니다. **소프트웨어 요금제** 로 **Wordpress Lemp Max Performance** 의 소프트웨어 요금제를 선택 하 고 **만들기** 를 선택 합니다.
 
 1. **기본 사항** 탭에서 VM 설정을 이미지 아래의 표에서 지정한 대로 사용합니다.
 
@@ -62,11 +62,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | **가상 머신 이름** | VNET-Wordpress | VM 이름은 리소스 그룹에서 고유해야 합니다. |
     | **[지역](https://azure.microsoft.com/regions/)** | 유럽 유럽 서부 | 가까운 지역 또는 VM에 액세스 하는 함수 근처의 지역을 선택 합니다. |
     | **크기** | B1s | **크기 변경** 을 선택한 다음 1 개의 vcpu 및 1gb의 메모리를 포함 하는 B1s 표준 이미지를 선택 합니다. |
-    | **인증 유형** | 암호 | 암호 인증을 사용 하려면 **사용자 이름**, 보안 **암호**및 **암호 확인**도 지정 해야 합니다. 이 자습서에서는 문제를 해결 해야 하는 경우가 아니면 VM에 로그인 할 필요가 없습니다. |
+    | **인증 유형** | 암호 | 암호 인증을 사용 하려면 **사용자 이름**, 보안 **암호** 및 **암호 확인** 도 지정 해야 합니다. 이 자습서에서는 문제를 해결 해야 하는 경우가 아니면 VM에 로그인 할 필요가 없습니다. |
 
-1. **네트워킹** 탭을 선택 하 고 가상 네트워크 구성에서 **새로 만들기**를 선택 합니다.
+1. **네트워킹** 탭을 선택 하 고 가상 네트워크 구성에서 **새로 만들기** 를 선택 합니다.
 
-1. **가상 네트워크 만들기**에서 이미지 아래의 표에서 설명하는 설정을 사용합니다.
+1. **가상 네트워크 만들기** 에서 이미지 아래의 표에서 설명하는 설정을 사용합니다.
 
     ![VM 만들기의 네트워킹 탭](./media/functions-create-vnet/create-vm-2.png)
 
@@ -77,17 +77,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | **서브넷 이름** | Tutorial-Net | 서브넷 이름입니다. |
     | **주소 범위**(서브넷) | 10.10.1.0/24   | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의합니다. 이 서브넷은 WordPress 사이트에서 사용 됩니다.  `/24`서브넷은 254 호스트 주소를 제공 합니다. |
 
-1. **확인**을 선택하여 가상 네트워크를 만듭니다.
+1. **확인** 을 선택하여 가상 네트워크를 만듭니다.
 
-1. **네트워킹** 탭으로 돌아가서 **공용 IP**에 대해 **없음** 을 선택 합니다.
+1. **네트워킹** 탭으로 돌아가서 **공용 IP** 에 대해 **없음** 을 선택 합니다.
 
-1. **관리** 탭을 선택한 다음, **진단 저장소 계정**에서 함수 앱을 사용 하 여 만든 저장소 계정을 선택 합니다.
+1. **관리** 탭을 선택한 다음, **진단 저장소 계정** 에서 함수 앱을 사용 하 여 만든 저장소 계정을 선택 합니다.
 
-1. **검토 + 만들기**를 선택합니다. 유효성 검사가 완료되면 **만들기**를 선택합니다. VM 만들기 프로세스는 몇 분 정도 걸립니다. 만든 VM은 가상 네트워크에만 액세스할 수 있습니다.
+1. **검토 + 만들기** 를 선택합니다. 유효성 검사가 완료되면 **만들기** 를 선택합니다. VM 만들기 프로세스는 몇 분 정도 걸립니다. 만든 VM은 가상 네트워크에만 액세스할 수 있습니다.
 
-1. VM을 만든 후 **리소스로 이동** 을 선택 하 여 새 VM에 대 한 페이지를 표시 한 다음 **설정**아래에서 **네트워킹** 을 선택 합니다.
+1. VM을 만든 후 **리소스로 이동** 을 선택 하 여 새 VM에 대 한 페이지를 표시 한 다음 **설정** 아래에서 **네트워킹** 을 선택 합니다.
 
-1. **공용 IP**가 없는지 확인 합니다. 함수 앱에서 VM에 연결 하는 데 사용 하는 **개인 IP**를 기록해 둡니다.
+1. **공용 IP** 가 없는지 확인 합니다. 함수 앱에서 VM에 연결 하는 데 사용 하는 **개인 IP** 를 기록해 둡니다.
 
     ![VM의 네트워킹 설정](./media/functions-create-vnet/vm-networking.png)
 
@@ -99,15 +99,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 새 함수 앱의 왼쪽 메뉴에서 **네트워킹** 을 선택 합니다.
 
-1. **VNet 통합**에서 **구성하려면 클릭**을 선택하세요.
+1. **VNet 통합** 에서 **구성하려면 클릭** 을 선택하세요.
 
     :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="함수 앱에서 네트워킹 선택":::
 
-1. **VNET 통합** 페이지에서 **VNET 추가**를 선택 합니다.
+1. **VNET 통합** 페이지에서 **VNET 추가** 를 선택 합니다.
 
-    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="함수 앱에서 네트워킹 선택":::
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="VNet 통합 미리 보기 추가":::
 
-1. **네트워크 기능 상태**에서 이미지 아래 표의 설정을 사용 합니다.
+1. **네트워크 기능 상태** 에서 이미지 아래 표의 설정을 사용 합니다.
 
     ![함수 앱 가상 네트워크 정의](./media/functions-create-vnet/networking-3.png)
 
@@ -127,9 +127,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만들어 가상 네트워크에서 실행 중인 VM에 요청을 전달할 수 있습니다.
 
-1. 함수 앱의 왼쪽 메뉴에서  **프록시** 를 선택 하 고 **추가**를 선택 합니다. 이미지 아래 테이블의 프록시 설정을 사용 합니다.
+1. 함수 앱의 왼쪽 메뉴에서  **프록시** 를 선택 하 고 **추가** 를 선택 합니다. 이미지 아래 테이블의 프록시 설정을 사용 합니다.
 
-    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="함수 앱에서 네트워킹 선택":::
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="프록시 설정 정의":::
 
     | 설정  | 제안 값  | 설명      |
     | -------- | ---------------- | ---------------- |
@@ -139,9 +139,9 @@ VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만�
 
 1. **만들기** 를 선택 하 여 함수 앱에 프록시를 추가 합니다.
 
-## <a name="try-it-out"></a>체험
+## <a name="try-it-out"></a>사용해 보기
 
-1. 브라우저에서 **백 엔드 url**로 사용한 url에 액세스를 시도 합니다. 예상 대로 요청 시간이 초과 됩니다. WordPress 사이트는 인터넷이 아닌 가상 네트워크에만 연결 되므로 시간 초과가 발생 합니다.
+1. 브라우저에서 **백 엔드 url** 로 사용한 url에 액세스를 시도 합니다. 예상 대로 요청 시간이 초과 됩니다. WordPress 사이트는 인터넷이 아닌 가상 네트워크에만 연결 되므로 시간 초과가 발생 합니다.
 
 1. 새 프록시에서 **프록시 URL** 값을 복사 하 여 브라우저의 주소 표시줄에 붙여 넣습니다. 반환 된 이미지는 가상 네트워크 내에서 실행 되는 WordPress 사이트에서 가져온 것입니다.
 
@@ -160,4 +160,4 @@ VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만�
 > [!div class="nextstepaction"]
 > [Functions 네트워킹 옵션에 대한 자세한 정보](./functions-networking-options.md)
 
-[프리미엄 계획]: functions-scale.md#premium-plan
+[프리미엄 계획]: functions-premium-plan.md

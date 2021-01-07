@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f1a7bffc05d83b30fe9e5bcd6e17bf6bc0192e1d
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88650583"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348945"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>고객 관리형 키를 사용하여 Azure Data Factory 암호화
 
@@ -47,16 +47,16 @@ Azure Key Vault는 고객 관리형 키를 저장하는 데 필요합니다. 사
 
 Data Factory에서 고객 관리형 키를 사용하려면 Key Vault에서 __일시 삭제__ 및 __삭제 안 함__ 속성을 설정해야 합니다. 두 속성은 새로운 또는 기존 키 자격 증명 모음에서 PowerShell 또는 Azure CLI를 사용하여 설정할 수 있습니다. 기존 키 자격 증명 모음에서 이러한 속성을 사용하려면 다음 문서 중 하나에서 _일시 삭제를 사용하도록 설정_ 및 _제거 보호 활성화_ 섹션을 참조하세요.
 
-- [PowerShell에서 일시 삭제를 사용하는 방법](../key-vault/general/soft-delete-powershell.md)
-- [CLI에서 일시 삭제를 사용하는 방법](../key-vault/general/soft-delete-cli.md)
+- [PowerShell에서 일시 삭제를 사용하는 방법](../key-vault/general/key-vault-recovery.md)
+- [CLI에서 일시 삭제를 사용하는 방법](../key-vault/general/key-vault-recovery.md)
 
-Azure Portal을 통해 새 Azure Key Vault를 만드는 경우 다음과 같이 __일시 삭제__ 및 __삭제 안 함__을 사용하도록 설정할 수 있습니다.
+Azure Portal을 통해 새 Azure Key Vault를 만드는 경우 다음과 같이 __일시 삭제__ 및 __삭제 안 함__ 을 사용하도록 설정할 수 있습니다.
 
   ![Key Vault를 만들 때 일시 삭제 및 제거 보호를 사용하도록 설정하는 스크린샷](media/enable-customer-managed-key/01-enable-purge-protection.png)
 
 ### <a name="grant-data-factory-access-to-azure-key-vault"></a>Data Factory에 Azure Key Vault에 대한 액세스 권한 부여
 
-Azure Key Vault와 Azure Data Factory가 동일한 Azure AD(Azure Active Directory) 테넌트에 있어야 하고 또 _동일한 지역_에 있어야 합니다. Azure Key Vault 액세스 제어에서 데이터 팩터리의 MSI(관리되는 서비스 ID)에 _가져오기_, _키 래핑 해제_ 및 _키 래핑_ 권한을 부여합니다. 이러한 권한은 Data Factory에서 고객 관리형 키를 사용하도록 설정하는 데 필요합니다.
+Azure Key Vault와 Azure Data Factory가 동일한 Azure AD(Azure Active Directory) 테넌트에 있어야 하고 또 _동일한 지역_ 에 있어야 합니다. Azure Key Vault 액세스 제어에서 데이터 팩터리의 MSI(관리되는 서비스 ID)에 _가져오기_, _키 래핑 해제_ 및 _키 래핑_ 권한을 부여합니다. 이러한 권한은 Data Factory에서 고객 관리형 키를 사용하도록 설정하는 데 필요합니다.
 
   ![Data Factory가 Key Vault에 액세스할 수 있도록 설정하는 스크린샷](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
 
@@ -84,7 +84,7 @@ Azure Key Vault와 Azure Data Factory가 동일한 Azure AD(Azure Active Directo
 
 1. 앞에서 복사한 고객 관리형 키의 URI를 입력합니다.
 
-1. __저장__을 클릭하면 Data Factory에 고객 관리형 키 암호화가 사용됩니다.
+1. __저장__ 을 클릭하면 Data Factory에 고객 관리형 키 암호화가 사용됩니다.
 
 ## <a name="update-key-version"></a>키 버전 업데이트
 
@@ -96,7 +96,7 @@ Azure Key Vault와 Azure Data Factory가 동일한 Azure AD(Azure Active Directo
 
 1. 새 키의 URI를 붙여넣습니다.
 
-1. __저장__을 클릭하면 이제부터 Data Factory는 새 키 버전을 암호화에 사용합니다.
+1. __저장__ 을 클릭하면 이제부터 Data Factory는 새 키 버전을 암호화에 사용합니다.
 
 ## <a name="use-a-different-key"></a>다른 키 사용
 
@@ -108,7 +108,7 @@ Data Factory 암호화에 사용되는 키를 변경하려면 Data Factory에서
 
 1. 새 키의 URI를 붙여넣습니다.
 
-1. __저장__을 클릭하면 이제부터 Data Factory는 새 키를 암호화에 사용합니다.
+1. __저장__ 을 클릭하면 이제부터 Data Factory는 새 키를 암호화에 사용합니다.
 
 ## <a name="disable-customer-managed-keys"></a>고객 관리형 키 사용 안 함
 

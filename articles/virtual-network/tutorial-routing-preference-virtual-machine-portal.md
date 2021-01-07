@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: b2f3635c8280bdd95e8ad1259fe4ae35f8b531a4
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 35e4b90e9bdd52a20bf892f0784b191384f271ac
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042819"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533709"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -28,12 +28,6 @@ ms.locfileid: "93042819"
 > [!IMPORTANT]
 > 라우팅 기본 설정은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-## <a name="register-the-feature-for-your-subscription"></a>구독에 대한 기능 등록
-라우팅 기본 설정 기능은 현재 미리 보기로 제공됩니다. 다음과 같이 Azure PowerShell을 사용하여 구독에 대한 기능을 등록해야 합니다.
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature ProviderNamespace Microsoft.Network
-```
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342351"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96008432"
 ---
 # <a name="get-help-with-your-system"></a>시스템 지원 받기
 
@@ -27,17 +27,17 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
 다음 단계에 따라 지원 티켓의 태그가 클러스터의 리소스로 지정되었는지 확인합니다. 티켓에 태그를 지정하면 올바른 지원 리소스로 라우팅하는 데 도움이 됩니다.
 
-1. 에서 [https://portal.azure.com](https://portal.azure.com) **리소스 그룹**을 선택 합니다. 문제가 발생 한 vFXT 클러스터가 포함 된 리소스 그룹을 찾아 Avere 클러스터 가상 머신 중 하나를 클릭 합니다.
+1. 에서 [https://portal.azure.com](https://portal.azure.com) **리소스 그룹** 을 선택 합니다. 문제가 발생 한 vFXT 클러스터가 포함 된 리소스 그룹을 찾아 Avere 클러스터 가상 머신 중 하나를 클릭 합니다.
 
     ![원으로 표시된 특정 VM이 있는 Azure Portal 리소스 그룹 "개요" 패널의 스크린샷](media/avere-vfxt-ticket-vm.png)
 
-1. VM 페이지의 왼쪽 패널에서 아래쪽으로 스크롤하고 **새 지원 요청**을 클릭합니다.
+1. VM 페이지의 왼쪽 패널에서 아래쪽으로 스크롤하고 **새 지원 요청** 을 클릭합니다.
 
     ![이전 스크린샷의 VM에 대한 Azure Portal VM 페이지의 스크린샷 왼쪽 메뉴는 아래쪽으로 스크롤됩니다. ' 새 지원 요청 '은 원으로 되어 있습니다.](media/avere-vfxt-ticket-request.png)
 
 1. 지원 요청의 첫 페이지에서 문제 유형을 선택 하 고 올바른 구독을 선택 했는지 확인 합니다.
 
-   **서비스**에서 **모든 서비스** 를 클릭 하 고 **저장소** 아래에서 **Avere vFXT**를 선택 합니다.
+   **서비스** 에서 **모든 서비스** 를 클릭 하 고 **저장소** 아래에서 **Avere vFXT** 를 선택 합니다.
 
    간단한 요약을 추가 하 고 문제 유형을 선택 합니다.
 
@@ -53,7 +53,7 @@ Avere vFXT를 배포하거나 사용하는 동안 문제가 발생하면 Azure P
 
    ![세부 정보 탭이 선택 된 새 지원 요청 화면의 스크린샷 정보 필드는 ' 문제 세부 정보 ', ' 지원 방법 ' 및 "연락처 정보 ' 범주로 구성 됩니다.](media/ticket-details.png)
 
-1. 최종 페이지의 정보를 검토 하 고 **만들기**를 클릭 합니다. 확인 및 티켓 번호가 사용자의 이메일 주소로 전송되고, 지원 담당자가 연락을 드립니다.
+1. 최종 페이지의 정보를 검토 하 고 **만들기** 를 클릭 합니다. 확인 및 티켓 번호가 사용자의 이메일 주소로 전송되고, 지원 담당자가 연락을 드립니다.
 
 ## <a name="request-a-quota-increase"></a>할당량 증가 요청
 

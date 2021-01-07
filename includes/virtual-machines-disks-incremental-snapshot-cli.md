@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bdeef537556db94338ed50fcfa6e9d88431f25a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82204604"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96016263"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
 
@@ -29,9 +29,9 @@ Windows에서 다음 명령을 설치 하거나 기존 설치를 최신 버전�
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-Linux에서 CLI 설치는 운영 체제 버전에 따라 달라 집니다.  특정 Linux 버전에 대 한 [Azure CLI 설치를](https://docs.microsoft.com/cli/azure/install-azure-cli) 참조 하세요.
+Linux에서 CLI 설치는 운영 체제 버전에 따라 달라 집니다.  특정 Linux 버전에 대 한 [Azure CLI 설치를](/cli/azure/install-azure-cli) 참조 하세요.
 
-증분 스냅숏을 만들려면 [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) 를 `--incremental` 매개 변수와 함께 사용 합니다.
+증분 스냅숏을 만들려면 [az snapshot create](/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) 를 `--incremental` 매개 변수와 함께 사용 합니다.
 
 다음 예에서는 `<yourDesiredSnapShotNameHere>` ,, `<yourResourceGroupNameHere>` 및를 `<exampleDiskName>` `<exampleLocation>` 고유한 값으로 바꾼 다음 예제를 실행 하는 증분 스냅숏을 만듭니다.
 

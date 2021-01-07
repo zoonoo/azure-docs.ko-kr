@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: MightyPen
-ms.author: genemi
-ms.reviewer: jrasnik
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791276"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501212"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 데이터베이스의 확장 이벤트 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 - [빠른 시작: SQL Server의 확장 이벤트](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [확장 이벤트](/sql/relational-databases/extended-events/extended-events)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
@@ -73,7 +73,7 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 
 확장 이벤트 기능은 여러 [카탈로그 뷰](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
-| 카탈로그 뷰의<br/>이름 | Description |
+| 카탈로그 뷰의<br/>이름 | 설명 |
 |:--- |:--- |
 | **sys.database_event_session_actions** |이벤트 세션의 각 이벤트의 동작에 대해 한 행을 반환합니다. |
 | **sys.database_event_session_events** |이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
@@ -87,7 +87,7 @@ Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database
 
 Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views)가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
-| DMV의 이름 | Description |
+| DMV의 이름 | 설명 |
 |:--- |:--- |
 | **sys.dm_xe_database_session_event_actions** |이벤트 세션 동작에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_session_events** |세션 이벤트에 대한 정보를 반환합니다. |
@@ -97,7 +97,7 @@ Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰
 
 Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름의 *\_ 데이터베이스* 부분 없이 이름이 지정 됩니다.
 
-- **sys.dm_xe_sessions** , 이름 대신<br/>**sys.dm_xe_database_sessions** .
+- **sys.dm_xe_sessions**, 이름 대신<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>둘 다에 공통적인 DMV
 

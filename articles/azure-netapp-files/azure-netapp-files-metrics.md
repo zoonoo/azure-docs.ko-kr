@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d653916c9b50d552825fcb03a860a2a2008b204d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a17e6cc0479cf8ff2306736994a369d9e44dfdda
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578521"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745947"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -42,10 +42,8 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>볼륨에 대한 사용량 메트릭
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
-- *Percentage Volume Consumed Size*    
-    The percentage of the volume consumed, including snapshots.  
--->
+- *사용 된 볼륨 크기 비율*    
+    스냅숏을 포함 하 여 사용 된 볼륨의 백분율입니다.  
 - *볼륨 할당 크기*   
     프로 비전 된 볼륨 크기
 - *볼륨 할당량 크기*    

@@ -8,15 +8,19 @@ metadata:
   ms.date: 08/30/2019
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.openlocfilehash: eb60085cd76fa9d3857b5e284b2cdd03f35fcb13
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3b5e88b17136852129a408dff5c4f4fbf304c23a
+  ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "70172687"
+  ms.lasthandoff: 12/22/2020
+  ms.locfileid: "97732906"
 landingContent:
 - title: Azure Data Catalog 정보
   linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Azure Purview - 차세대 통합 데이터 거버넌스
+      url: ../purview/overview.md
   - linkListType: overview
     links:
     - text: Azure 데이터 카탈로그란?
@@ -27,7 +31,7 @@ landingContent:
       url: data-catalog-get-started.md
   - linkListType: concept
     links:
-    - text: 자주 묻는 질문
+    - text: 질문과 대답
       url: data-catalog-frequently-asked-questions.md
 - title: 데이터 자산 등록
   linkLists:

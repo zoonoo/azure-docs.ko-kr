@@ -3,15 +3,15 @@ title: 서버 관리-Azure CLI-Azure Database for PostgreSQL
 description: Azure CLI에서 Azure Database for PostgreSQL 서버를 관리 하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
-ms.service: mysql
+ms.service: postgresql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: d99634388b9c4db99c996cfccb9bb5f12682f217
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ea07e2bc12e6fc0d62abd462b8537c6a93689f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490121"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935804"
 ---
 # <a name="manage-an-azure-database-for-postgresql-single-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "92490121"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 이 문서에서는 Azure CLI 버전 2.0 이상을 로컬로 실행해야 합니다. 설치된 버전을 확인하려면 `az --version` 명령을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID**를 참조하는 **id** 속성을 기록해 둡니다.
+[az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
 
 ```azurecli-interactive
 az login
@@ -62,7 +62,7 @@ storage-size | 6144 | 서버의 스토리지 용량입니다(단위는 메가바
 ## <a name="manage-postgresql-databases-on-a-server"></a>서버에서 PostgreSQL 데이터베이스를 관리 합니다.
 이러한 명령 중 하나를 사용 하 여 서버에 있는 데이터베이스의 데이터베이스 속성을 만들고, 삭제 하 고, 나열 하 고, 볼 수 있습니다.
 
-| cmdlet | 사용| Description |
+| Cmdlet | 사용| Description |
 | --- | ---| --- |
 |[az postgres db create](/cli/azure/sql/db#az-mysql-db-create)|```az postgres db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |데이터베이스 만들기|
 |[az postgres db delete](/cli/azure/sql/db#az-mysql-db-delete)|```az postgres db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|서버에서 데이터베이스를 삭제 합니다. 이 명령은 서버를 삭제 하지 않습니다. |

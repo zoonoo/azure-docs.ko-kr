@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735923"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696866"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -48,17 +48,17 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성합니다.
 
-* **프런트 엔드 IP 구성** : 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
-* **백 엔드 주소 풀** : 부하 분산 장치의 네트워크 트래픽을 수신하기 위해 가상 머신에 NIC(네트워크 인터페이스)를 포함합니다.
-* **부하 분산 규칙** : 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
-* **인바운드 NAT 규칙** : 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 NAT(Network Address Translation) 규칙을 포함합니다.
-* **프로브** : 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
+* **프런트 엔드 IP 구성**: 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
+* **백 엔드 주소 풀**: 부하 분산 장치의 네트워크 트래픽을 수신하기 위해 가상 머신에 NIC(네트워크 인터페이스)를 포함합니다.
+* **부하 분산 규칙**: 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 NAT(Network Address Translation) 규칙을 포함합니다.
+* **프로브**: 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
 ## <a name="set-up-azure-cli"></a>Azure CLI 설치
 
 이 예제의 PowerShell 명령 창에서 Azure CLI 도구를 실행합니다. 가독성 및 재사용을 개선하기 위해 Azure PowerShell cmdlet이 아닌 PowerShell의 스크립팅 기능을 사용합니다.
 
-1. 연결된 문서의 단계에 따라 [Azure CLI를 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 Azure 계정에 로그인합니다.
+1. 연결된 문서의 단계에 따라 [Azure CLI를 설치 및 구성](/cli/azure/install-azure-cli?view=azure-cli-latest)하고 Azure 계정에 로그인합니다.
 
 2. Azure CLI 명령과 함께 사용할 PowerShell 변수를 설정합니다.
 
@@ -284,7 +284,7 @@ VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 
     ```
 
     > [!WARNING]
-    > 이 예제에서는 일반 텍스트인 VM의 사용자 이름 및 비밀번호를 사용합니다. 일반 텍스트인 이러한 자격 증명을 사용할 경우 적절한 조치를 취합니다. PowerShell에서 자격 증명을 처리 하는 보다 안전한 방법은 cmdlet을 참조 하세요 [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) .
+    > 이 예제에서는 일반 텍스트인 VM의 사용자 이름 및 비밀번호를 사용합니다. 일반 텍스트인 이러한 자격 증명을 사용할 경우 적절한 조치를 취합니다. PowerShell에서 자격 증명을 처리 하는 보다 안전한 방법은 cmdlet을 참조 하세요 [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) .
 
 2. 가용성 집합을 만듭니다.
 
@@ -299,5 +299,3 @@ VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

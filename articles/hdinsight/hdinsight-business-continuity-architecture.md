@@ -8,12 +8,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547030"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344116"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 비즈니스 연속성 아키텍처
 
@@ -50,13 +50,13 @@ Hive 이벤트 기반 복제는 기본 클러스터와 보조 클러스터 간�
 
 *주문형 보조 아키텍처가 포함 된 활성 기본* 에서 응용 프로그램은 정상 작업 중에 보조 지역에 클러스터가 프로 비전 되지 않은 상태에서 활성 주 지역에 기록 합니다. 보조 지역의 SQL Metastore 및 저장소는 영구적 이며, HDInsight 클러스터는 예약 된 Hive 복제가 실행 되기 전에만 주문형으로 스크립팅된 방식으로 배포 됩니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="주문형 보조를 사용 하는 활성 주":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>대기 보조를 사용 하는 Hive 활성 주
 
 대기 보조 데이터베이스를 사용 하는 *활성 주* 에서 응용 프로그램은 활성 주 지역에 기록 하는 반면, 정상 작업 중에는 읽기 전용 모드의 대기 상태의 보조 클러스터가 실행 됩니다. 정상적인 작업 중에는 지역별 특정 읽기 작업을 보조 복제본으로 오프 로드 하도록 선택할 수 있습니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="대기 보조를 사용 하는 활성 주":::
 
 Hive 복제 및 코드 샘플에 대 한 자세한 내용은 [Azure HDInsight 클러스터의 Apache Hive 복제](./interactive-query/apache-hive-replication.md) 를 참조 하세요.
 
@@ -85,13 +85,13 @@ HDInsight에서 기본적으로 제공 하는 것 이상의 사용자 지정 라
 
 응용 프로그램은 기본 지역에서 Spark 및 Hive 클러스터를 읽고 쓰며, 정상 작업 중에는 보조 지역에 클러스터가 프로 비전 되지 않습니다. SQL Metastore, Hive 저장소 및 Spark 저장소는 보조 지역에서 지속 됩니다. Spark 및 Hive 클러스터는 주문형으로 스크립팅 및 배포 됩니다. Hive 복제는 Azure Data Factory를 사용 하 여 `DistCP` 독립 실행형 Spark 저장소를 복사할 수 있는 동안 Hive 저장소 및 hive metastore를 복제 하는 데 사용 됩니다. Hive 클러스터는 종속성 계산으로 인해 모든 Hive 복제가 실행 되기 전에 배포 해야 `DistCp` 합니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary-spark.png" alt-text="주문형 보조 Apache Spark 아키텍처를 사용 하는 활성 주":::
 
 #### <a name="spark-active-primary-with-standby-secondary"></a>대기 보조를 사용 하는 Spark 활성 주
 
 응용 프로그램은 주 지역에서 Spark 및 Hive 클러스터를 읽고 쓰며, 읽기 전용 모드의 대기 확장 Hive 및 Spark 클러스터는 정상 작업 중에 보조 지역에서 실행 됩니다. 정상적인 작업 중에는 지역별 Hive 및 Spark 읽기 작업을 보조 복제본으로 오프 로드 하도록 선택할 수 있습니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="활성 주 대기 보조 Apache Spark ":::
 
 ## <a name="apache-hbase"></a>Apache HBase
 
@@ -131,19 +131,19 @@ HBase 복제는 채움선-종동체, Leader-Leader 및 순환의 세 가지 모�
 
 보조 클러스터는 자체 테이블을 호스트할 수 있고 지역 응용 프로그램에서 읽기와 쓰기를 제공할 수 있는 일반적인 HBase 클러스터로 작동 합니다. 그러나 복제 된 테이블이 나 보조에 대 한 기본 테이블의 쓰기는 주 복제본으로 다시 복제 되지 않습니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="HBase 리더 종동체 모델":::
 
 #### <a name="hbase-replication--leader--leader-model"></a>HBase 복제: 리더-리더 모델
 
 이 지역 간 설정은 복제가 주 지역 및 보조 지역 간에 양방향으로 발생 한다는 점을 제외 하 고 설정 된 단방향과 매우 비슷합니다. 응용 프로그램은 읽기-쓰기 모드에서 두 클러스터를 모두 사용할 수 있으며 업데이트는 비동기 방식으로 교환 됩니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase 리더 리더 모델":::
 
 #### <a name="hbase-replication-multi-region-or-cyclic"></a>HBase 복제: 다중 지역 또는 순환
 
 다중 지역/순환 복제 모델은 HBase 복제의 확장 이며, 지역 특정 HBase 클러스터를 읽고 쓰는 여러 응용 프로그램을 사용 하 여 전역적으로 중복 된 HBase 아키텍처를 만드는 데 사용할 수 있습니다. 비즈니스 요구 사항에 따라 리더/리더 또는 리더/종동체의 다양 한 조합으로 클러스터를 설정할 수 있습니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-cyclic.png" alt-text="HBase 순환 모델":::
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
@@ -151,7 +151,7 @@ HBase 복제는 채움선-종동체, Leader-Leader 및 순환의 세 가지 모�
 
 복제 시작 시 항목 수명에 따라 MirrorMaker 토픽 복제에서 원본 및 복제본 항목 간에 다른 오프셋이 발생할 수 있습니다. HDInsight Kafka 클러스터는 개별 클러스터 수준에서 고가용성 기능인 토픽 파티션 복제도 지원 합니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-replication.png" alt-text="Apache Kafka 복제":::
 
 ### <a name="apache-kafka-architectures"></a>Apache Kafka 아키텍처
 
@@ -172,7 +172,7 @@ Active-Passive 설치 프로그램을 사용 하면 활성에서 수동으로의
 * 활성 클러스터와 수동 클러스터 간에 항목 간의 최종 일관성
 * 장애 조치 (주)를 주 복제본으로 백업 하면 항목에서 메시지 불일치가 발생할 수 있습니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-passive.png" alt-text="활성 수동 모델 Apache Kafka":::
 
 #### <a name="kafka-replication-active--active"></a>Kafka 복제: 활성-활성
 
@@ -188,7 +188,7 @@ Active-Active 설정에는 MirrorMaker를 사용 하는 양방향 비동기 복�
 * 순환 복제의 문제를 해결 해야 합니다.  
 * 양방향 복제는 더 높은 지역 데이터 송신 비용을 초래 합니다.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="활성 활성 모델 Apache Kafka":::
 
 ## <a name="hdinsight-enterprise-security-package"></a>HDInsight Enterprise Security Package
 
@@ -198,11 +198,11 @@ Active-Active 설정에는 MirrorMaker를 사용 하는 양방향 비동기 복�
 
 레인저 Metastore는 데이터 권한 부여를 제어 하기 위한 레인저 정책을 영구적으로 저장 하 고 제공 하는 데 사용 됩니다. 기본 및 보조에서 독립 된 레인저 정책을 유지 하 고 보조 복제본을 읽기 복제본으로 유지 하는 것이 좋습니다.
   
-기본 및 보조 간에 레인저 정책을 동기화 상태로 유지 해야 하는 경우에는 [레인저 import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export#:~:text=Ranger%20has%20introduced%20a%20new,can%20import%20and%20export%20policies.&text=Also%20can%20export%2Fimport%20a,repositories\)%20via%20Ranger%20Admin%20UI) 를 사용 하 여 정기적으로 백업 하 고 기본에서 보조로의 레인저 정책을 가져옵니다.
+기본 및 보조 간에 레인저 정책을 동기화 상태로 유지 해야 하는 경우에는 [레인저 import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) 를 사용 하 여 정기적으로 백업 하 고 기본에서 보조로의 레인저 정책을 가져옵니다.
 
 주 데이터베이스와 보조 데이터베이스 간에 레인저 정책을 복제 하면 보조 복제본이 쓰기 가능 해질 수 있으며,이로 인해 보조 복제본에서 데이터 불일치를 발생 시킬 수 있습니다.  
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="Hive 및 대화형 쿼리 아키텍처":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hdinsight-enterprise-security-package.png" alt-text="HDInsight Enterprise Security Package 아키텍처":::
 
 ## <a name="next-steps"></a>다음 단계
 

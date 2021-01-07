@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 5be99ba09032020abf777c80307e347658a6e037
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 2b5a34e8f3e7132a16ad3683b846d57e9ece2cb6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470953"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015472"
 ---
 이 빠른 시작에서는 다음을 포함하여 Speech SDK를 사용하는 Speaker Recognition에 대한 기본적인 디자인 패턴을 알아봅니다.
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 만들어야 합니다. 이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true)를 만듭니다. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
+음성 SDK를 사용하여 음성 서비스를 호출하려면 [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet)를 만들어야 합니다. 이 예제에서는 구독 키와 지역을 사용하여 [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet)를 만듭니다. 또한 이 문서의 나머지 부분에 사용할 몇 가지 기본 상용구 코드를 만들 수 있습니다. 이 문서의 나머지 부분에서는 사용자 지정을 위해 수정합니다.
 
 지역은 서비스에 대해 지원되는 유일한 지역이므로 `westus`로 설정 됩니다.
 
@@ -70,7 +70,7 @@ public class Program
 
 ## <a name="text-dependent-verification"></a>텍스트-종속 확인
 
-Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 일치하는지 확인하는 행위입니다. 첫 번째 단계는 음성 프로필을 **등록** 하는 것입니다. 따라서 서비스에 향후 음성 샘플과 비교할 내용이 있습니다. 이 예제에서는 **텍스트-종속** 전략을 사용 하여 프로필을 등록합니다. 이 전략을 사용 하려면 등록 및 확인에 대한 지정 암호 구문 목록을 사용해야 합니다. 지원되는 암호 구문 목록은 [참조 문서](https://docs.microsoft.com/rest/api/speakerrecognition/)를 확인하세요.
+Speaker Verification는 화자가 알려진 또는 **등록된** 음성으로 일치하는지 확인하는 행위입니다. 첫 번째 단계는 음성 프로필을 **등록** 하는 것입니다. 따라서 서비스에 향후 음성 샘플과 비교할 내용이 있습니다. 이 예제에서는 **텍스트-종속** 전략을 사용 하여 프로필을 등록합니다. 이 전략을 사용 하려면 등록 및 확인에 대한 지정 암호 구문 목록을 사용해야 합니다. 지원되는 암호 구문 목록은 [참조 문서](/rest/api/speakerrecognition/)를 확인하세요.
 
 먼저 `Program` 클래스에서 다음 함수를 만들어 음성 프로필을 등록합니다.
 
@@ -127,7 +127,7 @@ public static async Task SpeakerVerify(SpeechConfig config, VoiceProfile profile
 
 이 함수에서는 확인을 위해 모델을 초기화 하기 위해 방금 만든 `VoiceProfile` 개체를 전달합니다. 그런 다음 `await speakerRecognizer.RecognizeOnceAsync(model)`은 암호 구문을 다시 입력하라는 메시지를 표시하지만 이번에는 음성 프로필에 대해 유효성을 검사하고 0.0-1.0 범위의 유사성 점수를 반환합니다. 또한 `result` 개체는 암호 구문의 일치 여부에 따라 `Accept` 또는 `Reject`을 반환합니다.
 
-다음으로 `Main()` 함수를 수정하여 만든 새 함수를 호출합니다. 또한 함수 호출을 통해 참조로 전달되는 `Dictionary<string, string>`을 만듭니다. 이는 서비스에서 사용자가 읽을 수 있는 이름을 만든 `VoiceProfile`에 저장할 수 없고 개인 정보 취급 방침에 대해서만 ID 번호를 저장하기 때문입니다. `VerificationEnroll` 함수에서 텍스트 이름과 함께 새로 만든 ID를 사용하여 이 사전에 항목을 추가합니다. 사람이 읽을 수 있는 이름을 표시해야 하는 애플리케이션 개발 시나리오에서 **이 매핑을 저장해야 하고 서비스는 저장할 수 없습니다** .
+다음으로 `Main()` 함수를 수정하여 만든 새 함수를 호출합니다. 또한 함수 호출을 통해 참조로 전달되는 `Dictionary<string, string>`을 만듭니다. 이는 서비스에서 사용자가 읽을 수 있는 이름을 만든 `VoiceProfile`에 저장할 수 없고 개인 정보 취급 방침에 대해서만 ID 번호를 저장하기 때문입니다. `VerificationEnroll` 함수에서 텍스트 이름과 함께 새로 만든 ID를 사용하여 이 사전에 항목을 추가합니다. 사람이 읽을 수 있는 이름을 표시해야 하는 애플리케이션 개발 시나리오에서 **이 매핑을 저장해야 하고 서비스는 저장할 수 없습니다**.
 
 ```csharp
 static async Task Main(string[] args)

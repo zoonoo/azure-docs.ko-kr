@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: tamram
-ms.openlocfilehash: 0bf9d6eb68536588b35df93e13b04841d7868d31
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: edadcc4025913052e048ea94d47cac253e4bcd1a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547159"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523334"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -31,7 +31,7 @@ Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 1. Azure Portal의 새 스토리지 계정으로 이동합니다.
 2. 스토리지 계정의 왼쪽 메뉴에서 **Blob 서비스** 섹션이 나올 때까지 스크롤한 다음, **컨테이너** 를 선택합니다.
 3. **+ 컨테이너** 단추를 선택합니다.
-4. 새 컨테이너의 이름을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+4. 새 컨테이너의 이름을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 5. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **프라이빗(익명 액세스 없음)** 입니다.
 6. **확인** 을 선택하여 컨테이너를 만듭니다.
 
@@ -47,7 +47,7 @@ Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 1. 컨테이너를 선택하여 그 안에 있는 BLOB 목록을 표시합니다. 이 컨테이너는 새 컨테이너이므로 아직 포함된 Blob이 없습니다.
 1. **업로드** 단추를 선택하여 업로드 블레이드를 열고 로컬 파일 시스템을 탐색하여 블록 Blob으로 업로드할 파일을 찾습니다. 필요에 따라 **고급** 섹션을 확장하여 업로드 작업에 대한 다른 설정을 구성할 수 있습니다.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Azure Portal을 통해 로컬 드라이브의 BLOB을 업로드하는 방법을 보여 주는 스크린샷":::
 
 1. **업로드** 단추를 선택하여 BLOB을 업로드합니다.
 1. 이렇게 원하는 만큼의 BLOB을 업로드합니다. 이제 컨테이너 안에 새 BLOB 목록이 나타납니다.
@@ -59,7 +59,7 @@ Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 1. 이전 섹션에서 업로드한 BLOB 목록으로 이동합니다.
 1. 다운로드할 Blob을 마우스 오른쪽 단추로 클릭하고 **다운로드** 를 선택합니다.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/download-blob.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/download-blob.png" alt-text="Azure Portal에서 BLOB 다운로드 방법을 보여 주는 스크린샷":::
 
 ## <a name="delete-a-block-blob"></a>블록 Blob 삭제
 
@@ -71,7 +71,7 @@ Azure Portal에서 하나 이상의 Blob을 삭제하려면 다음 단계를 수
 1. 선택한 BLOB을 삭제하려면 **삭제** 단추를 선택합니다.
 1. 대화 상자에서 삭제를 확인하고 BLOB 스냅샷을 삭제할지 여부를 지정합니다.
 
-:::image type="content" source="media/storage-quickstart-blobs-portal/delete-blobs.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷":::
+:::image type="content" source="media/storage-quickstart-blobs-portal/delete-blobs.png" alt-text="Azure Portal에서 BLOB을 삭제하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

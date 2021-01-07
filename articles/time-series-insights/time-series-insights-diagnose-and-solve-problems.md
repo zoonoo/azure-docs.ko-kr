@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530139"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023278"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경에서 문제 진단 및 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "91530139"
 
 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 문제를 설명 합니다. 이 문서에서는 잠재적인 원인 및 해결 방법을 제안합니다.
 
-## <a name="video"></a>비디오
+## <a name="video"></a>동영상
 
 ### <a name="learn-about-common-azure-time-series-insights-challenges-and-mitigationsbr"></a>일반적인 Azure Time Series Insights 과제 및 완화 방법에 대 한 자세한 정보</br>
 
@@ -37,7 +37,7 @@ ms.locfileid: "91530139"
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>원인 A: 이벤트 원본 데이터가 JSON 형식이 아닙니다.
 
-Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조하세요.
+Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 경우 [지원되는 JSON 셰이프](./concepts-json-flattening-escaping-rules.md)를 참조하세요.
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>원인 B: 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
@@ -85,7 +85,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 용량이 3인 S1 SKU 환경은 1분마다 2,100개 이벤트만 수신할 수 있습니다(일별 1백만개 이벤트 = 3 단위에서 분당 700개 이벤트 = 분당 2,100개 이벤트).
 
-평면화 논리 작동 방식에 대 한 개략적인 이해를 얻으려면 [지원 되는 JSON 셰이프](./how-to-shape-query-json.md)를 참조 하세요.
+평면화 논리 작동 방식에 대 한 개략적인 이해를 얻으려면 [지원 되는 JSON 셰이프](./concepts-json-flattening-escaping-rules.md)를 참조 하세요.
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>과도한 제한에 대한 권장 해결 방법
 
@@ -111,23 +111,23 @@ Azure Time Series Insights 더 이상 데이터를 수집 않지만 이벤트가
 
 이 문제는 이벤트 원본을 만들 때 제공 된 키가 더 이상 유효 하지 않을 때 발생 합니다. 허브에 원격 분석이 표시 되지만 수신 수신 메시지는 Azure Time Series Insights에 표시 되지 않습니다. 키가 다시 생성 되었는지 확실 하지 않으면 이벤트 허브의 활동 로그에서 "네임 스페이스 권한 부여 규칙 만들기 또는 업데이트"를 검색할 수 있습니다. IoT hub의 경우 "IotHub 리소스 만들기 또는 업데이트"를 검색 합니다.
 
-새 키를 사용 하 여 Azure Time Series Insights 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. Azure Time Series Insights 리소스로 이동 하 여 **이벤트 원본**을 선택 합니다.
+새 키를 사용 하 여 Azure Time Series Insights 환경을 업데이트 하려면 Azure Portal에서 허브 리소스를 열고 새 키를 복사 합니다. Azure Time Series Insights 리소스로 이동 하 여 **이벤트 원본** 을 선택 합니다.
 
    [![이벤트 원본 선택](media/diagnose-and-solve-problems/update-hub-key-step-1.png)](media/diagnose-and-solve-problems/update-hub-key-step-1.png#lightbox)
 
-수집을 중지할 이벤트 원본 또는 소스를 선택 하 고 새 키를 붙여넣은 다음 **저장**을 선택 합니다.
+수집을 중지할 이벤트 원본 또는 소스를 선택 하 고 새 키를 붙여넣은 다음 **저장** 을 선택 합니다.
 
    [![새 키에 붙여넣기](media/diagnose-and-solve-problems/update-hub-key-step-2.png)](media/diagnose-and-solve-problems/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-the-event-sources-timestamp-property-name-setting-doesnt-work"></a>문제: 이벤트 원본의 타임 스탬프 속성 이름 설정이 작동 하지 않습니다.
 
-이벤트 원본에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값이 _yyyy-mm-yyyy-mm-ddthh: MM: ss 형식 인지 확인 합니다. FFFFFFFK_입니다. 예를 들면 **2008-04-12T12:53Z**가 있습니다.
+이벤트 원본에서 JSON 문자열로 제공 되는 타임 스탬프 속성 값이 _yyyy-mm-yyyy-mm-ddthh: MM: ss 형식 인지 확인 합니다. FFFFFFFK_ 입니다. 예를 들면 **2008-04-12T12:53Z** 가 있습니다.
 
 타임 스탬프 속성 이름은 대/소문자를 구분 한다는 점에 유의 하세요.
 
-타임 스탬프 속성 이름이 캡처되고 제대로 작동 하는지 확인 하는 가장 쉬운 방법은 Azure Time Series Insights 탐색기를 사용 하는 것입니다. Azure Time Series Insights 탐색기에서 차트를 사용 하 여 타임 스탬프 속성 이름을 입력 한 후의 기간을 선택 합니다. 선택 영역을 마우스 오른쪽 단추로 클릭 한 다음 **이벤트 탐색**을 선택 합니다.
+타임 스탬프 속성 이름이 캡처되고 제대로 작동 하는지 확인 하는 가장 쉬운 방법은 Azure Time Series Insights 탐색기를 사용 하는 것입니다. Azure Time Series Insights 탐색기에서 차트를 사용 하 여 타임 스탬프 속성 이름을 입력 한 후의 기간을 선택 합니다. 선택 영역을 마우스 오른쪽 단추로 클릭 한 다음 **이벤트 탐색** 을 선택 합니다.
 
-첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. **타임 스탬프**옆에 **($ts)** 가 표시 됩니다.
+첫 번째 열 머리글에는 타임스탬프 속성 이름에 있어야 합니다. **타임 스탬프** 옆에 **($ts)** 가 표시 됩니다.
 
 다음 값은 표시 되지 않습니다.
 

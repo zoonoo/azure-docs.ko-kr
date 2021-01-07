@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0309b4c96b2ae25eb568e390717ba76cfd84fa5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323161"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461320"
 ---
-# <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>데이터 원본에 대 한 관리 되는 개인 끝점 만들기 (미리 보기)
+# <a name="create-a-managed-private-endpoint-to-your-data-source"></a>데이터 원본에 대 한 관리 되는 개인 끝점 만들기
 
 이 문서에서는 Azure에서 데이터 원본에 대 한 관리 되는 개인 끝점을 만드는 방법을 설명 합니다. 자세한 내용은 [관리 되는 전용 끝점](./synapse-workspace-managed-private-endpoints.md) 을 참조 하세요.
 

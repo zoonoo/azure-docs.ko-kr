@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: e9465e014c1b8770f8968cbee89a5b455ad53470
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 55a75651b724a4fe975f655958e36fbd40e35db7
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424823"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96748245"
 ---
 ## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 
@@ -20,7 +20,7 @@ ms.locfileid: "93424823"
 1. HTTP 요청에 대한 이 URL을 브라우저의 주소 표시줄에 붙여넣고 `name` 쿼리 문자열을 이 URL의 끝에 `?name=Functions`로 추가한 다음, 요청을 실행합니다. HTTP 트리거 함수를 호출하는 URL은 다음 형식이어야 합니다.
 
     ```http
-    http://<FUNCTION_APP_NAME>.azurewebsites.net/api/httpexample?name=Functions
+    http://<FUNCTION_APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions
     ```
 
     다음 예제에서는 함수에서 반환된 원격 GET 요청에 대한 브라우저의 응답을 보여 줍니다.

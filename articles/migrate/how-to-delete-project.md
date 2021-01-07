@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 프로젝트 삭제
 description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Migrate 프로젝트를 삭제 하는 방법에 대해 알아봅니다.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: raynew
-ms.openlocfilehash: c58081e7cf88ac4820aa7d4f367b7344f3340a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307877"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96754252"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Azure Migrate 프로젝트 삭제
 
@@ -26,7 +26,7 @@ ms.locfileid: "91307877"
 - 종속성 분석을 위해 서버 평가 도구에 Log Analytics 작업 영역을 연결한 경우 작업 영역을 삭제할지 여부를 결정 합니다. 
     - 작업 영역이 자동으로 삭제 되지 않습니다. 수동으로 삭제합니다.
     - 작업 영역을 삭제 하기 전에 사용 되는 작업 영역을 확인 합니다. 여러 시나리오에 동일한 Log Analytics 작업 영역을 사용할 수 있습니다.
-    - 프로젝트를 삭제 하기 전에 **Azure Migrate - Servers**  >  **OMS 작업 영역**아래의 Azure Migrate 서버**Azure Migrate-서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
+    - 프로젝트를 삭제 하기 전에 **Azure Migrate - Servers**  >  **OMS 작업 영역** 아래의 Azure Migrate 서버 **Azure Migrate-서버 평가** 에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
     - 프로젝트를 삭제 한 후 작업 영역을 삭제 하려면 관련 리소스 그룹에서 작업 영역을 찾고 [다음 지침](../azure-monitor/platform/delete-workspace.md)을 따릅니다.
 
 
@@ -34,12 +34,12 @@ ms.locfileid: "91307877"
 
 
 1. Azure Portal에서 프로젝트가 만들어진 리소스 그룹을 엽니다.
-2. 리소스 그룹 페이지에서 **숨겨진 유형 표시**를 선택 합니다.
+2. 리소스 그룹 페이지에서 **숨겨진 유형 표시** 를 선택 합니다.
 3. 삭제 하려는 프로젝트 및 관련 리소스를 선택 합니다.
-    - Azure Migrate 프로젝트의 리소스 형식은 **Microsoft. 마이그레이션/migrateprojects**입니다.
+    - Azure Migrate 프로젝트의 리소스 형식은 **Microsoft. 마이그레이션/migrateprojects** 입니다.
     - 다음 섹션에서는 Azure Migrate 프로젝트에서 검색, 평가 및 마이그레이션에 대해 만들어진 리소스를 검토 합니다.
     - 리소스 그룹에 Azure Migrate 프로젝트만 포함 되어 있는 경우 전체 리소스 그룹을 삭제할 수 있습니다.
-    - 이전 버전의 Azure Migrate에서 프로젝트를 삭제 하려는 경우 단계는 동일 합니다. 이러한 프로젝트의 리소스 형식은 **Migration project**입니다.
+    - 이전 버전의 Azure Migrate에서 프로젝트를 삭제 하려는 경우 단계는 동일 합니다. 이러한 프로젝트의 리소스 형식은 **Migration project** 입니다.
 
 
 ## <a name="created-resources"></a>만든 리소스
@@ -51,7 +51,7 @@ ms.locfileid: "91307877"
 
 ### <a name="vmwarephysical-server"></a>VMware/물리적 서버
 
-**리소스** | **형식**
+**리소스** | **유형**
 --- | ---
 "Appliancename" kv | 주요 자격 증명 모음
 "Appliancename" 사이트 | Microsoft. OffAzure/VMwareSites
@@ -67,7 +67,7 @@ migrateapplisbns16041 | Service Bus 네임스페이스
 
 ### <a name="hyper-v-vm"></a>Hyper-V VM 
 
-**리소스** | **형식**
+**리소스** | **유형**
 --- | ---
 이름 | Microsoft. 마이그레이션/migrateprojects
 "ProjectName" 프로젝트 | Microsoft. 마이그레이션/assessmentProjects

@@ -4,12 +4,12 @@ description: App Service 앱에서 비즈니스 프로세스를 호출하는 방
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8072a941cd89290af3e25cc63c4fccccce705df9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397439"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014665"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>자습서: App Service에서 이메일 보내기 및 다른 비즈니스 프로세스 호출
 
@@ -54,15 +54,15 @@ ms.locfileid: "91397439"
 
 ## <a name="create-the-logic-app"></a>논리 앱 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app)의 지침에 따라 빈 논리 앱을 만듭니다. **Logic Apps 디자이너**가 표시되면 이 자습서로 돌아갑니다.
-1. Logic Apps 디자이너의 시작 페이지에서 **일반적인 트리거로 시작** 아래의 **HTTP 요청을 수신한 경우**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app)의 지침에 따라 빈 논리 앱을 만듭니다. **Logic Apps 디자이너** 가 표시되면 이 자습서로 돌아갑니다.
+1. Logic Apps 디자이너의 시작 페이지에서 **일반적인 트리거로 시작** 아래의 **HTTP 요청을 수신한 경우** 를 선택합니다.
 
     ![H T T P 요청 수신 시 강조 표시되는 Logic Apps 디자이너의 시작 페이지를 보여주는 스크린샷.](./media/tutorial-send-email/receive-http-request.png)
-1. **HTTP 요청을 수신한 경우** 대화 상자에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+1. **HTTP 요청을 수신한 경우** 대화 상자에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
     ![H T T P 요청 대화 상자와 샘플 페이로드를 사용하여 선택한 스키마 옵션을 생성하는 경우를 보여주는 스크린샷. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
-1. 다음 샘플 JSON을 텍스트 상자에 복사하고, **완료**를 선택합니다.
+1. 다음 샘플 JSON을 텍스트 상자에 복사하고, **완료** 를 선택합니다.
 
     ```json
     {
@@ -73,7 +73,7 @@ ms.locfileid: "91397439"
     ```
 
     이제 원하는 요청 데이터에 대한 스키마가 생성됩니다. 실제로는 애플리케이션 코드에서 생성하는 실제 요청 데이터를 캡처하여 Azure에서 JSON 스키마를 생성하도록 할 수 있습니다. 
-1. Logic Apps 디자이너의 위쪽에서 **저장**을 선택합니다. 
+1. Logic Apps 디자이너의 위쪽에서 **저장** 을 선택합니다. 
 
     이제 HTTP 요청 트리거의 URL을 볼 수 있습니다. 나중에 사용할 수 있도록 복사하려면 복사 아이콘을 선택합니다.
 
@@ -81,48 +81,48 @@ ms.locfileid: "91397439"
 
     이 HTTP 요청 정의는 이 논리 앱에서 수행하려는 작업(Gmail 등)에 대한 트리거입니다. 나중에 App Service 앱에서 이 URL을 호출합니다. 요청 트리거에 대한 자세한 내용은 [HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)를 참조하세요.
 
-1. 디자이너 아래쪽에서 **새 단계**를 클릭하고, 작업 검색 상자에서 **Gmail**을 입력하고, **이메일 보내기(V2)** 를 찾아서 선택합니다.
+1. 디자이너 아래쪽에서 **새 단계** 를 클릭하고, 작업 검색 상자에서 **Gmail** 을 입력하고, **이메일 보내기(V2)** 를 찾아서 선택합니다.
     
     > [!TIP]
     > SendGrid, MailChimp, Microsoft 365 및 SalesForce와 같은 다른 유형의 통합을 검색할 수 있습니다. 자세한 내용은 [Logic Apps 설명서](../logic-apps/index.yml)를 참조하세요.
 
-1. **Gmail** 대화 상자에서 **로그인**을 선택하고, 이메일을 보낼 Gmail 계정에 로그인합니다.
+1. **Gmail** 대화 상자에서 **로그인** 을 선택하고, 이메일을 보낼 Gmail 계정에 로그인합니다.
 
     ![이메일을 보내려는 Gmail 계정에 로그인하는 데 사용하는 Gmail 대화 상자를 보여주는 스크린샷.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. 로그인하면 **받는 사람** 텍스트 상자를 클릭합니다. 그러면 동적 콘텐츠 대화 상자가 자동으로 열립니다.
 
-1. **HTTP 요청을 수신한 경우** 작업 옆에 있는 **자세히 보기**를 선택합니다.
+1. **HTTP 요청을 수신한 경우** 작업 옆에 있는 **자세히 보기** 를 선택합니다.
 
     ![H T T P 요청이 수신되는 경우 옆에 있는 추가 정보 보기 단추를 보여주는 스크린샷.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     이제 이전에 사용한 샘플 JSON 데이터의 세 가지 속성을 볼 수 있습니다. 이 단계에서는 HTTP 요청의 이러한 속성을 사용하여 이메일을 구성합니다.
-1. **받는 사람** 필드의 값을 선택하고 있으므로 **이메일**을 선택합니다. 원하는 경우 **동적 콘텐츠 추가**를 클릭하여 동적 콘텐츠 대화 상자를 해제합니다.
+1. **받는 사람** 필드의 값을 선택하고 있으므로 **이메일** 을 선택합니다. 원하는 경우 **동적 콘텐츠 추가** 를 클릭하여 동적 콘텐츠 대화 상자를 해제합니다.
 
     ![이메일 옵션 및 동적 경합 추가 옵션이 강조 표시된 스크린샷.](./media/tutorial-send-email/hide-dynamic-content.png)
 
-1. **새 매개 변수 추가** 드롭다운에서 **제목** 및 **본문**을 선택합니다.
+1. **새 매개 변수 추가** 드롭다운에서 **제목** 및 **본문** 을 선택합니다.
 
-1. **제목** 텍스트 상자를 클릭하고, 동일한 방식으로 **작업**을 선택합니다. 커서가 **제목** 상자에 그대로 있는 상태에서 *만든 날짜*를 입력합니다. 
+1. **제목** 텍스트 상자를 클릭하고, 동일한 방식으로 **작업** 을 선택합니다. 커서가 **제목** 상자에 그대로 있는 상태에서 *만든 날짜* 를 입력합니다. 
 
-1. **본문**을 클릭하고, 동일한 방식으로 **기한**을 선택합니다. 커서를 **기한**의 왼쪽으로 이동하고, *이 작업 항목의 기한*을 입력합니다.
+1. **본문** 을 클릭하고, 동일한 방식으로 **기한** 을 선택합니다. 커서를 **기한** 의 왼쪽으로 이동하고, *이 작업 항목의 기한* 을 입력합니다.
 
     > [!TIP]
-    > 이메일 본문에서 HTML 콘텐츠를 직접 편집하려면 Logic Apps 디자이너 창의 위쪽에서 **코드 보기**를 선택합니다. 단, 동적 콘텐츠 코드(예: `@{triggerBody()?['due']}`)는 유지해야 합니다.
+    > 이메일 본문에서 HTML 콘텐츠를 직접 편집하려면 Logic Apps 디자이너 창의 위쪽에서 **코드 보기** 를 선택합니다. 단, 동적 콘텐츠 코드(예: `@{triggerBody()?['due']}`)는 유지해야 합니다.
     >
     > ![이메일 본문에서 직접 H T M L 콘텐츠를 볼 수 있는 코드 보기를 보여주는 스크린샷.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
-1. 다음으로, 비동기 HTTP 응답을 HTTP 트리거에 추가합니다. HTTP 트리거와 Gmail 작업 사이에 있는 **+** 기호를 클릭하고, **병렬 분기 추가**를 선택합니다.
+1. 다음으로, 비동기 HTTP 응답을 HTTP 트리거에 추가합니다. HTTP 트리거와 Gmail 작업 사이에 있는 **+** 기호를 클릭하고, **병렬 분기 추가** 를 선택합니다.
 
     ![\+ 기호 및 병렬 분기 추가 옵션이 강조 표시된 스크린샷.](./media/tutorial-send-email/add-http-response.png)
 
-1. 검색 상자에서 **응답**을 검색한 다음, **응답** 작업을 선택합니다.
+1. 검색 상자에서 **응답** 을 검색한 다음, **응답** 작업을 선택합니다.
 
     ![강조 표시된 검색 창과 응답 작업을 보여주는 스크린샷.](./media/tutorial-send-email/choose-response-action.png)
 
     기본적으로 응답 작업은 HTTP 200을 보냅니다. 이 자습서에는 이 작업으로 충분합니다. 자세한 내용은 [HTTP 요청/응답 참조](../connectors/connectors-native-reqres.md)를 참조하세요.
 
-1. Logic Apps 디자이너의 위쪽에서 **저장**을 다시 선택합니다. 
+1. Logic Apps 디자이너의 위쪽에서 **저장** 을 다시 선택합니다. 
 
 ## <a name="add-http-request-code-to-app"></a>앱에 HTTP 요청 코드 추가
 
@@ -296,7 +296,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-Ruby에서는 [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient)를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
+Ruby에서는 JSONClient를 사용하여 HTTP post를 쉽게 보낼 수 있습니다. 다음은 그 예입니다.
 
 ```ruby
 clnt = JSONClient.new

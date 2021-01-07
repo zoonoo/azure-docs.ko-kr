@@ -12,7 +12,7 @@
       href: az-overview.md
     - name: 가용성 영역 설명서
       items:
-        - name: 가용성 영역을 지원하는 지역
+        - name: 가용성 영역을 지원하는 Azure 서비스
           href: az-region.md
         - name: 가상 머신
           items:

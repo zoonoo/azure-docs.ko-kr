@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094577"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813941"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>빠른 시작: Azure DDoS Protection Standard 만들기 및 구성
 
@@ -54,7 +54,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>새 가상 네트워크에 대 한 DDoS 보호 사용
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택 합니다.
-2. **네트워킹** 을 선택한 다음 **가상 네트워크** 를 선택 합니다.
+2. **네트워킹** 을 선택한 다음 **가상 네트워크** 를 선택합니다.
 3. 다음 값을 입력 하거나 선택 하 고 나머지 기본값을 적용 한 다음 **만들기** 를 선택 합니다.
 
     | 설정         | 값                                           |
@@ -74,6 +74,10 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 3. 포털 위쪽의 **리소스, 서비스 및 문서 검색 상자** 에서 DDoS 보호 표준을 사용하도록 설정하려는 가상 네트워크의 이름을 입력합니다. 가상 네트워크의 이름이 검색 결과에 표시되면 선택합니다.
 4. **설정** 아래에서 **DDoS 보호** 를 선택합니다.
 5. **표준** 을 선택합니다. **DDoS 보호 계획** 아래에서 기존 DDoS 보호 계획 또는 1단계에서 만든 계획을 선택한 다음, **저장** 을 선택합니다. 선택한 계획은 가상 네트워크와 동일하거나 다른 구독에 있을 수 있지만, 두 구독은 모두 동일한 Azure Active Directory 테넌트에 연결되어야 합니다.
+
+### <a name="enable-ddos-protection-for-all-virtual-networks"></a>모든 가상 네트워크에 DDoS 보호 사용
+
+이 [정책은](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) DDoS Protection 표준을 사용 하도록 설정 되지 않은 정의 된 범위의 가상 네트워크를 검색 한 다음, 필요에 따라 VNet을 보호 하기 위해 연결을 만들 수정 작업을 만듭니다. 이 정책을 배포 하는 방법에 대 한 자세한 단계별 지침은를 참조 하십시오 https://aka.ms/ddosvnetpolicy-techcommunity .
 
 ## <a name="validate-and-test"></a>유효성 검사 및 테스트
 
@@ -112,4 +116,4 @@ DDoS 보호 계획을 삭제 하려면 먼저 모든 가상 네트워크를 분�
 DDoS 보호 계획에 대 한 원격 분석을 보고 구성 하는 방법을 알아보려면 자습서를 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [DDoS 보호 원격 분석 보기 및 구성](telemetry-monitoring-alerting.md)
+> [DDoS 보호 원격 분석 보기 및 구성](telemetry.md)

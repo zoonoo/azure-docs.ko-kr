@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535096"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022703"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생하는 작업 문제 해결
 
@@ -115,7 +115,7 @@ HDInsight 클러스터는 가상 머신 인스턴스에서 실행되는 여러 �
 
 ### <a name="check-your-webhcat-service"></a>WebHCat 서비스 확인
 
-Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 시나리오 중 하나는 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)(또는 *Templeton* ) 서비스 오류입니다. WebHCat은 Hive, Pig, Scoop, MapReduce 같은 원격 작업 실행을 위한 REST 인터페이스입니다. WebHCat은 작업 제출 요청을 Apache Hadoop YARN 애플리케이션으로 변환하고, YARN 애플리케이션 상태에서 파생된 상태를 반환합니다.  다음 섹션에서는 일반적인 WebHCat HTTP 상태 코드를 설명합니다.
+Apache Hive, Apache Pig 또는 Apache Sqoop 작업이 실패하는 일반적인 시나리오 중 하나는 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)(또는 *Templeton*) 서비스 오류입니다. WebHCat은 Hive, Pig, Scoop, MapReduce 같은 원격 작업 실행을 위한 REST 인터페이스입니다. WebHCat은 작업 제출 요청을 Apache Hadoop YARN 애플리케이션으로 변환하고, YARN 애플리케이션 상태에서 파생된 상태를 반환합니다.  다음 섹션에서는 일반적인 WebHCat HTTP 상태 코드를 설명합니다.
 
 #### <a name="badgateway-502-status-code"></a>잘못된 게이트웨이(502 상태 코드)
 

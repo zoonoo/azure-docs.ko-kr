@@ -8,11 +8,11 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626744"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96022567"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -34,7 +34,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 uname -r
 ```
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Cifs-유틸리티 패키지가 설치 되어 있는지 확인 합니다.**  
@@ -47,7 +47,7 @@ uname -r
     sudo apt install cifs-utils
     ```
 
-    **Fedora** , **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 합니다 `dnf` .
+    **Fedora**, **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 합니다 `dnf` .
 
     ```bash
     sudo dnf install cifs-utils
@@ -99,7 +99,7 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
 원하는 경우 동일한 Azure 파일 공유를 여러 탑재 위치에 탑재할 수 있습니다.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>요청 시 `mount`를 사용하여 Azure 파일 공유 탑재
-1. **탑재 지점에 대 한 폴더 만들기** : `<your-resource-group>` , `<your-storage-account>` 및을 `<your-file-share>` 사용자 환경에 맞는 적절 한 정보로 바꿉니다.
+1. **탑재 지점에 대 한 폴더 만들기**: `<your-resource-group>` , `<your-storage-account>` 및을 `<your-file-share>` 사용자 환경에 맞는 적절 한 정보로 바꿉니다.
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
 Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath`를 사용하여 공유를 탑재 해제할 수 있습니다.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>`/etc/fstab`을 사용하여 Azure 파일 공유에 대한 영구 탑재 지점 만들기
-1. **탑재 지점에 대 한 폴더 만들기** : 탑재 지점에 대 한 폴더는 파일 시스템의 어느 위치에 나 만들 수 있지만이를/mnt. 아래에 만드는 것이 일반적인 규칙입니다. 예를 들어 다음 명령을 사용 하 여 새 디렉터리를 만들고 `<your-resource-group>` , `<your-storage-account>` 및를 `<your-file-share>` 사용자 환경에 적절 한 정보로 바꿉니다.
+1. **탑재 지점에 대 한 폴더 만들기**: 탑재 지점에 대 한 폴더는 파일 시스템의 어느 위치에 나 만들 수 있지만이를/mnt. 아래에 만드는 것이 일반적인 규칙입니다. 예를 들어 다음 명령을 사용 하 여 새 디렉터리를 만들고 `<your-resource-group>` , `<your-storage-account>` 및를 `<your-file-share>` 사용자 환경에 적절 한 정보로 바꿉니다.
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -207,7 +207,7 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
     sudo apt update
     sudo apt install autofs
     ```
-    **Fedora** , **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 합니다 `dnf` .
+    **Fedora**, **Red Hat Enterprise Linux 8 +** 및 **CentOS 8 +** 에서 패키지 관리자를 사용 합니다 `dnf` .
     ```bash
     sudo dnf install autofs
     ```
@@ -219,7 +219,7 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
     ```bash
     sudo zypper install autofs
     ```
-2. **공유에 대 한 탑재 지점 만들기** :
+2. **공유에 대 한 탑재 지점 만들기**:
    ```bash
     sudo mkdir /fileshares
     ```
@@ -250,22 +250,22 @@ Linux 커널 4.18부터 레거시 이유로 호출 되는 SMB 커널 모듈은 `
 
 | 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | 예 |
+| Ubuntu 14.04-16.04 | No |
 | Ubuntu 18.04 | Yes |
 | Ubuntu 19.04 + | Yes |
-| Debian 8-9 | 예 |
+| Debian 8-9 | No |
 | Debian 10 이상 | Yes |
 | Fedora 29 이상 | Yes |
-| CentOS 7 | 예 | 
+| CentOS 7 | No | 
 | CentOS 8 이상 | Yes |
-| Red Hat Enterprise Linux 6.x-7.x | 예 |
+| Red Hat Enterprise Linux 6.x-7.x | No |
 | Red Hat Enterprise Linux 8 이상 | Yes |
-| openSUSE Leap 15.0 | 예 |
+| openSUSE Leap 15.0 | No |
 | openSUSE Leap 15.1 + | Yes |
 | openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11.x-12. x | 예 |
-| SUSE Linux Enterprise 15 | 예 |
-| SUSE Linux Enterprise 15.1 | 예 |
+| SUSE Linux Enterprise 11.x-12. x | No |
+| SUSE Linux Enterprise 15 | No |
+| SUSE Linux Enterprise 15.1 | No |
 
 Linux 배포판에서 `disable_legacy_dialects` 다음 명령을 통해 module 매개 변수를 지원 하는지 확인할 수 있습니다.
 

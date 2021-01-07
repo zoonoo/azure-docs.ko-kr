@@ -8,12 +8,12 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d680df0ec5e18cca4d7a42edf45dbd6a50be1472
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303372"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888609"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
@@ -77,9 +77,9 @@ Azure Communication Services를 처음 사용하는 경우 다음 리소스를 �
 
 현재 Communication Services와 직접 상호 운용할 수 없는 활용을 고려할 수 있는 두 가지 다른 Microsoft 통신 제품이 있습니다.
 
- - [Microsoft Graph 클라우드 통신 API](https://docs.microsoft.com/graph/cloud-communications-concept-overview)를 사용하면 조직에서 M365 라이선스가 있는 Azure Active Directory 사용자와 연결된 통신 환경을 구축할 수 있습니다. 이는 Azure Active Directory에 연결된 애플리케이션에 적합하거나 Microsoft Teams에서 생산성 환경을 확장하려는 경우에 적합합니다. 또한 [Teams 환경](https://docs.microsoft.com/microsoftteams/platform/?view=msteams-client-js-latest&preserve-view=true) 내에서 애플리케이션 및 사용자 지정을 빌드하는 API도 있습니다.
+ - [Microsoft Graph 클라우드 통신 API](/graph/cloud-communications-concept-overview)를 사용하면 조직에서 M365 라이선스가 있는 Azure Active Directory 사용자와 연결된 통신 환경을 구축할 수 있습니다. 이는 Azure Active Directory에 연결된 애플리케이션에 적합하거나 Microsoft Teams에서 생산성 환경을 확장하려는 경우에 적합합니다. 또한 [Teams 환경](/microsoftteams/platform/?preserve-view=true&view=msteams-client-js-latest) 내에서 애플리케이션 및 사용자 지정을 빌드하는 API도 있습니다.
 
- - [Azure PlayFab 파티](https://docs.microsoft.com/gaming/playfab/features/multiplayer/networking/)는 대기 시간이 짧은 채팅 및 데이터 통신을 게임에 간편하게 추가할 수 있습니다. Communication Services를 사용하여 게임 채팅 및 네트워킹 시스템을 제공할 수 있지만, PlayFab은 맞춤형 옵션이며 Xbox에서 사용할 수 있습니다.
+ - [Azure PlayFab 파티](/gaming/playfab/features/multiplayer/networking/)는 대기 시간이 짧은 채팅 및 데이터 통신을 게임에 간편하게 추가할 수 있습니다. Communication Services를 사용하여 게임 채팅 및 네트워킹 시스템을 제공할 수 있지만, PlayFab은 맞춤형 옵션이며 Xbox에서 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

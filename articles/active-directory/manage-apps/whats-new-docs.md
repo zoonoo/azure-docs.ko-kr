@@ -1,7 +1,7 @@
 ---
 title: Azure Active Directory 응용 프로그램 관리의 새로운 기능
 description: Azure Active Directory 응용 프로그램 관리를 위한 새롭고 업데이트 된 설명서입니다.
-ms.date: 11/05/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,40 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542459"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563401"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
 Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 응용 프로그램 관리 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="december-2020"></a>2020년 12월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
+- [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)
+- [OIDC 기반 Single Sign-On 이해](configure-oidc-single-sign-on.md)
+- [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
+- [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory 응용 프로그램 관리: 새로운 기능](whats-new-docs.md)
+- [AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하 여 응용 프로그램을 Azure AD로 마이그레이션합니다.](migrate-adfs-application-activity.md)
+- [Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md)
+
+
+## <a name="november-2020"></a>2020년 11월
+
+### <a name="new-articles"></a>새 문서
+- [Azure AD 앱 프록시 (미리 보기)를 사용 하는 온-프레미스 앱에 대 한 헤더 기반 Single Sign-On](application-proxy-configure-single-sign-on-with-headers.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+- [Azure Active Directory 응용 프로그램 관리: 새로운 기능](whats-new-docs.md)
+- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](application-sign-in-problem-federated-sso-gallery.md)
+
 
 ## <a name="october-2020"></a>2020년 10월
 
@@ -32,9 +56,9 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [SAML 기반 Single Sign-On 구성 된 앱에 로그인 하는 문제](application-sign-in-problem-federated-sso-gallery.md)
+- [SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제](application-sign-in-problem-federated-sso-gallery.md)
 - [애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생](application-proxy-connector-installation-problem.md)
-- [Active Directory Federation Services에서 Azure Active Directory로 응용 프로그램 인증 이동](migrate-adfs-apps-to-azure.md)
+- [Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동](migrate-adfs-apps-to-azure.md)
 - [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
 
 
@@ -43,7 +67,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 ### <a name="new-articles"></a>새 문서
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](add-application-portal-setup-oidc-sso.md)
 - [빠른 시작: Azure AD를 ID 공급자로 사용하는 앱에 사용자 할당](add-application-portal-assign-users.md)
-- [문서의 새로운 기능](whats-new-docs.md)
+- [Docs의 새로운 기능](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>업데이트된 문서
@@ -52,7 +76,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 - [응용 프로그램에 대 한 동의 관리 및 승인 요청 평가](manage-consent-requests.md)
 - [Id 관리를 위해 Azure AD 테 넌 트를 사용 하 여 앱 보기](application-types.md)
 - [Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해](ways-users-get-assigned-to-applications.md)
-- [Azure Active Directory에서 앱에 대 한 사용자 할당 관리](assign-user-or-group-access-portal.md)
+- [Azure Active Directory에서 앱에 대한 사용자 할당 관리](assign-user-or-group-access-portal.md)
 
 
 ## <a name="august-2020"></a>2020년 8월
@@ -70,7 +94,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 - [SSO(Single Sign-On)란?](what-is-single-sign-on.md)
 - [Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.](manage-application-permissions.md)
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성](add-application-portal-configure.md)
-- [Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화](application-saml-sso-configure-api.md)
+- [Microsoft Graph API를 사용하여 SAML 기반 SSO 앱 구성 자동화](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>2020년 7월

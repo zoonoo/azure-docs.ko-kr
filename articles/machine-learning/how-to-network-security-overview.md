@@ -10,13 +10,13 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: fdfaef554e4e641656abd3fd2b4a5d3bbc519ccd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
+ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325435"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029603"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -31,7 +31,7 @@ ms.locfileid: "93325435"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
-+ [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md)
++ [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
 + [네트워크 보안 그룹(NSG)](../virtual-network/network-security-groups-overview.md)
@@ -145,10 +145,11 @@ ms.locfileid: "93325435"
 
 * Studio에서 데이터를 미리 봅니다.
 * 디자이너에서 데이터를 시각화 합니다.
+* 디자이너에서 모델을 배포 합니다.
 * AutoML 실험을 제출 합니다.
 * 레이블 지정 프로젝트를 시작 합니다.
 
-VNet 내부에서 전체 studio 기능을 사용 하도록 설정 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#access-data-using-the-studio)을 참조 하세요. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하 여 저장소 계정을 지원 합니다.
+VNet 내부에서 전체 studio 기능을 사용 하도록 설정 하려면 [가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio)을 참조 하세요. 스튜디오는 서비스 끝점이 나 개인 끝점을 사용 하 여 저장소 계정을 지원 합니다.
 
 ### <a name="limitations"></a>제한 사항
 - [ML 지원 데이터 레이블](how-to-create-labeling-projects.md#use-ml-assisted-labeling) 지정은 가상 네트워크 뒤에 보안 되는 기본 저장소 계정을 지원 하지 않습니다. ML 지원 데이터 레이블 지정을 위해 기본이 아닌 저장소 계정을 사용 해야 합니다. 기본이 아닌 저장소 계정은 가상 네트워크 뒤에 보안을 설정할 수 있습니다. 

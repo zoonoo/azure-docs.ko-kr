@@ -1,26 +1,29 @@
 ---
-title: Common Data Service에 연결
-description: Azure Logic Apps를 사용 하 여 Common Data Service 레코드 만들기 및 관리
+title: Common Data Service에 연결 (Microsoft Dataverse)
+description: Azure Logic Apps를 사용 하 여 Common Data Service (Microsoft Dataverse) 레코드 만들기 및 관리
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 12/11/2020
 tags: connectors
-ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334585"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355123"
 ---
-# <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service에서 레코드 만들기 및 관리
+# <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service (Microsoft Dataverse)에서 레코드 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Common Data Service 커넥터](/connectors/commondataservice/)를 사용 하 여 [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) 데이터베이스에서 레코드를 관리 하는 자동화 된 워크플로를 작성할 수 있습니다. 이러한 워크플로는 레코드를 만들고, 레코드를 업데이트 하 고, 기타 작업을 수행할 수 있습니다. Common Data Service 데이터베이스에서 정보를 가져와 논리 앱에서 사용할 수 있는 다른 작업에 대 한 출력을 제공할 수도 있습니다. 예를 들어 Common Data Service 데이터베이스에서 레코드가 업데이트 되는 경우 Office 365 Outlook 커넥터를 사용 하 여 전자 메일을 보낼 수 있습니다.
+> [!NOTE]
+> 11 월 2020에서 Common Data Service은 Microsoft Dataverse로 이름이 변경 되었습니다.
+
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Common Data Service 커넥터](/connectors/commondataservice/)를 사용 하 여 [Common Data Service 이제 Microsoft dataverse](/powerapps/maker/common-data-service/data-platform-intro) 데이터베이스에서 레코드를 관리 하는 자동화 된 워크플로를 만들 수 있습니다. 이러한 워크플로는 레코드를 만들고, 레코드를 업데이트 하 고, 기타 작업을 수행할 수 있습니다. Common Data Service 데이터베이스에서 정보를 가져와 논리 앱에서 사용할 수 있는 다른 작업에 대 한 출력을 제공할 수도 있습니다. 예를 들어 Common Data Service 데이터베이스에서 레코드가 업데이트 되는 경우 Office 365 Outlook 커넥터를 사용 하 여 전자 메일을 보낼 수 있습니다.
 
 이 문서에서는 새 잠재 고객 레코드를 만들 때마다 작업 레코드를 만드는 논리 앱을 빌드하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -39,7 +42,7 @@ ms.locfileid: "91334585"
 
 1. [Azure Portal](https://portal.azure.com)에서 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
-1. 검색 상자에 `common data service`를 입력합니다. 예를 들어 트리거 목록에서 **레코드가 만들어지는 경우**의 트리거를 선택합니다.
+1. 검색 상자에 `common data service`를 입력합니다. 예를 들어 트리거 목록에서 **레코드가 만들어지는 경우** 의 트리거를 선택합니다.
 
    !["레코드를 만들 때" 트리거를 선택 합니다.](./media/connect-common-data-service/select-when-record-created-trigger.png)
 
@@ -60,7 +63,7 @@ ms.locfileid: "91334585"
 
 이제 새 "잠재 고객" 레코드에 대 한 작업 레코드를 만드는 Common Data Service 작업을 추가 합니다.
 
-1. 레코드를 **만들 때** 트리거에서 **새 단계**를 선택 합니다.
+1. 레코드를 **만들 때** 트리거에서 **새 단계** 를 선택 합니다.
 
 1. 검색 상자에 `common data service`를 입력합니다. 작업 목록에서 **새 레코드 만들기** 작업을 선택합니다.
 
@@ -98,19 +101,19 @@ ms.locfileid: "91334585"
 
    !["새 레코드 만들기" 작업 완료](./media/connect-common-data-service/finished-create-record-action-details.png)
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
-1. 논리 앱을 수동으로 시작 하려면 디자이너 도구 모음에서 **실행**을 선택 합니다. 논리 앱을 테스트 하려면 새 "잠재 고객" 레코드를 만듭니다.
+1. 논리 앱을 수동으로 시작 하려면 디자이너 도구 모음에서 **실행** 을 선택 합니다. 논리 앱을 테스트 하려면 새 "잠재 고객" 레코드를 만듭니다.
 
 ## <a name="trigger-only-on-updated-attributes"></a>업데이트 된 특성에 대해서만 트리거
 
 레코드가 업데이트 될 때 실행 되는 트리거의 경우 (예: **레코드가 업데이트 되는 경우** ), 지정 된 특성이 업데이트 될 때만 논리 앱이 실행 되도록 필터 특성을 사용할 수 있습니다. 이 기능은 불필요 한 논리 앱 실행을 방지 하는 데 도움이 됩니다.
 
-1. 트리거의 **새 매개 변수 추가** 목록에서 **특성 필터**를 선택 합니다.
+1. 트리거의 **새 매개 변수 추가** 목록에서 **특성 필터** 를 선택 합니다.
 
    !["특성 필터" 속성이 선택 된 상태에서 "레코드가 업데이트 되는 경우" 작업 및 열린 "새 매개 변수 추가" 목록을 보여 주는 스크린샷](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
-1. 각 **특성 필터 항목**에 대해 다음과 같이 업데이트를 모니터링 하려는 특성을 선택 합니다.
+1. 각 **특성 필터 항목** 에 대해 다음과 같이 업데이트를 모니터링 하려는 특성을 선택 합니다.
 
    !["특성 필터" 속성 추가](./media/connect-common-data-service/when-record-updated-trigger-select-attribute-filter.png)
 
@@ -153,7 +156,7 @@ ms.locfileid: "91334585"
 | 텍스트 필드 | 한 줄의 텍스트 | 에는 다음 속성과 같이 텍스트 데이터 형식의 텍스트 한 줄 또는 동적 콘텐츠가 필요 합니다. <p><p>- **한** <br>- **범주** |
 | 정수 필드 | 정수 | 에는 정수 데이터 형식의 정수 또는 동적 콘텐츠 (예: 다음 속성)가 필요 합니다. <p><p>- **완료율** <br>- **작업** |
 | 날짜 필드 | 날짜 및 시간 | 에는 MM/DD/YYY 형식의 날짜 또는 날짜 데이터 형식의 동적 콘텐츠 (예: 다음 속성)가 필요 합니다. <p><p>- **만든 시기** <br>- **시작 날짜** <br>- **실제 시작** <br>- **실제 끝** <br>- **기한** |
-| 다른 엔터티 레코드를 참조 하는 필드 | 기본 키 | 에는 GUID와 같은 레코드 ID와 조회 유형이 모두 필요 합니다. 즉, 동적 콘텐츠 목록의 값은 작동 하지 않습니다. 예를 들어 다음과 같은 속성이 있습니다. <p><p>- **Owner**: 유효한 사용자 id 또는 팀 레코드 id 여야 합니다. <br>- **소유자 유형**: 또는와 같은 조회 유형 이어야 합니다 `systemusers` `teams` . <p><p>- **관련**항목: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **형식에 대**한 자세한 `accounts` 내용은 각각 또는 같은 조회 형식 이어야 합니다 `contacts` . <p><p>- **Customer**: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **고객 유형**: 또는와 같은 조회 유형 이어야 합니다 `accounts` `contacts` . |
+| 다른 엔터티 레코드를 참조 하는 필드 | 기본 키 | 에는 GUID와 같은 레코드 ID와 조회 유형이 모두 필요 합니다. 즉, 동적 콘텐츠 목록의 값은 작동 하지 않습니다. 예를 들어 다음과 같은 속성이 있습니다. <p><p>- **Owner**: 유효한 사용자 id 또는 팀 레코드 id 여야 합니다. <br>- **소유자 유형**: 또는와 같은 조회 유형 이어야 합니다 `systemusers` `teams` . <p><p>- **관련** 항목: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **형식에 대** 한 자세한 `accounts` 내용은 각각 또는 같은 조회 형식 이어야 합니다 `contacts` . <p><p>- **Customer**: 계정 id 또는 연락처 레코드 id와 같은 유효한 레코드 id 여야 합니다. <br>- **고객 유형**: 또는와 같은 조회 유형 이어야 합니다 `accounts` `contacts` . |
 ||||
 
 이 예에서는 **새 레코드 만들기** 작업을 통해 다른 엔터티 레코드, 특히 사용자 레코드 및 계정 레코드와 연결 된 새 "작업" 레코드를 만드는 방법을 보여 줍니다. 작업은 관련 속성에 대해 예상 되는 데이터 형식과 일치 하는 값을 사용 하 여 해당 엔터티 레코드에 대 한 Id 및 조회 유형을 지정 합니다.

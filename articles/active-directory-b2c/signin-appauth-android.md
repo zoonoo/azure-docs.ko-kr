@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79219d7a7b59818d54acc6a2b0b4c8093ead3a6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acbd2918bd311cec1c27018763ad10771d779d85
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385232"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953324"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Android 애플리케이션을 사용하여 로그인
 
 Microsoft ID 플랫폼은 OAuth2 및 OpenID Connect와 같은 개방형 표준을 사용합니다. 이러한 표준을 사용하면 Azure Active Directory B2C와 통합하려는 라이브러리를 활용할 수 있습니다. 다른 라이브러리를 사용할 수 있으려면 타사 라이브러리를 Microsoft ID 플랫폼에 연결하도록 구성하는 방법을 설명하는 이와 같은 연습을 사용할 수 있습니다. [RFC6749 OAuth2 사양](https://tools.ietf.org/html/rfc6749)을 구현하는 대부분의 라이브러리는 Microsoft ID 플랫폼에 연결할 수 있습니다.
 
 > [!WARNING]
-> Microsoft는 타사 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 이 샘플은 기본 시나리오에서 Azure AD B2C와의 호환성이 테스트된 AppAuth라는 타사 라이브러리를 사용합니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries)를 참조하세요.
+> Microsoft는 타사 라이브러리에 대한 수정 사항을 제공하지 않으며 이러한 라이브러리의 검토를 완료하지 않았습니다. 이 샘플은 기본 시나리오에서 Azure AD B2C와의 호환성이 테스트된 AppAuth라는 타사 라이브러리를 사용합니다. 문제 및 기능 요청은 라이브러리의 오픈 소스 프로젝트로 리디렉션되어야 합니다. 자세한 내용은 [이 문서](../active-directory/develop/reference-v2-libraries.md)를 참조하세요.
 >
 >
 
@@ -39,7 +39,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
+이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID** 를 기록합니다.
 
 또한 이후 단계에서 사용할 사용자 지정 리디렉션 URI를 기록합니다. `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`)을 입력합니다.
 
@@ -47,9 +47,9 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](user-flow-overview.md)에서 정의됩니다. 이는 Azure AD의 동작을 제어하는 정책의 세트입니다. 이 애플리케이션에는 로그인 및 등록 사용자 흐름이 필요합니다. 사용자 흐름을 만들 때 다음을 확인합니다.
 
-* 사용자 흐름에서 **표시 이름**을 등록 특성으로 선택합니다.
+* 사용자 흐름에서 **표시 이름** 을 등록 특성으로 선택합니다.
 * 모든 사용자 흐름에서 **표시 이름** 및 **개체 ID** 애플리케이션 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-* 각 사용자 흐름을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  사용자 흐름 이름이 나중에 필요합니다.
+* 각 사용자 흐름을 만든 후에 **이름** 을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다.  사용자 흐름 이름이 나중에 필요합니다.
 
 사용자 흐름을 만들었다면 앱을 빌드할 준비가 되었습니다.
 

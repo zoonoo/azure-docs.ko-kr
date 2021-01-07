@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: 표준 SKU에서 공용 부하 분산 장치를 사용 하 여 Azure Kubernetes 서비스 (AKS)를 통해 서비스를 노출 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634874"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000864"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 공용 표준 Load Balancer 사용 (AKS)
 
@@ -87,6 +87,9 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 * 클러스터의 각 노드에 할당 된 아웃 바운드 포트 수를 사용자 지정 합니다.
 * 유휴 연결에 대 한 시간 제한 설정 구성
 
+> [!IMPORTANT]
+> 지정 된 시간에 하나의 아웃 바운드 IP 옵션 (관리 되는 ip, 사용자의 IP 또는 IP 접두사 사용)만 사용할 수 있습니다.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>관리 되는 아웃 바운드 공용 Ip 수 크기 조정
 
 Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 아웃바운드 연결을 제공합니다. 아웃바운드 규칙을 사용하면 공용 표준 Load Balancer의 아웃바운드 네트워크 주소 변환을 쉽게 구성할 수 있습니다.
@@ -120,10 +123,11 @@ az aks update \
 
 AKS에서 만든 공용 IP는 AKS 관리 리소스로 간주 됩니다. 즉, 공용 IP의 수명 주기는 AKS에서 관리 하 고 공용 IP 리소스에 대 한 사용자 작업을 직접 수행 하지 않습니다. 또는 클러스터를 만들 때 고유한 사용자 지정 공용 IP 또는 공용 IP 접두사를 할당할 수 있습니다. 기존 클러스터의 부하 분산 장치 속성에서 사용자 지정 Ip를 업데이트할 수도 있습니다.
 
-> [!NOTE]
-> 사용자 지정 공용 IP 주소를 만들고 소유 해야 합니다. AKS에서 만든 관리 되는 공용 IP 주소는 관리 충돌을 일으킬 수 있으므로 사용자 고유의 사용자 지정 IP를 가져오는 것으로 다시 사용할 수 없습니다.
+사용자 고유의 공용 IP 또는 접두사를 사용 하기 위한 요구 사항:
 
-이 작업을 수행 하기 전에 아웃 바운드 IP 또는 아웃 바운드 IP 접두사를 구성 하는 데 필요한 필수 [조건 및 제약 조건을](../virtual-network/public-ip-address-prefix.md#constraints) 충족 하는지 확인 합니다.
+- 사용자 지정 공용 IP 주소를 만들고 소유 해야 합니다. AKS에서 만든 관리 되는 공용 IP 주소는 관리 충돌을 일으킬 수 있으므로 사용자 고유의 사용자 지정 IP를 가져오는 것으로 다시 사용할 수 없습니다.
+- AKS 클러스터 id (서비스 주체 또는 관리 Id)에 아웃 바운드 IP에 액세스할 수 있는 권한이 있는지 확인 해야 합니다. [필요한 공용 IP 권한 목록](kubernetes-service-principal.md#networking)에 따라
+- 아웃 바운드 IP 또는 아웃 바운드 IP 접두사를 구성 하는 데 필요한 [필수 조건 및 제약 조건을](../virtual-network/public-ip-address-prefix.md#constraints) 충족 하는지 확인 합니다.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>사용자 고유의 아웃 바운드 공용 IP로 클러스터를 업데이트 합니다.
 
@@ -221,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-이 예제에서는 내 클러스터의 각 노드에 대해 4000의 아웃 바운드 포트를 할당 하 고, 7 개의 Ip를 사용 하 여 *노드당 4000 포트를 가집니다. * 100 node = 400k 총 포트 < = 448k 총 포트 = 7 ip * IP 당 64k 포트* 이를 통해 100 노드로 안전 하 게 확장 하 고 기본 업그레이드 작업을 수행할 수 있습니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분 한 포트를 할당 하는 것이 중요 합니다. AKS은 기본적으로 업그레이드를 위해 버퍼 노드 하나를 사용 합니다 .이 예제에서는 지정 된 특정 시점에서 4000의 빈 포트가 필요 합니다. [Maxsurge 수 값](upgrade-cluster.md#customize-node-surge-upgrade-preview)을 사용 하는 경우 노드당 아웃 바운드 포트를 maxsurge 수 값으로 곱합니다.
+이 예제에서는 내 클러스터의 각 노드에 대해 4000의 아웃 바운드 포트를 할당 하 고, 7 개의 Ip를 사용 하 여 *노드당 4000 포트를 가집니다. * 100 node = 400k 총 포트 < = 448k 총 포트 = 7 ip * IP 당 64k 포트* 이를 통해 100 노드로 안전 하 게 확장 하 고 기본 업그레이드 작업을 수행할 수 있습니다. 업그레이드 및 기타 작업에 필요한 추가 노드에 충분 한 포트를 할당 하는 것이 중요 합니다. AKS은 기본적으로 업그레이드를 위해 버퍼 노드 하나를 사용 합니다 .이 예제에서는 지정 된 특정 시점에서 4000의 빈 포트가 필요 합니다. [Maxsurge 수 값](upgrade-cluster.md#customize-node-surge-upgrade)을 사용 하는 경우 노드당 아웃 바운드 포트를 maxsurge 수 값으로 곱합니다.
 
 100 노드를 안전 하 게 진행 하려면 더 많은 Ip를 추가 해야 합니다.
 
@@ -229,7 +233,7 @@ az aks update \
 > [!IMPORTANT]
 > 연결 또는 크기 조정 문제를 방지 하려면 필요한 할당량을 계산 하 고 *allocatedOutboundPorts* 을 사용자 지정 하기 전에 [요구 사항을 확인][requirements] 해야 합니다.
 
-**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예를 들면 다음과 같습니다.
+**`load-balancer-outbound-ports`** 클러스터를 만들 때 매개 변수를 사용할 수도 있지만, 또는도 지정 해야 합니다 **`load-balancer-managed-outbound-ip-count`** **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  예들 들어 다음과 같습니다.
 
 ```azurecli-interactive
 az aks create \

@@ -11,24 +11,24 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4f6b09061a4aa98824e176af55efcedfab3df48c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051919"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953766"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 HYPR 구성에 대 한 자습서
 
 이 샘플 자습서에서는 [HYPR](https://get.hypr.com)를 사용 하 여 Azure AD B2C를 구성 하는 방법에 대 한 지침을 제공 합니다. Azure AD B2C을 id 공급자로 사용 하 여 HYPR를 고객 응용 프로그램과 통합 하 여 사용자에 게 진정한 암호 없는 인증을 제공할 수 있습니다. HYPR는 암호를 공개 키 암호화로 바꿔서 사기 행위, 피싱 및 자격 증명 재사용을 제거 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
 - Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
-- [Azure AD B2C 테 넌 트](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)입니다. 테 넌 트는 Azure 구독에 연결 됩니다.
+- [Azure AD B2C 테 넌 트](./tutorial-create-tenant.md)입니다. 테 넌 트는 Azure 구독에 연결 됩니다.
 
 - HYPR cloud 테 넌 트, 무료 [평가판 계정](https://get.hypr.com/free-trial)받기.
 
@@ -50,7 +50,7 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Hypr에 대 한 스크린샷-다이어그램](media/partner-hypr/hypr-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 로그인/등록을 선택 하 고 페이지에 사용자 이름을 입력 합니다.
 | 2. | 응용 프로그램은 식별 확인을 위해 Azure AD B2C 사용자 특성을 보냅니다.
@@ -62,7 +62,7 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
 1. 정책 폴더에서 [AZURE AD B2C HYPR 정책](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy) 으로 이동 합니다.
 
-2. 이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 에 따라 [localaccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 을 다운로드 합니다.
+2. 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) 에 따라 [localaccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 을 다운로드 합니다.
 
 3. Azure AD B2C 테 넌 트에 대 한 정책을 구성 합니다.
 
@@ -71,9 +71,9 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. Azure AD B2C 테 넌 트를 열고 정책에서 **Id 경험 프레임 워크**를 선택 합니다.
+1. Azure AD B2C 테 넌 트를 열고 정책에서 **Id 경험 프레임 워크** 를 선택 합니다.
 
-2. 이전에 만든 **Signupsignin**을 선택 합니다.
+2. 이전에 만든 **Signupsignin** 을 선택 합니다.
 
 3. **사용자 흐름 실행** 을 선택 하 고 설정을 선택 합니다.
 
@@ -81,7 +81,7 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   다. **사용자 흐름 실행**을 선택합니다.
+   c. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 
@@ -91,6 +91,6 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure AD B2C의 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C에서 사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Azure AD B2C에서 사용자 지정 정책 시작](./custom-policy-get-started.md?tabs=applications)

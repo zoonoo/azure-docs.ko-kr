@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 9203cebbd721b918f2514f7615712c035a0460ed
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 216658b5f5443409e7bd44cbd29bff40cd56c75f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669753"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606983"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 
-워크플로를 통해 데이터베이스 업데이트를 [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md)에 배포하여 [GitHub Actions](https://docs.github.com/en/actions)를 시작합니다. 
+워크플로를 통해 데이터베이스 업데이트를 [Azure SQL Database](../azure-sql-iaas-vs-paas-what-is-overview.md)에 배포하여 [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions)를 시작합니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

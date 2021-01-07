@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 6e183a1e8cac8eec2806a35603c40a44aadac502
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84193501"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913626"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -27,7 +27,7 @@ ms.locfileid: "84193501"
 
 이 문서에서는 각 처리 단계에 대 한 옵션 및 도구를 중점적으로 설명 합니다.
 
-Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 전체 목록은 [azure 서비스와 Azure Data Lake Storage 통합](data-lake-storage-integrate-with-azure-services.md) (영문)을 참조 하세요.
+Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 전체 목록은 [azure 서비스와 Azure Data Lake Storage 통합](./data-lake-storage-supported-azure-services.md) (영문)을 참조 하세요.
 
 ## <a name="ingest-the-data-into-data-lake-storage-gen2"></a>데이터를 Data Lake Storage Gen2에 수집
 
@@ -54,8 +54,8 @@ Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 �
 
 |도구 | 지침 |
 |---|--|
-|Azure Stream Analytics|[빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Azure Data Lake Gen2로 송신](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2)|
-|Azure HDInsight Storm | [HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
+|Azure Stream Analytics|[빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Azure Data Lake Gen2로 송신](../../stream-analytics/stream-analytics-define-outputs.md)|
+|Azure HDInsight Storm | [HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
 
 ### <a name="relational-data"></a>관계형 데이터
 
@@ -65,7 +65,7 @@ Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 �
 
 |도구 | 지침 |
 |---|--|
-|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](../../data-factory/copy-activity-overview.md) |
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>웹 서버 로그 데이터(사용자 지정 애플리케이션을 사용하여 업로드)
 
@@ -75,7 +75,7 @@ Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 �
 
 |도구 | 지침 |
 |---|--|
-|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](../../data-factory/copy-activity-overview.md)  |
 |Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
 |Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
@@ -89,9 +89,9 @@ Azure Data Lake Storage Gen2와 함께 사용할 수 있는 Azure 서비스의 �
 
 |도구 | 지침 |
 |---|--|
-|Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
-|AzCopy 도구 | [AzCopy를 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure 데이터 팩터리 | [Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](./data-lake-storage-use-distcp.md) |
+|AzCopy 도구 | [AzCopy를 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md) |
+|Azure 데이터 팩터리 | [Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2 간에 데이터 복사](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>온-프레미스 또는 IaaS Hadoop 클러스터에 저장된 데이터
 
@@ -118,12 +118,12 @@ Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 
 
 |도구 | 지침 |
 |---|--|
-|Azure HDInsight | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[빠른 시작: Azure Databricks를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure HDInsight | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[빠른 시작: Azure Databricks를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>데이터 시각화
 
-Power BI 커넥터를 사용 하 여 Data Lake Storage Gen2에 저장 된 데이터의 시각적 표현을 만듭니다. [Power BI를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석을](https://docs.microsoft.com/power-query/connectors/datalakestorage)참조 하세요.
+Power BI 커넥터를 사용 하 여 Data Lake Storage Gen2에 저장 된 데이터의 시각적 표현을 만듭니다. [Power BI를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석을](/power-query/connectors/datalakestorage)참조 하세요.
 
 ## <a name="download-the-data"></a>데이터 다운로드
 
@@ -139,7 +139,7 @@ Power BI 커넥터를 사용 하 여 Data Lake Storage Gen2에 저장 된 데이
 
 |도구 | 지침 |
 |---|--|
-|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](../../data-factory/copy-activity-overview.md) |
+|Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](./data-lake-storage-use-distcp.md) |
 |Azure Storage Explorer|[Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리](data-lake-storage-explorer.md)|
 |AzCopy 도구|[AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../common/storage-use-azcopy-blobs.md)|

@@ -4,12 +4,12 @@ description: 자동 크기 조정 설정 및 작동 방법을 자세히 설명�
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317470"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605243"
 ---
 # <a name="understand-autoscale-settings"></a>자동 크기 조정 설정 이해
 자동 크기 조정 설정은 애플리케이션의 변화하는 부하를 처리할 수 있는 적절한 양의 리소스가 실행되도록 하는 데 도움이 됩니다. 부하 또는 성능을 나타내는 메트릭을 기준으로 트리거되거나 예약된 날짜 및 시간에 트리거되도록 자동 크기 조정 설정을 구성할 수 있습니다. 이 문서에서는 자동 크기 조정 설정을 자세히 분석합니다. 이 문서는 스키마 및 설정의 속성부터 설명한 후, 구성할 수 있는 다른 프로필 유형에 대해서도 설명합니다. 마지막으로, 이 문서에서는 Azure의 자동 크기 조정 기능이 지정된 시간에 실행할 프로필을 평가하는 방법을 설명합니다.
@@ -60,7 +60,7 @@ ms.locfileid: "87317470"
               "cooldown": "PT5M"
             }
           },
-    {
+          {
             "metricTrigger": {
               "metricName": "Percentage CPU",
               "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1",
@@ -85,7 +85,7 @@ ms.locfileid: "87317470"
 }
 ```
 
-| 섹션 | 요소 이름 | 설명 |
+| 섹션 | 요소 이름 | Description |
 | --- | --- | --- |
 | 설정 | ID | 자동 크기 조정 설정의 리소스 ID입니다. 자동 크기 조정 설정은 Azure Resource Manager 리소스입니다. |
 | 설정 | name | 자동 크기 조정 설정 이름입니다. |
@@ -119,34 +119,41 @@ ms.locfileid: "87317470"
 
 - **고정된 날짜 프로필:** 이 프로필은 특수한 경우에 사용됩니다. 예를 들어, 2017년 12월 26일(PST)에 예정된 중요한 이벤트가 있다고 가정해 보겠습니다. 이 날에는 리소스의 최소 및 최대 용량이 다르지만 동일한 메트릭 비율을 유지하려고 합니다. 이 경우 고정 날짜 프로필을 설정의 프로필 목록에 추가해야 합니다. 프로필은 해당 이벤트 날에만 실행되도록 구성됩니다. 다른 날에는 일반 프로필이 사용됩니다.
 
-    ``` JSON
-    "profiles": [{
-    "name": " regularProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    },
-    {
-    ...
-    }]
-    },
-    {
-    "name": "eventProfile",
-    "capacity": {
-    ...
-    },
-    "rules": [{
-    ...
-    }, {
-    ...
-    }],
-    "fixedDate": {
-        "timeZone": "Pacific Standard Time",
-               "start": "2017-12-26T00:00:00",
-               "end": "2017-12-26T23:59:00"
-    }}
+    ```json
+    "profiles": [
+        {
+            "name": " regularProfile",
+            "capacity": {
+                ...
+            },
+            "rules": [
+                {
+                ...
+                },
+                {
+                ...
+                }
+            ]
+        },
+        {
+            "name": "eventProfile",
+            "capacity": {
+            ...
+            },
+            "rules": [
+                {
+                ...
+                }, 
+                {
+                ...
+                }
+            ],
+            "fixedDate": {
+                "timeZone": "Pacific Standard Time",
+                "start": "2017-12-26T00:00:00",
+                "end": "2017-12-26T23:59:00"
+            }
+        }
     ]
     ```
     

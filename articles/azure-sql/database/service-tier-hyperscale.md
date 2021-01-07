@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 56c3475ae6a03600723e7a12b3f3809f003ce7c4
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780056"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922264"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -67,11 +67,11 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 하이퍼스케일 서비스 계층은 [vCore 모델](service-tiers-vcore.md)에만 사용할 수 있습니다. 새 아키텍처에 맞게 가격 책정 모델이 범용 또는 중요 비즈니스용 서비스 계층과 약간 다릅니다.
 
-- **계산** :
+- **계산**:
 
   하이퍼스케일 컴퓨팅 단위 가격은 복제본별로 정해집니다. [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/) 가격은 읽기 확장 복제본에 자동으로 적용됩니다. 기본적으로 기본 복제본과 하이퍼 크기 조정 데이터베이스당 하나의 읽기 전용 복제본을 만듭니다.  사용자가 1-5의 주 복제본을 포함 하 여 총 복제본 수를 조정할 수 있습니다.
 
-- **스토리지** :
+- **스토리지**:
 
   하이퍼스케일 데이터베이스를 구성하는 경우 최대 데이터 크기를 지정할 필요가 없습니다. 대규모 계층에서는 실제 할당을 기반으로 데이터베이스에 대 한 저장소 요금이 청구 됩니다. 저장소는 10gb 증분 단위로 40 GB와 100 TB 사이에서 자동으로 할당 됩니다. 필요한 경우 여러 데이터 파일을 동시에 확장할 수 있습니다. 하이퍼 규모의 데이터베이스는 10gb의 시작 크기를 사용 하 여 생성 되며, 40 GB의 크기에 도달할 때까지 10 분 마다 10gb의 증가를 시작 합니다.
 
@@ -203,7 +203,7 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 - 노르웨이 서부
 - 남아프리카 북부
 - 미국 중남부
-- 동남아시아
+- 동남 아시아
 - 스위스 서부
 - 영국 남부
 - 영국 서부
@@ -231,7 +231,6 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 | In-Memory OLTP 개체가 포함 된 데이터베이스 마이그레이션 | Hyperscale은 메모리 최적화 테이블 형식, 테이블 변수 및 고유 하 게 컴파일된 모듈을 포함 하 여 In-Memory OLTP 개체의 하위 집합을 지원 합니다. 그러나 마이그레이션되는 데이터베이스에 In-Memory OLTP 개체의 모든 종류가 있는 경우 Premium 및 중요 비즈니스용 서비스 계층에서 Hyperscale으로의 마이그레이션은 지원 되지 않습니다. 이러한 데이터베이스를 Hyperscale으로 마이그레이션하려면 모든 In-Memory OLTP 개체와 해당 종속성을 삭제 해야 합니다. 데이터베이스를 마이그레이션한 후에는 이러한 개체를 다시 만들 수 있습니다. 내구성 있고 내구성이 없는 메모리 최적화 테이블은 현재 Hyperscale에서 지원 되지 않으므로 디스크 테이블로 다시 만들어야 합니다.|
 | 지역 복제  | Azure SQL Database Hyperscale에 대해 지역에서 복제를 구성할 수 없습니다. |
 | 데이터베이스 복사 | Hyperscale의 데이터베이스 복사는 현재 공개 미리 보기로 제공 됩니다. |
-| TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 현재 공개 미리 보기로 제공 됩니다. |
 | Intelligent Database 기능 | "강제 계획" 옵션을 제외 하 고 다른 모든 자동 조정 옵션은 Hyperscale에서 아직 지원 되지 않습니다. 옵션은 사용 하도록 설정 된 것 처럼 보일 수 있지만 권장 사항이 나 작업은 적용 되지 않습니다. |
 | Query Performance Insight | 쿼리 성능 정보는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |
 | 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |

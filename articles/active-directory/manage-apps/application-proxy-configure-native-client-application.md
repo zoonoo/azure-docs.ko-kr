@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8494852bcff49602645c940470b529302f119f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09e813e0dff09885f104e43099b10d6f6f8a7f9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165076"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657434"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱이 프록시 애플리케이션과 상호 작용할 수 있도록 설정하는 방법
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 �
 
 ![최종 사용자, Azure AD 및 게시된 애플리케이션 간의 관계](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-네이티브 애플리케이션을 게시하려면 인증을 처리하고 다양한 클라이언트 환경을 지원하는 Microsoft Authentication Library를 사용합니다. 애플리케이션 프록시는 [로그인한 사용자를 대신하여 웹 API를 호출하는 데스크톱 앱](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) 시나리오에 적합합니다.
+네이티브 애플리케이션을 게시하려면 인증을 처리하고 다양한 클라이언트 환경을 지원하는 Microsoft Authentication Library를 사용합니다. 애플리케이션 프록시는 [로그인한 사용자를 대신하여 웹 API를 호출하는 데스크톱 앱](../develop/authentication-flows-app-scenarios.md#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) 시나리오에 적합합니다.
 
 이 문서에서는 애플리케이션 프록시 및 Azure AD 인증 라이브러리를 사용하여 네이티브 애플리케이션을 게시하는 네 가지 단계를 안내합니다.
 
@@ -43,21 +43,21 @@ Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 �
 
 이제 다음과 같이 Azure AD에서 애플리케이션을 등록해야 합니다.
 
-1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에 로그인합니다. **Azure Active Directory 관리 센터**에 대한 **대시보드**가 표시됩니다.
-1. 사이드바에서 **Azure Active Directory**를 선택합니다. **Azure Active Directory** 개요 페이지가 표시됩니다.
-1. Azure AD 개요 사이드바에서 **앱 등록**을 선택합니다. 모든 앱 등록 목록이 표시됩니다.
-1. **새 등록**을 선택합니다. **애플리케이션 등록** 페이지가 나타납니다.
+1. [Azure Active Directory 포털](https://aad.portal.azure.com/)에 로그인합니다. **Azure Active Directory 관리 센터** 에 대한 **대시보드** 가 표시됩니다.
+1. 사이드바에서 **Azure Active Directory** 를 선택합니다. **Azure Active Directory** 개요 페이지가 표시됩니다.
+1. Azure AD 개요 사이드바에서 **앱 등록** 을 선택합니다. 모든 앱 등록 목록이 표시됩니다.
+1. **새 등록** 을 선택합니다. **애플리케이션 등록** 페이지가 나타납니다.
 
    ![Azure Portal에서 새 앱 등록을 만듭니다.](./media/application-proxy-configure-native-client-application/create.png)
 
 1. **이름** 제목에서 애플리케이션에 대한 사용자용 표시 이름을 지정합니다.
 1. **지원되는 계정 유형** 제목 아래에서 다음 지침을 사용하여 액세스 수준을 선택합니다.
 
-   - 조직의 내부 계정만을 대상으로 하려면 **이 조직 디렉터리의 계정만**을 선택합니다.
-   - 비즈니스 또는 교육용 고객만 대상으로 하려면 **모든 조직 디렉터리의 계정**을 선택합니다.
-   - 가장 광범위한 Microsoft ID를 대상으로 하려면 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 선택합니다.
-1. **리디렉션 URI**에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택하고 애플리케이션에 대한 리디렉션 URI`https://login.microsoftonline.com/common/oauth2/nativeclient`를 입력합니다.
-1. **Microsoft 플랫폼 정책**을 선택하고 검토한 후 **등록**을 선택합니다. 새 애플리케이션 등록에 대한 개요 페이지가 생성되고 표시됩니다.
+   - 조직의 내부 계정만을 대상으로 하려면 **이 조직 디렉터리의 계정만** 을 선택합니다.
+   - 비즈니스 또는 교육용 고객만 대상으로 하려면 **모든 조직 디렉터리의 계정** 을 선택합니다.
+   - 가장 광범위한 Microsoft ID를 대상으로 하려면 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
+1. **리디렉션 URI** 에서 **공용 클라이언트(모바일 및 데스크톱)** 를 선택하고 애플리케이션에 대한 리디렉션 URI`https://login.microsoftonline.com/common/oauth2/nativeclient`를 입력합니다.
+1. **Microsoft 플랫폼 정책** 을 선택하고 검토한 후 **등록** 을 선택합니다. 새 애플리케이션 등록에 대한 개요 페이지가 생성되고 표시됩니다.
 
 새 애플리케이션 등록 만들기에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-register-app.md)을 참조하세요.
 
@@ -65,12 +65,12 @@ Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 �
 
 이제 네이티브 애플리케이션을 등록했으므로 디렉터리의 다른 애플리케이션에 대한 액세스 권한을 제공할 수 있습니다. 이 경우에는 프록시 애플리케이션에 대한 액세스 권한을 제공합니다. 네이티브 애플리케이션이 프록시 애플리케이션에 노출될 수 있게 하려면 다음을 수행합니다.
 
-1. 새 애플리케이션 등록 페이지의 사이드바에서 **API 사용 권한**을 선택합니다. 새 애플리케이션 등록을 위한 **API 사용 권한** 페이지가 나타납니다.
-1. **사용 권한 추가**를 선택합니다. **API 사용 권한 요청** 페이지가 나타납니다.
-1. **API 선택** 설정에서 **내 조직에서 사용하는 API**를 선택합니다. API를 노출하는 디렉터리의 애플리케이션이 포함된 목록이 표시됩니다.
-1. [1단계: 프록시 애플리케이션 게시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application)에서 게시한 프록시 애플리케이션을 검색 상자에 입력하거나 스크롤하여 찾은 다음 프록시 애플리케이션을 선택합니다.
-1. **애플리케이션에 어떤 유형의 권한이 필요한가요?** 제목에서 사용 권한 유형을 선택합니다. 네이티브 애플리케이션에서 로그인한 사용자로 프록시 애플리케이션 API에 액세스해야 하는 경우 **위임된 권한**을 선택합니다.
-1. **사용 권한 선택** 제목에서 원하는 사용 권한을 선택하고 **사용 권한 추가**를 선택합니다. 이제 네이티브 애플리케이션에 대한 **API 사용 권한** 페이지에 추가된 프록시 애플리케이션 및 사용 권한 API가 표시됩니다.
+1. 새 애플리케이션 등록 페이지의 사이드바에서 **API 사용 권한** 을 선택합니다. 새 애플리케이션 등록을 위한 **API 사용 권한** 페이지가 나타납니다.
+1. **사용 권한 추가** 를 선택합니다. **API 사용 권한 요청** 페이지가 나타납니다.
+1. **API 선택** 설정에서 **내 조직에서 사용하는 API** 를 선택합니다. API를 노출하는 디렉터리의 애플리케이션이 포함된 목록이 표시됩니다.
+1. [1단계: 프록시 애플리케이션 게시](#step-1-publish-your-proxy-application)에서 게시한 프록시 애플리케이션을 검색 상자에 입력하거나 스크롤하여 찾은 다음 프록시 애플리케이션을 선택합니다.
+1. **애플리케이션에 어떤 유형의 권한이 필요한가요?** 제목에서 사용 권한 유형을 선택합니다. 네이티브 애플리케이션에서 로그인한 사용자로 프록시 애플리케이션 API에 액세스해야 하는 경우 **위임된 권한** 을 선택합니다.
+1. **사용 권한 선택** 제목에서 원하는 사용 권한을 선택하고 **사용 권한 추가** 를 선택합니다. 이제 네이티브 애플리케이션에 대한 **API 사용 권한** 페이지에 추가된 프록시 애플리케이션 및 사용 권한 API가 표시됩니다.
 
 ## <a name="step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample"></a>4단계: 코드에 Microsoft 인증 라이브러리 추가(.NET C# 샘플)
 

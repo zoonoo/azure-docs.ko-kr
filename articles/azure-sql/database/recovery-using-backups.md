@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629192"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797216"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 수행할 수 있습니다.
+[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음 작업을 수행할 수 있습니다.
 
 - 동일한 서버에 새 데이터베이스를 만들어 보존 기간 내의 지정 된 특정 시점으로 복구 합니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 되는 동일한 서버에 데이터베이스를 만듭니다.
@@ -60,7 +60,7 @@ Standard 또는 Premium 서비스 계층을 사용 하는 경우 데이터베이
 전체 서버를 복원 하는 기본 제공 메서드는 없습니다. 이 작업을 수행 하는 방법에 대 한 예제는 [Azure SQL Database: 전체 서버 복구](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)를 참조 하세요.
 
 > [!IMPORTANT]
-> 자동화 된 백업을 사용 하 여 복구 하려면 구독에서 SQL Server 참여자 역할 또는 SQL Managed Instance 참가자 역할 (복구 대상에 따라 다름)의 멤버 이거나 구독 소유자 여야 합니다. 자세한 내용은 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요. Azure Portal, PowerShell 또는 REST API를 사용 하 여 복구할 수 있습니다. Transact-sql은 사용할 수 없습니다.
+> 자동화 된 백업을 사용 하 여 복구 하려면 구독에서 SQL Server 참여자 역할 또는 SQL Managed Instance 참가자 역할 (복구 대상에 따라 다름)의 멤버 이거나 구독 소유자 여야 합니다. 자세한 내용은 [AZURE RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요. Azure Portal, PowerShell 또는 REST API를 사용 하 여 복구할 수 있습니다. Transact-sql은 사용할 수 없습니다.
 
 ## <a name="point-in-time-restore"></a>지정 시간 복원
 
@@ -95,7 +95,7 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스 데이터베이스를 
   ![SQL 관리 되는 인스턴스에 대 한 데이터베이스 복원 옵션의 스크린샷](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> 백업에서 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식으로 복구 수행](recovery-using-backups.md)을 참조 하세요.
+> 백업에서 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식 복구](recovery-using-backups.md)를 참조 하세요.
 
 ## <a name="deleted-database-restore"></a>삭제된 데이터베이스 복원
 
@@ -168,7 +168,7 @@ Azure Portal에서 새 단일 또는 관리 되는 인스턴스 데이터베이�
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
-Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 아래 단계를 수행합니다.
+Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 다음 단계를 수행합니다.
 
 1. **새 데이터베이스** 를 선택 합니다.
 2. 원하는 데이터베이스 이름을 입력 합니다.

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 577890720e9a0a262b099ab638fafe4268c4f756
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6997c8af3034483c6278023627dd79f8108b135c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330199"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959750"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>빠른 시작: Python을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -37,9 +37,9 @@ ms.locfileid: "91330199"
 
 이 빠른 시작의 경우 중간 또는 루트 CA X.509 인증서의 공개 부분을 포함하는 .pem 또는 .cer 파일이 있어야 합니다. 이 인증서는 프로비전 서비스에 업로드되고 서비스에서 확인되어야 합니다.
 
-Azure IoT Hub 및 Device Provisioning Service에서 X.509 인증서 기반 PKI(공개 키 인프라)를 사용하는 방법에 대한 자세한 내용은 [X.509 CA 인증서 보안 개요](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview)를 참조하세요.
+Azure IoT Hub 및 Device Provisioning Service에서 X.509 인증서 기반 PKI(공개 키 인프라)를 사용하는 방법에 대한 자세한 내용은 [X.509 CA 인증서 보안 개요](../iot-hub/iot-hub-x509ca-overview.md)를 참조하세요.
 
-[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)에는 X.509 인증서 체인을 만들고, 해당 체인에서 루트 또는 중간 인증서를 업로드하고, 인증서를 확인하기 위해 서비스를 통해 소유 증명을 수행하는 데 도움이 되는 테스트 도구가 포함되어 있습니다. SDK 도구를 사용하여 만든 인증서는 **개발 테스트 용도로만** 사용하도록 설계되었습니다. 이러한 인증서는 **프로덕션 환경에서 사용할 수 없습니다**. 30일 후 만료되는 하드 코드된 암호("1234")를 포함합니다. 프로덕션 사용에 적합한 인증서 가져오기에 대한 자세한 내용은 Azure IoT Hub 설명서에서 [X.509 CA 인증서를 가져오는 방법](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate)을 참조하세요.
+[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)에는 X.509 인증서 체인을 만들고, 해당 체인에서 루트 또는 중간 인증서를 업로드하고, 인증서를 확인하기 위해 서비스를 통해 소유 증명을 수행하는 데 도움이 되는 테스트 도구가 포함되어 있습니다. SDK 도구를 사용하여 만든 인증서는 **개발 테스트 용도로만** 사용하도록 설계되었습니다. 이러한 인증서는 **프로덕션 환경에서 사용할 수 없습니다**. 30일 후 만료되는 하드 코드된 암호("1234")를 포함합니다. 프로덕션 사용에 적합한 인증서 가져오기에 대한 자세한 내용은 Azure IoT Hub 설명서에서 [X.509 CA 인증서를 가져오는 방법](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate)을 참조하세요.
 
 이 테스트 도구를 사용하여 인증서를 생성하려면 다음 단계를 수행합니다.
 
@@ -55,7 +55,7 @@ Azure IoT Hub 및 Device Provisioning Service에서 X.509 인증서 기반 PKI(�
 
     이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
-   테스트 도구는 복제한 리포지토리의 *azure-iot-sdk-c/tools/CACertificates*에 있습니다.
+   테스트 도구는 복제한 리포지토리의 *azure-iot-sdk-c/tools/CACertificates* 에 있습니다.
 
 3. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 따릅니다. 
 
@@ -65,7 +65,7 @@ Azure IoT Hub 및 Device Provisioning Service에서 X.509 인증서 기반 PKI(�
 
 1. 텍스트 편집기를 사용하여 새 **EnrollmentGroup.py** 파일을 만듭니다.
 
-1. **EnrollmentGroup.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다. 그런 다음, `dpsConnectionString`을 **Azure Portal**의 **Device Provisioning Service**에서 **공유 액세스 정책** 아래에 있는 연결 문자열로 바꿉니다. 인증서 자리 표시자를 이전에 [테스트 인증서 준비](quick-enroll-device-x509-python.md#prepare-test-certificates)에서 만든 인증서로 바꿉니다. 마지막으로 고유한 `registrationid`를 만들고, 소문자 영숫자와 하이픈으로만 구성되어야 합니다.  
+1. **EnrollmentGroup.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다. 그런 다음, `dpsConnectionString`을 **Azure Portal** 의 **Device Provisioning Service** 에서 **공유 액세스 정책** 아래에 있는 연결 문자열로 바꿉니다. 인증서 자리 표시자를 이전에 [테스트 인증서 준비](quick-enroll-device-x509-python.md#prepare-test-certificates)에서 만든 인증서로 바꿉니다. 마지막으로 고유한 `registrationid`를 만들고, 소문자 영숫자와 하이픈으로만 구성되어야 합니다.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
@@ -122,7 +122,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 - [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
 - [개별 등록](concepts-service.md#individual-enrollment): 단일 디바이스를 등록하는 데 사용됩니다.
 
-[Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client)를 사용하여 개별 등록 만들기는 현재 진행 중입니다. 자세히 알아보려면 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
+[Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client)를 사용하여 개별 등록 만들기는 현재 진행 중입니다. 자세히 알아보려면 [X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
 
 1. 명령 프롬프트를 열고, 다음 명령을 실행하여 [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client)를 설치합니다.
 
@@ -138,7 +138,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 3. 성공적으로 등록되는지 확인하기 위해 결과를 관찰합니다.
 
-4. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. 앞에서 만든 이름(`registrationid`)이 있는 X.509 디바이스 그룹이 **등록 그룹** 탭 아래에 표시됩니다. 
+4. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리** 를 클릭합니다. 앞에서 만든 이름(`registrationid`)이 있는 X.509 디바이스 그룹이 **등록 그룹** 탭 아래에 표시됩니다. 
 
     ![포털에서 성공적인 X.509 등록 확인](./media/quick-enroll-device-x509-python/1.png)  
 
@@ -148,7 +148,7 @@ Java 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소�
 
 1. 컴퓨터에서 Java 샘플 출력 창을 닫습니다.
 1. 컴퓨터에서 _X509 인증서 생성기_ 창을 닫습니다.
-1. Azure Portal에서 Device Provisioning Service로 이동하여 **등록 관리**를 선택한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스의 *그룹 이름* 옆에 있는 확인란을 선택하고 창 위쪽의 **삭제** 단추를 누릅니다.    
+1. Azure Portal에서 Device Provisioning Service로 이동하여 **등록 관리** 를 선택한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스의 *그룹 이름* 옆에 있는 확인란을 선택하고 창 위쪽의 **삭제** 단추를 누릅니다.    
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9e0b438e0cfa729300099463086248780c69484c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458934"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>자습서: Kontiki와 Azure Active Directory 통합
 
@@ -95,7 +95,7 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 창에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -104,7 +104,7 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     ![Kontiki 도메인 및 URL Single Sign-On 정보](common/sp-signonurl.png)
 
     > [!NOTE]
-    > 사용할 올바른 값을 얻으려면 [Kontiki 클라이언트 지원 팀](https://customersupport.kontiki.com/enterprise/contactsupport.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 사용할 올바른 값을 얻으려면 [Kontiki 클라이언트 지원 팀](https://kollective.com/support/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 옆에 있는 **다운로드** 를 선택합니다. 요구 사항에 따라 다운로드 옵션을 선택합니다. 인증서를 컴퓨터에 저장합니다.
 
@@ -120,7 +120,7 @@ Kontiki에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configure-kontiki-single-sign-on"></a>Kontiki Single Sign-On 구성
 
-[Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) 쪽에서 Single Sign-On을 구성하려면 다운로드한 페더레이션 메타데이터 XML과 Azure Portal에서 복사한 관련 URL을 Kontiki 지원 팀으로 보내야 합니다. Kontiki 지원 팀은 사용자가 보내는 정보를 사용하여 SAML Single Sign-On 연결이 양쪽에서 제대로 설정되었는지 확인합니다.
+[Kontiki](https://kollective.com/support/) 쪽에서 Single Sign-On을 구성하려면 다운로드한 페더레이션 메타데이터 XML과 Azure Portal에서 복사한 관련 URL을 Kontiki 지원 팀으로 보내야 합니다. Kontiki 지원 팀은 사용자가 보내는 정보를 사용하여 SAML Single Sign-On 연결이 양쪽에서 제대로 설정되었는지 확인합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 

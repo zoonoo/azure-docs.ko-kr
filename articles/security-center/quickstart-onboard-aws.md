@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372781"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573513"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -49,6 +49,8 @@ AWS 계정을 Security Center에 온보딩하면 AWS Security Hub와 Azure Secur
 
 ## <a name="connect-your-aws-account"></a>AWS 계정 연결
 
+아래 단계에 따라 AWS 클라우드 커넥터를 만듭니다. 
+
 ### <a name="step-1-set-up-aws-security-hub"></a>1단계: AWS Security Hub 설정:
 
 1. 여러 영역에 대한 보안 권장 사항을 보려면 관련된 각 지역에 대해 다음 단계를 반복합니다.
@@ -77,7 +79,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 1. 다음 페이지에서 **다른 AWS 계정** 을 선택합니다.
 1. 다음 세부 정보를 입력합니다.
 
-    - **계정 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 Microsoft 계정 ID( **158177204117** )를 입력합니다.
+    - **계정 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 Microsoft 계정 ID(**158177204117**)를 입력합니다.
     - **필요한 외부 ID** - 선택해야 합니다.
     - **외부 ID** - Security Center의 AWS 커넥터 페이지에 표시된 것처럼 구독 ID를 입력합니다. 
 
@@ -98,7 +100,7 @@ Security Center에서 AWS에 인증하도록 허용하는 두 가지 방법이 �
 #### <a name="create-an-aws-user-for-security-center"></a>Security Center에 대한 AWS 사용자 만들기 
 1. **사용자** 탭을 열고 **사용자 추가** 를 선택합니다.
 1. **세부 정보** 단계에서 Security Center의 사용자 이름을 입력하고 AWS 액세스 형식으로 **프로그래밍 방식 액세스** 를 선택합니다. 
-1. **Next Permissions** (다음: 권한)를 클릭합니다.
+1. **Next Permissions**(다음: 권한)를 클릭합니다.
 1. **기존 정책 직접 연결** 을 선택하고 다음 정책을 적용합니다.
     - SecurityAudit
     - AmazonSSMAutomationRole
@@ -160,7 +162,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 
         Azure 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 및 관리 계층 구조 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
-### <a name="step-7-confirmation"></a>7단계. 확인
+### <a name="step-6-confirmation"></a>6단계. 확인
 
 커넥터가 성공적으로 생성되고 AWS Security Hub가 올바르게 구성된 경우:
 

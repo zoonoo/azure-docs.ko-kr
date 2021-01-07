@@ -9,17 +9,17 @@ ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
 ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530221"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021098"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>자습서: Peering Service 연결 만들기
 
 이 자습서에서는 Peering Service 리소스를 만드는 방법과 Peering Service 연결을 구성하는 방법을 보여 줍니다. 
 
-1. Peering Service 연결을 등록하려면  **리소스 만들기** > **Peering Service**를 선택합니다.
+1. Peering Service 연결을 등록하려면  **리소스 만들기** > **Peering Service** 를 선택합니다.
 
  
     ![Peering Service 등록](./media/peering-service-portal/peering-servicecreate.png)
@@ -30,7 +30,7 @@ ms.locfileid: "91530221"
 
     ![Peering Service 등록 기본 사항 탭](./media/peering-service-portal/peering-servicebasics.png)
 
-4. Peering Service 인스턴스를 등록해야 할 **이름**을 입력합니다.
+4. Peering Service 인스턴스를 등록해야 할 **이름** 을 입력합니다.
 
 5. 이제 페이지 아래쪽에서 **다음:구성** 단추를 선택합니다. **구성** 페이지가 나타납니다.
 ## <a name="configure-the-peering-service-connection"></a>Peering Service 연결 구성
@@ -39,15 +39,15 @@ ms.locfileid: "91530221"
 
 1. **피어링 서비스 공급자** 드롭다운 목록에서 공급자 이름을 선택하여 Peering Service를 가져와야 하는 서비스 공급자를 선택합니다.
  
-1. **접두사** 섹션의 맨 아래에 있는 **새 접두사 만들기**를 선택하고, 텍스트 상자를 표시합니다. 이제 접두사 리소스의 이름과 서비스 공급자와 연결된 접두사를 입력합니다.
+1. **접두사** 섹션의 맨 아래에 있는 **새 접두사 만들기** 를 선택하고, 텍스트 상자를 표시합니다. 이제 접두사 리소스의 이름과 서비스 공급자와 연결된 접두사를 입력합니다.
 
-1. **접두사 키**를 선택하고 공급자(ISP 또는 IXP)에 의해 제공된 접두사 키를 추가합니다. 이 키를 사용하면 MS에서 IP 접두사를 할당한 접두사와 공급자의 유효성을 검사할 수 있습니다.
+1. **접두사 키** 를 선택하고 공급자(ISP 또는 IXP)에 의해 제공된 접두사 키를 추가합니다. 이 키를 사용하면 MS에서 IP 접두사를 할당한 접두사와 공급자의 유효성을 검사할 수 있습니다.
 
     ![스크린샷은 접두사 키를 입력할 수 있는 피어링 서비스 연결 만들기 페이지의 구성 탭을 보여줍니다.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. 페이지의 왼쪽 아래에서 **검토 + 만들기** 단추를 선택합니다. **검토 + 만들기** 페이지가 표시되고, Azure가 구성의 유효성을 검사합니다.
 
- 1. 표시된 것처럼 **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
+ 1. 표시된 것처럼 **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 
 > ![스크린샷은 피어링 서비스 연결 만들기 페이지의 검토 + 만들기 탭을 보여줍니다.](./media/peering-service-portal/peering-service-prefix.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "91530221"
 
 ### <a name="add-or-remove-a-prefix"></a>접두사 추가 또는 제거
 
-**접두사** 페이지에서 **접두사 추가**를 선택하여 접두사를 추가합니다.
+**접두사** 페이지에서 **접두사 추가** 를 선택하여 접두사를 추가합니다.
 
 나열된 접두사 옆에 있는 줄임표(...)를 선택하고, **삭제** 옵션을 선택합니다.
 

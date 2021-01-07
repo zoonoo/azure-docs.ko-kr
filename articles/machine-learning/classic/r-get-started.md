@@ -9,17 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325017"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507204"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>R에서 Azure Machine Learning Studio (클래식) 시작
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**적용 대상:** ![ 이는이 문서가 Machine Learning Studio (클래식)에 적용 됨을 의미 하는 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 이것 ![ 은 X 이므로이 문서는 Azure Machine Learning에 적용 됩니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 <!-- Stephen F Elston, Ph.D. -->
 이 자습서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 R 코드를 만들고 테스트 하 고 실행 하는 방법에 대해 알아봅니다. 끝에는 완전 한 예측 솔루션이 있습니다.
@@ -122,9 +121,9 @@ maml.mapOutputPort("data.set")
 
 RStudio는 R에 널리 사용 되는 IDE입니다. RStudio를 사용 하 여이 가이드에서 사용 되는 일부 R 코드를 편집, 테스트 및 디버그할 수 있습니다. R 코드를 테스트 하 고 준비 했으면 RStudio 편집기에서 Machine Learning Studio (클래식) [r 스크립트 실행][execute-r-script] 모듈을 잘라내어 붙여 넣을 수 있습니다.
 
-데스크톱 컴퓨터에 R 프로그래밍 언어가 설치 되어 있지 않은 경우 지금 수행 합니다. 오픈 소스 R 언어의 무료 다운로드는 [포괄적인 r 보관 네트워크 (CRAN)](https://www.r-project.org/)에서 제공 됩니다. 다운로드는 Windows, Mac OS 및 Linux/UNIX에서 사용할 수 있습니다. 가까운 미러를 선택 하 고 다운로드 지시를 따릅니다. 또한 CRAN에는 많은 유용한 분석 및 데이터 조작 패키지가 포함 되어 있습니다.
+데스크톱 컴퓨터에 R 프로그래밍 언어가 설치 되어 있지 않은 경우 지금 수행 합니다. 오픈 소스 R 언어의 무료 다운로드는 [포괄적인 r 보관 네트워크 (CRAN)](https://www.r-project.org/)에서 제공 됩니다. 다운로드는 Windows, macOS 및 Linux/UNIX에서 사용할 수 있습니다. 가까운 미러를 선택 하 고 다운로드 지시를 따릅니다. 또한 CRAN에는 많은 유용한 분석 및 데이터 조작 패키지가 포함 되어 있습니다.
 
-RStudio를 처음 접하는 경우 데스크톱 버전을 다운로드 하 여 설치 해야 합니다. Rstudio에서 Windows, Mac OS 및 Linux/UNIX 용 RStudio 다운로드를 찾을 수 [있습니다.](http://www.rstudio.com/products/RStudio/) 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.
+RStudio를 처음 접하는 경우 데스크톱 버전을 다운로드 하 여 설치 해야 합니다. [Rstudio](http://www.rstudio.com/products/RStudio/)에서 Windows, Macos 및 LINUX/UNIX 용 rstudio 다운로드를 찾을 수 있습니다. 제공된 지침에 따라 데스크톱 컴퓨터에 RStudio를 설치하세요.
 
 Rstudio [IDE를 사용 하 여](https://support.rstudio.com/hc/sections/200107586-Using-RStudio)에서 rstudio에 대 한 자습서를 소개 합니다.
 
@@ -159,7 +158,7 @@ RStudio를 사용 하는 방법에 대 한 자세한 내용은 [RStudio 설명�
 1. **csdairydata.csv 데이터 집합** 을 실험으로 끌어 옵니다.
 1. 왼쪽 창의 맨 위에 있는 **실험 항목 검색** 상자에 [R 스크립트 실행][execute-r-script]을 입력 합니다. 검색 목록에 모듈이 표시 됩니다.
 1. [R 스크립트 실행][execute-r-script] 모듈을 팔레트에 끌어다 놓습니다.
-1. **csdairydata.csv 데이터 집합** 의 출력을 [R 스크립트 실행][execute-r-script]의 가장 왼쪽에 있는 입력 ( **Dataset1** )에 연결 합니다.
+1. **csdairydata.csv 데이터 집합** 의 출력을 [R 스크립트 실행][execute-r-script]의 가장 왼쪽에 있는 입력 (**Dataset1**)에 연결 합니다.
 1. **저장** 을 선택합니다.
 
 이제 실험은 다음 예제와 유사 하 게 표시 됩니다.
@@ -1276,9 +1275,9 @@ maml.mapOutputPort('RMS.df')
 
 RStudio는 잘 문서화 되어 있습니다. 다음은 시작 하는 데 도움이 되는 RStudio 설명서의 주요 섹션에 대 한 링크입니다.
 
-* **프로젝트 만들기** : rstudio를 사용 하 여 R 코드를 프로젝트로 구성 하 고 관리할 수 있습니다. 자세한 내용은 [프로젝트 사용](https://support.rstudio.com/hc/articles/200526207-Using-Projects)을 참조 하세요. 이 문서의 지침을 따르고 R 코드 예제에 대 한 프로젝트를 만듭니다.
-* **R 코드 편집 및 실행** : Rstudio는 r 코드를 편집 하 고 실행 하기 위한 통합 환경을 제공 합니다. 자세한 내용은 [코드 편집 및 실행](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code)을 참조 하세요.
-* **디버그** : rstudio에는 강력한 디버깅 기능이 포함 되어 있습니다. 이러한 기능에 대 한 자세한 내용은 [RStudio를 사용 하 여 디버깅](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio)을 참조 하세요. 중단점 문제 해결 기능에 대 한 자세한 내용은 [중단점 문제 해결](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)을 참조 하세요.
+* **프로젝트 만들기**: rstudio를 사용 하 여 R 코드를 프로젝트로 구성 하 고 관리할 수 있습니다. 자세한 내용은 [프로젝트 사용](https://support.rstudio.com/hc/articles/200526207-Using-Projects)을 참조 하세요. 이 문서의 지침을 따르고 R 코드 예제에 대 한 프로젝트를 만듭니다.
+* **R 코드 편집 및 실행**: Rstudio는 r 코드를 편집 하 고 실행 하기 위한 통합 환경을 제공 합니다. 자세한 내용은 [코드 편집 및 실행](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code)을 참조 하세요.
+* **디버그**: rstudio에는 강력한 디버깅 기능이 포함 되어 있습니다. 이러한 기능에 대 한 자세한 내용은 [RStudio를 사용 하 여 디버깅](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio)을 참조 하세요. 중단점 문제 해결 기능에 대 한 자세한 내용은 [중단점 문제 해결](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)을 참조 하세요.
 
 ## <a name="further-reading"></a><a id="appendixb"></a>추가 정보
 

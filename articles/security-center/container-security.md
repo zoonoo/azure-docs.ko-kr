@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449180"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030869"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -58,7 +58,7 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 
 Azure Security Center는 IaaS Linux VM 또는 Docker 컨테이너를 실행하는 다른 Linux 머신에 호스트되는 관리되지 않는 컨테이너를 식별합니다. Security Center는 이러한 컨테이너의 구성을 지속적으로 평가합니다. 그런 다음, 이러한 항목을 [CIS(Center for Internet Security) Docker 벤치마크](https://www.cisecurity.org/benchmark/docker/)와 비교합니다.
 
-Security Center는 CIS Docker 벤치마크의 전체 규칙 세트를 포함하며 컨테이너가 규칙을 위반할 경우 경고를 표시합니다. Security Center는 잘못된 구성을 발견하면 보안 권장 사항을 생성합니다. Security Center의 **권장 사항 페이지**를 사용하여 권장 사항을 살펴보고 문제를 해결하세요. CIS 벤치마크 검사는 AKS 관리형 인스턴스 또는 Databricks 관리형 VM에서 실행되지 않습니다.
+Security Center는 CIS Docker 벤치마크의 전체 규칙 세트를 포함하며 컨테이너가 규칙을 위반할 경우 경고를 표시합니다. Security Center는 잘못된 구성을 발견하면 보안 권장 사항을 생성합니다. Security Center의 **권장 사항 페이지** 를 사용하여 권장 사항을 살펴보고 문제를 해결하세요. CIS 벤치마크 검사는 AKS 관리형 인스턴스 또는 Databricks 관리형 VM에서 실행되지 않습니다.
 
 이 기능에 대해 표시될 수 있는 관련 Security Center 권장 사항에 대한 자세한 내용은 권장 사항 참조 표의 [컨테이너 섹션](recommendations-reference.md#recs-containers)을 참조하세요.
 
@@ -78,11 +78,11 @@ AKS는 클러스터의 보안 태세에 대한 보안 제어 및 가시성을 �
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Kubernetes 허용 제어를 사용하여 워크로드 보호 모범 사례
 
-**Kubernetes용 Azure Policy 추가 기능**을 설치하여 Kubernetes 컨테이너의 워크로드를 보호하기 위한 권장 구성 번들을 가져옵니다.
+Kubernetes 컨테이너의 워크로드를 보호하기 위한 권장 사항 번들을 보려면 **Kubernetes용 Azure Policy 추가 기능** 을 설치합니다. [확장 자동 프로비저닝 사용](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions)에 설명된 대로 이 추가 기능을 자동 배포할 수도 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
 
 [Kubernetes용 Azure Policy 페이지](../governance/policy/concepts/policy-for-kubernetes.md)에 설명된 것처럼, 이 추가 기능은  [Open Policy Agent](https://www.openpolicyagent.org/)에 대한 오픈 소스 [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) 허용 컨트롤러 웹후크를 확장합니다. Kubernetes 허용 컨트롤러는 클러스터 사용 방법을 강제 적용하는 플러그 인입니다. 추가 기능은 Kubernetes 허용 제어의 webhook로 등록되며, 일관적인 중앙 집중식 방식으로 클러스터에 대규모 규약 및 세이프가드를 적용할 수 있습니다. 
 
-AKS 클러스터에 추가 기능을 설치한 경우 Kubernetes API 서버에 대한 모든 요청은 클러스터에 유지되기 전에 미리 정의된 모범 사례 세트에 대해 모니터링됩니다. 그런 다음, 모범 사례를 **적용**하고 향후 워크로드에 대해 위임하도록 구성할 수 있습니다. 
+AKS 클러스터에 추가 기능을 사용하면 Kubernetes API 서버에 대한 모든 요청은 클러스터에 유지되기 전에 미리 정의된 모범 사례 세트에 대해 모니터링됩니다. 그런 다음, 모범 사례를 **적용** 하고 향후 워크로드에 대해 위임하도록 구성할 수 있습니다. 
 
 예를 들어 권한 있는 컨테이너를 만들지 않도록 위임할 수 있습니다. 그러면 이러한 작업에 대한 이후의 모든 요청이 차단됩니다.
 

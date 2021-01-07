@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321214"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740229"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process 그룹 관리자 작업
 
@@ -65,9 +65,9 @@ ms.locfileid: "93321214"
 
 Azure Repos는 그룹에 대해 다음과 같은 유형의 리포지토리를 호스팅합니다.
 
-- **그룹 공통 리포지토리** : 데이터 과학 단위 내의 여러 팀이 여러 데이터 과학 프로젝트에 대해 채택할 수 있는 범용 리포지토리입니다. 
-- **팀 리포지토리** : 데이터 과학 단위 내의 특정 팀에 대 한 리포지토리입니다. 이러한 리포지토리는 팀의 요구에 따라 달라 지 며 해당 팀 내의 여러 프로젝트에 사용 될 수 있지만 데이터 과학 단위 내의 여러 팀에서 사용할 수 있을 정도로 일반적이 지 않습니다.
-- **프로젝트 리포지토리** : 특정 프로젝트에 대 한 리포지토리입니다. 이러한 리포지토리는 팀 내의 여러 프로젝트 또는 데이터 과학 단위의 다른 팀에 대해 일반적으로 충분 하지 않을 수 있습니다.
+- **그룹 공통 리포지토리**: 데이터 과학 단위 내의 여러 팀이 여러 데이터 과학 프로젝트에 대해 채택할 수 있는 범용 리포지토리입니다. 
+- **팀 리포지토리**: 데이터 과학 단위 내의 특정 팀에 대 한 리포지토리입니다. 이러한 리포지토리는 팀의 요구에 따라 달라 지 며 해당 팀 내의 여러 프로젝트에 사용 될 수 있지만 데이터 과학 단위 내의 여러 팀에서 사용할 수 있을 정도로 일반적이 지 않습니다.
+- **프로젝트 리포지토리**: 특정 프로젝트에 대 한 리포지토리입니다. 이러한 리포지토리는 팀 내의 여러 프로젝트 또는 데이터 과학 단위의 다른 팀에 대해 일반적으로 충분 하지 않을 수 있습니다.
 
 프로젝트에서 그룹 공통 리포지토리를 설정 하려면 다음을 수행 합니다. 
 - 기본 **Groupcommon** 리포지토리를 **groupprojecttemplate** 으로 이름 바꾸기
@@ -126,8 +126,6 @@ TDSP 팀 리포지토리를 가져오려면:
    ![Microsoft TDSP 팀 리포지토리 가져오기](./media/group-manager-tasks/import-repo-2.png)
    
 1. **리포지토리** 페이지의 맨 위에서 드롭다운 하 고 **grouputilities** 리포지토리를 선택 합니다.
-   
-1. 가져오기 프로세스를 반복 하 여 Microsoft TDSP 팀 **유틸리티** 리포지토리 ( *https: \/ /github.com/Azure/Azure-TDSP-Utilities.git* )의 콘텐츠를 **grouputilities** 리포지토리로 가져옵니다. 
    
 이제 두 개의 그룹 리포지토리에는 Microsoft TDSP 팀의 해당 하는 리포지토리에서 모든 파일이 포함 *됩니다.* 
 

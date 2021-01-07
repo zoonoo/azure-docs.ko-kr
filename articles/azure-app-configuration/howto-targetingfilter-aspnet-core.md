@@ -3,16 +3,16 @@ title: 대상 그룹에 대 한 기능의 스테이징 된 롤아웃 사용
 titleSuffix: Azure App Configuration
 description: 대상 그룹에 대해 준비 된 기능 롤아웃을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 ms.service: azure-app-configuration
-author: lisaguthrie
-ms.author: lcozzens
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.topic: conceptual
-ms.date: 8/7/2020
-ms.openlocfilehash: d1574b8a3f8cda3341c0aaf355911e2e93a7bcab
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.date: 11/20/2020
+ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557931"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929687"
 ---
 # <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>대상 그룹에 대 한 기능의 스테이징 된 롤아웃 사용
 
@@ -144,9 +144,9 @@ ms.locfileid: "94557931"
 
 1. 다음 옵션을 선택합니다.
 
-    - **기본 백분율** : 0
-    - **그룹** : _contoso.com_ 의 **이름** 및 _50_ 의 **백분율** 을 입력 합니다.
-    - **사용자** : `test@contoso.com`
+    - **기본 백분율**: 0
+    - **그룹**: _contoso.com_ 의 **이름** 및 _50_ 의 **백분율** 을 입력 합니다.
+    - **사용자**: `test@contoso.com`
 
     기능 필터 화면은 다음과 같이 표시 됩니다.
 

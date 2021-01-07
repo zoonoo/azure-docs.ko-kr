@@ -4,12 +4,12 @@ description: 이 문서에서는 사용자 지정 항목 Event Grid 클라이언
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d38d4ffc868d442980cda576ea158704231f9efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c415b7e1bb6bd7a2116da82c7d8f1de205009d0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856333"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886263"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>게시 클라이언트 인증 (Azure Event Grid)
 이 문서에서는 **액세스 키** 또는 **SAS (공유 액세스 서명)** 토큰을 사용 하 여 Azure Event Grid 토픽 또는 도메인에 이벤트를 게시 하는 클라이언트 인증에 대 한 정보를 제공 합니다. SAS 토큰을 사용 하는 것이 좋지만 키 인증을 사용 하면 간단한 프로그래밍이 가능 하며 기존의 많은 webhook 게시자와 호환 됩니다.  
@@ -82,7 +82,7 @@ def generate_sas_token(uri, key, expiry=3600):
 ```
 
 ### <a name="using-aeg-sas-token-header"></a>Aeg-sas-토큰 헤더 사용
-다음은 헤더에 대 한 값으로 SAS 토큰을 전달 하는 예입니다 `aeg-sas-toke` . 
+다음은 헤더에 대 한 값으로 SAS 토큰을 전달 하는 예입니다 `aeg-sas-token` . 
 
 ```http
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d

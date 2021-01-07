@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Monitor를 사용하여 컨테이너에 �
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af5f49dfe5e668f39f105a62ad20858e273b34cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c4ecb6c8b77f1576f25816ba486ed262249c32
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87489489"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695705"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
 
@@ -35,7 +35,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)
 
 >[!NOTE]
->템플릿은 클러스터의 동일한 리소스 그룹에 배포 해야 합니다. 이 템플릿을 사용할 때 다른 속성이나 추가 기능을 생략하면 해당 항목이 클러스터에서 제거될 수 있습니다. 예를 들어 클러스터에 구현 된 RBAC 정책에 대 한 *Enablerbac* 또는 AKS 클러스터에 대해 태그가 지정 된 경우 *aksResourceTagValues* 입니다.  
+>템플릿은 클러스터의 동일한 리소스 그룹에 배포 해야 합니다. 이 템플릿을 사용할 때 다른 속성이나 추가 기능을 생략하면 해당 항목이 클러스터에서 제거될 수 있습니다. 예를 들어 클러스터에 구현 된 Kubernetes RBAC 정책에 대 한 *Enablerbac* 는 AKS 클러스터에 대해 태그를 지정 하는 경우 *aksResourceTagValues* 를 지정 합니다.  
 >
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
@@ -90,7 +90,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-2. 이 파일을 로컬 폴더에 **OptOutTemplate.json**으로 저장합니다.
+2. 이 파일을 로컬 폴더에 **OptOutTemplate.json** 으로 저장합니다.
 
 3. 다음 JSON 구문을 파일에 붙여넣습니다.
 
@@ -116,15 +116,15 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-4. 선택한 클러스터에 대한 **속성** 페이지에서 찾을 수 있는 AKS 클러스터 값을 사용하여 **aksResourceId** 및 **aksResourceLocation**의 값을 편집합니다.
+4. 선택한 클러스터에 대한 **속성** 페이지에서 찾을 수 있는 AKS 클러스터 값을 사용하여 **aksResourceId** 및 **aksResourceLocation** 의 값을 편집합니다.
 
     ![컨테이너 속성 페이지](media/container-insights-optout/container-properties-page.png)
 
-    **속성** 페이지에서 **작업 영역 리소스 ID**도 복사합니다. 이 값은 나중에 Log Analytics 작업 영역을 삭제하려는 경우 필요합니다. Log Analytics 작업 영역을 삭제하는 작업은 이 단계에서는 수행되지 않습니다.
+    **속성** 페이지에서 **작업 영역 리소스 ID** 도 복사합니다. 이 값은 나중에 Log Analytics 작업 영역을 삭제하려는 경우 필요합니다. Log Analytics 작업 영역을 삭제하는 작업은 이 단계에서는 수행되지 않습니다.
 
     **AksResourceTagValues** 에 대 한 값을 편집 하 여 AKS 클러스터에 지정 된 기존 태그 값과 일치 시킵니다.
 
-5. 이 파일을 로컬 폴더에 **OptOutParam.json**으로 저장합니다.
+5. 이 파일을 로컬 폴더에 **OptOutParam.json** 으로 저장합니다.
 
 6. 이제 이 템플릿을 배포할 수 있습니다.
 
@@ -135,7 +135,7 @@ Linux에서 Azure CLI로 다음 명령을 실행하여 솔루션을 제거하고
 ```azurecli
 az login   
 az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
+az deployment group create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
 ```
 
 구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 다음과 비슷한 메시지가 반환됩니다.

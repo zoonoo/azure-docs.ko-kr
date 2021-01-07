@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: bd8da9ae7e31fb60ba0ca553f5aa304ccd3621d2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d9e5f9b531fc28caf8f3162a70318927d40bb923
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127181"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96483065"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치
 
@@ -29,7 +29,7 @@ Azure에서 일반적인 작업은 개발 및 테스트 환경입니다. 이 시
 
 Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 2017 이상, Visual Studio Community (무료로 다운로드 가능) 또는 Eclipse에서 실행 되는 엔터프라이즈 개발자입니다. 이 문서에서는 Visual Studio 2017 이상과 함께 제공 되는 Windows Server 2016 가상 컴퓨터를 사용 하 여 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음 필수 구성 요소를 확인 하세요.
 
@@ -42,12 +42,12 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
     > [!Note]
     > Vm에 대 한 액세스를 제어 하는 몇 가지 옵션이 있습니다.
     > -   모범 사례는 [Azure 방호](https://azure.microsoft.com/services/azure-bastion/)를 설정 하는 것입니다.
-    > -   [사이트 간 VPN (가상 사설망)](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md) 터널.
+    > -   [사이트 간 VPN (가상 사설망)](../../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 터널.
     > -   Jumpbox VM입니다.
 
 ## <a name="install-enterprise-server"></a>Enterprise Server 설치
 
-1.  보안 및 관리 효율성을 높이려면이 프로젝트에 대해서만 새 리소스 그룹을 만드는 것이 좋습니다 (예: **RGMicroFocusEntServer** ). Azure에서 이름의 첫 번째 부분을 사용 하 여 목록에서 보다 쉽게 찾을 수 있도록 리소스의 유형을 선택 합니다.
+1.  보안 및 관리 효율성을 높이려면이 프로젝트에 대해서만 새 리소스 그룹을 만드는 것이 좋습니다 (예: **RGMicroFocusEntServer**). Azure에서 이름의 첫 번째 부분을 사용 하 여 목록에서 보다 쉽게 찾을 수 있도록 리소스의 유형을 선택 합니다.
 
 2.  가상 머신을 만듭니다. Azure Marketplace에서 원하는 가상 컴퓨터 및 운영 체제를 선택 합니다. 권장 설정은 다음과 같습니다.
 
@@ -97,7 +97,7 @@ Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 201
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>개발자 컴퓨터에 엔터프라이즈 개발자 설치
 
-1.  이전에 만든 리소스 그룹 (예: **RGMicroFocusEntServer** )을 선택한 다음 개발자 이미지를 선택 합니다.
+1.  이전에 만든 리소스 그룹 (예: **RGMicroFocusEntServer**)을 선택한 다음 개발자 이미지를 선택 합니다.
 
 2.  가상 컴퓨터에 로그인 하려면 **개요** 섹션으로 이동 하 고 **연결** 을 선택 합니다. 이 로그인은 RDP 세션을 시작 합니다. VM에 대해 만든 자격 증명을 사용 하 여 로그인 합니다.
 

@@ -1,17 +1,17 @@
 ---
 title: 에이전트에 대한 Resource Manager 템플릿 샘플
-description: Azure Monitor에서 Log Analytics 에이전트 및 진단 확장을 배포하고 구성하기 위한 샘플 Azure Resource Manager 템플릿입니다.
+description: Azure Monitor에서 가상 머신 에이전트를 배포 및 구성하기 위한 Azure Resource Manager 템플릿 샘플입니다.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 8b0673e534826acb5ff2d3747053f58fb39ff285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 00d6635b7bb322d28f0fe3df509ce0cb03e19f3d
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83853119"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95308667"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Azure Monitor의 에이전트에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](../platform/log-analytics-agent.md) 및 [진단 확장](../platform/diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -19,10 +19,218 @@ ms.locfileid: "83853119"
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## <a name="windows-log-analytics-agent"></a>Windows Log Analytics 에이전트
+## <a name="azure-monitor-agent-preview"></a>Azure Monitor 에이전트(미리 보기)
+Windows 및 Linux 에이전트의 Azure Monitor 에이전트(미리 보기)에 있는 이 섹션의 샘플입니다. 여기에는 Azure의 머신 및 Azure Arc 지원 서버에 에이전트를 설치하는 것이 포함됩니다. 
+
+### <a name="windows-azure-virtual-machine"></a>Microsoft Azure virtual machine
+다음 샘플에서는 Windows Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다.
+
+#### <a name="template-file"></a>템플릿 파일
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-06-01",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorWindowsAgent",
+              "typeHandlerVersion": "1.0",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>매개 변수 파일
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-windows-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="linux-azure-virtual-machine"></a>Linux Azure 가상 머신
+다음 샘플에서는 Linux Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다.
+
+#### <a name="template-file"></a>템플릿 파일
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorLinuxAgent')]",
+          "type": "Microsoft.Compute/virtualMachines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2020-06-01",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorLinuxAgent",
+              "typeHandlerVersion": "1.5",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>매개 변수 파일
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-linux-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="windows-azure-arc-enabled-server"></a>Windows Azure Arc 지원 서버
+다음 샘플에서는 Windows Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치합니다.
+
+#### <a name="template-file"></a>템플릿 파일
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorWindowsAgent')]",
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2019-08-02-preview",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorWindowsAgent",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>매개 변수 파일
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-windows-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+### <a name="linux-azure-arc-enabled-server"></a>Linux Azure Arc 지원 서버
+다음 샘플에서는 Linux Azure Arc 지원 서버에 Azure Monitor 에이전트를 설치합니다.
+
+#### <a name="template-file"></a>템플릿 파일
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+          "type": "string"
+      },
+      "location": {
+          "type": "string"
+      }
+  },
+  "resources": [
+      {
+          "name": "[concat(parameters('vmName'),'/AzureMonitorLinuxAgent')]",
+          "type": "Microsoft.HybridCompute/machines/extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2019-08-02-preview",
+          "properties": {
+              "publisher": "Microsoft.Azure.Monitor",
+              "type": "AzureMonitorLinuxAgent",
+              "autoUpgradeMinorVersion": true
+          }
+      }
+  ]
+}
+```
+
+#### <a name="parameter-file"></a>매개 변수 파일
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "vmName": {
+        "value": "my-linux-vm"
+      },
+      "location": {
+        "value": "eastus"
+      }
+  }
+}
+```
+
+## <a name="log-analytics-agent"></a>Log Analytics 에이전트
+이 섹션의 샘플은 Azure의 Windows 및 Linux 가상 머신에 Log Analytics 에이전트를 설치하고 Log Analytics 작업 영역에 연결합니다.
+
+###  <a name="windows"></a>Windows
 다음 샘플에서는 Windows Azure 가상 머신에 Log Analytics 에이전트를 설치합니다. 이 작업은 [Windows용 Log Analytics 가상 머신 확장](../../virtual-machines/extensions/oms-windows.md)을 사용하도록 설정하여 수행합니다.
 
-### <a name="template-file"></a>템플릿 파일
+#### <a name="template-file"></a>템플릿 파일
 
 ```json
 {
@@ -90,7 +298,7 @@ ms.locfileid: "83853119"
 
 ```
 
-### <a name="parameter-file"></a>매개 변수 파일
+#### <a name="parameter-file"></a>매개 변수 파일
 
 ```json
 {
@@ -114,10 +322,10 @@ ms.locfileid: "83853119"
 ```
 
 
-## <a name="linux-log-analytics-agent"></a>Linux Log Analytics 에이전트
+### <a name="linux"></a>Linux
 다음 샘플에서는 Linux Azure 가상 머신에 Log Analytics 에이전트를 설치합니다. 이 작업은 [Windows용 Log Analytics 가상 머신 확장](../../virtual-machines/extensions/oms-linux.md)을 사용하도록 설정하여 수행합니다.
 
-### <a name="template-file"></a>템플릿 파일
+#### <a name="template-file"></a>템플릿 파일
 
 ```json
 {
@@ -184,7 +392,7 @@ ms.locfileid: "83853119"
 }
 ```
 
-### <a name="parameter-file"></a>매개 변수 파일
+#### <a name="parameter-file"></a>매개 변수 파일
 
 ```json
 {
@@ -209,10 +417,13 @@ ms.locfileid: "83853119"
 
 
 
-## <a name="windows-diagnostic-extension"></a>Windows 진단 확장
+## <a name="diagnostic-extension"></a>진단 확장
+이 섹션의 샘플은 Azure의 Windows 및 Linux 가상 머신에 진단 확장을 설치하고 데이터 수집을 위해 구성합니다.
+
+### <a name="windows"></a>Windows
 다음 샘플에서는 Windows Azure 가상 머신에서 진단 확장을 사용하도록 설정하고 구성합니다. 구성에 대한 자세한 내용은 [Windows 진단 확장 스키마](../platform/diagnostics-extension-schema-windows.md)를 참조하세요.
 
-### <a name="template-file"></a>템플릿 파일
+#### <a name="template-file"></a>템플릿 파일
 
 ```json
 {
@@ -345,7 +556,7 @@ ms.locfileid: "83853119"
 }
 ```
 
-### <a name="parameter-file"></a>매개 변수 파일
+#### <a name="parameter-file"></a>매개 변수 파일
 
 ```json
 {
@@ -374,10 +585,10 @@ ms.locfileid: "83853119"
 }
 ```
 
-## <a name="linux-diagnostic-setting"></a>Linux 진단 설정
+### <a name="linux"></a>Linux
 다음 샘플에서는 Linux Azure 가상 머신에서 진단 확장을 사용하도록 설정하고 구성합니다. 구성에 대한 자세한 내용은 [Windows 진단 확장 스키마](../../virtual-machines/extensions/diagnostics-linux.md)를 참조하세요.
 
-### <a name="template-file"></a>템플릿 파일
+#### <a name="template-file"></a>템플릿 파일
 
 ```json
 {
@@ -565,7 +776,7 @@ ms.locfileid: "83853119"
 }
 ```
 
-### <a name="parameter-file"></a>매개 변수 파일
+#### <a name="parameter-file"></a>매개 변수 파일
 
 ```json
 {

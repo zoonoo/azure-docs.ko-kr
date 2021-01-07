@@ -1,14 +1,17 @@
 ---
 title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9badbfe6cfe12d67e07f0889d175ed32bc455321
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337594"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753878"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -66,9 +69,9 @@ Azure Migrate 어플라이언스는 지속적으로 성능 데이터를 측정 �
 
 Azure Migrate 어플라이언스에서 Vm에 대해 수집 하는 데이터에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- **VMWARE VM** : 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다.
-- **HYPER-V VM** : 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---hyper-v) 합니다.
-- **실제 또는 가상 서버** : 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---physical) 합니다.
+- **VMWARE VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다.
+- **HYPER-V VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---hyper-v) 합니다.
+- **실제 또는 가상 서버**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---physical) 합니다.
 
 ## <a name="how-is-data-stored"></a>데이터가 어떻게 저장되나요?
 

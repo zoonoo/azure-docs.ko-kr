@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613117"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654510"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
@@ -40,7 +40,7 @@ Azure Portal 또는 Azure CLI를 사용 하 여 저장소 대상을 제거 하�
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 [Az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) 를 사용 하 여 캐시에서 저장소 대상을 삭제 합니다.
 
@@ -79,7 +79,7 @@ Azure HPC 캐시에 **네임 스페이스** 페이지를 사용 합니다. 네�
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 Azure CLI를 사용 하 여 blob 저장소 대상의 네임 스페이스를 변경 하려면 [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update)명령을 사용 합니다. 값만 `--virtual-namespace-path` 변경할 수 있습니다.
 
@@ -117,7 +117,7 @@ Azure HPC 캐시에 **네임 스페이스** 페이지를 사용 하 여 네임 �
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 ``--junction`` [Az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) 명령의 옵션을 사용 하 여 네임 스페이스 경로, nfs export 또는 export 하위 디렉터리를 변경할 수 있습니다.
 
@@ -159,7 +159,7 @@ Azure Portal의 **저장소 대상** 페이지에서 사용 모델을 변경 합
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[AZURE HPC 캐시에 대 한 Azure CLI를 설정](./az-cli-prerequisites.md)합니다.
 
 [Az hpc-cache-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) 명령을 사용 합니다.
 

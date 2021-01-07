@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 50429696c4cbe10c4723f6d4bb9c9499d9b775c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306973"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450418"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>자습서: Apache Spark MLlib 및 Azure Synapse Analytics를 사용하여 기계 학습 앱 빌드
 
 이 문서에서는 Apache Spark [MLlib](https://spark.apache.org/mllib/)를 사용하여 Azure 공개 데이터 세트에 대한 간단한 예측 분석을 수행하는 기계 학습 애플리케이션을 만드는 방법에 대해 알아봅니다. Spark는 기본 제공 기계 학습 라이브러리를 제공합니다. 이 예제에서는 로지스틱 회귀를 통한 *분류* 를 사용합니다.
 
-MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 태스크에 유용한 여러 유틸리티를 제공하는 핵심 Spark 라이브러리입니다.
+SparkML 및 MLlib는 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 태스크에 유용한 여러 유틸리티를 제공하는 핵심 Spark 라이브러리입니다.
 
 - 분류
 - 회귀
@@ -46,7 +46,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 
 다음 단계에서는 특정 이동에 팁이 포함되어 있는지 여부를 예측하는 모델을 개발합니다.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Apache Spark MLlib 기계 학습 앱 만들기
+## <a name="create-an-apache-spark--machine-learning-model"></a>Apache Spark 기계 학습 모델 만들기
 
 1. PySpark 커널을 사용하여 Notebook을 만듭니다. 자세한 지침은 [Notebook 만들기](../quickstart-apache-spark-notebook.md#create-a-notebook)를 참조하세요.
 2. 이 애플리케이션에 필요한 형식을 가져옵니다. 다음 코드를 복사하여 빈 셀에 붙여넣은 다음, **SHIFT + ENTER** 키를 누르거나 코드 왼쪽의 파란색 재생 아이콘을 사용하여 셀을 실행합니다.
@@ -71,7 +71,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 
 원시 데이터는 Parquet 형식이기 때문에 Spark 컨텍스트를 사용하여 직접 데이터 프레임으로 파일을 메모리로 풀할 수 있습니다. 아래 코드에서는 기본 옵션을 사용하지만 필요에 따라 데이터 형식 및 기타 스키마 특성을 강제로 매핑할 수도 있습니다.
 
-1. 다음 줄을 실행하여 새 셀에 코드를 붙여넣어 Spark 데이터 프레임을 만듭니다. Open Datasets API를 통해 데이터를 검색합니다. 이 데이터를 모두 풀하면 약 15억 행이 생성됩니다. 서버리스 Apache Spark 풀(미리 보기)의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 이 데이터를 더 작은 값으로 필터링할 수 있습니다. 다음 코드 예제에서는 start_date 및 end_date를 사용하여 한 달 분량의 데이터를 반환하는 필터를 적용합니다.
+1. 다음 줄을 실행하여 새 셀에 코드를 붙여넣어 Spark 데이터 프레임을 만듭니다. Open Datasets API를 통해 데이터를 검색합니다. 이 데이터를 모두 풀하면 약 15억 행이 생성됩니다. 서버리스 Apache Spark 풀의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 이 데이터를 더 작은 값으로 필터링할 수 있습니다. 다음 코드 예제에서는 start_date 및 end_date를 사용하여 한 달 분량의 데이터를 반환하는 필터를 적용합니다.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -109,44 +109,6 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 기계 학습 �
 ```Python
 sampled_taxi_df.createOrReplaceTempView("nytaxi")
 ```
-
-## <a name="understand-the-data"></a>데이터 이해
-
-일반적으로 이 시점에서 데이터 이해를 높이기 위해 *EDA(예비 데이터 분석)* 의 단계를 진행합니다. 다음 코드는 데이터의 상태 및 품질에 대한 결론을 이끌어내는 팁과 관련된 데이터의 세 가지 시각화를 보여 줍니다.
-
-```python
-# The charting package needs a Pandas dataframe or numpy array do the conversion
-sampled_taxi_pd_df = sampled_taxi_df.toPandas()
-
-# Look at tips by amount count histogram
-ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
-ax1.set_title('Tip amount distribution')
-ax1.set_xlabel('Tip Amount ($)')
-ax1.set_ylabel('Counts')
-plt.suptitle('')
-plt.show()
-
-# How many passengers tipped by various amounts
-ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
-ax2.set_title('Tip amount by Passenger count')
-ax2.set_xlabel('Passenger count')
-ax2.set_ylabel('Tip Amount ($)')
-plt.suptitle('')
-plt.show()
-
-# Look at the relationship between fare and tip amounts
-ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
-ax.set_title('Tip amount by Fare amount')
-ax.set_xlabel('Fare Amount ($)')
-ax.set_ylabel('Tip Amount ($)')
-plt.axis([-2, 80, -2, 20])
-plt.suptitle('')
-plt.show()
-```
-
-![히스토그램](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
-![상자 수염 그림](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
-![산점도](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-scatter.png)
 
 ## <a name="prepare-the-data"></a>데이터 준비
 
@@ -272,7 +234,7 @@ plt.ylabel('True Positive Rate')
 plt.show()
 ```
 
-![로지스틱 회귀 팁 모델에 대한 ROC Curve](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "로지스틱 회귀 팁 모델에 대한 ROC Curve")
+![로지스틱 회귀 팁 모델에 대한 ROC Curve](./media/apache-spark-machine-learning-mllib-notebook/nyc-taxi-roc.png)
 
 ## <a name="shut-down-the-spark-instance"></a>Spark 인스턴스 종료
 

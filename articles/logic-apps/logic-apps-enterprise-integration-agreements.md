@@ -9,11 +9,11 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82612336"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95992937"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 업체 규약 만들기 및 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "82612336"
 
 RosettaNet 메시지 교환에 대 한 규약을 만들려면 [Exchange RosettaNet 메시지](../logic-apps/logic-apps-enterprise-integration-rosettanet.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -41,30 +41,30 @@ RosettaNet 메시지 교환에 대 한 규약을 만들려면 [Exchange RosettaN
 ## <a name="create-agreements"></a>규약 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 필터로 "통합"을 입력 합니다. 결과에서 다음 리소스: **통합 계정** 을 선택 합니다.
+Azure 주 메뉴에서 **모든 서비스** 를 선택합니다. 검색 상자에서 필터로 "통합"을 입력 합니다. 결과에서 다음 리소스: **통합 계정** 을 선택 합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-1. **통합 계정**에서 규약을 만들려는 통합 계정을 선택 합니다.
+1. **통합 계정** 에서 규약을 만들려는 통합 계정을 선택 합니다.
 
    ![규약을 만들 통합 계정 선택](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-1. 오른쪽 창의 **구성 요소**에서 **규약** 타일을 선택 합니다.
+1. 오른쪽 창의 **구성 요소** 에서 **규약** 타일을 선택 합니다.
 
    !["규약"을 선택 합니다.](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-1. **규약**에서 **추가**를 선택합니다. **추가** 창에서 규약에 대 한 정보를 제공 합니다. 예를 들면 다음과 같습니다.
+1. **규약** 에서 **추가** 를 선택합니다. **추가** 창에서 규약에 대 한 정보를 제공 합니다. 예를 들면 다음과 같습니다.
 
    !["추가" 선택](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **이름** | 예 | <*계약 이름*> | 규약의 이름 |
-   | **계약 유형** | 예 | **AS2**, **X12**또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  
-   | **호스트 파트너** | 예 | <*호스트-파트너-이름*> | 호스트 파트너는 규약을 지정 하는 조직을 나타냅니다. |
-   | **호스트 ID** | 예 | <*호스트-파트너-식별자*> | 호스트 파트너의 식별자입니다. |
-   | **게스트 파트너** | 예 | <*게스트-파트너-이름*> | 게스트 파트너는 호스트 파트너와 비즈니스를 수행하는 조직을 나타냅니다. |
-   | **게스트 ID** | 예 | <*게스트-파트너-식별자*> | 게스트 파트너의 식별자입니다. |
+   | **계약 유형** | Yes | **AS2**, **X12** 또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  
+   | **호스트 파트너** | Yes | <*호스트-파트너-이름*> | 호스트 파트너는 규약을 지정 하는 조직을 나타냅니다. |
+   | **호스트 ID** | Yes | <*호스트-파트너-식별자*> | 호스트 파트너의 식별자입니다. |
+   | **게스트 파트너** | Yes | <*게스트-파트너-이름*> | 게스트 파트너는 호스트 파트너와 비즈니스를 수행하는 조직을 나타냅니다. |
+   | **게스트 ID** | Yes | <*게스트-파트너-식별자*> | 게스트 파트너의 식별자입니다. |
    | **수신 설정** | 상황에 따라 다름 | 상황에 따라 다름 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너 로부터 들어오는 모든 메시지를 수신 하는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>- [AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) <br>- [X12 메시지 설정](logic-apps-enterprise-integration-x12.md) |
    | **송신 설정** | 상황에 따라 다름 | 상황에 따라 다름 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너에 게 보내는 모든 메시지를 보내는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>- [AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) <br>- [X12 메시지 설정](logic-apps-enterprise-integration-x12.md) |
    |||||
@@ -77,35 +77,35 @@ Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에
    >
    > 파트너에 대해 이러한 값이 변경 되 면 계약도 업데이트 해야 합니다.
 
-1. 규약 만들기가 완료 되 면 **추가** 페이지에서 **확인**을 선택 하 여 통합 계정으로 돌아갑니다.
+1. 규약 만들기가 완료 되 면 **추가** 페이지에서 **확인** 을 선택 하 여 통합 계정으로 돌아갑니다.
 
    이제 **계약** 목록에 새 규약이 표시 됩니다.
 
 ## <a name="edit-agreements"></a>계약 편집
 
-1. [Azure Portal](https://portal.azure.com)의 기본 Azure 메뉴에서 **모든 서비스**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 기본 Azure 메뉴에서 **모든 서비스** 를 선택 합니다.
 
 1. 검색 상자에서 필터로 "통합"을 입력 합니다. 결과에서 다음 리소스: **통합 계정** 을 선택 합니다.
 
-1. **통합 계정**에서 편집 하려는 규약이 있는 통합 계정을 선택 합니다.
+1. **통합 계정** 에서 편집 하려는 규약이 있는 통합 계정을 선택 합니다.
 
-1. 오른쪽 창의 **구성 요소**에서 **규약** 타일을 선택 합니다.
+1. 오른쪽 창의 **구성 요소** 에서 **규약** 타일을 선택 합니다.
 
-1. 규약 **에서 계약**을 선택 하 고 **편집**을 선택 합니다.
+1. 규약 **에서 계약** 을 선택 하 고 **편집** 을 선택 합니다.
 
 1. 만든 다음 변경 내용을 저장 합니다.
 
 ## <a name="delete-agreements"></a>계약 삭제
 
-1. [Azure Portal](https://portal.azure.com)의 기본 Azure 메뉴에서 **모든 서비스**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 기본 Azure 메뉴에서 **모든 서비스** 를 선택 합니다.
 
 1. 검색 상자에서 필터로 "통합"을 입력 합니다. 결과에서 다음 리소스: **통합 계정** 을 선택 합니다.
 
-1. **통합 계정**에서 삭제 하려는 규약이 있는 통합 계정을 선택 합니다.
+1. **통합 계정** 에서 삭제 하려는 규약이 있는 통합 계정을 선택 합니다.
 
-1. 오른쪽 창의 **구성 요소**에서 **규약** 타일을 선택 합니다.
+1. 오른쪽 창의 **구성 요소** 에서 **규약** 타일을 선택 합니다.
 
-1. 규약 **에서 계약**을 선택 하 고 **삭제**를 선택 합니다.
+1. 규약 **에서 계약** 을 선택 하 고 **삭제** 를 선택 합니다.
 
 1. 선택한 규약을 삭제할지 확인합니다.
 

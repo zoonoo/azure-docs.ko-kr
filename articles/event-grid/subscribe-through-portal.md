@@ -4,11 +4,11 @@ description: 이 문서에서는 Azure Portal을 사용 하 여 Azure Blob Stora
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308506"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995066"
 ---
 # <a name="subscribe-to-events-through-portal"></a>포털을 통해 이벤트 구독
 
@@ -18,15 +18,15 @@ ms.locfileid: "91308506"
 
 지원되는 [이벤트 원본](overview.md#event-sources)에 대한 Event Grid 구독을 만들려면 다음 단계를 따르세요. 이 문서에서는 Azure 구독에 대한 Event Grid 구독을 만드는 방법을 설명합니다.
 
-1. **모든 서비스**를 선택합니다.
+1. **모든 서비스** 를 선택합니다.
 
    ![모든 서비스 선택](./media/subscribe-through-portal/select-all-services.png)
 
-1. **Event Grid 구독**을 검색하고 사용 가능한 옵션에서 선택합니다.
+1. **Event Grid 구독** 을 검색하고 사용 가능한 옵션에서 선택합니다.
 
    ![화면 캡처는 Azure Portal Event Grid 구독이 선택 된 검색을 표시 합니다.](./media/subscribe-through-portal/search.png)
 
-1. **+ 이벤트 구독**을 선택합니다.
+1. **+ 이벤트 구독** 을 선택합니다.
 
    ![구독 추가](./media/subscribe-through-portal/add-subscription.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "91308506"
 
    ![구독 이름 값이 입력 된 "끝점 세부 정보" 및 "이벤트 구독 세부 정보" 섹션을 보여 주는 스크린샷](./media/subscribe-through-portal/provide-subscription-details.png)
 
-1. 배달 못한 편지를 사용하도록 설정하고 재시도 정책을 사용자 지정하려면 **추가 기능**을 선택합니다.
+1. 배달 못한 편지를 사용하도록 설정하고 재시도 정책을 사용자 지정하려면 **추가 기능** 을 선택합니다.
 
    ![추가 기능 선택](./media/subscribe-through-portal/select-additional-features.png)
 
@@ -50,11 +50,11 @@ ms.locfileid: "91308506"
 
    ![배달 못한 편지 및 재시도 사용](./media/subscribe-through-portal/set-deadletter-retry.png)
 
-1. 완료되면 **만들기**를 선택합니다.
+1. 완료되면 **만들기** 를 선택합니다.
 
 ## <a name="create-subscription-on-resource"></a>리소스에 대한 구독 만들기
 
-일부 이벤트 원본은 해당 리소스의 포털 인터페이스를 통해 이벤트 구독을 생성하도록 지원합니다. 이벤트 원본을 선택하고 왼쪽 창에서 **이벤트**를 찾습니다.
+일부 이벤트 원본은 해당 리소스의 포털 인터페이스를 통해 이벤트 구독을 생성하도록 지원합니다. 이벤트 원본을 선택하고 왼쪽 창에서 **이벤트** 를 찾습니다.
 
 ![구독 세부 정보 제공](./media/subscribe-through-portal/resource-events.png)
 

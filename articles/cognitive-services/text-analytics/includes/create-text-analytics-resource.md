@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: daafea59b96cc8da6b78f0733c9f54e0e4d3a8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779873"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009905"
 ---
 ## <a name="create-a-cognitive-services-text-analytics-resource"></a>Cognitive Services Text Analytics 리소스 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **리소스 만들기**를 선택한 다음 **AI + Machine Learning** > **** 로 이동합니다.
+1. **리소스 만들기** 를 선택한 다음 **AI + Machine Learning** > 로 이동합니다.
    또는 [Create Text Analytics](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)로 이동 합니다.
 1. 필요한 설정을 모두 입력합니다.
 
@@ -29,10 +29,10 @@ ms.locfileid: "91779873"
     |이름|이름(2-64자)을 입력합니다.|
     |구독|적절한 구독을 선택합니다.|
     |위치|근처 위치를 선택합니다.|
-    |가격 책정 계층| 표준 가격 책정 계층을 나타내는 **S**를 입력합니다.|
+    |가격 책정 계층| 표준 가격 책정 계층을 나타내는 **S** 를 입력합니다.|
     |리소스 그룹|사용 가능한 리소스 그룹을 선택합니다.|
 
-1. **만들기**를 선택하고, 리소스가 만들어질 때까지 기다립니다. 자동으로 브라우저가 새로 만든 리소스 페이지로 리디렉션합니다.
+1. **만들기** 를 선택하고, 리소스가 만들어질 때까지 기다립니다. 자동으로 브라우저가 새로 만든 리소스 페이지로 리디렉션합니다.
 1. 구성 된 `endpoint` 및 API 키를 수집 합니다.
 
     |포털의 리소스 탭|설정|값|

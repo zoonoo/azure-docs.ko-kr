@@ -7,17 +7,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
-ms.date: 06/16/2020
-ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 12/15/2020
+ms.openlocfilehash: 085ac8c2ca7cfafcf0e40152458acf68dd847937
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124784"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605533"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JavaScript 사용자 정의 함수
  
-Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합( **String** , **RegExp** , **Math** , **Array** , **Date** )을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
+Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수를 지원합니다. JavaScript에서 제공하는 풍부한 메서드 집합(**String**, **RegExp**, **Math**, **Array**, **Date**)을 통해 Stream Analytics 작업에서 복잡한 데이터 변환을 쉽게 만들 수 있게 되었습니다.
 
 ## <a name="overview"></a>개요
 
@@ -186,6 +186,43 @@ FROM
     input A
 ```
 
+### <a name="tolocalestring"></a>toLocaleString()
+JavaScript의 **toLocaleString** 메서드를 사용하여 이 메서드가 호출된 날짜 시간 데이터를 나타내는 언어 관련 문자열을 반환할 수 있습니다.
+Azure Stream Analtyics는 시스템 타임스탬프로 UTC 날짜 시간만 허용하지만 이 메서드를 사용하여 시스템 타임스탬프를 다른 로캘 및 표준 시간대로 변환할 수 있습니다.
+이 메서드는 Internet Explorer에서 사용할 수 있는 것과 동일한 구현 동작을 따릅니다.
+
+**JavaScript 사용자 정의 함수 정의:**
+
+```javascript
+function main(datetime){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('de-DE', options);
+}
+```
+
+**샘플 쿼리: 입력 값으로 날짜/시간 전달**
+```SQL
+SELECT
+    udf.toLocaleString(input.datetime) as localeString
+INTO
+    output
+FROM
+    input
+```
+
+이 쿼리의 출력은 제공된 옵션이 있는 **de-DE** 의 입력 날짜/시간입니다.
+```
+Samstag, 28. Dezember 2019
+```
+
+## <a name="user-logging"></a>사용자 로깅
+로깅 메커니즘을 통해 작업이 실행되는 동안 사용자 지정 정보를 캡처할 수 있습니다. 로그 데이터를 사용하여 사용자 지정 코드의 정확성을 실시간으로 디버그하거나 평가할 수 있습니다. 이 메커니즘은 Console.Log() 메서드를 통해 사용할 수 있습니다.
+
+```javascript
+console.log('my error message');
+```
+
+[진단 로그](data-errors.md)를 통해 로그 메시지에 액세스할 수 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Machine Learning UDF](./machine-learning-udf.md)

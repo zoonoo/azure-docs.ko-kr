@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
-ms.openlocfilehash: 1afb24a0e3e78acb1d44185843538bd55c491edf
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7ff8193e87d138878d95e783d144d445436e7a08
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976779"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96453012"
 ---
 # <a name="what-is-the-right-iot-solution-for-your-business"></a>비즈니스에 적합한 IoT 솔루션은 무엇인가요?
 
@@ -75,4 +75,4 @@ ms.locfileid: "91976779"
 
 성공적인 IoT 솔루션의 주요 특성에 대한 자세한 내용은 [성공적인 IoT 솔루션의 8가지 특성](https://aka.ms/8attributes) 백서를 참조하세요.
 
-IoT 아키텍처에 대한 심층적인 설명은 [Microsoft Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 참조하세요.
+IoT 아키텍처에 대한 심층적인 설명은 [Microsoft Azure IoT 참조 아키텍처](/azure/architecture/reference-architectures/iot)를 참조하세요.

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535149"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018718"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 

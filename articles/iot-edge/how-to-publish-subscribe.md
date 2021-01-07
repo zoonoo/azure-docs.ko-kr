@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 005830575ba7f45d30fed71a73e7a419e4d98220
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629651"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922580"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
 
@@ -27,16 +27,16 @@ Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독�
 ## <a name="pre-requisites"></a>필수 구성 요소
 
 - 유효한 구독이 있는 Azure 계정
-- [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) `azure-iot` CLI 확장이 설치 된 Azure CLI. 자세한 내용은 [azure Azure CLI에 대 한 Azure IoT 확장 설치 단계](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot)를 참조 하세요.
+- [Azure CLI](/cli/azure/) `azure-iot` CLI 확장이 설치 된 Azure CLI. 자세한 내용은 [azure Azure CLI에 대 한 Azure IoT 확장 설치 단계](/cli/azure/azure-cli-reference-for-iot)를 참조 하세요.
 - SKU의 **IoT Hub** 는 F1, S1, S2 또는 S3 중 하나입니다.
 - **1.2 이상 버전의 IoT Edge 장치가** 있어야 합니다. IoT Edge MQTT broker는 현재 공개 미리 보기로 제공 되므로 edgeHub 컨테이너에서 다음 환경 변수를 true로 설정 하 여 MQTT broker를 사용 하도록 설정 합니다.
 
-   | 속성 | 값 |
+   | 이름 | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
 
-- IoT Edge 장치에 설치 된 **클라이언트를 Mosquitto** 합니다. 이 문서에서는 [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) 및 [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html)를 포함 하는 널리 사용 되는 Mosquitto 클라이언트를 사용 합니다. 다른 MQTT 클라이언트를 대신 사용할 수 있습니다. Ubuntu 장치에 Mosquitto 클라이언트를 설치 하려면 다음 명령을 실행 합니다.
+- IoT Edge 장치에 설치 된 **클라이언트를 Mosquitto** 합니다. 이 문서에서는 널리 사용 되는 Mosquitto 클라이언트 [MOSQUITTO_PUB](https://mosquitto.org/man/mosquitto_pub-1.html) 및 [MOSQUITTO_SUB](https://mosquitto.org/man/mosquitto_sub-1.html)를 사용 합니다. 다른 MQTT 클라이언트를 대신 사용할 수 있습니다. Ubuntu 장치에 Mosquitto 클라이언트를 설치 하려면 다음 명령을 실행 합니다.
 
     ```cmd
     sudo apt-get update && sudo apt-get install mosquitto-clients
@@ -62,28 +62,28 @@ TLS를 사용 하도록 설정 하기 위해 클라이언트가 MQTTS (포트 88
 
 ### <a name="authentication"></a>인증
 
-MQTT 클라이언트는 자신을 인증 하기 위해 먼저 MQTT broker에 연결 패킷을 전송 하 여 해당 이름으로 연결을 시작 해야 합니다. 이 패킷은 세 가지 인증 정보 `client identifier` , 즉, 및를 제공 `username` 합니다 `password` .
+MQTT 클라이언트는 자신을 인증 하기 위해 먼저 MQTT broker에 연결 패킷을 전송 하 여 해당 이름으로 연결을 시작 해야 합니다. 이 패킷은 세 가지 인증 정보, 즉, 및를 제공 합니다. `client identifier` `username` `password`
 
--   `client identifier`필드는 IoT Hub의 장치 또는 모듈 이름 이름입니다. 이 도구는 다음 구문을 사용합니다.
+- `client identifier`필드는 IoT Hub의 장치 또는 모듈 이름 이름입니다. 이 도구는 다음 구문을 사용합니다.
 
-    - 장치: `<device_name>`
+  - 장치: `<device_name>`
 
-    - 모듈의 경우: `<device_name>/<module_name>`
+  - 모듈의 경우: `<device_name>/<module_name>`
 
    MQTT broker에 연결 하려면 장치 또는 모듈을 IoT Hub에 등록 해야 합니다.
 
-   Broker에서는 동일한 자격 증명을 사용 하는 두 클라이언트의 연결을 허용 하지 않습니다. 두 번째 클라이언트가 동일한 자격 증명을 사용 하 여 연결 되는 경우 broker는 이미 연결 된 클라이언트의 연결을 끊습니다.
+   Broker는 동일한 자격 증명을 사용 하 여 여러 클라이언트에서 연결을 허용 하지 않습니다. 두 번째 클라이언트가 동일한 자격 증명을 사용 하 여 연결 되는 경우 broker는 이미 연결 된 클라이언트의 연결을 끊습니다.
 
 - `username`필드는 장치 또는 모듈 이름에서 파생 되며, 다음 구문을 사용 하 여 장치가 속한 IoTHub 이름에서 파생 됩니다.
 
-    - 장치: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+  - 장치: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
 
-    - 모듈의 경우: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+  - 모듈의 경우: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
 
 - `password`연결 패킷의 필드는 인증 모드에 따라 달라 집니다.
 
-    - [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication)의 경우 `password` 필드는 SAS 토큰입니다.
-    - [X.509 자체 서명 된 인증](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)의 경우 `password` 필드가 표시 되지 않습니다. 이 인증 모드에서는 TLS 채널이 필요 합니다. 클라이언트는 TLS 연결을 설정 하기 위해 포트 8883에 연결 해야 합니다. TLS 핸드셰이크 중에 MQTT broker는 클라이언트 인증서를 요청 합니다. 이 인증서는 클라이언트의 id를 확인 하는 데 사용 되므로 `password` 나중에 연결 패킷을 보낼 때이 필드는 필요 하지 않습니다. 클라이언트 인증서와 암호 필드를 모두 보내면 오류가 발생 하 고 연결이 닫힙니다. 일반적으로 MQTT 라이브러리 및 TLS 클라이언트 라이브러리를 통해 연결을 시작할 때 클라이언트 인증서를 보낼 수 있습니다. [클라이언트 인증용으로 X509 인증서 사용](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)섹션에서 단계별 예제를 확인할 수 있습니다.
+  - [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication)을 사용 하는 경우 `password` 필드는 SAS 토큰입니다.
+  - [X.509 자체 서명 된 인증](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)을 사용 하는 경우 `password` 이 필드는 존재 하지 않습니다. 이 인증 모드에서는 TLS 채널이 필요 합니다. 클라이언트는 TLS 연결을 설정 하기 위해 포트 8883에 연결 해야 합니다. TLS 핸드셰이크 중에 MQTT broker는 클라이언트 인증서를 요청 합니다. 이 인증서는 클라이언트의 id를 확인 하는 데 사용 되므로 `password` 나중에 연결 패킷을 보낼 때이 필드는 필요 하지 않습니다. 클라이언트 인증서와 암호 필드를 모두 보내면 오류가 발생 하 고 연결이 닫힙니다. 일반적으로 MQTT 라이브러리 및 TLS 클라이언트 라이브러리를 통해 연결을 시작할 때 클라이언트 인증서를 보낼 수 있습니다. [클라이언트 인증용으로 X509 인증서 사용](how-to-authenticate-downstream-device.md#x509-self-signed-authentication)섹션에서 단계별 예제를 확인할 수 있습니다.
 
 IoT Edge에서 배포한 모듈은 [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication) 을 사용 하 고 로컬 [IoT Edge 작업 API](https://github.com/Azure/iotedge/blob/40f10950dc65dd955e20f51f35d69dd4882e1618/edgelet/workload/README.md) 를 호출 하 여 오프 라인 상태인 경우에도 프로그래밍 방식으로 SAS 토큰을 가져올 수 있습니다.
 
@@ -94,10 +94,10 @@ MQTT 클라이언트가 IoT Edge 허브에 인증 되 면 연결할 권한이 �
 > [!NOTE]
 > 공개 미리 보기의 경우 MQTT broker의 인증 정책 편집은 Visual Studio, Visual Studio Code 또는 Azure CLI를 통해서만 사용할 수 있습니다. 현재 Azure Portal는 IoT Edge 허브 쌍 및 해당 권한 부여 정책 편집을 지원 하지 않습니다.
 
-각 권한 부여 정책 문은 `identities` , 또는 효과의 조합으로 구성 됩니다 `allow` `deny` `operations` `resources` .
+각 권한 부여 정책 문은 `identities` , `allow` 또는 `deny` 효과, `operations` 및의 조합으로 구성 됩니다 `resources` .
 
 - `identities` 정책의 주체를 설명 합니다. `client identifier`연결 패킷의 클라이언트에서 보낸에 매핑되어야 합니다.
-- `allow` or `deny` effect 작업을 허용할지 또는 거부할지를 정의 합니다.
+- `allow` or `deny` 효과는 작업을 허용할지 또는 거부할지를 정의 합니다.
 - `operations` 권한을 부여할 작업을 정의 합니다. `mqtt:connect`, `mqtt:publish` 및 `mqtt:subscribe` 는 현재 지원 되는 세 가지 동작입니다.
 - `resources` 정책의 개체를 정의 합니다. [Mqtt 와일드 카드](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107)를 사용 하 여 정의 된 토픽 또는 토픽 패턴이 될 수 있습니다.
 
@@ -163,19 +163,20 @@ MQTT 클라이언트가 IoT Edge 허브에 인증 되 면 연결할 권한이 �
 ```
 
 권한 부여 정책을 작성할 때 염두에 두어야 할 몇 가지 사항은 다음과 같습니다.
+
 - 쌍 스키마 버전 1.2이 필요 합니다. `$edgeHub`
 - 기본적으로 모든 작업은 거부 됩니다.
 - 권한 부여 문은 JSON 정의에 표시 되는 순서 대로 평가 됩니다. 먼저를 확인 한 `identities` 다음 요청에 일치 하는 첫 번째 허용 또는 거부 문을 선택 합니다. Allow와 deny 문 사이에 충돌이 발생 하는 경우 deny 문은 wins에 적용 됩니다.
 - 권한 부여 정책에서 여러 변수 (예: 대체)를 사용할 수 있습니다.
-    - `{{iot:identity}}` 현재 연결 된 클라이언트의 id를 나타냅니다. 예를 들어 `myDevice` 장치의 경우 `myEdgeDevice/SampleModule` 모듈의 경우입니다.
-    - `{{iot:device_id}}` 현재 연결 된 장치의 id를 나타냅니다. 예를 들어 `myDevice` 장치의 경우 `myEdgeDevice` 모듈의 경우입니다.
-    - `{{iot:module_id}}` 현재 연결 된 모듈의 id를 나타냅니다. 예를 들어, 장치의 경우에는 ' '입니다 `SampleModule` .
+    - `{{iot:identity}}` 현재 연결 된 클라이언트의 id를 나타냅니다. 예를 들어 또는 같은 모듈 id와 같은 장치 id가 `myDevice` `myEdgeDevice/SampleModule` 있습니다.
+    - `{{iot:device_id}}` 현재 연결 된 장치의 id를 나타냅니다. 예를 들어 또는와 같이 모듈을 실행 하는 장치 id와 같은 장치 id를 사용할 `myDevice` 수 `myEdgeDevice` 있습니다.
+    - `{{iot:module_id}}` 현재 연결 된 모듈의 id를 나타냅니다. 이 변수는 연결 된 장치 또는와 같은 모듈 id에 대해 비어 `SampleModule` 있습니다.
     - `{{iot:this_device_id}}` 권한 부여 정책을 실행 하는 IoT Edge 장치의 id를 나타냅니다. 예: `myIoTEdgeDevice`.
 
 IoT hub에 대 한 권한 부여 항목은 사용자 정의 항목과 약간 다르게 처리 됩니다. 기억할 주요 사항은 다음과 같습니다.
+
 - Azure IoT 장치 또는 모듈에는 IoT Edge hub MQTT broker에 연결 하기 위한 명시적인 권한 부여 규칙이 필요 합니다. 기본 연결 권한 부여 정책은 아래에 제공 됩니다.
 - Azure IoT 장치 또는 모듈은 명시적 권한 부여 규칙 없이 기본적으로 고유한 IoT hub 토픽에 액세스할 수 있습니다. 그러나이 경우 부모/자식 관계에서 권한 부여가 생기고 이러한 관계를 설정 해야 합니다. IoT Edge 모듈은 자동으로 IoT Edge 장치의 자식으로 설정 되지만 장치는 명시적으로 IoT Edge 게이트웨이의 자식으로 설정 해야 합니다.
-- Azure IoT 장치 또는 모듈은 적절 한 명시적인 권한 부여 규칙을 정의 하는 다른 장치 또는 모듈의 IoT hub 토픽을 비롯 한 토픽에 액세스할 수 있습니다.
 
 다음은 모든 Azure IoT 장치 또는 모듈을 broker에 **연결** 하도록 설정 하는 데 사용할 수 있는 기본 권한 부여 정책입니다.
 
@@ -209,7 +210,7 @@ IoT hub에 대 한 권한 부여 항목은 사용자 정의 항목과 약간 다
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>사용자 정의 항목 게시 및 구독
 
-이 문서에서는 토픽에 등록 하는 **sub_client** 라는 클라이언트와 토픽에 게시 되는 **pub_client** 라는 다른 클라이언트를 사용 합니다. [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication) 을 사용 하지만 [x.509 자체 서명 인증](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) 또는 [x.509 자체 서명 된 인증](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication)을 사용 하 여 동일한 작업을 수행할 수 있습니다.
+이 문서에서는 토픽에 등록 하는 **sub_client** 라는 클라이언트와 토픽에 게시 되는 **pub_client** 라는 다른 클라이언트를 사용 합니다. [대칭 키 인증](how-to-authenticate-downstream-device.md#symmetric-key-authentication) 을 사용 하지만 [x.509 자체 서명 인증](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) 또는 [x.509 CA 서명 인증](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication)을 사용 하 여 동일한 작업을 수행할 수 있습니다.
 
 ### <a name="create-publisher-and-subscriber-clients"></a>게시자 및 구독자 클라이언트 만들기
 
@@ -240,7 +241,7 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
     
        여기서 3600은 SAS 토큰의 기간 (초)입니다 (예: 3600 = 1 시간).
 
-3. 출력에서 "sas" 키에 해당 하는 값인 SAS 토큰을 복사 합니다. 다음은 위 Azure CLI 명령의 출력 예제입니다.
+3. SAS 토큰을 복사 합니다 .이 토큰은 출력에서 "sas" 키에 해당 하는 값입니다. 다음은 위 Azure CLI 명령의 출력 예제입니다.
 
     ```
     {
@@ -273,7 +274,7 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -282,13 +283,13 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -297,9 +298,9 @@ IoT Hub에 두 IoT 장치를 만들고 암호를 가져옵니다. 터미널에�
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
@@ -327,7 +328,7 @@ mosquitto_sub \
 
 `<edge_device_address>`  =  `localhost` 클라이언트가 IoT Edge와 동일한 장치에서 실행 되 고 있기 때문입니다.
 
-이 첫 번째 예제에서는 TLS 없이 포트 1883 (MQTT)를 사용 합니다. 포트 8883 (MQTTS)를 사용 하는 또 다른 예 (예: TLS를 사용 하는 경우)는 다음 섹션에 나와 있습니다.
+TLS를 사용 하지 않는 포트 1883 (MQTT)는이 첫 번째 예제에서 사용 됩니다. 포트 8883 (MQTTS), TLS를 사용 하는 또 다른 예는 다음 섹션에 나와 있습니다.
 
 이제 **sub_client** mqtt 클라이언트가 시작 되었으며에서 들어오는 메시지를 기다리고 `test_topic` 있습니다.
 
@@ -384,7 +385,7 @@ Twins를 수신 하기 위해 클라이언트는 IoT Hub 특정 항목을 구독
 
 ### <a name="receive-direct-methods"></a>직접 메서드 받기
 
-직접 메서드를 받는 것은 클라이언트에서 호출을 수신 했음을 확인 해야 한다는 추가로 전체 쌍을 받는 방법과 매우 비슷합니다. 먼저 클라이언트에서 IoT hub를 구독 합니다. 특별 항목을 참조 `$iothub/methods/POST/#` 하세요. 그런 다음이 항목에서 직접 메서드를 받은 후 클라이언트는 `rid` 직접 메서드를 받은 하위 토픽에서 요청 식별자를 추출 하 고 마지막으로 IoT hub에 대 한 확인 메시지를 게시 해야 `$iothub/methods/res/200/<request_id>` 합니다.
+직접 메서드를 받는 것은 클라이언트에서 호출을 수신 했음을 확인 해야 한다는 추가로 전체 쌍을 받는 것과 비슷합니다. 먼저 클라이언트는 IoT hub를 구독 `$iothub/methods/POST/#` 합니다. 특별 항목입니다. 그런 다음이 항목에서 직접 메서드를 받은 후 클라이언트는 `rid` 직접 메서드를 받은 하위 토픽에서 요청 식별자를 추출 하 고 마지막으로 IoT hub에 대 한 확인 메시지를 게시 해야 `$iothub/methods/res/200/<request_id>` 합니다.
 
 ### <a name="send-direct-methods"></a>직접 메서드 보내기
 
@@ -437,7 +438,7 @@ IoT Edge hub MQTT broker를 여러 외부 브로커에 연결 하도록 MQTT 브
 }
 ```
 IoT Edge hub MQTT 브리지에 대 한 기타 참고 사항:
-- Mqtt broker를 사용 하 고 해당 IoT Edge을 지정 된 구성 (예: 지정 된 구성)에서 사용 하는 경우 MQTT 프로토콜이 자동으로 업스트림 프로토콜로 사용 됩니다. `parent_hostname` 업스트림 프로토콜에 대 한 자세한 내용은 [클라우드 통신](iot-edge-runtime.md#cloud-communication)을 참조 하세요. 중첩 된 구성에 대해 자세히 알아보려면 [Azure IoT Edge 게이트웨이에 다운스트림 IoT Edge 장치 연결](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices)을 참조 하세요.
+- Mqtt broker를 사용 하 고 IoT Edge를 지정 된와 같은 중첩 된 구성에서 사용 하는 경우 MQTT 프로토콜이 자동으로 업스트림 프로토콜로 사용 됩니다 `parent_hostname` . 업스트림 프로토콜에 대 한 자세한 내용은 [클라우드 통신](iot-edge-runtime.md#cloud-communication)을 참조 하세요. 중첩 된 구성에 대해 자세히 알아보려면 [Azure IoT Edge 게이트웨이에 다운스트림 IoT Edge 장치 연결](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

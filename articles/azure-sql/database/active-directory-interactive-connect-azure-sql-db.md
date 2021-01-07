@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: bef6e6c5ef795c192a846700fc046aa20274502d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92673405"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841651"
 ---
-# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
+# <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-이 문서에서는 Azure SQL Database에 연결 하는 c # 프로그램을 제공 합니다. 프로그램은 [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 지 원하는 대화형 모드 인증을 사용 합니다.
+이 문서에서는 Azure SQL Database에 연결 하는 c # 프로그램을 제공 합니다. 프로그램은 [AZURE AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)를 지 원하는 대화형 모드 인증을 사용 합니다.
 
 SQL tools에 대 한 Multi-Factor Authentication 지원에 대 한 자세한 내용은 [SQL Server Data Tools의 Azure Active Directory 지원 (SSDT) (영문)](/sql/ssdt/azure-active-directory)을 참조 하십시오.
 
@@ -39,7 +39,7 @@ SQL tools에 대 한 Multi-Factor Authentication 지원에 대 한 자세한 내
 
 * 시스템이 휴대폰으로 보낸 Multi-Factor Authentication 확인 코드를 요청 하는 대화 상자입니다.
 
-Multi-Factor Authentication를 요구 하도록 Azure AD를 구성 하는 방법에 대 한 자세한 내용은 [클라우드에서 azure Multi-Factor Authentication 시작](../../active-directory/authentication/howto-mfa-getstarted.md)하기를 참조 하세요.
+Multi-Factor Authentication를 요구 하도록 Azure AD를 구성 하는 방법에 대 한 자세한 내용은 [클라우드에서 AZURE ad Multi-Factor Authentication 시작](../../active-directory/authentication/howto-mfa-getstarted.md)하기를 참조 하세요.
 
 이러한 대화 상자의 스크린샷 [SQL Server Management Studio 및 AZURE AD에 대 한 다단계 인증 구성](authentication-mfa-ssms-configure.md)을 참조 하세요.
 

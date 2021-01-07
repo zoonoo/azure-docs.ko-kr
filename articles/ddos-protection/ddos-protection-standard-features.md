@@ -6,17 +6,17 @@ documentationcenter: na
 author: yitoh
 ms.service: ddos-protection
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 133a27d8aef6c9df16ffcabfb4fac6c118665890
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 602bb98f2cdc8a96874eba8dadfa33f3267d19ac
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905386"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746561"
 ---
 # <a name="azure-ddos-protection-standard-features"></a>Azure DDoS Protection 표준 기능
 
@@ -24,23 +24,23 @@ ms.locfileid: "92905386"
 
 ## <a name="always-on-traffic-monitoring"></a>상시 트래픽 모니터링
 
-DDoS Protection 표준은 실제 트래픽 사용률을 모니터링하고 이를 DDoS 정책에 정의된 임계값과 지속적으로 비교합니다. 트래픽 임계값이 초과되면 DDoS 완화가 자동으로 시작됩니다. 트래픽이 임계값 아래로 돌아오면 완화가 제거됩니다.
+DDoS Protection 표준은 실제 트래픽 사용률을 모니터링하고 이를 DDoS 정책에 정의된 임계값과 지속적으로 비교합니다. 트래픽 임계값이 초과되면 DDoS 완화가 자동으로 시작됩니다. 트래픽이 임계값 아래로 반환 되 면 완화가 중지 됩니다.
 
 ![Azure DDoS Protection 표준 완화](./media/ddos-protection-overview/mitigation.png)
 
-완화 중에 보호되는 리소스로 보낸 트래픽은 DDoS Protection 서비스를 통해 리디렉션되며 다음과 같은 여러 검사가 수행됩니다.
+완화 중에 보호 된 리소스에 전송 된 트래픽은 DDoS protection 서비스를 통해 리디렉션되고 다음과 같은 여러 검사가 수행 됩니다.
 
 - 패킷이 인터넷 사양을 준수하고 잘못된 형식이 아닌지 확인합니다.
 - 클라이언트와 상호 작용하여 트래픽이 스푸핑된 패킷일 가능성이 있는지 확인합니다(예: SYN Auth 또는 SYN 쿠키 또는 원본에서 다시 전송하도록 패킷 삭제).
 - 다른 적용 방법을 수행할 수 없는 경우 패킷 속도를 제한합니다.
 
-DDoS 보호는 공격 트래픽을 차단하고, 나머지 트래픽을 의도하는 대상으로 전달합니다. 공격이 감지되면 몇 분 안에 Azure Monitor 메트릭을 통해 알림이 전송됩니다. DDoS Protection 표준 원격 분석에 대한 로깅을 구성하면 추후 분석 시 사용할 수 있는 옵션에 로그를 작성할 수 있습니다. DDoS Protection 표준을 위한 Azure Monitor의 메트릭 데이터는 30일 동안 보존됩니다.
+DDoS 보호는 공격 트래픽을 삭제 하 고 남은 트래픽을 원하는 대상으로 전달 합니다. 공격이 탐지되면 몇 분 이내에 Azure Monitor 메트릭을 사용한 알림을 받습니다. DDoS Protection 표준 원격 분석에 대한 로깅을 구성하면 추후 분석 시 사용할 수 있는 옵션에 로그를 작성할 수 있습니다. DDoS Protection 표준을 위한 Azure Monitor의 메트릭 데이터는 30일 동안 보존됩니다.
 
 ## <a name="adaptive-real-time-tuning"></a>적응 실시간 튜닝
 
-Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 고객에 영향을 주지 않도록 방지합니다. 예를 들어 인프라 수준 DDoS Protection 정책의 *트리거 비율* 보다 작고 합법적인 수신 트래픽의 일반 볼륨에 대해 서비스가 프로비전되면 해당 고객의 리소스에 대한 DDoS 공격을 알아차리지 못할 수 있습니다. 뿐만 아니라 최근 공격(예: 다중 벡터 DDoS) 및 테넌트의 애플리케이션별 동작이 더욱 복잡해지면서 고객별로 사용자 지정된 보호 정책의 필요성이 대두되었습니다. 서비스에서는 두 개의 정보를 사용하여 이 사용자 지정을 수행합니다.
+Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 고객에 영향을 주지 않도록 방지합니다. 예를 들어 인프라 수준 DDoS Protection 정책의 *트리거 비율* 보다 작고 합법적인 수신 트래픽의 일반 볼륨에 대해 서비스가 프로비전되면 해당 고객의 리소스에 대한 DDoS 공격을 알아차리지 못할 수 있습니다. 보다 일반적으로는 최근 공격 (예: 다중 벡터 DDoS)의 복잡성과 테 넌 트의 응용 프로그램 관련 동작 (예: 고객 별 조정 된 보호 정책)이 있습니다. 서비스는 두 가지 정보를 사용 하 여이를 수행 합니다.
 
-- 레이어 3 및 4의 고객별(IP별) 트래픽 패턴 자동 학습
+- 계층 3 및 4에 대 한 고객별 트래픽 패턴을 자동으로 학습 합니다.
 
 - Azure의 크기 조정을 통해 트래픽의 상당 부분을 흡수할 수 있음을 고려하여 거짓 긍정 최소화
 
@@ -48,7 +48,7 @@ Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 �
 
 ## <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection 원격 분석, 모니터링 및 경고
 
-DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](/azure/azure-monitor/overview)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 고급 분석을 위해 Splunk (Azure Event Hubs), Azure Monitor 로그 및 Azure Storage와 로깅을 통합할 수 있습니다.
+DDoS Protection Standard는 [Azure Monitor](../azure-monitor/overview.md)를 통해 다양 한 원격 분석을 노출 합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통해 고급 분석을 위해 Splunk (Azure Event Hubs), Azure Monitor 로그 및 Azure Storage와 로깅을 통합할 수 있습니다.
 
 ### <a name="ddos-mitigation-policies"></a>DDoS 완화 정책
 
@@ -72,7 +72,7 @@ DDoS Protection 표준은 DDoS를 사용하도록 설정된 가상 네트워크�
 
 ## <a name="web-application-firewall-for-resource-attacks"></a>리소스 공격에 대한 웹 애플리케이션 방화벽
 
-애플리케이션 계층에서 이루어지는 리소스 공격과 관련하여 웹 애플리케이션을 보호할 수 있도록 WAF(웹 애플리케이션 방화벽)를 구성해야 합니다. WAF는 인바운드 웹 트래픽을 검사하여 SQL 주입, 사이트 간 스크립팅, DDoS 및 기타 레이어 7 공격을 차단합니다. Azure는 [WAF(웹 애플리케이션 방화벽)](/azure/application-gateway/application-gateway-web-application-firewall-overview)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 Application Gateway 기능으로 WAF를 제공합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1)에는 Azure 파트너가 제공하는 기타 WAF가 있으며, 그 중에는 고객의 요구 사항에 보다 적합한 서비스가 있을 수도 있습니다.
+애플리케이션 계층에서 이루어지는 리소스 공격과 관련하여 웹 애플리케이션을 보호할 수 있도록 WAF(웹 애플리케이션 방화벽)를 구성해야 합니다. WAF는 인바운드 웹 트래픽을 검사하여 SQL 주입, 사이트 간 스크립팅, DDoS 및 기타 레이어 7 공격을 차단합니다. Azure는 [WAF(웹 애플리케이션 방화벽)](../web-application-firewall/ag/ag-overview.md)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 Application Gateway 기능으로 WAF를 제공합니다. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WAF&page=1)에는 Azure 파트너가 제공하는 기타 WAF가 있으며, 그 중에는 고객의 요구 사항에 보다 적합한 서비스가 있을 수도 있습니다.
 
 웹 애플리케이션 방화벽조차 대규모 공격 및 상태 고갈 공격에 취약합니다. 대규모 공격 및 프로토콜 공격으로부터 보호할 수 있도록 WAF 가상 네트워크에서 DDoS Protection 표준을 사용하는 것이 좋습니다. 자세한 내용은 [DDoS Protection 참조 아키텍처](ddos-protection-reference-architectures.md) 섹션을 참조하세요.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: d0eef49ea82afe50c5e178de9ad5e82bcb0db0eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e7b75c71d64054e38630677ecd38f8e3e2483c12
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342167"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606337"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,14 +35,14 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
  
 1. **데이터 생성:** 데이터 시뮬레이터는 사용자가 항목을 조회하고, 자신의 카트에 항목을 추가하고, 항목을 구입하는 것과 같은 이벤트를 나타내는 소매 데이터를 생성하는 데 사용됩니다. 데이터 생성기를 사용하여 큰 샘플 데이터 집합을 생성할 수 있습니다. 생성된 샘플 데이터에는 다음 형식의 문서가 포함되어 있습니다.
    
-   ```json
-   {      
-     "CartID": 2486,
-     "Action": "Viewed",
-     "Item": "Women's Denim Jacket",
-     "Price": 31.99
-   }
-   ```
+    ```json
+    {
+      "CartID": 2486,
+      "Action": "Viewed",
+      "Item": "Women's Denim Jacket",
+      "Price": 31.99
+    }
+    ```
 
 2. **Cosmos DB:** 생성 된 데이터는 Azure Cosmos 컨테이너에 저장 됩니다.  
 
@@ -56,7 +56,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
 
 7. **Power BI:** Azure Stream Analytics에서 보낸 데이터를 시각화하는 데 사용됩니다. 메트릭이 실시간으로 변하는 상황을 확인할 수 있는 대시보드를 작성할 수 있습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Microsoft.NET Framework 4.7.1 이상
 
@@ -90,7 +90,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
    ```powershell
    .\deploy.ps1
    ```
-5. 메시지가 표시되면 리소스 그룹 이름에 대해 Azure **구독 ID** , **changefeedlab** 을 입력하고 배포 이름에 대해 **run1** 을 입력합니다. 리소스 배포를 시작하여 완료하는 데 최대 10분이 걸릴 수 있습니다.
+5. 메시지가 표시되면 리소스 그룹 이름에 대해 Azure **구독 ID**, **changefeedlab** 을 입력하고 배포 이름에 대해 **run1** 을 입력합니다. 리소스 배포를 시작하여 완료하는 데 최대 10분이 걸릴 수 있습니다.
 
 ## <a name="create-a-database-and-the-collection"></a>데이터베이스 및 컬렉션 만들기
 
@@ -106,7 +106,7 @@ Azure Cosmos DB 변경 피드는 해당 레코드가 만들어지거나 수정 �
    * **처리량** 필드에 대해 **10000** 을 입력합니다.  
    * **확인** 단추를 선택합니다.  
 
-3. 다음으로, 변경 피드 처리를 위해 **leases** (임대)라는 또 다른 컬렉션을 만듭니다. leases 컬렉션은 여러 작업자 간의 변경 피드 처리를 조정합니다. 임대는 개별 컬렉션을 사용하여 저장됩니다(각 파티션마다 하나의 임대).  
+3. 다음으로, 변경 피드 처리를 위해 **leases**(임대)라는 또 다른 컬렉션을 만듭니다. leases 컬렉션은 여러 작업자 간의 변경 피드 처리를 조정합니다. 임대는 개별 컬렉션을 사용하여 저장됩니다(각 파티션마다 하나의 임대).  
 
 4. **데이터 탐색기** 창으로 돌아가서 **새 컬렉션** 을 선택하고, 다음 세부 정보로 양식을 채웁니다.
 
@@ -132,7 +132,7 @@ Azure Storage 계정을 사용하면 사용자가 데이터를 저장할 수 있
 
 2. 왼쪽 메뉴에서 **액세스 키** 를 선택합니다.  
 
-3. **키 1** 에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키** 에는 **스토리지 키** , **연결 문자열** 에는 **스토리지 연결 문자열** 이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
+3. **키 1** 에 있는 값을 메모장 또는 랩 전체에서 액세스할 수 있는 다른 문서에 복사합니다. **키** 에는 **스토리지 키**, **연결 문자열** 에는 **스토리지 연결 문자열** 이라는 레이블을 지정해야 합니다. 이러한 문자열은 나중에 코드에 복사해야 하므로 메모를 작성하여 저장한 위치를 적어 둡니다.  
 
 ### <a name="get-the-event-hub-namespace-connection-string"></a>Event Hub 네임스페이스 연결 문자열 가져오기
 
@@ -211,7 +211,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
 5. 스트림 분석 작업 페이지로 돌아가서 **출력** 을 선택합니다.  
 
-6. **+추가** 를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI** 를 선택합니다.  
+6. **+ 추가** 를 선택합니다. 그런 다음, 드롭다운 메뉴에서 **Power BI** 를 선택합니다.  
 
 7. 새 Power BI 출력을 만들어 평균 가격을 시각화하려면 다음 작업을 수행합니다.
 
@@ -226,7 +226,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
 
    :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="쿼리 편집":::
  
-9. 다음 쿼리를 쿼리 창에 붙여넣습니다. **AVERAGE PRICE** (평균 가격) 쿼리는 사용자가 조회하는 모든 항목, 자신의 카트에 추가한 모든 항목 및 구입한 모든 항목의 평균 가격을 계산합니다. 이 메트릭은 전자 상거래 회사에서 판매 가격 및 투자할 재고를 결정하는 데 도움이 됩니다. 예를 들어 조회하는 항목의 평균 가격이 구입한 항목의 평균 가격보다 훨씬 높은 경우 회사에서 평균 가격이 낮은 항목을 재고에 추가하도록 선택할 수 있습니다.
+9. 다음 쿼리를 쿼리 창에 붙여넣습니다. **AVERAGE PRICE**(평균 가격) 쿼리는 사용자가 조회하는 모든 항목, 자신의 카트에 추가한 모든 항목 및 구입한 모든 항목의 평균 가격을 계산합니다. 이 메트릭은 전자 상거래 회사에서 판매 가격 및 투자할 재고를 결정하는 데 도움이 됩니다. 예를 들어 조회하는 항목의 평균 가격이 구입한 항목의 평균 가격보다 훨씬 높은 경우 회사에서 평균 가격이 낮은 항목을 재고에 추가하도록 선택할 수 있습니다.
 
    ```sql
    /*AVERAGE PRICE*/      
@@ -381,7 +381,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 7. `<appSettings>` 블록 내의 **여기에 URI를 입력하십시오** 및 **여기에 기본 키를 입력하십시오** 에서 이전에 저장한 **URI** 와 **기본 키** 를 추가합니다. 그런 다음, **데이터베이스 이름** 과 **컬렉션 이름** 을 표시된 대로 추가합니다. (이름을 달리 지정하지 않는 한 이러한 이름은 **changefeedlabdatabase** 및 **changefeedlabcollection** 이어야 합니다.)
 
-   **제품 컬렉션 이름** , **범주 컬렉션 이름** 및 **상위 항목 컬렉션 이름** 을 표시된 대로 채웁니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **products, categories 및 topItems** 이어야 합니다.  
+   **제품 컬렉션 이름**, **범주 컬렉션 이름** 및 **상위 항목 컬렉션 이름** 을 표시된 대로 채웁니다. 이름을 달리 지정하지 않는 한 이러한 이름은 **products, categories 및 topItems** 이어야 합니다.  
 
 8. **EcommerceWebApp.sln** 내에서 **체크 아웃 폴더** 로 이동하여 엽니다. 그런 다음, 해당 폴더 내에서 **Web.config** 파일을 엽니다.  
 

@@ -4,35 +4,37 @@ description: 이 문서에서는 Azure Portal, PowerShell 또는 REST Api를 사
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c876e27165eba30b17874eca600ba81be2e9354
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019440"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96351727"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
-서버 관리자는 서버가 상주 하는 테 넌 트에 대 한 유효한 사용자, 서비스 주체 또는 보안 Azure Active Directory 그룹 (Azure AD) 이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
+서버 관리자는 서버가 상주 하는 테 넌 트에 대 한 유효한 사용자, 서비스 주체 또는 보안 Azure Active Directory 그룹 (Azure AD) 이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자** 를 사용하여 서버 관리자를 관리할 수 있습니다. 
 
-**보안 그룹**을 추가할 때를 사용 `obj:groupid@tenantid` 합니다. 서비스 사용자는 서버 관리자 역할에 추가 된 보안 그룹에서 지원 되지 않습니다.
+**보안 그룹** 을 추가할 때를 사용 `obj:groupid@tenantid` 합니다. 서비스 사용자는 서버 관리자 역할에 추가 된 보안 그룹에서 지원 되지 않습니다.
+
+서버 방화벽을 사용 하는 경우 서버 관리자 클라이언트 컴퓨터의 IP 주소가 방화벽 규칙에 포함 되어야 합니다. 자세히 알아보려면 [서버 방화벽 구성](analysis-services-qs-firewall.md)을 참조 하세요.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Azure Portal을 사용하여 서버 관리자를 추가하려면
 
-1. 포털에서 서버에 대해 **Analysis Services 관리자**를 클릭합니다.
-2. ** \<servername> Analysis Services 관리자**에서 **추가**를 클릭 합니다.
-3. **서버 관리자 추가**에서 Azure AD의 사용자 계정을 선택하거나 이메일 주소를 통해 외부 사용자를 초대합니다.
+1. 포털에서 서버에 대해 **Analysis Services 관리자** 를 클릭합니다.
+2. **\<servername> Analysis Services 관리자** 에서 **추가** 를 클릭 합니다.
+3. **서버 관리자 추가** 에서 Azure AD의 사용자 계정을 선택하거나 이메일 주소를 통해 외부 사용자를 초대합니다.
 
     ![Azure Portal의 서버 관리자](./media/analysis-services-server-admins/aas-manage-users-admins.png)
 
 ## <a name="to-add-server-administrators-by-using-ssms"></a>SSMS를 사용하여 서버 관리자를 추가하려면
 
-1. 서버를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
-2. **Analysis Server 속성**에서 **보안**을 클릭합니다.
-3. **추가**를 클릭한 다음 Azure AD에 있는 사용자 또는 그룹의 이메일 주소를 입력합니다.
+1. 서버를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
+2. **Analysis Server 속성** 에서 **보안** 을 클릭합니다.
+3. **추가** 를 클릭한 다음 Azure AD에 있는 사용자 또는 그룹의 이메일 주소를 입력합니다.
    
     ![SSMS에서 서버 관리자 추가](./media/analysis-services-server-admins/aas-manage-users-ssms.png)
 

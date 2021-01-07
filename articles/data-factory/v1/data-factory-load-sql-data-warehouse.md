@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4e6b0afab5c86131575d0e3d12b9984a8463f5a3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68c9e594201f0d0689a289e13f2c4ebf909c2f87
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321102"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457104"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Data Factory를 사용 하 여 15 분 이내에 Azure Synapse Analytics에 1TB를 로드 합니다.
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 최신 버전의 Data Factory 서비스를 사용 하는 경우 [Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse) 간에 데이터 복사](../connector-azure-sql-data-warehouse.md)를 참조 하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 최신 버전의 Data Factory 서비스를 사용 하는 경우 [Data Factory를 사용 하 여 Azure Synapse Analytics 간에 데이터 복사](../connector-azure-sql-data-warehouse.md)를 참조 하세요.
 
 
 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 스케일 아웃 데이터베이스입니다.  MPP (대규모 parallel processing) 아키텍처를 기반으로 하는 Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우스 워크 로드에 최적화 되어 있습니다.  스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
 
 이제 **Azure Data Factory** 를 사용 하 여 Azure Synapse Analytics를 시작 하는 것이 더 쉬워졌습니다.  Azure Data Factory는 완전히 관리 되는 클라우드 기반 데이터 통합 서비스로 서 Azure Synapse Analytics를 기존 시스템의 데이터로 채우는 데 사용할 수 있으며 Azure Synapse Analytics를 평가 하 고 분석 솔루션을 구축 하는 동안 귀중 한 시간을 절약할 수 있습니다. Azure Data Factory를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하는 경우의 주요 이점은 다음과 같습니다.
 
-* **간편한 설정** : 스크립팅이 필요하지 않은 직관적인 5단계 마법사.
-* **다양 한 데이터 저장소 지원** : 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소 집합을 기본으로 지원 합니다.
-* **보안 및 호환** : 데이터가 HTTPS 또는 ExpressRoute를 통해 전송되고 글로벌 서비스를 제공하므로 데이터가 지리적 경계를 벗어나지 않음
+* **간편한 설정**: 스크립팅이 필요하지 않은 직관적인 5단계 마법사.
+* **다양 한 데이터 저장소 지원**: 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소 집합을 기본으로 지원 합니다.
+* **보안 및 호환**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송되고 글로벌 서비스를 제공하므로 데이터가 지리적 경계를 벗어나지 않음
 * **Polybase를 사용 하는 뛰어난 성능** – polybase를 사용 하는 것은 Azure Synapse Analytics로 데이터를 이동 하는 가장 효율적인 방법입니다. 스테이징 Blob 기능을 사용하면 Polybase가 기본적으로 지원하는 Azure Blob Storage를 제외한 모든 유형의 데이터 저장소에서 높은 로드 속도를 얻을 수 있습니다.
 
 이 문서에서는 Data Factory 복사 마법사를 사용 하 여 Azure Blob Storage의 1TB 데이터를 15 분 내에 1.2 GBps 이상의 처리량으로 Azure Synapse Analytics로 로드 하는 방법을 보여 줍니다.
@@ -44,7 +44,7 @@ ms.locfileid: "93321102"
 >
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-account-create.md)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
@@ -192,11 +192,11 @@ ms.locfileid: "93321102"
 
     ![복사 마법사-요약 페이지 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-2. 배포가 완료된 후 `Click here to monitor copy pipeline`을 클릭하여 복사 실행 진행률을 모니터링합니다. **Activity Windows** (활동 기간) 목록에서 직접 만든 복사 파이프라인을 선택합니다.
+2. 배포가 완료된 후 `Click here to monitor copy pipeline`을 클릭하여 복사 실행 진행률을 모니터링합니다. **Activity Windows**(활동 기간) 목록에서 직접 만든 복사 파이프라인을 선택합니다.
 
     ![복사 마법사-요약 페이지 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-    오른쪽 패널의 **Activity Window Explorer** (활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
+    오른쪽 패널의 **Activity Window Explorer**(활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
 
     다음 스크린샷에서 볼 수 있듯이 Azure Blob Storage 1TB를 Azure Synapse Analytics로 복사 하는 데 14 분이 걸리며 1.22 g b 처리량을 효과적으로 달성 했습니다.
 

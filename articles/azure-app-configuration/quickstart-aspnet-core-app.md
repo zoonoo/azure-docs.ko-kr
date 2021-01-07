@@ -2,23 +2,23 @@
 title: ASP.NET Core 지원 Azure App Configuration용 빠른 시작 | Microsoft Docs
 description: Azure App Configuration을 사용하여 ASP.NET Core 앱을 만들어 ASP.NET Core 애플리케이션을 위한 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다.
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperfq1
+ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.author: lcozzens
-ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.author: alkemper
+ms.openlocfilehash: d1582cda4b083623daf7bb756d0bc8aa3e74eae8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075844"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033649"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
-이 빠른 시작에서는 Azure App Configuration을 사용하여 ASP.NET Core 앱을 위한 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다. ASP.NET Core는 앱에서 지정한 하나 이상의 데이터 원본의 설정을 사용하여 단일 키-값 기반 구성 개체를 빌드합니다. 이러한 데이터 원본은 *구성 공급자*라고 합니다. App Configuration의 .NET Core 클라이언트가 구성 공급자로 구현되므로 서비스가 다른 데이터 원본처럼 표시됩니다.
+이 빠른 시작에서는 Azure App Configuration을 사용하여 ASP.NET Core 앱을 위한 애플리케이션 설정의 스토리지 및 관리를 중앙 집중화합니다. ASP.NET Core는 앱에서 지정한 하나 이상의 데이터 원본의 설정을 사용하여 단일 키-값 기반 구성 개체를 빌드합니다. 이러한 데이터 원본은 *구성 공급자* 라고 합니다. App Configuration의 .NET Core 클라이언트가 구성 공급자로 구현되므로 서비스가 다른 데이터 원본처럼 표시됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,7 +32,7 @@ ms.locfileid: "92075844"
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. **작업** > **구성 탐색기** > **만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **작업** > **구성 탐색기** > **만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키                                | 값                               |
     |------------------------------------|-------------------------------------|
@@ -41,7 +41,7 @@ ms.locfileid: "92075844"
     | `TestApp:Settings:FontSize`        | *24*                                |
     | `TestApp:Settings:Message`         | *Azure App Configuration의 정보* |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 둡니다. **적용**을 선택합니다.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 둡니다. **적용** 을 선택합니다.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
@@ -63,7 +63,7 @@ dotnet new mvc --no-https --output TestAppConfig
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. *.csproj* 파일과 동일한 디렉터리에서 다음 명령을 실행합니다. 이 명령은 비밀 관리자를 사용하여 App Configuration 저장소에 대한 연결 문자열을 저장하는 `ConnectionStrings:AppConfig`라는 비밀을 저장합니다. `<your_connection_string>` 자리 표시자를 App Configuration 저장소의 연결 문자열로 바꿉니다. 연결 문자열은 Azure Portal의 **액세스 키**에서 찾을 수 있습니다.
+1. *.csproj* 파일과 동일한 디렉터리에서 다음 명령을 실행합니다. 이 명령은 비밀 관리자를 사용하여 App Configuration 저장소에 대한 연결 문자열을 저장하는 `ConnectionStrings:AppConfig`라는 비밀을 저장합니다. `<your_connection_string>` 자리 표시자를 App Configuration 저장소의 연결 문자열로 바꿉니다. 연결 문자열은 Azure Portal의 **액세스 키** 에서 찾을 수 있습니다.
 
     ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
@@ -76,7 +76,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     .NET Core 구성 API를 사용하여 이 비밀에 액세스합니다. 콜론(`:`)은 지원되는 모든 플랫폼에서 구성 API를 통해 구성 이름에서 작동합니다. 자세한 내용은 [구성 키 및 값](/aspnet/core/fundamentals/configuration#configuration-keys-and-values)을 참조하세요.
 
-1. *Program.cs*에서 .NET Core 구성 API 네임스페이스에 대한 참조를 추가합니다.
+1. *Program.cs* 에서 .NET Core 구성 API 네임스페이스에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -123,7 +123,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
 App Configuration 저장소에 저장된 값을 읽고 표시하려면 다음 단계를 완료합니다. .NET Core 구성 API는 저장소에 액세스하는 데 사용됩니다. Razor 구문은 키 값을 표시하는 데 사용됩니다.
 
-*\<app root>/Views/Home/Index.cshtml*을 열고, 콘텐츠를 다음 코드로 바꿉니다.
+*\<app root>/Views/Home/Index.cshtml* 을 열고, 콘텐츠를 다음 코드로 바꿉니다.
 
 ```cshtml
 @using Microsoft.Extensions.Configuration
@@ -163,11 +163,11 @@ App Configuration 저장소에 저장된 값을 읽고 표시하려면 다음 �
     dotnet run
     ```
 
-1. 로컬 머신에서 작업하는 경우 브라우저를 사용하여 `http://localhost:5000`으로 이동합니다. 이 주소는 로컬에서 호스트되는 웹앱의 기본 URL입니다. Azure Cloud Shell에서 작업하는 경우 **웹 미리 보기** 단추와 **구성**을 차례로 선택합니다.
+1. 로컬 머신에서 작업하는 경우 브라우저를 사용하여 `http://localhost:5000`으로 이동합니다. 이 주소는 로컬에서 호스트되는 웹앱의 기본 URL입니다. Azure Cloud Shell에서 작업하는 경우 **웹 미리 보기** 단추와 **구성** 을 차례로 선택합니다.
 
     ![웹 미리 보기 단추 찾기](./media/quickstarts/cloud-shell-web-preview.png)
 
-    미리 보기에 대한 포트를 구성하라는 메시지가 표시되면 *5000*을 입력하고 **열기 및 찾기**를 선택합니다. 웹 페이지에서 “Azure App Configuration의 정보”를 읽습니다.
+    미리 보기에 대한 포트를 구성하라는 메시지가 표시되면 *5000* 을 입력하고 **열기 및 찾기** 를 선택합니다. 웹 페이지에서 “Azure App Configuration의 정보”를 읽습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

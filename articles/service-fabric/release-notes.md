@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 01574407801c0a6b0a5e0ddc438af4d3965dc090
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9960f15f2f91b51b73727ab421eb58dddc5bb2b3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131550"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485572"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
@@ -29,17 +29,17 @@ Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함�
 ## <a name="what-is-new-in-service-fabric-7"></a>Service Fabric 7의 새로운 기능
 이 릴리스는 주요 기능 및 향상 된 기능으로 로드 됩니다. 주요 기능 중 일부는 아래에 강조 표시 되어 있습니다.
 ## <a name="key-announcements-in-72"></a>7.2의 주요 공지 사항
-- **미리 보기** : 관리 되는 [**클러스터 Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) 현재 공개 미리 보기로 제공 됩니다. Service Fabric 관리 되는 클러스터는 Service Fabric 클러스터를 구성 하는 기본 리소스를 단일 ARM 리소스로 캡슐화 하 여 클러스터 배포 및 관리를 간소화 합니다. 자세한 내용은 [관리 되는 클러스터 Service Fabric 개요](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster)를 참조 하세요.
-- **미리 보기** : 현재 노드 수보다 많은 [**수의 인스턴스를 사용 하 여 상태 비저장 서비스를 지 원하는**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) 것은 현재 공개 미리 보기로 제공 됩니다. 배치 정책을 사용 하면 한 노드에 파티션의 상태 비저장 인스턴스를 여러 개 만들 수 있습니다.
+- **미리 보기**: 관리 되는 [**클러스터 Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) 현재 공개 미리 보기로 제공 됩니다. Service Fabric 관리 되는 클러스터는 Service Fabric 클러스터를 구성 하는 기본 리소스를 단일 ARM 리소스로 캡슐화 하 여 클러스터 배포 및 관리를 간소화 합니다. 자세한 내용은 [관리 되는 클러스터 Service Fabric 개요](./overview-managed-cluster.md)를 참조 하세요.
+- **미리 보기**: 현재 노드 수보다 많은 [**수의 인스턴스를 사용 하 여 상태 비저장 서비스를 지 원하는**](./service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) 것은 현재 공개 미리 보기로 제공 됩니다. 배치 정책을 사용 하면 한 노드에 파티션의 상태 비저장 인스턴스를 여러 개 만들 수 있습니다.
 - [**FabricObserver () 3.0**](https://aka.ms/sf/fabricobserver) 을 이제 사용할 수 있습니다.
     - 이제 Linux 및 Windows 클러스터에서 FabricObserver을 실행할 수 있습니다.
     - 이제 사용자 지정 관찰자 플러그 인을 빌드할 수 있습니다. 자세한 내용과 코드는 [플러그 인 추가 정보](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) 및 [샘플 플러그 인 프로젝트](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin) 를 참조 하세요.
     - 이제 응용 프로그램 매개 변수 업그레이드를 통해 관찰자 설정을 변경할 수 있습니다. 즉, 특정 관찰자 설정을 수정 하기 위해 더 이상 다시 배포할 필요가 없습니다. [샘플](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates)을 참조 하세요.
 - [**Ubuntu 18.04 OneBox 컨테이너 이미지에 대 한 지원**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
-- **미리 보기** : [ **Service Fabric 응용 프로그램에 대 한 keyvault 참조는 버전이 지정 된 **암호만** 지원 합니다. 버전이 없는 비밀은 지원 되지 않습니다.**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+- **미리 보기**: [ **Service Fabric 응용 프로그램에 대 한 keyvault 참조는 버전이 지정 된 **암호만** 지원 합니다. 버전이 없는 비밀은 지원 되지 않습니다.**](./service-fabric-keyvault-references.md)
 - SF SDK를 사용 하려면 최신 VS 2019 업데이트 16.7.6 또는 16.8 Preview 4를 사용 하 여 새 .Net Framework 상태 비저장/상태 저장/행위자 프로젝트를 만들어야 합니다. 최신 VS 업데이트를 사용 하지 않는 경우 서비스 프로젝트를 만든 후에 패키지 관리자를 사용 하 여 nuget.org의 행위자 프로젝트에 대 한 상태 저장/상태 비저장 프로젝트 및 ServiceFabric (버전 4.2. x)에 ServiceFabric (버전 4.2. x)를 설치 합니다.
-- **Runtocompletion** : Service Fabric는 게스트 실행 파일의 실행을 완료 하는 개념을 지원 합니다. 복제본이 완료 될 때이 업데이트를 사용 하면이 복제본에 할당 된 클러스터 리소스가 해제 됩니다.
-- [**리소스 거 버 넌 스 지원 기능이 향상 되었습니다**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance). 요청을 허용 하 고 cpu 및 메모리 리소스에 대 한 사양을 제한 합니다.
+- **Runtocompletion**: Service Fabric는 게스트 실행 파일의 실행을 완료 하는 개념을 지원 합니다. 복제본이 완료 될 때이 업데이트를 사용 하면이 복제본에 할당 된 클러스터 리소스가 해제 됩니다.
+- [**리소스 거 버 넌 스 지원 기능이 향상 되었습니다**](./service-fabric-resource-governance.md). 요청을 허용 하 고 cpu 및 메모리 리소스에 대 한 사양을 제한 합니다.
 
 ### <a name="service-fabric-72-releases"></a>Service Fabric 7.2 릴리스
 | 릴리스 날짜 | Release | 추가 정보 |
@@ -72,8 +72,8 @@ Service Fabric의 다음 릴리스를 발표 하 게 되어 기쁘게 생각 합
 
 ### <a name="improve-application-life-cycle-experience"></a>응용 프로그램 수명 주기 환경 개선
 
-- **[미리 보기: 요청 드레이닝](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** : 서비스 업그레이드 또는 노드 비활성화와 같은 계획 된 서비스 유지 관리를 수행 하는 동안 서비스에서 연결을 정상적으로 드레이닝 하는 것을 허용 하려고 합니다. 이 기능은 서비스 구성에서 인스턴스 종결 지연 기간을 추가 합니다. 계획 된 작업을 수행 하는 동안 SF는 검색에서 서비스의 주소를 제거 하 고 서비스를 종료 하기 전에이 기간을 기다립니다.
-- **[자동 Subcluster 검색 및 분산](./cluster-resource-manager-subclustering.md)** : 배치 제약 조건이 서로 다른 서비스에 공통 [부하 메트릭이](./service-fabric-cluster-resource-manager-metrics.md)있는 경우 하위 클러스터링이 발생 합니다. 다른 노드 집합에 대 한 부하가 현저 하 게 다를 경우 Service Fabric 클러스터 리소스 관리자 배치 제약 조건으로 인해 클러스터가 불균형 하 게 분산 된 것으로 간주 합니다. 결과적으로 클러스터의 균형을 다시 조정 하 고 잠재적으로 불필요 한 서비스 이동을 발생 시킵니다. "불균형"은 크게 향상 될 수 없기 때문입니다. 이 릴리스부터 클러스터 리소스 관리자는 이제 이러한 종류의 구성을 자동으로 감지 하 고 움직임을 통해 불균형을 수정할 수 있는 경우를 이해 하 고, 대신 성능을 크게 향상 시킬 수 없기 때문에 작업을 단독으로 유지 해야 합니다.  
+- **[미리 보기: 요청 드레이닝](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: 서비스 업그레이드 또는 노드 비활성화와 같은 계획 된 서비스 유지 관리를 수행 하는 동안 서비스에서 연결을 정상적으로 드레이닝 하는 것을 허용 하려고 합니다. 이 기능은 서비스 구성에서 인스턴스 종결 지연 기간을 추가 합니다. 계획 된 작업을 수행 하는 동안 SF는 검색에서 서비스의 주소를 제거 하 고 서비스를 종료 하기 전에이 기간을 기다립니다.
+- **[자동 Subcluster 검색 및 분산](./cluster-resource-manager-subclustering.md)**: 배치 제약 조건이 서로 다른 서비스에 공통 [부하 메트릭이](./service-fabric-cluster-resource-manager-metrics.md)있는 경우 하위 클러스터링이 발생 합니다. 다른 노드 집합에 대 한 부하가 현저 하 게 다를 경우 Service Fabric 클러스터 리소스 관리자 배치 제약 조건으로 인해 클러스터가 불균형 하 게 분산 된 것으로 간주 합니다. 결과적으로 클러스터의 균형을 다시 조정 하 고 잠재적으로 불필요 한 서비스 이동을 발생 시킵니다. "불균형"은 크게 향상 될 수 없기 때문입니다. 이 릴리스부터 클러스터 리소스 관리자는 이제 이러한 종류의 구성을 자동으로 감지 하 고 움직임을 통해 불균형을 수정할 수 있는 경우를 이해 하 고, 대신 성능을 크게 향상 시킬 수 없기 때문에 작업을 단독으로 유지 해야 합니다.  
 - [**보조 복제본에 대 한 다양 한 이동 비용**](./service-fabric-cluster-resource-manager-movement-cost.md): 보조 복제본에 대해 별도의 이동 비용을 사용 해야 하는지 여부를 정의 하는 몇 가지 시나리오에서 추가 유연성을 제공 하는 새 이동 비용 값 VeryHigh 도입 되었습니다.
 - 컨테이너 화 된 응용 프로그램에 대해 [**선거의 프로브**](./probes-codepackage.md) 메커니즘을 사용 하도록 설정 했습니다. 선거의 프로브는 컨테이너 화 된 응용 프로그램의 선거의을 발표 하는 데 도움이 되며, 적시에 응답 하지 않으면 다시 시작 됩니다.
 - [**서비스에 대해 완료까지 실행**](./run-to-completion.md)**
@@ -110,13 +110,13 @@ Service Fabric의 다음 릴리스를 발표 하 게 되어 기쁘게 생각 합
 ### <a name="key-announcements"></a>주요 공지 사항
  - [**응용 프로그램 비밀 (미리 보기)에 대 한 KeyVaultReference 지원**](./service-fabric-keyvault-references.md): [관리 되는 id](./concepts-managed-identity.md) 를 사용 하는 Service Fabric 응용 프로그램은 이제 환경 변수, 응용 프로그램 매개 변수 또는 컨테이너 리포지토리 자격 증명으로 Key Vault 비밀 URL을 직접 참조할 수 있습니다. Service Fabric는 응용 프로그램의 관리 되는 id를 사용 하 여 암호를 자동으로 확인 합니다. 
      
-- **상태 비저장 서비스의 업그레이드 안전성 향상** : 응용 프로그램을 업그레이드 하는 동안 가용성을 보장 하기 위해 [상태 비저장 서비스에 대 한 최소 인스턴스 수](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) 를 정의 하는 새로운 구성을 도입 했습니다. 이전에는이 값이 모든 서비스에 대해 1 였 고 변경 되지 않았습니다. 이 새로운 서비스별 안전 검사를 사용 하 여 서비스는 응용 프로그램 업그레이드 중에 최소 인스턴스 수를 유지 하 고, 클러스터를 업그레이드 하 고, Service Fabric의 상태 및 안전 검사에 의존 하는 기타 유지 관리를 수행할 수 있습니다.
+- **상태 비저장 서비스의 업그레이드 안전성 향상**: 응용 프로그램을 업그레이드 하는 동안 가용성을 보장 하기 위해 [상태 비저장 서비스에 대 한 최소 인스턴스 수](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) 를 정의 하는 새로운 구성을 도입 했습니다. 이전에는이 값이 모든 서비스에 대해 1 였 고 변경 되지 않았습니다. 이 새로운 서비스별 안전 검사를 사용 하 여 서비스는 응용 프로그램 업그레이드 중에 최소 인스턴스 수를 유지 하 고, 클러스터를 업그레이드 하 고, Service Fabric의 상태 및 안전 검사에 의존 하는 기타 유지 관리를 수행할 수 있습니다.
   
 - [**사용자 서비스에 대 한 리소스 제한**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): 사용자는 노드의 사용자 서비스에 대 한 리소스 제한을 설정 하 여 Service Fabric 시스템 서비스의 리소스 고갈 등의 시나리오를 방지할 수 있습니다. 
   
 - 복제본 유형에 대 한 [**서비스 이동 비용이 매우 높습니다**](./service-fabric-cluster-resource-manager-movement-cost.md) . 이동 비용이 매우 높은 복제본은 다른 방법으로는 해결할 수 없는 제약 조건 위반이 클러스터에 있는 경우에만 이동 됩니다. "매우 높음" 이동 비용을 사용 하는 경우와 추가 고려 사항에 대 한 자세한 내용은 연결 된 문서를 참조 하세요.
   
--  **추가 클러스터 안전 검사** :이 릴리스에서는 구성 가능한 시드 노드 쿼럼 안전 검사를 도입 했습니다. 이를 통해 클러스터 수명 주기 및 관리 시나리오에서 사용할 수 있어야 하는 시드 노드 수를 사용자 지정할 수 있습니다. 클러스터를 구성 된 값 아래로 이동 하는 작업이 차단 됩니다. 현재 기본값은 시드 노드의 쿼럼입니다. 예를 들어, 시드 노드가 7 개 있는 경우 5 개 시드 노드 아래에서 수행 하는 작업은 기본적으로 차단 됩니다. 이와 같이 변경 하면 한 번에 하나의 시드 노드만 중지 되도록 최소 안전 값 6을 만들 수 있습니다.
+-  **추가 클러스터 안전 검사**:이 릴리스에서는 구성 가능한 시드 노드 쿼럼 안전 검사를 도입 했습니다. 이를 통해 클러스터 수명 주기 및 관리 시나리오에서 사용할 수 있어야 하는 시드 노드 수를 사용자 지정할 수 있습니다. 클러스터를 구성 된 값 아래로 이동 하는 작업이 차단 됩니다. 현재 기본값은 시드 노드의 쿼럼입니다. 예를 들어, 시드 노드가 7 개 있는 경우 5 개 시드 노드 아래에서 수행 하는 작업은 기본적으로 차단 됩니다. 이와 같이 변경 하면 한 번에 하나의 시드 노드만 중지 되도록 최소 안전 값 6을 만들 수 있습니다.
    
 - [**Service Fabric Explorer에서 백업 및 복원 서비스를 관리**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md)하기 위한 지원이 추가 되었습니다. 이렇게 하면 SFX 내에서 다음 작업을 직접 수행할 수 있습니다. 즉, 백업 및 복원 서비스를 검색 하 고, 백업 정책을 만들고, 자동 백업을 사용 하 고, 임시 백업을 수행 하 고, 복원 작업을 트리거하여 기존 백업을 검색 합니다.
 
@@ -152,7 +152,7 @@ Service Fabric 6.5의 새로운 같습니다는 다음과 같습니다.
 
 - 상태 저장 서비스에 대 한 [복제본 수명 주기 이벤트](service-fabric-diagnostics-event-generation-operational.md#replica-events) 를 추가 했습니다.
 
-- 시드 노드가 비정상 ( *다운* , *제거* 또는 *알 수 없음* ) 인 경우 클러스터 수준 경고를 비롯 하 여 [시드 노드 상태를 더 잘 표시](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)합니다.
+- 시드 노드가 비정상 (*다운*, *제거* 또는 *알 수 없음*) 인 경우 클러스터 수준 경고를 비롯 하 여 [시드 노드 상태를 더 잘 표시](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status)합니다.
 
 - [Service Fabric 응용 프로그램 재해 복구 도구](https://github.com/Microsoft/Service-Fabric-AppDRTool) 를 사용 하면 주 클러스터에 재해가 발생할 때 Service Fabric 상태 저장 서비스가 신속 하 게 복구할 수 있습니다. 주 클러스터의 데이터는 정기적인 백업 및 복원을 사용 하 여 보조 대기 응용 프로그램에서 지속적으로 동기화 됩니다.
 

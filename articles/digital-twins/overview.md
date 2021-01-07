@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099116"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400610"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -96,9 +96,6 @@ Azure Digital Twins 제한 목록은 [*참조: 서비스 제한*](reference-serv
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins의 첫 번째 미리 보기 릴리스(2018년 10월)로 작업한 경우 변경된 내용을 알아보세요.
-* [*개요: 첫 번째 릴리스와의 차이점*](overview-differences.md)
+Azure Digital Twins의 첫 번째 미리 보기 릴리스(2018년 10월)로 작업한 경우 변경된 내용을 알아보세요. [*개요: 첫 번째 릴리스와의 차이점*](overview-differences.md).
 
-첫 번째 자습서를 사용하여 Azure Digital Twins 작업을 자세히 살펴보겠습니다:
-
-[*자습서: 클라이언트 앱 코딩*](tutorial-code.md)
+또는 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md).

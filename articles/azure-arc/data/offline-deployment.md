@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 575903654a165bef0d09ac6abf0793af3f6784e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940612"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955368"
 ---
 # <a name="offline-deployment-overview"></a>오프 라인 배포 개요
 
@@ -22,14 +22,14 @@ ms.locfileid: "90940612"
 
 Azure Arc 사용 데이터 서비스에 대 한 월별 업데이트를 제공 하 고 많은 수의 컨테이너 이미지가 있으므로 스크립트를 사용 하 여 컨테이너 이미지를 풀링 하 고 태그를 지정 하 고 개인 컨테이너 레지스트리에 푸시하는이 프로세스를 수행 하는 것이 가장 좋습니다.  스크립트를 자동화 하거나 수동으로 실행할 수 있습니다.
 
-[샘플 스크립트](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) 는 Azure Arc GitHub 리포지토리에서 찾을 수 있습니다.
+[샘플 스크립트](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) 는 Azure Arc GitHub 리포지토리에서 찾을 수 있습니다.
 
 > [!NOTE]
 > 이 스크립트를 사용 하려면 python 및 [DOCKER CLI](https://docs.docker.com/install/)를 설치 해야 합니다.
 
 이 스크립트는 다음 정보를 대화형으로 표시 합니다.  또는 대화형 프롬프트 없이 스크립트를 실행 하려는 경우 스크립트를 실행 하기 전에 해당 환경 변수를 설정할 수 있습니다.
 
-|prompt|환경 변수|참고|
+|prompt|환경 변수|메모|
 |---|---|---|
 |소스 컨테이너 레지스트리 제공-를 사용 하려면 ENTER 키를 누릅니다. `mcr.microsoft.com`|SOURCE_DOCKER_REGISTRY|일반적으로 Microsoft Container Registry에서 이미지를 끌어올 수 있지만 다른 레지스트리를 사용 하 여 비공개 미리 보기에 참여 하는 경우에는 미리 보기 프로그램의 일부로 제공 된 정보를 사용할 수 있습니다.|
 |소스 컨테이너 레지스트리 리포지토리 제공-를 사용 하려면 ENTER 키를 누릅니다 `arcdata` .|SOURCE_DOCKER_REPOSITORY|Microsoft Container Registry에서 끌어오는 경우 리포지토리는이 됩니다 `arcdata` .|

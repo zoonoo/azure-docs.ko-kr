@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d24ae1f42c685589309506b2d5e0eab157b2bc42
+ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318825"
+ms.lasthandoff: 11/27/2020
+ms.locfileid: "96299618"
 ---
 # <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>서버를 사용 하지 않는 SQL 풀 쿼리에서 파일 메타 데이터 사용
 
@@ -76,7 +76,7 @@ ORDER BY
 
 filepath 함수는 전체 또는 부분 경로를 반환합니다.
 
-- 매개 변수 없이 호출되면 행이 제공되는 전체 파일 경로를 반환합니다.
+- 매개 변수 없이 호출되면 행이 제공되는 전체 파일 경로를 반환합니다. OPENROWSET에 DATA_SOURCE를 사용 하면 DATA_SOURCE에 상대적인 경로가 반환 됩니다. 
 - 매개 변수를 사용하여 호출하면 매개 변수에 지정된 위치에 있는 와일드카드와 일치하는 경로의 일부를 반환합니다. 예를 들어 매개 변수 값 1은 첫 번째 와일드카드와 일치하는 경로의 일부를 반환합니다.
 
 다음 샘플에서는 2017년 마지막 3개월 동안의 NYC Yellow Taxi 데이터 파일을 읽습니다. 파일 경로당 탑승 수를 반환합니다. 쿼리의 OPENROWSET 부분은 읽을 파일을 지정합니다.

@@ -1,23 +1,14 @@
 ---
 title: Azure 대시보드를 프로그래밍 방식으로 만들기
 description: Azure Portal 대시보드를 템플릿으로 사용 하 여 프로그래밍 방식으로 Azure 대시보드를 만듭니다. JSON 참조를 포함 합니다.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-ms.openlocfilehash: 7f52bd94a0286ea50d09ab7c77dce339e8a3ebf3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 12/4/2020
+ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089369"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96745811"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -37,7 +28,7 @@ ms.locfileid: "92089369"
 
 ## <a name="create-a-dashboard"></a>대시보드 만들기
 
-대시보드를 만들려면 [Azure Portal](https://portal.azure.com) 메뉴에서 **대시보드** 를 선택 하 고 **새 대시보드**를 선택 합니다.
+대시보드를 만들려면 [Azure Portal](https://portal.azure.com) 메뉴에서 **대시보드** 를 선택 하 고 **새 대시보드** 를 선택 합니다.
 
 ![새 대시보드 명령](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
@@ -658,3 +649,49 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 ```
 
 매개 변수가 있는 템플릿을 사용 하 여 대시보드를 배포 하는 예제를 살펴보았으므로 이제 [AZURE RESOURCE MANAGER REST api](/rest/api/), [Azure CLI](/cli/azure)또는 [Azure PowerShell 명령을](/powershell/azure/get-started-azureps)사용 하 여 템플릿을 배포할 수 있습니다.
+
+## <a name="programmatically-create-a-dashboard-by-using-azure-cli"></a>Azure CLI를 사용 하 여 프로그래밍 방식으로 대시보드 만들기
+
+Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- 이러한 예제에서는 [portal-dashboard-template-testvm.js의](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json)대시보드를 사용 합니다. 꺾쇠 괄호 안의 콘텐츠를 값으로 바꿉니다.
+
+[Az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) 명령을 실행 하 여 대시보드를 만듭니다.
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+[Az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 명령을 사용 하 여 대시보드를 업데이트할 수 있습니다.
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+[Az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) 명령을 실행 하 여 대시보드의 세부 정보를 확인 합니다.
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+현재 구독에 대 한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list)를 사용 합니다.
+
+```azurecli
+az portal dashboard list
+```
+
+리소스 그룹에 대 한 모든 대시보드를 볼 수도 있습니다.
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## <a name="next-steps"></a>다음 단계
+
+데스크톱에 대 한 자세한 내용은 [Azure Portal 설정 및 기본 설정 관리](set-preferences.md)를 참조 하세요.
+
+대시보드에 대 한 Azure CLI 지원에 대 한 자세한 내용은 [az portal dashboard](/cli/azure/ext/portal/portal/dashboard)를 참조 하세요.

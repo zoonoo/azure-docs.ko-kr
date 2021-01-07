@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: 연결 - MySQL Workbench - Azure Database for MySQL'
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 MySQL Workbench를 사용하는 단계를 제공합니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332043"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535540"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -35,7 +35,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver** ).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 클릭한 다음, 방금 만든 서버를 검색합니다(예: **mydemoserver**).
 
 3. 서버 이름을 클릭합니다.
 

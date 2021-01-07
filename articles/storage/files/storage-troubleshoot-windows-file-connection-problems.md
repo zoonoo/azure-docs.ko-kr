@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630161"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858691"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
 
@@ -147,7 +147,7 @@ Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린
 
 ### <a name="solution"></a>솔루션
 
-일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json)을 참조 하세요.
+일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
 파일 공유, 디렉터리 또는 파일에 대 한 열린 핸들을 보려면 [AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet을 사용 합니다.  
 
@@ -176,7 +176,7 @@ Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린
 Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세히 알아보려면 [azure 역할 기반 액세스 제어를 사용 하 여 저장소 계정을 보호 하는 방법 (AZURE RBAC)](../blobs/security-recommendations.md#data-protection)을 참조 하세요.
 
 <a id="open-handles"></a>
-## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Azure 파일 공유의 파일 또는 디렉터리를 삭제할 수 없음
+## <a name="unable-to-modify-moverename-or-delete-a-file-or-directory"></a>파일이 나 디렉터리를 수정, 이동/이름 변경 또는 삭제할 수 없습니다.
 파일 공유의 핵심 용도 중 하나는 여러 사용자와 응용 프로그램이 공유의 파일 및 디렉터리와 동시에 상호 작용할 수 있는 것입니다. 이러한 상호 작용을 지원 하기 위해 파일 공유는 파일 및 디렉터리에 대 한 액세스를 mediating 하는 여러 가지 방법을 제공 합니다.
 
 SMB를 통해 탑재 된 Azure 파일 공유에서 파일을 열면 응용 프로그램/운영 체제에서 파일 핸들을 요청 합니다. 파일 핸들은 파일에 대 한 참조입니다. 무엇 보다도 응용 프로그램은 파일 핸들을 요청할 때 파일 공유 모드를 지정 하 여 Azure Files에 의해 적용 되는 파일에 대 한 액세스 독점 성을 수준을 지정 합니다. 
@@ -262,7 +262,7 @@ Azure File 서비스에 파일을 전송하려고 하면 성능 저하가 발생
 - 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MiB를 사용하는 것이 좋습니다.
 -   쓰기를 사용하여 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 발생하지 않는다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
 -   copy 메서드를 다음과 같이 올바르게 사용합니다.
-    -   두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) 를 사용 합니다.
+    -   두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
     -   온-프레미스 컴퓨터와 파일 공유 간에는 [Robocopy](./storage-files-deployment-guide.md#robocopy)를 사용합니다.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Windows 8.1 또는 Windows Server 2012 R2에 대한 고려 사항
@@ -401,11 +401,13 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 이 cmdlet은 아래에서 이러한 검사를 순서 대로 수행 하 고 오류에 대 한 지침을 제공 합니다.
 1. CheckADObjectPasswordIsCorrect: 저장소 계정을 나타내는 AD id에 구성 된 암호가 storage 계정 kerb1 또는 kerb2 key와 일치 하는지 확인 합니다. 암호가 잘못 된 경우 [AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) 를 실행 하 여 암호를 다시 설정할 수 있습니다. 
 2. CheckADObject: 저장소 계정을 나타내고 올바른 SPN (서비스 사용자 이름)을 포함 하는 개체가 Active Directory에 있는지 확인 합니다. SPN이 올바르게 설정 되지 않은 경우에는 debug cmdlet에 반환 된 Set-AD cmdlet을 실행 하 여 SPN을 구성 하십시오.
-3. CheckDomainJoined: 클라이언트 컴퓨터가 AD에 도메인에 가입 되어 있는지 확인 합니다. 컴퓨터가 AD에 도메인에 가입 되지 않은 경우 도메인 가입 명령에 대 한이 [문서](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) 를 참조 하세요.
+3. CheckDomainJoined: 클라이언트 컴퓨터가 AD에 도메인에 가입 되어 있는지 확인 합니다. 컴퓨터가 AD에 도메인에 가입 되지 않은 경우 도메인 가입 명령에 대 한이 [문서](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain) 를 참조 하세요.
 4. CheckPort445Connectivity: SMB 연결에 대 한 포트 445가 열려 있는지 확인 합니다. 필요한 포트가 열려 있지 않은 경우에는 문제 해결 도구를 참조 하 여 Azure Files의 연결 문제에 대 한 [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) 하세요.
 5. CheckSidHasAadUser: 로그온 한 AD 사용자가 Azure AD와 동기화 되었는지 확인 합니다. 특정 AD 사용자가 Azure AD에 동기화 되었는지 여부를 확인 하려면 입력 매개 변수에서-UserName 및-Domain을 지정 하면 됩니다. 
 6. CheckGetKerberosTicket: 저장소 계정에 연결 하기 위해 Kerberos 티켓을 가져오려고 시도 합니다. 유효한 Kerberos 토큰이 없는 경우 klist get cifs/storage-name. cmdlet을 실행 하 고 오류 코드를 검사 하 여 티켓 검색 오류를 발생 시킵니다.
 7. CheckStorageAccountDomainJoined: AD 인증을 사용 하도록 설정 되어 있고 계정의 AD 속성이 채워지는지 확인 합니다. 그렇지 않은 경우 Azure Files에서 AD DS 인증을 사용 하도록 설정 하려면 [여기](./storage-files-identity-ad-ds-enable.md) 의 지침을 참조 하세요. 
+8. CheckUserRbacAssignment: AD 사용자에 게 Azure Files 액세스에 대 한 공유 수준 권한을 제공 하기 위한 적절 한 RBAC 역할 할당이 있는지 확인 합니다. 그렇지 않은 경우 [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) 에 있는 지침을 참조 하 여 공유 수준 권한을 구성 합니다. (AzFilesHybrid v 0.2.3 + 버전에서 지원 됨)
+9. CheckUserFileAccess: Azure Files에 액세스할 수 있는 적절 한 디렉터리/파일 권한 (Windows Acl)이 AD 사용자에 게 있는지 확인 합니다. 그렇지 않은 경우 [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) 에 있는 지침을 참조 하 여 디렉터리/파일 수준 사용 권한을 구성 합니다. (AzFilesHybrid v 0.2.3 + 버전에서 지원 됨)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 디렉터리/파일 수준 사용 권한 (Windows Acl)을 구성할 수 없습니다.
 

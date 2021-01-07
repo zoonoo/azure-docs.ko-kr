@@ -1,22 +1,22 @@
 ---
-title: Azure Data Studio를 사용하여 Synapse SQL에 연결(미리 보기)
-description: Azure Data Studio(미리 보기)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리합니다.
+title: Azure Data Studio를 사용하여 Synapse SQL에 연결
+description: Azure Data Studio를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리합니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 580dfe779ff0f550524781076d3e27805ffd6689
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323824"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451669"
 ---
-# <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결(미리 보기)
+# <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Azure Data Studio를 사용하여 Synapse SQL에 연결
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "93323824"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-[Azure Data Studio(미리 보기)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 Azure Synapse Analytics에서 Synapse SQL에 연결하고 쿼리할 수 있습니다. 
 
 ## <a name="connect"></a>연결
 
@@ -42,7 +42,7 @@ Synapse SQL에 연결하려면 Azure Data Studio를 열고 **새 연결** 을 �
 * **데이터베이스:** 데이터베이스 이름
 
 > [!NOTE]
-> **서버리스 SQL 풀(미리 보기)** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
+> **서버리스 SQL 풀** 을 사용하려는 경우 URL은 다음과 같아야 합니다.
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
@@ -50,7 +50,7 @@ Synapse SQL에 연결하려면 Azure Data Studio를 열고 **새 연결** 을 �
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-**인증 유형** 으로 **Windows 인증** , **Azure Active Directory** 또는 **SQL 로그인** 을 선택합니다.
+**인증 유형** 으로 **Windows 인증**, **Azure Active Directory** 또는 **SQL 로그인** 을 선택합니다.
 
 인증 유형으로 **SQL 로그인** 을 사용하려면 사용자 이름/암호 매개 변수를 추가합니다.
 

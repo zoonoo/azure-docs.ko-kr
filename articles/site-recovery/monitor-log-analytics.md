@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006944"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499818"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -22,8 +22,8 @@ Azure Monitor 로그는 다른 모니터링 데이터와 함께 작업 및 리�
 
 Site Recovery Azure Monitor 로그를 사용 하 여 다음 작업을 수행할 수 있습니다.
 
-- **Site Recovery 상태 및 상태를 모니터링**합니다. 예를 들어, 복제 상태, 테스트 장애 조치 상태, Site Recovery 이벤트, 보호 된 컴퓨터에 대 한 Rpo (복구 지점 목표) 및 디스크/데이터 변경 비율을 모니터링할 수 있습니다.
-- **Site Recovery에 대 한 경고를 설정**합니다. 예를 들어 컴퓨터 상태, 테스트 장애 조치 (failover) 상태 또는 Site Recovery 작업 상태에 대 한 경고를 구성할 수 있습니다.
+- **Site Recovery 상태 및 상태를 모니터링** 합니다. 예를 들어, 복제 상태, 테스트 장애 조치 상태, Site Recovery 이벤트, 보호 된 컴퓨터에 대 한 Rpo (복구 지점 목표) 및 디스크/데이터 변경 비율을 모니터링할 수 있습니다.
+- **Site Recovery에 대 한 경고를 설정** 합니다. 예를 들어 컴퓨터 상태, 테스트 장애 조치 (failover) 상태 또는 Site Recovery 작업 상태에 대 한 경고를 구성할 수 있습니다.
 
 Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복제, **VMware v m/물리적 서버에서 azure** 로 복제에 대해 지원 됩니다.
 
@@ -36,20 +36,20 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
-- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아봅니다](../azure-monitor/log-query/get-started-portal.md).
+- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아보기](../azure-monitor/log-query/log-analytics-tutorial.md).
 
 시작 하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md) 을 검토 하는 것이 좋습니다.
 
 ## <a name="configure-site-recovery-to-send-logs"></a>로그를 보내도록 Site Recovery 구성
 
-1. 자격 증명 모음에서 **진단 설정**  >  **진단 설정 추가**를 클릭 합니다.
+1. 자격 증명 모음에서 **진단 설정**  >  **진단 설정 추가** 를 클릭 합니다.
 
     ![진단 설정 추가 옵션을 보여 주는 스크린샷](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. **진단 설정**에서 이름을 지정 하 고 **Log Analytics로 보내기**상자를 선택 합니다.
+2. **진단 설정** 에서 이름을 지정 하 고 **Log Analytics로 보내기** 상자를 선택 합니다.
 3. Azure Monitor 로그 구독 및 Log Analytics 작업 영역을 선택 합니다.
 4. 설정/해제에서 **Azure 진단** 를 선택 합니다.
-5. 로그 목록에서 접두사가 **AzureSiteRecovery**인 모든 로그를 선택 합니다. 그런 후 **OK**를 클릭합니다.
+5. 로그 목록에서 접두사가 **AzureSiteRecovery** 인 모든 로그를 선택 합니다. 그런 후 **OK** 를 클릭합니다.
 
     ![진단 설정 화면의 스크린샷](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -59,13 +59,13 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 
 온-프레미스에서 VMware/물리적 컴퓨터에 대 한 데이터 변동 비율 정보 및 원본 데이터 업로드 속도 정보를 캡처할 수 있습니다. 이를 사용 하려면 프로세스 서버에 Microsoft monitoring agent를 설치 해야 합니다.
 
-1. Log Analytics 작업 영역으로 이동한 다음 **고급 설정**을 클릭 합니다.
-2. **연결 된 원본** 페이지를 클릭 하 고 **Windows 서버**를 추가로 선택 합니다.
+1. Log Analytics 작업 영역으로 이동한 다음 **고급 설정** 을 클릭 합니다.
+2. **연결 된 원본** 페이지를 클릭 하 고 **Windows 서버** 를 추가로 선택 합니다.
 3. 프로세스 서버에서 Windows 에이전트 (64 비트)를 다운로드 합니다. 
 4. [작업 영역 ID 및 키 가져오기](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [TLS 1.2를 사용 하도록 에이전트 구성](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
 6. 가져온 작업 영역 ID 및 키를 제공 하 여 [에이전트 설치를 완료](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) 합니다.
-7. 설치가 완료 되 면 Log Analytics 작업 영역으로 이동한 다음 **고급 설정**을 클릭 합니다. **데이터** 페이지로 이동 하 여 **Windows 성능 카운터**를 추가로 클릭 합니다. 
+7. 설치가 완료 되 면 Log Analytics 작업 영역으로 이동한 다음 **고급 설정** 을 클릭 합니다. **데이터** 페이지로 이동 하 여 **Windows 성능 카운터** 를 추가로 클릭 합니다. 
 8. **' + '** 를 클릭 하 여 샘플 간격이 300 초인 다음 두 카운터를 추가 합니다.
 
     - ASRAnalytics (*) \SourceVmChurnRate
@@ -79,7 +79,7 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 [Kusto 쿼리 언어로](../azure-monitor/log-query/get-started-queries.md)작성 된 로그 쿼리를 사용 하 여 로그에서 데이터를 검색 합니다. 이 섹션에서는 Site Recovery 모니터링에 사용할 수 있는 일반적인 쿼리의 몇 가지 예를 제공 합니다.
 
 > [!NOTE]
-> 일부 예제에서는 **A2A**로 설정 된 **replicationProviderName_s** 를 사용 합니다. Site Recovery를 사용 하 여 보조 Azure 지역에 복제 되는 Azure Vm을 검색 합니다. 이 예제에서는 Site Recovery를 사용 하 여 Azure에 복제 된 온-프레미스 VMware Vm 또는 물리적 서버를 검색 하려는 경우 **A2A** 를 **InMageAzureV2**로 바꿀 수 있습니다.
+> 일부 예제에서는 **A2A** 로 설정 된 **replicationProviderName_s** 를 사용 합니다. Site Recovery를 사용 하 여 보조 Azure 지역에 복제 되는 Azure Vm을 검색 합니다. 이 예제에서는 Site Recovery를 사용 하 여 Azure에 복제 된 온-프레미스 VMware Vm 또는 물리적 서버를 검색 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.
 
 
 ### <a name="query-replication-health"></a>복제 상태 쿼리
@@ -214,7 +214,7 @@ Category contains "Upload", "UploadRate", "none") 
 > [!Note]
 > 프로세스 서버에서 이러한 로그를 가져오도록 모니터링 에이전트를 설정 했는지 확인 합니다. [모니터링 에이전트를 구성 하는 단계를](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs)참조 하세요.
 
-이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 나타내는 복제 된 항목 **win-9r7sfh9qlru**의 특정 디스크 **disk0** 추세 그래프를 그립니다. Recovery services 자격 증명 모음에서 복제 된 항목 **의 디스크 이름 블레이드를** 찾을 수 있습니다. 쿼리에 사용할 인스턴스 이름은 다음 예제와 같이 _ 및 디스크 이름이 뒤에 나오는 컴퓨터의 DNS 이름입니다.
+이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 나타내는 복제 된 항목 **win-9r7sfh9qlru** 의 특정 디스크 **disk0** 추세 그래프를 그립니다. Recovery services 자격 증명 모음에서 복제 된 항목 **의 디스크 이름 블레이드를** 찾을 수 있습니다. 쿼리에 사용할 인스턴스 이름은 다음 예제와 같이 _ 및 디스크 이름이 뒤에 나오는 컴퓨터의 DNS 이름입니다.
 
 ```
 Perf
@@ -255,7 +255,7 @@ AzureDiagnostics 
 Azure Monitor 데이터를 기반으로 하 Site Recovery 경고를 설정할 수 있습니다. 로그 경고 설정에 [대해 자세히 알아보세요](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) . 
 
 > [!NOTE]
-> 일부 예제에서는 **A2A**로 설정 된 **replicationProviderName_s** 를 사용 합니다. 이렇게 하면 보조 Azure 지역에 복제 되는 Azure Vm에 대 한 경고가 설정 됩니다. 이 예에서는 Azure로 복제 된 온-프레미스 VMware Vm 또는 물리적 서버에 대 한 경고를 설정 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.
+> 일부 예제에서는 **A2A** 로 설정 된 **replicationProviderName_s** 를 사용 합니다. 이렇게 하면 보조 Azure 지역에 복제 되는 Azure Vm에 대 한 경고가 설정 됩니다. 이 예에서는 Azure로 복제 된 온-프레미스 VMware Vm 또는 물리적 서버에 대 한 경고를 설정 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.
 
 ### <a name="multiple-machines-in-a-critical-state"></a>위험 상태의 여러 컴퓨터
 

@@ -10,26 +10,26 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfbbdd1b30cba74cf4f63d6b5e84c2e616e1a0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653794"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020983"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
 이 문서에서는 Azure Time Series Insights Gen2 [Demo 환경](https://insights.timeseries.azure.com/preview/demo)에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Time Series Insights 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
-* Azure Time Series Insights Gen2 환경을 프로 비전 합니다. [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) 자습서를 읽어 인스턴스를 프로 비전 하는 방법에 대해 자세히 알아보세요.
-* 계정에 대해 만든 Azure Time Series Insights Gen2 환경에 대 한 [데이터 액세스를 제공](./time-series-insights-data-access.md) 합니다. 자신과 다른 사용자에 대한 액세스 권한을 모두 부여할 수 있습니다.
+* Azure Time Series Insights Gen2 환경을 프로 비전 합니다. [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) 자습서를 읽어 인스턴스를 프로 비전 하는 방법에 대해 자세히 알아보세요.
+* 계정에 대해 만든 Azure Time Series Insights Gen2 환경에 대 한 [데이터 액세스를 제공](./concepts-access-policies.md) 합니다. 자신과 다른 사용자에 대한 액세스 권한을 모두 부여할 수 있습니다.
 * Azure Time Series Insights Gen2 환경에 이벤트 소스를 추가 하 여 환경에 데이터를 푸시합니다.
-  * [이벤트 허브에 연결 하는 방법](./time-series-insights-how-to-add-an-event-source-eventhub.md) 알아보기
-  * [IoT hub에 연결 하는 방법](./time-series-insights-how-to-add-an-event-source-iothub.md) 알아보기
+  * [이벤트 허브에 연결 하는 방법](./how-to-ingest-data-event-hub.md) 알아보기
+  * [IoT hub에 연결 하는 방법](./how-to-ingest-data-iot-hub.md) 알아보기
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기 살펴보기
 
@@ -72,7 +72,7 @@ Azure Time Series Insights Gen2는 시계열 모델에 대 한 모든 CRUD (만�
 
 * 시계열 **모델 유형**: 시계열 모델 유형을 사용 하 여 계산을 수행 하는 변수나 수식을 정의할 수 있습니다. 지정 된 시계열 모델 인스턴스와 연결 됩니다. 형식에는 하나 이상의 변수가 포함될 수 있습니다.
 * **시계열 모델 계층 구조**: 계층은 데이터의 체계적 조직입니다. 계층은 시계열 모델의 서로 다른 인스턴스 간의 관계를 나타냅니다.
-* 시계열 **모델 인스턴스**: 인스턴스는 시계열입니다. 대부분의 경우에는 해당 환경에서 자산의 고유 식별자 인 **DeviceID** 또는 **AssetID**입니다.
+* 시계열 **모델 인스턴스**: 인스턴스는 시계열입니다. 대부분의 경우에는 해당 환경에서 자산의 고유 식별자 인 **DeviceID** 또는 **AssetID** 입니다.
 
 시계열 모델에 대 한 자세한 내용은 [시계열 모델](./concepts-model-overview.md)을 읽어 보세요.
 
@@ -133,7 +133,7 @@ Azure Time Series Insights Gen2는 시계열 모델에 대 한 모든 CRUD (만�
 
   [![겹치는 차트 옵션](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-**추가 작업** 단추는 확장 되어 **CSV로 다운로드**를 표시 하 고, **Power BI에 연결**하 고, **차트 데이터를 테이블로 표시**하 고, **원시 이벤트** 옵션을 탐색 합니다.
+**추가 작업** 단추는 확장 되어 **CSV로 다운로드** 를 표시 하 고, **Power BI에 연결** 하 고, **차트 데이터를 테이블로 표시** 하 고, **원시 이벤트** 옵션을 탐색 합니다.
 
   [![추가 작업 옵션](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
@@ -160,7 +160,7 @@ Azure Time Series Insights Gen2 작업 하는 경우 먼저 시간 범위를 선
 
 1. **외부 날짜 범위 슬라이더 컨트롤**: 끝점 컨트롤을 사용 하 여 내부 날짜 범위 컨트롤에 사용할 수 있는 외부 날짜 범위를 선택 합니다.
 
-1. **시간 범위 슬라이더 컨트롤**: 지난 **30 분**, **지난 12 시간**또는 **사용자 지정 범위**와 같이 미리 설정 된 시간 범위 선택 사이를 빠르게 전환 하는 데 사용 합니다. 이 값을 변경하면 내부 크기 슬라이더 도구에서 설명하는 사용 가능한 간격 범위도 변경됩니다.
+1. **시간 범위 슬라이더 컨트롤**: 지난 **30 분**, **지난 12 시간** 또는 **사용자 지정 범위** 와 같이 미리 설정 된 시간 범위 선택 사이를 빠르게 전환 하는 데 사용 합니다. 이 값을 변경하면 내부 크기 슬라이더 도구에서 설명하는 사용 가능한 간격 범위도 변경됩니다.
 
    [![선택 패널로/에서](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
@@ -186,7 +186,7 @@ Azure Time Series Insights Gen2 탐색 패널이 앱 위쪽에 표시 됩니다.
 
 ### <a name="theme-selection"></a>테마 선택
 
-새 테마를 선택 하려면 오른쪽 위 모퉁이에 있는 프로필 아이콘을 선택 합니다. 그런 다음 **테마 변경**을 선택 합니다.
+새 테마를 선택 하려면 오른쪽 위 모퉁이에 있는 프로필 아이콘을 선택 합니다. 그런 다음 **테마 변경** 을 선택 합니다.
 
   [![테마 선택](media/v2-update-explorer/tsi-preview-theme-selection.png)](media/v2-update-explorer/tsi-preview-theme-selection.png#lightbox)
 
@@ -221,7 +221,7 @@ Azure Time Series Insights Gen2 용어 편집기 패널에는 다음 매개 변�
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
 | `HAS` | String | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
 
-지원 되는 쿼리 작업 및 데이터 형식에 대해 자세히 알아보려면 [TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)를 참조 하세요.
+지원 되는 쿼리 작업 및 데이터 형식에 대해 자세히 알아보려면 [TSX (Time Series Expression)](/rest/api/time-series-insights/reference-time-series-expression-syntax)를 참조 하세요.
 
 ### <a name="examples-of-where-clauses"></a>Where 절의 예
 
@@ -233,7 +233,7 @@ Azure Time Series Insights Gen2 용어 편집기 패널에는 다음 매개 변�
 
   [![쿼리 및 필터링 된 뷰 1](media/v2-update-explorer/s1-s2-preview-filtered-view.png)](media/v2-update-explorer/s1-s2-preview-filtered-view.png#lightbox)
 
-다음 그림에 표시 된 것 처럼 표시 되는 아이콘을 선택 하 여 차트 패널에서 요소를 표시 하거나 숨길 수 있습니다. 쿼리를 완전히 제거 하려면 빨간색 **X**를 선택 합니다.
+다음 그림에 표시 된 것 처럼 표시 되는 아이콘을 선택 하 여 차트 패널에서 요소를 표시 하거나 숨길 수 있습니다. 쿼리를 완전히 제거 하려면 빨간색 **X** 를 선택 합니다.
 
   [![쿼리 및 필터링 된 옵션 취소](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png)](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png#lightbox)
 
@@ -245,4 +245,4 @@ Azure Time Series Insights Gen2 용어 편집기 패널에는 다음 매개 변�
 
 * Azure Time Series Insights Gen2의 [데이터 모델링](./concepts-model-overview.md) 에 대해 읽어 보세요.
 
-* 환경을 [진단 하 고 문제를 해결 하는 방법을](./time-series-insights-update-how-to-troubleshoot.md) 알아봅니다.
+* 환경을 [진단 하 고 문제를 해결 하는 방법을](./how-to-diagnose-troubleshoot.md) 알아봅니다.

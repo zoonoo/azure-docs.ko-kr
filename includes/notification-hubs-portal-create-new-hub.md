@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: 2ec602f056b339a1b1dcb78d6b8d7583aeaf0434
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376191"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009128"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "93376191"
 
         ![Azure Portal - 알림 허브 속성 설정](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-1. **알림** (벨 아이콘)을 선택하고, **리소스로 이동** 을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
+1. **알림**(벨 아이콘)을 선택하고, **리소스로 이동** 을 선택합니다. **Notification Hubs** 페이지의 목록을 새로 고치고 허브를 선택할 수도 있습니다.
 
       ![Azure Portal - 리소스로 이동](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 

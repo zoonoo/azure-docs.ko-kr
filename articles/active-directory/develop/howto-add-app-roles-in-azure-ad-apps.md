@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616140"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614934"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>방법: 응용 프로그램에 앱 역할을 추가 하 고 토큰에서 수신
 
@@ -30,7 +30,10 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 ## <a name="declare-roles-for-an-application"></a>애플리케이션에 대한 역할 선언
 
-[Azure Portal](https://portal.azure.com)를 사용 하 여 앱 역할을 정의 합니다. 사용자가 응용 프로그램에 로그인 하면 Azure AD는 사용자에 `roles` 게 개별적으로 부여 된 각 역할에 대 한 클레임을 사용자와 그룹 구성원 자격으로 내보냅니다.
+[Azure Portal](https://portal.azure.com)를 사용 하 여 앱 역할을 정의 합니다. 앱 역할은 일반적으로 서비스, 앱 또는 API를 나타내는 응용 프로그램 등록에 정의 됩니다. 사용자가 응용 프로그램에 로그인 하면 Azure AD는 사용자 `roles` 또는 서비스 사용자에 게 개별적으로 부여 된 각 역할에 대 한 클레임을 사용자와 그룹 구성원 자격으로 내보냅니다. 이는 클레임 기반 권한 부여를 구현 하는 데 사용할 수 있습니다. 앱 역할은 [사용자 또는 사용자 그룹에](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app)할당할 수 있습니다. 또한 앱 역할은 다른 응용 프로그램의 서비스 주체 또는 [관리 id의 서비스 사용자](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md)에 게 할당할 수 있습니다.
+
+> [!IMPORTANT]
+> 현재 그룹에 서비스 주체를 추가 하 고 해당 그룹에 앱 역할을 할당 하는 경우 Azure AD는 발급 하는 토큰에 클레임을 추가 하지 않습니다 `roles` .
 
 Azure Portal를 사용 하 여 앱 역할을 선언 하는 방법에는 두 가지가 있습니다.
 
@@ -63,7 +66,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
     | **허용 되는 멤버 유형** | 이 앱 역할을 사용자, 응용 프로그램 또는 둘 다에 할당할 수 있는지 여부를 지정 합니다.<br/><br/>에서 사용할 수 있는 경우 `applications` 앱 역할은 api 권한 > 앱 등록의 **관리** 섹션에서 응용 프로그램 권한으로 표시 **> Api > 사용 권한을 추가 > api > 응용 프로그램 사용 권한을 선택할** 수 있습니다. | `Users/Groups` |
     | **값** | 응용 프로그램이 토큰에서 필요로 하는 역할 클레임의 값을 지정 합니다. 값은 응용 프로그램 코드에서 참조 된 문자열과 정확 하 게 일치 해야 합니다. 값에는 공백을 사용할 수 없습니다. | `Survey.Create` |
     | **설명** | 관리 앱 할당 및 동의 환경에서 표시 되는 앱 역할에 대 한 자세한 설명입니다. | `Writers can create surveys.` |
-    | **이 앱 역할을 사용 하도록 설정 하 시겠습니까?** | 앱 역할을 사용 하도록 설정할지 여부를 지정 합니다. 앱 역할을 삭제 하려면이 확인란의 선택을 취소 하 고 삭제 작업을 시도 하기 전에 변경 내용을 적용 합니다. | *검사할* |
+    | **이 앱 역할을 사용 하도록 설정 하 시겠습니까?** | 앱 역할을 사용 하도록 설정할지 여부를 지정 합니다. 앱 역할을 삭제 하려면이 확인란의 선택을 취소 하 고 삭제 작업을 시도 하기 전에 변경 내용을 적용 합니다. | *선택됨* |
 
 1. **적용** 을 선택하여 변경 내용을 저장합니다.
 

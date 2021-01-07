@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636768"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96012836"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 호출하는 방법에 대해 설명합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "92636768"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [저장 프로시저 작업을 사용하여 SSIS 패키지 호출](../how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 이 문서의 연습에서는 Azure SQL Database을 사용 합니다. Azure SQL Managed Instance를 사용할 수도 있습니다.
@@ -101,7 +101,7 @@ SSIS 카탈로그를 호스트 하는 Azure SQL Database의 데이터베이스�
         }
     ```
 2. **Azure PowerShell** 에서 **C:\ADF\RunSSISPackage** 폴더로 전환합니다.
-3. **AzDataFactoryLinkedService** cmdlet을 실행 하 여 연결 된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService** . 
+3. **AzDataFactoryLinkedService** cmdlet을 실행 하 여 연결 된 서비스를 만듭니다. **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"

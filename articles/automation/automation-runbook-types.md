@@ -3,14 +3,14 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/05/2019
+ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 24d0123eecc56b56573e94d831283d8d360cd16e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c12297f19d30bf13ffbe594e0433c83914a8e
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185928"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733963"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -20,9 +20,9 @@ Azure Automation 프로세스 자동화 기능은 다음 표에 정의된 대로
 |:--- |:--- |
 | [그래픽](#graphical-runbooks)|Windows PowerShell을 기반으로 하며 Azure Portal의 그래픽 편집기로 완전하게 생성 및 편집된 그래픽 Runbook입니다. |
 | [그래픽 PowerShell 워크플로](#graphical-runbooks)|Windows PowerShell 워크플로를 기반으로 하며 Azure Portal의 그래픽 편집기로 완전하게 생성 및 편집된 그래픽 Runbook입니다. |
-| [PowerShell](#powershell-runbooks) |Windows PowerShell 스크립팅을 기반으로 하는 텍스트 Runbook입니다. |
-| [PowerShell 워크플로](#powershell-workflow-runbooks)|Windows PowerShell 워크플로 스크립팅을 기반으로 하는 텍스트 Runbook입니다. |
-| [Python](#python-runbooks) |Python 스크립팅을 기반으로 하는 텍스트 Runbook입니다. |
+| [PowerShell](#powershell-runbooks) |Windows PowerShell 스크립팅을 기반으로 하는 텍스트 runbook입니다. |
+| [PowerShell 워크플로](#powershell-workflow-runbooks)|Windows PowerShell 워크플로 스크립팅을 기반으로 하는 텍스트 runbook입니다. |
+| [Python](#python-runbooks) |Python 스크립팅을 기반으로 하는 텍스트 runbook입니다. |
 
 특정 Runbook에 사용할 형식을 결정할 때 다음과 같은 사항을 고려합니다.
 
@@ -33,9 +33,9 @@ Azure Automation 프로세스 자동화 기능은 다음 표에 정의된 대로
 
 Azure Portal에서 그래픽 편집기를 사용하여 그래픽 및 그래픽 PowerShell 워크플로 Runbook을 만들고 편집할 수 있습니다. 그러나 다른 도구를 사용하여 이 유형의 Runbook을 만들거나 편집할 수 없습니다. 그래픽 Runbook의 주요 기능:
 
-* Automation 계정의 파일로 내보낸 다음, 다른 Automation 계정으로 가져올 수 있습니다. 
-* PowerShell 코드를 생성합니다. 
-* 가져오는 동안 그래픽 PowerShell 워크플로 Runbook으로 변환하거나 그 반대로 변환될 수 있습니다. 
+* Automation 계정의 파일로 내보낸 다음 다른 Automation 계정으로 가져옵니다.
+* PowerShell 코드를 생성합니다.
+* 가져오는 동안 그래픽 PowerShell 워크플로 runbook으로 변환 됩니다.
 
 ### <a name="advantages"></a>장점
 
@@ -59,7 +59,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 
 ### <a name="advantages"></a>장점
 
-* PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다.
+* Powershell 워크플로의 다른 복잡성 없이 PowerShell 코드로 모든 복잡 한 논리를 구현 합니다.
 * 실행 전에 컴파일이 필요 없기 때문에 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
 * Windows 및 Linux 둘 다 Azure 및 Hybrid Runbook Worker에서 실행합니다.
 
@@ -68,7 +68,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 * PowerShell 스크립팅에 대해 잘 알아야 합니다.
 * Runbook에서는 [병렬 처리](automation-powershell-workflow.md#use-parallel-processing)를 사용하여 여러 작업을 병렬로 실행할 수 없습니다.
 * Runbook에서는 오류 발생 시 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 사용하여 Runbook을 다시 시작할 수 없습니다.
-* 새 작업을 만드는 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet을 사용하여 자식 Runbook으로서의 PowerShell 워크플로 Runbook 및 그래픽 Runbook만 포함할 수 있습니다.
+* 새 작업을 만드는 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet을 사용하여 자식 Runbook으로서의 PowerShell 워크플로 Runbook 및 그래픽 Runbook만 포함할 수 있습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
@@ -76,7 +76,7 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 
 * PowerShell Runbook이 null 값을 갖는 암호화되지 않은 [변수 자산](./shared-resources/variables.md)을 가져올 수 없습니다.
 * PowerShell Runbook은 이름에 `*~*`가 포함된 변수 자산을 검색할 수 없습니다.
-* PowerShell Runbook의 반복적인 [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) 작업은 80회 반복 후에 크래시가 발생할 수 있습니다.
+* PowerShell Runbook의 반복적인 [Get-Process](/powershell/module/microsoft.powershell.management/get-process) 작업은 80회 반복 후에 크래시가 발생할 수 있습니다.
 * PowerShell Runbook이 한 번에 대량의 데이터를 출력 스트림에 쓰려고 하면 실패할 수 있습니다. Runbook에서 큰 개체로 작업하는 데 필요한 정보만 출력하면 일반적으로 이 문제를 해결할 수 있습니다. 예를 들어 제한 없이 `Get-Process`를 사용하는 대신 `Get-Process | Select ProcessName, CPU`에서와 같이 cmdlet이 필요한 매개 변수만 출력하도록 할 수 있습니다.
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 워크플로 Runbook
@@ -100,18 +100,29 @@ PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-
 
 ## <a name="python-runbooks"></a>Python Runbook
 
-Python Runbook은 Python 2에서 컴파일됩니다. Azure Portal의 텍스트 편집기를 사용하여 Runbook의 코드를 직접 편집할 수 있습니다. 또한 오프라인 텍스트 편집기를 사용할 수 있고 Azure Automation으로 [Runbook을 가져올 수](manage-runbooks.md) 있습니다.
+Python runbook은 Python 2 및 Python 3에서 컴파일합니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다. Azure Portal의 텍스트 편집기를 사용하여 Runbook의 코드를 직접 편집할 수 있습니다. 또한 오프라인 텍스트 편집기를 사용할 수 있고 Azure Automation으로 [Runbook을 가져올 수](manage-runbooks.md) 있습니다.
 
 ### <a name="advantages"></a>장점
 
 * 강력한 Python 라이브러리를 사용합니다.
-* Azure 또는 Linux Hybrid Runbook Worker에서 실행할 수 있습니다. Windows Hybrid Runbook Worker는 [Python 2.7](https://www.python.org/downloads/release/latest/python2)에 설치되어 지원됩니다.
+* Azure 또는 Hybrid Runbook Worker에서 실행할 수 있습니다.
+* Python 2의 경우 [python 2.7](https://www.python.org/downloads/release/latest/python2) 이 설치 된 Windows Hybrid Runbook worker가 지원 됩니다.
+* Python 3 클라우드 작업의 경우 Python 3.8 버전이 지원 됩니다. 코드가 서로 다른 버전에서 호환 되는 경우에는 모든 2.x 버전의 스크립트 및 패키지가 작동할 수 있습니다.  
+* Windows 컴퓨터에서 Python 3 하이브리드 작업의 경우 사용할 수 있는 3. x 버전을 설치 하도록 선택할 수 있습니다.  
+* Linux 컴퓨터에서 Python 3 하이브리드 작업의 경우 컴퓨터에 설치 된 Python 3 버전에 따라 DSC OMSConfig 및 Linux Hybrid Worker를 실행 합니다. Linux 컴퓨터에 3.6을 설치 하는 것이 좋습니다. 그러나 Python 3 버전 사이에 메서드 서명 또는 계약의 주요 변경 내용이 없는 경우에도 서로 다른 버전을 사용 해야 합니다.
 
 ### <a name="limitations"></a>제한 사항
 
 * Python 스크립팅에 대해 잘 알아야 합니다.
-* 현재 Python 2만 지원됩니다. Python 3 관련 함수는 실패합니다.
 * 타사 라이브러리를 사용하려면 Automation 계정으로 [패키지를 가져와야](python-packages.md) 합니다.
+* PowerShell/PowerShell 워크플로에서 **시작-automationrunbook** cmdlet을 사용 하 여   Python 3 runbook (미리 보기)을 시작 하는 작업은 작동 하지 않습니다. 이 제한 사항을 해결 하기 위해 Az. Automation 모듈 또는 AzureRm의 **start-azurermautomationrunbook** Cmdlet에서 **AzAutomationRunbook** cmdlet을 사용할 수 있습니다.  
+* Python 3 runbook (미리 보기) 및 패키지는 PowerShell에서 작동 하지 않습니다.
+* 웹후크를 사용하여 Python Runbook을 시작하는 것은 지원되지 않습니다.
+* Azure Automation는 **sys.debug** 를 지원 하지 않습니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+Python 3 작업은 경우에 따라 잘못 된 *인터프리터 실행 가능 경로* 예외 메시지와 함께 실패 합니다. 작업이 지연 되는 경우 10 분 넘게 시작 하거나 **시작 AutomationRunbook** 을 사용 하 여 Python 3 runbook을 시작 하는 경우이 예외가 나타날 수 있습니다. 작업이 지연 되 면 runbook을 다시 시작 하는 것으로 충분 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

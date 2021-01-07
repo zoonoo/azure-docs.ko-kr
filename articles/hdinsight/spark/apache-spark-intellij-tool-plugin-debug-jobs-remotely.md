@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: afe92351fe82a4e07665789c2ed4d4631be8731f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e6da1783c3bec4958783494cb6928f5a6a69a58
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547455"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822355"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -27,15 +27,15 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
 1. 애플리케이션을 실행하고 디버그합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독** . 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
-* **HDInsight의 Apache Spark 클러스터** . 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* **Oracle Java development kit** . [Oracle 웹 사이트](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 설치할 수 있습니다.
-* **INTELLIJ 아이디어** . 이 문서에서는 버전 2017.1을 사용합니다. [JetBrains 웹 사이트](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
+* **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
+* **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* **Oracle Java development kit**. [Oracle 웹 사이트](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 설치할 수 있습니다.
+* **INTELLIJ 아이디어**. 이 문서에서는 버전 2017.1을 사용합니다. [JetBrains 웹 사이트](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
 * **IntelliJ용 Azure 도구 키트의 HDInsight 도구** IntelliJ용 HDInsight 도구는 IntelliJ용 Azure 도구 키트에 포함되어 제공됩니다. Azure 도구 키트를 설치하는 방법에 대한 지침은 [IntelliJ용 Azure 도구 키트 설치](/java/azure/intellij/azure-toolkit-for-intellij-installation)를 참조하세요.
-* **IntelliJ IDEA에서 Azure 구독에 로그인** . [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)의 지침을 따릅니다.
-* **예외 해결 방법** . Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 애플리케이션을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결 하려면 **C:\WinUtils\bin** 와 같은 위치에 [Winutils.exe](https://github.com/steveloughran/winutils) 를 다운로드 해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils** 로 설정합니다.
+* **IntelliJ IDEA에서 Azure 구독에 로그인**. [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)의 지침을 따릅니다.
+* **예외 해결 방법**. Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 애플리케이션을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결 하려면 **C:\WinUtils\bin** 와 같은 위치에 [Winutils.exe](https://github.com/steveloughran/winutils) 를 다운로드 해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils** 로 설정합니다.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>1단계: Azure Virtual Network 만들기
 
@@ -63,7 +63,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![Apache Ambari에서 헤드 노드 찾기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
-1. 열리는 페이지 맨 아래에 있는 _ *요약* * 창에서 헤드 노드의 **IP 주소** 와 **호스트 이름** 을 복사 합니다.
+1. 열리는 페이지 맨 아래에 있는 _ *요약** 창에서 헤드 노드의 **IP 주소** 와 **호스트 이름** 을 복사 합니다.
 
     ![Apache Ambari에서 IP 주소 찾기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
 
@@ -123,11 +123,11 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     a. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기** 를 선택합니다.
 
-    b. **프로젝트 구조** 대화 상자에서 **라이브러리** 를 선택하고 ( **+** ) 기호를 선택한 후 **Maven에서** 를 선택합니다.
+    b. **프로젝트 구조** 대화 상자에서 **라이브러리** 를 선택하고 (**+**) 기호를 선택한 후 **Maven에서** 를 선택합니다.
 
     ![IntelliJ 아이디어 다운로드 라이브러리](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
-    c. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
+    다. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
@@ -177,7 +177,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
     </property>
     ```
 
-   c. 파일을 저장합니다.
+   다. 파일을 저장합니다.
 
 1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기** 에서 **src** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** 를 가리킨 다음 **Scala 클래스** 를 선택합니다.
 
@@ -259,7 +259,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![IntelliJ 아이디어 원격 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
-1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind** 를 **테스트 이름** 으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용** 을 선택한 다음 **확인** 을 선택합니다.
+1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind** 를 **테스트 이름** 으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용** 및 **확인** 을 차례로 선택합니다.
 
     ![고 remoteclusterdebugging 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 
@@ -326,7 +326,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 * [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](./apache-spark-eclipse-tool-plugin.md)
 * [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [HDInsight 용 Apache Spark 클러스터의 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 

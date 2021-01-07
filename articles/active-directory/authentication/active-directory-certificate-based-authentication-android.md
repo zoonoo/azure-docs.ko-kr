@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bbc17bc3dfff4a9cc3d90386b4cae62611e4b15
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1001d5524fe99783cda4d5b77bdaceacc6791848
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965848"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861376"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
 
@@ -67,7 +67,7 @@ Azure Active Directory는 이러한 클레임이 ADFS 토큰(또는 다른 SAML 
 자세한 내용은 [AD FS 로그인 페이지 사용자 지정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11))을 참조하세요.
 
 일부 Office 앱 (최신 인증 사용)은 요청 시 Azure AD에 '*prompt =* t r u e '를 보냅니다. 기본적으로 Azure AD는 '*wauth = usernamepassworduri*'로 adfs에 대 한 요청에서 '*prompt =* t r U e '로 변환 합니다 (U/P 인증을 수행 하도록 adfs에 요청) 및 '*we= 0*' (adfs에 SSO 상태를 무시 하 고 새 인증을 수행 하도록 요청). 이러한 앱에 인증서 기반 인증을 사용하려면 기본 Azure AD 동작을 수정해야 합니다. 페더레이션된 도메인 설정에서 '*PromptLoginBehavior*'를 '*사용 안 함*'으로 설정 합니다.
-다음과 같은 [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet을 사용하면 이 작업을 수행할 수 있습니다.
+다음과 같은 [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet을 사용하면 이 작업을 수행할 수 있습니다.
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 

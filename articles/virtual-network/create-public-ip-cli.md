@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 3e6e060f4af2addba66ed02e82d76dd520375f25
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 76af225b6f93e0a47799234e3e2b430344f68787
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516410"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009996"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>빠른 시작: Azure CLI을 사용 하 여 공용 IP 주소 만들기
 
@@ -37,6 +37,9 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
     --name myResourceGroup \
     --location eastus2
 ```
+
+## <a name="create-public-ip"></a>공용 IP 만들기
+
 ---
 # <a name="standard-sku---using-zones"></a>[**표준 SKU-영역 사용**](#tab/option-create-public-ip-standard-zones)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
 ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146475"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019245"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -44,11 +44,11 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>마스터 대상 서버 만들기에 대한 크기 조정 지침
 
 다음 크기 조정 지침에 따라 마스터 대상을 만듭니다.
-- **RAM** : 6GB 이상
-- **OS 디스크 크기** : 100GB 이상(OS 설치에 필요)
-- **보존 드라이브에 대한 추가 디스크 크기** : 1TB
-- **CPU 코어** : 4 코어 이상
-- **커널** : 4.16. *
+- **RAM**: 6GB 이상
+- **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
+- **보존 드라이브에 대한 추가 디스크 크기**: 1TB
+- **CPU 코어**: 4 코어 이상
+- **커널**: 4.16. *
 
 ## <a name="deploy-the-master-target-server"></a>마스터 대상 서버 배포
 
@@ -74,7 +74,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
     ![올바른 표준 시간대 선택](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. **아니요** (기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
+1. **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
      ![키보드 구성](./media/vmware-azure-install-linux-master-target/image5.png)
 1. 키보드의 원산지로 **영어(미국)** 를 선택하고 **Enter** 키를 선택합니다.
@@ -93,9 +93,9 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
     ![암호 확인](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  홈 디렉터리를 암호화하기 위한 다음 선택 영역에서 **아니요** (기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
+1.  홈 디렉터리를 암호화하기 위한 다음 선택 영역에서 **아니요**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다.
 
-1. 표시되는 표준 시간대가 올바르면 **예** (기본 옵션)를 선택하고 **Enter** 키를 선택합니다. 표준 시간대를 다시 구성하려면 **아니요** 를 선택합니다.
+1. 표시되는 표준 시간대가 올바르면 **예**(기본 옵션)를 선택하고 **Enter** 키를 선택합니다. 표준 시간대를 다시 구성하려면 **아니요** 를 선택합니다.
 
 1. 분할 방법 옵션에서 **단계별 - 전체 디스크 사용** 옵션을 선택하고 **Enter** 키를 선택합니다.
 
@@ -129,7 +129,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
     ![GRUB 부팅 설치 관리자](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. 부팅 로더를 설치할 적절한 디바이스(가급적 **/dev/sda** )를 선택하고 **Enter** 키를 선택합니다.
+1. 부팅 로더를 설치할 적절한 디바이스(가급적 **/dev/sda**)를 선택하고 **Enter** 키를 선택합니다.
      
     ![해당 디바이스 선택](./media/vmware-azure-install-linux-master-target/image21.png)
 
@@ -238,7 +238,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>** .
+3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>**.
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -257,7 +257,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
-    **Esc** 키를 선택하고 **:wq** (쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
+    **Esc** 키를 선택하고 **:wq**(쓰기 및 종료)를 입력하여 편집기 창을 닫습니다.
 
 ### <a name="install-the-master-target"></a>마스터 대상 설치
 

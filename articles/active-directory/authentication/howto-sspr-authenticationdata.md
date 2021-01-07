@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: ed93944c2a94370250fb75a679c1ac37a2a8418c
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165005"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861156"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Azure Active Directory 셀프 서비스 암호 재설정에 대 한 사용자 인증 연락처 정보 미리 채우기 (SSPR)
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 셀프 서비스 암호 재설정 (SSPR)을 �
 * 온-프레미스 디렉터리에서 데이터의 형식을 올바르게 지정 했습니다.
 * Azure AD 테 넌 트에 대 한 [Azure AD Connect](../hybrid/how-to-connect-install-express.md) 를 구성 했습니다.
 
-전화 번호는 + *1 4251234567*와 같은 *+ CountryCode PhoneNumber*형식 이어야 합니다.
+전화 번호는 + *1 4251234567* 와 같은 *+ CountryCode PhoneNumber* 형식 이어야 합니다.
 
 > [!NOTE]
 > 국가 코드와 전화 번호 사이에 공백이 있어야 합니다.
@@ -48,7 +48,7 @@ Azure AD Connect에서 기본 설정을 사용 하는 경우 SSPR에 대 한 인
 
 ## <a name="authentication-contact-info"></a>인증 연락처 정보
 
-Azure Portal에서 Azure AD 사용자에 대 한 **인증 방법** 페이지에서 전역 관리자는 인증 연락처 정보를 수동으로 설정할 수 있습니다. 다음 예제 스크린샷에 표시 된 것 처럼 *사용할 수 있는 인증 방법* 섹션에서 또는 **+ 인증 방법 추가**에서 기존 방법을 검토할 수 있습니다.
+Azure Portal에서 Azure AD 사용자에 대 한 **인증 방법** 페이지에서 전역 관리자는 인증 연락처 정보를 수동으로 설정할 수 있습니다. 다음 예제 스크린샷에 표시 된 것 처럼 *사용할 수 있는 인증 방법* 섹션에서 또는 **+ 인증 방법 추가** 에서 기존 방법을 검토할 수 있습니다.
 
 :::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Azure Portal에서 인증 방법 관리":::
 
@@ -69,7 +69,7 @@ Azure Portal에서 Azure AD 사용자에 대 한 **인증 방법** 페이지에�
 * **인증 전자 메일**
 * **보안 질문 및 답변**
 
-*휴대폰* 또는 *대체 전자 메일*에 대 한 값을 제공 하는 경우 사용자는 서비스에 등록 하지 않은 경우에도 해당 값을 사용 하 여 암호를 다시 설정할 수 있습니다.
+*휴대폰* 또는 *대체 전자 메일* 에 대 한 값을 제공 하는 경우 사용자는 서비스에 등록 하지 않은 경우에도 해당 값을 사용 하 여 암호를 다시 설정할 수 있습니다.
 
 또한 사용자는 처음으로 등록할 때 해당 값을 확인 하 고 원하는 경우 수정할 수 있습니다. 등록을 완료 한 후에는 *인증 전화* 및 *인증 전자 메일* 필드에 각각 해당 값이 유지 됩니다.
 
@@ -115,7 +115,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 #### <a name="read-the-authentication-phone-and-authentication-email-options"></a>인증 전화 및 인증 메일 옵션 읽기
 
-PowerShell 버전 1에서 아래 명령을 사용하여 **인증 전화**와 **인증 메일**을 읽습니다.
+PowerShell 버전 1에서 아래 명령을 사용하여 **인증 전화** 와 **인증 메일** 을 읽습니다.
 
 ```PowerShell
 Connect-MsolService
@@ -125,7 +125,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### <a name="use-powershell-version-2"></a>PowerShell 버전 2 사용
 
-시작 하려면 [AZURE AD 버전 2 PowerShell 모듈을 다운로드](/powershell/module/azuread/?view=azureadps-2.0)하 여 설치 합니다.
+시작 하려면 [AZURE AD 버전 2 PowerShell 모듈을 다운로드](/powershell/module/azuread/)하 여 설치 합니다.
 
 를 지 원하는 최신 버전의 PowerShell에서 빠르게 설치 하려면 `Install-Module` 다음 명령을 실행 합니다. 첫 번째 줄은 모듈이 이미 설치 되어 있는지 확인 합니다.
 

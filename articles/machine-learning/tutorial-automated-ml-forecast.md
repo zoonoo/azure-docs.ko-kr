@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
 ms.custom: automl
-ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b354abb98c56a572badf2421b0d7dbbd25f7a63
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356504"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921857"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
@@ -145,7 +145,7 @@ ms.locfileid: "93356504"
     기본 메트릭| 기계 학습 알고리즘을 측정할 평가 메트릭입니다.|정규화된 제곱 평균 오차
     최상의 모델에 대한 설명| 자동화된 ML에서 만든 최상의 모델에 대한 설명 가능성을 자동으로 표시합니다.| 사용
     차단된 알고리즘 | 학습 작업에서 제외할 알고리즘| 최대 임의 트리
-    추가 예측 설정| 이러한 설정은 모델의 정확도를 향상시키는 데 도움이 됩니다. <br><br> _**대상 지연 예측:**_ 대상 변수의 지연 시간을 얼마 전으로 구성할지 지정 <br> _**대상 이동 기간**_ : *max, min* 및 *sum* 같은 기능이 생성되는 이동 기간의 크기 지정 | <br><br>대상&nbsp;지연&nbsp;예측: None <br> 대상&nbsp;이동&nbsp;기간&nbsp;크기: None
+    추가 예측 설정| 이러한 설정은 모델의 정확도를 향상시키는 데 도움이 됩니다. <br><br> _**대상 지연 예측:**_ 대상 변수의 지연 시간을 얼마 전으로 구성할지 지정 <br> _**대상 이동 기간**_: *max, min* 및 *sum* 같은 기능이 생성되는 이동 기간의 크기 지정 | <br><br>대상&nbsp;지연&nbsp;예측: None <br> 대상&nbsp;이동&nbsp;기간&nbsp;크기: None
     종료 기준| 조건을 충족하는 경우 학습 작업이 중지됩니다. |학습&nbsp;작업&nbsp;시간(시): 3 <br> 메트릭&nbsp;점수&nbsp;임계값: None
     유효성 검사 | 교차 유효성 검사 유형 및 테스트 수를 선택합니다.|유효성 검사 유형:<br>&nbsp;k겹&nbsp;교차 유효성 검사 <br> <br> 유효성 검사 수: 5
     동시성| 반복당 실행되는 최대 병렬 반복 수| 최대&nbsp;동시&nbsp;반복: 6
@@ -235,7 +235,7 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 > [웹 서비스 사용](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
-+ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md#classification) 문서를 참조하세요.
++ 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md) 문서를 참조하세요.
 + [기능화](how-to-configure-auto-features.md#featurization)에 대해 자세히 알아보세요.
 + [데이터 프로파일링](how-to-connect-data-ui.md#profile)에 대한 자세한 정보
 

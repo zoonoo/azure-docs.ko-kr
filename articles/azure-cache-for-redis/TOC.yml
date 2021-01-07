@@ -67,7 +67,7 @@
         - name: 보안 기준
           href: security-baseline.md
     - name: 캐싱 아키텍처
-      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
+      href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: 방법 가이드
   items:
     - name: 계획

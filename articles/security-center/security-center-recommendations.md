@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791888"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795991"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
@@ -42,7 +42,11 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
 
 1. Security Center의 메뉴에서 **권장** 구성 페이지를 열어 환경에 적용할 수 있는 권장 사항을 확인 합니다. 권장 사항은 보안 제어로 그룹화 됩니다.
 
-      ![보안 제어 별로 그룹화 된 권장 사항](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="보안 제어 별로 그룹화 된 권장 사항" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. 리소스 종류, 심각도, 환경 또는 중요 한 기타 기준에 대 한 권장 사항을 찾으려면 권장 사항 목록 위의 선택적 필터를 사용 합니다.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Azure Security Center 권장 사항 목록을 구체화 하는 필터":::
 
 1. 컨트롤을 확장 하 고 특정 권장 사항을 선택 하 여 권장 사항 세부 정보 페이지를 표시 합니다.
 
@@ -60,7 +64,7 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
         - **비정상 리소스** – 식별 된 문제의 영향을 받는 리소스입니다.
         - **해당 하지 않는 리소스** – 권장 구성이 명확한 답변을 제공할 수 없는 리소스입니다. 해당 없음 탭에는 각 리소스의 이유가 포함 됩니다. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="권장 사항 세부 정보 페이지입니다.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="이유가 있는 해당 리소스가 아닙니다.":::
     1. 권장 사항을 재구성 하거나 논리 앱을 트리거하는 작업 단추입니다.
 
 ## <a name="preview-recommendations"></a>미리 보기 권장 사항
@@ -71,7 +75,7 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
 
 미리 보기 추천 사항의 예는 다음과 같습니다.
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="권장 사항 세부 정보 페이지입니다.":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그가 있는 추천 사항":::
  
 ## <a name="next-steps"></a>다음 단계
 

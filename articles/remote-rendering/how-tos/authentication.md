@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 35fd78a9d55dc684045fdb4b83691c1613801421
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427470"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724886"
 ---
 # <a name="configure-authentication"></a>인증 구성
 
@@ -19,14 +19,17 @@ Azure 원격 렌더링은 [Azure 공간 앵커 (global.asa)](../../spatial-ancho
 * **AccountKey**: Azure Portal의 원격 렌더링 계정에 대 한 "키" 탭에서 가져올 수 있습니다. 계정 키는 개발/프로토타입화에만 권장 됩니다.
     ![계정 ID](./media/azure-account-primary-key.png)
 
+* **Accountdomain**: Azure Portal의 원격 렌더링 계정에 대 한 "개요" 탭에서 가져올 수 있습니다.
+    ![계정 도메인](./media/azure-account-domain.png)
+
 * **Authenticationtoken**:은 [msal 라이브러리](../../active-directory/develop/msal-overview.md)를 사용 하 여 가져올 수 있는 Azure AD 토큰입니다. 사용자 자격 증명을 수락 하 고 이러한 자격 증명을 사용 하 여 액세스 토큰을 가져오는 데 사용할 수 있는 여러 가지 흐름이 있습니다.
 
-* **MRAccessToken**:는 MR 토큰으로, Azure MIXED Reality STS (보안 토큰 서비스)에서 가져올 수 있습니다. `https://sts.mixedreality.azure.com`아래 호출과 유사한 REST 호출을 사용 하 여 끝점에서 검색 됩니다.
+* **MRAccessToken**:는 MR 토큰으로, Azure MIXED Reality STS (보안 토큰 서비스)에서 가져올 수 있습니다. `https://sts.<accountDomain>`아래와 유사한 REST 호출을 사용 하 여 끝점에서 검색 됩니다.
 
     ```rest
-    GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+    GET https://sts.southcentralus.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-    Host: sts.mixedreality.azure.com
+    Host: sts.southcentralus.mixedreality.azure.com
     Connection: Keep-Alive
 
     HTTP/1.1 200 OK

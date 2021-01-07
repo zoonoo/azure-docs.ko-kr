@@ -3,20 +3,20 @@ title: Azure Data Factory의 Webhook 활동
 description: 웹 후크 작업은 사용자가 지정 된 특정 조건에 따라 연결 된 데이터 집합의 유효성을 검사할 때까지 파이프라인의 실행을 계속 하지 않습니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634983"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96499410"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 Webhook 활동
 
@@ -57,12 +57,12 @@ ms.locfileid: "92634983"
 -------- | ----------- | -------------- | --------
 **name** | Webhook 활동의 이름입니다. | String | 예 |
 **type** | "WebHook"로 설정 해야 합니다. | String | 예 |
-**방법이** | 대상 끝점에 대 한 REST API 메서드입니다. | 문자열. 지원 되는 형식은 "POST"입니다. | 예 |
+**방법이** | 대상 끝점에 대 한 REST API 메서드입니다. | 문자열입니다. 지원 되는 형식은 "POST"입니다. | 예 |
 **url** | 대상 끝점과 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예 |
 **머리글과** | 요청에 전송되는 헤더입니다. 요청에 대 한 언어 및 형식을 설정 하는 예제는 다음과 같습니다 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예. `Content-Type`같은 헤더가 `"headers":{ "Content-Type":"application/json"}` 필요 합니다. |
 **body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 **resultType** 값이 json 인 식입니다. 요청 페이로드의 스키마에 대 한 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema) 를 참조 하세요. | 예 |
 **인증은** | 끝점을 호출 하는 데 사용 되는 인증 방법입니다. 지원 되는 형식은 "Basic" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 하지 않은 경우이 속성을 제외 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 아니요 |
-**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d* 입니다. *hh* : *mm* : *ss* . | String | 아니요 |
+**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d* 입니다. *hh*:*mm*:*ss*. | String | 아니요 |
 **콜백에 대 한 보고서 상태** | 사용자가 webhook 활동의 실패 상태를 보고할 수 있습니다. | 부울 | 아니요 |
 
 ## <a name="authentication"></a>인증

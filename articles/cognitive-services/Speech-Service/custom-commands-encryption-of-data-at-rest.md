@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294310"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021901"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>미사용 데이터의 사용자 지정 명령 암호화
 
@@ -50,17 +50,17 @@ ms.locfileid: "87294310"
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Azure Key Vault를 사용하는 고객 관리형 키
 
-Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Speech 리소스와 key vault는 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)를 참조 하세요.
+Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Speech 리소스와 key vault는 동일한 지역 및 동일한 Azure Active Directory (Azure AD) 테 넌 트에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](../../key-vault/general/overview.md)를 참조 하세요.
 
 새 음성 리소스가 만들어지고 사용자 지정 명령을 프로 비전 하는 데 사용 되는 경우, Microsoft 관리 키를 사용 하 여 데이터가 항상 암호화 됩니다. 리소스를 만들 때 고객 관리 키를 사용 하도록 설정할 수 없습니다. 고객 관리 키는 Azure Key Vault에 저장 되며, 키 자격 증명 모음은 Cognitive Services 리소스와 연결 된 관리 되는 id에 대 한 키 사용 권한을 부여 하는 액세스 정책을 사용 하 여 프로 비전 되어야 합니다. 관리 id는 CMK에 필요한 가격 책정 계층을 사용 하 여 리소스를 만든 후에만 사용할 수 있습니다.
 
-고객 관리 키를 사용 하도록 설정 하면 Azure AD의 기능인 시스템 할당 [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)도 사용할 수 있습니다. 시스템 할당 관리 id를 사용 하도록 설정 하면이 리소스가 Azure Active Directory 등록 됩니다. 등록 한 후 관리 되는 id에는 고객이 관리 하는 키를 설정 하는 동안 선택 된 Key Vault에 대 한 액세스 권한이 부여 됩니다. 
+고객 관리 키를 사용 하도록 설정 하면 Azure AD의 기능인 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)도 사용할 수 있습니다. 시스템 할당 관리 id를 사용 하도록 설정 하면이 리소스가 Azure Active Directory 등록 됩니다. 등록 한 후 관리 되는 id에는 고객이 관리 하는 키를 설정 하는 동안 선택 된 Key Vault에 대 한 액세스 권한이 부여 됩니다. 
 
 > [!IMPORTANT]
 > 시스템 할당 관리 id를 사용 하지 않도록 설정 하면 키 자격 증명 모음에 대 한 액세스가 제거 되 고 고객 키로 암호화 된 데이터에 더 이상 액세스할 수 없게 됩니다. 이 데이터에 의존 하는 기능은 작동 하지 않습니다.
 
 > [!IMPORTANT]
-> 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에서 고객이 관리 하는 키를 구성 하는 경우 관리 id는 내부적으로 자동으로 할당 됩니다. 이후에 Azure AD 디렉터리 간에 구독, 리소스 그룹 또는 리소스를 이동 하는 경우 해당 리소스와 연결 된 관리 id는 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 내용은 Faq에서 **AZURE AD 디렉터리 간 구독 전송** [및 azure 리소스에 대 한 관리 id의 알려진 문제](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)를 참조 하세요.  
+> 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. Azure Portal에서 고객이 관리 하는 키를 구성 하는 경우 관리 id는 내부적으로 자동으로 할당 됩니다. 이후에 Azure AD 디렉터리 간에 구독, 리소스 그룹 또는 리소스를 이동 하는 경우 해당 리소스와 연결 된 관리 id는 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 내용은 Faq에서 **AZURE AD 디렉터리 간 구독 전송** [및 azure 리소스에 대 한 관리 id의 알려진 문제](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)를 참조 하세요.  
 
 ## <a name="configure-azure-key-vault"></a>Azure Key Vault 구성
 
@@ -71,17 +71,17 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 
 
 기존 키 자격 증명 모음에서 이러한 속성을 사용하려면 다음 문서 중 하나에서 **일시 삭제를 사용하도록 설정** 및 **제거 보호 활성화** 섹션을 참조하세요.
 
-- [PowerShell에서 일시 삭제를 사용하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
-- [CLI에서 일시 삭제를 사용하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli)
+- [PowerShell에서 일시 삭제를 사용하는 방법](../../key-vault/general/key-vault-recovery.md)
+- [CLI에서 일시 삭제를 사용하는 방법](../../key-vault/general/key-vault-recovery.md)
 
-2048 크기의 RSA 키만 Azure Storage 암호화에서 지원 됩니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)정보를 참조 하세요.
+2048 크기의 RSA 키만 Azure Storage 암호화에서 지원 됩니다. 키에 대 한 자세한 내용은 **Key Vault 키** [Azure Key Vault 키, 암호 및 인증서](../../key-vault/general/about-keys-secrets-certificates.md)정보를 참조 하세요.
 
 ## <a name="enable-customer-managed-keys-for-your-speech-resource"></a>음성 리소스에 대해 고객이 관리 하는 키 사용
 
 Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. 음성 리소스로 이동 합니다.
-1. 음성 리소스의 **설정** 블레이드에서 **암호화**를 클릭 합니다. 다음 그림에 표시 된 것 처럼 **고객 관리 키** 옵션을 선택 합니다.
+1. 음성 리소스의 **설정** 블레이드에서 **암호화** 를 클릭 합니다. 다음 그림에 표시 된 것 처럼 **고객 관리 키** 옵션을 선택 합니다.
 
  ![고객 관리 키를 선택 하는 방법을 보여 주는 스크린샷](media/custom-commands/select-cmk.png)
 
@@ -140,7 +140,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>고객 관리 키에 대 한 액세스 취소
 
-고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. Cognitive Services에서 암호화 키에 액세스할 수 없으므로 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
+고객 관리 키에 대 한 액세스를 취소 하려면 PowerShell 또는 Azure CLI를 사용 합니다. 자세한 내용은 [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) 또는 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조하세요. Cognitive Services에서 암호화 키에 액세스할 수 없으므로 액세스를 취소 하면 Cognitive Services 리소스의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
 
 ## <a name="disable-customer-managed-keys"></a>고객 관리 키 사용 안 함
 
@@ -152,8 +152,5 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 Customer-Managed 키 요청 양식](https://aka.ms/cogsvc-cmk)
-* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [관리 id 란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-
-
-
+* [Azure Key Vault에 대 한 자세한 정보](../../key-vault/general/overview.md)
+* [관리 id 란?](../../active-directory/managed-identities-azure-resources/overview.md)

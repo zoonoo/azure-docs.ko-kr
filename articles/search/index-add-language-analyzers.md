@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 555709776c88dd3003e400bbcefe2ec1cfa0f4af
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422334"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934172"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
@@ -68,68 +68,68 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 언어 분석기와 
 ## <a name="language-analyzer-list"></a>언어 분석기 목록 
  다음은 Lucene 및 Microsoft 분석기 이름으로 지원되는 언어의 목록입니다.  
 
-|언어|Microsoft 분석기 이름|Lucene 분석기 이름|  
-|--------------|-----------------------------|--------------------------|  
-|아랍어|ar.microsoft|ar.lucene|  
-|아르메니아어||hy.lucene|  
-|벵골어|bn.microsoft||  
-|바스크어||eu.lucene|  
-|불가리아어|bg.microsoft|bg.lucene|  
-|카탈로니아어|ca.microsoft|ca.lucene|  
-|중국어 간체|zh-Hans.microsoft|zh-Hans.lucene|  
-|중국어 번체|zh-Hant.microsoft|zh-Hant.lucene|  
-|크로아티아어|hr.microsoft||  
-|체코어|cs.microsoft|cs.lucene|  
-|덴마크어|da.microsoft|da.lucene|  
-|네덜란드어|nl.microsoft|nl.lucene|  
-|영어|en.microsoft|en.lucene|  
-|에스토니아어|et.microsoft||  
-|핀란드어|fi.microsoft|fi.lucene|  
-|프랑스어|fr.microsoft|fr.lucene|  
-|갈리시아어||gl.lucene|  
-|독일어|de.microsoft|de.lucene|  
-|그리스어|el.microsoft|el.lucene|  
-|구자라트어|gu.microsoft||  
-|히브리어|he.microsoft||  
-|힌디어|hi.microsoft|hi.lucene|  
-|헝가리어|hu.microsoft|hu.lucene|  
-|아이슬란드어|is.microsoft||  
-|인도네시아어(공용어)|id.microsoft|id.lucene|  
-|아일랜드어||ga.lucene|  
-|이탈리아어|it.microsoft|it.lucene|  
-|일본어|ja.microsoft|ja.lucene|  
-|칸나다어|kn. microsoft||  
-|한국어|ko.microsoft|ko.lucene|  
-|라트비아어|lv.microsoft|lv.lucene|  
-|리투아니아어|lt.microsoft||  
-|말라얄람어|ml.microsoft||  
-|말레이어(라틴 문자)|ms.microsoft||  
-|마라티어|mr.microsoft||  
-|노르웨이어|nb.microsoft|no.lucene|  
-|페르시아어||fa.lucene|  
-|폴란드어|pl.microsoft|pl.lucene|  
-|포르투갈어(브라질)|pt-Br.microsoft|pt-Br.lucene|  
-|포르투갈어(포르투갈)|pt-Pt.microsoft|pt-Pt.lucene|  
-|펀잡어|pa.microsoft||  
-|루마니아어|ro.microsoft|ro.lucene|  
-|러시아어|ru.microsoft|ru.lucene|  
-|세르비아어(키릴 자모)|sr-cyrillic.microsoft||  
-|세르비아어(라틴 문자)|sr-latin.microsoft||  
-|슬로바키아어|sk.microsoft||  
-|슬로베니아어|sl.microsoft||  
-|스페인어|es.microsoft|es.lucene|  
-|스웨덴어|sv.microsoft|sv.lucene|  
-|타밀어|ta.microsoft||  
-|텔루구어|te.microsoft||  
-|태국어|th.microsoft|th.lucene|  
-|터키어|tr.microsoft|tr.lucene|  
-|우크라이나어|uk.microsoft||  
-|우르두어|ur.microsoft||  
-|베트남어|vi.microsoft||  
+| 언어 | Microsoft 분석기 이름 | Lucene 분석기 이름 |
+|--|--|--|
+| 아랍어 | ar.microsoft | ar.lucene |
+| 아르메니아어 |  | hy.lucene |  |
+| 벵골어 | bn.microsoft |  |  |
+| 바스크어 |  | eu.lucene |  |
+| 불가리아어 | bg.microsoft | bg.lucene |  |
+| 카탈로니아어 | ca.microsoft | ca.lucene |  |
+| 중국어 간체 | zh-Hans.microsoft | zh-Hans.lucene |  |
+| 중국어 번체 | zh-Hant.microsoft | zh-Hant.lucene |  |
+| 크로아티아어 | hr.microsoft |  |  |
+| 체코어 | cs.microsoft | cs.lucene |  |
+| 덴마크어 | da.microsoft | da.lucene |  |
+| 네덜란드어 | nl.microsoft | nl.lucene |  |
+| 영어 | en.microsoft | en.lucene |  |
+| 에스토니아어 | et.microsoft |  |  |
+| 핀란드어 | fi.microsoft | fi.lucene |  |
+| 프랑스어 | fr.microsoft | fr.lucene |  |
+| 갈리시아어 |  | gl.lucene |  |
+| 독일어 | de.microsoft | de.lucene |  |
+| 그리스어 | el.microsoft | el.lucene |  |
+| 구자라트어 | gu.microsoft |  |  |
+| 히브리어 | he.microsoft |  |  |
+| 힌디어 | hi.microsoft | hi.lucene |  |
+| 헝가리어 | hu.microsoft | hu.lucene |  |
+| 아이슬란드어 | is.microsoft |  |  |
+| 인도네시아어(공용어) | id.microsoft | id.lucene |  |
+| 아일랜드어 |  | ga.lucene |  |
+| 이탈리아어 | it.microsoft | it.lucene |  |
+| 일본어 | ja.microsoft | ja.lucene |  |
+| 칸나다어 | kn. microsoft |  |  |
+| 한국어 | ko.microsoft | ko.lucene |  |
+| 라트비아어 | lv.microsoft | lv.lucene |  |
+| 리투아니아어 | lt.microsoft |  |  |
+| 말라얄람어 | ml.microsoft |  |  |
+| 말레이어(라틴 문자) | ms.microsoft |  |  |
+| 마라티어 | mr.microsoft |  |  |
+| 노르웨이어 | nb.microsoft | no.lucene |  |
+| 페르시아어 |  | fa.lucene |  |
+| 폴란드어 | pl.microsoft | pl.lucene |  |
+| 포르투갈어(브라질) | pt-Br.microsoft | pt-Br.lucene |  |
+| 포르투갈어(포르투갈) | pt-Pt.microsoft | pt-Pt.lucene |  |
+| 펀잡어 | pa.microsoft |  |  |
+| 루마니아어 | ro.microsoft | ro.lucene |  |
+| 러시아어 | ru.microsoft | ru.lucene |  |
+| 세르비아어(키릴 자모) | sr-cyrillic.microsoft |  |  |
+| 세르비아어(라틴 문자) | sr-latin.microsoft |  |  |
+| 슬로바키아어 | sk.microsoft |  |  |
+| 슬로베니아어 | sl.microsoft |  |  |
+| 스페인어 | es.microsoft | es.lucene |  |
+| 스웨덴어 | sv.microsoft | sv.lucene |  |
+| 타밀어 | ta.microsoft |  |  |
+| 텔루구어 | te.microsoft |  |  |
+| 태국어 | th.microsoft | th.lucene |  |
+| 터키어 | tr.microsoft | tr.lucene |  |
+| 우크라이나어 | uk.microsoft |  |  |
+| 우르두어 | ur.microsoft |  |  |
+| 베트남어 | vi.microsoft |  |  |
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 + [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](/rest/api/searchservice/create-index)  
 

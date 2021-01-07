@@ -11,16 +11,16 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: ca0cfd7c38dde5e7307c31989791aa3906b9cbe5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2d759a8ed58d5b323f9894a5127c222ce1f75c52
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357286"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97345979"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
-자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. 자동화된 ML은 [Microsoft Research 부문](https://www.microsoft.com/research/project/automl/)의 혁신을 기반으로 합니다.
+자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning의 자동화 된 ML은 [Microsoft Research 부서의](https://www.microsoft.com/research/project/automl/)혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용하므로 수십 개의 모델을 생성하고 비교하는 데 상당한 도메인 지식과 시간이 필요합니다. 자동화된 Machine Learning을 사용하면 프로덕션 준비 ML 모델을 매우 쉽고 효율적으로 얻는 데 걸리는 시간을 단축할 수 있습니다.
 
@@ -67,24 +67,24 @@ Azure Machine Learning에서 지정한 대상 메트릭을 사용하여 모델�
 
 예측에 대한 회귀 및 자동화된 Machine Learning의 예제는 [판매 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb), [수요 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) 및 [음료 생산 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) Python Notebook을 참조하세요.
 
-## <a name="how-automl-works"></a>AutoML 작동 방법
+## <a name="how-automated-ml-works"></a>자동화된 ML 작동 방법
 
 Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수를 시도하는 많은 파이프라인을 동시에 만듭니다. 이 서비스는 기능 선택 항목과 쌍을 이루는 ML 알고리즘을 반복하며, 각 반복에서 학습 점수가 있는 모델이 생성됩니다. 점수가 높을수록 모델이 데이터에 더 "적합"하다고 간주됩니다.  실험에 정의된 종료 조건에 도달하면 중지됩니다. 
 
 **Azure Machine Learning** 을 사용하면 다음 단계를 사용하여 자동화된 ML 학습 실험을 설계하고 실행할 수 있습니다.
 
-1. 해결할 **ML 문제 식별** : 분류, 예측 또는 회귀
+1. 해결할 **ML 문제 식별**: 분류, 예측 또는 회귀
 
-1. **Python SDK 또는 스튜디오 웹 환경을 사용할지 선택** : [Python SDK와 스튜디오 웹 환경](#parity) 간의 패리티에 대해 알아봅니다.
+1. **Python SDK 또는 스튜디오 웹 환경을 사용할지 선택**: [Python SDK와 스튜디오 웹 환경](#parity) 간의 패리티에 대해 알아봅니다.
 
    * 제한된 코드 환경 또는 코드리스 환경인 경우 [https://ml.azure.com](https://ml.azure.com/)에서 Azure Machine Learning Studio 웹 환경을 사용해 봅니다.  
    * Python 개발자의 경우 [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)를 확인합니다. 
     
-1. **레이블이 지정된 학습 데이터의 원본 및 형식 지정** : numpy 배열 또는 pandas 데이터 프레임
+1. **레이블이 지정된 학습 데이터의 원본 및 형식 지정**: numpy 배열 또는 pandas 데이터 프레임
 
-1. **모델 학습을 위한 컴퓨팅 대상 구성** (예: [로컬 컴퓨터, Azure Machine Learning 컴퓨팅, 원격 VM 또는 Azure Databasericks](how-to-set-up-training-targets.md)).  [원격 리소스](how-to-auto-train-remote.md)에 대한 자동화된 학습에 대해 알아봅니다.
+1. **모델 학습을 위한 컴퓨팅 대상 구성**(예: [로컬 컴퓨터, Azure Machine Learning 컴퓨팅, 원격 VM 또는 Azure Databasericks](how-to-set-up-training-targets.md)).  [원격 리소스](how-to-auto-train-remote.md)에 대한 자동화된 학습에 대해 알아봅니다.
 
-1. **자동화된 Machine Learning 매개 변수 구성** : 여러 모델에 대한 반복 횟수, 서로 다른 모델, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 가장 적합한 모델을 결정할 때 살펴볼 메트릭을 결정하는 매개 변수입니다.  
+1. **자동화된 Machine Learning 매개 변수 구성**: 여러 모델에 대한 반복 횟수, 서로 다른 모델, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 가장 적합한 모델을 결정할 때 살펴볼 메트릭을 결정하는 매개 변수입니다.  
 1. **학습 실행 제출**
 
 1. **결과 검토** 
@@ -141,8 +141,8 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 자동화된 Machine Learning은 기본적으로 사용하도록 설정되는 앙상블 모델을 지원합니다. 앙상블 학습은 단일 모델을 사용하는 대신 여러 모델을 결합하여 기계 학습 결과와 예측 성능을 향상시킵니다. 앙상블 반복은 실행의 최종 반복으로 나타납니다. 자동화된 Machine Learning은 모델 결합을 위해 투표 및 스택 앙상블 방법을 모두 사용합니다.
 
-* **투표** : 예측된 클래스 확률(분류 작업의 경우) 또는 예측된 회귀 목표(회귀 작업의 경우)의 가중 평균을 기반으로 하여 예측합니다.
-* **스택** : 스택은 다른 형식의 모델을 결합하고 개별 모델의 출력을 기반으로 하여 메타 모델을 학습시킵니다. 현재 기본 메타 모델은 분류 작업의 경우 LogisticRegression이고 회귀/예측 작업의 경우 ElasticNet입니다.
+* **투표**: 예측된 클래스 확률(분류 작업의 경우) 또는 예측된 회귀 목표(회귀 작업의 경우)의 가중 평균을 기반으로 하여 예측합니다.
+* **스택**: 스택은 다른 형식의 모델을 결합하고 개별 모델의 출력을 기반으로 하여 메타 모델을 학습시킵니다. 현재 기본 메타 모델은 분류 작업의 경우 LogisticRegression이고 회귀/예측 작업의 경우 ElasticNet입니다.
 
 정렬된 앙상블 초기화를 사용하는 [Caruana 앙상블 선택 알고리즘](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf)은 앙상블 내에서 사용할 모델을 결정하는 데 사용됩니다. 높은 수준에서 이 알고리즘은 개별 점수가 가장 높은 최대 5개의 모델을 사용하여 앙상블을 초기화하고, 초기 앙상블 저하를 방지하기 위해 이러한 모델이 가장 높은 점수의 5% 임계값 내에 있는지 확인합니다. 그런 다음, 각 앙상블 반복마다 새 모델이 기존 앙상블에 추가되고 결과 점수가 계산됩니다. 새 모델에서 기존 앙상블 점수가 향상되면 새 모델을 포함하도록 앙상블이 업데이트됩니다.
 
@@ -152,14 +152,14 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 자동화된 ML의 웹 인터페이스는 항상 원격 [컴퓨팅 대상](concept-compute-target.md)을 사용합니다.  그러나 Python SDK를 사용하는 경우 자동화된 ML 학습을 위해 로컬 컴퓨팅 또는 원격 컴퓨팅 대상을 선택합니다.
 
-* **로컬 컴퓨팅** : 학습이 로컬 랩톱 또는 VM 컴퓨팅에서 수행됩니다. 
-* **원격 컴퓨팅** : 학습이 Machine Learning 컴퓨팅 클러스터에서 수행됩니다.  
+* **로컬 컴퓨팅**: 학습이 로컬 랩톱 또는 VM 컴퓨팅에서 수행됩니다. 
+* **원격 컴퓨팅**: 학습이 Machine Learning 컴퓨팅 클러스터에서 수행됩니다.  
 
 ### <a name="choose-compute-target"></a>컴퓨팅 대상 선택
 컴퓨팅 대상을 선택하는 경우 고려해야 하는 요소는 다음과 같습니다.
 
- * **로컬 컴퓨팅 선택** : 작은 데이터와 짧은 학습을 사용하는 초기 검색 또는 데모(예: 자식 실행당 몇 초 또는 몇 분)에 대한 시나리오인 경우 로컬 컴퓨터에 대한 학습이 더 적합할 수 있습니다.  설치 시간이 없으며, 인프라 리소스(PC 또는 VM)를 직접 사용할 수 있습니다.
- * **원격 ML 계산 클러스터 선택** : 더 많은 교육이 필요한 모델을 만드는 프로덕션 학습에서와 같이 더 큰 데이터 집합을 사용 하 여 학습 하는 경우, 원격 계산은 `AutoML` 클러스터의 노드에 대해 학습을 병렬화 하기 때문에 훨씬 더 나은 종단 간 시간 성능을 제공 합니다. 원격 계산에서 내부 인프라의 시작 시간은 자식 실행 당 1.5 분에 추가 되 고, Vm이 아직 실행 되지 않은 경우 클러스터 인프라의 추가 분이 추가 됩니다.
+ * **로컬 컴퓨팅 선택**: 작은 데이터와 짧은 학습을 사용하는 초기 검색 또는 데모(예: 자식 실행당 몇 초 또는 몇 분)에 대한 시나리오인 경우 로컬 컴퓨터에 대한 학습이 더 적합할 수 있습니다.  설치 시간이 없으며, 인프라 리소스(PC 또는 VM)를 직접 사용할 수 있습니다.
+ * **원격 ML 계산 클러스터 선택**: 더 많은 교육이 필요한 모델을 만드는 프로덕션 학습에서와 같이 더 큰 데이터 집합을 사용 하 여 학습 하는 경우, 원격 계산은 `AutoML` 클러스터의 노드에 대해 학습을 병렬화 하기 때문에 훨씬 더 나은 종단 간 시간 성능을 제공 합니다. 원격 계산에서 내부 인프라의 시작 시간은 자식 실행 당 1.5 분에 추가 되 고, Vm이 아직 실행 되지 않은 경우 클러스터 인프라의 추가 분이 추가 됩니다.
 
 ### <a name="pros-and-cons"></a>장단점
 로컬 및 원격을 사용하도록 선택하는 경우 다음과 같은 장단점을 고려합니다.

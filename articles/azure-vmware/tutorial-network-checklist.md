@@ -3,12 +3,12 @@ title: 자습서 - 네트워크 계획 검사 목록
 description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 세부 정보 및 네트워크 요구 사항 전제 조건에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 52f973ada23576fd6d542c40c9a9e63e6f270df3
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948207"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575162"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
@@ -47,9 +47,19 @@ AVS 프라이빗 클라우드의 서브넷에는 `/22` CIDR 네트워크 주소 
 | 네트워크 사용량             | 서브넷 | 예제          |
 | ------------------------- | ------ | ---------------- |
 | 프라이빗 클라우드 관리  | `/26`  | `10.10.0.0/26`   |
+| HCX Mgmt 마이그레이션       | `/26`  | `10.10.0.64/26`  |
+| Global Reach 예약됨     | `/26`  | `10.10.0.128/26` |
+| ExpressRoute 예약됨     | `/27`  | `10.10.0.192/27` |
+| ExpressRoute 피어링      | `/27`  | `10.10.0.224/27` |
+| ESXi 관리           | `/25`  | `10.10.1.0/25`   |
 | vMotion 네트워크           | `/25`  | `10.10.1.128/25` |
-| VM 워크로드              | `/24`  | `10.10.2.0/24`   |
-| ExpressRoute 피어링      | `/29`  | `10.10.3.8/29`   |
+| 복제 네트워크       | `/25`  | `10.10.2.0/25`   |
+| vSAN                      | `/25`  | `10.10.2.128/25` |
+| HCX 업링크                | `/26`  | `10.10.3.0/26`   |
+| 예약됨                  | `/26`  | `10.10.3.64/26`  |
+| 예약됨                  | `/26`  | `10.10.3.128/26` |
+| 예약됨                  | `/26`  | `10.10.3.192/26` |
+
 
 
 ## <a name="required-network-ports"></a>필수 네트워크 포트

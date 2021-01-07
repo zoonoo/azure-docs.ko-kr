@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d212029936bcd257ef5a78eeedc98c2d6e1df514
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91336193"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96012785"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -35,7 +35,7 @@ ms.locfileid: "91336193"
 
 ## <a name="setting-up-storage-account-cors-rules"></a>스토리지 계정 CORS 규칙 설정
 
-웹 애플리케이션에서 클라이언트의 Blob 스토리지에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다.
+웹 애플리케이션에서 클라이언트의 Blob 스토리지에 액세스하려면 [원본 간 리소스 공유](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다.
 
 Azure Portal로 돌아가서 스토리지 계정을 선택합니다. 새 CORS 규칙을 정의하려면 **설정** 섹션으로 이동하여 **CORS** 링크를 클릭합니다. 그런 다음, **추가** 단추를 클릭하여 **CORS 규칙 추가** 창을 엽니다. 이 빠른 시작의 경우 공개 CORS 규칙을 만듭니다.
 
@@ -86,7 +86,7 @@ az storage account generate-sas \
 
 | 매개 변수        | 값   | 설명  |
 |------------------|---------|---------|
-| *사용 권한*    | racwdl  | 이 SAS는 *읽기* , *추가* , *만들기* , *쓰기* , *삭제* 및 *나열* 기능을 허용합니다. |
+| *사용 권한*    | racwdl  | 이 SAS는 *읽기*, *추가*, *만들기*, *쓰기*, *삭제* 및 *나열* 기능을 허용합니다. |
 | *resource-types* | sco     | SAS의 영향을 받는 리소스는 서비스  , 컨테이너  및 개체  입니다. |
 | *services*       | b       | SAS의 영향을 받는 서비스는 *Blob* 서비스입니다. |
 
@@ -185,7 +185,7 @@ Blob 스토리지 API에 대한 호출을 사용하도록 설정하려면 먼저
 
 이 코드는 스크립트 파일에 참조를 추가하고, 사용자 고유의 JavaScript 코드를 위한 공간을 제공합니다. 이 빠른 시작을 위해 *azure-storage-blob.js* 스크립트 파일을 사용하여 VS Code에서 열고, 내용을 읽고, 중단점을 설정할 수 있습니다. 프로덕션 환경에서는 zip 파일에도 제공되는 더 간단한 *azure-storage.blob.min.js* 파일을 사용해야 합니다.
 
-각 Blob 스토리지 함수에 대한 자세한 내용은 [참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index)에서 확인할 수 있습니다. SDK의 일부 함수는 Node.js 또는 브라우저에서만 사용할 수 있습니다.
+각 Blob 스토리지 함수에 대한 자세한 내용은 [참조 설명서](/javascript/api/%40azure/storage-blob/index)에서 확인할 수 있습니다. SDK의 일부 함수는 Node.js 또는 브라우저에서만 사용할 수 있습니다.
 
 *azure-storage-blob.js* 의 코드는 JavaScript 코드에서 사용하여 Blob 스토리지 API에 액세스하는 데 사용할 수 있는 `azblob`이라는 글로벌 변수를 내보냅니다.
 
@@ -226,7 +226,7 @@ const containerURL = new azblob.ContainerURL(
     azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
-이 코드는 계정 정보와 SAS를 사용하여 스토리지 컨테이너를 만들고 조작하는 데 유용한 [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) 인스턴스를 만듭니다.
+이 코드는 계정 정보와 SAS를 사용하여 스토리지 컨테이너를 만들고 조작하는 데 유용한 [ContainerURL](/javascript/api/@azure/storage-blob/ContainerURL) 인스턴스를 만듭니다.
 
 ### <a name="create-and-delete-a-storage-container"></a>스토리지 컨테이너 만들기 및 삭제
 
@@ -257,7 +257,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-이 코드는 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 인스턴스를 사용하지 않고 ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)(만들기) 및 [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-)(삭제) 함수를 호출합니다. 이 빠른 시작을 간단히 유지하기 위해 이 코드에서 스토리지 계정이 만들어져 있고 사용하도록 설정되었다고 가정합니다. 프로덕션 코드에서 Aborter 인스턴스를 사용하여 시간 제한 기능을 추가합니다.
+이 코드는 [Aborter](/javascript/api/@azure/storage-blob/aborter) 인스턴스를 사용하지 않고 ContainerURL [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)(만들기) 및 [delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-)(삭제) 함수를 호출합니다. 이 빠른 시작을 간단히 유지하기 위해 이 코드에서 스토리지 계정이 만들어져 있고 사용하도록 설정되었다고 가정합니다. 프로덕션 코드에서 Aborter 인스턴스를 사용하여 시간 제한 기능을 추가합니다.
 
 ### <a name="list-blobs"></a>Blob 나열
 
@@ -293,7 +293,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files** (파일) 목록을 업데이트합니다.
+이 코드는 루프의 [ContainerURL.listBlobFlatSegment](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
 
 ### <a name="upload-blobs"></a>Blob 업로드
 
@@ -321,7 +321,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-이 코드는 **선택 및 업로드 파일** 단추를 숨겨진 `file-input` 요소에 연결합니다. 이 방식으로 단추 `click` 이벤트에서 파일 입력 `click` 이벤트를 트리거하고 파일 선택기를 표시합니다. 파일을 선택하고 대화 상자를 닫으면 `input` 이벤트가 발생하고 `uploadFiles` 함수가 호출됩니다. 이 함수는 선택한 각 파일에 대해 브라우저 전용 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) 함수를 호출합니다. 각 호출에서 Promise(약속)를 반환합니다. 이 약속은 한 번에 모든 파일을 기다릴 수 있도록 목록에 추가되며, 이에 따라 모든 파일을 동시에 업로드합니다.
+이 코드는 **선택 및 업로드 파일** 단추를 숨겨진 `file-input` 요소에 연결합니다. 이 방식으로 단추 `click` 이벤트에서 파일 입력 `click` 이벤트를 트리거하고 파일 선택기를 표시합니다. 파일을 선택하고 대화 상자를 닫으면 `input` 이벤트가 발생하고 `uploadFiles` 함수가 호출됩니다. 이 함수는 선택한 각 파일에 대해 브라우저 전용 [uploadBrowserDataToBlockBlob](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) 함수를 호출합니다. 각 호출에서 Promise(약속)를 반환합니다. 이 약속은 한 번에 모든 파일을 기다릴 수 있도록 목록에 추가되며, 이에 따라 모든 파일을 동시에 업로드합니다.
 
 ### <a name="delete-blobs"></a>Blob 삭제
 
@@ -349,7 +349,7 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-이 코드는 [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) 함수를 호출하여 목록에서 선택한 각 파일을 제거합니다. 그런 다음, 앞에서 표시된 `listFiles` 함수를 호출하여 **Files** 목록의 내용을 새로 고칩니다.
+이 코드는 [BlobURL.delete](/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) 함수를 호출하여 목록에서 선택한 각 파일을 제거합니다. 그런 다음, 앞에서 표시된 `listFiles` 함수를 호출하여 **Files** 목록의 내용을 새로 고칩니다.
 
 ### <a name="run-and-test-the-web-application"></a>웹 애플리케이션 실행 및 테스트
 
@@ -364,4 +364,4 @@ deleteButton.addEventListener("click", deleteFiles);
 이 빠른 시작에서는 브라우저 기반 JavaScript에서 Blob 스토리지에 액세스하는 간단한 웹 사이트를 만들었습니다. 웹 사이트 자체를 Blob 스토리지에서 호스팅하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Blob Storage에서 정적 웹 사이트 호스팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)
+> [Blob Storage에서 정적 웹 사이트 호스팅](./storage-blob-static-website-host.md)

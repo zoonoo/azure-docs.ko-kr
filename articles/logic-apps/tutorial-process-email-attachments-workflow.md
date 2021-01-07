@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334092"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451584"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 
@@ -76,13 +76,13 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    스토리지 계정을 만들려면 [Azure PowerShell](../storage/common/storage-account-create.md?tabs=powershell) 또는 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli)를 사용할 수도 있습니다.
 
-1. 완료되면 **검토 + 만들기**를 선택합니다.
+1. 완료되면 **검토 + 만들기** 를 선택합니다.
 
 1. Azure가 스토리지 계정을 배포한 후에는 스토리지 계정을 찾아 스토리지 계정의 액세스 키를 가져옵니다.
 
-   1. 스토리지 계정 메뉴의 **설정** 아래에서 **액세스 키**를 선택합니다.
+   1. 스토리지 계정 메뉴의 **설정** 아래에서 **액세스 키** 를 선택합니다.
 
-   1. 스토리지 계정 이름과 **key1**을 복사한 다음, 이러한 값을 안전한 곳에 저장합니다.
+   1. 스토리지 계정 이름과 **key1** 을 복사한 다음, 이러한 값을 안전한 곳에 저장합니다.
 
       ![스토리지 계정 이름과 키를 복사 및 저장](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
@@ -90,13 +90,13 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. 이메일 첨부 파일에 대한 Blob Storage 컨테이너를 만듭니다.
 
-   1. 스토리지 계정 메뉴에서 **개요**를 선택합니다. 개요 창에서 **연결**을 선택합니다.
+   1. 스토리지 계정 메뉴에서 **개요** 를 선택합니다. 개요 창에서 **연결** 을 선택합니다.
 
       ![Blob Storage 컨테이너 추가](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
-   1. **컨테이너** 페이지가 열리면 도구 모음에서 **컨테이너**를 선택합니다.
+   1. **컨테이너** 페이지가 열리면 도구 모음에서 **컨테이너** 를 선택합니다.
 
-   1. **새 컨테이너**에서 컨테이너 이름으로 `attachments`를 입력합니다. **퍼블릭 액세스 수준**에서 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 권한)**  > **확인**을 선택합니다.
+   1. **새 컨테이너** 에서 컨테이너 이름으로 `attachments`를 입력합니다. **퍼블릭 액세스 수준** 에서 **컨테이너(컨테이너와 Blob에 대한 익명 읽기 권한)**  > **확인** 을 선택합니다.
 
       여기까지 마쳤으면 Azure Portal에서 스토리지 계정의 스토리지 컨테이너를 찾을 수 있습니다.
 
@@ -114,20 +114,20 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    Storage Explorer에서 스토리지 계정에 대한 연결을 묻는 메시지를 표시합니다.
 
-1. **Azure Storage에 연결** 창에서 **스토리지 계정 이름 및 키 사용** > **다음**을 선택합니다.
+1. **Azure Storage에 연결** 창에서 **스토리지 계정 이름 및 키 사용** > **다음** 을 선택합니다.
 
    ![Storage Explorer - 스토리지 계정에 연결](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
    > [!TIP]
-   > 메시지가 표시되지 않으면 Storage Explorer 도구 모음에서 **계정 추가**를 선택합니다.
+   > 메시지가 표시되지 않으면 Storage Explorer 도구 모음에서 **계정 추가** 를 선택합니다.
 
-1. **표시 이름**에 연결에 사용할 친숙한 이름을 입력합니다. **계정 이름** 아래에서 스토리지 계정 이름을 제공합니다. **계정 키**에서 이전에 저장한 액세스 키를 입력하고 **다음**을 선택합니다.
+1. **표시 이름** 에 연결에 사용할 친숙한 이름을 입력합니다. **계정 이름** 아래에서 스토리지 계정 이름을 제공합니다. **계정 키** 에서 이전에 저장한 액세스 키를 입력하고 **다음** 을 선택합니다.
 
-1. 연결 정보를 확인한 다음, **연결**을 선택합니다.
+1. 연결 정보를 확인한 다음, **연결** 을 선택합니다.
 
    Storage Explorer에서 연결이 생성되고, 탐색기 창의 **로컬 및 첨부** > **스토리지 계정** 아래에 스토리지 계정이 표시됩니다.
 
-1. **스토리지 계정**에서 Blob Storage 컨테이너를 찾으려면 스토리지 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다.
+1. **스토리지 계정** 에서 Blob Storage 컨테이너를 찾으려면 스토리지 계정(여기서는 **attachmentstorageacct**), **Blob 컨테이너**(**attachments** 컨테이너가 있음)를 차례로 확장합니다. 예를 들면 다음과 같습니다.
 
    ![Storage Explorer - 스토리지 컨테이너 찾기](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
@@ -144,15 +144,15 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    | **앱 이름** | <*function-app-name*> | 함수 앱의 이름은 Azure에서 전역적으로 고유해야 합니다. 이 예에서는 “CleanTextFunctionApp”을 이미 사용하고 있으므로 다른 이름을 입력합니다(예: “MyCleanTextFunctionApp-<*사용자-이름*>”). |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 |
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |
-   | **OS** | <*your-operating-system*> | 자주 사용하는 함수 프로그래밍 언어를 지원하는 운영 체제를 선택합니다. 이 예에서는 **Windows**를 선택합니다. |
+   | **OS** | <*your-operating-system*> | 자주 사용하는 함수 프로그래밍 언어를 지원하는 운영 체제를 선택합니다. 이 예에서는 **Windows** 를 선택합니다. |
    | **호스팅 계획** | 소비 계획 | 이 설정은 계산 성능처럼 함수 앱을 실행하기 위한 리소스를 할당하고 크기를 조정하는 방법을 결정합니다. [호스팅 계획 비교](../azure-functions/functions-scale.md)를 참조하세요. |
    | **위치** | 미국 서부 | 이전에 사용한 동일한 지역 |
-   | **런타임 스택** | 기본 설정 언어 | 자주 사용하는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
+   | **런타임 스택** | 기본 설정 언어 | 자주 사용하는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET** 을 선택합니다. |
    | **스토리지** | cleantextfunctionstorageacct | 함수 앱에 대한 스토리지 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 스토리지 계정은 함수 앱을 포함하며, 이메일 첨부 파일에 대해 이전에 만든 스토리지 계정과 다릅니다. |
-   | **Application Insights** | 사용 안 함 | [Application Insights](../azure-monitor/app/app-insights-overview.md)를 사용한 애플리케이션 모니터링을 켭니다. 하지만 이 자습서에서는 **사용 안 함** > **적용**을 선택합니다. |
+   | **Application Insights** | 사용 안 함 | [Application Insights](../azure-monitor/app/app-insights-overview.md)를 사용한 애플리케이션 모니터링을 켭니다. 하지만 이 자습서에서는 **사용 안 함** > **적용** 을 선택합니다. |
    ||||
 
-   배포 후 함수 앱이 자동으로 열리지 않으면 [Azure Portal](https://portal.azure.com) 검색 상자에서 **함수 앱**을 찾아 선택합니다. **함수 앱**에서 함수 앱을 선택합니다.
+   배포 후 함수 앱이 자동으로 열리지 않으면 [Azure Portal](https://portal.azure.com) 검색 상자에서 **함수 앱** 을 찾아 선택합니다. **함수 앱** 에서 함수 앱을 선택합니다.
 
    ![함수 앱 선택](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
@@ -160,19 +160,19 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    ![생성된 함수 앱](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   함수 앱을 만들려면 [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) 또는 [PowerShell 및 Resource Manager 템플릿](../azure-resource-manager/templates/deploy-powershell.md)을 사용할 수도 있습니다.
+   함수 앱을 만들려면 [Azure CLI](../azure-functions/create-first-function-cli-csharp.md) 또는 [PowerShell 및 Resource Manager 템플릿](../azure-resource-manager/templates/deploy-powershell.md)을 사용할 수도 있습니다.
 
-1. **함수 앱** 목록에서 함수 앱을 확장합니다(아직 확장되지 않은 경우). 함수 앱에서 **함수**를 선택합니다. 함수 도구 모음에서 **새 함수**를 선택합니다.
+1. **함수 앱** 목록에서 함수 앱을 확장합니다(아직 확장되지 않은 경우). 함수 앱에서 **함수** 를 선택합니다. 함수 도구 모음에서 **새 함수** 를 선택합니다.
 
    ![새 함수 만들기](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-1. **아래 템플릿 선택 또는 빠른 시작으로 이동**에서 **HTTP 트리거** 템플릿을 선택합니다.
+1. **아래 템플릿 선택 또는 빠른 시작으로 이동** 에서 **HTTP 트리거** 템플릿을 선택합니다.
 
    ![HTTP 트리거 템플릿 선택](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
    Azure는 HTTP 트리거 함수에 대한 언어별 템플릿을 사용하여 함수를 만듭니다.
 
-1. **새 함수** 창의 **이름** 아래에서 `RemoveHTMLFunction`를 입력합니다. **권한 부여 수준**을 **함수**로 유지하고 **만들기**를 선택합니다.
+1. **새 함수** 창의 **이름** 아래에서 `RemoveHTMLFunction`를 입력합니다. **권한 부여 수준** 을 **함수** 로 유지하고 **만들기** 를 선택합니다.
 
    ![함수 이름 지정](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
@@ -204,11 +204,11 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    }
    ```
 
-1. 완료되면 **저장**을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표( **<** ) 아이콘 아래에서 **테스트**를 선택합니다.
+1. 완료되면 **저장** 을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표( **<** ) 아이콘 아래에서 **테스트** 를 선택합니다.
 
    !["테스트" 창을 엽니다.](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
-1. **테스트** 창의 **요청 본문** 아래에서 다음 줄을 입력하고 **실행**을 선택합니다.
+1. **테스트** 창의 **요청 본문** 아래에서 다음 줄을 입력하고 **실행** 을 선택합니다.
 
    `{"name": "<p><p>Testing my function</br></p></p>"}`
 
@@ -224,15 +224,15 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
-1. Azure 최상위 검색 상자에 `logic apps`를 입력하고, **Logic Apps**를 선택합니다.
+1. Azure 최상위 검색 상자에 `logic apps`를 입력하고, **Logic Apps** 를 선택합니다.
 
    !["Logic Apps" 찾기 및 선택](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. **Logic Apps** 창에서 **추가**를 선택합니다.
+1. **Logic Apps** 창에서 **추가** 를 선택합니다.
 
    ![새 논리 앱 추가](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. 여기에 표시된 것처럼 **논리 앱** 창에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **검토 + 만들기**를 선택합니다.
+1. 여기에 표시된 것처럼 **논리 앱** 창에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **검토 + 만들기** 를 선택합니다.
 
    ![논리 앱 정보 제공](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
@@ -245,11 +245,11 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    | **Log Analytics** | 꺼짐 | 이 자습서에서는 **해제** 설정을 선택합니다. |
    ||||
 
-1. Azure가 앱을 배포한 후 Azure 도구 모음에서 알림 아이콘을 선택하고 **리소스로 이동**을 선택합니다.
+1. Azure가 앱을 배포한 후 Azure 도구 모음에서 알림 아이콘을 선택하고 **리소스로 이동** 을 선택합니다.
 
    ![Azure 알림 목록에서 “리소스로 이동”을 선택합니다.](./media/tutorial-process-email-attachments-workflow/go-to-new-logic-app-resource.png)
 
-1. Logic Apps 디자이너가 열리고 일반적인 논리 앱 패턴에 대한 소개 비디오 및 템플릿이 포함된 페이지가 표시됩니다. **템플릿** 아래에서 **빈 논리 앱**을 선택합니다.
+1. Logic Apps 디자이너가 열리고 일반적인 논리 앱 패턴에 대한 소개 비디오 및 템플릿이 포함된 페이지가 표시됩니다. **템플릿** 아래에서 **빈 논리 앱** 을 선택합니다.
 
    ![빈 논리 앱 템플릿 선택](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
 
@@ -284,7 +284,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
       | **빈도** | Minute | 검사 간 간격의 시간 단위 |
       ||||
 
-   1. **새 매개 변수 추가** 목록에서 **제목 필터**를 선택합니다.
+   1. **새 매개 변수 추가** 목록에서 **제목 필터** 를 선택합니다.
 
    1. **제목 필터** 상자가 작업에 나타나면 여기에 나열된 제목을 지정합니다.
 
@@ -297,7 +297,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    ![세부 정보를 숨기려면 셰이프 축소](./media/tutorial-process-email-attachments-workflow/collapse-trigger-shape.png)
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
    이제 논리 앱이 라이브 상태지만 이메일 확인 외에는 아무 것도 수행하지 않습니다. 다음으로, 워크플로를 계속하는 조건을 지정하는 조건을 추가합니다.
 
@@ -305,7 +305,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 이제 첨부 파일이 있는 이메일만 선택하는 조건을 추가합니다.
 
-1. 트리거 아래에서 **새 단계**를 선택합니다.
+1. 트리거 아래에서 **새 단계** 를 선택합니다.
 
    !["새 단계"](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
 
@@ -313,7 +313,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    !["조건" 선택](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
-   1. 보다 구체적인 설명이 포함되도록 조건 이름을 바꿉니다. 조건의 제목 표시줄에서 줄임표( **...** ) 단추 > **이름 바꾸기**를 선택합니다.
+   1. 보다 구체적인 설명이 포함되도록 조건 이름을 바꿉니다. 조건의 제목 표시줄에서 줄임표( **...** ) 단추 > **이름 바꾸기** 를 선택합니다.
 
       ![조건 이름 바꾸기](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -327,7 +327,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    1. 중간 상자에서 **이(가) 다음과 같은 경우** 연산자를 유지합니다.
 
-   1. 오른쪽 상자에서 트리거의 **첨부 파일 있음** 속성 값과 비교할 값으로 **True**를 입력합니다.
+   1. 오른쪽 상자에서 트리거의 **첨부 파일 있음** 속성 값과 비교할 값으로 **True** 를 입력합니다.
 
       ![조건 작성](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
 
@@ -351,25 +351,25 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    }
    ```
 
-1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 ### <a name="test-your-condition"></a>조건 테스트
 
 이제 조건이 올바르게 작동하는지 테스트합니다.
 
-1. 아직 논리 앱을 실행하고 있지 않으면 디자이너 도구 모음에서 **실행**을 선택합니다.
+1. 아직 논리 앱을 실행하고 있지 않으면 디자이너 도구 모음에서 **실행** 을 선택합니다.
 
    이 단계에서는 지정된 간격이 경과할 때까지 기다릴 필요 없이 논리 앱을 수동으로 시작합니다. 하지만 받은 편지함에 테스트 이메일이 도착할 때까지는 아무 일도 발생하지 않습니다.
 
 1. 다음 기준을 충족하는 이메일을 자신에게 보냅니다.
 
-   * 트리거의 **제목 필터**에서 지정한 텍스트(`Business Analyst 2 #423501`)가 이메일의 제목에 포함되어 있습니다.
+   * 트리거의 **제목 필터** 에서 지정한 텍스트(`Business Analyst 2 #423501`)가 이메일의 제목에 포함되어 있습니다.
 
    * 이메일에 첨부 파일이 하나 있습니다. 이제 빈 텍스트 파일을 하나 만들고 해당 파일을 이메일에 첨부합니다.
 
    이메일이 도착하면 논리 앱에서는 첨부 파일 및 지정된 제목 텍스트를 확인합니다. 조건을 통과하면 트리거가 실행되고 Logic Apps 엔진이 논리 앱 인스턴스를 만들고 워크플로를 시작합니다.
 
-1. 트리거가 실행되고 논리 앱이 성공적으로 실행되었는지 확인하려면 논리 앱 메뉴에서 **개요**를 선택합니다.
+1. 트리거가 실행되고 논리 앱이 성공적으로 실행되었는지 확인하려면 논리 앱 메뉴에서 **개요** 를 선택합니다.
 
    ![트리거 및 실행 기록 확인](./media/tutorial-process-email-attachments-workflow/checkpoint-run-history.png)
 
@@ -385,7 +385,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 이 단계에서는 이전에 만든 Azure 함수를 논리 앱에 추가하고, 이메일 트리거의 이메일 본문 내용을 이 함수로 전달합니다.
 
-1. 논리 앱 메뉴에서 **논리 앱 디자이너**를 선택합니다. **true인 경우** 분기에서 **작업 추가**를 선택합니다.
+1. 논리 앱 메뉴에서 **논리 앱 디자이너** 를 선택합니다. **true인 경우** 분기에서 **작업 추가** 를 선택합니다.
 
    !["True인 경우" 내에서 작업 추가](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
@@ -427,13 +427,13 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 ## <a name="create-blob-for-email-body"></a>이메일 본문용 BLOB 만들기
 
-1. **true인 경우** 블록의 Azure 함수 아래에 **작업 추가**를 선택합니다.
+1. **true인 경우** 블록의 Azure 함수 아래에 **작업 추가** 를 선택합니다.
 
 1. 검색 상자에서 필터로 `create blob`을 입력하고 다음 작업을 선택합니다. **Blob 만들기**
 
    ![이메일 본문용 BLOB을 만드는 작업 추가](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
-1. 아래에 나와 있는 대로 이러한 설정을 사용하여 스토리지 계정에 대한 연결을 만듭니다. 완료되면 **만들기**를 선택합니다.
+1. 아래에 나와 있는 대로 이러한 설정을 사용하여 스토리지 계정에 대한 연결을 만듭니다. 완료되면 **만들기** 를 선택합니다.
 
    ![스토리지 계정에 연결](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
@@ -443,7 +443,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    | **Storage 계정** | attachmentstorageacct | 앞에서 첨부 파일 저장용으로 만든 스토리지 계정의 이름 |
    ||||
 
-1. **설명이 포함되도록**BLOB 만들기`Create blob for email body` 작업 이름을 바꿉니다.
+1. **설명이 포함되도록** BLOB 만들기`Create blob for email body` 작업 이름을 바꿉니다.
 
 1. **Blob 만들기** 작업에서 이 정보를 입력하고, Blob을 만들기 위해 아래에 나와 있는 대로 이러한 필드를 선택합니다.
 
@@ -453,7 +453,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    | ------- | ----- | ----------- |
    | **폴더 경로** | /attachments | 앞에서 만든 컨테이너의 경로 및 이름입니다. 이 예제에서는 폴더 아이콘을 클릭한 다음, "/attachments" 컨테이너를 선택합니다. |
    | **Blob 이름** | **보내는 사람** 필드 | 이 예제에서는 보낸 사람의 이름을 Blob의 이름으로 사용합니다. 이 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시한 다음, **새 이메일이 도착하는 경우** 작업 아래에서 **보내는 사람** 필드를 선택합니다. |
-   | **BLOB 콘텐츠** | **콘텐츠** 필드 | 이 예제에서는 HTML이 없는 이메일 본문을 Blob 콘텐츠로 사용합니다. 이 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시한 다음, **RemoveHTMLFunction을 호출하여 이메일 본문 정리** 아래에서 **본문**을 선택합니다. |
+   | **BLOB 콘텐츠** | **콘텐츠** 필드 | 이 예제에서는 HTML이 없는 이메일 본문을 Blob 콘텐츠로 사용합니다. 이 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시한 다음, **RemoveHTMLFunction을 호출하여 이메일 본문 정리** 아래에서 **본문** 을 선택합니다. |
    ||||
 
    완료되면 작업은 다음 예제와 같습니다.
@@ -466,11 +466,11 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 이제 논리 앱이 사용자가 지정한 방식으로 이메일을 처리하는지 테스트합니다.
 
-1. 아직 논리 앱을 실행하고 있지 않으면 디자이너 도구 모음에서 **실행**을 선택합니다.
+1. 아직 논리 앱을 실행하고 있지 않으면 디자이너 도구 모음에서 **실행** 을 선택합니다.
 
 1. 다음 기준을 충족하는 이메일을 자신에게 보냅니다.
 
-   * 트리거의 **제목 필터**에서 지정한 텍스트(`Business Analyst 2 #423501`)가 이메일의 제목에 포함되어 있습니다.
+   * 트리거의 **제목 필터** 에서 지정한 텍스트(`Business Analyst 2 #423501`)가 이메일의 제목에 포함되어 있습니다.
 
    * 이메일에 첨부 파일이 하나 이상 있습니다. 이제 빈 텍스트 파일을 하나 만들고 해당 파일을 이메일에 첨부합니다.
 
@@ -480,7 +480,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. 논리 앱이 이메일을 올바른 스토리지 컨테이너에 저장했는지 확인합니다.
 
-   1. Storage Explorer에서 **로컬 및 첨부** > **스토리지 계정** > **attachmentstorageacct(키)**  > **Blob 컨테이너** > **첨부 파일**을 확장합니다.
+   1. Storage Explorer에서 **로컬 및 첨부** > **스토리지 계정** > **attachmentstorageacct(키)**  > **Blob 컨테이너** > **첨부 파일** 을 확장합니다.
 
    1. 이메일의 **첨부 파일** 컨테이너를 선택합니다.
 
@@ -490,7 +490,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    1. 작업을 마쳤으면 Storage Explorer에서 이메일을 삭제합니다.
 
-1. 필요에 따라**false인 경우** 분기(지금은 아무 작업도 수행하지 않음)를 테스트하려면 조건을 만족하지 않는 이메일을 보내면 됩니다.
+1. 필요에 따라 **false인 경우** 분기(지금은 아무 작업도 수행하지 않음)를 테스트하려면 조건을 만족하지 않는 이메일을 보내면 됩니다.
 
 다음으로, 모든 이메일 첨부 파일을 처리할 루프를 추가합니다.
 
@@ -498,7 +498,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 이메일의 각 첨부 파일을 처리하려면 논리 앱의 워크플로에 **For each** 루프를 추가합니다.
 
-1. **이메일 본문용 Blob 만들기** 셰이프 아래에서 **작업 추가**를 선택합니다.
+1. **이메일 본문용 Blob 만들기** 셰이프 아래에서 **작업 추가** 를 선택합니다.
 
    !["for each" 루프 추가](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
@@ -508,7 +508,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. `For each email attachment` 설명이 포함되도록 루프 이름을 바꿉니다.
 
-1. 이제 루프에서 처리할 데이터를 지정합니다. **이전 단계에서 출력 선택** 상자 내부를 클릭하여 동적 콘텐츠 목록을 연 다음, **첨부 파일**을 선택합니다.
+1. 이제 루프에서 처리할 데이터를 지정합니다. **이전 단계에서 출력 선택** 상자 내부를 클릭하여 동적 콘텐츠 목록을 연 다음, **첨부 파일** 을 선택합니다.
 
    !["첨부 파일" 선택](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
 
@@ -520,7 +520,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 ## <a name="create-blob-for-each-attachment"></a>For each 첨부 파일용 Blob 만들기
 
-1. 검색된 각 첨부 파일에서 수행할 작업을 지정할 수 있도록 **각 이메일 첨부 파일** 루프에서 **작업 추가**를 선택합니다.
+1. 검색된 각 첨부 파일에서 수행할 작업을 지정할 수 있도록 **각 이메일 첨부 파일** 루프에서 **작업 추가** 를 선택합니다.
 
    ![루프에 작업 추가](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
@@ -528,7 +528,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    ![BLOB을 만드는 작업 추가](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-1. **설명이 포함되도록**BLOB 2 만들기`Create blob for each email attachment` 작업 이름을 바꿉니다.
+1. **설명이 포함되도록** BLOB 2 만들기`Create blob for each email attachment` 작업 이름을 바꿉니다.
 
 1. **For each 이메일 첨부파일용 Blob 만들기** 작업에서 이 정보를 제공하고, 아래에 나와 있는 대로 만들려는 각 Blob에 대한 속성을 선택합니다.
 
@@ -551,7 +551,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 다음으로, 논리 앱이 사용자가 지정한 방식으로 첨부 파일을 처리하는지 테스트합니다.
 
-1. 아직 논리 앱을 실행하고 있지 않으면 디자이너 도구 모음에서 **실행**을 선택합니다.
+1. 아직 논리 앱을 실행하고 있지 않으면 디자이너 도구 모음에서 **실행** 을 선택합니다.
 
 1. 다음 기준을 충족하는 이메일을 자신에게 보냅니다.
 
@@ -563,7 +563,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. 논리 앱이 이메일과 첨부 파일을 올바른 스토리지 컨테이너에 저장했는지 확인합니다.
 
-   1. Storage Explorer에서 **로컬 및 첨부** > **스토리지 계정** > **attachmentstorageacct(키)**  > **Blob 컨테이너** > **첨부 파일**을 확장합니다.
+   1. Storage Explorer에서 **로컬 및 첨부** > **스토리지 계정** > **attachmentstorageacct(키)**  > **Blob 컨테이너** > **첨부 파일** 을 확장합니다.
 
    1. 이메일 및 첨부 파일용 **첨부 파일** 컨테이너를 확인합니다.
 
@@ -575,7 +575,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 ## <a name="send-email-notifications"></a>이메일 알림 보내기
 
-1. **true인 경우** 분기의 **For each 이메일 첨부 파일** 루프 아래에서 **작업 추가**를 선택합니다.
+1. **true인 경우** 분기의 **For each 이메일 첨부 파일** 루프 아래에서 **작업 추가** 를 선택합니다.
 
    !["for each" 루프에서 작업 추가](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
@@ -597,7 +597,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    ![이메일 알림 보내기](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
 
-   동적 콘텐츠 목록에서 필요한 필드를 찾을 수 없는 경우 **새 이메일이 도착하는 경우** 옆에 있는 **자세히 보기**를 선택합니다.
+   동적 콘텐츠 목록에서 필요한 필드를 찾을 수 없는 경우 **새 이메일이 도착하는 경우** 옆에 있는 **자세히 보기** 를 선택합니다.
 
    | 설정 | 값 | 메모 |
    | ------- | ----- | ----- |
@@ -609,7 +609,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
    > [!NOTE]
    > 첨부 파일이 포함된 배열인 **콘텐츠** 필드와 같은 배열이 있는 필드를 선택하면, 디자이너에서 해당 필드를 참조하는 작업 주위에 "For each" 루프를 자동으로 추가합니다.
    > 그렇게 하면 논리 앱이 각 배열 항목에서 해당 작업을 수행할 수 있습니다.
-   > 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표( **...** )를 선택한 후, **삭제**를 선택합니다.
+   > 루프를 제거하려면 배열에 대한 필드를 제거하고, 참조하는 작업을 루프 외부로 이동하고, 루프의 제목 표시줄에서 줄임표( **...** )를 선택한 후, **삭제** 를 선택합니다.
 
 1. 논리 앱을 저장합니다.
 
@@ -668,7 +668,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 이 샘플이 더 이상 필요 없으면 논리 앱 및 관련 리소스가 포함된 리소스 그룹을 삭제합니다.
 
-1. 최상위 Azure 검색 상자에 `resources groups`를 입력하고, **리소스 그룹**을 선택합니다.
+1. 최상위 Azure 검색 상자에 `resources groups`를 입력하고, **리소스 그룹** 을 선택합니다.
 
    !["리소스 그룹"을 찾아 선택합니다.](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
 
@@ -676,11 +676,11 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    ![자습서에 대한 리소스 그룹 찾기](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
 
-1. **개요** 창에서 **리소스 그룹 삭제**를 선택합니다.
+1. **개요** 창에서 **리소스 그룹 삭제** 를 선택합니다.
 
    ![논리 앱 리소스 그룹 삭제](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 
-1. 확인 창이 표시되면 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+1. 확인 창이 표시되면 리소스 그룹 이름을 입력하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

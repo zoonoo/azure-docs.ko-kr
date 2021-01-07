@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0585c1251ba18e1390f3eee28a989edee6eb8591
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56e2e2a048e44dcad626208b059e258d55ba7057
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77616940"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967604"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
 
@@ -69,7 +70,7 @@ Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미�
 
 HANA 대규모 인스턴스의 재해 복구 기능을 활용하려면 두 개의 Azure 지역에 네트워크 연결을 설계해야 합니다. 기본 Azure 지역의 온-프레미스에서 Azure ExpressRoute 회로 연결이 필요하고 온-프레미스에서 재해 복구 지역에 또 다른 회로 연결이 필요합니다. 이러한 방법은 MSEE(Microsoft Enterprise Edge 라우터) 위치를 포함하는 Azure 지역에 문제가 있는 상황을 다룹니다.
 
-두 번째 방법으로 한 지역의 Azure(대규모 인스턴스)에서 SAP HANA에 연결된 모든 Azure 가상 네트워크를 다른 지역의 HANA 대규모 인스턴스를 연결하는 ExpressRoute 회로에 연결할 수 있습니다. 이 *교차 연결*을 사용 하는 경우 지역 1의 Azure virtual network에서 실행 되는 서비스는 지역 2의 HANA Large Instance 장치 및 그 밖의 다른 방법으로 연결할 수 있습니다. 이 조치는 Azure와 온-프레미스 위치를 연결하는 MSEE 위치 중 하나가 오프라인 상태가 되는 경우에 문제를 해결합니다.
+두 번째 방법으로 한 지역의 Azure(대규모 인스턴스)에서 SAP HANA에 연결된 모든 Azure 가상 네트워크를 다른 지역의 HANA 대규모 인스턴스를 연결하는 ExpressRoute 회로에 연결할 수 있습니다. 이 *교차 연결* 을 사용 하는 경우 지역 1의 Azure virtual network에서 실행 되는 서비스는 지역 2의 HANA Large Instance 장치 및 그 밖의 다른 방법으로 연결할 수 있습니다. 이 조치는 Azure와 온-프레미스 위치를 연결하는 MSEE 위치 중 하나가 오프라인 상태가 되는 경우에 문제를 해결합니다.
 
 다음 그림은 재해 복구 사례에 대한 복원력 있는 구성을 보여줍니다.
 
@@ -81,7 +82,7 @@ HANA 대규모 인스턴스의 재해 복구 기능을 활용하려면 두 개�
 
 HANA 대규모 인스턴스를 사용하는 재해 복구 설정에 대한 추가 요구 사항은 다음과 같습니다.
 
-- 사용자의 프로덕션 SKU와 동일한 크기의 Azure의 SAP HANA(대규모 인스턴스) SKU를 주문하고 재해 복구 지역에 배포합니다. 현재 고객 배포에서는 비프로덕션 HANA 인스턴스를 실행하기 위해 이러한 인스턴스가 사용됩니다. 이러한 구성을 *다목적 DR 설치*라고 합니다.   
+- 사용자의 프로덕션 SKU와 동일한 크기의 Azure의 SAP HANA(대규모 인스턴스) SKU를 주문하고 재해 복구 지역에 배포합니다. 현재 고객 배포에서는 비프로덕션 HANA 인스턴스를 실행하기 위해 이러한 인스턴스가 사용됩니다. 이러한 구성을 *다목적 DR 설치* 라고 합니다.   
 - 재해 복구 사이트에서 복구하려는 Azure의 SAP HANA(대규모 인스턴스) SKU 각각에 대해 DR 사이트의 추가 스토리지를 주문합니다. 추가 스토리지를 구입하면 스토리지 볼륨을 할당할 수 있습니다. 프로덕션 Azure 지역의 스토리지 복제 대상인 볼륨을 재해 복구 Azure 지역에 할당할 수 있습니다.
 - 주 사이트에 HSR이 설치되어 있고 DR 사이트에 스토리지 기반 복제를 설정한 경우, DR 사이트에서 추가 스토리지를 구입해야 주 및 보조 노드 데이터가 모두 DR 사이트로 복제됩니다.
 

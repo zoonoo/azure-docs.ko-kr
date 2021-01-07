@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: da1acc6316d7af87ffe35b9560919c324373591a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785785"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484603"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
@@ -32,7 +32,7 @@ Azure Storage 암호화는 리소스 관리자 및 클래식 저장소 계정을
 
 암호화 Azure Storage 기본 암호화 모듈에 대 한 자세한 내용은 암호화 [API: 차세대](/windows/desktop/seccng/cng-portal)을 참조 하세요.
 
-Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 Windows Vm에 대 한 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/windows/disk-encryption.md) 또는 Linux vm에 대 한 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/linux/disk-encryption.md) 를 참조 하세요.
+Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 Windows Vm에 대 한 [azure managed disks의 서버 쪽 암호화](../../virtual-machines/disk-encryption.md) 또는 Linux vm에 대 한 [azure Managed disks의 서버 쪽 암호화](../../virtual-machines/disk-encryption.md) 를 참조 하세요.
 
 ## <a name="about-encryption-key-management"></a>암호화 키 관리 정보
 

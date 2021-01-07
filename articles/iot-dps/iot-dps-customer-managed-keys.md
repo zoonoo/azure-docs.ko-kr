@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
-ms.openlocfilehash: e9b5a549d550f117e080fc64193fbe29658f401d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22a01bab81fc330484e7715a65c89a1cfd7802c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85298228"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967179"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>장치 프로 비전 서비스에 대 한 고객 관리 키를 사용 하 여 미사용 데이터 암호화
 
@@ -26,6 +26,6 @@ DPS (장치 프로 비전 서비스)는 CMK (고객이 관리 하는 키)를 사
 
 ## <a name="next-steps"></a>다음 단계
 
-* [장치 프로 비전 서비스에 대 한 자세한 정보](https://docs.microsoft.com/azure/iot-dps/)
+* [장치 프로 비전 서비스에 대 한 자세한 정보](./index.yml)
 
-* [Azure Key Vault에 대 한 자세한 정보](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Azure Key Vault에 대 한 자세한 정보](../key-vault/general/overview.md)

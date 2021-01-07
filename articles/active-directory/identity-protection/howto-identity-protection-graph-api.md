@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e16f33cb8aa7c6ceeb1398dd23ccba31b5f936b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776139"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861734"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
-Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](./overview-identity-protection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대 한 정보를 노출 하는 세 가지 Api가 있습니다. 첫 번째 API 인 **riskDetection**를 사용 하면 사용자 및 로그인 연결 된 위험 검색의 목록 및 검색에 대 한 관련 정보를 Microsoft Graph 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers**를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn**을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 
+Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](./overview-identity-protection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대 한 정보를 노출 하는 세 가지 Api가 있습니다. 첫 번째 API 인 **riskDetection** 를 사용 하면 사용자 및 로그인 연결 된 위험 검색의 목록 및 검색에 대 한 관련 정보를 Microsoft Graph 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers** 를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn** 을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 
 
 이 문서에서는 Microsoft Graph에 연결 및 이러한 API 쿼리를 사용하여 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
 
@@ -40,37 +40,37 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 ### <a name="retrieve-your-domain-name"></a>도메인 이름 검색 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-1. **Azure Active Directory**  >  **사용자 지정 도메인 이름**으로 이동 합니다. 
+1. **Azure Active Directory**  >  **사용자 지정 도메인 이름** 으로 이동 합니다. 
 1. `.onmicrosoft.com`이 정보는 이후 단계에서 필요 합니다.
 
 ### <a name="create-a-new-app-registration"></a>새 앱 등록 만들기
 
-1. Azure Portal에서 **Azure Active Directory**  >  **앱 등록**으로 이동 합니다.
-1. **새 등록**을 선택합니다.
+1. Azure Portal에서 **Azure Active Directory**  >  **앱 등록** 으로 이동 합니다.
+1. **새 등록** 을 선택합니다.
 1. **만들기** 페이지에서 다음 단계를 수행 합니다.
    1. **이름** 텍스트 상자에 응용 프로그램의 이름을 입력 합니다 (예: Azure AD 위험 검색 API).
-   1. **지원 되는 계정 유형**에서 api를 사용 하는 계정 유형을 선택 합니다.
-   1. **등록**을 선택합니다.
-1. **응용 프로그램 ID**를 복사 합니다.
+   1. **지원 되는 계정 유형** 에서 api를 사용 하는 계정 유형을 선택 합니다.
+   1. **등록** 을 선택합니다.
+1. **응용 프로그램 ID** 를 복사 합니다.
 
 ### <a name="configure-api-permissions"></a>API 권한 구성
 
-1. 만든 **응용 프로그램** 에서 **API 권한**을 선택 합니다.
-1. 구성 된 **사용 권한** 페이지의 위쪽에 있는 도구 모음에서 **사용 권한 추가**를 클릭 합니다.
-1. **API 액세스 추가** 페이지에서 **API 선택**을 클릭합니다.
-1. **API 선택** 페이지에서 **Microsoft Graph**를 선택한 다음, **선택**을 클릭합니다.
+1. 만든 **응용 프로그램** 에서 **API 권한** 을 선택 합니다.
+1. 구성 된 **사용 권한** 페이지의 위쪽에 있는 도구 모음에서 **사용 권한 추가** 를 클릭 합니다.
+1. **API 액세스 추가** 페이지에서 **API 선택** 을 클릭합니다.
+1. **API 선택** 페이지에서 **Microsoft Graph** 를 선택한 다음, **선택** 을 클릭합니다.
 1. **API 권한 요청** 페이지에서 다음을 수행 합니다. 
-   1. **애플리케이션 권한**을 선택합니다.
+   1. **애플리케이션 권한** 을 선택합니다.
    1. 및 옆의 확인란을 `IdentityRiskEvent.Read.All` 선택 `IdentityRiskyUser.Read.All` 합니다.
-   1. **권한 추가**를 선택합니다.
+   1. **권한 추가** 를 선택합니다.
 1. **도메인에 대 한 관리자 동의 부여를 선택 합니다** . 
 
 ### <a name="configure-a-valid-credential"></a>유효한 자격 증명 구성
 
-1. 만든 **응용 프로그램** 에서 **인증서 & 암호**를 선택 합니다.
-1. **클라이언트 암호**에서 **새 클라이언트 암호**를 선택 합니다.
+1. 만든 **응용 프로그램** 에서 **인증서 & 암호** 를 선택 합니다.
+1. **클라이언트 암호** 에서 **새 클라이언트 암호** 를 선택 합니다.
    1. 클라이언트 암호에 **설명을** 지정 하 고 조직의 정책에 따라 만료 기간을 설정 합니다.
-   1. **추가**를 선택합니다.
+   1. **추가** 를 선택합니다.
 
    > [!NOTE]
    > 이 키를 분실하면 이 섹션으로 돌아와서 새 키를 만들어야 합니다. 이 키의 비밀을 유지합니다. 키를 가진 사람은 누구나 데이터에 액세스할 수 있습니다.
@@ -103,7 +103,7 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 
 성공 하는 경우 응답은 id 위험 검색의 컬렉션 이며 OData JSON 형식으로 연결 된 데이터의 컬렉션입니다 .이를 구문 분석 하 고 적절 하 게 처리할 수 있습니다.
 
-### <a name="sample"></a>예제
+### <a name="sample"></a>샘플
 
 이 샘플에서는 공유 암호를 사용 하 여 인증 하는 방법을 보여 줍니다. 프로덕션 환경에서 코드에 암호를 저장 하는 것은 일반적으로 frowned. 조직에서는 Azure 리소스에 관리 되는 id를 사용 하 여 이러한 자격 증명을 보호할 수 있습니다. 관리 되는 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리](../managed-identities-azure-resources/overview.md)되는 id 인 문서를 참조 하세요.
 
@@ -173,4 +173,4 @@ Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는
 - [Azure Active Directory Identity Protection에서 검색 하는 위험 검색 유형](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Microsoft Graph 개요](https://developer.microsoft.com/graph/docs)
-- [Azure AD ID 보호 서비스 루트](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD ID 보호 서비스 루트](/graph/api/resources/identityprotectionroot)

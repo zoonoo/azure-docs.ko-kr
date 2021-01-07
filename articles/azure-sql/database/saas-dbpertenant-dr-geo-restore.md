@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: daccbd9dfb3ed628d8a3e604cbb9af4045f1ebe6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3fe6095595f5270b18536e6ef46afe4a0a5b3268
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780889"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607714"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -163,7 +163,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     * 테넌트 데이터베이스는 카탈로그에서 온라인으로 표시되는 즉시 애플리케이션에서 액세스할 수 있습니다.
 
-    * 테넌트 데이터베이스에 대한 rowversion 값의 합계는 카탈로그에 저장됩니다. 이 합계는 지문 역할을 하여 송환 프로세스에서 데이터베이스가 복구 지역에서 업데이트되었는지 확인할 수 있습니다.       
+    * 테넌트 데이터베이스에 대한 rowversion 값의 합계는 카탈로그에 저장됩니다. 이 합계는 지문 역할을 하여 송환 프로세스에서 데이터베이스가 복구 지역에서 업데이트되었는지 확인할 수 있습니다.
 
 ## <a name="run-the-recovery-script"></a>복구 스크립트 실행
 

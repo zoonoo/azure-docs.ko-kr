@@ -10,6 +10,10 @@
       href: overview-iot-central-developer.md
     - name: 최근 업데이트
       items:
+        - name: 2020년 11월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-november-2020/'
+        - name: 2020년 10월 새로운 기능 및 업데이트된 기능
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-upadates-october-2020/'
         - name: 2020년 9월 새로운 기능 및 업데이트된 기능
           href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/'
         - name: 2020년 8월 새로운 기능 및 업데이트된 기능
@@ -45,10 +49,8 @@
   items:
     - name: 디바이스 연결 및 개발
       items:
-        - name: 디바이스 연결(Node.js)
-          href: tutorial-connect-device-nodejs.md
-        - name: 디바이스 연결(Python)
-          href: tutorial-connect-device-python.md
+        - name: 디바이스 만들기 및 연결
+          href: tutorial-connect-device.md
         - name: 게이트웨이 디바이스 템플릿 만들기
           href: tutorial-define-gateway-device-type.md
         - name: IoT Edge 디바이스 연결

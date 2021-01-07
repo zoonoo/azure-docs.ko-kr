@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 60087dc23b804dac6644dc09cddc031526fb0f8f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5258b1eab48f71d8d17f52849b5e57b467e7a2da
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313769"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460386"
 ---
-# <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
+# <a name="synapse-managed-private-endpoints"></a>Synapse 관리형 프라이빗 엔드포인트
 
 이 문서에서는 Azure Synapse Analytics의 관리형 프라이빗 엔드포인트에 대해 설명합니다.
 
@@ -49,7 +49,7 @@ Azure Synapse에서 관리형 프라이빗 엔드포인트를 만들 때 프라�
 
 작업 영역이 만들어지면 Azure Synapse는 해당 작업 영역에 전용 SQL 풀용과 서버리스 SQL 풀용인 두 개의 관리형 프라이빗 엔드포인트를 만듭니다. 
 
-이러한 두 개의 관리형 프라이빗 엔드포인트는 Azure Synapse Studio에 나열됩니다. 왼쪽 탐색 영역에서 **관리** 를 선택한 다음, **관리형 가상 네트워크** 를 선택하여 Studio에서 확인합니다.
+이러한 두 개의 관리형 프라이빗 엔드포인트는 Synapse Studio에 나열됩니다. 왼쪽 탐색 영역에서 **관리** 를 선택한 다음, **관리형 프라이빗 엔드포인트** 를 선택하여 Studio에서 확인합니다.
 
 SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sql--\<workspacename\>* 이라고 하고, 서버리스 SQL 풀을 대상으로 하는 관리형 프라이빗 엔드포인트를 *synapse-ws-sqlOnDemand--\<workspacename\>* 라고 합니다.
 

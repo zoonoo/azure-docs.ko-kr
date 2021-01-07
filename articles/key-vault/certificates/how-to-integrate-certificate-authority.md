@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289540"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763743"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>DigiCert 인증 기관과 Key Vault 통합
 
@@ -31,9 +31,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 가이드를 완료하려면 다음 리소스가 필요합니다.
 * 키 자격 증명 모음. 다음 빠른 시작 중 하나의 단계에 따라 기존 키 자격 증명 모음을 사용하거나 새로 만들 수 있습니다.
-   - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-cli.md)
-   - [Azure PowerShell을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-powershell.md)
-   - [Azure Portal을 사용하여 키 자격 증명 모음 만들기](../secrets/quick-create-portal.md)
+   - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](../general/quick-create-cli.md)
+   - [Azure PowerShell을 사용하여 키 자격 증명 모음 만들기](../general/quick-create-powershell.md)
+   - [Azure Portal을 사용하여 키 자격 증명 모음 만들기](../general/quick-create-portal.md)
 *   DigiCert CertCentral 계정을 활성화해야 합니다. CertCentral 계정에 [가입](https://www.digicert.com/account/signup/)합니다.
 *   계정에서 관리자 수준 권한
 
@@ -56,11 +56,11 @@ DigiCert CertCentral 계정에서 위의 정보를 수집한 후에는 이제 �
 4.  **추가** 옵션을 선택합니다.
  ![인증 기관 추가](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  **인증서 기관 만들기** 화면에서 다음 값을 선택합니다.
-    -   **Name** : 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
-    -   **공급자** : 메뉴에서 DigiCert를 선택합니다.
-    -   **계정 ID** : DigiCert CertCentral 계정 ID를 입력합니다.
-    -   **계정 암호** : DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
-    -   **조직 ID** : DigiCert CertCentral 계정에서 수집된 OrgID 입력 
+    -   **Name**: 식별 가능한 발급자 이름을 추가합니다. 예제 DigicertCA
+    -   **공급자**: 메뉴에서 DigiCert를 선택합니다.
+    -   **계정 ID**: DigiCert CertCentral 계정 ID를 입력합니다.
+    -   **계정 암호**: DigiCert CertCentral 계정에서 생성한 API 키를 입력합니다.
+    -   **조직 ID**: DigiCert CertCentral 계정에서 수집된 OrgID 입력 
     -   **만들기** 를 클릭합니다.
    
 6.  이제 DigicertCA가 인증 기관 목록에 추가된 것을 볼 수 있습니다.
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. **발급자** 설정 키 자격 증명 모음에 Digicert를 인증 기관으로 추가합니다. 매개 변수에 대한 자세한 내용은 [여기를 참조](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)하세요.
+4. **발급자** 설정 키 자격 증명 모음에 Digicert를 인증 기관으로 추가합니다. 매개 변수에 대한 자세한 내용은 [여기를 참조](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)하세요.
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
@@ -127,6 +127,9 @@ Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertifica
 발급된 인증서가 Azure Portal의 '사용 안 함' 상태이면 **인증서 작업** 보기를 계속 진행하여 해당 인증서에 대한 DigiCert 오류 메시지를 검토합니다.
 
  ![인증서 작업](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+
+오류 메시지 '이 인증서 요청을 완료하려면 병합을 수행하세요.'
+이 요청을 완료하려면 CA에서 서명한 CSR을 병합해야 합니다. [여기](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)에서 자세히 알아보세요.
 
 자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 

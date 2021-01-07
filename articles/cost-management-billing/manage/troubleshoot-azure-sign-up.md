@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131074"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96344490"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
@@ -54,7 +54,7 @@ Azure 등록 환경은 다음 네 개의 섹션으로 구성됩니다.
 이 문제를 해결하려면 다음 단계를 따릅니다.
 
 1.  계정 관리자 자격 증명을 사용하여 [Azure 계정 센터](https://account.azure.com/Profile)에 로그인합니다.
-1.  **세부 정보 편집**을 선택합니다.
+1.  **세부 정보 편집** 을 선택합니다.
 1.  모든 주소 필드가 완료되었고 유효한지 확인합니다.
 1.  Azure 구독에 등록할 때 신용 카드 등록을 위한 청구 주소가 은행 기록과 일치하는지 확인합니다.
 
@@ -76,8 +76,8 @@ InPrivate 브라우징 방법
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>'현재 계정 유형이 지원되지 않습니다.' 메시지가 표시됩니다.
 
-이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](../../active-directory/users-groups-roles/directory-self-service-signup.md)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
-이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](../../active-directory/users-groups-roles/domains-admin-takeover.md)를 참조하세요.
+이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](../../active-directory/enterprise-users/directory-self-service-signup.md)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
+이 문제를 해결하려면 다른 계정을 사용하여 Azure 계정을 등록하거나 관리되지 않는 AD 디렉터리를 인수하세요. 자세한 내용은 [Azure Active Directory에서 관리자 권한으로 관리되지 않는 디렉터리 인수](../../active-directory/enterprise-users/domains-admin-takeover.md)를 참조하세요.
 
 ## <a name="identity-verification-by-phone"></a>전화로 ID 검증
 
@@ -120,11 +120,11 @@ InPrivate 브라우징 방법
 다음 단계를 사용하여 브라우저의 쿠키 설정을 업데이트하세요.
 
 1. 쿠키 설정을 업데이트하세요.
-   - **Chrome**을 사용하는 경우:
-     - **설정** > **고급 설정 표시** > **개인 정보** > **콘텐츠 설정**을 선택합니다. **타사 쿠키 및 사이트 데이터 차단**을 선택 해제합니다.
+   - **Chrome** 을 사용하는 경우:
+     - **설정** > **고급 설정 표시** > **개인 정보** > **콘텐츠 설정** 을 선택합니다. **타사 쿠키 및 사이트 데이터 차단** 을 선택 해제합니다.
 
-   - **Microsoft Edge**를 사용하는 경우:
-     - **설정** > **고급 설정 보기** > **쿠키** > **쿠키를 차단하지 않음**을 선택합니다.
+   - **Microsoft Edge** 를 사용하는 경우:
+     - **설정** > **고급 설정 보기** > **쿠키** > **쿠키를 차단하지 않음** 을 선택합니다.
 
 1. Azure 등록 페이지를 새로 고친 다음, 문제가 해결되었는지 여부를 확인합니다.
 1. 새로 고쳐도 문제가 해결되지 않으면 브라우저를 종료했다가 다시 시작한 후 다시 시도하세요.

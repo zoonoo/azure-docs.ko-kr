@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 358399426798ac20897d207c93a8874357e8b781
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96dcc2bae03b1bd05fb3d1512dba757f180eed8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88182003"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964918"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple이란?
 
@@ -30,7 +30,7 @@ Microsoft Azure StorSimple은 진정한 하이브리드 클라우드 스토리�
 
 CSP(클라우드 솔루션 공급자)용 StorSimple 가상 배열을 통해 파트너는 이 기회를 활용할 수 있습니다. 파트너는 직접 프로비전, 요금 청구 및 Microsoft의 클라우드 서비스 지원으로 엔드투엔드 고객 수명 주기를 소유합니다. 즉, 파트너는 이제 파트너의 서비스와 함께 StorSimple을 고객에게 판매할 수 있습니다.
 
-CSP용 StorSimple에 대한 자세한 내용은 [Azure CSP 개요](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) 페이지를 방문합니다.
+CSP용 StorSimple에 대한 자세한 내용은 [Azure CSP 개요](/azure/cloud-solution-provider/overview/azure-csp-overview) 페이지를 방문합니다.
 
 요금 청구, 가격 책정, 인센티브 및 CSP에서 지원 얻기에 대한 자세한 내용은 [CSP의 StorSimple: FAQ](storsimple-partner-csp-faq.md)로 이동합니다. 
 

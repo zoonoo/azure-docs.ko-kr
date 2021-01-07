@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 5d160c46b235c6890426cab9de52ec7b827efe4a
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337613"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750716"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -128,7 +128,7 @@ using (var client = new HttpClient(discoveryHandler, false))
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
 * [첫 번째 앱 시작](spring-cloud-quickstart.md)
-* [마이크로 서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
+* [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
 
 이 문서에서는 필요한 종속성과 이것을 POM 파일에 추가하는 방법을 설명합니다.
 
@@ -149,6 +149,9 @@ Spring Boot 버전 | Spring Cloud 버전
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton
 2.3 | Hoxton
+
+> [!NOTE]
+> 앱과 Eureka 간의 TLS 인증에서 스프링 부팅 2.4에 대 한 문제를 확인 하 고 현재 스프링 커뮤니티와 협력 하 여 문제를 해결 하 고 있습니다. 해결 방법에 대 한 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) 를 참조 하세요.
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Spring Boot 버전 2.1에 대한 종속성
 

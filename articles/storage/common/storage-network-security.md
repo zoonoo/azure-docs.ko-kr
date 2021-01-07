@@ -5,16 +5,16 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 2eed5a8ad783d325ef040b3a358e80a6517f08e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783643"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938412"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -64,7 +64,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. 기본적으로 액세스를 거부하려면 **선택한 네트워크** 에서 액세스를 허용하도록 선택합니다. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크** 에서 액세스를 허용하도록 선택합니다.
 
@@ -148,7 +148,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
@@ -241,7 +241,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 특정 공용 인터넷 IP 주소 범위에서 액세스할 수 있도록 스토리지 계정을 구성할 수 있습니다. 이 구성은 특정 인터넷 기반 서비스와 온-프레미스 네트워크에 대한 액세스 권한을 부여하고 일반 인터넷 트래픽을 차단합니다.
 
-*16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용하거나 개별 IP 주소(예: *16.17.18.19* )를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
+*16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용하거나 개별 IP 주소(예: *16.17.18.19*)를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
 
    > [!NOTE]
    > "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
@@ -272,7 +272,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
@@ -358,7 +358,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ## <a name="exceptions"></a>예외
 
-네트워크 규칙은 대부분의 시나리오에서 애플리케이션과 데이터 간의 연결을 위한 보안 환경을 만드는 데 유용합니다. 그러나 일부 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 고유하게 격리될 수 없는 Azure 서비스에 종속됩니다. 그러나 전체 애플리케이션 기능을 사용하려면 이러한 서비스에 스토리지에 대한 액세스 권한을 부여해야 합니다. 이러한 경우 * *_신뢰할 수 있는 Microsoft 서비스 허용_* ...을 사용할 수 있습니다. _ 해당 서비스에서 데이터, 로그 또는 분석에 액세스 하도록 설정 하는 설정입니다.
+네트워크 규칙은 대부분의 시나리오에서 애플리케이션과 데이터 간의 연결을 위한 보안 환경을 만드는 데 유용합니다. 그러나 일부 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 고유하게 격리될 수 없는 Azure 서비스에 종속됩니다. 그러나 전체 애플리케이션 기능을 사용하려면 이러한 서비스에 스토리지에 대한 액세스 권한을 부여해야 합니다. 이러한 경우 **_신뢰할 수 있는 Microsoft 서비스 허용_* ...을 사용할 수 있습니다. _ 해당 서비스에서 데이터, 로그 또는 분석에 액세스 하도록 설정 하는 설정입니다.
 
 ### <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스
 
@@ -390,16 +390,17 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세히 알아봅니다](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
+| Azure Cognitive Services       | CognitiveService             | Cognitive Services에서 저장소 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Data Share를 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱을 사용하여 스토리지 계정에 액세스할 수 있습니다. [자세히 알아보기](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics(이전의 SQL Data Warehouse)       | Microsoft.Sql                          | COPY 문이나 PolyBase를 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아봅니다](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Synapse Analytics       | Microsoft.Sql                          | COPY 문이나 PolyBase를 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아봅니다](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
 | Azure SQL Database       | Microsoft.Sql                          | 저장소 계정에서 데이터를 [가져오고](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 감사 데이터를 방화벽 뒤의 저장소 계정에 [쓸](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) 수 있습니다. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Azure Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
 
 
 ### <a name="storage-analytics-data-access"></a>스토리지 분석 데이터 액세스
@@ -414,7 +415,7 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **Firewall 및 Virtual Network** 이라는 설정 메뉴를 클릭합니다.
+1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 

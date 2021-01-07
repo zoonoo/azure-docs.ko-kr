@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631736"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96021217"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]
@@ -45,10 +45,10 @@ ms.locfileid: "92631736"
 ## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
 이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
-* **Azure 구독** .  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정** . 이 자습서에서는 Blob Storage를 **원본** 데이터 스토리지로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
-* **Azure SQL Database** . 이 자습서에서는 Azure SQL Database를 **대상** 데이터 저장소로 사용 합니다. 자습서에서 사용할 수 있는 Azure SQL Database 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스를 만들고 구성](../../azure-sql/database/single-database-create-quickstart.md) 하는 방법을 참조 하 여 새로 만듭니다.
-* **SQL Server 2012/2014 또는 Visual Studio 2013** . SQL Server Management Studio 또는 Visual Studio를 사용하여 샘플 데이터베이스를 만들고 데이터베이스에서 결과 데이터를 확인합니다.  
+* **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
+* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **원본** 데이터 스토리지로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
+* **Azure SQL Database**. 이 자습서에서는 Azure SQL Database를 **대상** 데이터 저장소로 사용 합니다. 자습서에서 사용할 수 있는 Azure SQL Database 데이터베이스가 없는 경우 [Azure SQL Database에서 데이터베이스를 만들고 구성](../../azure-sql/database/single-database-create-quickstart.md) 하는 방법을 참조 하 여 새로 만듭니다.
+* **SQL Server 2012/2014 또는 Visual Studio 2013**. SQL Server Management Studio 또는 Visual Studio를 사용하여 샘플 데이터베이스를 만들고 데이터베이스에서 결과 데이터를 확인합니다.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Blob Storage 계정 이름 및 키 수집
 이 자습서를 수행하려면 Azure Storage 계정의 계정 이름과 계정 키가 필요합니다. Azure Storage 계정의 **계정 이름** 과 **계정 키** 를 적어둡니다.
@@ -59,14 +59,14 @@ ms.locfileid: "92631736"
     ![찾아보기 - Storage 계정](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. **Storage 계정** 블레이드에서, 이 자습서에서 사용하려는 **Azure Storage 계정** 을 선택합니다.
 4. **설정** 아래에 있는 **액세스 키** 링크를 선택합니다.
-5. **Storage 계정 이름** 텍스트 상자 옆에 있는 **복사** (이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
+5. **Storage 계정 이름** 텍스트 상자 옆에 있는 **복사**(이미지) 단추를 클릭하고 텍스트 파일 등에 저장/붙여넣습니다.
 6. 이전 단계를 반복하여 복사하거나 **key1** 을 적어둡니다.
 
     ![스토리지 액세스 키](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. **X** 를 클릭하여 모든 블레이드를 닫습니다.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, 데이터베이스, 사용자 이름 수집
-이 자습서를 수행 하려면 논리 SQL server, 데이터베이스 및 사용자의 이름이 필요 합니다. Azure SQL Database에 대 한 **서버** , **데이터베이스** 및 **사용자** 의 이름을 적어둡니다.
+이 자습서를 수행 하려면 논리 SQL server, 데이터베이스 및 사용자의 이름이 필요 합니다. Azure SQL Database에 대 한 **서버**, **데이터베이스** 및 **사용자** 의 이름을 적어둡니다.
 
 1. **Azure 포털** 에서 왼쪽의 **모든 서비스** 를 클릭하고 **SQL 데이터베이스** 를 선택합니다.
 2. **SQL 데이터베이스 블레이드** 에서, 이 자습서에서 사용하려는 **데이터베이스** 를 선택합니다. **데이터베이스 이름** 을 적어둡니다.  

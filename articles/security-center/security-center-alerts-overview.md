@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7f5f920f14a556d63f433b36658d7b265d51a28d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340379"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96433022"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -25,7 +25,7 @@ Security Center에는 다양 한 리소스 유형에 대 한 다양 한 경고�
 
 ## <a name="respond-to-todays-threats"></a>오늘 위협 <a name="respond-threats"> </a> 에 대응
 
-지난 20년 동안 위협 환경에 중요한 변경 내용이 있었습니다. 과거에 회사는 일반적으로 "자신의 능력"을 확인하는 데 주로 관심이 있던 개별 공격자에 의한 웹 사이트 파손에 대해서만 걱정했습니다. 오늘날의 공격자는 훨씬 더 정교하며 조직적입니다. 특정 금융 및 전략적 목표가 있는 경우가 많습니다. 또한 국가 또는 조직 범죄로 자금 지원을 받으므로 더 많은 사용 가능한 리소스가 있습니다.
+지난 20년 동안 위협 환경에 중요한 변경 내용이 있었습니다. 과거에 회사는 일반적으로 "자신의 능력"을 확인하는 데 주로 관심이 있던 개별 공격자에 의한 웹 사이트 파손에 대해서만 걱정했습니다. 오늘날의 공격자는 훨씬 더 정교하며 조직적입니다. 특정 금융 및 전략적 목표가 있는 경우가 많습니다. 또한 국가 주 또는 구성 된 범죄에 의해 투자 될 수 있으므로 더 많은 리소스를 사용할 수 있습니다.
 
 이렇게 변화하는 현실로 인해 공격자가 전에 없이 전문적이 수준이 되었습니다. 공격자는 더 이상 웹 손상에 관심이 없습니다. 이제는 오픈 마켓에서 현금을 생성하거나 특정 비즈니스, 정치적 또는 군사 위치를 활용하는 데 사용할 수 있는 정보, 재무 계정 및 프라이빗 데이터를 도용하는 데 관심이 있습니다. 재무 목표를 가진 공격자보다 더욱 걱정되는 것은 인프라 및 사용자에게 해를 입히기 위해 네트워크를 위반하는 공격자입니다.
 
@@ -35,9 +35,9 @@ Security Center에는 다양 한 리소스 유형에 대 한 다양 한 경고�
 
 ## <a name="what-are-security-alerts-and-security-incidents"></a>보안 경고 및 보안 인시던트란 무엇인가요? 
 
-**경고**는 리소스에 대한 위협을 검색할 때 Security Center가 생성하는 알림입니다. Security Center는 사용자가 신속하게 문제를 조사하기 위해 필요한 정보와 함께 경고에 우선 순위를 정하여 나열합니다. Security Center는 공격을 해결하는 방법에 대한 권장 사항도 제공합니다.
+**경고** 는 리소스에 대한 위협을 검색할 때 Security Center가 생성하는 알림입니다. Security Center는 사용자가 신속하게 문제를 조사하기 위해 필요한 정보와 함께 경고에 우선 순위를 정하여 나열합니다. Security Center는 공격을 해결하는 방법에 대한 권장 사항도 제공합니다.
 
-**보안 인시던트**는 각 경고를 개별적으로 나열하는 것이 아닌 관련 경고의 컬렉션입니다. Security Center는 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md)를 사용하여 다양한 경고와 불특정한 신호에서 보안 인시던트와의 상관 관계를 확인합니다.
+**보안 인시던트** 는 각 경고를 개별적으로 나열하는 것이 아닌 관련 경고의 컬렉션입니다. Security Center는 [클라우드 스마트 경고 상관 관계](security-center-alerts-cloud-smart.md)를 사용하여 다양한 경고와 불특정한 신호에서 보안 인시던트와의 상관 관계를 확인합니다.
 
 Security Center는 인시던트를 통해 사용자에게 공격 행위와 모든 관련 경고의 단일 보기를 제공합니다. 이 보기에서 공격자의 행위와 영향을 받는 리소스를 신속히 이해할 수 있습니다. 자세한 내용은 [클라우드 스마트 경고상관 관계](security-center-alerts-cloud-smart.md)를 참조하세요.
 
@@ -67,12 +67,12 @@ Security Center는 사용자가 각각의 경고에 주목하는 우선 순위�
 > 경고 심각도는 포털과, 01-01-2019 이전 REST API 버전에서 다르게 표시됩니다. 이전 버전의 API를 사용할 경우 아래에서 설명한 대로 일관된 환경을 위해 업그레이드하세요.
 
 - **높음:** 리소스가 손상될 가능성이 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다.
-- **보통:** 리소스의 손상 가능성을 나타내는 의심스러운 활동입니다.
+- **보통:** 의심 스러운 활동은 리소스가 손상 된 것을 나타낼 수 있습니다.
 Security Center의 분석 또는 결과 신뢰도는 보통이며 악의적 의도의 신뢰도는 보통부터 높음 사이입니다. 일반적으로 기계 학습 또는 변칙 기반 검색입니다. 비정상적인 위치에서의 로그인 시도를 예로 들 수 있습니다.
 - **낮음:** 무해한 양성 또는 차단된 공격일 수 있습니다.
-   * Security Center는 신뢰도가 높지 않기 때문에 의도가 악의적이고 작업은 악의적이지 않을 수 있습니다. 예를 들어 로그 지우기는 공격자가 흔적을 숨기려 시도할 때 발생할 수도 있지만, 대부분은 관리자가 수행하는 일상적인 작업입니다.
+   * Security Center은 의도 한 것이 악의적인 것으로 확신 하지 않으며 활동은 의도 하지 않을 수 있습니다. 예를 들어 로그 지우기는 공격자가 자신의 트랙을 숨기려는 경우 발생할 수 있는 작업 이지만 대부분의 경우 관리자가 수행 하는 일상적인 작업입니다.
    * Security Center는 일반적으로 공격을 차단하더라도 살펴볼 가치가 있는 흥미로운 사례가 아닌 경우에는 사용자에게 알리지 않습니다. 
-- **정보 제공:** 보안 인시던트로 드릴다운하거나 특정 경고 ID가 있는 REST API를 사용하는 경우 정보 경고만 표시됩니다. 일반적으로 한 인시던트는 여러 경고로 구성되며, 그 중 일부는 오직 정보 제공만을 위해 단독으로 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다. 
+- **정보 제공:** 보안 인시던트로 드릴다운하거나 특정 경고 ID가 있는 REST API를 사용하는 경우 정보 경고만 표시됩니다. 인시던트는 일반적으로 다 수의 경고로 구성 되며,이 중 일부는 자신의 정보를 제공 하기 위해서만 표시 될 수 있지만 다른 경고의 컨텍스트에서는 더 자세히 살펴볼 수 있습니다. 
 
 ## <a name="continuous-monitoring-and-assessments"></a>연속 모니터링 및 평가
 
@@ -91,7 +91,7 @@ Azure Security Center는 위협 환경의 변화를 지속적으로 모니터링
 
 - 경고 대시보드에서 **csv 보고서 다운로드** 는 csv로 일회성 내보내기를 제공 합니다.
 - 가격 책정에서 **연속 내보내기** & 설정을 사용 하면 작업 영역 및 Event Hubs에 Log Analytics 대 한 보안 경고 및 권장 사항 스트림을 구성할 수 있습니다. [연속 내보내기에 대 한 자세한 정보](continuous-export.md)
-- **Azure 센티널 커넥터** 는 Azure Security Center에서 azure 센티널로 azure Defender 경고를 스트리밍합니다. [센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
+- **Azure 센티널 커넥터** 는 Azure Security Center의 보안 경고를 azure 센티널로 스트리밍합니다. [센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>다음 단계

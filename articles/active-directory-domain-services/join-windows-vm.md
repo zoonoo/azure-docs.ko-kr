@@ -1,20 +1,20 @@
 ---
 title: Windows Server VM을 Azure AD Domain Services 관리되는 도메인에 조인 | Microsoft Docs
 description: 이 자습서에서는 Windows Server 가상 머신을 Azure Active Directory Domain Services 관리형 도메인에 조인하는 방법을 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.author: joflore
-ms.openlocfilehash: 3df96f5576829694b5eb12fd1811de112279884d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 869c827485d9b7a6baf68d2619af98d4c2ee82b9
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963230"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619575"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Windows Server 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 조인
 
@@ -56,13 +56,13 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 도메인에 조인하려는 VM이 이미 있는 경우 [VM을 관리되는 도메인에 조인](#join-the-vm-to-the-managed-domain) 섹션으로 건너뜁니다.
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
-1. **시작**에서 **Windows Server 2016 Datacenter**를 선택합니다.
+1. **시작** 에서 **Windows Server 2016 Datacenter** 를 선택합니다.
 
     ![Azure Portal에서 Windows Server 2016 Datacenter VM을 만들도록 선택](./media/join-windows-vm/select-vm-image.png)
 
-1. **기본 사항** 창에서 가상 머신의 핵심 설정을 구성합니다. *가용성 옵션*, *이미지* 및 *크기*에 대한 기본값은 그대로 둡니다.
+1. **기본 사항** 창에서 가상 머신의 핵심 설정을 구성합니다. *가용성 옵션*, *이미지* 및 *크기* 에 대한 기본값은 그대로 둡니다.
 
     | 매개 변수            | 제안 값   |
     |----------------------|-------------------|
@@ -72,14 +72,14 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     | 사용자 이름             | VM에 만들 로컬 관리자 계정의 사용자 이름(예: *azureuser*)을 입력합니다. |
     | 암호             | 로컬 관리자가 VM에 만들 보안 암호를 입력하고 확인합니다. 도메인 사용자 계정의 자격 증명을 지정하지 마세요. |
 
-1. 기본적으로 Azure에서 만든 VM은 RDP를 사용하여 인터넷에서 액세스할 수 없습니다. RDP를 사용하도록 설정하면 자동 로그인 공격이 발생할 수 있으며, 이로 인해 여러 번의 연속 로그인 시도가 실패하여 *admin* 또는 *administrator*와 같은 일반 이름의 계정을 사용하지 않도록 설정될 수 있습니다.
+1. 기본적으로 Azure에서 만든 VM은 RDP를 사용하여 인터넷에서 액세스할 수 없습니다. RDP를 사용하도록 설정하면 자동 로그인 공격이 발생할 수 있으며, 이로 인해 여러 번의 연속 로그인 시도가 실패하여 *admin* 또는 *administrator* 와 같은 일반 이름의 계정을 사용하지 않도록 설정될 수 있습니다.
 
     RDP는 필요한 경우에만 사용하도록 설정하고 권한 있는 IP 범위 세트로 제한해야 합니다. 이 구성은 VM의 보안을 향상시키고 잠재적인 공격 영역을 줄이는 데 도움이 됩니다. 또는 TLS를 통해 Azure Portal에서만 액세스할 수 있는 Azure Bastion 호스트를 만들고 사용합니다. 이 자습서의 다음 단계에서는 Azure Bastion 호스트를 사용하여 VM에 안전하게 연결합니다.
 
-    **퍼블릭 인바운드 포트** 아래에서 *없음*을 선택합니다.
+    **퍼블릭 인바운드 포트** 아래에서 *없음* 을 선택합니다.
 
-1. 완료되면 **다음: 디스크**를 선택합니다.
-1. **OS 디스크 유형**의 드롭다운 메뉴에서 *표준 SSD*, **다음: 네트워킹**을 차례로 선택합니다.
+1. 완료되면 **다음: 디스크** 를 선택합니다.
+1. **OS 디스크 유형** 의 드롭다운 메뉴에서 *표준 SSD*, **다음: 네트워킹** 을 차례로 선택합니다.
 1. VM은 관리되는 도메인이 배포된 서브넷과 통신할 수 있는 Azure 가상 네트워크 서브넷에 연결되어야 합니다. 관리되는 도메인은 자체 전용 서브넷에 배포하는 것이 좋습니다. VM을 관리되는 도메인과 동일한 서브넷에 배포하지 마세요.
 
     VM을 배포하고 적절한 가상 네트워크 서브넷에 연결하는 두 가지 주요 방법이 있습니다.
@@ -90,32 +90,32 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     관리되는 도메인의 서브넷에 연결되지 않은 가상 네트워크 서브넷을 선택하면 VM을 관리되는 도메인에 조인할 수 없습니다. 이 자습서에서는 새 서브넷을 Azure 가상 네트워크에 만들어 보겠습니다.
 
     **네트워킹** 창에서 관리되는 도메인이 배포된 가상 네트워크(예: *aaads-vnet*)를 선택합니다.
-1. 이 예제에서는 관리되는 도메인이 연결된 기존 *aaads-subnet*을 보여 줍니다. VM을 이 서브넷에 연결하지 마세요. VM에 대한 서브넷을 만들려면 **서브넷 구성 관리**를 선택합니다.
+1. 이 예제에서는 관리되는 도메인이 연결된 기존 *aaads-subnet* 을 보여 줍니다. VM을 이 서브넷에 연결하지 마세요. VM에 대한 서브넷을 만들려면 **서브넷 구성 관리** 를 선택합니다.
 
     ![Azure Portal에서 서브넷 구성을 관리하도록 선택](./media/join-windows-vm/manage-subnet.png)
 
-1. 가상 네트워크 창의 왼쪽 메뉴에서 **주소 공간**을 선택합니다. 가상 네트워크는 기본 서브넷에서 사용하는 *10.0.2.0/24*의 단일 주소 공간을 사용하여 만들어집니다. *워크로드* 또는 Azure Bastion과 같은 다른 서브넷이 이미 있을 수도 있습니다.
+1. 가상 네트워크 창의 왼쪽 메뉴에서 **주소 공간** 을 선택합니다. 가상 네트워크는 기본 서브넷에서 사용하는 *10.0.2.0/24* 의 단일 주소 공간을 사용하여 만들어집니다. *워크로드* 또는 Azure Bastion과 같은 다른 서브넷이 이미 있을 수도 있습니다.
 
     추가 IP 주소 범위를 가상 네트워크에 추가합니다. 이 주소 범위의 크기와 사용할 실제 IP 주소 범위는 이미 배포된 다른 네트워크 리소스에 따라 달라집니다. IP 주소 범위는 Azure 또는 온-프레미스 환경의 기존 주소 범위와 겹치지 않아야 합니다. 서브넷에 배포하는 데 필요한 VM의 수에 맞게 IP 주소 범위를 충분히 크게 조정해야 합니다.
 
-    다음 예제에서는 *10.0.5.0/24*의 IP 주소 범위가 추가되었습니다. 준비되면 **저장**을 선택합니다.
+    다음 예제에서는 *10.0.5.0/24* 의 IP 주소 범위가 추가되었습니다. 준비되면 **저장** 을 선택합니다.
 
     ![Azure Portal에서 추가 가상 네트워크 IP 주소 범위를 추가합니다.](./media/join-windows-vm/add-vnet-address-range.png)
 
-1. 다음으로, 가상 네트워크 창의 왼쪽 메뉴에서 **서브넷**을 선택한 다음, **+ 서브넷**을 선택하여 서브넷을 추가합니다.
+1. 다음으로, 가상 네트워크 창의 왼쪽 메뉴에서 **서브넷** 을 선택한 다음, **+ 서브넷** 을 선택하여 서브넷을 추가합니다.
 
-1. **+ 서브넷**을 선택한 다음, 서브넷 이름(예: *management*)을 입력합니다. **주소 범위(CIDR 블록)** (예: *10.0.5.0/24*)를 제공합니다. 이 IP 주소 범위가 기존의 다른 Azure 또는 온-프레미스 주소 범위와 겹치지 않도록 합니다. 다른 옵션은 해당 기본값으로 둔 다음, **확인**을 선택합니다.
+1. **+ 서브넷** 을 선택한 다음, 서브넷 이름(예: *management*)을 입력합니다. **주소 범위(CIDR 블록)** (예: *10.0.5.0/24*)를 제공합니다. 이 IP 주소 범위가 기존의 다른 Azure 또는 온-프레미스 주소 범위와 겹치지 않도록 합니다. 다른 옵션은 해당 기본값으로 둔 다음, **확인** 을 선택합니다.
 
     ![Azure Portal에서 서브넷 구성 만들기](./media/join-windows-vm/create-subnet.png)
 
-1. 서브넷을 만드는 데 몇 초 정도 걸립니다. 서브넷이 만들어지면 *X*를 선택하여 서브넷 창을 닫습니다.
+1. 서브넷을 만드는 데 몇 초 정도 걸립니다. 서브넷이 만들어지면 *X* 를 선택하여 서브넷 창을 닫습니다.
 1. **네트워킹** 창으로 돌아가서 VM을 만들고, 드롭다운 메뉴에서 만든 서브넷(예: *management*)을 선택합니다. 다시 한 번 올바른 서브넷을 선택했는지 확인하고, 관리되는 도메인과 동일한 서브넷에 VM을 배포하지 않도록 합니다.
-1. **공용 IP**의 경우 드롭다운 메뉴에서 *없음*을 선택합니다. 이 자습서에서는 Azure Bastion을 사용하여 관리에 연결하므로, VM에 할당된 공용 IP 주소가 필요하지 않습니다.
-1. 다른 옵션은 해당 기본값으로 둔 다음, **관리**를 선택합니다.
-1. **부트 진단**을 *끄기*로 설정합니다. 다른 옵션은 해당 기본값으로 둔 다음, **검토 + 만들기**를 선택합니다.
-1. VM 설정을 검토한 다음, **만들기**를 선택합니다.
+1. **공용 IP** 의 경우 드롭다운 메뉴에서 *없음* 을 선택합니다. 이 자습서에서는 Azure Bastion을 사용하여 관리에 연결하므로, VM에 할당된 공용 IP 주소가 필요하지 않습니다.
+1. 다른 옵션은 해당 기본값으로 둔 다음, **관리** 를 선택합니다.
+1. **부트 진단** 을 *끄기* 로 설정합니다. 다른 옵션은 해당 기본값으로 둔 다음, **검토 + 만들기** 를 선택합니다.
+1. VM 설정을 검토한 다음, **만들기** 를 선택합니다.
 
-VM을 만드는 데 몇 분이 걸립니다. Azure Portal에서 배포 상태를 보여 줍니다. VM이 준비되면 **리소스로 이동**을 선택합니다.
+VM을 만드는 데 몇 분이 걸립니다. Azure Portal에서 배포 상태를 보여 줍니다. VM이 준비되면 **리소스로 이동** 을 선택합니다.
 
 ![성공적으로 만들어지면 Azure Portal에서 해당 VM 리소스로 이동](./media/join-windows-vm/vm-created.png)
 
@@ -125,11 +125,11 @@ VM에 안전하게 연결하려면 Azure Bastion 호스트를 사용합니다. A
 
 Bastion 호스트를 사용하여 VM에 연결하려면 다음 단계를 완료합니다.
 
-1. VM에 대한 **개요** 창에서 **연결**, **Bastion**을 차례로 선택합니다.
+1. VM에 대한 **개요** 창에서 **연결**, **Bastion** 을 차례로 선택합니다.
 
     ![Azure Portal에서 Bastion을 사용하여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
 
-1. 이전 섹션에서 지정한 VM의 자격 증명을 입력한 다음, **연결**을 선택합니다.
+1. 이전 섹션에서 지정한 VM의 자격 증명을 입력한 다음, **연결** 을 선택합니다.
 
    ![Azure Portal에서 Bastion 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
 
@@ -139,16 +139,16 @@ Bastion 호스트를 사용하여 VM에 연결하려면 다음 단계를 완료�
 
 Azure Bastion을 사용하여 VM이 만들어지고 웹 기반 RDP 연결이 설정되었으면 이제 Windows Server 가상 머신을 관리되는 도메인에 조인해 보겠습니다. 이 프로세스는 컴퓨터에서 일반 온-프레미스 Active Directory Domain Services 도메인에 연결하는 것과 동일합니다.
 
-1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 왼쪽 창에서 **로컬 서버**를 클릭합니다. 오른쪽 창의 **속성** 아래에서 **작업 그룹**을 선택합니다.
+1. VM에 로그인할 때 **서버 관리자** 가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자** 를 선택합니다.
+1. **서버 관리자** 창의 왼쪽 창에서 **로컬 서버** 를 클릭합니다. 오른쪽 창의 **속성** 아래에서 **작업 그룹** 을 선택합니다.
 
     ![VM에서 서버 관리자를 열고 작업 그룹 속성 편집](./media/join-windows-vm/server-manager.png)
 
-1. **시스템 속성** 창에서 **변경**을 선택하여 관리되는 도메인에 조인합니다.
+1. **시스템 속성** 창에서 **변경** 을 선택하여 관리되는 도메인에 조인합니다.
 
     ![작업 그룹 또는 도메인 속성을 변경하도록 선택](./media/join-windows-vm/change-domain.png)
 
-1. **도메인** 상자에서 관리되는 도메인의 이름(예: *aaddscontoso.com*)을 지정한 다음, **확인**을 선택합니다.
+1. **도메인** 상자에서 관리되는 도메인의 이름(예: *aaddscontoso.com*)을 지정한 다음, **확인** 을 선택합니다.
 
     ![조인할 관리되는 도메인 지정](./media/join-windows-vm/join-domain.png)
 
@@ -157,9 +157,9 @@ Azure Bastion을 사용하여 VM이 만들어지고 웹 기반 RDP 연결이 설
     계정 자격 증명은 다음 방법 중 하나로 지정할 수 있습니다.
 
     * **UPN 형식**(추천) - Azure AD에 구성된 대로 사용자 계정의 UPN(사용자 계정 이름) 접미사를 입력합니다. 예를 들어 *contosoadmin* 사용자의 UPN 접미사는 `contosoadmin@aaddscontoso.onmicrosoft.com`입니다. UPN 형식을 사용하여 *SAMAccountName* 형식이 아닌 도메인에 안정적으로 로그인할 수 있는 몇 가지 일반적인 사용 사례는 다음과 같습니다.
-        * 사용자의 UPN 접두사(예: *deehasareallylongname*)가 긴 경우 *SAMAccountName*이 자동으로 생성될 수 있습니다.
+        * 사용자의 UPN 접두사(예: *deehasareallylongname*)가 긴 경우 *SAMAccountName* 이 자동으로 생성될 수 있습니다.
         * Azure AD 테넌트에서 여러 사용자가 동일한 UPN 접두사(예: *dee*)를 사용하는 경우 해당 *SAMAccountName* 형식이 자동으로 생성될 수 있습니다.
-    * **SAMAccountName 형식** - 계정 이름을 *SAMAccountName* 형식으로 입력합니다. 예를 들어 사용자 *contosoadmin*의 *SAMAccountName*은 `AADDSCONTOSO\contosoadmin`입니다.
+    * **SAMAccountName 형식** - 계정 이름을 *SAMAccountName* 형식으로 입력합니다. 예를 들어 사용자 *contosoadmin* 의 *SAMAccountName* 은 `AADDSCONTOSO\contosoadmin`입니다.
 
 1. 관리되는 도메인에 조인하는 데 몇 초 정도 걸립니다. 완료되면 도메인 조인을 환영하는 다음 메시지가 표시됩니다.
 
@@ -184,7 +184,7 @@ Windows Server VM이 다시 시작되면 관리되는 도메인에 적용된 모
 
 ### <a name="unjoin-the-vm-from-the-managed-domain"></a>관리되는 도메인에서 VM 가입 취소
 
-관리되는 도메인에서 VM을 제거하려면 단계를 다시 수행하여 [VM을 도메인에 조인](#join-the-vm-to-the-managed-domain)합니다. 관리되는 도메인에 조인하는 대신 기본 *WORKGROUP*과 같은 작업 그룹에 조인하도록 선택합니다. VM을 다시 부팅한 후에는 관리되는 도메인에서 컴퓨터 개체가 제거됩니다.
+관리되는 도메인에서 VM을 제거하려면 단계를 다시 수행하여 [VM을 도메인에 조인](#join-the-vm-to-the-managed-domain)합니다. 관리되는 도메인에 조인하는 대신 기본 *WORKGROUP* 과 같은 작업 그룹에 조인하도록 선택합니다. VM을 다시 부팅한 후에는 관리되는 도메인에서 컴퓨터 개체가 제거됩니다.
 
 도메인에서 조인 해제를 수행하지 않고 [VM을 삭제](#delete-the-vm)하는 경우 분리된 컴퓨터 개체가 Azure AD DS에 남아 있습니다.
 
@@ -192,9 +192,9 @@ Windows Server VM이 다시 시작되면 관리되는 도메인에 적용된 모
 
 이 Windows Server VM을 사용하지 않을 경우 다음 단계를 사용하여 해당 VM을 삭제합니다.
 
-1. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 1. 리소스 그룹(예: *myResourceGroup*)을 선택합니다.
-1. VM(예: *myVM*), **삭제**를 차례로 선택합니다. **예**를 선택하여 리소스 삭제를 확인합니다. VM을 삭제하는 데 몇 분 정도 걸립니다.
+1. VM(예: *myVM*), **삭제** 를 차례로 선택합니다. **예** 를 선택하여 리소스 삭제를 확인합니다. VM을 삭제하는 데 몇 분 정도 걸립니다.
 1. VM이 삭제되면 OS 디스크, 네트워크 인터페이스 카드 및 *myVM-* 접두사가 붙은 다른 모든 리소스를 선택하여 모두 삭제합니다.
 
 ## <a name="troubleshoot-domain-join-issues"></a>도메인 조인 문제 해결
@@ -221,7 +221,7 @@ Windows Server VM은 일반 온-프레미스 컴퓨터에서 Active Directory Do
 
 * 지정한 사용자 계정이 관리되는 도메인에 속하는지 확인합니다.
 * 계정이 관리되는 도메인 또는 Azure AD 테넌트에 속하는지 확인합니다. Azure AD 테넌트와 연결된 외부 디렉터리의 계정은 도메인 가입 프로세스 중에 올바르게 인증되지 않습니다.
-* UPN 형식을 사용하여 자격 증명(예: `contosoadmin@aaddscontoso.onmicrosoft.com`)을 지정합니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 너무 긴 경우 사용자 계정의 *SAMAccountName*이 자동으로 생성될 수 있습니다. 이러한 경우 사용자 계정의 *SAMAccountName* 형식이 온-프레미스 도메인에서 필요하거나 사용하는 것과 다를 수 있습니다.
+* UPN 형식을 사용하여 자격 증명(예: `contosoadmin@aaddscontoso.onmicrosoft.com`)을 지정합니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 너무 긴 경우 사용자 계정의 *SAMAccountName* 이 자동으로 생성될 수 있습니다. 이러한 경우 사용자 계정의 *SAMAccountName* 형식이 온-프레미스 도메인에서 필요하거나 사용하는 것과 다를 수 있습니다.
 * 관리되는 도메인에 대해 [암호 동기화를 사용하도록 설정][password-sync]했는지 확인합니다. 이 구성 단계를 수행하지 않으면 필요한 암호 해시가 관리되는 도메인에 없어 로그인 시도를 올바르게 인증할 수 없습니다.
 * 암호 동기화가 완료될 때까지 기다립니다. 사용자 계정의 암호가 변경되면 Azure AD의 자동 백그라운드 동기화가 Azure AD DS의 암호를 업데이트합니다. 도메인 조인 사용에 암호를 사용하려면 시간이 다소 걸립니다.
 
@@ -246,5 +246,5 @@ Windows Server VM은 일반 온-프레미스 컴퓨터에서 Active Directory Do
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

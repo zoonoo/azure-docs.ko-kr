@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 12/23/2020
 ms.author: manayar
-ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e22e8b81382614c2930c72a8150606f859be501d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744719"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762982"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>미리 보기: Azure에서 Windows VM에 대한 자동 VM 게스트 패치
 
@@ -34,11 +34,11 @@ Windows Vm에 대 한 자동 VM 게스트 패치를 사용 하도록 설정 하�
 
 VM에서 자동 VM 게스트 패치를 사용 하는 경우 사용 가능한 *중요* 및 *보안* 패치가 vm에 자동으로 다운로드 되 고 적용 됩니다. 이 프로세스는 Windows 업데이트을 통해 새 패치가 출시 될 때마다 매월 자동으로 시작 됩니다. 패치 평가 및 설치는 자동으로 수행 되며, 필요에 따라이 프로세스에는 VM을 다시 부팅 하는 작업이 포함 됩니다.
 
-VM을 주기적으로 평가 하 여 해당 VM에 대 한 해당 패치를 확인 합니다. Vm에 대 한 사용량이 적은 시간에 VM의 모든 날에 패치를 설치할 수 있습니다. 이러한 자동 평가를 통해 누락 된 패치가 가능한 가장 빠른 기회에서 검색 됩니다.
+VM은 해당 VM에 대 한 적용 가능한 패치를 결정 하기 위해 며칠 마다 정기적으로 평가 되 고 30 일 기간 내에 여러 번 평가 됩니다. Vm에 대 한 사용량이 적은 시간에 VM의 모든 날에 패치를 설치할 수 있습니다. 이러한 자동 평가를 통해 누락 된 패치가 가능한 가장 빠른 기회에서 검색 됩니다.
 
-패치는 매월 Windows 업데이트 릴리스의 30 일 이내에 설치 되며, 아래에서 설명 하는 가용성 우선 오케스트레이션이 수행 됩니다. 패치는 vm의 표준 시간대에 따라 VM에 대 한 사용률이 낮은 시간에만 설치 됩니다. 패치를 자동으로 설치 하는 데 사용량이 많은 시간 동안 VM이 실행 중 이어야 합니다. 정기적으로 평가 하는 동안 VM이 꺼진 경우 vm이 자동으로 평가 되 고 해당 패치가 켜 졌을 때 다음 주기적 평가 중에 적용 가능한 패치가 자동으로 설치 됩니다.
+패치는 매월 Windows 업데이트 릴리스의 30 일 이내에 설치 되며, 아래에서 설명 하는 가용성 우선 오케스트레이션이 수행 됩니다. 패치는 vm의 표준 시간대에 따라 VM에 대 한 사용률이 낮은 시간에만 설치 됩니다. 패치를 자동으로 설치 하는 데 사용량이 많은 시간 동안 VM이 실행 중 이어야 합니다. 정기적으로 평가 하는 동안 VM의 전원이 꺼진 경우 vm이 자동으로 평가 되 고 해당 하는 패치는 VM의 전원이 켜져 있을 때 다음 정기 평가 (일반적으로 며칠 이내) 동안 자동으로 설치 됩니다.
 
-다른 패치 분류를 사용 하 여 패치를 설치 하거나 사용자 지정 유지 관리 기간 내에 패치 설치를 예약 하려면 [업데이트 관리](tutorial-config-management.md#manage-windows-updates)를 사용할 수 있습니다.
+*중요* 또는 *보안* 으로 분류 되지 않은 정의 업데이트 및 기타 패치는 자동 VM 게스트 패치를 통해 설치 되지 않습니다. 다른 패치 분류를 사용 하 여 패치를 설치 하거나 사용자 지정 유지 관리 기간 내에 패치 설치를 예약 하려면 [업데이트 관리](tutorial-config-management.md#manage-windows-updates)를 사용할 수 있습니다.
 
 ### <a name="availability-first-patching"></a>가용성 우선 패치
 
@@ -67,13 +67,13 @@ VM을 주기적으로 평가 하 여 해당 VM에 대 한 해당 패치를 확�
 
 현재 지원 되는 플랫폼 Sku는 다음과 같습니다 .이는 주기적으로 추가 됩니다.
 
-| Publisher               | OS 제품      |  SKU               |
+| 게시자               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Server-Core |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Server-Core |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Core |
 
 ## <a name="patch-orchestration-modes"></a>패치 오케스트레이션 모드
 이제 Azure에서 Windows Vm은 다음과 같은 패치 오케스트레이션 모드를 지원 합니다.
@@ -83,7 +83,7 @@ VM을 주기적으로 평가 하 여 해당 VM에 대 한 해당 패치를 확�
 - 이 모드는 가용성 우선 패치를 적용 하는 데 필요 합니다.
 - 이 모드를 설정 하면 중복을 방지 하기 위해 Windows 가상 머신에서 기본 자동 업데이트를 사용 하지 않도록 설정 됩니다.
 - 이 모드는 위의 지원 되는 OS 플랫폼 이미지를 사용 하 여 만든 Vm에 대해서만 지원 됩니다.
-- 이 모드를 사용 하려면 속성을 설정 하 `osProfile.windowsConfiguration.enableAutomaticUpdates=true` 고 VM 템플릿에서 속성을 설정 합니다  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` .
+- 이 모드를 사용 하려면 속성을 설정 하 `osProfile.windowsConfiguration.enableAutomaticUpdates=true` 고 VM 템플릿에서 속성을 설정 합니다  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatform` .
 
 **자동 Byos:**
 - 이 모드는 Windows 가상 머신에서 자동 업데이트를 사용 하도록 설정 하며, 패치는 자동 업데이트를 통해 VM에 설치 됩니다.
@@ -107,7 +107,7 @@ VM을 주기적으로 평가 하 여 해당 VM에 대 한 해당 패치를 확�
 - 가상 머신은 Windows 업데이트 끝점에 액세스할 수 있어야 합니다. 가상 컴퓨터가 WSUS (Windows Server Update Services)를 사용 하도록 구성 된 경우 관련 WSUS 서버 끝점에 액세스할 수 있어야 합니다.
 - Compute API 버전 2020-06-01 이상을 사용 합니다.
 
-미리 보기 기능을 사용 하도록 설정 하려면 아래에서 설명 하는 것 처럼 구독 당 기능 *InGuestAutoPatchVMPreview* 에 대 한 일회성 옵트인이 필요 합니다.
+미리 보기 기능을 사용 하도록 설정 하려면 아래에서 설명 하는 것 처럼 구독 당 기능 **InGuestAutoPatchVMPreview** 에 대 한 일회성 옵트인이 필요 합니다.
 
 ### <a name="rest-api"></a>REST API
 다음 예제에서는 구독에 대해 미리 보기를 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -254,10 +254,10 @@ VM에 대 한 패치 설치 결과는 섹션에서 검토할 수 있습니다 `l
 ## <a name="on-demand-patch-assessment"></a>주문형 패치 평가
 VM에 대해 자동 VM 게스트 패치를 이미 사용 하도록 설정한 경우 vm의 사용량이 적은 시간에 VM에 대 한 주기적인 패치 평가가 수행 됩니다. 이 프로세스는 자동으로 진행 되며이 문서의 앞부분에서 설명한 대로 VM의 인스턴스 보기를 통해 최신 평가 결과를 검토할 수 있습니다. 언제 든 지 VM에 대 한 주문형 패치 평가를 트리거할 수도 있습니다. 패치 평가를 완료 하는 데 몇 분 정도 걸릴 수 있으며 VM의 인스턴스 보기에서 최신 평가의 상태가 업데이트 됩니다.
 
-미리 보기 기능을 사용 하도록 설정 하려면 구독 당 기능 *InGuestPatchVMPreview* 에 대 한 일회성 옵트인이 필요 합니다. 주문형 패치 평가를 위한 기능 미리 보기는 이전에 자동 VM 게스트 패치 적용에 대해 설명한 [미리 보기 사용 프로세스](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) 에 따라 사용 하도록 설정할 수 있습니다.
+미리 보기 기능을 사용 하도록 설정 하려면 구독 당 기능 **InGuestPatchVMPreview** 에 대 한 일회성 옵트인이 필요 합니다. 이 기능 미리 보기는 **InGuestAutoPatchVMPreview** 에 대해 이전에 수행 된 자동 VM 게스트 패치 기능 등록과 다릅니다. 추가 기능 미리 보기를 사용 하도록 설정 하는 것은 별도의 추가 요구 사항입니다. 주문형 패치 평가를 위한 기능 미리 보기는 이전에 자동 VM 게스트 패치 적용에 대해 설명한 [미리 보기 사용 프로세스](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) 에 따라 사용 하도록 설정할 수 있습니다.
 
 > [!NOTE]
->주문형 패치 평가는 자동으로 패치 설치를 트리거하지 않습니다. VM에 대 한 평가 및 적용 가능한 패치는이 문서의 앞부분에서 설명한 가용성 우선 패치 프로세스에 따라 VM의 사용량이 적은 시간 동안에만 설치 됩니다.
+>주문형 패치 평가는 자동으로 패치 설치를 트리거하지 않습니다. 자동 VM 게스트 패치를 사용 하도록 설정한 경우이 문서의 앞부분에서 설명한 가용성 우선 패치 프로세스에 따라 vm의 사용량이 적은 시간에 VM에 대 한 평가 및 적용 가능한 패치가 설치 됩니다.
 
 ### <a name="rest-api"></a>REST API
 ```

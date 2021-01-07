@@ -1,20 +1,20 @@
 ---
-title: 가상 머신 및 디스크 성능
-description: Vm 및 연결 된 디스크가 성능에 대해 조합 하 여 작동 하는 방법에 대 한 자세한 정보
+title: 가상 컴퓨터 및 디스크 성능-Linux
+description: 가상 컴퓨터 및 연결 된 디스크가 Linux의 성능에 대해 조합 하 여 작동 하는 방법에 대해 자세히 알아보세요.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 092368bb66784a00d5116da0b6be6513f8ebb261
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c48672bcfd8c552b36e3ae0807135924669c1d9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518077"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591857"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>가상 머신 및 디스크 성능
+# <a name="virtual-machine-and-disk-performance-linux"></a>가상 컴퓨터 및 디스크 성능 (Linux)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>가상 컴퓨터 캐시 되지 않은 및 캐시 된 제한

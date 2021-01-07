@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360126"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026030"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용 하 여 클라이언트 응용 프로그램과 통합
 
@@ -25,7 +25,7 @@ ms.locfileid: "91360126"
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
 - Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 만들지 않은 경우 빠른 시작을 수행 하 여 다음을 수행할 수 있습니다.
 > [!div class = "checklist"]
@@ -35,15 +35,15 @@ ms.locfileid: "91360126"
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드는 Visual Studio 2019을 기반으로 합니다.
 > * Speech Service에 대한 Azure 구독 키. [무료로 다운로드](overview.md#try-the-speech-service-for-free) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
-> * [디바이스를 개발에 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [디바이스를 개발에 사용하도록 설정](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>1 단계: 사용자 지정 명령 응용 프로그램 게시
 
 1. 이전에 만든 사용자 지정 명령 응용 프로그램 열기
-1. **설정**으로 이동 하 고 **LUIS 리소스** 를 선택 합니다.
+1. **설정** 으로 이동 하 고 **LUIS 리소스** 를 선택 합니다.
 1. **예측 리소스가** 할당 되지 않은 경우 쿼리 예측 키를 선택 하거나 새로 만듭니다.
 
-    응용 프로그램을 게시 하기 전에 쿼리 예측 키가 항상 필요 합니다. LUIS 리소스에 대 한 자세한 내용은 [LUIS 리소스 만들기](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription) 를 참조 하세요.
+    응용 프로그램을 게시 하기 전에 쿼리 예측 키가 항상 필요 합니다. LUIS 리소스에 대 한 자세한 내용은 [LUIS 리소스 만들기](../luis/luis-how-to-azure-subscription.md) 를 참조 하세요.
 
 1. 편집 명령으로 돌아가서 **게시** 를 선택 합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "91360126"
 
 XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스를 만듭니다.
 
-1. **솔루션 탐색기**에서를 엽니다.`MainPage.xaml`
+1. **솔루션 탐색기** 에서를 엽니다.`MainPage.xaml`
 
 1. 디자이너의 XAML 보기에서 전체 콘텐츠를 다음 코드 조각으로 바꿉니다.
 
@@ -129,7 +129,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 다음과 같이 코드의 소스를 추가 합니다.
 
-1. **솔루션 탐색기**에서 코드 숨겨진 소스 파일 `MainPage.xaml.cs` (아래에 그룹화 됨)을 엽니다. `MainPage.xaml`
+1. **솔루션 탐색기** 에서 코드 숨겨진 소스 파일 `MainPage.xaml.cs` (아래에 그룹화 됨)을 엽니다. `MainPage.xaml`
 
 1. 파일의 내용을 다음 코드로 바꿉니다. 
 
@@ -300,7 +300,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
     > [!NOTE]
     > "' Object ' 형식이 참조 되지 않은 어셈블리에 정의 되어 있습니다." 라는 오류 메시지가 표시 되는 경우
     > 1. 솔루션을 마우스 오른쪽 단추로 클라이언트 합니다.
-    > 1. **솔루션에 대 한 NuGet 패키지 관리**를 선택 하 고 **업데이트** 를 선택 합니다. 
+    > 1. **솔루션에 대 한 NuGet 패키지 관리** 를 선택 하 고 **업데이트** 를 선택 합니다. 
     > 1. 업데이트 목록에 **microsoft.netcore.universalwindowsplatform** 이 표시 되 면 microsoft.netcore.universalwindowsplatform를 최신 버전으로 업데이트 **합니다** .
 
 1. 의 메서드 본문에 다음 코드를 추가 합니다. `InitializeDialogServiceConnector`
@@ -404,19 +404,19 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 1. 메뉴 모음에서 **파일**  >  **모두 저장** 을 선택 하 여 변경 내용을 저장 합니다.
 
-## <a name="try-it-out"></a>체험
+## <a name="try-it-out"></a>사용해 보기
 
-1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 오류 없이 컴파일됩니다.
+1. 메뉴 모음에서 **빌드** > **솔루션 빌드** 를 선택하여 애플리케이션을 빌드합니다. 코드는 오류 없이 컴파일됩니다.
 
-1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 나타납니다.
+1. **디버그** > **디버깅 시작** 을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 나타납니다.
 
    ![C#의 샘플 UWP 가상 길잡이 애플리케이션 - 빠른 시작](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. **마이크 사용**을 선택합니다. 액세스 권한 요청이 팝업 되 면 **예**를 선택 합니다.
+1. **마이크 사용** 을 선택합니다. 액세스 권한 요청이 팝업 되 면 **예** 를 선택 합니다.
 
    ![마이크 액세스 권한 요청](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. 대화를 선택 하 고 장치 마이크에 **대해**영어 문구 또는 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
+1. 대화를 선택 하 고 장치 마이크에 **대해** 영어 문구 또는 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

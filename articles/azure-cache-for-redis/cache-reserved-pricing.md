@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 99aa4d9ed6552075b0da4d451201f48ba6adfb1b
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9931dd9acb51e74c34a57b0475bca79fb9ba79cf
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578708"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96184181"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Redis 계산 리소스에 대 한 Azure Cache 선불
 
@@ -37,7 +37,7 @@ Redis 인스턴스에 대 한 특정 Azure 캐시에 예약을 할당할 필요�
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Redis 예약 된 용량에 대 한 Azure 캐시 구입
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/monthly-payments-reservations.md)로 처리할 수 있습니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/)에서 예약 VM 인스턴스를 구입할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](../cost-management-billing/reservations/prepare-buy-reservation.md)로 처리할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **예약** 을 선택합니다.
@@ -53,8 +53,8 @@ Redis 인스턴스에 대 한 특정 Azure 캐시에 예약을 할당할 필요�
 | 필드 | Description |
 | :------------ | :------- |
 | 구독   | Redis 예약 된 용량 예약을 위해 Azure 캐시에 대 한 비용을 지불 하는 데 사용 되는 구독입니다. 구독에 대 한 지불 방법에는 Redis 예약 된 용량 예약을 위해 Azure 캐시에 대 한 사전 비용이 청구 됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 이거나 종 량 제 가격을 포함 하는 개별 계약 (제품 번호: MS-MS-AZR-0017P-0003P 또는-0017P) 이어야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종 량 제 가격의 개별 구독에 대해 요금 청구는 구독에 대 한 신용 카드 또는 청구서 지불 방법으로 청구 됩니다.
-| Scope | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: </br></br> **공유** , 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독** , 예약 할인은이 구독에서 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. </br></br> **단일 리소스 그룹** , 예약 할인은 선택한 구독의 Redis 인스턴스에 대 한 Azure 캐시와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
-| 지역 | Redis 예약 된 용량 예약을 위해 Azure 캐시에서 적용 되는 Azure 지역입니다.
+| Scope | 예약 범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: </br></br> **공유**, 예약 할인은 청구 컨텍스트 내의 모든 구독에서 실행 중인 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</br></br> **단일 구독**, 예약 할인은이 구독에서 Redis 인스턴스에 대 한 Azure Cache에 적용 됩니다. </br></br> **단일 리소스 그룹**, 예약 할인은 선택한 구독의 Redis 인스턴스에 대 한 Azure 캐시와 해당 구독 내에서 선택한 리소스 그룹에 적용 됩니다.
+| Azure 지역 | Redis 예약 된 용량 예약을 위해 Azure 캐시에서 적용 되는 Azure 지역입니다.
 | 가격 책정 계층 | Redis 서버용 Azure 캐시에 대 한 서비스 계층입니다.
 | 용어 | 1 년 또는 3 년
 | 수량 | Redis 예약 된 용량 예약을 위해 Azure 캐시 내에서 구매한 계산 리소스의 양입니다. 수량은 선택한 Azure 지역 및 서비스 계층에서 예약 되 고 있으며 청구 할인이 적용 되는 다양 한 캐시입니다. 예를 들어 미국 동부 지역에서 총 캐시 용량을 26gb로 사용 하 여 Redis 서버용 Azure Cache를 실행 하는 경우 또는 모든 캐시에 대 한 혜택을 최대화 하는 데 사용할 수 있는 용량을 지정 하는 것이 좋습니다. 이는 1 P3 또는 2 개의 P2 캐시가 될 수 있습니다.

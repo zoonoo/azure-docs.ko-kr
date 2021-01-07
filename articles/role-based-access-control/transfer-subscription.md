@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/06/2020
+ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 92b27690ab1f2ca8d98eb2231c5a27bc508613f8
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545347"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97095426"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Azure 구독을 다른 Azure AD 디렉터리에 전송
 
@@ -53,7 +53,12 @@ ms.locfileid: "92545347"
 - 비즈니스의 일부가 별도의 회사로 분할 되었으며 일부 리소스를 다른 Azure AD 디렉터리로 이동 해야 합니다.
 - 보안 격리를 위해 다른 Azure AD 디렉터리에서 일부 리소스를 관리 하려고 합니다.
 
-구독을 전송 하려면 프로세스가 완료 될 때까지 가동 중지 시간이 필요 합니다. 시나리오에 따라 리소스를 다시 만들고 대상 디렉터리 및 구독에 데이터를 복사 하는 것이 더 좋을 수 있습니다.
+### <a name="alternate-approaches"></a>대체 방법
+
+구독을 전송 하려면 프로세스가 완료 될 때까지 가동 중지 시간이 필요 합니다. 시나리오에 따라 다음과 같은 대체 방법을 고려할 수 있습니다.
+
+- 리소스를 다시 만들고 대상 디렉터리 및 구독에 데이터를 복사 합니다.
+- 다중 디렉터리 아키텍처를 채택 하 고 원본 디렉터리에 구독을 유지 합니다. 대상 디렉터리의 사용자가 원본 디렉터리의 구독에 액세스할 수 있도록 Azure Lighthouse를 사용 하 여 리소스를 위임 합니다. 자세한 내용은 [엔터프라이즈 시나리오의 Azure Lighthouse](../lighthouse/concepts/enterprise.md)를 참조 하세요.
 
 ### <a name="understand-the-impact-of-transferring-a-subscription"></a>구독 전송의 영향 이해
 
@@ -87,7 +92,7 @@ ms.locfileid: "92545347"
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
-- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](/azure/cloud-shell/overview)
+- Azure Cloud Shell 또는 [Azure CLI](/cli/azure) [의 Bash](../cloud-shell/overview.md)
 - 원본 디렉터리에서 전송 하려는 구독의 계정 관리자
 - 대상 디렉터리의 [소유자](built-in-roles.md#owner) 역할
 
@@ -383,3 +388,4 @@ ms.locfileid: "92545347"
 - [Azure 구독의 청구 소유권을 다른 계정에 양도](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [구독자와 CSP 간에 Azure 구독 전송](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md)
 - [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [엔터프라이즈 시나리오의 Azure Lighthouse](../lighthouse/concepts/enterprise.md)

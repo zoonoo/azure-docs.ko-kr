@@ -14,11 +14,11 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87797494"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95996732"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -38,9 +38,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
 
 ## <a name="create-a-new-group"></a>새 그룹 만들기 
-_MDM policy - West_라는 이름의 새 그룹을 만듭니다. 그룹 만들기에 대한 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
+_MDM policy - West_ 라는 이름의 새 그룹을 만듭니다. 그룹 만들기에 대한 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
 
-1. **Azure Active Directory**, **그룹**을 선택한 다음, **새 그룹**을 선택합니다.
+1. **Azure Active Directory**, **그룹** 을 선택한 다음, **새 그룹** 을 선택합니다.
 
 2. **그룹** 페이지를 완료합니다.
     
@@ -50,38 +50,38 @@ _MDM policy - West_라는 이름의 새 그룹을 만듭니다. 그룹 만들기
     
     - **멤버 자격 유형:** **할당됨** 선택
 
-3. **만들기**를 선택합니다.
+3. **만들기** 를 선택합니다.
 
 ## <a name="create-a-new-user"></a>새 사용자 만들기
-_Alain Charon_이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 먼저 "사용자 지정 도메인 이름" 탭을 확인하여 사용자를 만들 확인된 도메인 이름을 가져옵니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
+_Alain Charon_ 이라는 새 사용자를 만듭니다. 사용자는 그룹 멤버로 추가되기 전에 존재해야 합니다. 먼저 "사용자 지정 도메인 이름" 탭을 확인하여 사용자를 만들 확인된 도메인 이름을 가져옵니다. 사용자 만들기에 대한 자세한 내용은 [사용자 추가 또는 삭제 방법](add-users-azure-active-directory.md)을 참조하세요.
 
-1. **Azure Active Directory**, **사용자**를 선택한 다음, **새 사용자**를 선택합니다.
+1. **Azure Active Directory**, **사용자** 를 선택한 다음, **새 사용자** 를 선택합니다.
 
 2. **사용자** 페이지를 완료합니다.
 
     - **이름:** _Alain Charon_ 입력
 
-    - **사용자 이름:** *alain\@contoso.com*을 입력합니다.
+    - **사용자 이름:** *alain\@contoso.com* 을 입력합니다.
 
-3. **암호** 상자에 제공된 자동 생성된 암호를 복사한 다음, **만들기**를 선택합니다.
+3. **암호** 상자에 제공된 자동 생성된 암호를 복사한 다음, **만들기** 를 선택합니다.
 
 ## <a name="add-a-group-member"></a>그룹 멤버 추가
-이제 그룹 및 사용자가 생겼으며 _Alain Charon_을 _MDM policy - West_ 그룹에 멤버로 추가할 수 있습니다. 그룹 멤버 추가에 대한 자세한 내용은 [그룹 멤버 추가 또는 제거 방법](active-directory-groups-members-azure-portal.md)을 참조하세요.
+이제 그룹 및 사용자가 생겼으며 _Alain Charon_ 을 _MDM policy - West_ 그룹에 멤버로 추가할 수 있습니다. 그룹 멤버 추가에 대한 자세한 내용은 [그룹 멤버 추가 또는 제거 방법](active-directory-groups-members-azure-portal.md)을 참조하세요.
 
-1. **Azure Active Directory** > **그룹**을 선택합니다.
+1. **Azure Active Directory** > **그룹** 을 선택합니다.
 
 2. **그룹 - 모든 그룹** 페이지에서 **MDM policy - West** 그룹을 검색하여 선택합니다.
 
-3. **MDM 정책 - 서부 개요** 페이지의 **관리** 영역에서 **멤버**를 선택합니다.
+3. **MDM 정책 - 서부 개요** 페이지의 **관리** 영역에서 **멤버** 를 선택합니다.
 
-4. **멤버 추가**를 선택한 다음, **Alain Charon**을 검색하여 선택합니다.
+4. **멤버 추가** 를 선택한 다음, **Alain Charon** 을 검색하여 선택합니다.
 
-5. **선택**을 선택합니다.
+5. **선택** 을 선택합니다.
 
 ## <a name="view-all-groups"></a>모든 그룹 보기
 Azure Portal의 **그룹 - 모든 그룹** 페이지에서 조직의 모든 그룹을 볼 수 있습니다.
 
-- **Azure Active Directory** > **그룹**을 선택합니다.
+- **Azure Active Directory** > **그룹** 을 선택합니다.
 
     모든 활성 그룹을 보여 주는 **그룹 - 모든 그룹** 페이지가 나타납니다.
 
@@ -90,7 +90,7 @@ Azure Portal의 **그룹 - 모든 그룹** 페이지에서 조직의 모든 그�
 ## <a name="search-for-the-group"></a>그룹 검색
 **그룹 - 모든 그룹** 페이지를 검색하여 **MDM policy - West** 그룹을 찾습니다.
 
-1. **그룹 - 모든 그룹** 페이지에서 **검색** 상자에 _MDM_을 입력합니다.
+1. **그룹 - 모든 그룹** 페이지에서 **검색** 상자에 _MDM_ 을 입력합니다.
 
     _MDM policy - West_ 그룹을 포함한 검색 결과가 **검색** 상자 아래에 나타납니다.
 
@@ -105,7 +105,7 @@ Azure Portal의 **그룹 - 모든 그룹** 페이지에서 조직의 모든 그�
 ## <a name="view-group-members"></a>그룹 멤버 보기
 그룹을 찾았으므로 모든 할당된 멤버를 볼 수 있습니다.
 
-- **관리** 영역에서 **멤버**를 선택한 다음, _Alain Charon_ 을 포함하여 특정 그룹에 할당된 전체 멤버 이름 목록을 검토합니다.
+- **관리** 영역에서 **멤버** 를 선택한 다음, _Alain Charon_ 을 포함하여 특정 그룹에 할당된 전체 멤버 이름 목록을 검토합니다.
 
     ![MDM policy – West 그룹에 할당된 멤버 목록](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
@@ -118,7 +118,7 @@ Azure Portal의 **그룹 - 모든 그룹** 페이지에서 조직의 모든 그�
 
     **MDM policy - West 개요** 페이지가 나타납니다.
 
-3. **삭제**를 선택합니다.
+3. **삭제** 를 선택합니다.
 
     그룹 및 연결된 멤버가 삭제됩니다.
 

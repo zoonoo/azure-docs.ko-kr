@@ -1,20 +1,20 @@
 ---
 title: 클래식 가상 네트워크에서 Azure AD Domain Services 마이그레이션 | Microsoft Docs
 description: 기존 Azure AD Domain Services 관리 되는 도메인을 클래식 가상 네트워크 모델에서 리소스 관리자 기반 가상 네트워크로 마이그레이션하는 방법에 대해 알아봅니다.
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: joflore
-ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 1fcd46870a4f85d1b88d22d77de5c201404c3a09
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968177"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96619371"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure Active Directory Domain Services 마이그레이션
 
@@ -29,7 +29,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 현재 클래식 가상 
 
 ## <a name="overview-of-the-migration-process"></a>마이그레이션 프로세스 개요
 
-마이그레이션 프로세스는 클래식 가상 네트워크에서 실행 되는 기존 관리 되는 도메인을 사용 하 여 기존 리소스 관리자 가상 네트워크로 이동 합니다. 마이그레이션은 PowerShell을 사용 하 여 수행 되며, *준비* 및 *마이그레이션과*같은 두 가지 기본 실행 단계를 포함 합니다.
+마이그레이션 프로세스는 클래식 가상 네트워크에서 실행 되는 기존 관리 되는 도메인을 사용 하 여 기존 리소스 관리자 가상 네트워크로 이동 합니다. 마이그레이션은 PowerShell을 사용 하 여 수행 되며, *준비* 및 *마이그레이션과* 같은 두 가지 기본 실행 단계를 포함 합니다.
 
 ![Azure AD DS에 대 한 마이그레이션 프로세스 개요](media/migrate-from-classic-vnet/migration-overview.png)
 
@@ -119,7 +119,7 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 * 만료 된 암호를 사용 하는 서비스 계정입니다.
     * 서비스 계정은 만료 된 암호를 사용 하 여 로그인을 반복적으로 시도 하 여 계정을 잠급니다. 이 문제를 해결 하려면 자격 증명이 만료 된 응용 프로그램 또는 VM을 찾아 암호를 업데이트 합니다.
 * 악의적인 엔터티가 무차별 암호 대입 시도를 사용 하 여 계정에 로그인 하 고 있습니다.
-    * Vm이 인터넷에 노출 되 면 공격자가 서명 하려고 할 때 일반적인 사용자 이름 및 암호 조합을 시도 하는 경우가 많습니다. 이러한 반복적인 실패 한 로그인 시도는 계정을 잠글 수 있습니다. *관리자 또는* *관리자*와 같은 일반 이름으로 관리자 계정을 사용 하지 않는 것이 좋습니다. 예를 들어 관리 계정이 잠기는 것을 최소화 하는 것이 좋습니다.
+    * Vm이 인터넷에 노출 되 면 공격자가 서명 하려고 할 때 일반적인 사용자 이름 및 암호 조합을 시도 하는 경우가 많습니다. 이러한 반복적인 실패 한 로그인 시도는 계정을 잠글 수 있습니다. *관리자 또는* *관리자* 와 같은 일반 이름으로 관리자 계정을 사용 하지 않는 것이 좋습니다. 예를 들어 관리 계정이 잠기는 것을 최소화 하는 것이 좋습니다.
     * 인터넷에 노출 되는 Vm의 수를 최소화 합니다. Azure Portal를 사용 하 여 Vm에 안전 하 게 연결 하기 위해 [Azure 방호][azure-bastion] 를 사용할 수 있습니다.
 
 마이그레이션 후 일부 계정이 잠길 수 있는 것으로 의심 되는 경우 최종 마이그레이션 단계에서는 감사를 사용 하도록 설정 하거나 세분화 된 암호 정책 설정을 변경 하는 방법을 간략하게 설명 합니다.
@@ -153,11 +153,11 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 | 단계    | 수행한  | 예상 시간  | 가동 중지 시간  | 롤백/복원 할까요? |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | N/A |
+| [1 단계-새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2 단계-마이그레이션에 대 한 관리 되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 15 ~ 30 분 (평균) | 이 명령이 완료 된 후 Azure AD DS의 가동 중지 시간이 시작 됩니다. | 롤백 및 복원 사용 가능. |
 | [3 단계-관리 되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 1 ~ 3 시간 (평균) | 이 명령이 완료 되 면 하나의 도메인 컨트롤러를 사용할 수 있으며 가동 중지 시간이 종료 됩니다. | 오류가 발생 하면 롤백 (셀프 서비스) 및 복원을 모두 사용할 수 있습니다. |
 | [4 단계-복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1 시간 이상 | 두 도메인 컨트롤러를 모두 사용할 수 있으며 정상적으로 작동 해야 합니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원에 대 한 옵션이 없습니다. |
-| [5 단계-선택적 구성 단계](#optional-post-migration-configuration-steps) | Azure Portal 및 Vm | N/A | 가동 중지 시간 없음 | N/A |
+| [5 단계-선택적 구성 단계](#optional-post-migration-configuration-steps) | Azure Portal 및 Vm | 해당 없음 | 가동 중지 시간 없음 | 해당 없음 |
 
 > [!IMPORTANT]
 > 추가 가동 중지 시간을 방지 하려면 마이그레이션 프로세스를 시작 하기 전에이 마이그레이션 문서와 지침을 모두 읽으십시오. 마이그레이션 프로세스는 일정 시간 동안 Azure AD DS 도메인 컨트롤러의 가용성에 영향을 줍니다. 사용자, 서비스 및 응용 프로그램은 마이그레이션 프로세스 중에 관리 되는 도메인에 대해 인증할 수 없습니다.
@@ -166,7 +166,7 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 마이그레이션 프로세스를 시작 하기 전에 다음 초기 검사 및 업데이트를 완료 합니다. 이러한 단계는 마이그레이션 전에 언제 든 지 발생할 수 있으며 관리 되는 도메인의 작업에 영향을 주지 않습니다.
 
-1. 로컬 Azure PowerShell 환경을 최신 버전으로 업데이트 합니다. 마이그레이션 단계를 완료 하려면 버전 *2.3.2*이상이 필요 합니다.
+1. 로컬 Azure PowerShell 환경을 최신 버전으로 업데이트 합니다. 마이그레이션 단계를 완료 하려면 버전 *2.3.2* 이상이 필요 합니다.
 
     PowerShell 버전을 확인 하 고 업데이트 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 개요][azure-powershell]를 참조 하세요.
 
@@ -174,9 +174,9 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
     네트워크 설정이 Azure AD DS에 필요한 포트를 차단 하지 않는지 확인 합니다. 포트는 클래식 가상 네트워크와 리소스 관리자 가상 네트워크에서 모두 열어야 합니다. 이러한 설정에는 경로 테이블을 사용 하지 않는 것이 좋지만 경로 테이블은 사용 하지 않는 것이 좋지만 네트워크 보안 그룹도 있습니다.
 
-    Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 들어오는 모든 트래픽을 차단 하는 네트워크 보안 그룹이 필요 합니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층으로 작동 합니다. 필요한 포트를 보려면 [네트워크 보안 그룹 및 필요한 포트][network-ports]를 참조 하세요.
+    Azure AD DS에는 관리되는 도메인에 필요한 포트를 보호하고 들어오는 모든 트래픽을 차단하는 네트워크 보안 그룹이 필요합니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층으로 작동 합니다. 필요한 포트를 보려면 [네트워크 보안 그룹 및 필요한 포트][network-ports]를 참조하세요.
 
-    보안 LDAP를 사용 하는 경우 *TCP* 포트 *636*에 들어오는 트래픽을 허용 하도록 네트워크 보안 그룹에 규칙을 추가 합니다. 자세한 내용은 [인터넷을 통한 보안 LDAP 액세스 잠금](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) 을 참조 하세요.
+    보안 LDAP를 사용 하는 경우 *TCP* 포트 *636* 에 들어오는 트래픽을 허용 하도록 네트워크 보안 그룹에 규칙을 추가 합니다. 자세한 내용은 [인터넷을 통한 보안 LDAP 액세스 잠금](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet) 을 참조 하세요.
 
     이 대상 리소스 그룹, 대상 가상 네트워크 및 대상 가상 네트워크 서브넷을 기록해 둡니다. 이러한 리소스 이름은 마이그레이션 프로세스 중에 사용 됩니다.
 
@@ -214,7 +214,7 @@ Azure PowerShell는 마이그레이션에 대 한 관리 되는 도메인을 준
    $subscriptionId = 'yourSubscriptionId'
    ```
 
-1. 이제 `Migrate-Aadds` *-Prepare* 매개 변수를 사용 하 여 cmdlet을 실행 합니다. *Aaddscontoso.com*와 같은 자체 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
+1. 이제 `Migrate-Aadds` *-Prepare* 매개 변수를 사용 하 여 cmdlet을 실행 합니다. *Aaddscontoso.com* 와 같은 자체 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
 
     ```powershell
     Migrate-Aadds `
@@ -230,7 +230,7 @@ Azure PowerShell는 마이그레이션에 대 한 관리 되는 도메인을 준
 
 `Migrate-Aadds` *-Commit* 매개 변수를 사용 하 여 cmdlet을 실행 합니다. 이전 섹션에서 준비 된 자체 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* (예: *aaddscontoso.com*)을 제공 합니다.
 
-Azure AD DS을 마이그레이션할 가상 네트워크를 포함 하는 대상 리소스 그룹 (예: *Myresourcegroup*)을 지정 합니다. *Myvnet*과 같은 대상 가상 네트워크와 *domainservices*와 같은 서브넷을 제공 합니다.
+Azure AD DS을 마이그레이션할 가상 네트워크를 포함 하는 대상 리소스 그룹 (예: *Myresourcegroup*)을 지정 합니다. *Myvnet* 과 같은 대상 가상 네트워크와 *domainservices* 와 같은 서브넷을 제공 합니다.
 
 이 명령이 실행 된 후에는 롤백할 수 없습니다.
 
@@ -254,7 +254,7 @@ Migrate-Aadds `
 
 ![Azure AD DS 마이그레이션의 진행률 표시기](media/migrate-from-classic-vnet/powershell-migration-status.png)
 
-PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스는 계속 실행 됩니다. Azure Portal에서 관리 되는 도메인의 상태는 *마이그레이션*중으로 보고 됩니다.
+PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스는 계속 실행 됩니다. Azure Portal에서 관리 되는 도메인의 상태는 *마이그레이션* 중으로 보고 됩니다.
 
 마이그레이션이 성공적으로 완료 되 면 Azure Portal 또는 Azure PowerShell를 통해 첫 번째 도메인 컨트롤러의 IP 주소를 볼 수 있습니다. 사용할 수 있는 두 번째 도메인 컨트롤러의 시간 추정치도 표시 됩니다.
 
@@ -302,7 +302,7 @@ Azure AD DS는 도메인 컨트롤러에서 문제를 해결 하 고 이벤트�
 
 1. 관리 되는 도메인에 대 한 제한 사항을 줄이고 감사 로그의 이벤트를 관찰 하는 [암호 정책을 구성][password-policy] 합니다.
 1. 서비스 계정에서 감사 로그에 확인 된 대로 만료 된 암호를 사용 하는 경우 해당 계정을 올바른 암호로 업데이트 합니다.
-1. VM이 인터넷에 노출 되는 경우 로그인을 많이 시도 하는 *관리자*, *사용자*또는 *게스트* 와 같은 일반 계정 이름을 검토 합니다. 가능 하면 보다 일반적으로 명명 된 계정을 사용 하도록 해당 Vm을 업데이트 합니다.
+1. VM이 인터넷에 노출 되는 경우 로그인을 많이 시도 하는 *관리자*, *사용자* 또는 *게스트* 와 같은 일반 계정 이름을 검토 합니다. 가능 하면 보다 일반적으로 명명 된 계정을 사용 하도록 해당 Vm을 업데이트 합니다.
 1. VM의 네트워크 추적을 사용 하 여 공격의 원인을 찾고 해당 IP 주소에서 로그인을 시도할 수 없도록 차단 합니다.
 1. 잠금 문제가 최소화 되 면 세분화 된 암호 정책을 필요한 만큼 제한적으로 업데이트 합니다.
 
@@ -360,7 +360,7 @@ Migrate-Aadds `
 [notifications]: notifications.md
 [password-policy]: password-policy.md
 [secure-ldap]: tutorial-configure-ldaps.md
-[migrate-iaas]: ../virtual-machines/windows/migration-classic-resource-manager-overview.md
+[migrate-iaas]: ../virtual-machines/migration-classic-resource-manager-overview.md
 [join-windows]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
 [troubleshoot-domain-join]: troubleshoot-domain-join.md

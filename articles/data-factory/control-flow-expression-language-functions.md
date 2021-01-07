@@ -3,19 +3,19 @@ title: Azure Data Factory의 식과 함수
 description: 이 문서에서는 Data Factory 엔터티 만들기에 사용할 수 있는 식과 함수에 대한 정보를 제공합니다.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 24347d86a99251d0bf02d5ea5cb6985df5814b29
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3c966f0efc51a3b2fa8908e060b4031ae1ad1e50
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635187"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500022"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 
@@ -68,7 +68,7 @@ ms.locfileid: "92635187"
 ### <a name="complex-expression-example"></a>복합 식 예
 아래 예에서 작업 출력의 심층 하위 필드를 참조하는 복잡한 예를 보여 줍니다. 하위 필드로 계산되는 파이프라인 매개 변수를 참조하려면 subfield1 및 subfield2의 경우와 같이 점(.) 연산자 대신 [] 구문을 사용합니다.
 
-@activity(' *activityName* '). 출력. *subfield1* . *subfield2* [pipeline (). parameters. *subfield3* ]. *subfield4*
+@activity('*activityName*'). 출력. *subfield1*. *subfield2*[pipeline (). parameters.*subfield3*]. *subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 세트
 다음 예제에서는 BlobDataset은 **경로** 라는 매개 변수를 사용합니다. `dataset().path` 식을 사용하여 **folderPath** 속성에 대한 값을 설정하도록 해당 값을 사용합니다. 
@@ -298,7 +298,7 @@ add(<summand_1>, <summand_2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1* >, < *summand_2*> | 예 | 정수, 부동 소수점 수 또는 혼합 | 더할 값 |
+| <*summand_1*>, <*summand_2*> | 예 | 정수, 부동 소수점 수 또는 혼합 | 더할 값 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -541,7 +541,7 @@ and(<expression1>, <expression2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1* >, < *식 2*> | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -599,7 +599,7 @@ array('<value>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *value* >] | Array | 단일 지정 입력을 포함하는 배열 |
+| [<*value*>] | Array | 단일 지정 입력을 포함하는 배열 |
 ||||
 
 *예제*
@@ -785,7 +785,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object_1* >, < *object_2* >, ... | 예 | Any, 형식을 혼합할 수 있음 | Null인지 검사할 하나 이상의 항목 |
+| <*object_1*>, <*object_2*>, ... | 예 | Any, 형식을 혼합할 수 있음 | Null인지 검사할 하나 이상의 항목 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -821,7 +821,7 @@ concat('<text1>', '<text2>', ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text1* >, < *text2* >, ... | 예 | String | 결합할 적어도 두 개의 문자열 |
+| <*text1*>, <*text2*>, ... | 예 | String | 결합할 적어도 두 개의 문자열 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1025,12 +1025,12 @@ createArray('<object1>', '<object2>', ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1* >, < *object2* >, ... | 예 | 모두, 그러나 혼합은 안 됨 | 배열을 만들 적어도 두 개의 항목 |
+| <*object1*>, <*object2*>, ... | 예 | 모두, 그러나 혼합은 안 됨 | 배열을 만들 적어도 두 개의 항목 |
 |||||
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *object1* >, < *object2* >, ...] | Array | 모든 입력 항목에서 만든 배열 |
+| [<*object1*>, <*object2*>, ...] | Array | 모든 입력 항목에서 만든 배열 |
 ||||
 
 *예제*
@@ -1486,7 +1486,7 @@ equals('<object1>', '<object2>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1* >, < *object2*> | 예 | 다양 | 비교할 값, 식 또는 개체 |
+| <*object1*>, <*object2*> | 예 | 다양 | 비교할 값, 식 또는 개체 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -1980,7 +1980,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1* >, < *collection2* >, ... | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | 공통 항목 *만* 원하는 컬렉션 |
+| <*collection1*>, <*collection2*>, ... | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | 공통 항목 *만* 원하는 컬렉션 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2016,7 +2016,7 @@ join([<collection>], '<delimiter>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter* >... | String | 지정한 배열의 모든 항목에서 만든 결과 문자열 |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | 지정한 배열의 모든 항목에서 만든 결과 문자열 |
 ||||
 
 *예제*
@@ -2215,8 +2215,8 @@ max([<number1>, <number2>, ...])
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1* >, < *number2* >, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 집합 |
-| [< *number1* >, < *number2* >, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 배열 |
+| <*number1*>, <*number2*>, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 집합 |
+| [<*number1*>, <*number2*>, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 높은 값을 원하는 숫자의 배열 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2248,8 +2248,8 @@ min([<number1>, <number2>, ...])
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1* >, < *number2* >, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 집합 |
-| [< *number1* >, < *number2* >, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 배열 |
+| <*number1*>, <*number2*>, ... | 예 | 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 집합 |
+| [<*number1*>, <*number2*>, ...] | 예 | 배열 - 정수, 부동 소수점 수 또는 둘 다 | 가장 낮은 값을 원하는 숫자의 배열 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2397,7 +2397,7 @@ or(<expression1>, <expression2>)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1* >, < *식 2*> | 예 | 부울 | 검사할 식 |
+| <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2482,7 +2482,7 @@ range(<startIndex>, <count>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *range-result* >] | Array | 지정한 인덱스에서 시작하는 정수를 포함하는 배열 |
+| [<*range-result*>] | Array | 지정한 인덱스에서 시작하는 정수를 포함하는 배열 |
 ||||
 
 *예제*
@@ -2545,7 +2545,7 @@ skip([<collection>], <count>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *updated-collection* >] | Array | 지정한 항목을 제거한 후 업데이트된 컬렉션 |
+| [<*updated-collection*>] | Array | 지정한 항목을 제거한 후 업데이트된 컬렉션 |
 ||||
 
 *예제*
@@ -2576,7 +2576,7 @@ split('<text>', '<delimiter>')
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| [< *substring1* >,< *substring2* >,...] | Array | 원래 문자열의 하위 문자열이 포함된 배열(쉼표로 구분됨)입니다. |
+| [<*substring1*>,<*substring2*>,...] | Array | 원래 문자열의 하위 문자열이 포함된 배열(쉼표로 구분됨)입니다. |
 ||||
 
 *예제*
@@ -2892,7 +2892,7 @@ take([<collection>], <count>)
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |
-| <*subset* > or [< *subset* >] | 각각 문자열 또는 배열 | 원본 컬렉션의 앞에서 가져온 지정한 수의 항목을 포함하는 문자열 또는 배열 |
+| <*subset*> or [<*subset*>] | 각각 문자열 또는 배열 | 원본 컬렉션의 앞에서 가져온 지정한 수의 항목을 포함하는 문자열 또는 배열 |
 ||||
 
 *예제*
@@ -3034,7 +3034,7 @@ union([<collection1>], [<collection2>], ...)
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1* >, < *collection2* >, ...  | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | *모든* 항목을 원하는 컬렉션 |
+| <*collection1*>, <*collection2*>, ...  | 예 | 배열 또는 개체, 그러나 둘 다는 아님 | *모든* 항목을 원하는 컬렉션 |
 |||||
 
 | 반환 값 | Type | Description |
@@ -3159,7 +3159,7 @@ uriComponentToString('http%3A%2F%2Fcontoso.com')
 utcNow('<format>')
 ```
 
-선택적으로 < *format* > 매개 변수를 사용하여 다른 형식을 지정할 수 있습니다.
+선택적으로 <*format*> 매개 변수를 사용하여 다른 형식을 지정할 수 있습니다.
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -3271,7 +3271,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | 단일 노드만이 지정한 XPath 식과 일치하는 경우 XML 노드 |
 | <*value*> | 모두 | 단일 값만이 지정한 XPath 식과 일치하는 경우 XML 노드의 값 |
-| [< *xml-node1* >, < *xml-node2* >, ...] </br>또는 </br>[< *value1* >, < *value2* >, ...] | Array | 지정한 XPath 식과 일치하는 XML 노드 또는 값을 가진 배열 |
+| [<*xml-node1*>, <*xml-node2*>, ...] </br>또는 </br>[<*value1*>, <*value2*>, ...] | Array | 지정한 XPath 식과 일치하는 XML 노드 또는 값을 가진 배열 |
 ||||
 
 *예제 1*

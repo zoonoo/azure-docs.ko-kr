@@ -2,20 +2,20 @@
 title: Azure AD Domain Services에 대 한 복제본 집합 개념 Microsoft Docs
 description: Azure Active Directory Domain Services 된 복제본 집합 및 id 서비스를 필요로 하는 응용 프로그램에 중복성을 제공 하는 방법에 대해 알아봅니다.
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: joflore
-ms.openlocfilehash: 499f4df303993d97ebb4eb38de98828b085aff00
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: justinha
+ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961071"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620038"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>복제본이 Azure Active Directory Domain Services (미리 보기)에 대 한 개념 및 기능을 설정 합니다.
 
@@ -54,7 +54,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인을 
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
-관리 되는 도메인에 대 한 기본 SKU는 여러 복제본 집합을 지 원하는 *Enterprise* SKU입니다. *표준* SKU로 변경한 경우 추가 복제본 집합을 만들려면 [관리 되는 도메인](change-sku.md) 을 *Enterprise* 또는 *Premium*으로 업그레이드 합니다.
+관리 되는 도메인에 대 한 기본 SKU는 여러 복제본 집합을 지 원하는 *Enterprise* SKU입니다. *표준* SKU로 변경한 경우 추가 복제본 집합을 만들려면 [관리 되는 도메인](change-sku.md) 을 *Enterprise* 또는 *Premium* 으로 업그레이드 합니다.
 
 미리 보기 중에 지원 되는 최대 복제본 집합 수는 관리 되는 도메인을 만들 때 생성 되는 첫 번째 복제본을 포함 하 여 4입니다.
 

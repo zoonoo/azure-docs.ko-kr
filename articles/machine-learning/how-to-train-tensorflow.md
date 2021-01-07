@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9b8d48139e6cbabfbc5bf63f85d2d03c64d7efd9
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 41231e19960edfe1a4f0521b8738fa62a463c927
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542289"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796468"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 모델 학습
 
@@ -216,26 +216,26 @@ src = ScriptRunConfig(source_directory=script_folder,
 ScriptRunConfig를 사용 하 여 작업을 구성 하는 방법에 대 한 자세한 내용은 [학습 실행 구성 및 제출](how-to-set-up-training-targets.md)을 참조 하세요.
 
 > [!WARNING]
-> 이전에 TensorFlow 평가기를 사용 하 여 TensorFlow 교육 작업을 구성한 경우 Azure ML SDK의 이후 릴리스에서는 추정가 더 이상 사용 되지 않습니다. Azure ML SDK >= 1.15.0를 사용 하는 경우 ScriptRunConfig는 DL 프레임 워크를 사용 하 여 학습 작업을 구성 하는 데 권장 되는 방법입니다.
+> 이전에 TensorFlow 평가기를 사용 하 여 TensorFlow 교육 작업을 구성한 경우 1.19.0 SDK 릴리스를 통해 추정가 사용 되지 않도록 설정 되어 있는지 확인 하세요. Azure ML SDK >= 1.15.0를 사용 하 여 심층 학습 프레임 워크를 사용 하는 것을 포함 하 여 학습 작업을 구성 하는 데 ScriptRunConfig가 권장 됩니다. 일반적인 마이그레이션 질문은 [평가기 To ScriptRunConfig 마이그레이션 가이드](how-to-migrate-from-estimators-to-scriptrunconfig.md)를 참조 하세요.
 
 ### <a name="submit-a-run"></a>실행 제출
 
 [실행 개체](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) 는 작업이 실행 되는 동안 그리고 작업이 완료 된 후 실행 기록에 인터페이스를 제공 합니다.
 
 ```Python
-run = Experiment(workspace=ws, name='tf-mnist').submit(src)
+run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 ### <a name="what-happens-during-run-execution"></a>실행 실행 중 수행 되는 작업
 실행이 실행 되 면 다음 단계를 거칩니다.
 
-- **준비** : 정의 된 환경에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다. 큐 레이트 환경을 대신 지정 하면 해당 큐 레이트 환경을 지 원하는 캐시 된 이미지가 사용 됩니다.
+- **준비**: 정의 된 환경에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다. 큐 레이트 환경을 대신 지정 하면 해당 큐 레이트 환경을 지 원하는 캐시 된 이미지가 사용 됩니다.
 
-- **크기 조정** : 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
+- **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중** : 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, `script` 이 실행 됩니다. Stdout의 출력과 **./clogs** 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, `script` 이 실행 됩니다. Stdout의 출력과 **./clogs** 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
-- **사후 처리** : 실행의 **./출력** 폴더가 실행 기록에 복사 됩니다.
+- **사후 처리**: 실행의 **./출력** 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="register-or-download-a-model"></a>모델 등록 또는 다운로드
 
@@ -289,7 +289,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Azure ML에서 MPI/Horovod를 사용 하 여 분산 작업을 실행 하려면 [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 MpiConfiguration를 지정 해야 합니다. 아래 코드에서는 노드당 하나의 프로세스를 실행 하는 2 노드 분산 작업을 구성 합니다. 노드당 여러 프로세스를 실행 하려는 경우 (즉, 클러스터 SKU에 여러 Gpu가 있는 경우) `process_count_per_node` MpiConfiguration에서 매개 변수를 추가로 지정 합니다 (기본값은 `1` ).
+Azure ML에서 MPI/Horovod를 사용 하 여 분산 작업을 실행 하려면 [](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 MpiConfiguration를 지정 해야 합니다. 아래 코드에서는 노드당 하나의 프로세스를 실행 하는 2 노드 분산 작업을 구성 합니다. 노드당 여러 프로세스를 실행 하려는 경우 (즉, 클러스터 SKU에 여러 Gpu가 있는 경우) `process_count_per_node` MpiConfiguration에서 매개 변수를 추가로 지정 합니다 (기본값은 `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -309,7 +309,7 @@ Azure ML에서 Horovod로 distributed TensorFlow를 실행 하는 방법에 대 
 
 교육 코드에서 [네이티브 Distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) (예: TensorFlow 2.X의 API)를 사용 하는 경우 `tf.distribute.Strategy` Azure ML을 통해 분산 작업을 시작할 수도 있습니다. 
 
-이렇게 하려면 [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 TensorflowConfiguration를 지정 합니다. 를 사용 하는 경우 `tf.distribute.experimental.MultiWorkerMirroredStrategy` `worker_count` 학습 작업에 대 한 노드 수에 해당 하는 TensorflowConfiguration에서을 지정 합니다.
+이렇게 하려면 [](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) `distributed_job_config` ScriptRunConfig 생성자의 매개 변수에 TensorflowConfiguration를 지정 합니다. 를 사용 하는 경우 `tf.distribute.experimental.MultiWorkerMirroredStrategy` `worker_count` 학습 작업에 대 한 노드 수에 해당 하는 TensorflowConfiguration에서을 지정 합니다.
 
 ```python
 import os

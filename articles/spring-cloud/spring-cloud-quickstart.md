@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505294"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96750903"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
 
@@ -218,10 +218,10 @@ Visual Studio에서 API 프로젝트 템플릿을 사용하여 "hello-world"라�
 
 1. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
 
-   * **구독** : 이 리소스 대한 요금이 청구될 구독을 선택합니다.
-   * **리소스 그룹** : 새 리소스 그룹을 만듭니다. 여기에 입력하는 이름은 이후 단계에서 **\<resource group name\>** 으로 사용됩니다.
-   * **서비스 세부 정보/이름** : **\<service instance name\>** 을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
-   * **지역** : 서비스 인스턴스에 대한 지역을 선택합니다.
+   * **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.
+   * **리소스 그룹**: 새 리소스 그룹을 만듭니다. 여기에 입력하는 이름은 이후 단계에서 **\<resource group name\>** 으로 사용됩니다.
+   * **서비스 세부 정보/이름**: **\<service instance name\>** 을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+   * **지역**: 서비스 인스턴스에 대한 지역을 선택합니다.
 
    ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -352,6 +352,9 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 
   ![Initializr 페이지](media/spring-cloud-quickstart-java/initializr-page.png)
 
+> [!NOTE]
+> 앱과 Eureka 간의 TLS 인증에 대한 Spring Boot 2.4의 문제를 확인했으며 현재 Spring 커뮤니티와 협력하여 문제를 해결하고 있습니다. 해결 방법은 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development)를 참조하세요.
+
 1. 모든 종속성이 설정된 경우 **생성** 을 클릭합니다. 패키지를 다운로드하고 압축을 푼 다음, 다음과 같이 `src/main/java/com/example/hellospring/HelloController.java`를 추가하여 간단한 웹 애플리케이션에 대한 웹 컨트롤러를 만듭니다.
 
     ```java
@@ -387,10 +390,10 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
     ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
-    - **구독** : 이 리소스 대한 요금이 청구될 구독을 선택합니다.
-    - **리소스 그룹** : 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이는 **\<resource group name\>** 으로 이후 단계에서 사용됩니다.
-    - **서비스 세부 정보/이름** : **\<service instance name\>** 을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
-    - **위치** : 서비스 인스턴스에 대한 지역을 선택합니다.
+    - **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.
+    - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다. 이는 **\<resource group name\>** 으로 이후 단계에서 사용됩니다.
+    - **서비스 세부 정보/이름**: **\<service instance name\>** 을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+    - **위치**: 서비스 인스턴스에 대한 지역을 선택합니다.
 
     ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 

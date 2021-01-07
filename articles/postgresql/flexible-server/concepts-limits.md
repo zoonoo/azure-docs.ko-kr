@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366641"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937664"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
 
@@ -116,6 +116,7 @@ ms.locfileid: "94366641"
 
 * Azure AD 인증은 아직 지원 되지 않습니다. Azure AD 인증이 필요한 경우에는 [단일 서버](../overview-single-server.md) 옵션을 사용 하는 것이 좋습니다.
 * 읽기 복제본은 아직 지원 되지 않습니다. 읽기 복제본이 필요한 경우에는 [단일 서버](../overview-single-server.md) 옵션을 사용 하는 것이 좋습니다.
+* 리소스를 다른 구독으로 이동 하는 것은 지원 되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

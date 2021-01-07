@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c301ed2b612c2f3a7aca40ed5ed733800323adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf79fe8766d36fe59595be43250341d49b5460c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231047"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554648"
 ---
 사용자 고유의 키를 사용하여 각 관리 디스크 수준에서 암호화를 관리할 수 있습니다. 고객 관리형 키를 사용하는 관리 디스크에 대한 서버 쪽 암호화는 Azure Key Vault와의 통합 환경을 제공합니다. [사용자의 RSA 키](../articles/key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다. 
 
@@ -44,4 +44,4 @@ Ultra disks의 경우: 키를 사용 하지 않도록 설정 하거나 삭제 �
 1. 관리 디스크는 관리 ID를 사용하여 Azure Key Vault에 요청을 보냅니다.
 1. 데이터를 읽거나 쓰는 경우 관리 디스크는 데이터 암호화 및 암호 해독을 수행하기 위해 데이터 암호화 키를 암호화(래핑)하고 해독(래핑 해제)하는 요청을 Azure Key Vault로 보냅니다. 
 
-고객 관리형 키에 대한 액세스를 취소하려면 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 및 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Storage에서 암호화 키에 액세스할 수 없으므로 스토리지 계정의 모든 데이터에 대한 액세스가 효과적으로 차단됩니다.
+고객 관리형 키에 대한 액세스를 취소하려면 [Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) 및 [Azure Key Vault CLI](/cli/azure/keyvault)를 참조하세요. 액세스를 취소하면 Azure Storage에서 암호화 키에 액세스할 수 없으므로 스토리지 계정의 모든 데이터에 대한 액세스가 효과적으로 차단됩니다.

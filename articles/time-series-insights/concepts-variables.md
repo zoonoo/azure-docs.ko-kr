@@ -6,18 +6,18 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: dc03a74bfad5b1417eb9cc20b5f211718cc08646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653709"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020762"
 ---
 # <a name="time-series-model-variables"></a>시계열 모델 변수
 
 이 문서에서는 이벤트에 대 한 수식 및 계산 규칙을 지정 하는 시계열 모델 변수에 대해 설명 합니다.
 
-각 변수는 *숫자*, *범주*및 *집계*의 세 가지 종류 중 하나일 수 있습니다.
+각 변수는 *숫자*, *범주* 및 *집계* 의 세 가지 종류 중 하나일 수 있습니다.
 
 * **숫자** 종류는 연속 숫자 값으로 작동 합니다.
 * **범주** 종류는 불연속 된 불연속 값 집합을 사용 합니다.
@@ -29,12 +29,12 @@ ms.locfileid: "91653709"
 
 ## <a name="numeric-variables"></a>숫자 변수
 
-| 변수 속성 | 설명 |
+| 변수 속성 | Description |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
-| 변수 값 | 계산에 사용 되는 원격 분석 값은 장치 또는 센서에서 발생 하거나 시계열 식을 사용 하 여 변환 됩니다. 숫자 종류 변수는 *Double*형식 이어야 합니다.|
+| 변수 값 | 계산에 사용 되는 원격 분석 값은 장치 또는 센서에서 발생 하거나 시계열 식을 사용 하 여 변환 됩니다. 숫자 종류 변수는 *Double* 형식 이어야 합니다.|
 | 변수 보간 | 보간은 기존 데이터를 사용 하 여 신호를 다시 생성 하는 방법을 지정 합니다. 숫자 변수에는 *단계* 및 *선형* 보간 옵션을 사용할 수 있습니다. |
-| 변수 집계 | [숫자 변수 종류에 대해](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind)지원 되는 집계 함수를 통해 계산을 수행 합니다. |
+| 변수 집계 | [숫자 변수 종류에 대해](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind)지원 되는 집계 함수를 통해 계산을 수행 합니다. |
 
 변수는 다음 JSON 예제를 따릅니다.
 
@@ -59,10 +59,10 @@ ms.locfileid: "91653709"
 
 ## <a name="categorical-variables"></a>범주 변수
 
-| 변수 속성 | 설명 |
+| 변수 속성 | Description |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
-| 변수 값 | 장치 또는 센서에서 들어오는 계산에 사용 되는 원격 분석 값입니다. 범주 종류 변수는 *Long* 또는 *String*이어야 합니다. |
+| 변수 값 | 장치 또는 센서에서 들어오는 계산에 사용 되는 원격 분석 값입니다. 범주 종류 변수는 *Long* 또는 *String* 이어야 합니다. |
 | 변수 보간 | 보간은 기존 데이터를 사용 하 여 신호를 다시 생성 하는 방법을 지정 합니다. *단계* 보간 옵션은 범주 변수에 사용할 수 있습니다. |
 | 변수 범주 | 범주는 장치 또는 센서에서 가져온 값 간의 매핑을 레이블으로 만듭니다. |
 | 변수 기본 범주 | 기본 범주는 "범주" 속성에서 매핑되지 않는 모든 값에 대 한 것입니다. |
@@ -99,10 +99,10 @@ ms.locfileid: "91653709"
 
 ## <a name="aggregate-variables"></a>집계 변수
 
-| 변수 속성 | 설명 |
+| 변수 속성 | Description |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려 되는 행 수를 제한 하는 선택적 조건 절입니다. |
-| 변수 집계 | [집계 변수 종류에 대해](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind)지원 되는 집계 함수를 통해 계산을 수행 합니다. |
+| 변수 집계 | [집계 변수 종류에 대해](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind)지원 되는 집계 함수를 통해 계산을 수행 합니다. |
 
 변수는 다음 JSON 예제를 따릅니다.
 

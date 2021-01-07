@@ -1,20 +1,20 @@
 ---
-title: 가상 머신 및 디스크 성능
-description: Vm 및 연결 된 디스크가 성능에 대해 조합 하 여 작동 하는 방법에 대 한 자세한 정보
+title: 가상 컴퓨터 및 디스크 성능-Windows
+description: Windows의 성능에 대 한 가상 컴퓨터 및 연결 된 디스크의 작동 방식에 대해 자세히 알아보세요.
 author: albecker1
 ms.author: albecker
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 88cf9c28a9d325d617f4b049015f0cd238a2fb31
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: dec8b0cc33a9fffa7cac1ac9261b3c38ef5a6449
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016462"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584122"
 ---
-# <a name="virtual-machine-and-disk-performance"></a>가상 머신 및 디스크 성능
+# <a name="virtual-machine-and-disk-performance-windows"></a>가상 컴퓨터 및 디스크 성능 (Windows)
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance.md)]
 
 ## <a name="virtual-machine-uncached-vs-cached-limits"></a>가상 컴퓨터 캐시 되지 않은 및 캐시 된 제한

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565541"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462930"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
@@ -21,7 +21,7 @@ ms.locfileid: "94565541"
 파트너 센터의 사용량 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 사용량 분석을 선택 **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Usage** 합니다.
 
 >[!NOTE]
-> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+> 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
 
 ## <a name="usage-dashboard"></a>사용량 대시보드
 
@@ -171,13 +171,13 @@ VM Raw 사용에 대 한 위젯 및 내보내기 보고서는 다음과 같은 �
 
 **요금제** 사용량 탭에는 측정기 별 사용량을 측정 하는 제품 유형에 대 한 사용 정보가 표시 됩니다. 현재는 SaaS 제품 유형 초과분이 표시됩니다. 이 탭은 SaaS 요금 청구 사용량에 대한 초과 추세를 그래픽으로 나타냅니다.
 
-- **미터 크기별 초과 추세** : 제품의 선택한 미터 크기에 대한 월별 초과 추세를 표시합니다. X 축은 월을 나타내고 Y 축은 초과분 사용 수량을 나타냅니다. 사용자 지정 미터의 측정 단위도 Y축에 표시됩니다.
+- **미터 크기별 초과 추세**: 제품의 선택한 미터 크기에 대한 월별 초과 추세를 표시합니다. X 축은 월을 나타내고 Y 축은 초과분 사용 수량을 나타냅니다. 사용자 지정 미터의 측정 단위도 Y축에 표시됩니다.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage.png" alt-text="사용 대시보드의 VM 정규화 된 사용 현황 차트를 보여 줍니다.":::
 
-- **Sku 별 초과분 추세** : sku/요금제로 선택한 미터 차원의 사용 수량 추세를 나타냅니다. 선택한 제품에 대 한 사용량이 가장 많은 상위 5 개 요금제가 표시 됩니다.
+- **Sku 별 초과분 추세**: sku/요금제로 선택한 미터 차원의 사용 수량 추세를 나타냅니다. 선택한 제품에 대 한 사용량이 가장 많은 상위 5 개 요금제가 표시 됩니다.
 
-- **고객에의 한 초과분 추세** : 고객 리더 보드는 사용 시간이 가장 높은 고객의 누적 목록을 나타내며, _리더 보드_ 에 표시 되며 사용자 지정 측정기의 최고 사용량을 기준으로 순위가 지정 됩니다. 선택한 측정기 차원의 초과분 사용량 추세를 보려면 리더 보드의 고객을 선택 합니다.
+- **고객에의 한 초과분 추세**: 고객 리더 보드는 사용 시간이 가장 높은 고객의 누적 목록을 나타내며, _리더 보드_ 에 표시 되며 사용자 지정 측정기의 최고 사용량을 기준으로 순위가 지정 됩니다. 선택한 측정기 차원의 초과분 사용량 추세를 보려면 리더 보드의 고객을 선택 합니다.
 
     :::image type="content" source="./media/usage-dashboard/metered-usage-by-customers.png" alt-text="사용량 대시보드에서 고객 차트의 요금제 사용량을 보여 줍니다.":::
 
@@ -194,4 +194,4 @@ VM Raw 사용에 대 한 위젯 및 내보내기 보고서는 다음과 같은 �
 - VM (가상 컴퓨터)은 사용량 및 요금제 청구 메트릭을 제공 합니다. [상용 marketplace 분석의 사용량 대시보드](usage-dashboard.md)를 참조 하세요.
 - 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
 - Azure Marketplace 및 Microsoft AppSource에서 제공 하는 제품에 대 한 고객 피드백의 통합 보기를 보려면 [파트너 센터에서 등급 & 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조 하세요.
-- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./partner-center-portal/faq-terminology.md)을 참조 하세요.
+- 상용 marketplace 분석 및 데이터 용어의 포괄적인 사전에 대 한 질문과 대답은 [상용 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.

@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657640"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912759"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속
 
@@ -50,7 +50,7 @@ SQL을 사용 하 여 쿼리 가속 요청에서 행 필터 조건자 및 열 �
 
 쿼리 가속은 응용 프로그램에서 전송 및 처리 하는 데이터의 양을 줄여 성능을 최적화 합니다.
 
-집계 된 값을 계산 하기 위해 응용 프로그램은 일반적으로 파일의 **모든** 데이터를 검색 한 다음 데이터를 로컬로 처리 하 고 필터링 합니다. 분석 워크 로드에 대 한 입/출력 패턴의 분석은 일반적으로 응용 프로그램에 지정 된 계산을 수행 하기 위해 읽는 데이터의 20%만 필요 함을 나타냅니다. 이 통계는 [파티션 정리](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning)와 같은 기술을 적용 한 후에도 마찬가지입니다. 즉, 해당 데이터의 80%는 네트워크를 통해 불필요 하 게 전송 되 고, 구문 분석 되 고, 응용 프로그램에 의해 필터링 됩니다. 기본적으로 불필요 한 데이터를 제거 하도록 디자인 된이 패턴은 상당한 계산 비용을 발생 시킵니다.  
+집계 된 값을 계산 하기 위해 응용 프로그램은 일반적으로 파일의 **모든** 데이터를 검색 한 다음 데이터를 로컬로 처리 하 고 필터링 합니다. 분석 워크 로드에 대 한 입/출력 패턴의 분석은 일반적으로 응용 프로그램에 지정 된 계산을 수행 하기 위해 읽는 데이터의 20%만 필요 함을 나타냅니다. 이 통계는 [파티션 정리](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning)와 같은 기술을 적용 한 후에도 마찬가지입니다. 즉, 해당 데이터의 80%는 네트워크를 통해 불필요 하 게 전송 되 고, 구문 분석 되 고, 응용 프로그램에 의해 필터링 됩니다. 기본적으로 불필요 한 데이터를 제거 하도록 디자인 된이 패턴은 상당한 계산 비용을 발생 시킵니다.  
 
 Azure가 업계 최고의 네트워크를 사용 하는 경우에도 처리량과 대기 시간 측면에서 네트워크를 통해 불필요 하 게 데이터를 전송 하는 것은 응용 프로그램 성능에 비용이 많이 듭니다. 저장소 요청 중 원치 않는 데이터를 필터링 하면 쿼리 가속이이 비용을 제거 합니다.
 
@@ -76,5 +76,3 @@ Azure Data Lake Storage 서비스 내에서 계산 부하가 증가 함에 따�
 
 - [Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)
 - [쿼리 가속 SQL 언어 참조](query-acceleration-sql-reference.md)
-
-

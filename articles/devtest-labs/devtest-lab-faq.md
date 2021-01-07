@@ -3,12 +3,12 @@ title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328388"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590276"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -165,12 +165,12 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 Azure DevOps Projects 내에서 특정 프로젝트에 대해 랩을 사용할 수도 있습니다. 그리고 지정된 Azure Active Directory 그룹을 통해 보안을 적용하면 두 리소스 집합에 모두 액세스할 수 있습니다. 랩에 할당된 가상 네트워크가 사용자를 통합하는 또 다른 경계로 사용될 수도 있습니다.
 
 ### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>랩 내에서 리소스 삭제를 방지하려면 어떻게 해야 하나요?
-권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자**여야 합니다. 랩 소유자는 두 명만 지정하는 것이 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자는 리소스를 사용할 수는 있지만 랩 정책을 업데이트할 수는 없습니다. 각 기본 그룹이 랩 내에서 소유하는 역할과 권한 목록이 나열된 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
+권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자** 여야 합니다. 랩 소유자는 두 명만 지정하는 것이 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자는 리소스를 사용할 수는 있지만 랩 정책을 업데이트할 수는 없습니다. 각 기본 그룹이 랩 내에서 소유하는 역할과 권한 목록이 나열된 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>랩에 대한 직접 링크를 공유하려면 어떻게 합니까?
 
 1. [Azure Portal](https://portal.azure.com)에서 랩으로 이동합니다.
-2. 브라우저에서 **랩 URL**을 복사한 다음, 랩 사용자와 공유합니다.
+2. 브라우저에서 **랩 URL** 을 복사한 다음, 랩 사용자와 공유합니다.
 
 > [!NOTE]
 > 랩 사용자가 Microsoft 계정이 있지만 조직의 Active Directory 인스턴스의 구성원이 아닌 외부 사용자인 경우 공유 링크에 액세스하려고 할 때 사용자는 오류 메시지를 볼 수 있습니다. 외부 사용자가 오류 메시지를 확인하는 경우 사용자에게 먼저 Azure Portal의 오른쪽 위 모서리에서 해당 이름을 선택하도록 요청하세요. 그런 다음, 메뉴의 디렉터리 섹션에서 사용자는 랩이 있는 디렉터리를 선택할 수 있습니다.
@@ -278,12 +278,12 @@ foreach($labVM in $labVMs)
 랩과 연결된 대상 스토리지 계정을 찾으려면:
 
 1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+2.  왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
 3.  랩과 연결된 리소스 그룹을 찾고 선택합니다.
 4.  **개요** 아래에서 스토리지 계정 중 하나를 선택합니다.
-5.  **Blob**을 선택합니다.
+5.  **Blob** 을 선택합니다.
 6.  목록에서 업로드를 찾습니다. 항목이 없으면 4단계로 돌아가서 다른 스토리지 계정을 시도합니다.
-7.  AzCopy 명령에서 대상으로 **URL**을 사용합니다.
+7.  AzCopy 명령에서 대상으로 **URL** 을 사용합니다.
 
 Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 각각 어떤 경우에 사용해야 하나요?
 
@@ -318,7 +318,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 - Azure 구독이 인증 및 권한 부여에 사용하는 동일한 Azure Active Directory 테넌트에 Azure Repos를 연결합니다.
 - Azure Active Directory에 중앙에서 관리되는 `All DevTest Labs Developers`라는 그룹을 만듭니다. 아티팩트 개발에 참여하는 모든 개발자는 이 그룹에 배치되어야 합니다.
 - 동일한 Azure Active Directory 그룹을 사용하여 Azure Repos 리포지토리 및 랩에 대한 액세스 권한을 부여할 수 있습니다.
-- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절한 코드 검토 후에 끌어오기 요청을 통해서만 마스터 분기에 추가됩니다. 코드 검토자가 변경을 승인하면 마스터 분기의 유지 관리를 담당하는 수석 개발자가 업데이트된 코드를 병합합니다.
+- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절 한 코드 검토 후 끌어오기 요청을 사용 하 여 주 분기에만 추가 됩니다. 코드 검토자가 변경 내용을 승인 하면 main 분기의 유지 관리를 담당 하는 리드 개발자가 업데이트 된 코드를 병합 합니다.
 
 ## <a name="cicd-integration"></a>CI/CD 통합
 

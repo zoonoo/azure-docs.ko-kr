@@ -7,18 +7,19 @@ author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1daba0819e0164602ae78ece87421834f36fb09a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83660572"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967825"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -73,7 +74,7 @@ DR 사이트로 장애 조치(failover)할 때 고려할 두 가지 경우가 �
 
 다음 단계에서는 복원된 스토리지 스냅샷 및 사용 가능한 트랜잭션 로그 백업에 따라 SAP HANA 프로덕션 인스턴스를 복구하는 방법을 보여줍니다.
 
-1. SAP HANA Studio를 사용하여 백업 위치를 **/hana/logbackups**로 변경합니다.
+1. SAP HANA Studio를 사용하여 백업 위치를 **/hana/logbackups** 로 변경합니다.
 
    ![DR 복구의 백업 위치 변경](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
@@ -84,11 +85,11 @@ DR 사이트로 장애 조치(failover)할 때 고려할 두 가지 경우가 �
 1. 일부 기본 설정을 조정합니다.
 
       - **델타 백업 사용** 선택을 취소합니다.
-      - **로그 영역 초기화**를 선택합니다.
+      - **로그 영역 초기화** 를 선택합니다.
 
    ![로그 영역 초기화 설정](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-1. **마침**을 선택합니다.
+1. **마침** 을 선택합니다.
 
    ![DR 복원 완료](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 

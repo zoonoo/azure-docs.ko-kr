@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3f84f3121d9982205ecf51ec64cfe332b6a5ad42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 786fcd1a0c6d7df2c38a086a830a63f7179d7d40
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945925"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352510"
 ---
 # <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 Azure Defender for IoT 서비스 등록
 
-이 문서에서는 기존 IoT Hub에서 Defender for IoT 서비스를 사용하도록 설정하는 방법에 대해 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)를 참조하세요.
+이 문서에서는 기존 IoT Hub에서 Defender for IoT 서비스를 사용하도록 설정하는 방법에 대해 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
 
 > [!NOTE]
 > Defender for IoT는 현재 표준 계층 IoT Hub만 지원합니다.
@@ -30,8 +30,8 @@ ms.locfileid: "90945925"
 ## <a name="prerequisites-for-enabling-the-service"></a>서비스를 사용하도록 설정하기 위한 필수 구성 요소
 
 - Log Analytics 작업 영역
-  - Defender for IoT는 기본적으로 **보안 경고** 및 **추천 사항**이라는 두 가지 유형의 정보를 Log Analytics 작업 영역에 저장합니다.
-  - 추가 정보 유형인 **원시 이벤트**의 스토리지를 추가하도록 선택할 수 있습니다. **원시 이벤트**를 Log Analytics에 저장하면 추가 스토리지 비용이 발생합니다.
+  - Defender for IoT는 기본적으로 **보안 경고** 및 **추천 사항** 이라는 두 가지 유형의 정보를 Log Analytics 작업 영역에 저장합니다.
+  - 추가 정보 유형인 **원시 이벤트** 의 스토리지를 추가하도록 선택할 수 있습니다. **원시 이벤트** 를 Log Analytics에 저장하면 추가 스토리지 비용이 발생합니다.
 - IoT Hub(표준 계층)
 - [서비스 필수 구성 요소](service-prerequisites.md) 모두 충족
 
@@ -39,8 +39,8 @@ ms.locfileid: "90945925"
 
 IoT Hub에서 보안을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. Azure Portal에서 **IoT Hub**를 엽니다.
-1. **보안** 메뉴 아래에서 **IoT 솔루션 보안**을 클릭합니다.
+1. Azure Portal에서 **IoT Hub** 를 엽니다.
+1. **보안** 메뉴 아래에서 **IoT 솔루션 보안** 을 클릭합니다.
 
 축하합니다! IoT Hub에서 Defender for IoT를 사용하도록 설정했습니다.
 
@@ -50,7 +50,7 @@ IoT 솔루션의 보안을 유지하기 위해 IoT 디바이스, IoT Edge 및 Io
 
 IP 주소 데이터 수집을 설정 또는 해제하는 방법은 다음과 같습니다.
 
-1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정**을 선택합니다.
+1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정** 을 선택합니다.
 1. **데이터 컬렉션** 화면을 선택하고 지리적 위치 및/또는 IP 처리 설정을 원하는 대로 수정합니다.
 
 ### <a name="log-analytics-creation"></a>Log Analytics 만들기
@@ -59,7 +59,7 @@ Defender for IoT가 켜져 있으면 IoT 디바이스, IoT Edge 및 IoT Hub에 �
 
 Log Analytics의 작업 영역 구성을 변경하는 방법은 다음과 같습니다.
 
-1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정**을 선택합니다.
+1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정** 을 선택합니다.
 1. **데이터 컬렉션** 화면을 선택하고 Log Analytics 설정의 작업 영역 구성을 원하는 대로 수정합니다.
 
 ### <a name="customize-your-iot-security-solution"></a>IoT 보안 솔루션 사용자 지정
@@ -68,7 +68,7 @@ Log Analytics의 작업 영역 구성을 변경하는 방법은 다음과 같습
 
 특정 IoT Hub에서 Defender for IoT 서비스를 켜거나 끄려면 다음을 수행합니다.
 
-1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정**을 선택합니다.
+1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정** 을 선택합니다.
 1. **데이터 컬렉션** 화면을 선택하고 Azure 구독에서 IoT 허브의 보안 설정을 원하는 대로 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: e302a8459d3092a5543efda7494c68d6660df39d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690819"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96353003"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
@@ -67,7 +67,7 @@ Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 
 Azure용 예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
-- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Azure용 예약 관리](manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](../manage/understand-vm-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)

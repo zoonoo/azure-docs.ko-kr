@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 007409d755da2d879297b4b898663dcbd9fd6d7f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 9386b154148cf5b5b6b7cd0b43f5a4b4aa741059
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329630"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96339696"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Event Hubs에 대 한 Azure 보안 기준
 
@@ -72,7 +72,7 @@ Azure Security Center에서 제공 하는 네트워크 보안 이해: https://do
 
 **지침**: DDoS (배포 된 서비스 거부) 공격 으로부터 보호 하기 위해 event hubs와 연결 된 가상 네트워크에서 DDoS Protection Standard를 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-DDoS 보호를 구성 하는 방법: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+DDoS 보호를 구성 하는 방법: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../ddos-protection/manage-ddos-protection.md)
 
 Azure Security Center 통합 된 위협 인텔리전스에 대 한 자세한 내용은 다음과 같습니다. https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 

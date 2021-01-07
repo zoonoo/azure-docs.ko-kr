@@ -13,11 +13,11 @@ ms.author: travisw
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-voice-assistants
 ms.openlocfilehash: 6e13864aa46ff1871aa18d8d33296b21b99d7047
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925432"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96187634"
 ---
 # <a name="quickstart-create-a-custom-voice-assistant"></a>빠른 시작: 사용자 지정 음성 도우미 만들기
 

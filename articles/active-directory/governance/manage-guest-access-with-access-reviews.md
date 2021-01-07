@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76aeb63feb006e6962efeb3687363f18acb59904
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783198"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746697"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -41,7 +41,12 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](../extern
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>게스트에 대한 액세스 검토 만들기 및 수행
 
-먼저 전역 관리자 또는 사용자 관리자는 [Id 거 버 넌 스 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) 이동 하 여 조직에 대 한 액세스 검토가 준비 되었는지 확인 합니다.
+먼저 다음 역할 중 하나를 할당 해야 합니다.
+- 전역 관리자
+- 사용자 관리자
+- 모드 검토할 그룹의 M365 또는 AAD 보안 그룹 소유자입니다.
+
+그런 다음 [Id 거 버 넌 스 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) 이동 하 여 조직에 대 한 액세스 검토가 준비 되었는지 확인 합니다.
 
 Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오를 지원합니다.
 

@@ -191,6 +191,8 @@
           href: use-managed-identities-environments.md
         - name: 환경의 보안 경고
           href: environment-security-alerts.md
+        - name: 애플리케이션 중심 환경 만들기
+          href: create-application-centric-environment.md
     - name: 재사용 가능한 템플릿 관리
       items:
         - name: 사용자 지정 이미지와 수식 비교

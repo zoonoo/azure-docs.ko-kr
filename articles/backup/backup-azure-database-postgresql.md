@@ -4,12 +4,12 @@ description: 장기 보존을 통한 Azure Database for PostgreSQL 백업에 대
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927892"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734643"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>장기 보존을 사용 하는 Azure Database for PostgreSQL 백업 (미리 보기)
 
@@ -31,7 +31,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 |지원  |세부 정보  |
 |---------|---------|
-|지원되는 배포   |  Azure Database for PostgreSQL 독립 실행형 단일 서버     |
+|지원되는 배포   |  [Azure Database for PostgreSQL - 단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |지원되는 Azure 지역 |  미국 동부, 미국 동부 2, 미국 중부, 미국 동부 2, 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 서 부, 캐나다 중부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 독일 중서부, 스위스 북부, 스위스 서부, 동아시아, 남부 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 인도 중부, 오스트레일리아 동부, 오스트레일리아 중부  |
 |지원 되는 Azure PostgreSQL 버전    |   9.5, 9.6, 10, 11      |
 
@@ -79,7 +79,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
         ![시작: 백업 구성에서 데이터 원본 유형을 선택 합니다.](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
-    1. 또는 [백업 자격 증명 모음](backup-vault-overview.md)백업으로 바로 이동할 수 있습니다  ->  **Backup** .
+    1. 또는 [백업 자격 증명 모음](backup-vault-overview.md)백업으로 바로 이동할 수 있습니다  ->  .
 
         ![백업 자격 증명 모음으로 이동](./media/backup-azure-database-postgresql/backup-vaults.png)
 
@@ -181,7 +181,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
 1. **복원 매개 변수** 를 입력 합니다. 이 시점에서 **데이터베이스** 복원 및 **파일로 복원** 의 두 가지 복원 중에서 선택할 수 있습니다.
 
-1. **데이터베이스로 복원** : 백업 데이터를 복원 하 여 대상 PostgreSQL 서버에 새 데이터베이스를 만듭니다.
+1. **데이터베이스로 복원**: 백업 데이터를 복원 하 여 대상 PostgreSQL 서버에 새 데이터베이스를 만듭니다.
 
     - 대상 서버는 원본 서버와 동일할 수 있습니다. 그러나 원본 데이터베이스를 덮어쓰는 것은 지원 되지 않습니다.
     - 서버는 모든 구독에서 선택할 수 있지만 자격 증명 모음과 동일한 지역에서 선택할 수 있습니다.
@@ -189,7 +189,7 @@ Azure Backup 및 Azure 데이터베이스 서비스는 최대 10 년 동안 백�
 
     ![데이터베이스로 복원](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **파일로 복원** : 대상 저장소 계정 (blob)에 백업 파일을 덤프 합니다.
+1. **파일로 복원**: 대상 저장소 계정 (blob)에 백업 파일을 덤프 합니다.
 
     - 저장소 계정은 모든 구독에서 선택할 수 있지만 자격 증명 모음과 동일한 지역에서 선택할 수 있습니다.
     - 선택한 저장소 계정에 대해 필터링 된 컨테이너 목록에서 대상 컨테이너를 선택 합니다.

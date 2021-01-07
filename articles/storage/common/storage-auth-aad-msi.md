@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/07/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 21b563bf383dce486de86bc51913feac7863d8e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: e58cbef74aa9b6f58207abf780fd63176d5edd7d
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635163"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680932"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 
@@ -50,6 +50,11 @@ Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개
 
 Azure AD 보안 주체가 blob 또는 큐 데이터에 액세스 하려는 경우 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지 여부에 관계 없이 보안 주체는 Azure Storage의 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 Azure 역할에 할당 되어야 합니다. Azure RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 azure blob 및 큐에](../common/storage-auth-aad.md#assign-azure-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 azure 역할 할당** 섹션을 참조 하세요
 
+> [!NOTE]
+> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 대 한 Azure 역할을 명시적으로 할당 해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+>
+> 사용자가 데이터 액세스에 대 한 역할을 할당 하기 전에 Azure Portal을 통해 저장소 계정의 데이터에 액세스할 수 있습니다. 또한 Azure Portal는 데이터 액세스를 위해 계정 키를 사용할 수 있기 때문입니다. 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-data-operations-portal.md)을 참조 하세요.
+
 ### <a name="authenticate-the-user-in-the-development-environment"></a>개발 환경에서 사용자 인증
 
 개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. 예를 들어 Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
@@ -71,7 +76,7 @@ Azure CLI를 사용 하 여 서비스 주체를 만들고 Azure 역할을 할당
 ```azurecli-interactive
 az ad sp create-for-rbac \
     --name <service-principal> \
-    --role "Storage Blob Data Reader" \
+    --role "Storage Blob Data Contributor" \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
@@ -166,3 +171,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 - [AZURE RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한을 관리](./storage-auth-aad-rbac-portal.md)합니다.
 - [저장소 응용 프로그램과 함께 AZURE AD를 사용](storage-auth-aad-app.md)합니다.
 - [Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 blob 데이터 액세스](../blobs/authorize-data-operations-powershell.md)
+- [자습서: 관리 되는 identies을 사용 하 여 App Service에서 저장소에 액세스](/azure/app-service/scenario-secure-app-access-storage)

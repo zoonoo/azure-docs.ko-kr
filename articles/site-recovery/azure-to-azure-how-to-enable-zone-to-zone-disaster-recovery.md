@@ -5,14 +5,14 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21bdbecdbba31eae112053bf81411781245cc170
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007794"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678688"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>가용성 영역 간에 Azure VM 재해 복구 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "90007794"
 
 >[!NOTE]
 >
->- 영역 간 재해 복구에 대 한 지원은 현재 동남 아시아 및 영국 남부의 두 지역으로 제한 됩니다.  
+>- 영역 간 재해 복구에 대 한 지원은 현재 동남 아시아, 영국 남부, 일본 동부, 오스트레일리아 동부 및 유럽 서부의 5 개 지역으로 제한 됩니다.  
 >- Site Recovery은 고객이 영역에 영역 재해 복구를 사용 하는 경우 고객 데이터를 배포 된 지역 외부로 이동 하거나 저장 하지 않습니다. 고객이 선택 하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음은 메타 데이터를 포함 하지만 실제 고객 데이터는 포함 하지 않습니다.
 
 Site Recovery 서비스는 계획 되거나 계획 되지 않은 중단 중에 비즈니스 앱을 가동 및 실행 상태로 유지 하 여 비즈니스 연속성 및 재해 복구 전략에 기여 합니다. 지역 가동 중단이 발생 하는 경우 응용 프로그램을 계속 실행 하는 재해 복구 옵션을 권장 합니다.
@@ -106,7 +106,7 @@ Azure 포털에 로그인합니다.
 
 7. ' 다음: 검토 + 복제 시작 '을 클릭 한 다음 ' 복제 시작 '을 클릭 합니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 **1. 지역에서 영역 재해 복구에 대 한 가격은 어떻게 작동 하나요?**
 영역 및 영역 재해 복구에 대 한 가격은 Azure에서 Azure로 재해 복구에 대 한 가격 책정과 동일 합니다. 가격 책정 페이지에 대 한 자세한 [내용은 여기에서](https://azure.microsoft.com/pricing/details/site-recovery/) 찾을 수 [있습니다.](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) 영역 재해 복구 영역에 표시 되는 송신 요금은 지역에서 지역 재해 복구 보다 낮습니다.

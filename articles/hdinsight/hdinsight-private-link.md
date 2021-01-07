@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422300"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915626"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
 
@@ -29,7 +29,7 @@ ARM (Azure Resource Manager) 템플릿에서 특정 네트워크 속성을 구�
 
 기본 가상 네트워크 아키텍처에서 사용 되는 기본 부하 분산 장치는 자동으로 공용 NAT (네트워크 주소 변환)를 제공 하 여 HDInsight RP와 같은 필요한 아웃 바운드 종속성에 액세스 합니다. 공용 인터넷에 대 한 아웃 바운드 연결을 제한 하려는 경우 방화벽을 [구성할](./hdinsight-restrict-outbound-traffic.md)수 있지만 반드시 필요한 것은 아닙니다.
 
-`resourceProviderConnection`아웃 바운드를 구성 하면 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2 또는 외부 metastore 같은 클러스터 특정 리소스에도 액세스할 수 있습니다. 이러한 리소스에 대해 개인 끝점을 사용 하는 것은 mandetory 않지만 이러한 리소스에 대 한 개인 끝점을 사용 하려는 경우에는 HDInsight 클러스터를 만드는 개인 끝점 및 DNS 항목을 구성 해야 합니다 `before` . 클러스터를 만들 때 Apache 레인저, Ambari, Oozie 및 Hive metastore와 같은 필요한 모든 외부 SQL 데이터베이스를 만들고 제공 하는 것이 좋습니다. 요구 사항은 해당 하는 모든 리소스를 자체 개인 끝점을 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다. 그렇지 않으면입니다.
+`resourceProviderConnection`아웃 바운드를 구성 하면 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2 또는 외부 metastore 같은 클러스터 특정 리소스에도 액세스할 수 있습니다. 이러한 리소스에 대해 개인 끝점을 사용 하는 것은 필수가 아니지만 이러한 리소스에 대해 개인 끝점을 사용 하려는 경우에는 HDInsight 클러스터를 만드는 개인 끝점 및 DNS 항목을 구성 해야 합니다 `before` . 클러스터를 만들 때 Apache 레인저, Ambari, Oozie 및 Hive metastore와 같은 필요한 모든 외부 SQL 데이터베이스를 만들고 제공 하는 것이 좋습니다. 요구 사항은 해당 하는 모든 리소스를 자체 개인 끝점을 통해 클러스터 서브넷 내에서 액세스할 수 있어야 합니다. 그렇지 않으면입니다.
 
 Azure Key Vault에 대 한 전용 끝점 사용은 지원 되지 않습니다. 미사용 CMK 암호화에 Azure Key Vault를 사용 하는 경우 개인 끝점이 없는 HDInsight 서브넷 내에서 Azure Key Vault 끝점에 액세스할 수 있어야 합니다.
 
@@ -86,7 +86,8 @@ Azure에서 관리 되는 공용 DNS 영역에서 만든 개인 링크 항목은
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="개인 링크 아키텍처 다이어그램":::
 
-## <a name="arm-template-properties"></a>ARM 템플릿 속성
+## <a name="how-to-create-clusters"></a>클러스터를 만드는 방법
+### <a name="use-arm-template-properties"></a>ARM 템플릿 속성 사용
 
 다음 JSON 코드 조각에는 개인 HDInsight 클러스터를 만들기 위해 ARM 템플릿에서 구성 해야 하는 두 가지 네트워크 속성이 포함 되어 있습니다.
 
@@ -98,6 +99,13 @@ networkProperties: {
 ```
 
 개인 링크를 비롯 한 다양 한 HDInsight 엔터프라이즈 보안 기능이 포함 된 전체 템플릿은 [hdinsight enterprise security template (hdinsight enterprise security 템플릿](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template))을 참조 하세요.
+
+### <a name="use-azure-powershell"></a>Azure Powershell 사용
+
+Powershell을 사용 하려면 [여기](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature)에서 예제를 참조 하세요.
+
+### <a name="use-azure-cli"></a>Azure CLI 사용
+Azure CLI를 사용 하려면 [여기](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples)의 예제를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

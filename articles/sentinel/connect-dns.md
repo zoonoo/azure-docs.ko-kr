@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555430"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655666"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
@@ -46,28 +46,28 @@ DNS 로그 연결을 사용 하도록 설정 하면 다음을 수행할 수 있�
 | [Windows 에이전트](../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
 | [System Center Operations Manager 관리 그룹](../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure storage 계정](../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Azure Storage 계정](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
-솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](https://technet.microsoft.com/library/dn800669.aspx#enhanc)를 통해 거의 실시간으로 수집됩니다.
+솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc)를 통해 거의 실시간으로 수집됩니다.
 
 
 ## <a name="connect-your-dns-appliance"></a>DNS 어플라이언스 연결
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 선택 하 고 **DNS (미리 보기)** 타일을 선택 합니다.
 1. DNS 컴퓨터가 Azure에 있는 경우:
-    1. **Azure Windows 가상 머신에서 에이전트 설치를**클릭 합니다.
+    1. **Azure Windows 가상 머신에서 에이전트 설치를** 클릭 합니다.
     1. **Virtual machines** 목록에서 Azure 센티널로 스트리밍할 DNS 컴퓨터를 선택 합니다. Windows VM 인지 확인 합니다.
-    1. 해당 VM에 대해 열리는 창에서 **연결**을 클릭 합니다.  
+    1. 해당 VM에 대해 열리는 창에서 **연결** 을 클릭 합니다.  
     1. **DNS 커넥터** 창에서 **사용** 을 클릭 합니다. 
 
 2. DNS 컴퓨터가 Azure VM이 아닌 경우:
-    1. **비 Azure 컴퓨터에서 에이전트 설치를**클릭 합니다.
+    1. **비 Azure 컴퓨터에서 에이전트 설치를** 클릭 합니다.
     1. **직접 에이전트** 창에서 **windows 에이전트 다운로드 (64 비트)** 또는 **windows 에이전트 다운로드 (32 비트)** 를 선택 합니다.
-    1. DNS 컴퓨터에 에이전트를 설치 합니다. **작업 영역 ID**, **기본 키**및 **보조 키** 를 복사 하 고 설치 중에 메시지가 표시 되 면 사용 합니다.
+    1. DNS 컴퓨터에 에이전트를 설치 합니다. **작업 영역 ID**, **기본 키** 및 **보조 키** 를 복사 하 고 설치 중에 메시지가 표시 되 면 사용 합니다.
 
-3. DNS 로그에 대해 Log Analytics에서 관련 스키마를 사용 하려면 **Dnsevents**를 검색 합니다.
+3. DNS 로그에 대해 Log Analytics에서 관련 스키마를 사용 하려면 **Dnsevents** 를 검색 합니다.
 
 ## <a name="validate"></a>유효성 검사 
 
@@ -76,10 +76,10 @@ Log Analytics에서 스키마 **Dnsevents** 를 검색 하 고 이벤트가 있�
 ## <a name="troubleshooting"></a>문제 해결
 
 조회 쿼리가 Azure 센티널에 표시 되지 않는 경우 쿼리가 제대로 표시 되도록 다음 단계를 수행 합니다.
-1. [서버에서 DNS 분석 로그](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11))를 켭니다.
+1. [서버에서 DNS 분석 로그](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11))를 켭니다.
 2. Log Analytics 컬렉션 목록에 DNSEvents가 표시 되는지 확인 합니다.
 3. [Azure DNS 분석](../azure-monitor/insights/dns-analytics.md)을 설정 합니다.
-4. Azure DNS 분석의 **구성**에서 설정을 변경 하 고 저장 한 다음 필요한 경우 다시 변경 하 고 다시 저장 합니다.
+4. Azure DNS 분석의 **구성** 에서 설정을 변경 하 고 저장 한 다음 필요한 경우 다시 변경 하 고 다시 저장 합니다.
 5. Azure DNS 분석을 선택 하 여 쿼리가 현재 표시 되는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계

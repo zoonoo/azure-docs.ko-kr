@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c9866ac2c14e4deb29326ffdd1a93a7d8eae1ea3
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145685"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96484807"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 Azure Cosmos 계정에 연결
 
@@ -114,7 +114,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 암호 | 암호를 입력합니다. |
     | 암호 확인 | 암호를 다시 입력합니다. |
 
-3. **네트워킹** 탭을 선택하거나 **다음: 디스크** , **다음: 네트워킹** 을 차례로 선택합니다.
+3. **네트워킹** 탭을 선택하거나 **다음: 디스크**, **다음: 네트워킹** 을 차례로 선택합니다.
   
 4. [네트워킹] 탭에서 다음을 선택하거나 입력합니다.
 
@@ -149,9 +149,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | API | **코어(SQL)** 를 선택합니다. |
     | 위치 | **미국 동부** 를 선택합니다. |
     | 용량 모드 | 기본 **프로비저닝된 처리량** 을 그대로 둡니다. |
-    | 체험 계층 할인 적용 | **적용 안 함** (기본값)을 그대로 둡니다. |
-    | 지역 중복 | **사용 안 함** (기본값)을 그대로 둡니다. |
-    | 다중 지역 쓰기 | **사용 안 함** (기본값)을 그대로 둡니다. |
+    | 체험 계층 할인 적용 | **적용 안 함**(기본값)을 그대로 둡니다. |
+    | 지역 중복 | **사용 안 함**(기본값)을 그대로 둡니다. |
+    | 다중 지역 쓰기 | **사용 안 함**(기본값)을 그대로 둡니다. |
    
 3. **네트워킹** 탭을 선택하거나 **다음: 네트워킹** 단추를 선택합니다.
 
@@ -162,8 +162,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | **네트워크 연결** | |
     | 연결 방법 | **프라이빗 엔드포인트** 를 선택합니다. |
     | **방화벽 구성** | |
-    | Azure Portal에서 액세스 허용 | **허용** (기본값)을 그대로 둡니다 |
-    | 내 IP에서 액세스 허용 | **거부** (기본값)를 그대로 둡니다 |
+    | Azure Portal에서 액세스 허용 | **허용**(기본값)을 그대로 둡니다 |
+    | 내 IP에서 액세스 허용 | **거부**(기본값)를 그대로 둡니다 |
 
 5. **프라이빗 엔드포인트** 에서 **+추가** 를 선택합니다.
 
@@ -201,8 +201,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 데이터베이스 ID | **새로 만들기** (기본값)를 그대로 둡니다. </br> 텍스트 상자에서 **mydatabaseid** 를 입력합니다. |
-    | 처리량(400~100,000RU/s) | **수동** (기본값)을 그대로 둡니다 </br> 텍스트 상자에서 **400** 을 입력합니다. |
+    | 데이터베이스 ID | **새로 만들기**(기본값)를 그대로 둡니다. </br> 텍스트 상자에서 **mydatabaseid** 를 입력합니다. |
+    | 처리량(400~100,000RU/s) | **수동**(기본값)을 그대로 둡니다 </br> 텍스트 상자에서 **400** 을 입력합니다. |
     | 컨테이너 ID | **mycontainerid** 를 입력합니다. |
     | 파티션 키 | **/mykey** 를 입력합니다. |
 
@@ -248,7 +248,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     Cosmos DB 계정 이름에 대해 **10.1.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
 
-9. 가상 머신에 [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows)를 설치합니다.
+9. 가상 머신에 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 설치합니다.
 
 10. **Microsoft Azure Storage Explorer** 가 설치된 후 **마침** 을 선택합니다.  확인란을 선택된 상태로 두고 애플리케이션을 엽니다.
 
@@ -256,7 +256,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 12. Storage Explorer에서 **Cosmos DB 계정** 을 마우스 오른쪽 단추로 선택하고 **Cosmos DB에 연결** 을 선택합니다.
 
-13. **API 선택** 아래에서 **SQL** (기본값)을 그대로 둡니다.
+13. **API 선택** 아래에서 **SQL**(기본값)을 그대로 둡니다.
 
 14. 이전 단계에서 복사한 Cosmos DB 계정의 연결 문자열을 **연결 문자열** 아래의 상자에 붙여넣습니다.
 

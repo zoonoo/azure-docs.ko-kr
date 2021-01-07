@@ -4,11 +4,11 @@ description: Azure Functions에서 OpenAPI 지원 개요
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385826"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000211"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
 Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함수 앱 내에 OpenAPI 2.0 정의를 작성하는 데 사용할 수 있는 미리 보기 기능입니다. 그런 다음 함수 앱을 사용하여 해당 파일을 호스팅할 수 있습니다.
@@ -24,12 +24,12 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 >우선 [초보자를 위한 자습서](./functions-openapi-definition.md)부터 시작한 다음 이 문서로 돌아와 구체적 기능에 대해 알아보는 것이 좋습니다.
 
 ## <a name="enable-openapi-definition-support"></a><a name="enable"></a>OpenAPI 정의 지원 사용
-함수 앱의 **플랫폼 기능**에 있는 **API 정의** 페이지에서 모든 OpenAPI 설정을 구성할 수 있습니다.
+함수 앱의 **플랫폼 기능** 에 있는 **API 정의** 페이지에서 모든 OpenAPI 설정을 구성할 수 있습니다.
 
 > [!NOTE]
 > 함수 API 정의 기능은 현재 베타 런타임에서 지원되지 않습니다.
 
-호스트된 OpenAPI 정의 및 빠른 시작 정의를 생성하도록 설정하려면 **API 정의 원본**을 **함수(미리 보기)** 로 설정합니다. **외부 URL**을 사용하면 함수가 다른 곳에 호스팅된 OpenAPI 정의를 사용할 수 있습니다.
+호스트된 OpenAPI 정의 및 빠른 시작 정의를 생성하도록 설정하려면 **API 정의 원본** 을 **함수(미리 보기)** 로 설정합니다. **외부 URL** 을 사용하면 함수가 다른 곳에 호스팅된 OpenAPI 정의를 사용할 수 있습니다.
 
 ## <a name="generate-a-swagger-skeleton-from-your-functions-metadata"></a><a name="generate-definition"></a>함수의 메타데이터에서 Swagger 구조 생성
 템플릿을 사용하면 첫 번째 OpenAPI 정의 작성을 시작할 수 있습니다. 정의 템플릿 기능은 각 HTTP 트리거 기능에 대해 function.json 파일의 모든 메타데이터를 사용하여 스파스 OpenAPI 정의를 만듭니다. [OpenAPI 사양](https://swagger.io/specification/)(예: 요청 및 응답 템플릿)에서 API에 대한 추가 정보를 입력해야 합니다.
@@ -38,7 +38,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 ### <a name="available-templates"></a><a name="templates"></a>사용 가능한 템플릿
 
-|Name| 설명 |
+|Name| Description |
 |:-----|:-----|
 |생성된 정의|최대 정보량을 포함하여 함수의 기존 메타데이터에서 유추할 수 있는 OpenAPI 정의|
 
@@ -65,8 +65,8 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
  원본 제어에서 API 정의를 수정할 수 있도록 설정하려면 먼저 포털에서 API 정의 호스팅을 활성화해야 합니다. 다음 지침을 따릅니다.
 
 1. 함수 앱 설정에서 **API 정의(미리 보기)** 로 이동합니다.
-   1. **API 정의 원본**을 **함수**로 설정합니다.
-   1. 나중에 수정할 수 있도록 템플릿 정의를 만들려면 **API 정의 템플릿 생성**을 클릭한 다음 **저장**을 클릭합니다.
+   1. **API 정의 원본** 을 **함수** 로 설정합니다.
+   1. 나중에 수정할 수 있도록 템플릿 정의를 만들려면 **API 정의 템플릿 생성** 을 클릭한 다음 **저장** 을 클릭합니다.
    1. API 정의 URL 및 키를 적어 둡니다.
 1. [CI/CD(연속 통합/연속 배포)를 설정합니다](./functions-continuous-deployment.md#requirements-for-continuous-deployment).
 2. \site\wwwroot\.azurefunctions\swagger\swagger.json의 원본 제어에서 swagger.json을 수정합니다.

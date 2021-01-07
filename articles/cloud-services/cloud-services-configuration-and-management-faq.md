@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
 ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144691"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96011027"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -103,7 +103,7 @@ Select-AzureSubscription -Current -SubscriptionName <your subscription name>
 Get-AzurePublishSettingsFile
 ```
 
-**Get-AzurePublishSettingsFile**은 Azure Portal의 **구독** > **관리 인증서**에 새 관리 인증서를 만듭니다. 새 인증서의 이름은 "구독이름]-[현재날짜]-자격증명" 형식입니다.
+**Get-AzurePublishSettingsFile** 은 Azure Portal의 **구독** > **관리 인증서** 에 새 관리 인증서를 만듭니다. 새 인증서의 이름은 "구독이름]-[현재날짜]-자격증명" 형식입니다.
 
 ### <a name="how-to-automate-the-installation-of-main-tlsssl-certificatepfx-and-intermediate-certificatep7b"></a>기본 TLS/SSL 인증서 (.pfx) 및 중간 인증서 (.p7b) 설치를 자동화 하는 방법
 
@@ -113,7 +113,7 @@ Get-AzurePublishSettingsFile
 
 이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 - [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](./cloud-services-startup-tasks.md)
 - [일반적인 클라우드 서비스 시작 작업](./cloud-services-startup-tasks-common.md)
 
@@ -193,12 +193,12 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 
 1. regedit.exe를 실행합니다.
 2. 레지스트리 키(HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters)를 찾습니다.
-3. **DuoEnabled**라는 새 DWORD 값을 만듭니다.
+3. **DuoEnabled** 라는 새 DWORD 값을 만듭니다.
 4. 해당 값을 1로 설정합니다.
 5. 서버를 다시 시작합니다.
-6. **기본 웹 사이트**로 이동하여 **바인딩**에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
+6. **기본 웹 사이트** 로 이동하여 **바인딩** 에서 방금 만든 자체 서명된 인증서와 새 TLS 바인딩을 만듭니다. 
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은 다음을 참조하십시오.
 
 - [IIS의 HTTP/2](https://blogs.iis.net/davidso/http2)
 - [동영상: Windows 10에서 HTTP/2: 브라우저, 앱 및 웹 서버](https://channel9.msdn.com/Events/Build/2015/3-88)
@@ -228,10 +228,10 @@ Microsoft에서는 소유자 또는 지정된 사용자의 서면 승인(전자 
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP 파일을 사용하여 클라우드 서비스 VM에 RDP할 수 없습니다. 인증 오류(코드: 0x80004005)가 발생합니다.
 
-Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 경우 이 오류가 발생할 수 있습니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
+Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 경우 이 오류가 발생할 수 있습니다. 이 문제를 해결하려면 다음 단계를 수행하세요.
 
-1. 다운로드한 RDP 파일을 마우스 오른쪽 단추로 클릭한 다음 **편집**을 선택합니다.
-2. 사용자 이름 앞에 "&#92;"을 접두사로 추가합니다. 예를 들어 **username** 대신 **.\username**을 사용합니다.
+1. 다운로드한 RDP 파일을 마우스 오른쪽 단추로 클릭한 다음 **편집** 을 선택합니다.
+2. 사용자 이름 앞에 "&#92;"을 접두사로 추가합니다. 예를 들어 **username** 대신 **.\username** 을 사용합니다.
 
 ## <a name="scaling"></a>확장
 

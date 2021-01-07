@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069758"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914351"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "92069758"
 
 **연결 테스트가 완료 된 후에는 저장할 수 없습니다.**
 
-연결을 성공적으로 테스트할 수 있지만 저장할 수 없는 경우 자격 증명에 대해 허용 되는 저장소 제한을 초과 했습니다. 자세히 알아보려면 [관리자 자격 증명 저장 문제](application-provisioning-config-problem-storage-limit.md)를 참조 하세요.
+연결을 성공적으로 테스트할 수 있지만 저장할 수 없는 경우 자격 증명에 대해 허용 되는 저장소 제한을 초과 했습니다. 자세히 알아보려면 [관리자 자격 증명 저장 문제](./user-provisioning.md)를 참조 하세요.
 
 **저장할 수 없음**
 
@@ -57,6 +57,10 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 특성 매핑 식에는 최대 1만 문자를 사용할 수 있습니다. 
 
+**지원 되지 않는 범위 지정 필터**
+
+디렉터리 확장, appRoleAssignments, userType 및 accountExpires는 범위 지정 필터로 지원 되지 않습니다.
+
 
 ## <a name="service-issues"></a>서비스 문제 
 
@@ -64,7 +68,8 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 - 프로 비전 암호는 지원 되지 않습니다. 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 
-- 테 넌 트의 크기 때문에 B2C 테 넌 트에 프로 비전이 지원 되지 않습니다. 
+- 테 넌 트의 크기 때문에 B2C 테 넌 트에 프로 비전이 지원 되지 않습니다.
+- 모든 클라우드에서 프로 비전 앱을 모두 사용할 수 있는 것은 아닙니다. 예를 들어 정부 클라우드에서는 아직 Atlassian를 사용할 수 없습니다. 앱 개발자와 협력 하 여 앱을 모든 클라우드에 등록 합니다.
 
 **내 OIDC 기반 응용 프로그램에서 자동 프로비저닝을 사용할 수 없음**
 
@@ -78,6 +83,10 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 앱 프로 비전 서비스는 외부 앱에서 변경한 내용을 인식 하지 못합니다. 따라서 롤백하는 동작이 수행 되지 않습니다. 앱 프로 비전 서비스는 Azure AD에서 변경 된 내용을 따릅니다. 
 
+**모두 동기화에서 할당 되지 않은 동기화로 전환**
+
+' 동기화 모두 '에서 ' 동기화 할당 됨 '으로 범위를 변경한 후에도 다시 시작을 수행 하 여 변경 내용이 적용 되는지 확인 하세요. UI에서 다시 시작할 수 있습니다.
+
 **프로 비전 주기는 완료 될 때까지 계속 됩니다.**
 
 프로 비전 `enabled = off` 을 설정 하거나 중지를 적중 하면 현재 프로 비전 주기가 완료 될 때까지 계속 실행 됩니다. 서비스는 다시 프로 비전을 다시 설정할 때까지 이후 사이클의 실행을 중지 합니다.
@@ -86,6 +95,9 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 그룹이 범위 내에 있고 멤버가 범위를 벗어난 경우 그룹이 프로 비전 됩니다. 범위를 벗어난 사용자는 프로 비전 되지 않습니다. 멤버가 범위에 다시 들어오면 서비스에서 즉시 변경 내용을 검색 하지 않습니다. 프로 비전을 다시 시작 하면 문제가 해결 됩니다. 정기적으로 서비스를 다시 시작 하 여 모든 사용자가 적절히 프로 비전 되도록 하는 것이 좋습니다.  
 
+**관리자가 프로 비전 되지 않음**
+
+사용자와 해당 관리자가 둘 다 프로 비전 범위에 있는 경우 서비스에서 사용자를 프로 비전 한 다음 관리자를 업데이트 합니다. 그러나 사용자가 범위 내에 있고 관리자가 범위를 벗어난 경우 관리자가 참조 하지 않고 사용자를 프로 비전 합니다. 관리자가 범위에 들어오면 프로 비전을 다시 시작 하 고 서비스에서 모든 사용자를 다시 평가할 때까지 관리자 참조가 업데이트 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [프로비저닝 작동 방법](how-provisioning-works.md)

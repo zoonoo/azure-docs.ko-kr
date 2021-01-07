@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 388c0db11c38f3dcdb9c4452b8d7283b2e811885
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 929853f4dbedca7034c8e2a51e6231651a2dd08f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108697"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96461656"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Azure Data Lake Storage Gen1을 다른 Azure 서비스와 통합
 Azure Data Lake Storage Gen1을 다른 Azure 서비스와 함께 사용하여 광범위한 시나리오를 활용할 수 있습니다. 다음 문서에는 Data Lake Storage Gen1과 통합될 수 있는 서비스가 나열되어 있습니다.
@@ -54,12 +54,12 @@ Data Lake Storage Gen1의 데이터를 Azure Data Catalog에 등록하면 조직
 SSIS에서 Data Lake Storage Gen1 연결 관리자를 사용하여 SSIS 패키지를 Data Lake Storage Gen1에 연결할 수 있습니다. 자세한 내용은 [SSIS와 함께 Data Lake Storage Gen1 사용](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)을 참조하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Data Lake Storage Gen1 사용
-PolyBase를 사용 하 여 Data Lake Storage Gen1에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 로드할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics에서 Data Lake Storage Gen1 사용을](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)참조 하세요.
+PolyBase를 사용 하 여 Data Lake Storage Gen1에서 Azure Synapse Analytics로 데이터를 로드할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics에서 Data Lake Storage Gen1 사용을](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md)참조 하세요.
 
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Azure Event Hubs와 함께 Data Lake Storage Gen1 사용
 Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs에서 받은 데이터를 보관하고 캡처할 수 있습니다. 자세한 내용은 [Azure Event Hubs와 함께 Data Lake Storage Gen1 사용](data-lake-store-archive-eventhub-capture.md)을 참조하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [포털을 사용하여 Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)
 * [PowerShell을 사용 하 여 Data Lake Storage Gen1 시작](data-lake-store-get-started-powershell.md)

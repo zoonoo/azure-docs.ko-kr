@@ -1,20 +1,20 @@
 ---
 title: '빠른 시작: iOS 앱 만들기'
 description: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 프로그래밍 방식으로 iOS 앱을 만드는 방법을 알아봅니다.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2df66979d1e8f400f2630f5e531cd201244fdc6d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4434118313989eb8bc70f1d44e977b2df3633050
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87809989"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96009078"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>빠른 시작: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 iOS 앱 만들기
 
@@ -117,18 +117,18 @@ open ./SampleObjC.xcworkspace
 
 ## <a name="deploy-the-app-to-your-ios-device"></a>iOS 디바이스에 앱 배포
 
-iOS 디바이스를 Mac에 연결하고 **활성 스키마**를 iOS 디바이스로 설정합니다.
+iOS 디바이스를 Mac에 연결하고 **활성 스키마** 를 iOS 디바이스로 설정합니다.
 
 ![디바이스 선택](./media/get-started-ios/select-device.png)
 
-**빌드를 선택한 다음, 현재 스키마를 실행**합니다.
+**빌드를 선택한 다음, 현재 스키마를 실행** 합니다.
 
 ![배포 및 실행](./media/get-started-ios/deploy-run.png)
 
 > [!NOTE]
 > `library not found for -lPods-SampleObjC` 오류가 표시되는 경우 `.xcworkspace` 대신 `.xcodeproj` 파일을 열었을 수 있습니다. `.xcworkspace`를 열고 다시 시도하세요.
 
-Xcode에서 **중지**를 눌러 앱을 중지합니다.
+Xcode에서 **중지** 를 눌러 앱을 중지합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

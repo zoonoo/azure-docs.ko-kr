@@ -10,11 +10,11 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76986039"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018327"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
@@ -48,10 +48,10 @@ Microsoft Genomics는 워크플로당 처리된 기가베이스 수를 기준으
  |`cancel`             |`--workflow-id`에 의해 지정된 워크플로의 처리를 취소하기 위한 요청을 보냅니다. `msgen help cancel`을 참조하세요. |
 
 ## <a name="where-do-i-get-the-value-for---api-url-base"></a>`--api-url-base`에 대한 값을 어디에서 가져올 수 있나요?
-Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
+Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키** 를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
 
 ## <a name="where-do-i-get-the-value-for---access-key"></a>`--access-key`에 대한 값을 어디에서 가져올 수 있나요?
-Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
+Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키** 를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
 
 ## <a name="why-do-i-need-two-access-keys"></a>두 개의 액세스 키가 필요한 이유는 무엇인가요?
 서비스 사용을 중단하지 않고 업데이트(재생성)하려면 두 개의 액세스 키가 필요합니다. 예를 들어 첫 번째 키를 업데이트하려는 경우 모든 새 워크플로에서 두 번째 키를 사용해야 합니다. 그런 다음, 첫 번째 키를 업데이트하기 전에 첫 번째 키를 사용하는 모든 워크플로가 완료될 때까지 기다립니다.

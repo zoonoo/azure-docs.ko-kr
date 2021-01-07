@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbca2d00d10b6595b8a1d13251dd88c65667541
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: df199afd85c788299334087321c3edac8482698d
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135005"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96168511"
 ---
 # <a name="what-is-inter-directory-provisioning"></a>디렉터리 간 프로비저닝이란?
 
@@ -35,7 +35,7 @@ Azure AD는 현재 디렉터리 간 프로비저닝을 수행하는 세 가지 �
 
 - [Azure AD Connect 클라우드 프로비저닝](../cloud-provisioning/what-is-cloud-provisioning.md) - 하이브리드 ID 목표를 충족하고 달성하도록 설계된 새로운 Microsoft 에이전트입니다.  Active Directory와 Azure AD 간에 간단한 디렉터리 간 프로비저닝 환경을 제공합니다.
 
-- [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) - 조직 내에서 사용자, 자격 증명, 정책 및 액세스를 관리하는 데 도움이 되는 Microsoft의 온-프레미스 ID 및 액세스 관리 솔루션입니다. 또한 MIM은 Active Directory, Azure AD 및 기타 디렉터리에 대한 하이브리드 ID 환경을 달성하기 위한 고급 디렉터리 간 프로비저닝을 제공합니다.
+- [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) - 조직 내에서 사용자, 자격 증명, 정책 및 액세스를 관리하는 데 도움이 되는 Microsoft의 온-프레미스 ID 및 액세스 관리 솔루션입니다. 또한 MIM은 Active Directory, Azure AD 및 기타 디렉터리에 대한 하이브리드 ID 환경을 달성하기 위한 고급 디렉터리 간 프로비저닝을 제공합니다.
 
 ### <a name="key-benefits"></a>주요 이점
 
@@ -45,7 +45,7 @@ Azure AD는 현재 디렉터리 간 프로비저닝을 수행하는 세 가지 �
 - [통과 인증](../hybrid/how-to-connect-pta.md) - 사용자가 온-프레미스 및 클라우드에서 동일한 암호를 사용할 수 있지만 페더레이션 환경의 추가 인프라가 필요하지 않은 로그인 메서드입니다
 - [페더레이션 통합](../hybrid/how-to-connect-fed-whatis.md) - 온-프레미스 AD FS 인프라를 사용하여 하이브리드 환경을 구성하는 데 사용할 수 있습니다. 또한 인증서 갱신 및 추가 AD FS 서버 배포와 같은 AD FS 관리 기능을 제공합니다.
 - [동기화](../hybrid/how-to-connect-sync-whatis.md) - 사용자, 그룹 및 기타 개체를 생성합니다.  뿐만 아니라 온-프레미스 사용자 및 그룹의 ID 정보가 클라우드와 일치하도록 합니다.  이 동기화에는 암호 해시도 포함되어 있습니다.
-- [상태 모니터링](../hybrid/whatis-hybrid-identity-health.md) - 강력한 모니터링을 제공하고 Azure Portal에서 중앙 위치를 제공하여 이 작업을 볼 수 있습니다. 
+- [상태 모니터링](../hybrid/whatis-azure-ad-connect.md) - 강력한 모니터링을 제공하고 Azure Portal에서 중앙 위치를 제공하여 이 작업을 볼 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계 

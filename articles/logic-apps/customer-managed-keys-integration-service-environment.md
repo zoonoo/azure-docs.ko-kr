@@ -3,15 +3,15 @@ title: 고객 관리 키를 설정 하 여 ISEs에서 미사용 데이터 암호
 description: Azure Logic Apps에서 ISEs (통합 서비스 환경)에 대 한 미사용 데이터를 보호 하기 위해 사용자 고유의 암호화 키를 만들고 관리 합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, rarayudu, logicappspm
+ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: d9f25fc419a92d125dffe5c14b9b4c19cd795c6e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/20/2020
+ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
+ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318457"
+ms.lasthandoff: 12/06/2020
+ms.locfileid: "96741051"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
@@ -25,13 +25,17 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * 이 시점에서 ISE에 대 한 고객 관리 키 지원은 미국 서 부 2, 미국 동부 및 미국 서 부와 같은 Azure 지역 에서만 사용할 수 있습니다.
 
-* 이후에는 *ISE를 만들 때만*고객이 관리 하는 키를 지정할 수 있습니다. ISE를 만든 후에는이 키를 사용 하지 않도록 설정할 수 없습니다. 현재 ISE에 대 한 고객 관리 키 회전에 대 한 지원이 없습니다.
+* 이후에는 *ISE를 만들 때만* 고객이 관리 하는 키를 지정할 수 있습니다. ISE를 만든 후에는이 키를 사용 하지 않도록 설정할 수 없습니다. 현재 ISE에 대 한 고객 관리 키 회전에 대 한 지원이 없습니다.
 
-* 고객 관리 키를 지원 하려면 ISE에서 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 를 사용 하도록 설정 해야 합니다. 이 id를 사용 하면 ISE가 다른 Azure Active Directory (Azure AD) 테 넌 트의 리소스에 대 한 액세스를 인증 하 여 자격 증명으로 로그인 할 필요가 없습니다.
+* 고객 관리 키를 지원 하려면 [사용자가 시스템 할당 또는 사용자 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)중 하나를 사용 하도록 설정 해야 합니다. ISE는이 id를 사용 하 여 Azure 가상 네트워크에 있거나 연결 되어 있는 가상 머신, 기타 시스템 또는 서비스와 같은 보안 리소스에 대 한 액세스를 인증할 수 있습니다. 이렇게 하면 자격 증명을 사용 하 여 로그인 할 필요가 없습니다.
 
-* 현재, 고객이 관리 하는 키를 지원 하 고 시스템 할당 id를 사용 하도록 설정 하는 ISE를 만들려면 HTTPS PUT 요청을 사용 하 여 Logic Apps REST API를 호출 해야 합니다.
+* 현재, 고객이 관리 하는 키를 지원 하 고 관리 되는 id 유형을 사용 하도록 설정 된 ISE를 만들려면 HTTPS PUT 요청을 사용 하 여 Logic Apps REST API를 호출 해야 합니다.
 
-* ISE를 만드는 HTTPS PUT 요청을 보낸 후 *30 분* 이내에 [ise의 시스템 할당 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다. 그렇지 않으면 ISE 만들기가 실패 하 고 권한 오류가 throw 됩니다.
+* [ISE의 관리 되는 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 하지만 타이밍은 사용 하는 관리 id에 따라 달라 집니다.
+
+  * **시스템 할당 관리 id**: ise를 만드는 HTTPS PUT 요청을 보낸 *후 30 분* 이내에 [ise의 관리 되는 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다. 그렇지 않으면 ISE 만들기가 실패 하 고 권한 오류가 발생 합니다.
+
+  * **사용자 할당 관리 id**: ise를 만드는 HTTPS PUT 요청을 보내기 전에 [ise의 관리 되는 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -39,7 +43,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * **일시 삭제** 및 **제거 안 함** 속성을 사용 하는 Azure key vault
 
-  이러한 속성을 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 및 [Azure Key Vault를 사용 하 여 고객 관리 키 구성](../storage/common/customer-managed-keys-configure-key-vault.md)을 참조 하세요. Azure Key Vault를 처음 사용 하는 경우 Azure Portal를 사용 하거나 Azure PowerShell 명령 [AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)를 사용 하 여 [주요 자격 증명 모음을 만드는 방법을](../key-vault/secrets/quick-create-portal.md#create-a-vault) 알아봅니다.
+  이러한 속성을 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](../key-vault/general/soft-delete-overview.md) 및 [Azure Key Vault를 사용 하 여 고객 관리 키 구성](../storage/common/customer-managed-keys-configure-key-vault.md)을 참조 하세요. [Azure Key Vault](../key-vault/general/overview.md)를 처음 접하는 경우 [Azure Portal](../key-vault/general/quick-create-portal.md), [Azure CLI](../key-vault/general/quick-create-cli.md)또는 [Azure PowerShell](../key-vault/general/quick-create-powershell.md)를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보세요.
 
 * 키 자격 증명 모음에서 다음 속성 값을 사용 하 여 만든 키입니다.
 
@@ -47,7 +51,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **Enabled** | 예 |
+  | **사용** | Yes |
   |||
 
   ![고객이 관리 하는 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -56,7 +60,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * HTTPS PUT 요청을 사용 하 여 Logic Apps REST API를 호출 하 여 ISE를 만드는 데 사용할 수 있는 도구입니다. 예를 들어 [Postman](https://www.getpostman.com/downloads/)을 사용 하거나이 작업을 수행 하는 논리 앱을 빌드할 수 있습니다.
 
-<a name="enable-support-key-system-identity"></a>
+<a name="enable-support-key-managed-identity"></a>
 
 ## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>주요 자격 증명 모음 및 관리 되는 id 지원을 사용 하 여 ISE 만들기
 
@@ -65,7 +69,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> Logic Apps REST API 2019-05-01 버전을 사용 하려면 ISE 커넥터에 대 한 HTTP PUT 요청을 직접 수행 해야 합니다.
+> Logic Apps REST API 2019-05-01 버전을 사용 하려면 ISE 커넥터에 대 한 HTTPS PUT 요청을 직접 수행 해야 합니다.
 
 배포는 일반적으로 완료 하는 데 2 시간 이내에 수행 됩니다. 배포에 최대 4시간이 걸리는 경우가 간혹 있습니다. 배포 상태를 확인 하려면 [Azure Portal](https://portal.azure.com)의 Azure 도구 모음에서 알림 아이콘을 선택 합니다. 그러면 알림 창이 열립니다.
 
@@ -88,7 +92,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 요청 본문에서 ISE 정의에 정보를 제공 하 여 이러한 추가 항목에 대 한 지원을 사용 하도록 설정 합니다.
 
-* ISE에서 키 자격 증명 모음에 액세스 하는 데 사용 하는 시스템 할당 관리 id
+* ISE에서 키 자격 증명 모음에 액세스 하는 데 사용 하는 관리 id
 * 사용 하려는 주요 자격 증명 모음 및 고객 관리 키
 
 #### <a name="request-body-syntax"></a>요청 본문 구문
@@ -97,7 +101,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 ```json
 {
-   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
    "name": "{ISE-name}",
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "{Azure-region}",
@@ -106,7 +110,14 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
       "capacity": 1
    },
    "identity": {
-      "type": "SystemAssigned"
+      "type": <"SystemAssigned" | "UserAssigned">,
+      // When type is "UserAssigned", include the following "userAssignedIdentities" object:
+      "userAssignedIdentities": {
+         "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user-assigned-managed-identity-object-ID}": {
+            "principalId": "{principal-ID}",
+            "clientId": "{client-ID}"
+         }
+      }
    },
    "properties": {
       "networkConfiguration": {
@@ -153,7 +164,13 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
    "type": "Microsoft.Logic/integrationServiceEnvironments",
    "location": "WestUS2",
    "identity": {
-      "type": "SystemAssigned"
+      "type": "UserAssigned",
+      "userAssignedIdentities": {
+         "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/*********************************": {
+            "principalId": "*********************************",
+            "clientId": "*********************************"
+         }
+      }
    },
    "sku": {
       "name": "Premium",
@@ -197,13 +214,17 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 ## <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
 
-ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30 분* 이내에 ise의 시스템 할당 id에 대 한 액세스 정책을 키 자격 증명 모음에 추가 해야 합니다. 그렇지 않으면 ISE에 대 한 만들기가 실패 하 고 사용 권한 오류가 발생 합니다. 
+타이밍은 사용 하는 관리 id에 따라 다르지만 [ISE의 관리 되는 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다.
+
+* **시스템 할당 관리 id**: ise를 만드는 HTTPS PUT 요청을 보낸 *후 30 분* 이내에 ise의 시스템 할당 관리 id에 대 한 액세스 정책을 키 자격 증명 모음에 추가 해야 합니다. 그렇지 않으면 ISE에 대 한 만들기가 실패 하 고 사용 권한 오류가 발생 합니다.
+
+* **사용자 할당 관리 id**: ise를 만드는 HTTPS PUT 요청을 보내기 전에 ise의 사용자 할당 관리 id에 대 한 액세스 정책을 키 자격 증명 모음에 추가 합니다.
 
 이 작업의 경우 Azure PowerShell [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) 명령 중 하나를 사용 하거나 Azure Portal에서 다음 단계를 수행할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure key vault를 엽니다.
 
-1. 키 자격 증명 모음 메뉴에서 **액세스 정책**  >  **추가 액세스 정책**을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 키 자격 증명 모음 메뉴에서 **액세스 정책**  >  **추가 액세스 정책** 을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![시스템 할당 관리 id에 대 한 액세스 정책 추가](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
@@ -219,11 +240,11 @@ ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30 분* 이내에 ise의 
 
       !["키 관리" > "키 사용 권한"을 선택 합니다.](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. **보안 주체 선택**에서 선택 **안 함**을 선택 합니다. **주** 창이 열리면 검색 상자에서 ISE를 찾아 선택 합니다. 완료 되 면 추가 **선택**을 선택  >  **Add**합니다.
+   1. **보안 주체 선택** 에서 선택 **안 함** 을 선택 합니다. **주** 창이 열리면 검색 상자에서 ISE를 찾아 선택 합니다. 완료 되 면 추가 **선택** 을 선택  >  **Add** 합니다.
 
       ![주 서버로 사용할 ISE를 선택 합니다.](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 
-   1. **액세스 정책** 창에서 완료 되 면 **저장**을 선택 합니다.
+   1. **액세스 정책** 창에서 완료 되 면 **저장** 을 선택 합니다.
 
 자세한 내용은 [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md) 및 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-portal.md)을 참조 하세요.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 66d0d3ebf9d5866039bbbac3171513b37330be7a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 86822c5a9cef84ff4b51bc94b6b2dd3dbdee91bf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146793"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702012"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Azure Service Fabric Mesh 애플리케이션에서 볼륨에 기반한 고가용성 Service Fabric Reliable Disk 탑재 
 컨테이너 앱을 사용하여 상태를 유지하는 일반적인 방법은Azure File Storage와 같은 원격 스토리지 또는 Azure Cosmos DB와 같은 데이터베이스를 사용하는 것입니다. 이 경우 원격 저장소에 대한 상당한 읽기 및 쓰기 네트워크 지연이 발생합니다.
@@ -47,9 +47,9 @@ az group create --name myResourceGroup --location eastus
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 >[!NOTE]
-> 2020 년 11 월 2 일부 터 [다운로드 요금 제한은](https://docs.docker.com/docker-hub/download-rate-limit/) docker 무료 계획 계정에서 docker 허브에 대 한 익명 및 인증 된 요청에 적용 되며 IP 주소에 의해 적용 됩니다. 
+> 2020년 11월 2일부터 Docker Free 계획 계정에서 Docker Hub에 대한 익명 및 인증된 요청에 [다운로드 속도 제한이 적용](https://docs.docker.com/docker-hub/download-rate-limit/)되며 IP 주소에 의해 적용됩니다. 
 > 
-> 이 템플릿은 Docker 허브의 공용 이미지를 사용 합니다. 요금이 제한 될 수 있습니다. 자세한 내용은 [Docker 허브를 사용 하 여 인증](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub)을 참조 하세요.
+> 이 템플릿은 Docker 허브의 공용 이미지를 사용 합니다. 요금이 제한될 수 있다는 점에 유의하세요. 자세한 내용은 [Docker Hub를 사용하여 인증](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub)을 참조하세요.
 
 다음 명령은 [counter.sfreliablevolume.linux.json 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json)을 사용하여 Linux 애플리케이션을 배포합니다. Windows 애플리케이션을 배포하려면 [counter.sfreliablevolume.windows.json 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json)을 사용합니다. 컨테이너 이미지가 크면 배포 시간이 더 오래 걸릴 수 있습니다.
 
@@ -60,7 +60,7 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 명령을 사용하여 배포 상태를 확인할 수도 있습니다.
 
 ```azurecli-interactive
-az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
+az deployment group show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
 `Microsoft.ServiceFabricMesh/gateways`와 리소스 형식 같은 게이트웨이 리소스의 이름을 확인합니다. 이 앱의 공용 IP 주소 가져오는 데 사용됩니다.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3ed55387034a383e402d027fd5cab60c4a59c23c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542780"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657043"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -173,7 +173,7 @@ curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterNam
 
 ## <a name="snapshots"></a>스냅샷
 
-[스냅숏을](https://hbase.apache.org/book.html#ops.snapshots) 사용 하 여 HBase 데이터 저장소에 있는 데이터의 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 스토리지에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원( *복제* )하거나 다른 클러스터로 내보낼 수 있습니다.
+[스냅숏을](https://hbase.apache.org/book.html#ops.snapshots) 사용 하 여 HBase 데이터 저장소에 있는 데이터의 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 스토리지에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
 
 스냅샷을 만들려면 HDInsight HBase 클러스터의 헤드 노드에 SSH를 연결하고 `hbase` 셸을 시작합니다.
 
@@ -217,6 +217,12 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -cop
 
 ```console
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+대상 클러스터가 ADLS Gen 2 클러스터 인 경우 ADLS Gen 2에서 사용 하는 구성에 맞게 조정 하려면 이전 명령을 변경 합니다.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.<account_name>.dfs.core.windows.net=<key> -Dfs.azure.account.auth.type.<account_name>.dfs.core.windows.net=SharedKey -Dfs.azure.always.use.https.<account_name>.dfs.core.windows.net=false -Dfs.azure.account.keyprovider.<account_name>.dfs.core.windows.net=org.apache.hadoop.fs.azurebfs.services.SimpleKeyProvider -snapshot 'Snapshot1' -copy-to 'abfs://<container>@<account_name>.dfs.core.windows.net/hbase'
 ```
 
 스냅숏이 내보내진 후에는 대상 클러스터의 헤드 노드로 SSH를 사용 하 고 `restore_snapshot` 앞에서 설명한 대로 명령을 사용 하 여 스냅숏을 복원 합니다.

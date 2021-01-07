@@ -4,12 +4,12 @@ description: '자습서: Azure Event Grid 및 Azure CLI를 사용하여 토픽�
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832130"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566829"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>자습서: Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
@@ -17,12 +17,11 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure R
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 이미 하이브리드 연결 및 수신기 애플리케이션이 있는 것으로 가정합니다. 하이브리드 연결을 시작하려면 [Relay 하이브리드 연결 시작 - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) 또는 [Relay 하이브리드 연결 시작 - 노드](../azure-relay/relay-hybrid-connections-node-get-started.md)를 참조하세요.
+- 이 문서에서는 이미 하이브리드 연결 및 수신기 애플리케이션이 있는 것으로 가정합니다. 하이브리드 연결을 시작하려면 [Relay 하이브리드 연결 시작 - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) 또는 [Relay 하이브리드 연결 시작 - 노드](../azure-relay/relay-hybrid-connections-node-get-started.md)를 참조하세요.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> 로컬 머신에서 Azure CLI를 사용 중인 경우 Azure CLI 버전 2.0.56 이상을 사용하세요. Azure CLI의 최신 버전을 설치하는 방법에 대한 지침은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0.56 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -30,7 +29,7 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-다음 예제에서는 *westus2* 위치에 *gridResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *westus2* 위치에 *gridResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name gridResourceGroup --location westus2

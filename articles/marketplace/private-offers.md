@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129969"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95971711"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 개인 제품
 
@@ -43,6 +43,8 @@ ms.locfileid: "93129969"
 
 *비공개 요금제만 포함 된 새 제품* 의 경우, 게시자는 해당 제품을 다른 제품으로 만든 다음 해당 계획을 비공개로 표시할 수 있습니다. 비공개 요금제만 있는 제품은 Microsoft 상용 marketplace 또는 제품과 연결 되지 않은 고객의 [Azure Portal](https://azure.microsoft.com/features/azure-portal/) 을 통해 검색 되거나 액세스할 수 없게 됩니다.
 
+개인 계획은 Azure Global 및 Azure Government 모두에 사용할 수 있습니다.
+
 >[!NOTE]
 >비공개 계획만 포함 된 제안은 공용 Azure Marketplace 또는 AppSource에 표시 되지 않습니다.
 
@@ -51,6 +53,9 @@ ms.locfileid: "93129969"
 새로운 프라이빗 제품 및 기존 전용 제품의 경우 게시자는 구독 식별자를 사용하여 고객을 대상으로 지정할 수 있습니다. 가상 컴퓨터 또는 Azure 애플리케이션 제안을 사용 하는 게시자는 개인 요금제의 가용성을 개별 Azure 구독 ID로 제한 하거나 최대 2만 Azure 구독 id의 CSV를 업로드할 수 있습니다. SaaS 앱 개인 제안을 사용 하는 동안 게시자는 수동 또는 CSV 업로드 방법을 사용 하 여 테 넌 트 ID를 연결 하 여 개인 계획의 가용성을 제한할 수 있습니다.
 
 제품이 인증 되 고 게시 되 면 개인 구독 동기화 기능을 사용 하 여 몇 분 내에 고객이 업데이트 하거나 제거할 수 있습니다. 이 기능을 통해 게시자는 제품을 인증 하거나 게시 하지 않고도 비공개 요금제가 제공 되는 고객의 목록을 빠르고 쉽게 업데이트할 수 있습니다.
+
+>[!NOTE]
+>Azure .gov 적용 가능성: 개인 제안 (또는 보다 정확 함: 개인 요금제)은 다른 제품 처럼 .gov 클라우드에 사용할 수 있습니다. 계획은 상태를 개인에서 공용으로 또는 그 반대로 이동할 수도 있습니다. 제품을 사용할 수 있는 클라우드에 대 한 제어는 파트너의 손을 기반으로 하며 파트너 센터를 통해 구성할 수 있습니다. 
 
 ## <a name="deploying-private-offers"></a>개인 제품 배포
 

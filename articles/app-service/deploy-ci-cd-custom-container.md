@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e879d8370821ea465147e344d0fe95836c843ff4
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928011"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97008013"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
@@ -55,7 +55,7 @@ Webhook URL을 복사합니다. Docker 허브에 대한 webhook를 추가하려�
 
 ## <a name="automate-with-cli"></a>CLI로 자동화
 
-Azure CLI를 사용 하 여 CI/CD를 구성 하려면 [az webapp deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) 명령을 실행 하 여 webhook URL을 생성 합니다. URL은 DockerHub 또는 Azure Container Registry를 구성 하는 데 사용할 수 있습니다.
+Azure CLI를 사용 하 여 CI/CD를 구성 하려면 [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config) 명령을 실행 하 여 webhook URL을 생성 합니다. URL은 DockerHub 또는 Azure Container Registry를 구성 하는 데 사용할 수 있습니다.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true

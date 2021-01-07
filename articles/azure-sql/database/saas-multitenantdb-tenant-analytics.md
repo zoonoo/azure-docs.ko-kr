@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 917839b0963477de21062290515d36fd21163a93
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f12c823f609ac309d4b5ddbbaa7d5a076a7bb9ad
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793316"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447297"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "92793316"
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하는 한 가지 방법은 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다. 이렇게 하면 데이터 웨어하우스를 대상으로 쿼리하여 모든 테넌트의 티켓 데이터로부터 인사이트를 수집할 수 있습니다.
 
-이 자습서에서는 샘플 SaaS 애플리케이션을 사용하여 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 탄력적 작업을 사용하여 각 테넌트 데이터베이스로부터의 데이터 추출 일정을 예약합니다. 추출된 데이터는 분석 저장소에 저장됩니다. 분석 저장소로 SQL Database나 Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 샘플 SaaS 애플리케이션을 사용하여 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 탄력적 작업을 사용하여 각 테넌트 데이터베이스로부터의 데이터 추출 일정을 예약합니다. 추출된 데이터는 분석 저장소에 저장됩니다. 분석 저장소는 SQL Database 또는 Azure Synapse Analytics입니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 단편화합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "92793316"
 
 ### <a name="create-data-for-the-demo"></a>데모를 위한 데이터 만들기
 
-이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다* . 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
+이 자습서에서는 티켓 판매량 데이터를 대상으로 분석을 수행합니다. 이 단계에서는 모든 테넌트의 티켓 데이터를 생성합니다.  생성된 데이터는 나중에 분석을 위해 추출됩니다. *유의미한 데이터 양을 확보하기 위해 앞에서 설명한 바와 같이 테넌트 배치가 프로비전되어 있어야 합니다*. 데이터가 일정 양을 넘어서면 다양한 티켓 구매 패턴을 파악할 수 있습니다.
 
 1. **PowerShell ISE** 에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 을 열고 다음 값을 설정합니다.
     - **$DemoScenario** = **1** 모든 행사장에서 이벤트 티켓 구입
@@ -94,7 +94,7 @@ ms.locfileid: "92793316"
     - 열 저장소가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3** 을 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics\<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-mt-\<User\>** 서버와 **catalog-mt-\<User\>** 서버를 연결합니다. 이때 로그인 = *developer* , 암호 = *P\@ssword1* 입니다.
+이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-mt-\<User\>** 서버와 **catalog-mt-\<User\>** 서버를 연결합니다. 이때 로그인 = *developer*, 암호 = *P\@ssword1* 입니다.
 
 ![architectureOverView](./media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -108,7 +108,7 @@ ms.locfileid: "92793316"
 SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 같은 데이터베이스 항목을 확인합니다.
 
 - **TicketsRawData** 테이블과 **EventsRawData** 테이블은 테넌트 데이터베이스에서 추출된 원시 데이터를 포함합니다.
-- 스타 스키마 테이블은 **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** , **dim_Dates** 입니다.
+- 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates** 입니다.
 - 스타 스키마 테이블에 원시 데이터 테이블을 입력하는 데 **sp_ShredRawExtractedData** 저장 프로시저가 사용됩니다.
 
 ![테이블, 뷰 및 노드를 포함한 분석 저장소 노드에 대한 SSMS 개체 탐색기를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
@@ -176,7 +176,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![서버 및 데이터베이스를 입력할 수 있는 SQL Server 데이터베이스 대화 상자를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer* , 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
 
     ![사용자 이름 및 암호를 입력할 수 있는 SQL Server 데이터베이스 대화 상자를 보여 주는 스크린샷](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

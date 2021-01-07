@@ -1,16 +1,14 @@
 ---
 title: Cloud Services와 Service Fabric의 차이점
 description: Cloud Services에서 서비스 패브릭으로 애플리케이션을 마이그레이션하기 위한 개념적 개요입니다.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c7e7d346b5a39a262d1d55265becadb1c718cc04
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091171"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575774"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>애플리케이션을 마이그레이션하기 전에 Cloud Services와 Service Fabric 간의 차이점에 대해 알아봅니다.
 Microsoft Azure Service Fabric은 확장성이 뛰어난 매우 안정적인 분산된 애플리케이션을 위한 차세대 클라우드 애플리케이션 플랫폼입니다. 분산된 클라우드 애플리케이션을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 
@@ -84,7 +82,7 @@ Cloud Services와 같은 상태 비저장 환경의 계층 간 일반 통신 메
 [Cloud Services는 제어 수준과 사용 편의성을 Service Fabric 하는 것과 유사 하지만, 이제는 레거시 서비스 이며 새로운 개발에는 Service Fabric를 사용 하](/azure/architecture/guide/technology-choices/compute-decision-tree)는 것이 좋습니다. API 비교는 다음과 같습니다.
 
 
-| **클라우드 서비스 API** | **Service Fabric API** | **참고** |
+| **클라우드 서비스 API** | **Service Fabric API** | **참고 사항** |
 | --- | --- | --- |
 | RoleInstance. GetID | FabricRuntime. GetNodeContext. NodeId 또는. NodeName | ID는 NodeName의 속성입니다. |
 | RoleInstance 도메인 | FabricClient. GetNodeList | NodeName에 대해 필터링 및 FD 속성 사용 |

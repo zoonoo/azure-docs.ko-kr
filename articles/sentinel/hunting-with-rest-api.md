@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377709"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660851"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>REST API를 사용 하 여 Azure 센티널에서 구하기 및 라이브 스트림 쿼리 관리
 
 Azure Monitor Log Analytics에 포함 되는 Azure 센티널은 Log Analytics ' REST API를 사용 하 여 구하기 및 라이브 스트림 쿼리를 관리할 수 있습니다. 이 문서에서는 REST API를 사용 하 여 구하기 쿼리를 만들고 관리 하는 방법을 보여 줍니다.  이러한 방식으로 만들어진 쿼리는 Azure 센티널 UI에 표시 됩니다.
 
-[저장 된 검색 API](https://docs.microsoft.com/rest/api/loganalytics/savedsearches)에 대 한 자세한 내용은 결정적인 REST API 참조를 참조 하세요.
+[저장 된 검색 API](/rest/api/loganalytics/savedsearches)에 대 한 자세한 내용은 결정적인 REST API 참조를 참조 하세요.
 
 ## <a name="api-examples"></a>API 예제
 

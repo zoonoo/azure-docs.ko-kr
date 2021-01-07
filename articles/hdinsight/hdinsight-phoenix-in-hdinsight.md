@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504335"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96004826"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
 
@@ -37,11 +37,11 @@ HBase의 기본 행 키에는 사전순으로 정렬되는 단일 인덱스가 �
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스**입니다. 따라서 테이블 조회가 필요 하지 않으며 인덱스는 전체 쿼리를 만족 합니다.
+이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스** 입니다. 따라서 테이블 조회가 필요 하지 않으며 인덱스는 전체 쿼리를 만족 합니다.
 
-### <a name="views"></a>뷰
+### <a name="views"></a>보기
 
-Phoenix 뷰는 물리적 테이블을 100개 이상 만들 때 성능이 저하되기 시작하는 HBase 제한을 극복하는 방법을 제공합니다. Phoenix 뷰를 사용하면 여러 *가상 테이블*이 하나의 기본 실제 HBase 테이블을 공유할 수 있습니다.
+Phoenix 뷰는 물리적 테이블을 100개 이상 만들 때 성능이 저하되기 시작하는 HBase 제한을 극복하는 방법을 제공합니다. Phoenix 뷰를 사용하면 여러 *가상 테이블* 이 하나의 기본 실제 HBase 테이블을 공유할 수 있습니다.
 
 Phoenix 뷰를 만드는 것은 표준 SQL 뷰 구문을 사용하는 것과 비슷합니다. 한 가지 차이점은 기본 테이블에 상속되는 열 외에도, 뷰의 열을 정의할 수 있다는 것입니다. 새 `KeyValue` 열을 추가할 수도 있습니다.
 
@@ -99,7 +99,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 *영역 서버 핫스폿* 는 순차 키가 있는 레코드를 HBase에 쓸 때 발생할 수 있습니다. 클러스터에 여러 지역 서버가 있을 수 있지만 쓰기는 모두 한 서버에서만 발생합니다. 이러한 집중을 통해 쓰기 워크로드가 사용 가능한 모든 지역 서버에서 분산되지 않고, 한 서버만 부하를 처리하는 핫스폿 문제가 발생합니다. 각 영역에는 미리 정의 된 최대 크기가 있으므로 지역이 해당 크기 제한에 도달 하면 두 개의 작은 영역으로 분할 됩니다. 이 경우, 이러한 새 지역 중 하나가 모든 새 레코드를 받게 되어 새로운 핫스폿이 됩니다.
 
-이 문제를 완화하고 성능을 향상시키기 위해, 모든 지역 서버가 균일하게 사용되도록 테이블을 미리 분할합니다. Phoenix는 특정 테이블에 대한 행 키에 솔트 바이트를 투명하게 추가하여 *솔트된 테이블*을 제공합니다. 이 테이블은 테이블의 초기 단계 동안, 지역 서버 간에 부하를 균일하게 분산하기 위해 솔트 바이트 경계에서 미리 분할됩니다. 이 방법은 사용 가능한 모든 지역 서버에서 쓰기 워크로드를 분산하여 쓰기 및 읽기 성능을 향상시킵니다. 테이블을 솔트하려면 테이블이 생성될 때 `SALT_BUCKETS` 테이블 속성을 지정합니다.
+이 문제를 완화하고 성능을 향상시키기 위해, 모든 지역 서버가 균일하게 사용되도록 테이블을 미리 분할합니다. Phoenix는 특정 테이블에 대한 행 키에 솔트 바이트를 투명하게 추가하여 *솔트된 테이블* 을 제공합니다. 이 테이블은 테이블의 초기 단계 동안, 지역 서버 간에 부하를 균일하게 분산하기 위해 솔트 바이트 경계에서 미리 분할됩니다. 이 방법은 사용 가능한 모든 지역 서버에서 쓰기 워크로드를 분산하여 쓰기 및 읽기 성능을 향상시킵니다. 테이블을 솔트하려면 테이블이 생성될 때 `SALT_BUCKETS` 테이블 속성을 지정합니다.
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -126,7 +126,7 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
 1. Phoenix를 사용하거나 사용하지 않도록 설정하고, Phoenix의 쿼리 제한 시간 설정을 제어하려면 Hadoop 사용자 자격 증명을 사용하여 Ambari 웹 UI(`https://YOUR_CLUSTER_NAME.azurehdinsight.net`)에 로그인합니다.
 
-2. 왼쪽 메뉴의 서비스 목록에서 **HBase**를 선택하고 **구성** 탭을 선택합니다.
+2. 왼쪽 메뉴의 서비스 목록에서 **HBase** 를 선택하고 **구성** 탭을 선택합니다.
 
     ![Apache Ambari HBase 구성](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
 
@@ -134,7 +134,7 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
     ![Ambari Phoenix SQL 구성 섹션](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 * [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-query-with-phoenix.md)
 

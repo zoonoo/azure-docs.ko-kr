@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.openlocfilehash: 0941e3d5141b5b8841f5d37e3db0d0b1b1474547
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130275"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019823"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -66,7 +66,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 프로세스에서 이벤트 허브로 데이터를 보낼 수 있으려면 이벤트 허브에 액세스 권한을 허용하는 정책이 필요합니다. 액세스 정책은 권한 부여 정보를 포함하는 연결 문자열을 생성합니다.
 
-1.  이벤트 허브 네임스페이스 왼쪽의 탐색 모음에서 **Event Hubs** 를 선택합니다( **엔터티** 섹션에 위치). 그런 다음, 방금 만든 이벤트 허브를 선택합니다.
+1.  이벤트 허브 네임스페이스 왼쪽의 탐색 모음에서 **Event Hubs** 를 선택합니다(**엔터티** 섹션에 위치). 그런 다음, 방금 만든 이벤트 허브를 선택합니다.
 
 2.  왼쪽의 탐색 모음에서 **설정** 아래에 있는 **공유 액세스 정책** 을 선택합니다.
 
@@ -207,10 +207,10 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 2. **출력** 페이지에서 다음과 같이 **+&nbsp;추가** 및 **Blob Storage/Data Lake Storage Gen2** 를 클릭합니다.
 
-   * **출력 별칭** : 이름 `TwitterStream-Output`을 사용합니다. 
-   * **가져오기 옵션** : **구독에서 스토리지를 선택** 을 선택합니다.
-   * **Storage 계정** . 사용자의 스토리지 계정을 선택합니다.
-   * **컨테이너** . **새로 만들기** 를 선택하고 `socialtwitter`을 입력합니다.
+   * **출력 별칭**: 이름 `TwitterStream-Output`을 사용합니다. 
+   * **가져오기 옵션**: **구독에서 스토리지를 선택** 을 선택합니다.
+   * **Storage 계정**. 사용자의 스토리지 계정을 선택합니다.
+   * **컨테이너**. **새로 만들기** 를 선택하고 `socialtwitter`을 입력합니다.
    
 4. **저장** 을 선택합니다.   
 

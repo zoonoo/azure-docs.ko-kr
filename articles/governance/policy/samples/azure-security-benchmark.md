@@ -1,15 +1,15 @@
 ---
 title: Azure Security Benchmark에 대한 규정 준수 세부 정보
 description: Azure Security Benchmark 규정 준수 기본 제공 이니셔티브의 세부 정보 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 10/20/2020
+ms.date: 11/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1ed21d0f33df96638ad13db687b80faf5ac855a0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311470"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987000"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Azure Security Benchmark 규정 준수 기본 제공 이니셔티브의 세부 정보
 
@@ -29,11 +29,11 @@ ms.locfileid: "92311470"
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Virtual Network에서 네트워크 보안 그룹 또는 Azure Firewall을 사용하여 리소스 보호
 
-**ID** : Azure Security Benchmark 1.1 **소유권** : Customer
+**ID**: Azure Security Benchmark 1.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[적응형 네트워크 강화 권장 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하고 잠재적 공격 노출 영역을 줄이는 네트워크 보안 그룹 규칙 권장 사항을 제공합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하고 잠재적 공격 노출 영역을 줄이는 네트워크 보안 그룹 규칙 권장 사항을 제공합니다. |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center에서 일부 서브넷이 차세대 방화벽으로 보호되지 않는 것으로 확인되었습니다. Azure Firewall 또는 지원되는 차세대 방화벽으로 액세스를 제한하여 잠재적인 위협으로부터 서브넷을 보호합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[App Service는 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |이 정책은 가상 네트워크 서비스 엔드포인트를 사용하도록 구성되지 않은 모든 App Service를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[권한 있는 IP 범위는 Kubernetes Services에 정의되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e246bcf-5f6f-4f87-bc6f-775d4712c7ea) |특정 범위의 IP 주소에만 API 액세스 권한을 부여하여 Kubernetes Service Management API에 대한 액세스를 제한합니다. 허용된 네트워크의 애플리케이션만 클러스터에 액세스할 수 있도록 인증된 IP 범위에 대한 액세스를 제한하는 것이 좋습니다. |감사, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableIpRanges_KubernetesService_Audit.json) |
@@ -58,7 +58,7 @@ ms.locfileid: "92311470"
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Vnet, 서브넷 및 NIC의 구성과 트래픽에 대한 모니터링 및 기록
 
-**ID** : Azure Security Benchmark 1.2 **소유권** : Customer
+**ID**: Azure Security Benchmark 1.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ ms.locfileid: "92311470"
 
 ### <a name="protect-critical-web-applications"></a>중요한 웹 애플리케이션 보호
 
-**ID** : Azure Security Benchmark 1.3 **소유권** : Customer
+**ID**: Azure Security Benchmark 1.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,18 +80,18 @@ ms.locfileid: "92311470"
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>알려진 악성 IP 주소와의 통신 거부
 
-**ID** : Azure Security Benchmark 1.4 **소유권** : Customer
+**ID**: Azure Security Benchmark 1.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[적응형 네트워크 강화 권장 사항은 인터넷에 연결된 가상 머신에 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하고 잠재적 공격 노출 영역을 줄이는 네트워크 보안 그룹 규칙 권장 사항을 제공합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
+|[인터넷 연결 가상 머신에 적응형 네트워크 강화 권장 사항을 적용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08e6af2d-db70-460a-bfe9-d5bd474ba9d6) |Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하고 잠재적 공격 노출 영역을 줄이는 네트워크 보안 그룹 규칙 권장 사항을 제공합니다. |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_AdaptiveNetworkHardenings_Audit.json) |
 |[모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center에서 일부 서브넷이 차세대 방화벽으로 보호되지 않는 것으로 확인되었습니다. Azure Firewall 또는 지원되는 차세대 방화벽으로 액세스를 제한하여 잠재적인 위협으로부터 서브넷을 보호합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[Azure DDoS Protection 표준을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |공용 IP를 사용하는 애플리케이션 게이트웨이의 일부인 서브넷이 포함된 모든 가상 네트워크에 DDoS 보호 표준을 사용하도록 설정해야 합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 |[가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0f33259-77d7-4c9e-aac6-3aabcfae693c) |가능한 네트워크 JIT(Just In Time) 액세스는 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_JITNetworkAccess_Audit.json) |
 
 ### <a name="record-network-packets-and-flow-logs"></a>네트워크 패킷 및 흐름 로그 기록
 
-**ID** : Azure Security Benchmark 1.5 **소유권** : Customer
+**ID**: Azure Security Benchmark 1.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
-**ID** : Azure Security Benchmark 1.11 **소유권** : Customer
+**ID**: Azure Security Benchmark 1.11 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ ms.locfileid: "92311470"
 
 ### <a name="configure-central-security-log-management"></a>중앙 보안 로그 관리 구성
 
-**ID** : Azure Security Benchmark 2.2 **소유권** : Customer
+**ID**: Azure Security Benchmark 2.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ ms.locfileid: "92311470"
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Azure 리소스에 대한 감사 로깅 사용
 
-**ID** : Azure Security Benchmark 2.3 **소유권** : Customer
+**ID**: Azure Security Benchmark 2.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ ms.locfileid: "92311470"
 
 ### <a name="collect-security-logs-from-operating-systems"></a>운영 체제에서 보안 로그 수집
 
-**ID** : Azure Security Benchmark 2.4 **소유권** : Customer
+**ID**: Azure Security Benchmark 2.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ ms.locfileid: "92311470"
 
 ### <a name="configure-security-log-storage-retention"></a>보안 로그 스토리지 보존 기간 구성
 
-**ID** : Azure Security Benchmark 2.5 **소유권** : Customer
+**ID**: Azure Security Benchmark 2.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ ms.locfileid: "92311470"
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>비정상 활동에 대한 경고 사용
 
-**ID** : Azure Security Benchmark 2.7 **소유권** : Customer
+**ID**: Azure Security Benchmark 2.7 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ ms.locfileid: "92311470"
 
 ### <a name="centralize-anti-malware-logging"></a>맬웨어 방지 로깅 중앙 집중화
 
-**ID** : Azure Security Benchmark 2.8 **소유권** : Customer
+**ID**: Azure Security Benchmark 2.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ ms.locfileid: "92311470"
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>관리 계정의 인벤토리 유지 관리
 
-**ID** : Azure Security Benchmark 3.1 **소유권** : Customer
+**ID**: Azure Security Benchmark 3.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-dedicated-administrative-accounts"></a>전용 관리 계정 사용
 
-**ID** : Azure Security Benchmark 3.3 **소유권** : Customer
+**ID**: Azure Security Benchmark 3.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>모든 Azure Active Directory 기반 액세스에 다단계 인증 사용
 
-**ID** : Azure Security Benchmark 3.5 **소유권** : Customer
+**ID**: Azure Security Benchmark 3.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-azure-active-directory"></a>Azure Active Directory 사용
 
-**ID** : Azure Security Benchmark 3.9 **소유권** : Customer
+**ID**: Azure Security Benchmark 3.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ ms.locfileid: "92311470"
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>정기적으로 사용자 액세스 검토 및 조정
 
-**ID** : Azure Security Benchmark 3.10 **소유권** : Customer
+**ID**: Azure Security Benchmark 3.10 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ ms.locfileid: "92311470"
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>중요한 정보의 인벤토리 유지 관리
 
-**ID** : Azure Security Benchmark 4.1 **소유권** : Customer
+**ID**: Azure Security Benchmark 4.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ ms.locfileid: "92311470"
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>전송 중인 모든 중요한 정보 암호화
 
-**ID** : Azure Security Benchmark 4.4 **소유권** : 공유됨
+**ID**: Azure Security Benchmark 4.4 **소유권**: 공유됨
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>활성 검색 도구를 사용하여 중요한 데이터 식별
 
-**ID** : Azure Security Benchmark 4.5 **소유권** : Customer
+**ID**: Azure Security Benchmark 4.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**ID** : Azure Security Benchmark 4.6 **소유권** : Customer
+**ID**: Azure Security Benchmark 4.6 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ ms.locfileid: "92311470"
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>중요한 저장 정보 암호화
 
-**ID** : Azure Security Benchmark 4.8 **소유권** : Customer
+**ID**: Azure Security Benchmark 4.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ ms.locfileid: "92311470"
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>중요한 Azure 리소스에 대한 변경 내용 기록 및 경고
 
-**ID** : Azure Security Benchmark 4.9 **소유권** : Customer
+**ID**: Azure Security Benchmark 4.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ ms.locfileid: "92311470"
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>자동화된 취약성 검사 도구 실행
 
-**ID** : Azure Security Benchmark 5.1 **소유권** : Customer
+**ID**: Azure Security Benchmark 5.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ ms.locfileid: "92311470"
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>자동화된 운영 체제 패치 관리 솔루션 배포
 
-**ID** : Azure Security Benchmark 5.2 **소유권** : Customer
+**ID**: Azure Security Benchmark 5.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,7 +336,7 @@ ms.locfileid: "92311470"
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>자동화된 타사 소프트웨어 패치 관리 솔루션 배포
 
-**ID** : Azure Security Benchmark 5.3 **소유권** : Customer
+**ID**: Azure Security Benchmark 5.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -352,21 +352,21 @@ ms.locfileid: "92311470"
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>위험 등급 프로세스를 사용하여 검색된 취약성의 수정 우선 순위 지정
 
-**ID** : Azure Security Benchmark 5.5 **소유권** : Customer
+**ID**: Azure Security Benchmark 5.5 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[컨테이너 보안 구성의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Docker가 설치된 머신에서 보안 구성의 취약성을 감사하고 Azure Security Center에서 권장 사항으로 표시합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[머신 보안 구성의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |구성된 기준을 충족하지 않는 서버는 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |가상 머신 확장 집합의 OS 취약성을 감사하여 공격으로부터 보호합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
-|[SQL 데이터베이스의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
+|[SQL 데이터베이스의 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffeedbf84-6b99-488c-acc2-71c829aa5ffc) |취약성 평가 검사 결과 및 데이터베이스 취약성을 해결하는 방법에 대한 권장 사항을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbVulnerabilities_Audit.json) |
 |[취약성 평가 솔루션으로 취약성을 수정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |권장 구성에 따라 Azure Security Center에서 취약성 평가 솔루션이 발견한 취약성과 취약성 평가 솔루션 없이 VM이 발견한 취약성을 모니터링합니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
 ### <a name="use-only-approved-applications"></a>승인된 애플리케이션만 사용
 
-**ID** : Azure Security Benchmark 6.8 **소유권** : Customer
+**ID**: Azure Security Benchmark 6.8 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-only-approved-azure-services"></a>승인된 Azure 서비스만 사용
 
-**ID** : Azure Security Benchmark 6.9 **소유권** : Customer
+**ID**: Azure Security Benchmark 6.9 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ ms.locfileid: "92311470"
 
 ### <a name="implement-approved-application-list"></a>승인된 애플리케이션 목록 구현
 
-**ID** : Azure Security Benchmark 6.10 **소유권** : Customer
+**ID**: Azure Security Benchmark 6.10 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ ms.locfileid: "92311470"
 
 ### <a name="maintain-secure-operating-system-configurations"></a>보안 운영 체제 구성 유지 관리
 
-**ID** : Azure Security Benchmark 7.4 **소유권** : 공유됨
+**ID**: Azure Security Benchmark 7.4 **소유권**: 공유됨
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ ms.locfileid: "92311470"
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>운영 체제에 대한 자동화된 구성 모니터링 구현
 
-**ID** : Azure Security Benchmark 7.10 **소유권** : Customer
+**ID**: Azure Security Benchmark 7.10 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,15 +413,15 @@ ms.locfileid: "92311470"
 
 ### <a name="manage-azure-secrets-securely"></a>안전하게 Azure 비밀 관리
 
-**ID** : Azure Security Benchmark 7.11 **소유권** : Customer
+**ID**: Azure Security Benchmark 7.11 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault 개체를 복구할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |이 정책은 Key Vault 개체를 복구할 수 없는 경우 감사합니다. Soft Delete 기능은 DELETE 작업 후에도 지정된 보존 기간(90일) 동안 리소스를 효율적으로 유지하는 동시에 개체가 삭제된 것처럼 보이게 합니다. '제거 보호'가 켜져 있으면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 이러한 자격 증명 모음 및 개체는 계속 복구할 수 있으며, 고객에게 보존 정책을 준수하도록 합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[키 자격 증명 모음에서 제거 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있는 액세스 권한을 얻을 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ### <a name="manage-identities-securely-and-automatically"></a>안전하게 자동으로 ID 관리 
 
-**ID** : Azure Security Benchmark 7.12 **소유권** : Customer
+**ID**: Azure Security Benchmark 7.12 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ ms.locfileid: "92311470"
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>중앙 관리형 맬웨어 방지 소프트웨어 사용
 
-**ID** : Azure Security Benchmark 8.1 **소유권** : Customer
+**ID**: Azure Security Benchmark 8.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ ms.locfileid: "92311470"
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>맬웨어 방지 소프트웨어 및 서명이 업데이트되었는지 확인
 
-**ID** : Azure Security Benchmark 8.3 **소유권** : Customer
+**ID**: Azure Security Benchmark 8.3 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ ms.locfileid: "92311470"
 
 ### <a name="ensure-regular-automated-back-ups"></a>자동화된 정기 백업 보장
 
-**ID** : Azure Security Benchmark 9.1 **소유권** : Customer
+**ID**: Azure Security Benchmark 9.1 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ ms.locfileid: "92311470"
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>전체 시스템 백업 수행 및 고객 관리형 키 백업
 
-**ID** : Azure Security Benchmark 9.2 **소유권** : Customer
+**ID**: Azure Security Benchmark 9.2 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,17 +476,17 @@ ms.locfileid: "92311470"
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>백업 및 고객 관리형 키 보호 보장
 
-**ID** : Azure Security Benchmark 9.4 **소유권** : Customer
+**ID**: Azure Security Benchmark 9.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Key Vault 개체를 복구할 수 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |이 정책은 Key Vault 개체를 복구할 수 없는 경우 감사합니다. Soft Delete 기능은 DELETE 작업 후에도 지정된 보존 기간(90일) 동안 리소스를 효율적으로 유지하는 동시에 개체가 삭제된 것처럼 보이게 합니다. '제거 보호'가 켜져 있으면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 이러한 자격 증명 모음 및 개체는 계속 복구할 수 있으며, 고객에게 보존 정책을 준수하도록 합니다. |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|[키 자격 증명 모음에서 제거 방지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |키 자격 증명 모음을 악의적으로 삭제하면 데이터가 영구적으로 손실될 수 있습니다. 조직의 악의적인 내부자가 잠재적으로 키 자격 증명 모음을 삭제하고 제거할 수 있는 액세스 권한을 얻을 수 있습니다. 제거 보호는 일시 삭제된 키 자격 증명 모음에 대해 필수 보존 기간을 적용하여 내부자 공격으로부터 보호합니다. 일시 삭제 보존 기간 동안에는 조직 또는 Microsoft 내부의 어느 누구도 키 자격 증명 모음을 제거할 수 없습니다. |감사, 거부, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
 
 ## <a name="incident-response"></a>사고 대응
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>보안 인시던트 연락처 세부 정보 제공 및 보안 인시던트에 대한 경고 알림 구성
 
-**ID** : Azure Security Benchmark 10.4 **소유권** : Customer
+**ID**: Azure Security Benchmark 10.4 **소유권**: Customer
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

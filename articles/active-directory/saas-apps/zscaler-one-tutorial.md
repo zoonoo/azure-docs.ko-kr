@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: d55e02bd981a220fee55a0abd540206a2701850a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3a9279189e3767b035256726a1da53b9edc8392f
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896840"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>자습서: Azure Active Directory와 Zscaler One 통합
 
@@ -116,7 +116,7 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     
     | 속성 | 원본 특성 |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf | user.assignedroles |
 
     a. **새 클레임 추가** 를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
@@ -205,12 +205,12 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 1. **Internet Explorer** 를 시작합니다.
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
-    
-     ![인터넷 옵션](./media/zscaler-one-tutorial/ic769492.png "인터넷 옵션")
+
+    ![인터넷 옵션](./media/zscaler-one-tutorial/ic769492.png "인터넷 옵션")
 
 3. **연결** 탭을 클릭합니다.   
-  
-     ![연결](./media/zscaler-one-tutorial/ic769493.png "Connections")
+
+    ![연결](./media/zscaler-one-tutorial/ic769493.png "Connections")
 
 4. **LAN 설정** 을 클릭하여 **LAN 설정** 대화 상자를 엽니다.
 
@@ -234,7 +234,7 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -258,7 +258,7 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zscaler One에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 및 **Zscaler One** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 및 **Zscaler One** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

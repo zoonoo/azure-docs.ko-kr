@@ -5,32 +5,12 @@
   items:
     - name: Face 서비스란?
       href: Overview.md
+    - name: 새로운 기능
+      href: releasenotes.md
 - name: 빠른 시작
   items:
-    - name: 클라이언트 라이브러리 사용
+    - name: 클라이언트 라이브러리 또는 REST API 사용
       href: Quickstarts/client-libraries.md
-    - name: REST API 사용
-      items:
-        - name: 이미지에서 얼굴 감지
-          items:
-            - name: C#
-              href: QuickStarts/CSharp.md
-            - name: cURL
-              href: QuickStarts/curl.md
-            - name: Go
-              href: QuickStarts/go.md
-            - name: Java
-              href: QuickStarts/Java.md
-            - name: JavaScript
-              href: QuickStarts/JavaScript.md
-            - name: Node.js
-              href: QuickStarts/node.md
-            - name: PHP
-              href: QuickStarts/PHP.md
-            - name: Python
-              href: QuickStarts/Python.md
-            - name: Ruby
-              href: QuickStarts/Ruby.md
 - name: 자습서
   items:
     - name: 클라이언트 SDK 사용
@@ -68,9 +48,20 @@
         - name: 컨테이너 구성
           href: face-resource-container-config.md
         - name: 컨테이너 인스턴스 사용
-          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
         - name: Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
+- name: 시나리오 심층 분석
+  items:
+    - name: 얼굴 등록
+      items:
+        - name: 개요
+          href: enrollment-overview.md
+        - name: 방법 가이드
+          items:
+            - name: React로 등록 앱 빌드
+              href: build-enrollment-app.md
 - name: 참조
   items:
     - name: Face API
@@ -87,8 +78,6 @@
           href: /javascript/api/@azure/cognitiveservices-face
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face'
-        - name: iOS
-          href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: 리소스
   items:
     - name: 지원 및 도움말 옵션
@@ -111,5 +100,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화
       href: face-encryption-of-data-at-rest.md
-    - name: 릴리스 정보
-      href: ReleaseNotes.md

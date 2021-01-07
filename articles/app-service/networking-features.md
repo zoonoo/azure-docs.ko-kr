@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39a511601606118228ee5fbd9dcf68b6707ede47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288354"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183059"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -207,7 +207,7 @@ Ase를 사용 하면 ASE가 이미 가상 네트워크에 있기 때문에 VNet 
 
 ILB ASE의 앱은 개인 IP 주소에 노출 될 수 있으므로, 인터넷에 추가 하려는 앱만 노출 하 고 나머지 보안을 유지 하기 위해 WAF 장치를 쉽게 추가할 수 있습니다. 이 기능을 사용 하면 다중 계층 응용 프로그램을 쉽게 개발할 수 있습니다. 
 
-일부 항목은 현재 다중 테 넌 트 서비스에서 가능 하지 않지만 ASE에서 가능 합니다. 몇 가지 예제는 다음과 같습니다.
+일부 항목은 현재 다중 테 넌 트 서비스에서 가능 하지 않지만 ASE에서 가능 합니다. 다음은 몇 가지 예입니다.
 
 * 개인 IP 주소에 앱을 노출 합니다.
 * 응용 프로그램의 일부가 아닌 네트워크 제어를 사용 하 여 모든 아웃 바운드 트래픽의 보안을 유지 합니다.
@@ -280,7 +280,7 @@ LOB (기간 업무) 응용 프로그램은 인터넷에서 액세스 하기 위�
 
 App Service를 검색 하는 경우 인바운드 연결에 대해 노출 되는 여러 포트를 찾을 수 있습니다. 다중 테 넌 트 서비스에서 이러한 포트에 대 한 액세스를 차단 하거나 제어 하는 방법은 없습니다. 표시 되는 포트 목록은 다음과 같습니다.
 
-| 기능 | 포트 또는 포트 |
+| 용도 | 포트 또는 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  관리 | 454, 455 |
@@ -290,12 +290,12 @@ App Service를 검색 하는 경우 인바운드 연결에 대해 노출 되는 
 |  인프라 사용 | 7654, 1221 |
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
-[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
-[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
-[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[appassignedaddress]: ./configure-ssl-certificate.md
+[iprestrictions]: ./app-service-ip-restrictions.md
+[serviceendpoints]: ./app-service-ip-restrictions.md
+[hybridconn]: ./app-service-hybrid-connections.md
+[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
+[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[networkinfo]: ./environment/network-info.md
+[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
+[privateendpoints]: ./networking/private-endpoint.md

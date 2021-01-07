@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670532"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748776"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation(미리 보기)
 
-Microsoft Azure Attestation(미리 보기)은 [Intel® SGX(Software Guard Extensions)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) enclave 및 [VBS(가상화 기반 보안)](/windows-hardware/design/device-experiences/oem-vbs) enclave와 같은 TEE(신뢰할 수 있는 실행 환경)를 증명하기 위한 솔루션입니다. enclave 증명은 enclave가 안전하고 신뢰할 수 있는지 확인하는 프로세스입니다.
+Microsoft Azure Attestation(미리 보기)은 플랫폼의 신뢰성과 플랫폼 내부에서 실행되는 이진 파일의 무결성을 원격으로 확인하기 위한 통합 솔루션입니다. 이 서비스는 [Intel® SGX(Software Guard Extensions)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) enclave 및 [VBS(가상화 기반 보안)](/windows-hardware/design/device-experiences/oem-vbs) enclave와 같은 TEE(Trusted Execution Environment) 상태를 증명하는 기능과 함께 TPM(Trusted Platform Module)이 지원하는 플랫폼 증명을 지원합니다. 
 
 증명은 소프트웨어 이진 파일이 신뢰할 수 있는 플랫폼에서 올바르게 인스턴스화되었음을 보여주는 프로세스입니다. 그러면 원격 신뢰 당사자가 이러한 의도된 소프트웨어만 신뢰할 수 있는 하드웨어에서 실행된다고 확신할 수 있습니다. Azure Attestation은 증명을 위한 통합 고객 지향 서비스 및 프레임워크입니다.
 
@@ -34,12 +34,6 @@ Azure Attestation은 여러 환경 및 고유한 사용 사례에 대한 포괄�
 SGX는 특정 Intel CPU 모델에서 지원되는 하드웨어 등급 격리를 나타냅니다. SGX를 사용하면 코드를 SGX enclave라는 삭제된 구획에서 실행할 수 있습니다. 그런 다음, 하드웨어에서 액세스 및 메모리 권한을 관리하여 적절한 격리를 통해 공격 노출 영역을 최소화합니다.
 
 클라이언트 애플리케이션은 보안에 중요한 작업을 SGX enclave 내에서 수행하도록 위임하여 이러한 enclave를 활용하도록 설계할 수 있습니다. 그런 다음, 이러한 애플리케이션은 Azure Attestation을 사용하여 enclave에서 정기적으로 트러스트를 설정하고 중요한 데이터에 액세스할 수 있습니다.
-
-### <a name="vbs-attestation"></a>VBS 증명
-
-VBS는 Hyper-V를 기반으로 하는 enclave 메모리 보호를 위한 소프트웨어 기반 아키텍처입니다. 호스트 관리자 코드뿐만 아니라 로컬 및 클라우드 서비스 관리자도 VBS enclave의 데이터에 액세스하거나 해당 실행에 영향을 주지 못하도록 방지합니다.
-
-SGX 기술과 마찬가지로 Azure Attestation은 구성된 정책에 대해 VBS enclave의 유효성을 검사하고 인증문을 유효성 증명으로 발급할 수 있도록 지원합니다.
 
 ### <a name="open-enclave"></a>Open Enclave
 [OE(Open Enclave)](https://openenclave.io/sdk/)는 개발자가 TEE 기반 애플리케이션을 빌드하는 데 사용할 수 있는 단일 통합 enclave 추상화를 만들기 위한 라이브러리의 컬렉션입니다. 플랫폼 특정성을 최소화하는 범용 보안 앱 모델을 제공합니다. Microsoft는 이를 SGX와 같은 하드웨어 기반 enclave 기술을 대중화하고 Azure에서 더 많이 활용할 수 있도록 하기 위한 필수적인 디딤돌로 보고 있습니다.
@@ -65,19 +59,15 @@ Azure Attestation 고객은 Microsoft에서 운영상 TCB(신뢰할 수 있는 �
 
 Azure Attestation은 다음과 같은 이점을 제공하므로 TEE를 증명하는 데 기본적으로 선택됩니다. 
 
-- SGX enclave 및 VBS enclave와 같은 여러 TEE를 증명하기 위한 통합 프레임워크입니다.
+- TPM, SGX enclave 및 VBS enclave와 같은 여러 환경을 증명하기 위한 통합 프레임워크 
 - 사용자 지정 증명 공급자 및 정책을 구성하여 토큰 생성을 제한할 수 있는 다중 테넌트 서비스입니다.
 - 사용자의 구성 없이 증명할 수 있는 기본 공급자를 제공합니다.
 - SGX enclave에서 구현을 통해 사용하는 동안 데이터를 보호합니다.
-- SLA(서비스 수준 계약)를 제공하는 고가용성 서비스입니다.
+- 고가용성 서비스 
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>BCDR(비즈니스 연속성 및 재해 복구) 지원
 
 Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](../best-practices-availability-paired-regions.md)을 사용하면 지역의 심각한 가용성 문제 또는 재해 이벤트로 인한 서비스 중단을 완화할 수 있습니다.
-
-현재 BCDR에서 지원되는 지역은 다음과 같습니다.
-- 미국 동부 2 => 미국 중부와 쌍을 이룹니다.
-- 미국 중부 => 미국 동부 2와 쌍을 이룹니다.
 
 두 지역에 배포된 클러스터는 정상적인 환경에서 독립적으로 작동합니다. 한 지역에서 오류가 발생하거나 중단되는 경우 수행되는 작업은 다음과 같습니다.
 

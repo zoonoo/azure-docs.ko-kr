@@ -1,5 +1,5 @@
 ---
-title: 업계 표준 모델 통합
+title: 산업 표준 모델 통합
 titleSuffix: Azure Digital Twins
 description: 특수 DTDL 온톨로지를 사용 하거나 기존 온톨로지를 변환 하 여 Azure Digital Twins의 DTDL에 업계 표준 모델을 통합 하는 방법을 알아봅니다.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1866e9b233a1379474c061779ada09fd6d119107
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f5bfe128ddc04e8048bb89a8e39035434dfd2b92
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94338400"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96352884"
 ---
 # <a name="integrate-industry-standard-models-with-dtdl-for-azure-digital-twins"></a>Azure Digital Twins 용 DTDL과 업계 표준 모델 통합
 
@@ -21,9 +21,9 @@ ms.locfileid: "94338400"
 Azure Digital Twins에서 사용 하려면 모델이 JSON-LD 기반 [**디지털 Twins 정의 언어 (DTDL)**](concepts-models.md)로 표시 되어야 합니다. 따라서이 문서에서는 DTDL에서 업계 표준 모델을 표시 하는 방법에 대해 설명 하 고, Azure Digital Twins에서 사용할 수 있도록 기존 업계 개념을 DTDL 의미 체계와 통합 합니다. 그런 다음 DTDL 모델은 Azure Digital Twins 내에서 모델에 대 한 진위의 원본으로 사용 됩니다.
 
 DTDL과 업계 표준 모델을 통합 하는 데는 세 가지 가능한 경로가 있습니다.
-* **채택** : 널리 채택 된 산업 표준을 기반으로 하는 오픈 소스 dtdl ontology 솔루션을 시작할 수 있습니다. 
-* **변환** : 기존 모델이 이미 있는 경우 dtdl로 변환 해야 합니다.
-* **작성자** : [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)에 설명 된 대로 항상 사용자 지정 dtdl 모델을 처음부터 개발할 수 있습니다.
+* **채택**: 널리 채택 된 산업 표준을 기반으로 하는 오픈 소스 dtdl ontology 솔루션을 시작할 수 있습니다. 
+* **변환**: 기존 모델이 이미 있는 경우 dtdl로 변환 해야 합니다.
+* **작성자**: [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)에 설명 된 대로 항상 사용자 지정 dtdl 모델을 처음부터 개발할 수 있습니다.
 
 ## <a name="adopt-an-open-source-dtdl-ontology"></a>오픈 소스 DTDL ontology 도입
 
@@ -111,7 +111,7 @@ Azure Digital Twins 서비스에서 사용 하기 위해 RDF 기반 모델 파�
 
 이 샘플은 **Rdftodtdlconverter** 라는 .net Core 명령줄 응용 프로그램입니다.
 
-[**Rdftodtdlconverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/)에서 샘플을 다운로드할 수 있습니다. 
+[**Rdftodtdlconverter**](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/)에서 샘플을 다운로드할 수 있습니다. 
 
 컴퓨터에 코드를 다운로드 하려면 샘플 방문 페이지의 제목 아래에 있는 *ZIP 다운로드* 단추를 누릅니다. 그러면 *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip* 이름으로 *ZIP* 파일이 다운로드 됩니다. 그러면 압축을 풀고 탐색할 수 있습니다.
 

@@ -1,18 +1,18 @@
 ---
 title: 템플릿 함수-논리적
-description: Azure Resource Manager 템플릿에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
+description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 논리 값을 확인 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: ede41bd6c03eb7a01ae63526810d0310f31e4014
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 11/18/2020
+ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978512"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96920480"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대 한 논리 함수
 
-리소스 관리자는 ARM (Azure Resource Manager) 템플릿에서 비교를 수행 하기 위한 여러 함수를 제공 합니다.
+리소스 관리자는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 비교를 수행 하기 위한 몇 가지 함수를 제공 합니다.
 
 * [and](#and)
 * [bool](#bool)
@@ -22,11 +22,13 @@ ms.locfileid: "91978512"
 * [or](#or)
 * [true](#true)
 
-## <a name="and"></a>그리고
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+
+## <a name="and"></a>및
 
 `and(arg1, arg2, ...)`
 
-모든 매개 변수 값이 True인지 확인합니다.
+모든 매개 변수 값이 True인지 확인합니다. `and`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `&&` 대신 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -38,37 +40,49 @@ ms.locfileid: "91978512"
 
 ### <a name="return-value"></a>반환 값
 
-모든 값이 True이면 **True**를 반환하고 그렇지 않으면 **False**를 반환합니다.
+모든 값이 True이면 **True** 를 반환하고 그렇지 않으면 **False** 를 반환합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json)에서는 논리 함수를 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]"
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
@@ -94,39 +108,51 @@ ms.locfileid: "91978512"
 
 [True ()](#true) 및 [false ()](#false) 를 사용 하 여 부울 값을 가져올 수도 있습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json)에서는 문자열 또는 정수에 bool을 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueString": {
+      "type": "bool",
+      "value": "[bool('true')]",
+    },
+    "falseString": {
+      "type": "bool",
+      "value": "[bool('false')]"
+    },
+    "trueInt": {
+      "type": "bool",
+      "value": "[bool(1)]"
+    },
+    "falseInt": {
+      "type": "bool",
+      "value": "[bool(0)]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output trueString bool = bool('true')
+output falseString bool = bool('false')
+output trueInt bool = bool(1)
+output falseInt bool = bool(0)
+```
+
+---
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | 거짓 |
@@ -137,7 +163,7 @@ ms.locfileid: "91978512"
 
 `false()`
 
-false를 반환합니다.
+false를 반환합니다. `false`함수는 Bicep에서 사용할 수 없습니다.  `false`대신 키워드를 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -151,23 +177,33 @@ False 함수는 매개 변수를 허용 하지 않습니다.
 
 다음 예에서는 false 출력 값을 반환 합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "falseOutput": {
-            "value": "[false()]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "falseOutput": {
+      "type": "bool",
+      "value": "[false()]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output falseOutput bool = false
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | falseOutput | Bool | 거짓 |
 
@@ -175,7 +211,7 @@ False 함수는 매개 변수를 허용 하지 않습니다.
 
 `if(condition, trueValue, falseValue)`
 
-조건이 true인지 아니면 false인지에 따라 값을 반환합니다.
+조건이 true인지 아니면 false인지에 따라 값을 반환합니다. `if`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `?:` 대신 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -187,100 +223,121 @@ False 함수는 매개 변수를 허용 하지 않습니다.
 
 ### <a name="return-value"></a>반환 값
 
-첫 번째 매개 변수가 **True**이면 두 번째 매개 변수를 반환하고 그렇지 않으면 세 번째 매개 변수를 반환합니다.
+첫 번째 매개 변수가 **True** 이면 두 번째 매개 변수를 반환하고 그렇지 않으면 세 번째 매개 변수를 반환합니다.
 
 ### <a name="remarks"></a>설명
 
-조건이 **true**이면 true 값만 평가 됩니다. 조건이 **false**이면 false 값만 평가 됩니다. **If** 함수를 사용 하 여 조건적 으로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에 있는 리소스를 참조할 수 있지만 다른 조건에는 없는 리소스를 참조할 수 있습니다. 조건에 따라 식을 평가 하는 예는 다음 섹션에 나와 있습니다.
+조건이 **true** 이면 true 값만 평가 됩니다. 조건이 **false** 이면 false 값만 평가 됩니다. 함수를 사용 하 여 `if` 조건적 으로만 유효한 식을 포함할 수 있습니다. 예를 들어 한 조건에 있는 리소스를 참조할 수 있지만 다른 조건에는 없는 리소스를 참조할 수 있습니다. 조건에 따라 식을 평가 하는 예는 다음 섹션에 나와 있습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json)에서는 `if` 함수를 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "yesOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-        },
-        "noOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "yesOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
+    },
+    "noOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
     }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output yesOutput string = 'a' == 'a' ? 'yes' : 'no'
+output noOutput string = 'a' == 'b' ? 'yes' : 'no'
+output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('null')
+```
+
+---
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
-| noOutput | String | 아니요 |
-| objectOutput | Object | { "test": "value1" } |
+| noOutput | String | no |
+| objectOutput | 개체 | { "test": "value1" } |
 
 다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "logAnalytics": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "condition": "[not(empty(parameters('logAnalytics')))]",
-            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "location": "[parameters('location')]",
-            "apiVersion": "2017-03-30",
-            "properties": {
-                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-                "type": "MicrosoftMonitoringAgent",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
-                },
-                "protectedSettings": {
-                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "mgmtStatus": {
-            "type": "string",
-            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
-        }
+    "location": {
+      "type": "string"
+    },
+    "logAnalytics": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+    {
+      "condition": "[not(empty(parameters('logAnalytics')))]",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-03-30",
+      "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+        },
+        "protectedSettings": {
+          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "mgmtStatus": {
+      "type": "string",
+      "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+    }
+  }
 }
 ```
+
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+> [!NOTE]
+> `Conditions` 는 Bicep에서 아직 구현 되지 않았습니다. [조건](https://github.com/Azure/bicep/issues/186)을 참조 하세요.
+
+---
 
 ## <a name="not"></a>not
 
 `not(arg1)`
 
-부울 값을 반대 값으로 변환합니다.
+부울 값을 반대 값으로 변환합니다. `not`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `!` 대신 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -290,62 +347,84 @@ False 함수는 매개 변수를 허용 하지 않습니다.
 
 ### <a name="return-value"></a>반환 값
 
-매개 변수가 **False**이면 **True**를 반환합니다. 매개 변수가 **True**이면 **False**를 반환합니다.
+매개 변수가 **False** 이면 **True** 를 반환합니다. 매개 변수가 **True** 이면 **False** 를 반환합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json)에서는 논리 함수를 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]",
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | 거짓 |
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](template-functions-comparison.md#equals)에 **not**을 사용합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](template-functions-comparison.md#equals)에 **not** 을 사용합니다.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "checkNotEquals": {
-            "type": "bool",
-            "value": "[not(equals(1, 2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output checkNotEquals bool = !(1 == 2)
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -353,7 +432,7 @@ False 함수는 매개 변수를 허용 하지 않습니다.
 
 `or(arg1, arg2, ...)`
 
-매개 변수 값 중 하나가 True인지 확인합니다.
+매개 변수 값 중 하나가 True인지 확인합니다. `or`함수는 Bicep에서 지원 되지 않습니다. 연산자를 `||` 대신 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -365,37 +444,49 @@ False 함수는 매개 변수를 허용 하지 않습니다.
 
 ### <a name="return-value"></a>반환 값
 
-True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으면 **False**를 반환합니다.
+True인 값이 하나라도 있으면 **True** 를 반환하고 그렇지 않으면 **False** 를 반환합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json)에서는 논리 함수를 사용하는 방법을 보여줍니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "value": "[and(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "orExampleOutput": {
+      "value": "[or(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "notExampleOutput": {
+      "value": "[not(bool('true'))]",
+      "type": "bool"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = bool('true') && bool('false')
+output orExampleOutput bool = bool('true') || bool('false')
+output notExampleOutput bool = !(bool('true'))
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
@@ -405,11 +496,11 @@ True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으�
 
 `true()`
 
-true를 반환합니다.
+true를 반환합니다. `true`함수는 Bicep에서 사용할 수 없습니다.  `true`대신 키워드를 사용 합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-True 함수는 매개 변수를 허용 하지 않습니다.
+True 함수는 매개 변수를 허용 하지 않습니다. `true`함수는 Bicep에서 사용할 수 없습니다.  `true`대신 키워드를 사용 합니다.
 
 ### <a name="return-value"></a>반환 값
 
@@ -419,27 +510,36 @@ True 함수는 매개 변수를 허용 하지 않습니다.
 
 다음 예에서는 실제 출력 값을 반환 합니다.
 
+# <a name="json"></a>[JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueOutput": {
-            "value": "[true()]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueOutput": {
+      "type": "bool",
+      "value": "[true()]"
     }
+  }
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+output trueOutput bool = true
+```
+
+---
+
 위 예제의 출력은 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Resource Manager 템플릿의 섹션에 대 한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-
+* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

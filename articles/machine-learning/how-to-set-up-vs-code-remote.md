@@ -1,7 +1,7 @@
 ---
 title: Visual Studio Code에서 계산 인스턴스에 연결 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: 에서 Azure Machine Learning 계산 인스턴스에 연결 하는 방법에 대해 알아봅니다 Visual Studio Code
+description: Visual Studio Code에서 Azure Machine Learning 계산 인스턴스에 연결 하 여 대화형 Jupyter Notebook 및 원격 개발 워크 로드를 실행 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708376"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96447057"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 계산 인스턴스에 연결 (미리 보기)
 
@@ -38,14 +38,14 @@ Visual Studio Code에서 계산 인스턴스에 연결 하는 방법에는 두 �
 계산 인스턴스에 연결 하려면 다음을 수행 합니다.
 
 1. Visual Studio Code에서 Jupyter Notebook를 엽니다.
-1. 통합 된 노트북 환경이 로드 되 면 **Jupyter 서버**를 선택 합니다.
+1. 통합 된 노트북 환경이 로드 되 면 **Jupyter 서버** 를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![원격 Jupyter 노트북 서버 드롭다운 Azure Machine Learning 시작](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+    > ![원격 Jupyter Notebook 서버 드롭다운 Azure Machine Learning 시작](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
 
     또는 명령 팔레트를 사용할 수도 있습니다.
 
-    1. 메뉴 모음에서 **보기 > 명령 팔레트**를 차례로 선택하여 명령 팔레트를 엽니다.
+    1. 메뉴 모음에서 **보기 > 명령 팔레트** 를 차례로 선택하여 명령 팔레트를 엽니다.
     1. 텍스트 상자에을 입력 `Azure ML: Connect to Compute instance Jupyter server` 합니다.
 
 1. `Azure ML Compute Instances`Jupyter 서버 옵션 목록에서 선택 합니다.
@@ -58,7 +58,7 @@ Visual Studio Code에서 계산 인스턴스에 연결 하는 방법에는 두 �
 > [!IMPORTANT]
 > 연결을 설정 하려면 셀을 실행 **해야** 합니다.
 
-이 시점에서 Jupyter 노트북의 셀을 계속 실행할 수 있습니다.
+이 시점에서 Jupyter Notebook 셀을 계속 실행할 수 있습니다.
 
 > [!TIP]
 > Jupyter 코드 셀을 포함 하는 Python 스크립트 파일 (. py)로 작업할 수도 있습니다. 자세한 내용은 [Visual Studio Code Python 대화형 설명서](https://code.visualstudio.com/docs/python/jupyter-support-py)를 참조 하세요.
@@ -146,7 +146,7 @@ Host azmlci1
 
 1. 방금 만든 SSH 호스트 구성을 마우스 오른쪽 단추로 클릭 합니다.
 
-1. **현재 창에서 호스트에 연결을**선택 합니다. 
+1. **현재 창에서 호스트에 연결을** 선택 합니다. 
 
 여기서는 계산 인스턴스를 완전히 작업 하며, 이제 로컬 Visual Studio Code와 마찬가지로 편집, 디버그, git 사용, 확장 등의 작업을 수행할 수 있습니다.
 

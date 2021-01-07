@@ -11,19 +11,22 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 219893859d05eb419bc862484a9083abf8c26db7
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e163ea34948906060996ee952f45ec0cdb467557
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409300"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504358"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 하이브리드 ID 고려 사항
 
 이 문서에서는 하이브리드 환경을 Microsoft Azure Government 클라우드와 통합하기 위한 고려 사항을 설명합니다. 이 정보는 Azure Government 클라우드를 사용하는 관리자와 설계자를 위한 참조로 제공됩니다.
 
 > [!NOTE]
-> 온-프레미스 Microsoft Azure AD(Azure Active Directory) 환경을 Azure Government 클라우드와 통합하려면 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)의 최신 릴리스로 업그레이드해야 합니다.
+> Azure Government 클라우드를 사용 하 여 Microsoft Active Directory 환경 (온-프레미스에 있거나 동일한 클라우드 인스턴스에 속한 IaaS에서 호스트 됨)을 통합 하려면 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)최신 릴리스로 업그레이드 해야 합니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
 
 미국 Department of Defense(국방부) 엔드포인트의 전체 목록은 [설명서](/office365/enterprise/office-365-u-s-government-dod-endpoints)를 참조하세요.
 

@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320798"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96448532"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 워크 로드 관리 Kubernetes
 
-Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 Pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 작업을 배포 하는 방법에는 여러 가지가 있습니다. 
+Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 Pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 작업을 배포하는 방법에는 여러 가지가 있습니다. 
 
 이 문서에서는 Azure Stack Edge Pro 장치에 워크 로드를 배포 하는 데 사용할 수 있는 다양 한 방법을 설명 합니다.
 
@@ -49,11 +49,11 @@ Azure Stack Edge Pro 장치에 응용 프로그램을 배포 하려면 다음 �
 
 - **로컬 배포**:이 배포는 `kubectl` Kubernetes를 배포 하는 데 사용할 수 있는 명령줄 액세스 도구를 통해 수행 됩니다 `yamls` . 파일을 통해 Azure Stack Edge Pro에서 Kubernetes 클러스터에 액세스 합니다 `kubeconfig` . 자세한 내용은 [kubectl를 통해 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
 
-- **IoT Edge 배포**: IoT Edge를 통해 Azure IoT Hub에 연결 합니다. 네임 스페이스를 통해 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 합니다 `iotedge` . 이 네임 스페이스에 배포 된 IoT Edge 에이전트는 Azure에 대 한 연결을 담당 합니다. `IoT Edge deployment.json`Azure DevOps CI/CD를 사용 하 여 구성을 적용 합니다. 네임 스페이스 및 IoT Edge 관리는 클라우드 운영자를 통해 수행 됩니다.
+- **IoT Edge 배포**: IoT Edge를 통해 Azure IoT Hub에 연결 합니다. 네임 스페이스를 통해 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 합니다 `iotedge` . 이 네임스페이스에 배포된 IoT Edge 에이전트는 Azure에 대한 연결을 담당합니다. `IoT Edge deployment.json`Azure DevOps CI/CD를 사용 하 여 구성을 적용 합니다. 네임 스페이스 및 IoT Edge 관리는 클라우드 운영자를 통해 수행 됩니다.
 
 - **Azure arc 사용 Kubernetes 배포**: azure Arc enabled Kubernetes는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 를 통해 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 `azure-arc namespace` 합니다. 이 네임 스페이스에 배포 된 에이전트는 Azure에 대 한 연결을 담당 합니다. GitOps 기반 구성 관리를 사용 하 여 배포 구성을 적용 합니다. 
     
-    Azure Arc enabled Kubernetes를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)을 참조 하세요.
+    Azure Arc enabled Kubernetes를 사용 하면 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](../azure-arc/kubernetes/overview.md)을 참조 하세요.
 
 ## <a name="choose-the-deployment-type"></a>배포 유형 선택
 

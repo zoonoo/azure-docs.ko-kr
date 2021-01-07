@@ -4,12 +4,12 @@ description: Azure Backup 및 PowerShell을 사용 하 여 Azure Vm에서 SQL �
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 0b3b943a53c1da0f6f1e938b5b234dc82541b46d
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a3467ffa3a67ac9ad593748948cea8da59e3e6b
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901669"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734541"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -172,7 +172,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > 30 분의 배수로 시작 시간을 제공 해야 합니다. 위의 예제에서 "01:00:00" 또는 "02:30:00"만 가능 합니다. 시작 시간은 "01:15:00" 일 수 없습니다.
 
-다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 그런 다음 해당 변수를 새 정책에 대 한 매개 변수로 사용 합니다 ( **Newsqlpolicy** ). **Newsqlpolicy** 는 매일 "전체" 백업을 수행 하며, 180 일 동안 유지 하 고 2 시간 마다 로그 백업을 수행 합니다.
+다음 예제에서는 일정 정책 및 보존 정책을 변수에 저장합니다. 그런 다음 해당 변수를 새 정책에 대 한 매개 변수로 사용 합니다 (**Newsqlpolicy**). **Newsqlpolicy** 는 매일 "전체" 백업을 수행 하며, 180 일 동안 유지 하 고 2 시간 마다 로그 백업을 수행 합니다.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
@@ -268,7 +268,7 @@ Start-autoprotection 의도가 제공 되 면 새로 추가 된 Db를 가져오�
 * 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 * 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-SQL Db를 복원 하기 전에 [여기](restore-sql-database-azure-vm.md#prerequisites) 에 언급 된 전제 조건을 확인 하세요.
+SQL Db를 복원 하기 전에 [여기](restore-sql-database-azure-vm.md#restore-prerequisites) 에 언급 된 전제 조건을 확인 하세요.
 
 먼저 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet을 사용 하 여 관련 백업 된 SQL DB를 인출 합니다.
 

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: c7a62bb3ed07ffbd8cfef520e5d504c810d11e5a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497303"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325923"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: Azure Vm에서 SQL Server으로 SQL Server 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -33,17 +33,17 @@ ms.locfileid: "94497303"
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야 합니다. 
 
 - [데이터베이스 Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
-- [Azure Migrate 프로젝트](/azure/migrate/create-manage-projects)입니다.
-- [AZURE VM의](/azure/azure-sql/virtual-machines/windows/create-sql-vm-portal) 준비 된 대상 SQL Server 원본 SQL Server와 동일 하거나 더 많은 버전입니다.
-- [Azure와 온-프레미스 간의 연결](/architecture/reference-architectures/hybrid-networking).
+- [Azure Migrate 프로젝트](../../../migrate/create-manage-projects.md)입니다.
+- [AZURE VM의](../../virtual-machines/windows/create-sql-vm-portal.md) 준비 된 대상 SQL Server 원본 SQL Server와 동일 하거나 더 많은 버전입니다.
+- [Azure와 온-프레미스 간의 연결](/azure/architecture/reference-architectures/hybrid-networking).
 - [적절 한 마이그레이션 전략 선택](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)
 
-## <a name="pre-migration"></a>사전 마이그레이션
+## <a name="pre-migration"></a>마이그레이션 전 단계
 
 마이그레이션을 시작 하기 전에 SQL 환경의 토폴로지를 검색 하 고 원하는 마이그레이션의 실행 가능성을 평가 합니다. 
 
@@ -59,7 +59,7 @@ Azure Migrate은 온-프레미스 컴퓨터의 마이그레이션 적합성을 �
 
 ### <a name="assess"></a>평가
 
-모든 데이터 원본을 검색 한 후 [Data Migration Assistant (DMA)](/dma/dma-overview) 를 사용 하 여 온-프레미스 SQL Server 인스턴스를 Azure VM의 SQL Server 인스턴스로 마이그레이션하는 것을 평가 하 여 원본 및 대상 인스턴스 간의 간격을 파악 합니다. 
+모든 데이터 원본을 검색 한 후 [Data Migration Assistant (DMA)](/sql/dma/dma-overview) 를 사용 하 여 온-프레미스 SQL Server 인스턴스를 Azure VM의 SQL Server 인스턴스로 마이그레이션하는 것을 평가 하 여 원본 및 대상 인스턴스 간의 간격을 파악 합니다. 
 
 
 > [!NOTE]
@@ -109,7 +109,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 > 모든 SQL Server 버전에서 모든 호환성 모드를 지 원하는 것은 아닙니다. [대상 SQL Server 버전](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) 에서 선택한 데이터베이스 호환성을 지원 하는지 확인 합니다. 예를 들어 SQL Server 2019는 수준 90 호환성 (SQL Server 2005)을 포함 하는 데이터베이스를 지원 하지 않습니다. 이러한 데이터베이스는 최소한 호환성 수준 100로 업그레이드 해야 합니다.
 >
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>마이그레이션
 
 마이그레이션 전 단계를 완료 한 후에는 사용자 데이터베이스 및 구성 요소를 마이그레이션할 준비가 된 것입니다. 기본 설정 [마이그레이션 방법을](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)사용 하 여 데이터베이스를 마이그레이션합니다.  
 
@@ -123,7 +123,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 1. 마이그레이션을 위한 데이터베이스를 사용 하는 응용 프로그램을 일시 중지/중지 합니다. 
 1. [단일 사용자 모드](/sql/relational-databases/databases/set-a-database-to-single-user-mode)를 사용 하 여 사용자 데이터베이스가 비활성화 되어 있는지 확인 합니다. 
 1. 온-프레미스 위치에 전체 데이터베이스 백업을 수행합니다.
-1. 원격 데스크톱, [Azure 데이터 탐색기](/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (> 2tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
+1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (> 2tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
 1. Azure VM에서 SQL Server 전체 데이터베이스 백업을 복원 합니다.
 
 ### <a name="log-shipping--minimize-downtime"></a>로그 전달 (가동 중지 시간 최소화)
@@ -133,7 +133,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 1. 요구 사항에 따라 Azure VM의 대상 SQL Server에 대 한 연결을 설정 합니다. [Azure에서 SQL Server Virtual Machine 연결(Resource Manager)](../../virtual-machines/windows/ways-to-connect-to-sql.md)을 참조하세요.
 1. 마이그레이션할 온-프레미스 사용자 데이터베이스가 전체 또는 대량 로그 복구 모델에 있는지 확인 하세요.
 1. 온-프레미스 위치에 대 한 전체 데이터베이스 백업을 수행 하 고 [COPY_ONLY](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) 키워드를 사용 하 여 로그 체인을 유지 하는 기존 전체 데이터베이스 백업 작업을 수정 합니다.
-1. 원격 데스크톱, [Azure 데이터 탐색기](/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (>1tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
+1. 원격 데스크톱, [Azure 데이터 탐색기](/azure/data-explorer/data-explorer-overview)또는 [AZCopy 명령줄 유틸리티](../../../storage/common/storage-use-azcopy-v10.md) (>1tb 백업 권장)를 사용 하 여 온-프레미스 백업 파일을 VM에 복사 합니다.
 1. Azure VM에서 SQL Server 전체 데이터베이스 백업을 복원 합니다.
 1. Azure VM에서 온-프레미스 데이터베이스와 대상 SQL Server 간의 [로그 전달을](/sql/database-engine/log-shipping/configure-log-shipping-sql-server) 설정 합니다. 이전 단계에서 이미 완료 되었으므로 데이터베이스를 다시 초기화 하지 않아야 합니다.
 1. **Cut over** 대상 서버로 이동 합니다. 
@@ -157,8 +157,8 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 || Filestream이 있는 사용자 데이터베이스 |  마이그레이션에 대 한 [백업 및 복원](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) 방법을 사용 합니다. DMA는 Filestream을 사용 하는 데이터베이스를 지원 하지 않습니다. |
 | **보안** | SQL Server 및 Windows 로그인 | DMA를 사용 하 여 [사용자 로그인을 마이그레이션합니다](/sql/dma/dma-migrateserverlogins). |
 || SQL Server 역할 | SQL Server Management Studio 스크립팅 |
-|| 암호화 공급자 | [Azure Key Vault 서비스를 사용 하도록 변환 하](../../virtual-machines/windows/azure-key-vault-integration-configure.md)는 것이 좋습니다. 이 절차에서는 [SQL VM 리소스 공급자](../../virtual-machines/windows/sql-vm-resource-provider-register.md)를 사용 합니다. |
-| **서버 개체** | 백업 디바이스 | [Azure Backup 서비스](../../../backup/backup-sql-server-database-azure-vms.md) 를 사용 하 여 데이터베이스 백업으로 대체 하거나 [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) 에 백업을 작성 합니다 (SQL Server 2012 SP1 CU2 +). 이 절차에서는 [SQL VM 리소스 공급자](../../virtual-machines/windows/sql-vm-resource-provider-register.md)를 사용 합니다.|
+|| 암호화 공급자 | [Azure Key Vault 서비스를 사용 하도록 변환 하](../../virtual-machines/windows/azure-key-vault-integration-configure.md)는 것이 좋습니다. 이 절차에서는 [SQL VM 리소스 공급자](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)를 사용 합니다. |
+| **서버 개체** | 백업 디바이스 | [Azure Backup 서비스](../../../backup/backup-sql-server-database-azure-vms.md) 를 사용 하 여 데이터베이스 백업으로 대체 하거나 [Azure Storage](../../virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md) 에 백업을 작성 합니다 (SQL Server 2012 SP1 CU2 +). 이 절차에서는 [SQL VM 리소스 공급자](../../virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md)를 사용 합니다.|
 || 연결된 서버 | SQL Server Management Studio를 사용 하 여 스크립팅 합니다. |
 || 서버 트리거 | SQL Server Management Studio를 사용 하 여 스크립팅 합니다. |
 | **복제** | 로컬 게시 | SQL Server Management Studio를 사용 하 여 스크립팅 합니다. |

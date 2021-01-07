@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: 4daac353c69677021245e95c0b11550372f5d4ec
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4d378151b72ab09e8b51467ce09ec9d43c517813
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748780"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657961"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -23,13 +23,9 @@ ms.locfileid: "92748780"
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
-
-Azure CLI Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)에 나온 단계를 참조하세요.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
@@ -44,7 +40,7 @@ Azure CLI Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/
 
 2. 환경 변수를 설정합니다. 이 문서에서 변수를 사용 하는 것은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 클러스터 만들기에 사용할 수 있는 매개 변수의 전체 목록은 [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) 를 참조 하세요.
 
-    |매개 변수 | Description |
+    |매개 변수 | 설명 |
     |---|---|
     |`--workernode-count`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 변수를 `clusterSizeInNodes` 에 전달 된 값으로 사용 `--workernode-count` 합니다. |
     |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 변수를 `clusterVersion` 에 전달 된 값으로 사용 `--version` 합니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)|

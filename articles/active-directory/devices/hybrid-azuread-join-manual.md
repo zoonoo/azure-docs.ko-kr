@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe19a1fadd54b7146ccb074d82a68ec259100f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093262"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860017"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성
 
@@ -96,7 +96,7 @@ Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 �
 
 [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)) cmdlet을 사용하여 포리스트의 구성 명명 컨텍스트를 검색할 수 있습니다.  
 
-Active Directory 도메인 이름이 *fabrikam.com*인 포리스트의 경우 구성 명명 컨텍스트는 다음과 같습니다.
+Active Directory 도메인 이름이 *fabrikam.com* 인 포리스트의 경우 구성 명명 컨텍스트는 다음과 같습니다.
 
 `CN=Configuration,DC=fabrikam,DC=com`
 
@@ -169,7 +169,7 @@ Windows Server 2008 이하 버전을 실행하는 도메인 컨트롤러의 경�
 
 확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)를 참조하세요.
 
-확인된 회사 도메인 목록을 보려면 the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet을 사용합니다.
+확인된 회사 도메인 목록을 보려면 the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain) cmdlet을 사용합니다.
 
 ![회사 도메인 목록](./media/hybrid-azuread-join-manual/01.png)
 
@@ -188,7 +188,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> **adfs/services/trust/2005/windowstransport** 및 **adfs/services/trust/13/windowstransport**는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트**에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
+> **adfs/services/trust/2005/windowstransport** 및 **adfs/services/trust/13/windowstransport** 는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 노출되어서는 안됩니다. WS-Trust Windows 엔드포인트를 비활성화는 방법에 대해 자세히 알아보려면 [프록시에서 WS-Trust Windows 엔드포인트 사용 안 함](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet)을 참조하세요. **서비스** > **엔드포인트** 에서 AD FS 관리 콘솔을 통해 어떤 엔드포인트가 사용하도록 설정되었는지 확인할 수 있습니다.
 
 > [!NOTE]
 >온-프레미스 페더레이션 서비스로 사용되는 AD FS가 없으면 공급업체의 지침에 따라 WS-Trust 1.3 또는 2005 버전이 지원되는지 확인하고, 메타데이터 교환 파일(MEX)을 통해 게시되는지 확인합니다.
@@ -328,7 +328,7 @@ ImmutableID 클레임(예: `mS-DS-ConsistencyGuid` 또는 다른 특성을 Immut
 
 확인된 도메인 이름에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)를 참조하세요.  
 
-확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet을 사용합니다.
+확인된 회사 도메인 목록을 보려면 the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain) cmdlet을 사용합니다.
 
 ![회사 도메인 목록](./media/hybrid-azuread-join-manual/01.png)
 
@@ -484,14 +484,14 @@ ImmutableID 클레임(예: `mS-DS-ConsistencyGuid` 또는 다른 특성을 Immut
 #### <a name="remarks"></a>설명
 
 * 이 스크립트는 기존 규칙에 규칙을 추가합니다. 이 스크립트를 두 번 실행하면 규칙 세트가 두 번 추가되므로 두 번 실행하지 마세요. 스크립트를 다시 실행하기 전에 이러한 클레임에 해당하는 규칙이 없는지 확인(해당 조건에서)하세요.
-* Azure AD 포털에서 또는 **Get-MsolDomain** cmdlet을 통해 보여드린 것처럼 확인된 도메인 이름이 여러 개 있는 경우 스크립트에서 **$multipleVerifiedDomainNames** 값을 **$true**로 설정합니다. 또한 Azure AD Connect 또는 다른 방법을 통해 만들어졌을 수 있는 기존 **issuerid** 클레임을 제거해야 합니다. 다음은 이 규칙의 예입니다.
+* Azure AD 포털에서 또는 **Get-MsolDomain** cmdlet을 통해 보여드린 것처럼 확인된 도메인 이름이 여러 개 있는 경우 스크립트에서 **$multipleVerifiedDomainNames** 값을 **$true** 로 설정합니다. 또한 Azure AD Connect 또는 다른 방법을 통해 만들어졌을 수 있는 기존 **issuerid** 클레임을 제거해야 합니다. 다음은 이 규칙의 예입니다.
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
    => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
    ```
 
-사용자 계정에 대한 **ImmutableID** 클레임을 이미 발급한 경우 스크립트에서 **$immutableIDAlreadyIssuedforUsers** 값을 **$true**로 설정합니다.
+사용자 계정에 대한 **ImmutableID** 클레임을 이미 발급한 경우 스크립트에서 **$immutableIDAlreadyIssuedforUsers** 값을 **$true** 로 설정합니다.
 
 ## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 디바이스 설정
 
@@ -526,17 +526,17 @@ Windows 하위 수준 디바이스를 등록하려면 사용자가 Azure AD에�
 
 AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해야 합니다. 이 규칙을 추가하려면:
 
-1. AD FS 관리 콘솔에서 **AD FS** > **트러스트 관계** > **신뢰 당사자 트러스트**로 이동합니다.
-1. 마우스 오른쪽 단추로 Microsoft Office 365 ID 플랫폼 신뢰 당사자 트러스트 개체를 클릭하고 **클레임 규칙 편집**을 선택합니다.
-1. **발급 변환 규칙** 탭에서 **규칙 추가**를 선택합니다.
-1. **클레임 규칙** 템플릿 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택합니다.
-1. **다음**을 선택합니다.
-1. **클레임 규칙 이름** 상자에서 **인증 방법 클레임 규칙**을 입력합니다.
+1. AD FS 관리 콘솔에서 **AD FS** > **트러스트 관계** > **신뢰 당사자 트러스트** 로 이동합니다.
+1. 마우스 오른쪽 단추로 Microsoft Office 365 ID 플랫폼 신뢰 당사자 트러스트 개체를 클릭하고 **클레임 규칙 편집** 을 선택합니다.
+1. **발급 변환 규칙** 탭에서 **규칙 추가** 를 선택합니다.
+1. **클레임 규칙** 템플릿 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기** 를 선택합니다.
+1. **다음** 을 선택합니다.
+1. **클레임 규칙 이름** 상자에서 **인증 방법 클레임 규칙** 을 입력합니다.
 1. **클레임 규칙** 상자에 다음 규칙을 입력합니다.
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. 페더레이션 서버에서 다음 PowerShell 명령을 입력합니다. **\<RPObjectName\>** 를 Azure AD 신뢰 당사자 트러스트 개체의 신뢰 당사자 개체 이름으로 바꿉니다. 일반적으로 이 개체의 이름은 **Microsoft Office 365 ID 플랫폼**입니다.
+1. 페더레이션 서버에서 다음 PowerShell 명령을 입력합니다. **\<RPObjectName\>** 를 Azure AD 신뢰 당사자 트러스트 개체의 신뢰 당사자 개체 이름으로 바꿉니다. 일반적으로 이 개체의 이름은 **Microsoft Office 365 ID 플랫폼** 입니다.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -558,25 +558,25 @@ Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 
 
 1. Windows PowerShell을 엽니다.
 2. `dsregcmd /status`를 입력합니다.
-3. **AzureAdJoined** 및 **DomainJoined**가 모두 **예**로 설정되어 있는지 확인합니다.
-4. **DeviceId**를 사용하고 Azure Portal 또는 PowerShell을 사용하여 서비스의 상태를 비교할 수 있습니다.
+3. **AzureAdJoined** 및 **DomainJoined** 가 모두 **예** 로 설정되어 있는지 확인합니다.
+4. **DeviceId** 를 사용하고 Azure Portal 또는 PowerShell을 사용하여 서비스의 상태를 비교할 수 있습니다.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 1. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)를 사용하여 디바이스 페이지로 이동합니다.
 2. 디바이스를 찾는 방법에 대한 정보는 [Azure Portal을 사용하여 디바이스 ID를 관리하는 방법](./device-management-azure-portal.md#manage-devices)에서 찾을 수 있습니다.
-3. **Registered** 열에 **보류 중**이 표시되면 하이브리드 Azure AD 조인이 완료되지 않은 것입니다. 페더레이션된 환경에서는 등록에 실패하고 AAD 연결이 디바이스를 동기화하도록 구성된 경우에만 이 문제가 발생할 수 있습니다.
-4. **Registered** 열에 **날짜/시간**이 포함되어 있으면 하이브리드 Azure AD 조인이 완료된 것입니다.
+3. **Registered** 열에 **보류 중** 이 표시되면 하이브리드 Azure AD 조인이 완료되지 않은 것입니다. 페더레이션된 환경에서는 등록에 실패하고 AAD 연결이 디바이스를 동기화하도록 구성된 경우에만 이 문제가 발생할 수 있습니다.
+4. **Registered** 열에 **날짜/시간** 이 포함되어 있으면 하이브리드 Azure AD 조인이 완료된 것입니다.
 
 ### <a name="using-powershell"></a>PowerShell 사용
 
-**[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** 를 사용하여 Azure 테넌트의 디바이스 등록 상태를 확인합니다. 이 cmdlet은 [Azure Active Directory PowerShell 모듈](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0)에 있습니다.
+**[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** 를 사용하여 Azure 테넌트의 디바이스 등록 상태를 확인합니다. 이 cmdlet은 [Azure Active Directory PowerShell 모듈](/powershell/azure/active-directory/install-msonlinev1)에 있습니다.
 
 **Get-MSolDevice** cmdlet을 사용하여 서비스 세부 정보를 확인하려는 경우 다음이 적용됩니다.
 
-- **디바이스 ID**가 Windows 클라이언트의 ID와 일치하는 개체가 있어야 합니다.
-- **DeviceTrustType** 값은 **Domain Joined**입니다. 이 설정은 Azure AD 포털에서 **디바이스** 페이지의 **하이브리드 Azure AD 조인**과 같습니다.
-- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값은 **True**이고, **DeviceTrustLevel**은 **Managed**입니다.
+- **디바이스 ID** 가 Windows 클라이언트의 ID와 일치하는 개체가 있어야 합니다.
+- **DeviceTrustType** 값은 **Domain Joined** 입니다. 이 설정은 Azure AD 포털에서 **디바이스** 페이지의 **하이브리드 Azure AD 조인** 과 같습니다.
+- 조건부 액세스에 사용되는 디바이스의 경우 **Enabled** 값은 **True** 이고, **DeviceTrustLevel** 은 **Managed** 입니다.
 
 1. 관리자 권한으로 Windows PowerShell을 엽니다.
 2. `Connect-MsolService`를 입력하여 Azure 테넌트에 연결합니다.
@@ -608,7 +608,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 #### <a name="list-details-of-a-single-device"></a>단일 디바이스의 세부 정보를 나열합니다.
 
 1. `get-msoldevice -deviceId <deviceId>`(디바이스에서 로컬로 가져온 **DeviceId**)를 입력합니다.
-2. **Enabled**가 **True**로 설정되어 있는지 확인인합니다.
+2. **Enabled** 가 **True** 로 설정되어 있는지 확인인합니다.
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결
 

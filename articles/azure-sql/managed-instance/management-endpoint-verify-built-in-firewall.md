@@ -11,17 +11,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 35d0053d8c45547eaa5e89e6da15fcaf0343d6c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d46518415dc56e2792ef090b0be654d538426f
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617301"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96853274"
 ---
 # <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Azure SQL Managed Instance 기본 제공 방화벽 확인
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-SQL Managed Instance를 보호 하는 NSG (네트워크 보안 그룹)의 **모든 원본** 에서 관리 포트 9000, 9003, 1438, 1440 및 1452를 열려면 Azure sql Managed Instance [필수 인바운드 보안 규칙](connectivity-architecture-overview.md#mandatory-inbound-security-rules) 을 설정 해야 합니다. 이러한 포트는 NSG 수준에서 열리지만 기본 제공 방화벽으로는 네트워크 수준에서 보호됩니다.
+SQL Managed Instance를 보호 하는 NSG (네트워크 보안 그룹)의 **모든 원본** 에서 관리 포트 9000, 9003, 1438, 1440 및 1452를 열려면 Azure sql Managed Instance [필수 인바운드 보안 규칙](connectivity-architecture-overview.md#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) 을 설정 해야 합니다. 이러한 포트는 NSG 수준에서 열리지만 기본 제공 방화벽으로는 네트워크 수준에서 보호됩니다.
 
 ## <a name="verify-firewall"></a>방화벽 확인
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9fbf4eab55ec2cf8e4f0e27969ca4a22eb1f27ad
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 753c7ff48960711cbedbf6b5d8644a26502dd413
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578620"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023745"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
 
@@ -74,9 +74,11 @@ Azure Synapse Analytics 노트북에서 Apache Spark .NET을 사용 하려면 �
 
 ### <a name="install-nuget-packages-in-notebooks"></a>노트북에 NuGet 패키지 설치
 
-NuGet 패키지 이름 앞에 기호를 사용 하 여 선택한 NuGet 패키지를 노트북에 설치할 수 있습니다 `#r` . 다음 다이어그램은 예를 보여 줍니다.
+`#r nuget`Nuget 패키지 이름 앞에 매직 명령을 사용 하 여 선택한 nuget 패키지를 노트북에 설치할 수 있습니다. 다음 다이어그램은 예를 보여 줍니다.
 
 ![#R를 사용 하 여 Spark .NET 노트북 NuGet 패키지를 설치 하는 것을 보여 주는 스크린샷](./media/apache-spark-development-using-notebooks/synapse-spark-dotnet-notebook-nuget.png)
+
+노트북에서 NuGet 패키지를 사용 하는 방법에 대 한 자세한 내용은 [.Net Interactive 설명서](https://github.com/dotnet/interactive/blob/main/docs/nuget-overview.md)를 참조 하세요.
 
 ### <a name="net-for-apache-spark-c-kernel-features"></a>.NET for Apache Spark C# 커널 기능
 

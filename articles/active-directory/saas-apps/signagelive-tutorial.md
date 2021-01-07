@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 78324cfa58a8ac015b085052bdec7e3793befc1b
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516106"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>자습서: Signagelive와 Azure Active Directory 통합
 
@@ -105,7 +105,7 @@ Signagelive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     **로그온 URL** 상자에서 `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 이 값을 얻으려면 [Signagelive 클라이언트 지원 팀](mailto:support@signagelive.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 이 값을 가져오려면 [Signagelive 클라이언트 지원 팀](mailto:support@signagelive.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 선택하여 요구 사항에 따라 제공된 옵션에서 **인증서(원시)** 를 다운로드합니다. 그런 다음, 컴퓨터에 저장합니다.
 
@@ -129,7 +129,7 @@ Signagelive 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -153,7 +153,7 @@ Signagelive 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Signagelive에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Signagelive** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Signagelive** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

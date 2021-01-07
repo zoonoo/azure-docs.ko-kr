@@ -1,19 +1,19 @@
 ---
 title: Unity 용 Azure 공간 앵커 설치
 description: Azure 공간 앵커를 사용 하도록 Unity 프로젝트 구성
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2330310b0bf4e165af71208477db128650a787cf
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530422"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95496949"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Unity 프로젝트에서 Azure 공간 앵커 구성
 
@@ -54,8 +54,8 @@ Unity 용 Azure 공간 앵커는 현재 UPM (Unity 패키지 관리자) 패키�
 
 #### <a name="android-only-configure-the-maintemplategradle-file"></a>Android에만 해당: gradle 파일 구성 Maintemplate.json
 
-1. **편집** > **프로젝트 설정** > **플레이어**로 이동합니다.
-2. **플레이어 설정**에 대 한 **검사기 패널** 에서 **Android** 아이콘을 선택 합니다.
+1. **편집** > **프로젝트 설정** > **플레이어** 로 이동합니다.
+2. **플레이어 설정** 에 대 한 **검사기 패널** 에서 **Android** 아이콘을 선택 합니다.
 3. **빌드** 섹션 아래에서 **사용자 지정 주 Gradle 템플릿** 확인란을 선택 하 여에서 사용자 지정 Gradle 템플릿을 생성 `Assets\Plugins\Android\mainTemplate.gradle` 합니다.
 4. 텍스트 편집기에서 `mainTemplate.gradle` 파일을 엽니다.
 5. 섹션에서 `dependencies` 다음 종속성을 붙여넣습니다.

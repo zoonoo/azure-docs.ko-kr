@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/19/2020
-ms.openlocfilehash: c9f29a891061dc0e6dcfe8c8f6a65f0f190c6afc
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bd1b33b2f6b1b0e0bf94639b3991b6507a89f5a9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593589"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400797"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Azure SQL의 가속화 데이터베이스 복구 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **ADR (가속화 된 데이터베이스 복구)** 는 데이터베이스 엔진 복구 프로세스를 다시 SQL Server 디자인 하 여 데이터베이스 가용성을 크게 향상 하는 SQL Server 데이터베이스 엔진 기능입니다. 특히 장기 실행 트랜잭션이 있는 경우에는 데이터베이스의 가용성을 크게 향상 시킬 수 있습니다. 
 
-ADR는 현재 Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics의 데이터베이스 (현재 미리 보기)에서 사용할 수 있으며, SQL Server 2019부터 Azure Vm에서 SQL Server 합니다. 
+ADR는 현재 Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics의 데이터베이스 및 SQL Server 2019부터 Azure Vm의 SQL Server에 사용할 수 있습니다. 
 
 > [!NOTE] 
 > ADR은 기본적으로 Azure SQL Database 및 Azure SQL Managed Instance에서 사용 하도록 설정 되며, 두 제품 중 하나에 대 한 ADR 비활성화는 지원 되지 않습니다. 

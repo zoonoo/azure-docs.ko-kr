@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127572"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683463"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -31,7 +31,7 @@ Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지
 
 ## <a name="create-edit-or-test-inputs"></a>입력 만들기, 편집 또는 테스트
 
-[Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-visual-studio-code.md)를 사용하여 스트리밍 작업에서 기존 입력을 추가하고 보거나 편집할 수 있습니다. 또한 입력 연결을 테스트하고 Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) 및 [Visual Studio Code](visual-studio-code-local-run.md)의 샘플 데이터에서 [쿼리를 테스트](stream-analytics-manage-job.md#test-your-query)할 수 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
+[Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-visual-studio-code.md)를 사용하여 스트리밍 작업에서 기존 입력을 추가하고 보거나 편집할 수 있습니다. 또한 입력 연결을 테스트하고 Azure Portal, Visual Studio 및 [Visual Studio Code](visual-studio-code-local-run.md)의 샘플 데이터에서 [쿼리를 테스트](stream-analytics-vs-tools-local-run.md)할 수 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
 
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
@@ -55,7 +55,7 @@ Azure Event Hubs는 확장성이 뛰어난 게시-구독 이벤트 투자자을 
 | **이벤트 허브 네임스페이스** | 이벤트 허브 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 네임스페이스도 만듭니다. |
 | **이벤트 허브 이름** | 입력으로 사용할 이벤트 허브의 이름입니다. |
 | **이벤트 허브 정책 이름** | 이벤트 허브에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 허브 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다.|
-| **이벤트 허브 소비자 그룹** (권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
+| **이벤트 허브 소비자 그룹**(권장) | 각 Stream Analytics 작업마다 고유한 소비자 그룹을 사용하는 것이 좋습니다. 이 문자열은 이벤트 허브에서 데이터를 수집하는 데 사용할 소비자 그룹입니다. 소비자 그룹이 지정되지 않으면 Stream Analytics 작업에서 $Default 소비자 그룹을 사용합니다.  |
 | **파티션 키** | 작업이 [호환성 수준](./stream-analytics-compatibility-level.md) 1.2 이상을 사용 하도록 구성 된 경우에만 사용할 수 있는 선택적 필드입니다. 입력이 속성에 의해 분할 된 경우 여기에이 속성의 이름을 추가할 수 있습니다. 이 속성에는 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. 이 작업에서 호환성 수준 1.2 이상을 사용 하는 경우이 필드의 기본값은 "PartitionId"입니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 직렬화 형식(JSON, CSV, Avro 또는 [기타(Protobuf, XML, 소유...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
 | **인코딩** | 현재 유일하게 지원되는 인코딩 형식은 UTF-8입니다. |
@@ -157,9 +157,9 @@ CSV 형식의 입력은 데이터 세트용 필드를 정의하기 위해 헤더
 | **스토리지 계정** | Blob 파일이 위치한 스토리지 계정의 이름입니다. |
 | **Storage 계정 키** | 스토리지 계정과 연결된 비밀 키입니다. 설정을 수동으로 제공 하는 옵션을 선택 하지 않으면이 옵션이 자동으로 채워집니다. |
 | **컨테이너** | 컨테이너는 blob에 대 한 논리적 그룹화를 제공 합니다. **기존 컨테이너 사용** 또는 **새로 만들기** 를 선택하여 새 컨테이너를 만들 수 있습니다.|
-| **경로 패턴** (선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 Blob을 읽으려면 경로 패턴을 설정하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
-| **날짜 형식** (선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` <br/><br/> Blob 입력의 경로에 `{date}` 또는 `{time}`이 있으면 폴더는 오름차순으로 정렬됩니다.|
-| **시간 형식** (선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
+| **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 Blob을 읽으려면 경로 패턴을 설정하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
+| **날짜 형식**(선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` <br/><br/> Blob 입력의 경로에 `{date}` 또는 `{time}`이 있으면 폴더는 오름차순으로 정렬됩니다.|
+| **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
 | **파티션 키** | 작업이 [호환성 수준](./stream-analytics-compatibility-level.md) 1.2 이상을 사용 하도록 구성 된 경우에만 사용할 수 있는 선택적 필드입니다. 입력이 속성에 의해 분할 된 경우 여기에이 속성의 이름을 추가할 수 있습니다. 이 속성에는 PARTITION BY 또는 GROUP BY 절이 포함 된 경우 쿼리 성능을 향상 시키는 데 사용 됩니다. 이 작업에서 호환성 수준 1.2 이상을 사용 하는 경우이 필드의 기본값은 "PartitionId"입니다. |
 | **입력 파티션 수** | 이 필드는 경로 패턴에 {partition}이 있는 경우에만 표시 됩니다. 이 속성의 값은 정수 >= 1입니다. {Partition}이 pathPattern에 표시 되는 경우 0과이 필드 값 (-1) 사이의 숫자가 사용 됩니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 직렬화 형식(JSON, CSV, Avro 또는 [기타(Protobuf, XML, 소유...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |

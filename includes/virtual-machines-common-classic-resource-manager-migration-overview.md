@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: b874cefc2521089da02b90b9241be93e80836d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9af5aa57da9db8c54ef3119fffbf8a5809aefd
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507605"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561232"
 ---
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 
 
@@ -38,9 +38,9 @@ Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 �
 ## <a name="supported-configurations-for-migration"></a>마이그레이션에 대해 지원 되는 구성
 이들 클래식 IaaS 리소스는 마이그레이션 시 지원됩니다.
 
-| 서비스 | 구성 |
+| 서비스 | Configuration |
 | --- | --- |
-| Azure AD Domain Services | [Azure AD Domain Services가 포함된 가상 네트워크](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
+| Azure AD Domain Services | [Azure AD Domain Services가 포함된 가상 네트워크](../articles/active-directory-domain-services/migrate-from-classic-vnet.md) |
 
 ## <a name="supported-scopes-of-migration"></a>지원되는 마이그레이션 범위
 컴퓨팅, 네트워크 및 스토리지 리소스의 마이그레이션을 완료하는 데는 다음 4가지 방법이 있습니다.
@@ -83,7 +83,7 @@ Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보�
 다음 스크린샷은 Azure Portal를 사용 하 여 클래식 저장소 계정을 Azure Resource Manager storage 계정으로 업그레이드 하는 방법을 보여 줍니다.
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정으로 이동합니다.
-3. **설정** 섹션에서 **ARM으로 마이그레이션을**클릭 합니다.
+3. **설정** 섹션에서 **ARM으로 마이그레이션을** 클릭 합니다.
 4. 마이그레이션 가능성을 확인 하려면 **유효성 검사** 를 클릭 합니다.
 5. 유효성 검사가 통과 되 면 **준비** 를 클릭 하 여 마이그레이션된 저장소 계정을 만듭니다.
 6. **예** 를 입력 하 여 마이그레이션을 확인 하 고 **커밋** 을 클릭 하 여 마이그레이션을 완료 합니다.
@@ -118,7 +118,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 ### <a name="unsupported-configurations"></a>지원되지 않는 구성
 현재 지원되지 않는 구성은 다음과 같습니다.
 
-| 서비스 | 구성 | 권장 |
+| 서비스 | Configuration | 권장 |
 | --- | --- | --- |
 | 리소스 관리자 |클래식 리소스에 대 한 RBAC (Role-Based Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
 | 컴퓨팅 |VM과 연결된 여러 서브넷 |한 서브넷만 참조하도록 서브넷 구성을 업데이트합니다. 이를 위해 VM에서 보조 NIC(다른 서브넷 의미)를 제거하고 마이그레이션이 완료되면 다시 연결해야 할 수 있습니다. |
@@ -129,7 +129,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 | 컴퓨팅 | 웹/작업자 역할이 포함된 클라우드 서비스 | 현재는 지원되지 않습니다. |
 | 컴퓨팅 | 둘 이상의 가용성 집합 또는 다중 가용성 집합을 포함하는 클라우드 서비스입니다. |현재는 지원되지 않습니다. 마이그레이션하기 전에 Virtual Machines를 동일한 가용성 집합으로 이동하세요. |
 | 컴퓨팅 | Azure Security Center 확장이 있는 VM | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 Virtual Machines에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. Virtual Machines를 마이그레이션하려면 구독에 대해 Virtual Machines에서 Security Center 모니터링 확장을 제거하는 Security Center 정책을 사용하지 않도록 설정합니다. |
-| 컴퓨팅 | 백업 또는 스냅샷 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 Virtual Machine에 설치됩니다. 이러한 VM의 마이그레이션은 지원되지 않지만 [여기](/azure/virtual-machines/windows/migration-classic-resource-manager-faq#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault)의 지침에 따라 마이그레이션 전에 생성된 백업을 유지할 수 있습니다.  |
+| 컴퓨팅 | 백업 또는 스냅샷 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 Virtual Machine에 설치됩니다. 이러한 VM의 마이그레이션은 지원되지 않지만 [여기](../articles/virtual-machines/migration-classic-resource-manager-faq.md#i-backed-up-my-classic-vms-in-a-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault)의 지침에 따라 마이그레이션 전에 생성된 백업을 유지할 수 있습니다.  |
 | 컴퓨팅 | Azure Site Recovery 확장이 있는 VM | 이러한 확장은 Azure Site Recovery 서비스로 구성 된 가상 컴퓨터에 설치 됩니다. Site Recovery 사용 되는 저장소의 마이그레이션은 작동 하지만 현재 복제에 영향을 미칩니다. 저장소 마이그레이션 후 VM 복제를 사용 하지 않도록 설정 하 고 사용 하도록 설정 해야 합니다. |
 | 네트워크 |가상 머신과 웹/작업자 역할이 포함된 가상 네트워크 |현재는 지원되지 않습니다. 마이그레이션하기 전에 웹/작업자 역할을 자체 Virtual Network로 이동하세요. 클래식 Virtual Network가 마이그레이션되면 마이그레이션된 Azure Resource Manager Virtual Network가 이전과 비슷한 구성을 얻기 위해 클래식 Virtual Network와 페어링될 수 있습니다.|
 | 네트워크 | 클래식 ExpressRoute 회로 |현재는 지원되지 않습니다. 이러한 회로는 IaaS 마이그레이션을 시작하기 전에 Azure Resource Manager로 마이그레이션해야 합니다. 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 참조하세요.|

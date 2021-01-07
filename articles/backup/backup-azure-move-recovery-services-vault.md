@@ -4,12 +4,12 @@ description: Azure 구독 및 리소스 그룹에서 Recovery Services 자격 �
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5a73963970b5fad7b3992d501d9aac5cc7229622
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 12c276b861e7db8e93e60eea7e9cd7f3aba04860
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926685"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325777"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -30,7 +30,7 @@ ms.locfileid: "92926685"
 - VM이 구독 또는 새 리소스 그룹에 대해 Recovery Services 자격 증명 모음과 함께 이동 하지 않는 경우 만료 될 때까지 현재 VM 복구 지점은 자격 증명 모음에 그대로 유지 됩니다.
 - VM을 자격 증명 모음과 함께 이동했는지 여부에 관계없이 자격 증명 모음의 유지된 백업 기록에서 항상 VM을 복원할 수 있습니다.
 - Azure Disk Encryption 키 자격 증명 모음 및 Vm이 동일한 Azure 지역 및 구독에 있어야 합니다.
-- 관리 디스크가 있는 가상 머신을 이동하려면 이 [문서](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)를 참조하세요.
+- 관리 디스크가 있는 가상 머신을 이동하려면 이 [문서](../azure-resource-manager/management/move-resource-group-and-subscription.md)를 참조하세요.
 - 클래식 모델을 통해 배포 된 리소스를 이동 하는 옵션은 구독 내에서 리소스를 이동 하는지 아니면 새 구독으로 이동 하는지에 따라 달라 집니다. 자세한 내용은 [이 문서](../azure-resource-manager/management/move-resource-group-and-subscription.md)를 참조하세요.
 - 자격 증명 모음에 대해 정의된 백업 정책은 자격 증명 모음이 구독 간에 또는 새 리소스 그룹으로 이동 후에 유지됩니다.
 - 다음 유형의 백업 항목을 포함 하는 자격 증명 모음만 이동할 수 있습니다. 아래에 나열 되지 않은 유형의 백업 항목은 모두 중지 되어야 하며 데이터는 자격 증명 모음을 이동 하기 전에 영구적으로 삭제 해야 합니다.

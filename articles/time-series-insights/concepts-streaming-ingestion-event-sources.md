@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650871"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020796"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
@@ -27,7 +27,7 @@ ms.locfileid: "91650871"
 
 ## <a name="create-or-edit-event-sources"></a>이벤트 원본 만들기 또는 편집
 
-이벤트 원본 리소스는 Azure Time Series Insights Gen2 환경 또는 다른 구독과 동일한 Azure 구독에 존재할 수 있습니다. [Azure Portal](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM 템플릿](time-series-insights-manage-resources-using-azure-resource-manager-template.md)및 [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) 를 사용 하 여 환경의 이벤트 원본을 생성, 편집 또는 제거할 수 있습니다.
+이벤트 원본 리소스는 Azure Time Series Insights Gen2 환경 또는 다른 구독과 동일한 Azure 구독에 존재할 수 있습니다. [Azure Portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM 템플릿](time-series-insights-manage-resources-using-azure-resource-manager-template.md)및 [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) 를 사용 하 여 환경의 이벤트 원본을 생성, 편집 또는 제거할 수 있습니다.
 
 이벤트 원본을 연결 하면 Azure Time Series Insights Gen2 환경에서 가장 오래 된 이벤트부터 시작 하 여 현재 Iot 또는 Event Hub에 저장 된 모든 이벤트를 읽습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "91650871"
 
 - 사용자 환경의 [처리량 속도 제한](./concepts-streaming-ingress-throughput-limits.md) 또는 파티션 당 제한을 초과 하지 마세요.
 
-- 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) 를 구성 합니다.
+- 환경에서 데이터를 처리 하는 데 문제가 발생 하는 경우 알림을 받도록 지연 [경고](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) 를 구성 합니다.
 
 - 거의 실시간 및 최근 데이터에만 스트리밍 수집을 사용합니다. 기록 데이터 스트리밍은 지원되지 않습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "91650871"
 
 ## <a name="event-source-timestamp"></a>이벤트 원본 타임 스탬프
 
-이벤트 원본을 구성할 때 타임 스탬프 ID 속성을 제공 하 라는 메시지가 표시 됩니다. Timestamp 속성은 시간이 지남에 따라 이벤트를 추적 하는 데 사용 됩니다 .이 시간은 $event로 사용 됩니다. [쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) 및 Azure Time Series Insights 탐색기의 그리기 시리즈에서 $ts. 만든 시간에 속성이 제공 되지 않거나 타임 스탬프 속성이 이벤트에 없는 경우 이벤트의 IoT Hub 또는 이벤트 허브 큐에 넣은 시간이 기본값으로 사용 됩니다. Timestamp 속성 값은 UTC로 저장 됩니다.
+이벤트 원본을 구성할 때 타임 스탬프 ID 속성을 제공 하 라는 메시지가 표시 됩니다. Timestamp 속성은 시간이 지남에 따라 이벤트를 추적 하는 데 사용 됩니다 .이 시간은 $event로 사용 됩니다. [쿼리 api](/rest/api/time-series-insights/dataaccessgen2/query/execute) 및 Azure Time Series Insights 탐색기의 그리기 시리즈에서 $ts. 만든 시간에 속성이 제공 되지 않거나 타임 스탬프 속성이 이벤트에 없는 경우 이벤트의 IoT Hub 또는 이벤트 허브 큐에 넣은 시간이 기본값으로 사용 됩니다. Timestamp 속성 값은 UTC로 저장 됩니다.
 
 일반적으로 사용자는 타임 스탬프 속성을 사용자 지정 하도록 선택 하 고, 센서 또는 태그가 기본 허브 큐에 대기 시간을 사용 하는 대신 읽기를 생성 한 시간을 사용 합니다. 이는 장치가 간헐적으로 연결 손실이 발생 하 고 지연 된 메시지의 일괄 처리가 Azure Time Series Insights Gen2 전달 되는 경우에 특히 필요 합니다.
 

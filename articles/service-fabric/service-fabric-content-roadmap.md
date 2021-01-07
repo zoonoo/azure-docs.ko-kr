@@ -3,12 +3,12 @@ title: Azure Service Fabric에 대 한 자세한 정보
 description: Azure Service Fabric의 주요 영역과 핵심 개념에 대해 알아봅니다. Service Fabric 및 마이크로 서비스를 만드는 방법의 확장된 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 6cbc99b56df18448add47a70b42742aa8dabbeb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 36215dd3419050cf498a749b5caf927c3c4e275a
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461501"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96485453"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 애플리케이션 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -34,9 +34,9 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 클러스터의 일부인 컴퓨터나 VM을 노드라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`이라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 개발 또는 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
-명명된 애플리케이션은 하나 이상의 특정 기능을 수행하는 명명된 서비스 컬렉션입니다. 서비스는 완전한 독립 실행형 기능을 수행하며(서비스는 다른 서비스와 독립적으로 시작 및 실행 가능) 코드, 구성 및 데이터로 이루어집니다. 애플리케이션 패키지가 이미지 저장소에 복사된 후에 애플리케이션 패키지의 애플리케이션 형식을 지정하여 클러스터 내에서 애플리케이션의 인스턴스를 만듭니다(이름/버전 사용). 각 애플리케이션 형식 인스턴스는 *fabric:/MyNamedApp*과 같은 URI 이름이 할당됩니다. 클러스터 내에서 단일 애플리케이션 형식에서 여러 명명된 애플리케이션을 만들 수 있습니다. 또한 다른 형식의 애플리케이션에서 명명된 애플리케이션을 만들 수 있습니다. 명명된 애플리케이션은 각각 독립적으로 관리되고 버전이 지정됩니다.
+명명된 애플리케이션은 하나 이상의 특정 기능을 수행하는 명명된 서비스 컬렉션입니다. 서비스는 완전한 독립 실행형 기능을 수행하며(서비스는 다른 서비스와 독립적으로 시작 및 실행 가능) 코드, 구성 및 데이터로 이루어집니다. 애플리케이션 패키지가 이미지 저장소에 복사된 후에 애플리케이션 패키지의 애플리케이션 형식을 지정하여 클러스터 내에서 애플리케이션의 인스턴스를 만듭니다(이름/버전 사용). 각 애플리케이션 형식 인스턴스는 *fabric:/MyNamedApp* 과 같은 URI 이름이 할당됩니다. 클러스터 내에서 단일 애플리케이션 형식에서 여러 명명된 애플리케이션을 만들 수 있습니다. 또한 다른 형식의 애플리케이션에서 명명된 애플리케이션을 만들 수 있습니다. 명명된 애플리케이션은 각각 독립적으로 관리되고 버전이 지정됩니다.
 
-명명된 애플리케이션을 만든 후에 서비스 형식을 지정하여(이름/버전 사용) 클러스터 내에서 해당 서비스 형식(명명된 서비스)의 인스턴스를 만들 수 있습니다. 각 서비스 형식 인스턴스는 명명된 애플리케이션의 URI로 범위가 지정된 URI 이름이 할당됩니다. 예를 들어 "MyNamedApp"이라는 애플리케이션 내에서 "MyDatabase"라는 서비스를 만드는 경우 URI는 *fabric:/MyNamedApp/MyDatabase*와 같습니다. 명명된 애플리케이션 내에서 하나 이상의 명명된 서비스를 만들 수 있습니다. 명명된 각 서비스는 고유한 파티션 구성표 및 복제본/인스턴스 수를 가질 수 있습니다. 
+명명된 애플리케이션을 만든 후에 서비스 형식을 지정하여(이름/버전 사용) 클러스터 내에서 해당 서비스 형식(명명된 서비스)의 인스턴스를 만들 수 있습니다. 각 서비스 형식 인스턴스는 명명된 애플리케이션의 URI로 범위가 지정된 URI 이름이 할당됩니다. 예를 들어 "MyNamedApp"이라는 애플리케이션 내에서 "MyDatabase"라는 서비스를 만드는 경우 URI는 *fabric:/MyNamedApp/MyDatabase* 와 같습니다. 명명된 애플리케이션 내에서 하나 이상의 명명된 서비스를 만들 수 있습니다. 명명된 각 서비스는 고유한 파티션 구성표 및 복제본/인스턴스 수를 가질 수 있습니다. 
 
 여기에는 상태 비저장과 상태 저장 등의 두 가지 서비스 형식이 있습니다. 상태 비저장 서비스는 서비스 내에서 상태를 저장하지 않습니다. 상태 비저장 서비스는 영구 스토리지가 하나도 없거나 Azure Storage, Azure SQL Database 또는 Azure Cosmos DB 같은 외부 스토리지 서비스에 영구 상태를 저장합니다. 상태 저장 서비스는 서비스 내에서 상태를 저장하고 Reliable Collections 또는 Reliable Actors 프로그래밍 모델을 사용하여 상태를 관리합니다. 
 
@@ -51,7 +51,7 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 각 파티션의 복제본은 클러스터의 노드에 분산되어 있으므로 명명된 서비스 상태의 [크기를 조정](service-fabric-concepts-scalability.md)할 수 있습니다. 데이터 요구 사항이 늘어나고 파티션이 늘어나면 하드웨어 리소스를 효율적으로 사용할 수 있도록 Service Fabric이 노드 간에 파티션의 균형을 다시 조정합니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 파티션 복제본의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본의 균형을 다시 조정합니다.
 
-상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만 보유 하 고 있습니다. 단, [예외도 있습니다](https://docs.microsoft.com/azure/service-fabric/service-fabric-concepts-partitioning#partition-service-fabric-stateless-services). 파티션 인스턴스는 [가용성](service-fabric-availability-services.md)을 제공 합니다. 한 인스턴스가 실패하고 다른 인스턴스가 계속 정상적으로 작동하는 경우 Service Fabric은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션에는 고유한 복제본 세트가 있습니다. 읽기 및 쓰기 작업은 하나의 복제본(주라고 함)에서 수행됩니다. 쓰기 작업에 의한 상태 변경은 다른 여러 복제본(활성 보조라고 함)으로 복제됩니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
+상태 저장 서비스에 복제본이 있는 반면 파티션 내에서 명명된 상태 비저장 서비스에는 인스턴스가 있습니다. 일반적으로 상태 비저장 서비스는 내부 상태가 없기 때문에 하나의 파티션만 보유 하 고 있습니다. 단, [예외도 있습니다](./service-fabric-concepts-partitioning.md#partition-service-fabric-stateless-services). 파티션 인스턴스는 [가용성](service-fabric-availability-services.md)을 제공 합니다. 한 인스턴스가 실패하고 다른 인스턴스가 계속 정상적으로 작동하는 경우 Service Fabric은 새 인스턴스를 만듭니다. 명명된 상태 저장 서비스는 복제본 내에서 해당 상태를 유지하고 각 파티션에는 고유한 복제본 세트가 있습니다. 읽기 및 쓰기 작업은 하나의 복제본(주라고 함)에서 수행됩니다. 쓰기 작업에 의한 상태 변경은 다른 여러 복제본(활성 보조라고 함)으로 복제됩니다. 복제가 실패하면 서비스 패브릭은 기존 복제본에서 새 복제본을 작성해야 합니다.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric용 상태 비저장 및 상태 저장 마이크로 서비스
 Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 애플리케이션을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure Cloud Services 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 디바이스, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
@@ -69,7 +69,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 ### <a name="containers"></a>컨테이너
 기본적으로 Service Fabric은 이러한 서비스를 프로세스로 배포하고 활성화합니다. Service Fabric도 [컨테이너](service-fabric-containers-overview.md)에 서비스를 배포할 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 애플리케이션의 컨테이너의 서비스를 혼합할 수 있습니다. Service Fabric은 Windows Server 2016에서 Linux 컨테이너 및 Windows 컨테이너의 배포를 지원합니다. 컨테이너에서 기존 애플리케이션, 상태 비저장 서비스 또는 상태 저장 서비스를 배포할 수 있습니다. 
 
-### <a name="reliable-services"></a>Reliable Services
+### <a name="reliable-services"></a>신뢰할 수 있는 서비스
 [Reliable Services](service-fabric-reliable-services-introduction.md) 은 Service Fabric 플랫폼과 통합 되 고 전체 플랫폼 기능을 활용 하는 서비스 작성을 위한 간단한 프레임 워크입니다. Reliable Services는 웹 서버나 Azure Cloud Services의 작업자 역할 등, 대부분의 서비스 플랫폼과 유사하게 상태 비저장이 될 수 있습니다. 여기서는 상태가 Azure DB나 Azure Table Storage 같은 외부 솔루션에서 유지됩니다. Reliable Services는 Reliable Collections를 사용하여 서비스 자체에 직접 유지되게 상태를 저장할 수도 있습니다. 상태는 복제를 통해 [고가용성](service-fabric-availability-services.md)이 유지되고 [분할](service-fabric-concepts-partitioning.md)을 통해 배포되며, 모두 Service Fabric에서 자동으로 관리합니다.
 
 ### <a name="reliable-actors"></a>Reliable Actors
@@ -131,7 +131,7 @@ Linux 독립 실행형 클러스터는 아직 지원되지 않습니다.
 클러스터 보안 시나리오:
 * 노드 간 보안
 * 클라이언트-노드 보안
-* RBAC(역할 기반 액세스 제어)
+* 역할 기반 액세스 제어 Service Fabric
 
 자세한 내용은 [클러스터에 보안 적용](service-fabric-cluster-security.md)을 참조하세요.
 

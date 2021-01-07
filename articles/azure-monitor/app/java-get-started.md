@@ -2,34 +2,36 @@
 title: '빠른 시작: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석'
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 ms.topic: conceptual
-author: lgayhardt
+ms.date: 11/22/2020
+author: MS-jgol
 ms.custom: devx-track-java
-ms.author: lagayhar
-ms.date: 05/24/2019
-ms.openlocfilehash: 12497d3ac86888ed861e8d5f655f45c8cbe4b6e3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.author: jgol
+ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996155"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96919433"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
 
-> [!IMPORTANT]
-> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
+> [!CAUTION]
+> 2020 년 11 월, Java 응용 프로그램 모니터링에 대 한 Azure Monitor Application Insights Java 3.0 agent를 사용 하 여 자동 계측을 권장 합니다. 시작 하는 방법에 대 한 자세한 내용은 [Application Insights Java 3.0 agent](./java-in-process-agent.md)를 참조 하세요.
 
 이 빠른 시작에서는 Application Insights SDK를 사용 하 여 요청을 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는 코드
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Application Insights 계측 키 가져오기
 
+> [!IMPORTANT]
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=java) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal에서 Application Insights 리소스를 만듭니다. Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
@@ -123,7 +125,7 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 </ApplicationInsights>
 ```
 
-필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성은 `-Dapplicationinsights.configurationDirectory` *ApplicationInsights.xml*를 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
+필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  System 속성은 `-Dapplicationinsights.configurationDirectory` *ApplicationInsights.xml* 를 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
@@ -221,7 +223,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 
 ## <a name="performance-counters"></a>성능 카운터
-**조사**, **메트릭**을 열고 다양 한 성능 카운터를 확인 합니다.
+**조사**, **메트릭** 을 열고 다양 한 성능 카운터를 확인 합니다.
 
 ![프로세스 전용 바이트가 선택 된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
 
@@ -293,7 +295,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

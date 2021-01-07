@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132570"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844713"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "92132570"
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
-[등록 계정에서 구독을 만들려면](programmatically-create-subscription.md) 사용자에게 해당 계정에 대한 Azure RBAC [소유자 역할](../../role-based-access-control/built-in-roles.md#owner)이 있어야 합니다. 다음 단계를 수행하여 등록 계정에 대한 Azure RBAC 소유자 역할을 사용자 또는 사용자 그룹에 부여할 수 있습니다.
+[등록 계정에서 구독을 만들려면](programmatically-create-subscription-enterprise-agreement.md) 사용자에게 해당 계정에 대한 Azure RBAC [소유자 역할](../../role-based-access-control/built-in-roles.md#owner)이 있어야 합니다. 다음 단계를 수행하여 등록 계정에 대한 Azure RBAC 소유자 역할을 사용자 또는 사용자 그룹에 부여할 수 있습니다.
 
 1. 액세스 권한을 부여하려는 등록 계정의 개체 ID를 가져옵니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "92132570"
 
     # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-    [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet을 사용하여 액세스 권한이 있는 모든 등록 계정을 나열합니다. **사용해 보세요**를 선택하여 [Azure Cloud Shell](https://shell.azure.com/)을 엽니다. 코드를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭하고 **붙여넣기**를 선택합니다.
+    [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet을 사용하여 액세스 권한이 있는 모든 등록 계정을 나열합니다. **사용해 보세요** 를 선택하여 [Azure Cloud Shell](https://shell.azure.com/)을 엽니다. 코드를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭하고 **붙여넣기** 를 선택합니다.
 
     ```azurepowershell-interactive
     Get-AzEnrollmentAccount
@@ -84,7 +84,7 @@ ms.locfileid: "92132570"
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-    [az billing enrollment-account list](/cli/azure/billing) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다. **사용해 보세요**를 선택하여 [Azure Cloud Shell](https://shell.azure.com/)을 엽니다. 코드를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭하고 **붙여넣기**를 선택합니다.
+    [az billing enrollment-account list](/cli/azure/billing) 명령을 사용하여 액세스할 수 있는 모든 등록 계정을 나열합니다. **사용해 보세요** 를 선택하여 [Azure Cloud Shell](https://shell.azure.com/)을 엽니다. 코드를 붙여넣으려면 마우스 오른쪽 단추로 셸 창을 클릭하고 **붙여넣기** 를 선택합니다.
 
     ```azurecli-interactive
     az billing enrollment-account list
@@ -115,10 +115,10 @@ ms.locfileid: "92132570"
 
 1. <a id="userObjectId"></a>Azure RBAC 소유자 역할을 부여하려는 사용자 또는 그룹의 개체 ID를 가져옵니다.
 
-    1. Azure Portal에서 **Azure Active Directory**를 검색합니다.
-    1. 사용자에게 액세스 권한을 부여하려면 왼쪽 메뉴에서 **사용자**를 선택합니다. 그룹에 대한 액세스 권한을 부여하려면 **그룹**을 선택합니다.
+    1. Azure Portal에서 **Azure Active Directory** 를 검색합니다.
+    1. 사용자에게 액세스 권한을 부여하려면 왼쪽 메뉴에서 **사용자** 를 선택합니다. 그룹에 대한 액세스 권한을 부여하려면 **그룹** 을 선택합니다.
     1. Azure RBAC 소유자 역할을 부여하려는 사용자 또는 그룹을 선택합니다.
-    1. [사용자]를 선택한 경우 [프로필] 페이지에서 개체 ID를 찾을 수 있습니다. [그룹]을 선택한 경우 개체 ID는 [개요] 페이지에 있습니다. 텍스트 상자 오른쪽에 있는 아이콘을 선택하여 **ObjectID**를 복사합니다. 다음 단계에서 `userObjectId`로 사용할 수 있도록 이를 어딘가에 붙여넣습니다.
+    1. [사용자]를 선택한 경우 [프로필] 페이지에서 개체 ID를 찾을 수 있습니다. [그룹]을 선택한 경우 개체 ID는 [개요] 페이지에 있습니다. 텍스트 상자 오른쪽에 있는 아이콘을 선택하여 **ObjectID** 를 복사합니다. 다음 단계에서 `userObjectId`로 사용할 수 있도록 이를 어딘가에 붙여넣습니다.
 
 1. 등록 계정에 대한 Azure RBAC 소유자 역할을 사용자 또는 그룹에 부여합니다.
 
@@ -174,7 +174,7 @@ ms.locfileid: "92132570"
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    사용자가 등록 계정에 대한 Azure RBAC 소유자가 되면 [구독을 프로그래밍 방식으로 만들](programmatically-create-subscription.md) 수 있습니다. 위임된 사용자가 만든 구독에는 여전히 원래 계정 소유자가 서비스 관리자로 있지만, 기본적으로 위임된 사용자도 Azure RBAC 소유자로 있습니다.
+    사용자가 등록 계정에 대한 Azure RBAC 소유자가 되면 [구독을 프로그래밍 방식으로 만들](programmatically-create-subscription-enterprise-agreement.md) 수 있습니다. 위임된 사용자가 만든 구독에는 여전히 원래 계정 소유자가 서비스 관리자로 있지만, 기본적으로 위임된 사용자도 Azure RBAC 소유자로 있습니다.
 
     ---
 
@@ -193,7 +193,7 @@ ms.locfileid: "92132570"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 사용자 또는 서비스 주체가 구독을 만들 권한을 가지므로 해당 ID를 사용하여 [프로그래밍 방식으로 Azure 엔터프라이즈 구독을 만들 수 있습니다](programmatically-create-subscription.md).
+* 사용자 또는 서비스 주체가 구독을 만들 권한을 가지므로 해당 ID를 사용하여 [프로그래밍 방식으로 Azure 엔터프라이즈 구독을 만들 수 있습니다](programmatically-create-subscription-enterprise-agreement.md).
 * .NET을 사용하여 구독 만들기에 대한 예제는 [GitHub의 샘플 코드](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core)를 참조하세요.
 * Azure Resource Manager 및 해당 API에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요.
 * 관리 그룹을 사용하여 많은 수의 구독 관리에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](../../governance/management-groups/overview.md)을 참조하세요.

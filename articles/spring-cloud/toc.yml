@@ -25,10 +25,6 @@
           href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: 자습서
   items:
-    - name: 수동으로 앱 스케일링
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: 앱 자동 크기 조정
-      href: spring-cloud-tutorial-setup-autoscale.md
     - name: 경고 및 작업 그룹
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: 회로 차단기 대시보드
@@ -75,12 +71,22 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: IntelliJ를 사용하여 앱 배포
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Azure PowerShell을 사용하여 Azure Spring Cloud 배포
+          href: spring-cloud-howto-deploy-powershell.md
     - name: 구성
       items:
         - name: '앱 시작, 중지 및 삭제'
           href: spring-cloud-howto-start-stop-delete.md
         - name: 영구 스토리지 사용
           href: spring-cloud-howto-persistent-storage.md
+    - name: 확장
+      items:
+        - name: 수동으로 앱 스케일링
+          href: spring-cloud-tutorial-scale-manual.md
+        - name: 앱 자동 크기 조정
+          href: spring-cloud-tutorial-setup-autoscale.md
+        - name: 아웃바운드 공용 IP 주소 확인
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: 모니터
       items:
         - name: 분산 추적 및 앱 인사이트
@@ -89,7 +95,11 @@
           href: diagnostic-services.md
         - name: 실시간으로 로그 스트림
           href: spring-cloud-howto-log-streaming.md
-    - name: 보안
+        - name: Java In-Process 에이전트를 사용하는 Application Insights
+          href: spring-cloud-howto-application-insights.md
+        - name: Resilience4J 회로 차단기 메트릭
+          href: spring-cloud-howto-circuit-breaker-metrics.md
+    - name: 안전
       items:
         - name: 시스템이 할당한 관리 ID 사용
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md
@@ -121,14 +131,26 @@
           href: spring-cloud-howto-self-diagnose-solve.md
         - name: 문제 해결 가이드
           href: spring-cloud-troubleshoot.md
-    - name: 마이그레이션
+    - name: Migrate
       items:
         - name: Spring Cloud
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
         - name: Spring Boot
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+- name: DevOps 배포
+  items:
+    - name: Azure DevOps를 사용하는 CI/CD
+      href: spring-cloud-howto-cicd.md
+    - name: GitHub 작업을 사용하는 CI/CD
+      href: spring-cloud-howto-github-actions.md
+    - name: GitHub 작업에서 Key Vault를 사용한 인증
+      href: spring-cloud-github-actions-key-vault.md
+- name: 문제 해결
+  items:
+    - name: 문제 해결 가이드
+      href: spring-cloud-troubleshoot.md
 - name: 참조
   items:
     - name: Azure CLI 플러그 인
@@ -140,7 +162,7 @@
     - name: 질문과 대답
       href: spring-cloud-faq.md
     - name: REST API 참조
-      href: /rest/api/azurespringclould/
+      href: /rest/api/azurespringcloud/
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

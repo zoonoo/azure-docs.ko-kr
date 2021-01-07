@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: eff738e24b3abce52e80291c55a3ae64c3c8c853
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905496"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900363"
 ---
 # <a name="test-through-simulations"></a>시뮬레이션을 통해 테스트
 
@@ -29,7 +29,7 @@ Microsoft는 Azure 고객이 시뮬레이션을 위해 DDoS Protection 사용 �
 - DDoS 규정 준수 문서화
 - 네트워크 보안 팀을 교육합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 이 자습서의 단계를 완료 하려면 먼저 보호 된 공용 IP 주소를 사용 하 여 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md) 을 만들어야 합니다.
 - 먼저이 [클라우드](http://breakingpoint.cloud/)를 사용 하 여 계정을 만들어야 합니다. 
@@ -42,9 +42,9 @@ Microsoft는 Azure 고객이 시뮬레이션을 위해 DDoS Protection 사용 �
     |---------      |---------                                          |
     |대상 IP 주소           | 테스트 하려는 공용 IP 주소 중 하나를 입력 합니다.                     |
     |포트 번호   | _443_ 을 입력합니다.                       |
-    |DDoS 프로필 | **TCP SYN 홍수** 를 선택 합니다.|
-    |테스트 크기       | **계의 pps, 100 Mbps 및 8 원본 ip를 선택 합니다.**                                  |
-    |테스트 지속 시간 | **10 분** 을 선택 합니다.|
+    |DDoS 프로필 | 가능한 값에는 **DNS 홍수**, **NTPv2 홍수**, **SSDP 홍수**, **TCP SYN 홍수**, **udp 64B 홍수**, udp **128B홍수**, **udp 256b 홍수**, **udp 512B 홍수**, **udp 1024b** 이상, **udp 1514b** 수, udp **조각화** **udp memcached** 가 포함 됩니다.|
+    |테스트 크기       | 가능한 값에는 계의 pps, **50 mbps 및 4** 원본 ip, **Pps, 100 mbps 및 8 원본** ip, **400K pps, 200mbps 및 16 원본 ip**, **800K Pps, 400 Mbps 및 32 원본 ip** 가 포함 됩니다.                                  |
+    |테스트 지속 시간 | 가능한 값에는 **10 분**, **15 분**, **20 분**, **25 분**, **30 분** 이 포함 됩니다.|
 
 이제 다음과 같이 표시 됩니다.
 
@@ -54,15 +54,19 @@ Microsoft는 Azure 고객이 시뮬레이션을 위해 DDoS Protection 사용 �
 
 1. 에 로그인 하 여 https://portal.azure.com 구독으로 이동 합니다.
 1. 공격을 테스트 한 공용 IP 주소를 선택 합니다.
-1. **모니터링** 아래에서 **메트릭** 을 선택합니다.
+1. **모니터링** 에서 **메트릭** 을 선택합니다.
 1. **메트릭에** 대해 _DDoS 공격_ 을 선택 합니다.
 
 리소스가 공격을 받고 있으면 다음 그림과 같이 값이 **0** 에서 **1** 로 변경 되는 것을 볼 수 있습니다.
 
 ![DDoS 공격 시뮬레이션 예: 포털](./media/ddos-attack-simulation/ddos-attack-simulation-example-2.png)
 
+### <a name="breakingpoint-cloud-api-script"></a>클라우드 API 스크립트
+
+이 [API 스크립트](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) 를 사용 하 여 한 번 실행 하거나 cron을 사용 하 여 정기적인 테스트를 예약 하 여 DDoS 테스트를 자동화할 수 있습니다. 이는 로깅이 올바르게 구성 되었고 검색 및 응답 절차가 효과적인 지를 확인 하는 데 유용 합니다. 스크립트에는 Linux OS (Ubuntu 18.04 LTS로 테스트) 및 Python 3이 필요 합니다. 포함 된 스크립트를 사용 하거나, 및 [클라우드](http://breakingpoint.cloud/) 웹 사이트의 설명서를 사용 하 여 필수 구성 요소 및 API 클라이언트를 설치 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-- [DDoS protection 원격 분석을 보고 구성](telemetry-monitoring-alerting.md)하는 방법에 대해 알아봅니다.
-- [DDoS 공격 완화 보고서 및 흐름 로그를 구성](reports-and-flow-logs.md)하는 방법에 대해 알아봅니다.
+- [DDoS protection 원격 분석을 보고 구성](telemetry.md)하는 방법에 대해 알아봅니다.
+- [DDoS 진단 로깅을 보고 구성](diagnostic-logging.md)하는 방법에 대해 알아봅니다.
 - [DDoS 빠른 응답에 참여](ddos-rapid-response.md)하는 방법을 알아봅니다.

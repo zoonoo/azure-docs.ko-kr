@@ -3,14 +3,13 @@ title: Azure Kubernetes Service에서 관리 되는 id 사용
 description: Azure Kubernetes 서비스 (AKS)에서 관리 id를 사용 하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.author: thomasge
-ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 12/16/2020
+ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94627883"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607289"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -22,28 +21,27 @@ ms.locfileid: "94627883"
 
 다음 리소스를 설치 해야 합니다.
 
-- Azure CLI 버전 2.8.0 이상
+- Azure CLI 버전 2.15.1 이상
 
 ## <a name="limitations"></a>제한 사항
 
-* 관리 id를 사용 하는 AKS 클러스터는 클러스터를 만드는 동안에만 사용할 수 있습니다.
 * 클러스터 **업그레이드** 작업 중에 관리 되는 id를 일시적으로 사용할 수 없습니다.
 * 테 넌 트 이동/관리 되는 id 사용 클러스터의 마이그레이션은 지원 되지 않습니다.
-* 클러스터가 `aad-pod-identity` 사용 하도록 설정 된 경우 NMI (Node Managed Identity) pod는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 참조 하세요.
+* 클러스터가 `aad-pod-identity` 사용 하도록 Node-Managed 설정 된 경우 Pod Identity (NMI)는 Azure 인스턴스 메타 데이터 끝점에 대 한 호출을 가로채는 노드의 iptables를 수정 합니다. 이 구성은 pod가를 사용 하지 않는 경우에도 메타 데이터 끝점에 대 한 모든 요청이 NMI에 의해 차단 됨을 의미 합니다 `aad-pod-identity` . AzurePodIdentityException CRD는 CRD에서 정의 된 `aad-pod-identity` 레이블과 일치 하는 pod에서 발생 하는 메타 데이터 끝점에 대 한 모든 요청이 NMI를 처리 하지 않고 프록시 되어야 함을 알리도록 구성할 수 있습니다. `kubernetes.azure.com/managedby: aks`AZUREPODIDENTITYEXCEPTION CRD를 구성 하 여 _kube_ 네임 스페이스에서 레이블이 인 시스템 pod는에서 제외 되어야 합니다 `aad-pod-identity` . 자세한 내용은 [특정 pod 또는 응용 프로그램에 대 한 aad-Id 사용 안 함](https://azure.github.io/aad-pod-identity/docs/configure/application_exception)을 참조 하세요.
   예외를 구성 하려면 [mic 예외 YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)을 설치 합니다.
 
 ## <a name="summary-of-managed-identities"></a>관리 id 요약
 
 AKS는 기본 제공 서비스 및 추가 기능에 대해 여러 관리 되는 id를 사용 합니다.
 
-| ID                       | 속성    | 사용 사례 | 기본 권한 | 사용자 고유의 id 가져오기
+| ID                       | 이름    | 사용 사례 | 기본 권한 | 사용자 고유의 id 가져오기
 |----------------------------|-----------|----------|
-| 제어 평면 | 표시 되지 않음 | 수신 부하 분산 장치 및 AKS 관리 되는 공용 Ip를 포함 하 여 관리 되는 네트워킹 리소스에 대해 AKS에서 사용 | 노드 리소스 그룹에 대 한 참가자 역할 | 미리 보기
+| 제어 평면 | 표시 되지 않음 | AKS 제어 평면 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 되는 공용 Ip를 포함 하 여 클러스터 리소스를 관리 하는 데 사용 되며 클러스터 Autoscaler 작업 | 노드 리소스 그룹에 대 한 참가자 역할 | 지원됨
 | Kubelet | AKS 클러스터 이름-agentpool | Azure Container Registry 인증 (ACR) | NA (kubernetes v 1.15 +의 경우) | 현재 지원되지 않음
 | 추가 기능 | AzureNPM | Id가 필요 하지 않음 | 해당 없음 | 예
 | 추가 기능 | AzureCNI 네트워크 모니터링 | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | azurepolicy (게이트 키퍼) | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | azurepolicy | Id가 필요 하지 않음 | 해당 없음 | 예
+| 추가 기능 | azure-정책 (게이트 키퍼) | Id가 필요 하지 않음 | 해당 없음 | 예
+| 추가 기능 | azure-정책 | Id가 필요 하지 않음 | 해당 없음 | 예
 | 추가 기능 | Calico | Id가 필요 하지 않음 | 해당 없음 | 예
 | 추가 기능 | 대시보드 | Id가 필요 하지 않음 | 해당 없음 | 예
 | 추가 기능 | HTTPApplicationRouting | 필요한 네트워크 리소스를 관리 합니다. | 노드 리소스 그룹에 대 한 읽기 역할, DNS 영역에 대 한 참가자 역할 | 예
@@ -105,17 +103,29 @@ az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
-## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>기존 서비스 주체 기반 AKS 클러스터를 관리 되는 id로 업데이트
+## <a name="update-an-aks-cluster-to-managed-identities-preview"></a>AKS 클러스터를 관리 되는 id로 업데이트 (미리 보기)
 
-이제 다음 CLI 명령을 사용 하 여 관리 id를 사용 하 여 AKS 클러스터를 업데이트할 수 있습니다.
+이제 다음 CLI 명령을 사용 하 여 관리 되는 id와 함께 작동 하도록 현재 서비스 사용자로 작업 하는 AKS 클러스터를 업데이트할 수 있습니다.
 
-먼저, 시스템 할당 Id를 업데이트 합니다.
+먼저 시스템 할당 id에 대 한 기능 플래그를 등록 합니다.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n MigrateToMSIClusterPreview
+```
+
+시스템이 할당 한 id를 업데이트 합니다.
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 
-그런 다음 사용자 할당 Id를 업데이트 합니다.
+사용자 할당 id에 대 한 기능 플래그를 등록 합니다.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.ContainerService -n UserAssignedIdentityPreview
+```
+
+사용자 할당 id를 업데이트 합니다.
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
@@ -123,44 +133,14 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identi
 > [!NOTE]
 > 시스템 할당 또는 사용자 할당 id를 관리 id로 업데이트 한 후에는 노드에서를 수행 `az nodepool upgrade --node-image-only` 하 여 관리 되는 id에 대 한 업데이트를 완료 합니다.
 
-## <a name="bring-your-own-control-plane-mi-preview"></a>사용자 고유의 컨트롤 평면 MI (미리 보기) 가져오기
-사용자 지정 제어 평면 id를 사용 하면 클러스터를 만들기 전에 기존 id에 액세스할 수 있습니다. 이렇게 하면 사용자 지정 VNET 또는 outboundType의 관리 id로 UDR을 사용 하는 등의 시나리오를 사용할 수 있습니다.
+## <a name="bring-your-own-control-plane-mi"></a>사용자 고유의 컨트롤 평면 MI 가져오기
+사용자 지정 제어 평면 id를 사용 하면 클러스터를 만들기 전에 기존 id에 액세스할 수 있습니다. 이 기능을 사용 하면 미리 만든 관리 id로 사용자 지정 VNET 또는 outboundType를 사용 하는 등의 시나리오를 사용할 수 있습니다.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+Azure CLI 버전 2.15.1 이상이 설치 되어 있어야 합니다.
 
-다음 리소스가 설치되어 있어야 합니다.
-- Azure CLI 버전 2.9.0 이상
-- Aks-preview 0.4.57 확장
-
-사용자 고유의 컨트롤 평면 MI (미리 보기)에 대 한 제한 사항:
+### <a name="limitations"></a>제한 사항
 * Azure Government 현재 지원 되지 않습니다.
 * Azure 중국 21Vianet은 현재 지원 되지 않습니다.
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
-
-```azurecli-interactive
-az feature register --name UserAssignedIdentityPreview --namespace Microsoft.ContainerService
-```
-
-상태가 **등록됨** 으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UserAssignedIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 아직 관리 되는 id가 없는 경우에는 [az IDENTITY CLI][az-identity-create]를 사용 하 여 예를 들어 계속 해 서 만들어야 합니다.
 

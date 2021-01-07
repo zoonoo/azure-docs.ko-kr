@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265472"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96349353"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -58,7 +58,7 @@ AD FS에서 이동 된 앱에는 동일한 형식의 클레임이 필요 합니�
 
 - 응용 프로그램에서 권한 부여를 위해 그룹 멤버 자격을 사용 하는 경우에는 ObjectID 그룹을 사용 하는 것이 좋습니다. 그룹 ObjectID는 Azure Active Directory에서 고유 하며 모든 그룹에서 사용할 수 있습니다.
 - 권한 부여를 위해 온-프레미스 그룹 sAMAccountName을 사용 하는 경우 정규화 된 도메인 이름을 사용 합니다.  이름 충돌 방지에 대 한 기회가 줄어듭니다. sAMAccountName은 Active Directory 도메인 내에서 고유할 수 있지만 둘 이상의 Active Directory 도메인이 Azure Active Directory 테 넌 트와 동기화 되는 경우 두 개 이상의 그룹이 동일한 이름을 가질 가능성이 있습니다.
-- [응용 프로그램 역할](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) 을 사용 하 여 그룹 멤버 자격과 응용 프로그램 간의 간접 참조 계층을 제공 하는 것이 좋습니다.   그런 다음 응용 프로그램은 토큰의 역할 clams를 기반으로 하 여 내부 권한 부여 결정을 내립니다.
+- [응용 프로그램 역할](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) 을 사용 하 여 그룹 멤버 자격과 응용 프로그램 간의 간접 참조 계층을 제공 하는 것이 좋습니다.   그런 다음 응용 프로그램은 토큰의 역할 클레임에 따라 내부 권한 부여 결정을 내립니다.
 - Active Directory에서 동기화 되는 그룹 특성을 가져오도록 응용 프로그램을 구성 하 고 그룹에 해당 특성이 포함 되지 않은 경우 클레임에 포함 되지 않습니다.
 - 토큰의 그룹 클레임은 옵션을 사용 하 여 그룹 클레임을 응용 프로그램에 할당 된 그룹으로 제한 하는 경우를 제외 하 고 중첩 된 그룹을 포함 합니다.  사용자가 GroupB의 멤버이 고 GroupB가 GroupA의 멤버인 경우 사용자에 대 한 그룹 클레임은 GroupA와 GroupB를 모두 포함 합니다. 조직의 사용자에 게 다 수의 그룹 멤버 자격이 있는 경우 토큰에 나열 된 그룹 수가 토큰 크기를 늘릴 수 있습니다.  Azure Active Directory는 토큰에 내보낼 그룹의 수를 SAML 어설션의 경우 150, JWT의 경우 200로 제한 합니다.  사용자가 더 많은 그룹의 멤버인 경우 그룹을 생략 하 고 그룹 정보를 얻기 위한 그래프 끝점에 대 한 링크가 대신 포함 됩니다.
 
@@ -74,7 +74,7 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>SSO 구성을 사용 하 여 SAML 응용 프로그램에 대 한 토큰에 그룹 클레임 추가
 
-갤러리 또는 비 갤러리 SAML 응용 프로그램에 대 한 그룹 클레임을 구성 하려면 **엔터프라이즈 응용 프로그램**을 열고 목록에서 응용 프로그램을 클릭 한 다음 **Single Sign on 구성**을 선택 하 고 **클레임 & 사용자 특성**을 선택 합니다.
+갤러리 또는 비 갤러리 SAML 응용 프로그램에 대 한 그룹 클레임을 구성 하려면 **엔터프라이즈 응용 프로그램** 을 열고 목록에서 응용 프로그램을 클릭 한 다음 **Single Sign on 구성** 을 선택 하 고 **클레임 & 사용자 특성** 을 선택 합니다.
 
 **그룹 클레임 추가** 를 클릭 합니다.  
 
@@ -138,14 +138,15 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 2. GroupMembershipClaim를 변경 하 여 그룹 멤버 자격 클레임을 사용 하도록 설정
 
-유효한 값은
+유효한 값은 다음과 같습니다.
 
 | 선택 영역 | 설명 |
 |----------|-------------|
 | **모두가** | 보안 그룹, 배포 목록 및 역할을 내보냅니다. |
 | **"SecurityGroup"** | 사용자가 구성원 인 보안 그룹을 그룹 클레임에 내보냅니다. |
-| **"DirectoryRole** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
-| **"ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
+| **"DirectoryRole"** | 사용자에 게 디렉터리 역할이 할당 된 경우 ' wids ' 클레임으로 내보내집니다. 그룹 클레임은 내보내지 않습니다. |
+| **ApplicationGroup** | 응용 프로그램에 명시적으로 할당 되 고 사용자가 멤버인 그룹만 내보냅니다. |
+| **없음을** | 그룹이 반환 되지 않습니다. (대/소문자를 sensetive 하지 않으므로 응용 프로그램 매니페스트에서 직접 설정할 수 없습니다.) |
 
    예를 들면 다음과 같습니다.
 
@@ -191,7 +192,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
    > [!NOTE]
    > "emit_as_roles"를 사용하는 경우 사용자가 할당되어 있는 모든 구성된 애플리케이션 역할이 역할 클레임에 표시되지 않습니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 Dnsdomainnamenameformat 형식의 OAuth 액세스 토큰에서 그룹을 그룹 이름으로 내보냅니다.
 

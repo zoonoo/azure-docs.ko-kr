@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89377687"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411328"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -74,7 +74,7 @@ ms.locfileid: "89377687"
 | 오류 메시지      | <span style="font-weight:normal">잘못된 Backint 구성이 검색되었습니다.</span>                       |
 | ------------------ | ------------------------------------------------------------ |
 | **가능한 원인**    | 지원 매개 변수가 잘못 지정 된 Azure Backup |
-| **권장 작업** | 다음(backint) 매개 변수가 설정되었는지 확인합니다.<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>HOST에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거합니다. 매개 변수가 HOST 수준에 없지만 데이터베이스 수준에서 수동으로 수정된 경우 앞에서 설명한 대로 적절한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지 및 백업 데이터 보존](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)을 실행한 후 **백업 다시 시작**을 선택합니다. |
+| **권장 작업** | 다음(backint) 매개 변수가 설정되었는지 확인합니다.<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>HOST에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거합니다. 매개 변수가 HOST 수준에 없지만 데이터베이스 수준에서 수동으로 수정된 경우 앞에서 설명한 대로 적절한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지 및 백업 데이터 보존](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)을 실행한 후 **백업 다시 시작** 을 선택합니다. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
 
@@ -153,7 +153,7 @@ SID 변경을 발생시키지 않는 OS 업그레이드, SDC 버전 변경 또�
 - 새 OS 버전, SDC 또는 MDC 버전이 현재 [Azure Backup에서 지원](sap-hana-backup-support-matrix.md#scenario-support)되는지 확인합니다.
 - 데이터베이스에 대해 [데이터 보관을 통해 보호 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)
 - 업그레이드 또는 업데이트 수행
-- 사전 등록 스크립트를 다시 실행합니다. 일반적으로 업그레이드 프로세스는 필요한 역할을 제거합니다. 사전 등록 스크립트는 필요한 모든 역할을 확인하는 데 유용합니다.
+- 사전 등록 스크립트를 다시 실행합니다. 업그레이드 프로세스에서 [필요한 역할](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)을 제거 하는 경우가 종종 있습니다. 사전 등록 스크립트를 실행 하면 필요한 모든 역할을 확인 하는 데 도움이 됩니다.
 - 데이터베이스에 대한 보호 재개
 
 ## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>SID를 변경하지 않으면서 SDC에서 MDC로 업그레이드
@@ -174,7 +174,7 @@ SID 변경을 발생시키지 않는 SDC에서 MDC로의 업그레이드는 다�
 SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처리할 수 있습니다.
 
 - 새 MDC 버전이 현재 [Azure Backup에서 지원](sap-hana-backup-support-matrix.md#scenario-support)되는지 확인합니다.
-- 이전 SDC 데이터베이스에 대해 **데이터 보관을 통해 보호를 중지**합니다.
+- 이전 SDC 데이터베이스에 대해 **데이터 보관을 통해 보호를 중지** 합니다.
 - 업그레이드를 수행합니다. 완료되면 HANA 시스템은 이제 시스템 DB 및 테넌트 DB가 있는 MDC가 됩니다.
 - 올바른 세부 정보(새 SID 및 MDC)를 사용하여 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행합니다. SID의 변경으로 인해 스크립트를 성공적으로 실행하는 데 문제가 있을 수 있습니다. 문제가 발생하는 경우 Azure Backup 지원 서비스에 문의하세요.
 - Azure Portal에서 동일한 머신에 대한 확장을 다시 등록합니다(**백업** -> **세부 정보 보기** -> 관련 Azure VM 선택 -> 다시 등록).
@@ -187,7 +187,7 @@ SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처�
 다시 등록 작업을 트리거하기 전에 하나 이상의 다음 증상을 확인하세요.
 
 - 다음 오류 코드 중 하나를 사용하여 VM에서 모든 작업(예: 백업, 복원 및 구성 백업)이 실패합니다. **WorkloadExtensionNotReachable, UserErrorWorkloadExtensionNotInstalled, WorkloadExtensionNotPresent, WorkloadExtensionDidntDequeueMsg**.
-- 백업 항목에 대한 **백업 상태** 영역에 **연결할 수 없음**이 표시되면 동일한 상태를 유발하는 다른 모든 원인을 제외합니다.
+- 백업 항목에 대한 **백업 상태** 영역에 **연결할 수 없음** 이 표시되면 동일한 상태를 유발하는 다른 모든 원인을 제외합니다.
 
   - VM에서 백업 관련 작업을 수행할 수 있는 권한이 없습니다.
   - VM이 종료되었으므로 백업을 수행할 수 없습니다.

@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 12/21/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 01c85311c9ea49be3543edee405cdd66a0659797
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130683"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733008"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
@@ -51,13 +51,13 @@ Azure Portal 또는 Visual Studio Code에서 직접 Stream Analytics 작업에 A
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="VS Code에서 UDF 추가":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="VS Code에서 UDF 추가":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="VS Code에서 Azure Machine Learning UDF 추가":::
 
 2. 함수 이름을 입력 하 고 CodeLens의 **구독에서 선택을** 사용 하 여 구성 파일의 설정을 입력 합니다.
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="VS Code에서 UDF 추가":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="VS Code에서 Azure Machine Learning UDF를 선택 합니다.":::
 
-   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="VS Code에서 UDF 추가":::
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="VS Code에서 Azure Machine Learning UDF 구성":::
 
 다음 표에서는 Stream Analytics에서 Azure Machine Learning 서비스 함수의 각 속성을 설명 합니다.
 
@@ -83,7 +83,7 @@ INTO output
 FROM input
 ```
 
-Stream Analytics에서는 Azure Machine Learning 함수에 대해 하나의 매개 변수만 전달할 수 있습니다. 기계 학습 UDF에 대한 입력으로 데이터를 전달하기 전에 준비해야 합니다.
+Stream Analytics에서는 Azure Machine Learning 함수에 대해 하나의 매개 변수만 전달할 수 있습니다. 기계 학습 UDF에 대한 입력으로 데이터를 전달하기 전에 준비해야 합니다. ML UDF의 입력이 null이 아닌지 확인 해야 합니다. null 입력으로 인해 작업이 실패 하 게 됩니다.
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>여러 입력 매개 변수를 UDF에 전달
 
@@ -104,11 +104,18 @@ function createArray(vendorid, weekday, pickuphour, passenger, distance) {
 작업에 JavaScript UDF를 추가한 후에는 다음 쿼리를 사용하여 Azure Machine Learning UDF를 호출할 수 있습니다.
 
 ```SQL
-SELECT udf.score(
-udf.createArray(vendorid, weekday, pickuphour, passenger, distance)
-)
-INTO output
+WITH 
+ModelInput AS (
+#use JavaScript UDF to construct array that will be used as input to ML UDF
+SELECT udf.createArray(vendorid, weekday, pickuphour, passenger, distance) as inputArray
 FROM input
+)
+
+SELECT udf.score(inputArray)
+INTO output
+FROM ModelInput
+#validate inputArray is not null before passing it to ML UDF to prevent job from failing
+WHERE inputArray is not null
 ```
 
 다음 JSON은 요청 예입니다.

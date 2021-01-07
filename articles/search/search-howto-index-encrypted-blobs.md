@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
-ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4bab8def514df21d948d67f3cfba846c43917be2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286353"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96530938"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 blob 인덱서 및 기술력과를 사용 하 여 암호화 된 blob을 인덱싱하는 방법
 
@@ -36,7 +36,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 + [Azure Storage](https://azure.microsoft.com/services/storage/)
 + Azure Cognitive Search와 동일한 구독에 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 합니다. 키 자격 증명 모음에는 **일시 삭제** 및 **보호 제거** 를 사용 하도록 설정 해야 합니다.
-+ [청구 가능 계층](search-sku-tier.md#tiers) 의 [Azure Cognitive Search](search-create-service-portal.md) (기본 이상, 모든 지역)
++ [청구 가능 계층](search-sku-tier.md#tier-descriptions) 의 [Azure Cognitive Search](search-create-service-portal.md) (기본 이상, 모든 지역)
 + [Azure 함수](https://azure.microsoft.com/services/functions/)
 + [Postman 데스크톱 앱](https://www.getpostman.com/)
 
@@ -128,29 +128,28 @@ Postman을 설치하고 설정합니다.
 
 ![Postman 앱 변수 탭](media/indexing-encrypted-blob-files/postman-variables-window.jpg "Postman의 변수 창")
 
-
 | 변수    | 가져올 수 있는 위치 |
 |-------------|-----------------|
 | `admin-key` | Azure Cognitive Search 서비스의 **키** 페이지.  |
-| `search-service-name` | Azure Cognitive Search 서비스의 이름. URL은 `https://{{search-service-name}}.search.windows.net`입니다. | 
-| `storage-connection-string` | 스토리지 계정의 **액세스 키** 탭에서 **key1** > **연결 문자열** 을 차례로 선택합니다. | 
-| `storage-container-name` | 인덱싱할 암호화 된 파일을 포함 하는 blob 컨테이너의 이름입니다. | 
-| `function-uri` |  기본 페이지의 **Essentials** 아래에 있는 Azure 함수 | 
-| `function-code` | Azure 함수에서 **앱 키** 로 이동한 후 클릭 하 여 **기본** 키를 표시 하 고 값을 복사 합니다. | 
+| `search-service-name` | Azure Cognitive Search 서비스의 이름. URL은 `https://{{search-service-name}}.search.windows.net`입니다. |
+| `storage-connection-string` | 스토리지 계정의 **액세스 키** 탭에서 **key1** > **연결 문자열** 을 차례로 선택합니다. |
+| `storage-container-name` | 인덱싱할 암호화 된 파일을 포함 하는 blob 컨테이너의 이름입니다. |
+| `function-uri` |  기본 페이지의 **Essentials** 아래에 있는 Azure 함수 |
+| `function-code` | Azure 함수에서 **앱 키** 로 이동한 후 클릭 하 여 **기본** 키를 표시 하 고 값을 복사 합니다. |
 | `api-version` | **2020-06-30** 으로 둡니다. |
-| `datasource-name` | **암호화 된-blob-ds** 로 둡니다. | 
-| `index-name` | **암호화 된 blob-idx** 로 남겨 둡니다. | 
-| `skillset-name` | **암호화 된 blob-ss** 로 둡니다. | 
-| `indexer-name` | **Ixr** 로 남겨 둡니다. | 
+| `datasource-name` | **암호화 된-blob-ds** 로 둡니다. |
+| `index-name` | **암호화 된 blob-idx** 로 남겨 둡니다. |
+| `skillset-name` | **암호화 된 blob-ss** 로 둡니다. |
+| `indexer-name` | **Ixr** 로 남겨 둡니다. |
 
 ### <a name="review-the-request-collection-in-postman"></a>Postman에서 요청 컬렉션 검토
 
-이 가이드를 실행 하는 경우 4 개의 HTTP 요청을 발급 해야 합니다. 
+이 가이드를 실행 하는 경우 4 개의 HTTP 요청을 발급 해야 합니다.
 
-- **인덱스를 만들기 위한 PUT 요청** : 이 인덱스는 Azure Cognitive Search에서 사용하고 반환하는 데이터를 포함합니다.
-- **데이터 원본을 만들기 위한 POST 요청** :이 데이터 원본은 Azure Cognitive Search 서비스를 저장소 계정에 연결 하 고 따라서 암호화 된 blob 파일에 연결 합니다. 
-- **기술을 만들기 위한 PUT 요청** : 기술은 blob 파일 데이터를 암호 해독 하는 Azure Function에 대 한 사용자 지정 기술 정의를 지정 하 고, 문서를 해독 한 후 각 문서에서 텍스트를 추출 하는 [Documentextractionskill](cognitive-search-skill-document-extraction.md) 지정 합니다.
-- **인덱서를 만들기 위한 PUT 요청** : 인덱서를 실행하면 데이터를 읽고, 기술 세트를 적용하고, 결과를 저장합니다. 이 요청은 마지막으로 실행해야 합니다.
+- **인덱스를 만들기 위한 PUT 요청**: 이 인덱스는 Azure Cognitive Search에서 사용하고 반환하는 데이터를 포함합니다.
+- **데이터 원본을 만들기 위한 POST 요청**:이 데이터 원본은 Azure Cognitive Search 서비스를 저장소 계정에 연결 하 고 따라서 암호화 된 blob 파일에 연결 합니다. 
+- **기술을 만들기 위한 PUT 요청**: 기술은 blob 파일 데이터를 암호 해독 하는 Azure Function에 대 한 사용자 지정 기술 정의를 지정 하 고, 문서를 해독 한 후 각 문서에서 텍스트를 추출 하는 [Documentextractionskill](cognitive-search-skill-document-extraction.md) 지정 합니다.
+- **인덱서를 만들기 위한 PUT 요청**: 인덱서를 실행하면 데이터를 읽고, 기술 세트를 적용하고, 결과를 저장합니다. 이 요청은 마지막으로 실행해야 합니다.
 
 [소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) 에는 네 개의 요청 뿐만 아니라 몇 가지 유용한 추가 요청을 포함 하는 postman 컬렉션이 포함 되어 있습니다. 요청을 실행 하려면 Postman에서 요청에 대 한 탭을 선택 하 고 각각에 대해 **보내기** 를 선택 합니다.
 

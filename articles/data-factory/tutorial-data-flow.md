@@ -1,19 +1,19 @@
 ---
 title: 매핑 데이터 흐름을 사용 하 여 데이터 변환
 description: 이 자습서에서는 Azure Data Factory 사용 하 여 데이터 흐름 매핑 데이터를 변환 하는 방법에 대 한 단계별 지침을 제공 합니다.
-author: djpmsft
-ms.author: daperlov
+author: dcstwh
+ms.author: weetok
 ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2019
-ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b0f564f68a638e7efd1cd1ce9116a26f4d19f277
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555913"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497064"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -32,7 +32,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업 모니터링
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
@@ -43,7 +43,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 이 단계에서는 데이터 팩터리를 만들고 Data Factory UX를 열어 데이터 팩터리에 파이프라인을 만듭니다.
 
 1. **Microsoft Edge** 또는 **Google Chrome** 을 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저 에서만 지원 됩니다.
-2. 왼쪽 메뉴에서 **리소스**  >  **통합**  >  **Data Factory** 만들기를 선택 합니다.
+2. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -131,7 +131,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
     디버그 클러스터가 활성 상태 이면 **새로 고침** 을 클릭 하 여 논리를 확인할 수 있습니다. 사용 된 입력에 대 한 식 출력을 볼 수 있습니다. 데이터 흐름 식 언어를 사용 하 여이 논리를 수행 하는 방법에는 두 개 이상의 올바른 대답이 있습니다.
 
-    ![Assert](media/tutorial-data-flow/filter2.png)
+    ![필터](media/tutorial-data-flow/filter2.png)
 
     **저장을** 클릭 하 고 식을 사용 하 여 작업을 완료 합니다.
 

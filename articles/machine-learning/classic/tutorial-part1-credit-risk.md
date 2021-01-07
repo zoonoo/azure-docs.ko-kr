@@ -9,17 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 62cecc011980c2d11e6f99895c90b0ced744039a
+ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325811"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96325352"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio(클래식)
 
-**적용 대상:**  ![예](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)   ![아니요 ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio(클래식)  ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -75,7 +74,7 @@ Machine Learning Studio(클래식)를 사용하려면 Microsoft Azure Machine Le
 
 **german.data** 라는 파일을 사용합니다. 로컬 하드 드라이브로 이 파일을 다운로드하세요.  
 
-**german.data** 데이터 세트에는 지난 1000명의 신용대출 신청자에 대한 20개 변수 행이 포함되어 있습니다. 이러한 20개 변수는 각 대출 신청자에 대한 특성을 파악하는 기능의 데이터 세트( *기능 벡터* )를 나타냅니다. 각 행의 추가 열은 신청자의 계산된 신용 위험을 나타내며, 700명의 신청자는 신용 위험이 낮은 것으로, 300명의 신청자는 위험이 높은 것으로 파악되었습니다.
+**german.data** 데이터 세트에는 지난 1000명의 신용대출 신청자에 대한 20개 변수 행이 포함되어 있습니다. 이러한 20개 변수는 각 대출 신청자에 대한 특성을 파악하는 기능의 데이터 세트(*기능 벡터*)를 나타냅니다. 각 행의 추가 열은 신청자의 계산된 신용 위험을 나타내며, 700명의 신청자는 신용 위험이 낮은 것으로, 300명의 신청자는 위험이 높은 것으로 파악되었습니다.
 
 UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 설명합니다. 이 데이터에는 재무 정보, 신용 기록, 고용 상태 및 개인 정보가 포함됩니다. 각 지원자에 대해 신용 위험이 낮은지 아니면 높은지 여부를 나타내는 이진 등급이 제공되었습니다. 
 
@@ -119,7 +118,7 @@ sed 's/ /,/g' german.data > german.csv
 
 1. Machine Learning Studio(클래식) 홈페이지([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 
 
-2. 창의 왼쪽 상단 모서리에 있는 ![메뉴](./media/tutorial-part1-credit-risk/menu.png)를 클릭하고 **Azure Machine Learning** 을 클릭하고 **Studio** 를 선택한 다음 로그인합니다.
+2. 메뉴를 클릭합니다. ![이는 누적된 세 개의 줄이 있는 메뉴 아이콘입니다.](./media/tutorial-part1-credit-risk/menu.png) 창의 왼쪽 상단 모서리에 있는 **Azure Machine Learning** 을 클릭하고, **Studio** 를 선택하고, 로그인합니다.
 
 3. 창 아래쪽에서 **+새로 만들기** 를 클릭합니다.
 
@@ -179,7 +178,7 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
 
 데이터 세트(아래 작은 원)의 출력 포트를 클릭하고 **시각화** 를 선택하여 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다.  
 
-데이터 파일에는 열 제목이 없으므로 Studio(클래식)에서 일반적인 제목(Col1, Col2 *등* )을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
+데이터 파일에는 열 제목이 없으므로 Studio(클래식)에서 일반적인 제목(Col1, Col2 *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
 
 열 제목은 [메타데이터 편집][edit-metadata] 모듈을 사용하여 추가할 수 있습니다.
 
@@ -226,7 +225,7 @@ Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(
    ![메타데이터 편집에 대한 속성](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면( [메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화** 를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
+   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화** 를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
    > 
    > 
 

@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2020
-ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e068ad01c07af4e5833399c0053da3362cd6aaa6
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675038"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185643"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>자습서: Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기
 
@@ -179,7 +179,7 @@ Azure AD 애플리케이션을 만드는 방법에 대한 자세한 내용은 [�
 
 ### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Azure AD 관리자를 설정하거나 설정 해제하는 데 필요한 권한
 
-서비스 주체가 Azure SQL에 대한 Azure AD 관리자를 설정하거나 설정 해제하려면 추가 API 권한이 필요합니다. [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) 애플리케이션 API 권한을 Azure AD의 애플리케이션에 추가해야 합니다.
+서비스 주체가 Azure SQL에 대한 Azure AD 관리자를 설정하거나 설정 해제하려면 추가 API 권한이 필요합니다. [Directory.Read.All](/graph/permissions-reference#application-permissions-18) 애플리케이션 API 권한을 Azure AD의 애플리케이션에 추가해야 합니다.
 
 :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Azure AD의 Directory.Reader.All 권한":::
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839251"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021833"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "91839251"
 > [!div class = "checklist"]
 > * 개발용 사용자 지정 명령 응용 프로그램 (DEV)
 > * 프로덕션에 대 한 사용자 지정 명령 응용 프로그램 (PROD)
-> * [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) 등록
+> * [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops) 등록
 
 ## <a name="exportimportpublish"></a>내보내기/가져오기/게시
 
@@ -79,16 +79,16 @@ ms.locfileid: "91839251"
 ### <a name="hook-up-the-pipeline-with-your-application"></a>응용 프로그램과 파이프라인 후크
 
 1. 파이프라인의 기본 페이지로 이동 합니다.
-1. 오른쪽 위 모서리 드롭다운에서 **파이프라인 편집**을 선택 합니다. YAML 편집기를 가져옵니다. 
-1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수**를 선택 합니다. **새 변수**를 클릭 합니다.
+1. 오른쪽 위 모서리 드롭다운에서 **파이프라인 편집** 을 선택 합니다. YAML 편집기를 가져옵니다. 
+1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수** 를 선택 합니다. **새 변수** 를 클릭 합니다.
 1. 다음 변수를 추가 합니다.
     
-    | 변수 | 설명 |
+    | 변수 | Description |
     | ------- | --------------- | ----------- |
     | SourceAppId | 개발 응용 프로그램의 ID |
     | TargetAppId | PROD 응용 프로그램의 ID |
     | SubscriptionKey | 두 응용 프로그램 모두에 사용 되는 구독 키 |
-    | 문화권 | 응용 프로그램의 문화권 (예: en-us) |
+    | culture | 응용 프로그램의 문화권 (예: en-us) |
 
     > [!div class="mx-imgBorder"]
     > ![전송 작업 페이로드](media/custom-commands/cicd-edit-pipeline-variables.png)
@@ -99,7 +99,7 @@ ms.locfileid: "91839251"
 
 ## <a name="deploy-from-source-code"></a>소스 코드에서 배포
 
-리포지토리에 응용 프로그램의 정의를 유지 하려는 경우 소스 코드에서 배포 하는 스크립트를 제공 합니다. 스크립트가 bash에 있기 때문에 Windows를 사용 하는 경우 [Linux 하위 시스템](https://docs.microsoft.com/windows/wsl/install-win10)을 설치 해야 합니다.
+리포지토리에 응용 프로그램의 정의를 유지 하려는 경우 소스 코드에서 배포 하는 스크립트를 제공 합니다. 스크립트가 bash에 있기 때문에 Windows를 사용 하는 경우 [Linux 하위 시스템](/windows/wsl/install-win10)을 설치 해야 합니다.
 
 스크립트는 [Cognitive Services 음성 도우미-사용자 지정 명령](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands)에서 호스팅됩니다. Bash 디렉터리의 스크립트를 리포지토리로 복제 합니다. 동일한 경로를 유지 관리 해야 합니다.
 
@@ -110,7 +110,7 @@ ms.locfileid: "91839251"
     ```BASH
     bash/export.sh -r <region> -s <subscriptionkey> -c en-us -a <appid> -f apps/myapp.json
     ```
-    | 인수 | 설명 |
+    | 인수 | Description |
     | ------- | --------------- | ----------- |
     | region | 응용 프로그램의 지역 (예: westus2)입니다. |
     | subscriptionkey | 음성 리소스의 구독 키입니다. |
@@ -155,15 +155,15 @@ ms.locfileid: "91839251"
 ### <a name="hook-up-the-pipeline-with-your-target-applications"></a>대상 응용 프로그램과 파이프라인 후크
 
 1. 파이프라인의 기본 페이지로 이동 합니다.
-1. 오른쪽 위 모서리 드롭다운에서 **파이프라인 편집**을 선택 합니다. YAML 편집기를 가져옵니다. 
-1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수**를 선택 합니다. **새 변수**를 클릭 합니다.
+1. 오른쪽 위 모서리 드롭다운에서 **파이프라인 편집** 을 선택 합니다. YAML 편집기를 가져옵니다. 
+1. "실행" 단추 옆의 오른쪽 위 모서리에서 **변수** 를 선택 합니다. **새 변수** 를 클릭 합니다.
 1. 다음 변수를 추가 합니다.
 
-    | 변수 | 설명 |
+    | 변수 | Description |
     | ------- | --------------- | ----------- |
     | TargetAppId | PROD 응용 프로그램의 ID |
     | SubscriptionKey | 두 응용 프로그램 모두에 사용 되는 구독 키 |
-    | 문화권 | 응용 프로그램의 문화권 (예: en-us) |
+    | culture | 응용 프로그램의 문화권 (예: en-us) |
 
 1. "실행"을 클릭 한 다음 실행 중인 "작업"을 클릭 합니다.
     "앱 가져오기" & "학습 및 앱 게시"를 포함 하는 실행 중인 작업 목록이 표시 됩니다.

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 11/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6982b782fdd6b5b269c1562c54be3478c58bbce9
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540929"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96501000"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>SAP 워크로드에 대한 Azure Storage 형식
 Azure에는 용량, 처리량, 대기 시간 및 가격이 크게 다른 많은 저장소 유형이 있습니다. 일부 저장소 유형은 또는 SAP 시나리오에 사용할 수 있는 제한 되지 않습니다. 반면, 몇 가지 Azure storage 유형은 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 특히 SAP HANA의 경우 일부 Azure storage 유형은 SAP HANA 사용에 대해 인증을 받았습니다. 이 문서에서는 다양 한 유형의 저장소를 살펴보고 SAP 워크 로드 및 SAP 구성 요소에 대 한 기능 및 유용성을 설명 합니다.
@@ -33,6 +34,8 @@ Azure에는 용량, 처리량, 대기 시간 및 가격이 크게 다른 많은 
 표준 HDD, 표준 SSD, Azure premium storage 및 울트라 디스크의 Microsoft Azure 저장소는 기본 VHD (OS 포함) 및 VM 연결 데이터 디스크나 Vhd를 세 개의 다른 저장소 노드에 있는 세 개의 복사본으로 유지 합니다. 저장소 노드 오류가 발생 하는 경우 다른 복제본으로 장애 조치 (failover) 하 고 새 복제본의 시드가 투명 합니다. 이러한 중복성의 결과로 여러 Azure 디스크에서 모든 종류의 저장소 중복성 계층을 사용할 필요는 **없습니다** . 이 사실을 LRS(로컬 중복 스토리지)라고 합니다. LRS는 Azure에서 이러한 유형의 저장소에 대 한 기본값입니다. [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 는 다른 네이티브 Azure 저장소와 동일한 sla를 얻기 위해 충분 한 중복성을 제공 합니다.
 
 Azure에서 제공 해야 하는 다양 한 저장소 형식 중 일부에 적용 되는 [복제 Azure Storage](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) 문서에 설명 된 여러 가지 중복성 방법이 있습니다. 
+
+또한 다양 한 Azure storage 유형은 [Virtual Machines에 대 한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines)에서 릴리스된 단일 VM 가용성 sla에 영향을 줍니다.
 
 ### <a name="azure-managed-disks"></a>Azure managed disks
 
@@ -90,15 +93,15 @@ S/4HANA의 SAP NetWeaver/응용 프로그램 계층에 대 한 Azure storage 형
 
 | 사용 시나리오 | 표준 HDD | 표준 SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| 처리량/IOPS SLA | 아니요 | 아니요 | 예 | 예 | 예 |
+| 처리량/IOPS SLA | no | no | 예 | 예 | 예 |
 | 대기 시간 읽기 | high | 중간에서 높음 | low | 하위 밀리초 | 하위 밀리초 |
 | 대기 시간 쓰기 | high | 중간에서 높음  | 낮음 (1-밀리초<sup>1</sup>) | 하위 밀리초 | 하위 밀리초 |
-| HANA 지원 | 아니요 | 아니요 | 예<sup>1</sup> | 예 | 예 |
-| 디스크 스냅숏 가능 | 예 | 예 | 예 | 아니요 | 예 |
+| HANA 지원 | no | no | 예<sup>1</sup> | 예 | 예 |
+| 디스크 스냅숏 가능 | 예 | 예 | 예 | no | 예 |
 | 가용성 집합을 사용 하는 경우 다른 저장소 클러스터에 디스크 할당 | 관리 디스크를 통해 | 관리 디스크를 통해 | 관리 디스크를 통해 | 가용성 집합을 통해 배포 된 Vm에서 지원 되지 않는 디스크 유형 | 아니요<sup>3</sup> |
 | 가용성 영역 정렬 | 예 | 예 | 예 | 예 | Microsoft 참여 요구 |
-| 영역 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 아니요 | 아니요 |
-| 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 아니요 | 아니요 | 아니요 |
+| 영역 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no |
+| 지리적 중복성 | 관리 디스크가 아닙니다. | 관리 디스크가 아닙니다. | no | no | no |
 
 
 <sup>1</sup> 로그/다시 실행 로그 볼륨에 대 한 M/Mv2 VM 제품군에 대해 [Azure 쓰기 가속기](../../how-to-enable-write-accelerator.md) 사용
@@ -130,7 +133,6 @@ Azure premium SSD 저장소는 다음을 제공 하는 목표로 도입 되었�
 - 이 저장소에 대 한 i/o 처리량은 디스크 범주의 크기와는 선형이 아닙니다. 65 GiB 및 128 GiB 용량의 범주와 같이 작은 디스크의 처리량은 약 780KB/GiB입니다. 32767 GiB 디스크와 같은 매우 큰 디스크의 경우 처리량은 약 28KB b/GiB입니다.
 - IOPS 및 처리량 Sla는 디스크 용량을 변경 하지 않고는 변경할 수 없습니다.
 
-Azure에는 Azure premium storage 또는 Azure Ultra disk 저장소 사용에 연결 된 99.9%의 단일 인스턴스 VM SLA가 있습니다. SLA는 [Virtual Machines에 대 한 sla](https://azure.microsoft.com/support/legal/sla/virtual-machines/)에 설명 되어 있습니다. 이 단일 VM SLA를 준수 하기 위해 기본 VHD 디스크 및 연결 된 **모든** 디스크는 azure premium Storage 또는 azure Ultra disk 저장소 여야 합니다.
 
 SAP 워크 로드에 대 한 기능 행렬은 다음과 같습니다.
 
@@ -162,7 +164,7 @@ Azure premium storage는 Azure premium storage와 함께 제공 되는 일반적
 
 
 ### <a name="azure-burst-functionality-for-premium-storage"></a>Premium storage에 대 한 Azure 버스트 기능
-Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기능이 제공 됩니다. 디스크 버스트 작동 방식에 대 한 정확한 방법은 [디스크 버스트](../../linux/disk-bursting.md)문서에 설명 되어 있습니다. 이 문서를 읽으면 i/o 워크 로드가 디스크의 공칭 IOPS 및 처리량 보다 낮은 시간에 발생 IOPS 및 처리량의 개념을 이해 하 게 됩니다 (명목상 처리량에 대 한 자세한 내용은 [관리 되는 디스크 가격](https://azure.microsoft.com/pricing/details/managed-disks/)참조). 현재 사용량과 디스크의 명목상 값 사이에 IOPS 및 처리량의 변화량을 계산 하려고 합니다. 버스트는 최대 30 분으로 제한 됩니다.
+Azure premium storage 디스크의 용량을 512 GiB 하는 경우 버스트 기능이 제공 됩니다. 디스크 버스트 작동 방식에 대 한 정확한 방법은 [디스크 버스트](../../disk-bursting.md)문서에 설명 되어 있습니다. 이 문서를 읽으면 i/o 워크 로드가 디스크의 공칭 IOPS 및 처리량 보다 낮은 시간에 발생 IOPS 및 처리량의 개념을 이해 하 게 됩니다 (명목상 처리량에 대 한 자세한 내용은 [관리 되는 디스크 가격](https://azure.microsoft.com/pricing/details/managed-disks/)참조). 현재 사용량과 디스크의 명목상 값 사이에 IOPS 및 처리량의 변화량을 계산 하려고 합니다. 버스트는 최대 30 분으로 제한 됩니다.
 
 이 버스트 기능이 계획 될 수 있는 이상적인 사례는 다른 DBMS에 대 한 데이터 파일을 포함 하는 볼륨이 나 디스크가 될 가능성이 높습니다. 이러한 볼륨에 대해 예상 되는 i/o 워크 로드, 특히 중소 규모의 시스템은 다음과 같습니다.
 
@@ -273,7 +275,7 @@ ANF 저장소의 추가 기본 제공 기능:
 - 스냅숏에서 ANF 볼륨 복제
 - 스냅숏에서 볼륨 복원 (맞춤 되돌리기)
 
-**요약** : AZURE NETAPP FILES는 NFS 및 SMB 볼륨이 나 공유를 배포할 수 있도록 하는 HANA 인증 짧은 대기 시간 저장소입니다. 저장소에는 볼륨의 GiB 용량 당 선형 방식으로 다양 한 처리량과 IOPS를 제공 하는 세 가지 서비스 수준이 제공 됩니다. ANF 저장소는 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시나리오를 배포할 수 있도록 합니다. 저장소는/sapmnt 또는 SAP 전역 전송 디렉터리에 필요한 파일 공유를 제공 하는 데 적합 합니다. ANF 저장소는 네이티브 NetApp 기능으로 사용할 수 있는 기능 가용성과 함께 제공 됩니다.  
+**요약**: AZURE NETAPP FILES는 NFS 및 SMB 볼륨이 나 공유를 배포할 수 있도록 하는 HANA 인증 짧은 대기 시간 저장소입니다. 저장소에는 볼륨의 GiB 용량 당 선형 방식으로 다양 한 처리량과 IOPS를 제공 하는 세 가지 서비스 수준이 제공 됩니다. ANF 저장소는 대기 노드를 사용 하 여 SAP HANA 스케일 아웃 시나리오를 배포할 수 있도록 합니다. 저장소는/sapmnt 또는 SAP 전역 전송 디렉터리에 필요한 파일 공유를 제공 하는 데 적합 합니다. ANF 저장소는 네이티브 NetApp 기능으로 사용할 수 있는 기능 가용성과 함께 제공 됩니다.  
 
 
 
@@ -374,4 +376,3 @@ Azure premium storage를 사용 하 여 최적의 가격/성능 비율을 구현
 
 - [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](./dbms_guide_general.md)
 - [SAP HANA Azure 가상 머신 스토리지 구성](./hana-vm-operations-storage.md)
- 

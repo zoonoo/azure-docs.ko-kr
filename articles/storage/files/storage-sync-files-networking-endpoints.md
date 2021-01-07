@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 61ff5d05eb74804af69b90d839115a8468619275
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629413"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921716"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Azure 파일 동기화 네트워크 엔드포인트 구성
 Azure Files와 Azure 파일 동기화는 Azure 파일 공유에 액세스하기 위한 다음과 같은 두 가지 기본 유형의 엔드포인트를 제공합니다. 
@@ -34,14 +34,14 @@ Azure Files와 Azure 파일 동기화에서 모두 Azure 관리 개체, 스토�
 
 또한 다음 작업도 수행해야 합니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.
-- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
+- Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하세요.
 
 ## <a name="create-the-private-endpoints"></a>프라이빗 엔드포인트 만들기
 Azure 리소스의 프라이빗 엔드포인트를 만들 때 배포되는 리소스는 다음과 같습니다.
 
-- **프라이빗 엔드포인트** : 스토리지 계정 또는 스토리지 동기화 서비스의 프라이빗 엔드포인트를 나타내는 Azure 리소스입니다. Azure 리소스와 네트워크 인터페이스를 연결하는 리소스라고 생각하면 됩니다.
+- **프라이빗 엔드포인트**: 스토리지 계정 또는 스토리지 동기화 서비스의 프라이빗 엔드포인트를 나타내는 Azure 리소스입니다. Azure 리소스와 네트워크 인터페이스를 연결하는 리소스라고 생각하면 됩니다.
 - **NIC(네트워크 인터페이스)** : 지정된 가상 네트워크/서브넷 내에서 개인 IP 주소를 유지 관리하는 네트워크 인터페이스입니다. 가상 머신을 배포할 때 배포되는 것과 정확히 동일한 리소스이지만, VM에 할당되는 것이 아니라 프라이빗 엔드포인트의 소유입니다.
-- **프라이빗 DNS 영역** : 이전에 이 가상 네트워크에 대한 프라이빗 엔드포인트를 한 번도 배포하지 않은 경우 가상 네트워크에 대한 새 프라이빗 DNS 영역이 배포됩니다. 이 DNS 영역의 Azure 리소스에 대한 DNS A 레코드도 생성됩니다. 이 가상 네트워크에 프라이빗 엔드포인트를 이미 배포했으면 Azure 리소스에 대한 새로운 A 레코드가 기존 DNS 영역에 추가됩니다. DNS 영역 배포는 선택 사항이지만 필요한 DNS 관리를 간소화하기 위해 적극 권장됩니다.
+- **프라이빗 DNS 영역**: 이전에 이 가상 네트워크에 대한 프라이빗 엔드포인트를 한 번도 배포하지 않은 경우 가상 네트워크에 대한 새 프라이빗 DNS 영역이 배포됩니다. 이 DNS 영역의 Azure 리소스에 대한 DNS A 레코드도 생성됩니다. 이 가상 네트워크에 프라이빗 엔드포인트를 이미 배포했으면 Azure 리소스에 대한 새로운 A 레코드가 기존 DNS 영역에 추가됩니다. DNS 영역 배포는 선택 사항이지만 필요한 DNS 관리를 간소화하기 위해 적극 권장됩니다.
 
 > [!Note]  
 > 이 문서에서는 Azure 공용 지역에 DNS 접미사를 사용하며 스토리지 계정에는 `core.windows.net`, 스토리지 동기화 서비스에는 `afs.azure.net`을 사용합니다. 이는 Azure US Government 클라우드와 같은 Azure 소버린 클라우드에도 적용되며, 사용자 환경에 적합한 접미사로 바꾸기만 하면 됩니다.
@@ -588,7 +588,7 @@ done
 Azure 파일 동기화를 사용하면 특정 가상 네트워크에 대한 액세스를 프라이빗 엔드포인트를 통해서만 가능하도록 제한할 수 있습니다. Azure 파일 동기화는 퍼블릭 엔드포인트에 대한 액세스를 특정 가상 네트워크로 제한하기 위한 서비스 엔드포인트를 지원하지 않습니다. 즉 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 두 가지 상태가 사용 및 사용 안 함입니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
-Azure Portal에서는 불가능합니다. 스토리지 동기화 서비스 퍼블릭 엔드포인트를 사용하지 않도록 설정하는 방법에 대한 지침을 보려면 Azure PowerShell 또는 Azure CLI 탭 지침을 선택하세요. 
+Azure Portal에서는 불가능합니다. 저장소 동기화 서비스 공용 끝점을 사용 하지 않도록 설정 하는 방법에 대 한 지침을 보려면 Azure PowerShell 탭을 선택 하세요. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하지 않도록 설정하려면 스토리지 동기화 서비스에서 `incomingTrafficPolicy` 속성을 `AllowVirtualNetworksOnly`로 설정합니다. 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하도록 설정하려면 `incomingTrafficPolicy`를 `AllowAllTraffic`으로 설정합니다. `<storage-sync-service-resource-group>` 및 `<storage-sync-service>`를 대체해야 합니다.
@@ -603,23 +603,11 @@ $storageSyncService = Get-AzResource `
         -ResourceType "Microsoft.StorageSync/storageSyncServices"
 
 $storageSyncService.Properties.incomingTrafficPolicy = "AllowVirtualNetworksOnly"
-$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force
+$storageSyncService = $storageSyncService | Set-AzResource -Confirm:$false -Force -UsePatchSemantics
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하지 않도록 설정하려면 스토리지 동기화 서비스에서 `incomingTrafficPolicy` 속성을 `AllowVirtualNetworksOnly`로 설정합니다. 스토리지 동기화 서비스의 퍼블릭 엔드포인트에 대한 액세스를 사용하도록 설정하려면 `incomingTrafficPolicy`를 `AllowAllTraffic`으로 설정합니다. `<storage-sync-service-resource-group>` 및 `<storage-sync-service>`를 대체해야 합니다.
-
-```bash
-storageSyncServiceResourceGroupName="<storage-sync-service-resource-group>"
-storageSyncServiceName="<storage-sync-service>"
-
-az resource update \
-        --resource-group $storageSyncServiceResourceGroupName \
-        --name $storageSyncServiceName \
-        --resource-type "Microsoft.StorageSync/storageSyncServices" \
-        --set "properties.incomingTrafficPolicy=AllowVirtualNetworksOnly" \
-        --output none
-```
+<a name="azure-cli-does-not-support-setting-the-incomingtrafficpolicy-property-on-the-storage-sync-service-please-select-the-azure-powershell-tab-to-get-instructions-on-how-to-disable-the-storage-sync-service-public-endpoint"></a>Azure CLI는 `incomingTrafficPolicy` 저장소 동기화 서비스의 속성 설정을 지원 하지 않습니다. 저장소 동기화 서비스 공용 끝점을 사용 하지 않도록 설정 하는 방법에 대 한 지침을 보려면 Azure PowerShell 탭을 선택 하세요.
 ---
 
 ## <a name="see-also"></a>참고 항목

@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555807"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857361"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 향상
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 개선
 
 이 문서에서는 Microsoft의 음성-텍스트 모델 또는 고유한 사용자 지정 모델의 정확도를 quantitatively 측정 하 고 개선 하는 방법에 대해 알아봅니다. 정확도를 테스트 하려면 오디오 + 사람 레이블이 지정 된 기록 데이터가 필요 하며, 대표 오디오는 30 분에서 5 시간으로 제공 되어야 합니다.
 
 ## <a name="evaluate-custom-speech-accuracy"></a>Custom Speech 정확도 평가
 
-모델 정확도를 측정 하는 산업 표준은 WER ( *단어 오류 요금* )입니다. WER은 인식 중에 식별 된 잘못 된 단어 수를 계산 하 고, 사람이 레이블 지정 된 성적 증명서에 제공 된 총 단어 수로 나눕니다 (아래에 N 표시). 마지막으로,이 숫자에는 WER를 계산 하기 위해 100%가 곱해집니다.
+모델 정확도를 측정 하는 산업 표준은 WER ( [단어 오류 요금](https://en.wikipedia.org/wiki/Word_error_rate) )입니다. WER은 인식 중에 식별 된 잘못 된 단어 수를 계산 하 고, 사람이 레이블 지정 된 성적 증명서에 제공 된 총 단어 수로 나눕니다 (아래에 N 표시). 마지막으로,이 숫자에는 WER를 계산 하기 위해 100%가 곱해집니다.
 
 ![WER 수식](./media/custom-speech/custom-speech-wer-formula.png)
 
@@ -33,9 +33,11 @@ ms.locfileid: "94555807"
 * 삭제 (D): 가설 성적 증명서에서 감지 되지 않은 단어
 * 대체 (S): 참조와 가설 사이에서 대체 된 단어입니다.
 
-예를 들면 다음과 같습니다.
+예는 다음과 같습니다.
 
 ![잘못 식별 된 단어의 예](./media/custom-speech/custom-speech-dis-words.png)
+
+로컬에서 WER 측정을 복제 하려면 [SCTK](https://github.com/usnistgov/SCTK)의 sclite를 사용할 수 있습니다.
 
 ## <a name="resolve-errors-and-improve-wer"></a>오류 해결 및 WER 향상
 
@@ -96,7 +98,7 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 
 ### <a name="add-related-text-sentences"></a>관련 텍스트 문장 추가
 
-추가 관련 텍스트 문장은 주로 일반적인 단어와 도메인별 단어를 컨텍스트에 표시 하 여 잘못 인식 하는 것과 관련 된 대체 오류를 줄일 수 있습니다. 도메인별 단어는 일반적이 지 않은 단어 일 수도 있지만 발음이 명확 하 게 인식 해야 합니다.
+새 사용자 지정 모델을 학습 하는 경우 도메인 특정 단어와 구의 인식 기능을 향상 시키기 위해 관련 텍스트를 추가 하는 것부터 시작 합니다. 관련 텍스트 문장은 주로 일반적인 단어와 도메인별 단어를 컨텍스트에 표시 하 여 잘못 인식 하는 것과 관련 된 대체 오류를 줄일 수 있습니다. 도메인별 단어는 일반적이 지 않은 단어 일 수도 있지만 발음이 명확 하 게 인식 해야 합니다.
 
 > [!NOTE]
 > 문자 또는 단어를 인식할 필요가 없는 것과 같은 노이즈를 포함 하는 관련 텍스트 문장을 사용 하지 마십시오.
@@ -111,6 +113,12 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 * 기록 오류가 포함 된 샘플을 사용 하지 말고 오디오 품질의 다양성을 포함 합니다.
 * 문제 도메인과 관련이 없는 문장을 사용 하지 마십시오. 관련이 없는 문장은 모델을 손상 시킬 수 있습니다.
 * 성적 증명서가 변경 되는 경우 매우 좋은 문장 (예: 키 구를 포함 하는 고급 문구)을 복제 하 여 가중치를 늘릴 수 있습니다.
+* 음성 서비스는 관련 텍스트로 추가 된 것 처럼 도메인 특정 단어와 구의 인식 기능을 개선 하기 위해 자동으로 성적 증명서를 사용 합니다.
+* 오디오를 사용한 교육은 오디오를 이해 하기 어려운 경우 가장 많은 이점을 제공 합니다. 대부분의 경우 관련 텍스트를 사용 하 여 학습을 시작 해야 합니다.
+* 학습 작업을 완료 하는 데 몇 일이 걸릴 수 있습니다. 학습 속도를 높이려면 학습을 위한 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에서 음성 서비스 구독을 만들어야 합니다.
+
+> [!NOTE]
+> 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다.
 
 ### <a name="add-new-words-with-pronunciation"></a>발음이 있는 새 단어 추가
 
@@ -134,7 +142,7 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 
 * [모델 학습 및 배포](how-to-custom-speech-train-model.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
-* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+* [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

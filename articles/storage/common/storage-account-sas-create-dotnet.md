@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1cb882ac1051c41f4d887a9ff4dd8cd64bc9f56c
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 2918b845430a6fc6dc59eca7041c114fc9d06515
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593606"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092213"
 ---
 # <a name="create-an-account-sas-with-net"></a>.NET을 사용 하 여 계정 SAS 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "94593606"
 
 계정 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 새 [AccountSasBuilder](/dotnet/api/azure.storage.sas.accountsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.accountsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetAccountSASToken":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetAccountSASToken":::
 
 ### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -68,9 +68,7 @@ static string GetAccountSASToken()
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_UseAccountSAS":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_UseAccountSAS":::
 
 ### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 

@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: de16c947c59f5a0111b9325dbefe7daf1268fb40
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578317"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649163"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드에서는 Azure Active Directory (AD)에 대 한 LoB (기간 업무) 응용 프로그램 개발에 대 한 개요를 제공 합니다. 대상 사용자는 전역 관리자 Active Directory/Microsoft 365 합니다.
 
 ## <a name="overview"></a>개요
-Azure AD와 통합 된 응용 프로그램을 빌드하면 조직의 사용자가 Microsoft 365를 Single Sign-On 수 있습니다. Azure AD에 애플리케이션이 있다면 애플리케이션에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스에 대 한 자세한 내용과 MFA (multi-factor authentication)를 사용 하 여 앱을 보호 하는 방법에 대 한 자세한 내용은 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)을 참조 하세요.
+Azure AD와 통합 된 응용 프로그램을 빌드하면 조직의 사용자가 Microsoft 365를 Single Sign-On 수 있습니다. Azure AD에 애플리케이션이 있다면 애플리케이션에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스에 대 한 자세한 내용과 MFA (multi-factor authentication)를 사용 하 여 앱을 보호 하는 방법에 대 한 자세한 내용은 [액세스 규칙 구성](../authentication/tutorial-enable-azure-mfa.md)을 참조 하세요.
 
 Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야 합니다. 애플리케이션을 등록하면 개발자가 Azure AD를 사용하여 사용자를 인증하고 이메일, 일정, 문서 등과 같은 사용자 리소스에 대한 액세스를 요청할 수 있습니다.
 
-디렉터리(게스트 아님)의 멤버는 애플리케이션을 등록할 수 있습니다.( *애플리케이션 개체 만들기* 라고 함) 응용 프로그램을 등록할 수 없는 경우에는 디렉터리의 전역 관리자가이 기능을 제한 하 고, 응용 프로그램을 등록할 수 있도록 적절 한 [권한을 얻으려면](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) 해당 사용자에 게 문의 해야 할 수 있습니다. 사용자를 제한 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에서 앱 등록 권한 위임](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications)을 참조 하세요.
+디렉터리(게스트 아님)의 멤버는 애플리케이션을 등록할 수 있습니다.( *애플리케이션 개체 만들기* 라고 함) 응용 프로그램을 등록할 수 없는 경우에는 디렉터리의 전역 관리자가이 기능을 제한 하 고, 응용 프로그램을 등록할 수 있도록 적절 한 [권한을 얻으려면](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) 해당 사용자에 게 문의 해야 할 수 있습니다. 사용자를 제한 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에서 앱 등록 권한 위임](../roles/delegate-app-roles.md#restrict-who-can-create-applications)을 참조 하세요.
 
 애플리케이션을 등록하면 사용자가 다음을 수행할 수 있습니다.
 
@@ -55,14 +55,14 @@ Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야
 * 기본 사용자 동의 환경 무시
 
 ## <a name="configure-access-rules"></a>액세스 규칙 구성
-SaaS 앱에 애플리케이션별 액세스 규칙을 구성합니다. 예를 들어 MFA를 요구하거나 신뢰할 수 있는 네트워크의 사용자에 대한 액세스만 허용할 수 있습니다. 이에 대한 세부 정보는 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)문서에서 사용할 수 있습니다.
+SaaS 앱에 애플리케이션별 액세스 규칙을 구성합니다. 예를 들어 MFA를 요구하거나 신뢰할 수 있는 네트워크의 사용자에 대한 액세스만 허용할 수 있습니다. 이에 대한 세부 정보는 [액세스 규칙 구성](../authentication/tutorial-enable-azure-mfa.md)문서에서 사용할 수 있습니다.
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>앱을 구성하여 사용자 할당 요구 및 사용자 할당
 기본적으로 사용자는 할당되지 않아도 애플리케이션에 액세스할 수 있습니다. 그러나 응용 프로그램이 역할을 노출 하거나 사용자의 내 앱에 응용 프로그램을 표시 하려는 경우에는 사용자 할당이 필요 합니다.
 
 Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그룹을 사용하는 것이 좋습니다. 애플리케이션에 그룹을 할당하면 그룹의 소유자에게 지속적인 액세스 관리를 위임할 수 있습니다. 그룹을 만들거나 조직에서 책임 파티를 요청하여 그룹 관리 기능을 사용하여 그룹을 만들 수 있습니다.
 
-[애플리케이션에 사용자 및 그룹 할당](methods-for-assigning-users-and-groups.md)  
+[애플리케이션에 사용자 및 그룹 할당](./assign-user-or-group-access-portal.md)  
 
 
 ## <a name="suppress-user-consent"></a>사용자 동의 무시
@@ -70,9 +70,8 @@ Azure AD Premium 또는 Enterprise Mobility Suite(EMS) 구독자인 경우 그�
 
 신뢰할 수 있는 애플리케이션의 경우 조직을 대신하여 애플리케이션에 동의하여 사용자 환경을 간소화할 수 있습니다.
 
-Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
+Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-register-app.md)을 참조하세요.
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 애플리케이션에 대한 보안 원격 액세스 사용](application-proxy.md)
 * [Azure AD를 사용하는 앱에 대한 액세스 관리](what-is-access-management.md)
-

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 830a97db562820853efcd88b1ab8c0b729a5dc9a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb22946bb3f0858a545d5b854afe48b2e1e61927
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490138"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109235"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버를 위한 가상 네트워크 만들기 및 관리
 
@@ -31,7 +31,7 @@ Azure Database for PostgreSQL 유연한 서버에서 서버를 만드는 동안�
 
 [Azure Cloud Shell](../../cloud-shell/overview.md)은 이 문서의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, **Enter**를 선택하여 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 열 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, **Enter** 를 선택하여 실행합니다.
 
 CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 명령을 사용 하 여 `az postgres flexible-server` *개인 액세스 (VNet 통합)* 로 유연한 서버를 만들 수 있습니다. 이 명령은 기본 연결 방법으로 개인 액세스 (VNet 통합)를 사용 합니다. 가상 네트워크 및 서브넷이 제공 되지 않은 경우 생성 됩니다. 서브넷 id를 사용 하 여 기존 가상 네트워크 및 서브넷을 제공할 수도 있습니다. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> 아래 예제와 같이 CLI를 사용 하 여 유연한 서버를 만드는 다양 한 옵션이 있습니다.
 
 >[!Important]
-> 이 명령을 사용 하면 서브넷을 **DBforPostgreSQL/flexibleServers**에 위임 합니다. 이 위임은 Azure Database for PostgreSQL 유연한 서버 에서만 해당 서브넷을 사용할 수 있음을 의미 합니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다.
+> 이 명령을 사용 하면 서브넷을 **DBforPostgreSQL/flexibleServers** 에 위임 합니다. 이 위임은 Azure Database for PostgreSQL 유연한 서버 에서만 해당 서브넷을 사용할 수 있음을 의미 합니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다.
 >
 Azure CLI 참조 설명서를 참조 하세요. <!--FIXME --> 구성 가능한 CLI 매개 변수의 전체 목록을 참조하세요. 예를 들어 아래 명령에서 필요에 따라 리소스 그룹을 지정할 수 있습니다.
 
@@ -61,22 +61,22 @@ Azure CLI 참조 설명서를 참조 하세요. <!--FIXME --> 구성 가능한 C
     ```azurecli-interactive
     az postgres flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- 이미 존재 하는 가상 네트워크 및 서브넷을 사용 하 여 유연한 서버를 만듭니다. 제공 된 가상 네트워크 및 서브넷이 없는 경우에는 가상 네트워크와 기본 주소 접두사가 포함 된 서브넷이 생성 됩니다.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
-- 이미 존재 하는 가상 네트워크, 서브넷 및 서브넷 ID를 사용 하 여 유연한 서버를 만듭니다. 제공 된 서브넷은 다른 리소스를 배포 하지 않아야 하 고이 서브넷은 **DBforPostgreSQL/flexibleServers**로 위임 됩니다 (아직 위임 하지 않은 경우).
+    ```
+- 이미 존재 하는 가상 네트워크, 서브넷 및 서브넷 ID를 사용 하 여 유연한 서버를 만듭니다. 제공 된 서브넷은 다른 리소스를 배포 하지 않아야 하 고이 서브넷은 **DBforPostgreSQL/flexibleServers** 로 위임 됩니다 (아직 위임 하지 않은 경우).
     ```azurecli-interactive
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > 가상 네트워크 및 서브넷은 유연한 서버와 동일한 지역 및 구독에 있어야 합니다.
-<!--  
-- Create a flexible server using new virtual network, subnet with non-default address prefix
+
+- 새 가상 네트워크를 사용 하 여 유연한 서버 만들기, 기본이 아닌 주소 접두사가 포함 된 서브넷
     ```azurecli-interactive
-    az postgres flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
-Azure CLI 참조 설명서를 참조 하세요. <!--FIXME --> 구성 가능한 CLI 매개 변수의 전체 목록을 참조하세요.
+    az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
+구성 가능한 CLI 매개 변수의 전체 목록은 Azure CLI [참조 설명서](/cli/azure/postgres/flexible-server) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL 유연한 서버에서 네트워킹](./concepts-networking.md)에 대해 자세히 알아보세요.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7246375468b3419c3d52ee3d5a51a95aa20050a9
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 2f3e4bf640b8da31a7fa4d818b94b0372d3026b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876724"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763442"
 ---
 샘플 애플리케이션에는 시뮬레이션된 디바이스 2개와 IoT Edge 게이트웨이 하나가 포함되어 있습니다. 다음 자습서에서는 게이트웨이의 기능을 실험하고 이해하는 두 가지 방법을 보여줍니다.
 
@@ -36,6 +36,6 @@ ms.locfileid: "91876724"
 
 ## <a name="initial-setup"></a>초기 설정
 
-이 자습서에서는 여러 구성 파일을 업데이트하고 사용합니다. 이러한 파일의 초기 버전은 [LVA-게이트웨이](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) GitHub 리포지토리에서 얻을 수 있습니다. 이 리포지토리에는 배포하는 서비스의 구성 값을 기록하는 데 사용할 수 있는 scratchpad 텍스트 파일도 포함되어 있으며, 이 파일을 다운로드해야 합니다.
+이 자습서에서는 여러 구성 파일을 업데이트하고 사용합니다. 이러한 파일의 초기 버전은 [LVA-게이트웨이](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) GitHub 리포지토리에서 얻을 수 있습니다. 이 리포지토리에는 배포하는 서비스의 구성 값을 다운로드하여 기록하는 데 사용할 수 있는 [scratchpad](https://github.com/Azure/live-video-analytics/blob/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) 텍스트 파일이 포함되어 있습니다. 이 파일은 자습서의 이후 단계를 완료하는 데 도움이 됩니다.
 
-로컬 머신에 *lva-configuration*이라는 폴더를 만들고 이러한 파일의 복사본을 저장합니다. 그리고 다음 링크를 각각 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장**을 선택하여 파일을 *lva-configuration* 폴더에 저장합니다.
+로컬 머신에 *lva-configuration* 이라는 폴더를 만들고 이러한 파일의 복사본을 저장합니다. 그리고 다음 링크를 각각 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장** 을 선택하여 파일을 *lva-configuration* 폴더에 저장합니다.

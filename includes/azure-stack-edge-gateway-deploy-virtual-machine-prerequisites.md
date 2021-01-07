@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2443765ecc9116193cefbc729ced25fa5657e59
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419408"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763434"
 ---
 Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 단계는 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md)로 이동 합니다.
 
@@ -34,13 +34,15 @@ Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 
 
     네트워크 인터페이스에서 컴퓨팅을 사용하도록 설정합니다. Azure Stack Edge는 해당 네트워크 인터페이스에 해당 하는 가상 스위치를 만들고 관리 합니다. 현재 Kubernetes에 대 한 특정 Ip를 입력 하지 마세요. 계산을 사용 하도록 설정 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-    <!--If you decide to use another network interface for compute, make sure that you:
-    
-    - Delete all the VMs that you have deployed using Azure Resource Manager.
-    
-    - Delete all virtual network interfaces and the virtual network associated with this network interface. 
-    
-    - You can now enable another network interface for compute.-->
+    > [!NOTE]
+    > GPU Vm을 만드는 경우 인터넷에 연결 된 네트워크 인터페이스를 선택 합니다. 그러면 장치에 GPU 확장을 설치할 수 있습니다.
 
-<!--1. You may also need to configure TLS 1.2 on your client machine if running older versions of AzCopy.--> 
 
+1. Azure Portal에서 VM 역할을 사용 하도록 설정 합니다. 이 단계에서는 장치의 로컬 Api를 통해 Vm을 만드는 데 사용 되는 장치에 대 한 고유한 구독을 만듭니다. 
+
+    1. VM 역할을 사용 하도록 설정 하려면 Azure Portal에서 Azure Stack Edge 장치에 대 한 Azure Stack Edge 리소스로 이동 합니다. **Edge compute > Virtual Machines** 로 이동 합니다.
+
+        ![VM 이미지 1 추가](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
+
+    1. **Virtual Machines** 를 선택 하 여 **개요** 페이지로 이동 합니다. 가상 컴퓨터 클라우드 관리를 **사용 하도록 설정** 합니다.
+        ![VM 이미지 2 추가](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)

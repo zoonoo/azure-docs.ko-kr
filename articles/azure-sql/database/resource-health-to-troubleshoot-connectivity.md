@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, sstein
+ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 8be537fd28adce45b7fc106cc3798688ee4c54ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321580"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96497965"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Resource Health를 사용 하 여 Azure SQL Database 및 Azure SQL에 대 한 연결 문제를 해결 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ Resource Health는 리소스에 대한 로그인의 성공 및 실패를 검사�
 
 ![Unavailable](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>알 수 없음
 
 **알 수 없음** 상태는 Resource Health에서 이 리소스에 대한 정보를 10분 넘게 수신하지 못했음을 나타냅니다. 이 상태는 리소스 상태에 대한 결정적인 표시는 아니지만 문제 해결 프로세스의 중요한 데이터 요소입니다. 리소스가 예상한 대로 실행 중이면 몇 분 후 리소스 상태가 사용 가능으로 변경됩니다. 리소스에 문제가 발생하는 경우 상태가 알 수 없음이면, 플랫폼의 이벤트가 리소스에 영향을 미치고 있다는 것을 의미할 수 있습니다.
 
-![Unknown](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
+![알 수 없음](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>기록 정보
 

@@ -3,14 +3,14 @@ title: 컨테이너의 Azure Monitor에 대 한 모니터링 비용 | Microsoft 
 description: 이 문서에서는 고객이 사용 및 관련 비용을 관리 하는 데 도움이 되는 컨테이너에 대 한 Azure Monitor 수집 된 메트릭 & 인벤토리 데이터에 대 한 모니터링 비용을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81a20f564af68c3da6d63394e4cffe7caed91b46
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84204653"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96903226"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 모니터링 비용 이해
+# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>컨테이너에 대한 Azure Monitor의 모니터링 비용 이해
 
 이 문서에서는 다음을 이해 하는 데 도움이 되는 컨테이너의 Azure Monitor에 대 한 가격 책정 지침을 제공 합니다.
 
@@ -110,7 +110,7 @@ Azure Monitor 가격 책정 모델은 주로 Log Analytics 작업 영역에 대 
 
 할당 된 Log Analytics 작업 영역에서 시간당 생성 된 데이터의 테이블 및 볼륨을 볼 수 있습니다. 이러한 각 테이블에 대 한 자세한 내용은 [컨테이너 레코드](container-insights-log-search.md#container-records)를 참조 하십시오.
 
-|테이블 | 예상 크기 (MB/시간) |
+|표 | 예상 크기 (MB/시간) |
 |------|---------------|
 |Perf | 12.9 |
 |InsightsMetrics | 11.3 |
@@ -127,19 +127,21 @@ Azure Monitor 가격 책정 모델은 주로 Log Analytics 작업 영역에 대 
 
 ## <a name="controlling-ingestion-to-reduce-cost"></a>수집을 제어 하 여 비용 절감
 
-조직의 다른 비즈니스 단위가 Kubernetes 인프라와 Log Analytics 작업 영역을 공유 하는 시나리오를 고려해 보세요. 각 비즈니스 단위가 Kubernetes 네임 스페이스로 구분 됩니다. 최근 릴리스된 통합 문서를 사용 하 여 각 작업 영역에서 얼마나 많은 데이터를 수집 시각화할 수 있습니다. [통합 문서 갤러리](../platform/workbooks-overview.md#getting-started)에 있는 **컨테이너 Insights 사용** 통합 문서를 사용 하면 설명서에서 공유 하는 내용에서 고유한 쿼리 라이브러리를 작성 하지 않고도 데이터 원본을 시각화할 수 있습니다. 이 통합 문서에는 다음과 같은 관점에서 청구 가능한 데이터를 볼 수 있는 차트가 있습니다.
+조직의 다른 비즈니스 단위가 Kubernetes 인프라와 Log Analytics 작업 영역을 공유 하는 시나리오를 고려해 보세요. 각 비즈니스 단위가 Kubernetes 네임 스페이스로 구분 됩니다. **통합 문서 보기** 드롭다운에서 사용할 수 있는 **데이터 사용** runbook을 사용 하 여 각 작업 영역에서 얼마나 많은 데이터를 수집 시각화할 수 있습니다.
+
+[![통합 문서 보기 드롭다운](media/container-insights-cost/workbooks-dropdown.png)](media/container-insights-cost/workbooks-dropdown.png#lightbox)
+
+
+이 통합 문서는 설명서에서 공유 하는 내용에서 고유한 쿼리 라이브러리를 빌드하지 않고도 데이터 소스를 시각화 하는 데 도움이 됩니다. 이 통합 문서에는 다음과 같은 관점에서 청구 가능한 데이터를 볼 수 있는 차트가 있습니다.
 
 - 수집 총 청구 가능 데이터 (GB)
-
 - 컨테이너 로그 (응용 프로그램 로그)로 청구 가능한 데이터 수집
-
 - 청구 가능 컨테이너 로그 데이터 수집 per Kubernetes 네임 스페이스
-
 - 클러스터 이름으로 분리 된 청구 가능 컨테이너 로그 데이터 수집
-
 - Logsource 항목 수집 청구 가능 컨테이너 로그 데이터
-
 - 진단 마스터 노드 로그에 의해 수집 청구 가능한 진단 데이터
+
+[![데이터 사용 통합 문서](media/container-insights-cost/data-usage-workbook.png)](media/container-insights-cost/data-usage-workbook.png#lightbox)
 
 통합 문서에 대 한 권한 및 사용 권한을 관리 하는 방법에 대 한 자세한 내용은 [액세스 제어](../platform/workbooks-access-control.md)를 참조 하세요.
 

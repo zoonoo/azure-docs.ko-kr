@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e88976bfbf5d033d6f5dc2318a6383e01ceb791d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8492e986b378ea19f8c3c4cb7f94fcb0f155b427
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409079"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96487850"
 ---
 # <a name="security-control-logging-and-monitoring"></a>보안 제어: 로깅 및 모니터링
 
@@ -96,7 +96,7 @@ Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics �
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/get-started-portal.md)
+- [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
 
 - [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
 

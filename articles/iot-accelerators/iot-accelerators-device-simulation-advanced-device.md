@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 3295815be035544d27da52926e5271c2c5551f28
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 58891bdb4601744129c97454f43202d3ba07b709
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076048"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852560"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
 
@@ -30,15 +30,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 방법 가이드의 단계를 수행하려면 Azure 구독에서 디바이스 시뮬레이션의 배포된 인스턴스가 필요합니다.
 
-디바이스 시뮬레이션을 아직 배포하지 않은 경우 [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작을 완료해야 합니다.
+아직 장치 시뮬레이션을 배포 하지 않은 경우 GitHub에서 [장치 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) 를 참조 하세요.
 
 ### <a name="open-device-simulation"></a>디바이스 시뮬레이션 열기
 
-브라우저에서 디바이스 시뮬레이션을 실행하려면 먼저 [Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com)로 이동합니다.
-
-Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표시될 수 있습니다.
-
-그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작**을 클릭합니다.
+아직 장치 시뮬레이션을 배포 하지 않은 경우 GitHub에서 [장치 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) 를 참조 하세요.
 
 ## <a name="device-models"></a>디바이스 모델
 
@@ -153,7 +149,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 ],
 ```
 
-자리 표시자는 특수 구문 **${NAME}** 을 사용합니다. 여기서 **NAME**은 JavaScript **main** 함수에서 반환되는 디바이스 상태 개체의 키입니다. 문자열은 따옴표로 묶어야 하지만 숫자는 따옴표로 묶으면 안 됩니다.
+자리 표시자는 특수 구문 **${NAME}** 을 사용합니다. 여기서 **NAME** 은 JavaScript **main** 함수에서 반환되는 디바이스 상태 개체의 키입니다. 문자열은 따옴표로 묶어야 하지만 숫자는 따옴표로 묶으면 안 됩니다.
 
 #### <a name="message-schema"></a>메시지 스키마
 
@@ -188,7 +184,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 
 이 방법 가이드에서는 드론에 대한 디바이스 모델을 만드는 방법을 설명합니다. 드론은 위치와 고도를 바꿔가며 초기 좌표 집합을 무작위로 비행합니다.
 
-다음 JSON을 텍스트 편집기에 복사하고 **drone.json**으로 저장합니다.
+다음 JSON을 텍스트 편집기에 복사하고 **drone.json** 으로 저장합니다.
 
 ### <a name="device-definition-json-example"></a>디바이스 정의 JSON 예제
 
@@ -259,8 +255,8 @@ JavaScript 파일에는 두 개의 매개 변수를 받아들이는 **main** 함
 
 * 다음 세 가지 속성을 포함하는 **context** 개체
     * **yyyy-MM-dd'T'HH:mm:sszzz** 형식의 문자열로 이루어진 **currentTime**
-    * **deviceId**. 예를 들어 **Simulated.Elevator.123**입니다.
-    * **deviceModel**. 예를 들어 **Elevator**입니다.
+    * **deviceId**. 예를 들어 **Simulated.Elevator.123** 입니다.
+    * **deviceModel**. 예를 들어 **Elevator** 입니다.
 * 이전 호출에서 함수에 의해 반환된 값인 **state** 개체. 이 디바이스 상태는 시뮬레이션 서비스에 의해 유지 관리되며 원격 분석 메시지를 생성하는 데 사용됩니다.
 
 **main** 함수는 새 디바이스 상태를 반환합니다. 예를 들면 다음과 같습니다.
@@ -278,7 +274,7 @@ function main(context, state) {
 
 ## <a name="create-a-behavior-script-file"></a>동작 스크립트 파일 만들기
 
-다음 JavaScript를 텍스트 편집기에 복사하고 **drone-state.js**로 저장합니다.
+다음 JavaScript를 텍스트 편집기에 복사하고 **drone-state.js** 로 저장합니다.
 
 ### <a name="device-model-javascript-simulation-example"></a>디바이스 모델 JavaScript 시뮬레이션 예제
 
@@ -407,7 +403,7 @@ function varylocation(latitude, longitude, distance) {
 
 드론 리콜 스크립트는 드론이 집으로 돌아오는 것을 시뮬레이션하기 위해 드론의 좌표를 고정된 지점으로 설정합니다.
 
-다음 JavaScript를 텍스트 편집기에 복사하고 **droneRecall-method.js**로 저장합니다.
+다음 JavaScript를 텍스트 편집기에 복사하고 **droneRecall-method.js** 로 저장합니다.
 
 ### <a name="device-model-javascript-simulation-example"></a>디바이스 모델 JavaScript 시뮬레이션 예제
 
@@ -498,23 +494,23 @@ function main(context, state) {
 
 고급 디바이스 모델을 배포하려면 파일을 디바이스 시뮬레이션 인스턴스에 업로드합니다.
 
-메뉴 모음에서 **디바이스 모델**을 선택합니다. **디바이스 모델** 페이지는 디바이스 시뮬레이션의 이 인스턴스에서 사용 가능한 디바이스 모델을 나열합니다.
+메뉴 모음에서 **디바이스 모델** 을 선택합니다. **디바이스 모델** 페이지는 디바이스 시뮬레이션의 이 인스턴스에서 사용 가능한 디바이스 모델을 나열합니다.
 
 ![디바이스 모델](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
-페이지의 오른쪽 위 모서리에서 **+ 디바이스 모델 추가**를 클릭합니다.
+페이지의 오른쪽 위 모서리에서 **+ 디바이스 모델 추가** 를 클릭합니다.
 
 ![디바이스 모델 추가](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
-**고급**을 클릭하면 고급 디바이스 모델 탭이 열립니다.
+**고급** 을 클릭하면 고급 디바이스 모델 탭이 열립니다.
 
 ![고급 탭](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
-**찾아보기**를 클릭하고 만든 JSON 및 JavaScript 파일을 선택합니다. 세 파일을 모두 선택해야 합니다. 하나의 파일이 누락된 경우 유효성 검사에 실패합니다.
+**찾아보기** 를 클릭하고 만든 JSON 및 JavaScript 파일을 선택합니다. 세 파일을 모두 선택해야 합니다. 하나의 파일이 누락된 경우 유효성 검사에 실패합니다.
 
 ![파일 찾아보기](media/iot-accelerators-device-simulation-advanced-device/browse.png)
 
-파일이 유효성 검사를 통과하는 경우 **저장**을 클릭하면 시뮬레이션에서 디바이스 모델을 사용할 준비가 됩니다. 그렇지 않으면 오류를 수정하고 파일을 다시 업로드합니다.
+파일이 유효성 검사를 통과하는 경우 **저장** 을 클릭하면 시뮬레이션에서 디바이스 모델을 사용할 준비가 됩니다. 그렇지 않으면 오류를 수정하고 파일을 다시 업로드합니다.
 
 ![저장](media/iot-accelerators-device-simulation-advanced-device/validated.png)
 

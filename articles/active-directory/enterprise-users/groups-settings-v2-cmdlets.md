@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e40dc986fcf7017b4a8ffbe35373c3a98631ea77
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12613362d9fc67dea14b41ece19a34febb489dda
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376726"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860646"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
@@ -50,7 +50,7 @@ Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에 대한 온라인 참조 문서를 참조하세요.
+이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2)에 대한 온라인 참조 문서를 참조하세요.
 
 > [!NOTE]
 > Azure AD PowerShell cmdlet은 .net Core를 기반으로 하기 때문에 새로운 Powershell 7에서 작동 하지 않습니다. Microsoft는이 사실을 알고 있으며 업데이트 하는 중입니다. 이제 Azure AD powershell 작업에 사용할 Windows PowerShell 5.x 모듈을 사용 하는 것이 좋습니다. 
@@ -134,7 +134,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
 ```
 
 > [!NOTE]
-> Azure AD PowerShell cmdlet에서는 OData 쿼리 표준을 구현합니다. 자세한 내용은 [OData 엔드포인트를 사용하는 OData 시스템 쿼리 옵션](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)#BKMK_filter)의 **$filter**를 참조하세요.
+> Azure AD PowerShell cmdlet에서는 OData 쿼리 표준을 구현합니다. 자세한 내용은 [OData 엔드포인트를 사용하는 OData 시스템 쿼리 옵션](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)#BKMK_filter)의 **$filter** 를 참조하세요.
 
 ## <a name="create-groups"></a>그룹 만들기
 
@@ -338,7 +338,7 @@ Microsoft 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
+[Azure Active Directory Cmdlets](/powershell/azure/active-directory/install-adv2)에서 더 많은 Azure Active Directory PowerShell 설명서를 찾을 수 있습니다.
 
 * [Azure Active Directory 그룹을 사용 하 여 리소스에 대 한 액세스 관리](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)

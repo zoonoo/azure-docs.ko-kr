@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844696"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
 
@@ -35,17 +35,17 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Azure Portal에 구독 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **구독**을 검색합니다.
+1. **구독** 을 검색합니다.
 
    ![포털의 구독 검색을 보여 주는 스크린샷](./media/create-subscription/billing-search-subscription-portal.png)
 
-1. **추가**를 선택합니다.
+1. **추가** 를 선택합니다.
 
    ![구독 보기의 추가 단추를 보여 주는 스크린샷](./media/create-subscription/subscription-add.png)
 
 1. 여러 청구 계정에 액세스할 수 있는 경우 구독을 만들려는 청구 계정을 선택합니다.
 
-1. 양식을 채우고 **만들기**를 클릭합니다. 아래 표에는 각 청구 계정 유형에 대한 양식의 필드가 나열되어 있습니다.
+1. 양식을 채우고 **만들기** 를 클릭합니다. 아래 표에는 각 청구 계정 유형에 대한 양식의 필드가 나열되어 있습니다.
 
 **기업 계약**
 
@@ -73,7 +73,11 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>프로그래밍 방식으로 추가 Azure 구독 만들기
 
-프로그래밍 방식으로 추가 구독을 만들 수도 있습니다. 자세한 내용은 [프로그래밍 방식으로 Azure 구독 만들기](programmatically-create-subscription.md)를 참조하세요.
+프로그래밍 방식으로 추가 구독을 만들 수도 있습니다. 자세한 내용은 다음을 참조하세요.
+
+- [최신 API를 사용하여 프로그래밍 방식으로 EA 구독 만들기](programmatically-create-subscription-enterprise-agreement.md)
+- [최신 API를 사용하여 프로그래밍 방식으로 MCA 구독 만들기](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [최신 API를 사용하여 프로그래밍 방식으로 MPA 구독 만들기](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## <a name="next-steps"></a>다음 단계
 

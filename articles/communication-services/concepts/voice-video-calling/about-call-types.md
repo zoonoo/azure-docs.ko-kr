@@ -9,18 +9,18 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 97a90284ad8d195751eb5dd90675822d00243ea8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 11c20f3f79a4fceafaca9b1a948f1b4a425dad87
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665211"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96572714"
 ---
 # <a name="voice-and-video-concepts"></a>음성 및 비디오 개념
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication Services를 사용하여 음성 및 비디오 호출을 수행 및 수신하고, 호출 메타데이터를 분석하고, 호출을 기록하며, 호출 트리를 빌드할 수도 있습니다. 인터넷에 연결된 다른 디바이스 및 일반 전화기에 대한 호출을 수행할 수 있습니다. Communication Services JavaScript, Android 또는 iOS 클라이언트 라이브러리를 사용하여 사용자가 개인 대화 또는 그룹 토론에서 서로 말할 수 있는 애플리케이션을 빌드할 수 있습니다. Azure Communication Services는 서비스나 봇에서의 호출을 지원합니다.
+Azure Communication Services를 사용하여 일대일 또는 그룹 음성 및 영상 통화를 걸고 받을 수 있습니다. 인터넷에 연결된 다른 디바이스 및 일반 전화기에 대한 호출을 수행할 수 있습니다. Communication Services JavaScript, Android 또는 iOS 클라이언트 라이브러리를 사용하여 사용자가 개인 대화 또는 그룹 토론에서 서로 말할 수 있는 애플리케이션을 빌드할 수 있습니다. Azure Communication Services는 서비스나 봇에서의 호출을 지원합니다.
 
 ## <a name="call-types-in-azure-communication-services"></a>Azure Communication Services의 호출 유형
 

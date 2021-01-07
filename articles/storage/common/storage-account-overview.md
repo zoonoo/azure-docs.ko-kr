@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 12/11/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793010"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97357384"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -54,7 +54,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 - 큐
 - 테이블
 
-대부분의 경우 범용 v2 계정을 사용 해야 합니다. 이러한 시나리오에는 범용 v1 계정을 사용할 수 있습니다.
+Microsoft는 대부분의 시나리오에 범용 v2 계정을 권장 합니다. 이러한 시나리오에는 범용 v1 계정을 사용할 수 있습니다.
 
 - 애플리케이션에 Azure 클래식 배포 모델이 필요합니다. 범용 v2 계정 및 Blob Storage 계정은 Azure Resource Manager 배포 모델만 지원합니다.
 
@@ -138,7 +138,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 > [!NOTE]
 > 블록 blob 및 blob 저장소 계정은 Blob service 끝점만 노출 합니다.
 
-저장소 계정의 개체 위치를 끝점에 추가 하 여 저장소 계정의 개체에 액세스 하기 위한 URL을 생성 합니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob*
+저장소 계정의 개체 위치를 끝점에 추가 하 여 저장소 계정의 개체에 액세스 하기 위한 URL을 생성 합니다. 예를 들어 Blob 주소의 형식은 다음과 같습니다. http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*
 
 Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정을 구성할 수도 있습니다. 자세한 내용은 [Azure Storage 계정에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.  
 
@@ -152,7 +152,7 @@ Blob에 사용자 지정 도메인 이름을 사용하도록 스토리지 계정
 
 - **Azure Active Directory:** Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위해 사용자, 그룹 또는 기타 id를 인증 합니다. ID 인증에 성공하면 Azure AD가 Azure Blob Storage나 큐 스토리지에 사용할 토큰을 반환합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
 - **공유 키 권한 부여:** 스토리지 계정 액세스 키를 사용하여, Azure Storage에 액세스하기 위해 런타임에 애플리케이션이 사용하는 연결 문자열을 구성합니다. 연결 문자열의 값을 사용하여 Azure Storage에 전달되는 *권한 부여* 헤더를 구성합니다. 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
-- **공유 액세스 서명:** Azure AD 권한 부여를 사용 하지 않는 경우 공유 액세스 서명을 사용 하 여 저장소 계정의 리소스에 대 한 액세스를 위임 합니다. 공유 액세스 서명은 URL의 Azure Storage에 대한 요청을 인증하는 데 필요한 모든 정보를 캡슐화하는 토큰입니다. 스토리지 리소스, 부여한 사용 권한, 권한이 유효한 기간을 공유 액세스 서명의 일부로 지정할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)을 참조하세요.
+- **공유 액세스 서명:** SAS (공유 액세스 서명)는 저장소 계정의 리소스에 대 한 위임 된 액세스를 허용 하는 토큰입니다. SAS 토큰은 URL에 대 한 Azure Storage 요청에 권한을 부여 하는 데 필요한 모든 정보를 캡슐화 합니다. SAS를 만들 때 SAS가 리소스에 부여 하는 사용 권한과 사용 권한이 유효한 간격을 지정할 수 있습니다. SAS 토큰은 Azure AD 자격 증명 또는 공유 키를 사용 하 여 서명할 수 있습니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)를 참조 하세요.
 
 > [!NOTE]
 > Azure AD 자격 증명을 통한 사용자 또는 애플리케이션 권한 부여는 다른 인증 수단보다 보안 수준이 높고 사용이 간편합니다. 애플리케이션에서 공유 키 인증을 계속 사용할 수 있는 동안 Azure AD를 사용하면 코드에서 계정 액세스 키를 저장하지 않아도 됩니다. SAS(공유 액세스 서명)를 계속 사용하여 스토리지 계정의 리소스에 세분화된 액세스 권한을 부여할 수도 있습니다. 하지만 Azure AD에서는 SAS 토큰을 관리하거나 손상된 SAS를 해지하는 방법을 걱정할 필요 없이 유사한 기능을 제공합니다.
@@ -167,7 +167,7 @@ Microsoft는 온-프레미스 스토리지 디바이스나 타사 클라우드 �
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 스토리지 계정의 데이터를 Blob Storage 계정으로 복사하거나, 온-프레미스 스토리지 디바이스의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy Command-Line 유틸리티를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)을 참조 하세요.
+AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 스토리지 계정의 데이터를 Blob Storage 계정으로 복사하거나, 온-프레미스 스토리지 디바이스의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy Command-Line 유틸리티를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.
 
 ### <a name="data-movement-library"></a>데이터 이동 라이브러리
 
@@ -192,3 +192,5 @@ Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참
 
 - [스토리지 계정을 만드는](storage-account-create.md)
 - [블록 Blob 스토리지 계정 만들기](../blobs/storage-blob-create-account-block-blob.md)
+- [범용 v2 스토리지 계정으로 업그레이드](storage-account-upgrade.md)
+- [삭제된 스토리지 계정 복구](storage-account-recover.md)

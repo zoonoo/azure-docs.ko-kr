@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532480"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516096"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -98,7 +98,7 @@ ms.locfileid: "94532480"
 | 기능 | 개발 | 미리 보기 | GA | 메모 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Phone 요소 인증](phone-factor-technical-profile.md) |  |  | X |  |
-| [Azure MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Azure AD MFA 인증](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [일회용 암호](one-time-password-technical-profile.md) |  | X |  |  |
 | 로컬 디렉터리로서의 [Azure Active Directory](active-directory-technical-profile.md) |  |  | X |  |
 | 이메일 확인을 위한 Azure 이메일 하위 시스템 |  |  | X |  |
@@ -116,7 +116,7 @@ ms.locfileid: "94532480"
 | 쿼리 문자열 매개 변수 `login_hint` |  |  | X | 클레임으로 사용 가능, IDP로 전달될 수 있음 |
 | `client_assertion`을 통해 사용자 경험에 JSON 삽입 | X |  |  | 지원 중단 예정 |
 | 사용자 경험에 `id_token_hint`로 JSON 삽입 |  | X |  | JSON을 전달하는 진행 방법 |
-| [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-custom.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
+| [애플리케이션에 ID 공급자 토큰 전달](idp-pass-through-user-flow.md) |  | X |  | 예: Facebook에서 앱으로 전달 |
 
 
 ### <a name="session-management"></a>세션 관리
@@ -127,7 +127,7 @@ ms.locfileid: "94532480"
 | [외부 로그인 세션 공급자](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO 세션 공급자](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
 | [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
-| [Single Sign-Out](session-overview.md#sign-out)  |  | X |  |  |
+| [Single Sign-Out](session-behavior.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>보안
 

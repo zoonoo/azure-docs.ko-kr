@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a8ea8d5f13f72b0da1e11a27b69da2570eda543
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316582"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913484"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -45,6 +45,3 @@ Custom Vision 서비스에는 두 가지 계층의 키가 있습니다. Azure Po
 |개체 검색 학습 이미지 당 최대 지역 수|300|300|
 |분류 이미지 당 최대 태그 수|100|100|
 
-> [!NOTE]
-> 256 픽셀 보다 작은 이미지는 허용 되지만 upscaled 조정 됩니다.
-> 이미지 가로 세로 비율은 25 보다 클 수 없습니다.

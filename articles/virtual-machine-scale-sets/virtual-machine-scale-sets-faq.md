@@ -10,11 +10,11 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080474"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96016712"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -60,7 +60,7 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="do-scale-sets-work-with-azure-availability-sets"></a>확장 집합은 Azure 가용성 집합과 작업이 가능한가요?
 
-지역(비 영역) 확장 집합은 *배치 그룹*을 사용합니다. 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 합니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
+지역(비 영역) 확장 집합은 *배치 그룹* 을 사용합니다. 5개의 장애 도메인과 5개의 업데이트 도메인이 있는 암시적 가용성 집합으로 역할을 합니다. 100개 이상의 VM 확장 집합은 여러 배치 그룹으로 확장합니다. 배치 그룹에 대한 자세한 내용은 [대규모 가상 머신 크기 집합과 작동](virtual-machine-scale-sets-placement-groups.md)을 참조하세요. VM의 가용성 집합은 동일한 가상 네트워크에 VM의 확장 집합으로 존재할 수 있습니다. 일반적인 구성은 가용성 집합에서 고유한 구성이 필요한 제어 노드 VM을 배치하고 확장 집합에 데이터 노드를 배치하는 것입니다.
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
@@ -173,9 +173,9 @@ az sf cluster create -h
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 머신 확장 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?
 
-예. **osProfile**에 대한 REST API는 표준 VM REST API와 비슷합니다.
+예. **osProfile** 에 대한 REST API는 표준 VM REST API와 비슷합니다.
 
-템플릿에 **osProfile**을 포함합니다.
+템플릿에 **osProfile** 을 포함합니다.
 
 ```json
 "osProfile": {
@@ -224,10 +224,10 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 }
 ```
 
-linuxConfiguration 요소 이름 | 필수 | Type | 설명
+linuxConfiguration 요소 이름 | 필수 | Type | Description
 --- | --- | --- | ---
-ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+ssh | No | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+경로 | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
@@ -264,7 +264,7 @@ Win RM(Windows 원격 관리) 인증서 참조는 OS 프로필의 Secrets 속성
 
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>기존 가상 머신 확장 집합에 비밀을 추가하면 비밀이 기존 VM에 삽입되나요? 아니면 새 VM에만 삽입되나요?
 
-인증서는 기존 VM을 포함하여 모든 VM에 추가됩니다. 가상 머신 확장 집합 upgradePolicy 속성을 **manual**로 설정하면 VM에서 수동 업데이트를 수행할 때 인증서가 해당 VM에 추가됩니다.
+인증서는 기존 VM을 포함하여 모든 VM에 추가됩니다. 가상 머신 확장 집합 upgradePolicy 속성을 **manual** 로 설정하면 VM에서 수동 업데이트를 수행할 때 인증서가 해당 VM에 추가됩니다.
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Linux VM에 대한 인증서는 어디에서 추가하나요?
 
@@ -368,13 +368,13 @@ Azure Monitor 로그와 통합 되는 가상 머신 확장 집합 템플릿 예�
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>가상 머신 확장 집합의 모든 VM에 확장을 추가하려면 어떻게 하나요?
 
-업데이트 정책이 **자동**으로 설정된 경우 템플릿을 새 확장 속성으로 다시 배포하면 모든 VM이 업데이트됩니다.
+업데이트 정책이 **자동** 으로 설정된 경우 템플릿을 새 확장 속성으로 다시 배포하면 모든 VM이 업데이트됩니다.
 
-업데이트 정책이 **수동**으로 설정된 경우 먼저 확장을 업데이트한 다음 VM의 모든 인스턴스를 수동으로 업데이트합니다.
+업데이트 정책이 **수동** 으로 설정된 경우 먼저 확장을 업데이트한 다음 VM의 모든 인스턴스를 수동으로 업데이트합니다.
 
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>기존 가상 머신 확장 집합과 연결된 확장이 업데이트되면 기존 VM에 영향을 주나요?
 
-가상 머신 확장 집합 모델의 확장 정의가 업데이트되고 upgradePolicy 속성이 **자동**으로 설정되면 VM이 업데이트됩니다. UpgradePolicy 속성을 **수동**으로 설정하면 확장은 모델과 일치하지 않는 것으로 플래그가 지정됩니다.
+가상 머신 확장 집합 모델의 확장 정의가 업데이트되고 upgradePolicy 속성이 **자동** 으로 설정되면 VM이 업데이트됩니다. UpgradePolicy 속성을 **수동** 으로 설정하면 확장은 모델과 일치하지 않는 것으로 플래그가 지정됩니다.
 
 ### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>기존 컴퓨터가 서비스를 치유 하거나 이미지로 다시 설치 때 확장이 다시 실행 되나요?
 
@@ -652,7 +652,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey를 찾을 수 있습니다. 개요 페이지에서 설정 타일을 클릭합니다. 위쪽에서 연결된 원본 탭을 클릭합니다.
 
 > [!NOTE]
-> 확장 집합 _Upgradepolicy_ 를 수동으로 설정한 경우에는 업그레이드를 호출 하 여 집합의 모든 vm에 확장을 적용 해야 합니다. CLI에서이는 _az vmss update-instances_입니다.
+> 확장 집합 _Upgradepolicy_ 를 수동으로 설정한 경우에는 업그레이드를 호출 하 여 집합의 모든 vm에 확장을 적용 해야 합니다. CLI에서이는 _az vmss update-instances_ 입니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -660,7 +660,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>부팅 진단을 켜려면 어떻게 하나요?
 
-부팅 진단을 켜려면 먼저 스토리지 계정을 만듭니다. 그런 후 이 JSON 블록을 가상 머신 확장 집합 **virtualMachineProfile**에 배치하고 해당 가상 머신 확장 집합을 업데이트합니다.
+부팅 진단을 켜려면 먼저 스토리지 계정을 만듭니다. 그런 후 이 JSON 블록을 가상 머신 확장 집합 **virtualMachineProfile** 에 배치하고 해당 가상 머신 확장 집합을 업데이트합니다.
 
 ```json
 "diagnosticsProfile": {
@@ -694,9 +694,9 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>가상 머신 확장 집합 VM 컴퓨터 이름과 VM ID 간에 차이가 발생하는 이유는 무엇인가요? 예를 들어 0, 1, 3...입니다.
 
-가상 머신 확장 집합 **overprovision** 속성은 기본값인 **true**로 설정되어 있으므로 가상 머신 확장 집합 VM 컴퓨터 이름 간에는 차이가 있습니다. 과도 프로비저닝이 **true**로 설정되면 요청된 것보다 더 많은 VM이 생성됩니다. 그런 후에 추가 VM은 삭제됩니다. 이 경우 배포 안정성은 향상되지만 연속된 이름 지정 및 연속된 NAT(Network Address Translation) 규칙은 준수되지 못합니다.
+가상 머신 확장 집합 **overprovision** 속성은 기본값인 **true** 로 설정되어 있으므로 가상 머신 확장 집합 VM 컴퓨터 이름 간에는 차이가 있습니다. 과도 프로비저닝이 **true** 로 설정되면 요청된 것보다 더 많은 VM이 생성됩니다. 그런 후에 추가 VM은 삭제됩니다. 이 경우 배포 안정성은 향상되지만 연속된 이름 지정 및 연속된 NAT(Network Address Translation) 규칙은 준수되지 못합니다.
 
-이 속성을 **false**로 설정할 수 있습니다. 소규모 가상 머신 확장 집합의 경우 이렇게 해도 배포 안정성에 큰 영향을 주지는 않습니다.
+이 속성을 **false** 로 설정할 수 있습니다. 소규모 가상 머신 확장 집합의 경우 이렇게 해도 배포 안정성에 큰 영향을 주지는 않습니다.
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>가상 머신 확장 집합에서 VM을 삭제하는 것과 VM을 할당 취소하는 것 사이의 차이점은 무엇입니까? 언제 다른 하나를 선택해야 합니까?
 

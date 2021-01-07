@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395175"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656345"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 스트리밍 작업 만들기 
 
@@ -154,7 +154,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
     )
    ```
-    
+
 3. 외부 스트림 개체를 만듭니다. 다음 예에서는 Kafka 토픽을 가리키는 외부 stream 개체를 만듭니다 `*TemperatureMeasurement*` .
 
     ```sql
@@ -163,7 +163,7 @@ T-sql 스트리밍은 SQL Server의 외부 데이터 원본 기능을 사용 하
     (  
         DATA_SOURCE = KafkaInput, 
         FILE_FORMAT = JsonGzipped,
-        LOCATION = 'TemperatureMeasurement',     
+        LOCATION = 'TemperatureMeasurement',
         INPUT_OPTIONS = 'PARTITIONS: 10' 
     ); 
     ```
@@ -249,7 +249,7 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 | 처리 중 | 스트리밍 작업이 실행 중이며 입력을 처리하고 있습니다. 이 상태는 스트리밍 작업이 정상임을 나타냅니다. |
 | 성능 저하됨 | 스트리밍 작업이 실행 중이지만 입력 처리 중에 치명적이 지 않은 오류가 발생 했습니다. 입력 작업은 계속 실행되지만 오류가 발생하는 입력은 삭제됩니다. |
 | 중지됨 | 스트리밍 작업이 중지되었습니다. |
-| 실패 | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
+| Failed | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

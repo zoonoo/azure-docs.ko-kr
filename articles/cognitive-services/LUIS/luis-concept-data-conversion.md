@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541801"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019248"
 ---
 # <a name="convert-data-format-of-utterances"></a>발언의 데이터 형식 변환
 LUIS는 예측 전 사용자 utterance를 다음과 같이 변환 합니다. "
@@ -26,7 +26,7 @@ LUIS는 예측 전 사용자 utterance를 다음과 같이 변환 합니다. "
 음성 텍스트는 LUIS와의 통합으로 제공 됩니다.
 
 ### <a name="intent-conversion-concepts"></a>의도 변환 개념
-LUIS의 음성 텍스트 변환 기능을 사용하여 음성 발언을 엔드포인트로 보내고, LUIS 예측 응답을 수신할 수 있습니다. 이 프로세스는 [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) Service를 LUIS와 통합하는 것입니다. [자습서](../speech-service/how-to-recognize-intents-from-speech-csharp.md)에서 음성 의도 변환에 대해 자세히 알아보세요.
+LUIS의 음성 텍스트 변환 기능을 사용하여 음성 발언을 엔드포인트로 보내고, LUIS 예측 응답을 수신할 수 있습니다. 이 프로세스는 [Speech](/azure/cognitive-services/Speech) Service를 LUIS와 통합하는 것입니다. [자습서](../speech-service/how-to-recognize-intents-from-speech-csharp.md)에서 음성 의도 변환에 대해 자세히 알아보세요.
 
 ### <a name="key-requirements"></a>핵심 요구 사항
 이 통합을 위해 **Bing Speech API** 키를 만들 필요는 없습니다. Azure Portal에서 만든 **Language Understanding** 키가 이 통합에 사용됩니다. LUIS 시작 키는 사용하지 마세요.
@@ -41,4 +41,3 @@ LUIS의 음성 텍스트 변환 기능을 사용하여 음성 발언을 엔드�
 
 > [!div class="nextstepaction"]
 > [데이터 추출](luis-concept-data-extraction.md)
-

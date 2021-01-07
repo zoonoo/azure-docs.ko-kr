@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: a05f168b18f32e2b4730e5ef50624d41fb48e147
-  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
+  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93099099"
+  ms.lasthandoff: 11/26/2020
+  ms.locfileid: "96186408"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:
@@ -71,20 +71,24 @@ landingContent:
     links:
     - text: 앱 인증 코드 쓰기
       url: how-to-authenticate-client.md
-- title: API 참조 보기
+- title: API 검색
   linkLists:
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: /rest/api/azure-digitaltwins/
   - linkListType: how-to-guide
     links:
     - text: Azure Digital Twins API 및 SDK 사용
       url: how-to-use-apis-sdks.md
   - linkListType: how-to-guide
     links:
+    - text: Postman으로 요청하기
+      url: how-to-use-postman.md
+  - linkListType: how-to-guide
+    links:
     - text: AutoRest를 사용하여 사용자 지정 SDK 만들기
       url: how-to-create-custom-sdks.md
-  - linkListType: reference
-    links:
-    - text: REST API
-      url: /rest/api/azure-digitaltwins/
 - title: 코드 샘플 살펴보기
   linkLists:
   - linkListType: sample

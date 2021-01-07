@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d38f10e5a4f2562825ed2374317602b0640894ae
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275879"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953052"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="register-a-web-application"></a>웹 애플리케이션 등록
 
-웹 애플리케이션을 Azure AD B2C 테넌트에 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregtraining).
+웹 애플리케이션을 Azure AD B2C 테넌트에 등록하려면 새로운 통합 **앱 등록** 환경 또는 레거시 **애플리케이션(레거시)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
@@ -84,16 +84,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
-1. **Azure AD B2C - 앱 등록** 페이지에서 만든 애플리케이션을 선택합니다(예: *webapp1* ).
+1. **Azure AD B2C - 앱 등록** 페이지에서 만든 애플리케이션을 선택합니다(예: *webapp1*).
 1. 왼쪽 메뉴의 **관리** 에서 **인증서 및 비밀** 을 선택합니다.
 1. **새 클라이언트 비밀** 을 선택합니다.
-1. **설명** 상자에 클라이언트 암호에 대한 설명을 입력합니다. 예: *clientsecret1* .
+1. **설명** 상자에 클라이언트 암호에 대한 설명을 입력합니다. 예: *clientsecret1*.
 1. **만료** 에서 암호가 유효한 기간을 선택한 다음 **추가** 를 선택합니다.
 1. 비밀의 **값** 을 기록합니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
-1. **Azure AD B2C - 애플리케이션** 페이지에서 만든 애플리케이션을 선택합니다(예: *webapp1* ).
+1. **Azure AD B2C - 애플리케이션** 페이지에서 만든 애플리케이션을 선택합니다(예: *webapp1*).
 1. **키** 를 선택한 다음 **키 생성** 을 선택합니다.
 1. **저장** 을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
 

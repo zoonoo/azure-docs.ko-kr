@@ -3,20 +3,18 @@ title: 청크를 사용하여 대량 메시지 처리
 description: 자동화 태스크 및 Azure Logic Apps에서 만든 워크플로에서 청크를 사용하여 대규모 메시지 크기를 처리하는 방법을 알아봅니다
 services: logic-apps
 ms.suite: integration
-author: DavidCBerry13
-ms.author: daberry
 ms.topic: article
-ms.date: 12/03/2019
-ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/18/2020
+ms.openlocfilehash: de4af34182fc1a95968e95d322a6ec35101a3dc9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83117566"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695870"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
 
-메시지를 처리할 때 Logic Apps는 메시지 콘텐츠를 최대 크기로 제한합니다. 이 제한은 큰 메시지를 저장하고 처리하여 생성되는 오버헤드를 줄이는 데 도움이 됩니다. 이 제한보다 큰 메시지를 처리하기 위해 Logic Apps는 큰 메시지를 더 작은 메시지로 *청크 분할*합니다. 그러면 특정 조건에 따라 Logic Apps를 사용하여 큰 파일을 전송할 수도 있습니다. 커넥터 또는 HTTP를 통해 다른 서비스와 통신할 때 Logic Apps는 큰 메시지를 사용할 수 있지만 *청크*로만 사용합니다. 이 조건은 커넥터에서 청크 분할을 지원해야 하거나, Logic Apps와 이러한 서비스 간의 기본 HTTP 메시지 교환에서 청크 분할을 사용해야 한다는 것을 의미합니다.
+메시지를 처리할 때 Logic Apps는 메시지 콘텐츠를 최대 크기로 제한합니다. 이 제한은 큰 메시지를 저장하고 처리하여 생성되는 오버헤드를 줄이는 데 도움이 됩니다. 이 제한보다 큰 메시지를 처리하기 위해 Logic Apps는 큰 메시지를 더 작은 메시지로 *청크 분할* 합니다. 그러면 특정 조건에 따라 Logic Apps를 사용하여 큰 파일을 전송할 수도 있습니다. 커넥터 또는 HTTP를 통해 다른 서비스와 통신할 때 Logic Apps는 큰 메시지를 사용할 수 있지만 *청크* 로만 사용합니다. 이 조건은 커넥터에서 청크 분할을 지원해야 하거나, Logic Apps와 이러한 서비스 간의 기본 HTTP 메시지 교환에서 청크 분할을 사용해야 한다는 것을 의미합니다.
 
 이 문서에서는 한도보다 큰 메시지를 처리하는 작업에 대해 청크를 설정하는 방법을 보여 줍니다. 여러 메시지를 교환하는 오버헤드로 인해 논리 앱 트리거는 청크를 지원하지 않습니다. 
 
@@ -27,7 +25,7 @@ ms.locfileid: "83117566"
 
 ### <a name="chunked-message-handling-for-logic-apps"></a>Logic Apps에 대한 청크 분할 메시지 처리
 
-Logic Apps는 메시지 크기 제한보다 큰 청크 분할 메시지의 출력을 직접 사용할 수 없습니다. 청크 분할을 지원하는 작업만 이러한 출력의 메시지 콘텐츠에 액세스할 수 있습니다. 따라서 큰 메시지를 처리하는 작업은 다음 기준 중 *하나*를 충족해야 합니다.
+Logic Apps는 메시지 크기 제한보다 큰 청크 분할 메시지의 출력을 직접 사용할 수 없습니다. 청크 분할을 지원하는 작업만 이러한 출력의 메시지 콘텐츠에 액세스할 수 있습니다. 따라서 큰 메시지를 처리하는 작업은 다음 기준 중 *하나* 를 충족해야 합니다.
 
 * 해당 작업이 커넥터에 속한 경우 기본적으로 청크 분할을 지원합니다. 
 * 해당 작업의 런타임 구성에 사용하도록 설정된 청크 분할 지원이 있습니다. 
@@ -40,8 +38,57 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
 
 청크 분할을 지원하는 커넥터의 경우 기본 청크 분할 프로토콜은 최종 사용자에게 표시되지 않습니다. 그러나 모든 커넥터에서 청크 분할을 지원하지 것은 아니기 때문에 들어오는 메시지가 커넥터의 크기 제한을 초과하면 이러한 커넥터에서 런타임 오류가 발생합니다.
 
-> [!NOTE]
-> 청크를 사용하는 작업의 경우 트리거 본문을 전달하거나 이러한 작업에서 `@triggerBody()?['Content']`와 같은 식을 사용할 수 없습니다. 대신 텍스트 또는 JSON 파일 콘텐츠의 경우 [**작성** 작업](../logic-apps/logic-apps-perform-data-operations.md#compose-action) 또는 [변수 만들기](../logic-apps/logic-apps-create-variables-store-values.md)를 사용하여 해당 콘텐츠를 처리할 수 있습니다. 트리거 본문에 미디어 파일 등의 다른 콘텐츠 형식이 포함되어 있으면 해당 콘텐츠를 처리하는 다른 단계를 수행해야 합니다.
+
+을 지원 하 고 청크를 사용 하도록 설정 된 작업의 경우와 같은 트리거 본문, 변수 및 식을 사용할 수 없습니다 `@triggerBody()?['Content']` . 이러한 입력을 사용 하면 청크 작업이 발생 하지 않습니다. 대신 [ **작성** 작업](../logic-apps/logic-apps-perform-data-operations.md#compose-action)을 사용 합니다. 특히 `body` 트리거 본문, 변수, 식 등의 데이터 출력을 저장 하는 **작성** 작업을 사용 하 여 필드를 만들어야 합니다. 예를 들면 다음과 같습니다.
+
+```json
+"Compose": {
+    "inputs": {
+        "body": "@variables('myVar1')"
+    },
+    "runAfter": {
+        "Until": [
+            "Succeeded"
+        ]
+    },
+    "type": "Compose"
+},
+```
+그런 다음 청크 작업에서 데이터를 참조 하려면를 사용 `@body('Compose')` 합니다.
+
+```json
+"Create_file": {
+    "inputs": {
+        "body": "@body('Compose')",
+        "headers": {
+            "ReadFileMetadataFromServer": true
+        },
+        "host": {
+            "connection": {
+                "name": "@parameters('$connections')['sftpwithssh_1']['connectionId']"
+            }
+        },
+        "method": "post",
+        "path": "/datasets/default/files",
+        "queries": {
+            "folderPath": "/c:/test1/test1sub",
+            "name": "tt.txt",
+            "queryParametersSingleEncoded": true
+        }
+    },
+    "runAfter": {
+        "Compose": [
+            "Succeeded"
+        ]
+    },
+    "runtimeConfiguration": {
+        "contentTransfer": {
+            "transferMode": "Chunked"
+        }
+    },
+    "type": "ApiConnection"
+},
+```
 
 <a name="set-up-chunking"></a>
 
@@ -53,11 +100,11 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
 
 또한 HTTP 작업에서 아직 청크 분할을 사용하도록 설정하지 않은 경우 작업의 `runTimeConfiguration` 속성에서 청크 분할을 설정해야 합니다. 이 속성은 작업 내에 설정할 수 있습니다. 나중에 설명하는 대로 코드 보기 편집기에서 직접 수행하거나, 여기서 설명하는 대로 논리 앱 디자이너에서 수행할 수 있습니다.
 
-1. HTTP 작업의 오른쪽 위 모서리에서 줄임표 단추 ( **...** )를 선택한 다음, **설정**을 선택합니다.
+1. HTTP 작업의 오른쪽 위 모서리에서 줄임표 단추 ( **...** )를 선택한 다음, **설정** 을 선택합니다.
 
    ![작업에서 설정 메뉴를 엽니다.](./media/logic-apps-handle-large-messages/http-settings.png)
 
-2. **콘텐츠 전송**에서 **청크 허용**을 **켜기**로 설정합니다.
+2. **콘텐츠 전송** 에서 **청크 허용** 을 **켜기** 로 설정합니다.
 
    ![청크 분할 켜기](./media/logic-apps-handle-large-messages/set-up-chunking.png)
 
@@ -67,9 +114,9 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
 
 ## <a name="download-content-in-chunks"></a>청크로 콘텐츠 다운로드
 
-많은 엔드포인트에서 HTTP GET 요청을 통해 다운로드할 때 큰 메시지를 청크로 자동으로 보냅니다. HTTP를 통해 엔드포인트에서 청크 분할 메시지를 다운로드하려면 엔드포인트에서 부분 콘텐츠 요청 또는 *청크 분할 다운로드*를 지원해야 합니다. 논리 앱에서 콘텐츠를 다운로드하기 위해 엔드포인트에 HTTP GET 요청을 보내고 엔드포인트에서 "206" 상태 코드로 응답하면, 응답에 청크 분할된 콘텐츠가 포함됩니다. Logic Apps는 엔드포인트에서 부분 요청을 지원하는지 여부를 제어할 수 없습니다. 그러나 논리 앱에서 첫 번째 "206" 응답을 받으면 논리 앱이 모든 콘텐츠를 다운로드하기 위해 여러 요청을 자동으로 보냅니다.
+많은 엔드포인트에서 HTTP GET 요청을 통해 다운로드할 때 큰 메시지를 청크로 자동으로 보냅니다. HTTP를 통해 엔드포인트에서 청크 분할 메시지를 다운로드하려면 엔드포인트에서 부분 콘텐츠 요청 또는 *청크 분할 다운로드* 를 지원해야 합니다. 논리 앱에서 콘텐츠를 다운로드하기 위해 엔드포인트에 HTTP GET 요청을 보내고 엔드포인트에서 "206" 상태 코드로 응답하면, 응답에 청크 분할된 콘텐츠가 포함됩니다. Logic Apps는 엔드포인트에서 부분 요청을 지원하는지 여부를 제어할 수 없습니다. 그러나 논리 앱에서 첫 번째 "206" 응답을 받으면 논리 앱이 모든 콘텐츠를 다운로드하기 위해 여러 요청을 자동으로 보냅니다.
 
-엔드포인트에서 부분 콘텐츠를 지원할 수 있는지 여부를 확인하려면 HEAD 요청을 보냅니다. 이 요청은 응답에 `Accept-Ranges` 헤더가 포함되어 있는지 여부를 결정하는 데 도움이 됩니다. 이러한 방식으로 엔드포인트에서 청크 분할 콘텐츠를 지원하지만 청크 분할 콘텐츠를 보내지 않으면, HTTP GET 요청에 `Range` 헤더를 설정하여 이 옵션을 *제안*할 수 있습니다. 
+엔드포인트에서 부분 콘텐츠를 지원할 수 있는지 여부를 확인하려면 HEAD 요청을 보냅니다. 이 요청은 응답에 `Accept-Ranges` 헤더가 포함되어 있는지 여부를 결정하는 데 도움이 됩니다. 이러한 방식으로 엔드포인트에서 청크 분할 콘텐츠를 지원하지만 청크 분할 콘텐츠를 보내지 않으면, HTTP GET 요청에 `Range` 헤더를 설정하여 이 옵션을 *제안* 할 수 있습니다. 
 
 다음 단계에서는 Logic Apps가 청크 분할 콘텐츠를 엔드포인트에서 논리 앱으로 다운로드하는 데 사용하는 자세한 프로세스를 설명합니다.
 
@@ -85,7 +132,7 @@ Logic Apps와 통신하는 서비스에는 자체의 메시지 크기 제한이 
 
     논리 앱에서는 전체 콘텐츠를 검색할 때까지 후속 GET 요청을 보냅니다.
 
-예를 들어 다음 작업 정의에서는 `Range` 헤더를 설정하는 HTTP GET 요청을 보여 줍니다. 헤더는 엔드포인트에서 청크 분할 콘텐츠로 응답해야 한다고 *제안*합니다.
+예를 들어 다음 작업 정의에서는 `Range` 헤더를 설정하는 HTTP GET 요청을 보여 줍니다. 헤더는 엔드포인트에서 청크 분할 콘텐츠로 응답해야 한다고 *제안* 합니다.
 
 ```json
 "getAction": {

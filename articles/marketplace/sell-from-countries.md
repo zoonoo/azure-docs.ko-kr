@@ -8,17 +8,17 @@ ms.custom: references_regions
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: fd33ebebf35e0407f7ce39c609ee372a7d1d4a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/04/2021
+ms.openlocfilehash: 48a0c3484b6cbeac4d71d3fbf383bb1c14466a9d
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250507"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897334"
 ---
 # <a name="supported-publisher-countries-and-regions"></a>지원 되는 게시자 국가 및 지역
 
-Microsoft 상업적 marketplace에 제품을 게시 하려면 다음 국가 또는 지역 중 하나에 거주 하 고 있어야 합니다.
+Microsoft 상업적 marketplace에 제품을 게시 하려면 회사는 다음 국가 또는 지역 중 하나에 합법적으로 상주해 야 합니다.
 
 - 아프가니스탄
 - 올란드 제도
@@ -134,7 +134,6 @@ Microsoft 상업적 marketplace에 제품을 게시 하려면 다음 국가 또�
 - 카자흐스탄
 - 케냐
 - 키리바시
-- 한국
 - 코소보
 - 쿠웨이트
 - 키르기스스탄
@@ -224,6 +223,7 @@ Microsoft 상업적 marketplace에 제품을 게시 하려면 다음 국가 또�
 - 소말리아
 - 남아프리카 공화국
 - 사우스 조지아 및 사우스 샌드위치 제도
+- 남부 대한민국 (대한민국)
 - 남수단
 - 스페인
 - 스리랑카

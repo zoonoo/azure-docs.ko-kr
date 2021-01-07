@@ -6,15 +6,15 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 26234039c77601bc1d29beeebd3fcb8461d6d6c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432699"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96009520"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
-[지속형 함수](durable-functions-overview.md)의 *작업 허브*는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
+[지속형 함수](durable-functions-overview.md)의 *작업 허브* 는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
 
 여러 함수 앱이 한 스토리지 계정을 공유하는 경우 *반드시* 함수 앱마다 별도의 작업 허브 이름으로 구성해야 합니다. 한 스토리지 계정에 여러 작업 허브가 포함될 수 있습니다. 다음 다이어그램에서는 공유 및 전용 스토리지 계정의 함수 앱당 단일 작업 허브를 보여 줍니다.
 
@@ -41,7 +41,7 @@ Orchestrator, entity 또는 activity 함수를 실행 하거나 실행 하도록
 * 문자로 시작
 * 의 최소 길이는 3 자, 최대 길이는 45 자입니다.
 
-작업 허브 이름은 다음 예제와 같이 파일 * 에host.js* 선언 됩니다.
+작업 허브 이름은 다음 예제와 같이 파일 *에host.js* 선언 됩니다.
 
 ### <a name="hostjson-functions-20"></a>host.js(함수 2.0)
 
@@ -159,7 +159,7 @@ public static async Task<HttpResponseMessage> Run(
 
 | 지 속성 확장 버전 | 기본 작업 허브 이름 |
 | - | - |
-| 2.x | Azure에 배포 된 경우 작업 허브 이름은 _함수 앱_의 이름에서 파생 됩니다. Azure 외부에서 실행 되는 경우 기본 작업 허브 이름은 `TestHubName` 입니다. |
+| 2.x | Azure에 배포 된 경우 작업 허브 이름은 _함수 앱_ 의 이름에서 파생 됩니다. Azure 외부에서 실행 되는 경우 기본 작업 허브 이름은 `TestHubName` 입니다. |
 | 1.x | 모든 환경에 대 한 기본 작업 허브 이름은 `DurableFunctionsHub` 입니다. |
 
 확장 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.

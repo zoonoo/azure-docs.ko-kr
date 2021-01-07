@@ -9,18 +9,18 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659647"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655955"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Azure Security Center에서 Azure Defender 경고 데이터 연결
 
-Azure Defender 경고 커넥터를 사용 하 여 [Azure Security Center](../security-center/security-center-intro.md) 에서 azure defender 경고를 수집 하 고 azure 센티널로 스트리밍합니다. 
+Azure Defender 경고 커넥터를 사용 하 여 [Azure Security Center](../security-center/security-center-introduction.md) 에서 azure defender 경고를 수집 하 고 azure 센티널로 스트리밍합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 사용자는 스트리밍할 로그의 구독에 보안 읽기 권한자 역할이 있어야 합니다.
 
@@ -32,11 +32,11 @@ Azure Defender 경고 커넥터를 사용 하 여 [Azure Security Center](../sec
 
 1. 데이터 커넥터 갤러리에서 **ASC의 Azure Defender 경고** (계속 Azure Security Center 호출 될 수 있음)를 선택 하 고 **커넥터 페이지 열기** 단추를 클릭 합니다.
 
-1. **구성**아래에서 Azure 센티널로 스트리밍할 경고를 포함 하는 각 구독 옆에 있는 **연결** 을 클릭 합니다. 연결 단추는 필요한 권한이 있는 경우에만 사용할 수 있습니다.
+1. **구성** 아래에서 Azure 센티널로 스트리밍할 경고를 포함 하는 각 구독 옆에 있는 **연결** 을 클릭 합니다. 연결 단추는 필요한 권한이 있는 경우에만 사용할 수 있습니다.
 
-1. Azure Defender의 경고가 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기**에서 **사용** 을 선택 하 여 경고에서 인시던트를 자동으로 생성 하는 기본 분석 규칙을 설정 합니다. 그런 다음 **활성 규칙** 탭의 **분석**에서이 규칙을 편집할 수 있습니다.
+1. Azure Defender의 경고가 Azure 센티널에서 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기** 에서 **사용** 을 선택 하 여 경고에서 인시던트를 자동으로 생성 하는 기본 분석 규칙을 설정 합니다. 그런 다음 **활성 규칙** 탭의 **분석** 에서이 규칙을 편집할 수 있습니다.
 
-1. Azure Defender 알림에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert**를 검색 합니다.
+1. Azure Defender 알림에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert** 를 검색 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 azure 사용자를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

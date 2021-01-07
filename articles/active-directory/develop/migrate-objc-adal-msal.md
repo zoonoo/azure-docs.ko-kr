@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119932"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107923"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -59,9 +59,9 @@ MSAL에서 기본 상호 작용은 `MSALPublicClientApplication` [OAuth 2.0 공�
 
 ### <a name="scopes-instead-of-resources"></a>리소스 대신 범위
 
-ADAL에서 앱은 *resource* `https://graph.microsoft.com` Azure Active Directory v 1.0 끝점에서 토큰을 획득 하는 등의 리소스 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
+ADAL에서 앱은  `https://graph.microsoft.com` Azure Active Directory v 1.0 끝점에서 토큰을 획득 하는 등의 리소스 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
 
-MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예, `https://graph.microsoft.com/user.read`
+MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예를 들어 `https://graph.microsoft.com/user.read`
 
 MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
@@ -75,7 +75,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 의 동작은의 동작과 유사 `resource` 합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default` 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
+범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예를 들어 `https://graph.microsoft.com/.default`을 참조하십시오. 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
 
 여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](./v2-permissions-and-consent.md#the-default-scope) .
 
@@ -136,7 +136,7 @@ MSAL은 앱에서 처리할 수 있는 오류와 사용자의 개입이 필요�
 
 [ `MSALError` 목록](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128) 에서 다른 모든 오류를 처리 하는 것은 선택 사항입니다. 이러한 오류의 정보를 사용 하 여 사용자 환경을 향상 시킬 수 있습니다.
 
-MSAL 오류 처리에 대 한 자세한 내용은 [MSAL을 사용 하 여 예외 및 오류 처리](msal-handling-exceptions.md) 를 참조 하세요.
+MSAL 오류 처리에 대 한 자세한 내용은 [MSAL을 사용 하 여 예외 및 오류 처리](msal-error-handling-ios.md) 를 참조 하세요.
 
 ### <a name="broker-support"></a>Broker 지원
 
@@ -226,7 +226,7 @@ MSAL으로 전환 하 고 AAD 계정을 사용 하도록 설정 하기 위해 �
 
 리디렉션 URI는 형식 이어야 `msauth.<app.bundle.id>://auth` 합니다. `<app.bundle.id>`을 응용 프로그램의 번들 ID로 바꿉니다. [Azure Portal](https://aka.ms/MobileAppReg)에서 리디렉션 URI를 지정 합니다.
 
-IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 `msauth://code/<broker-redirect-uri-in-url-encoded-form>` 합니다. 예, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 `msauth://code/<broker-redirect-uri-in-url-encoded-form>` 합니다. 예를 들어 `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 모든 앱에서 리디렉션 Uri를 모두 등록 하는 것이 좋습니다.
 
@@ -280,7 +280,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 }
 ```
 
-**Xcode 11을 사용 하는 경우**msal 콜백을 파일에 대신 추가 해야 `SceneDelegate` 합니다.
+**Xcode 11을 사용 하는 경우** msal 콜백을 파일에 대신 추가 해야 `SceneDelegate` 합니다.
 이전 iOS와의 호환성을 위해 UISceneDelegate 및 UIApplicationDelegate를 모두 지원하는 경우 MSAL 콜백을 두 파일에 배치해야 합니다.
 
 Objective-C:
@@ -321,7 +321,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 토큰 캐싱을 사용하려면 다음을 수행합니다.
 1. 애플리케이션이 제대로 서명되었는지 확인
-2. Xcode 프로젝트 설정 > **기능 탭** > **키 집합 공유 사용**으로 이동합니다.
+2. Xcode 프로젝트 설정 > **기능 탭** > **키 집합 공유 사용** 으로 이동합니다.
 3. **+** 를 클릭하고 다음 **키 집합 그룹** 항목을 입력합니다. 3.a iOS의 경우 `com.microsoft.adalcache`를 입력합니다. 3.b macOS의 경우 `com.microsoft.identity.universalstorage`를 입력합니다.
 
 ### <a name="create-msalpublicclientapplication-and-switch-to-its-acquiretoken-and-acquiretokesilent-calls"></a>MSALPublicClientApplication을 만들고 acquireToken 및 acquireTokeSilent 호출로 전환 합니다.

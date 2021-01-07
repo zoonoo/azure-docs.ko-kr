@@ -10,30 +10,24 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2020
+ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 2002e4a11a2accbbc639c200372c393b8dc2f228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
+ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707534"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96510610"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정 구성
 
-이 문서에서는 가상 머신의 라우팅 기본 설정을 구성하는 방법을 보여줍니다. 라우팅 기본 설정 옵션으로 **인터넷**을 선택하면 VM의 인터넷 바인딩 트래픽이 ISP 네트워크를 통해 라우팅됩니다. 기본 라우팅은 Microsoft 글로벌 네트워크를 통해 전달됩니다.
+이 문서에서는 가상 머신의 라우팅 기본 설정을 구성하는 방법을 보여줍니다. 라우팅 기본 설정 옵션으로 **인터넷** 을 선택하면 VM의 인터넷 바인딩 트래픽이 ISP 네트워크를 통해 라우팅됩니다. 기본 라우팅은 Microsoft 글로벌 네트워크를 통해 전달됩니다.
 
 이 문서에서는 Azure PowerShell을 사용하여 ISP 네트워크를 통해 트래픽을 라우팅하도록 설정된 공용 IP로 가상 머신을 만드는 방법을 보여줍니다.
 
 > [!IMPORTANT]
 > 라우팅 기본 설정은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-## <a name="register-the-feature-for-your-subscription"></a>구독에 대한 기능 등록
-라우팅 기본 설정 기능은 현재 미리 보기로 제공됩니다. 다음과 같이 구독에 대한 기능을 등록합니다.
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderNamespace Microsoft.Network
-```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 1. Cloud Shell을 사용하는 경우 2단계로 건너뜁니다. 명령 세션을 열고 `Connect-AzAccount`를 사용하여 Azure에 로그인합니다.
@@ -45,7 +39,7 @@ Register-AzProviderFeature -FeatureName AllowRoutingPreferenceFeature -ProviderN
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-인터넷에서 가상 머신에 액세스하려면 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *미국 동부* 지역의 *MyResourceGroup* 리소스 그룹에 *MyPublicIP* 라우팅 기본 설정 유형 *인터넷*이라는 IPv4 공용 IP 주소를 만듭니다.
+인터넷에서 가상 머신에 액세스하려면 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *미국 동부* 지역의 *MyResourceGroup* 리소스 그룹에 *MyPublicIP* 라우팅 기본 설정 유형 *인터넷* 이라는 IPv4 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $iptagtype="RoutingPreference"
@@ -68,7 +62,7 @@ VM을 배포하기 전에 지원되는 네트워크 리소스(네트워크 보�
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNSG*라는 NSG를 만듭니다.
+[New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNSG* 라는 NSG를 만듭니다.
 
 ```azurepowershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -79,7 +73,7 @@ $nsg = New-AzNetworkSecurityGroup `
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *mySubNet*을 사용하여 *myVnet*이라는 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *mySubNet* 을 사용하여 *myVnet* 이라는 가상 네트워크를 만듭니다.
 
 ### <a name="create-a-subnet"></a>서브넷 만들기
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
-ms.openlocfilehash: 4d520f51717aa11dba55697d63852b17e0ba9cf0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604498"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522951"
 ---
 # <a name="about-the-move-process"></a>이동 프로세스 정보
 
@@ -25,8 +25,8 @@ ms.locfileid: "90604498"
 
 **구성 요소** | **세부 정보**
 --- | ---
-**Resource Mover** |  Resource Mover는 [Azure 리소스 공급자](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)와 조정하여 지역 간 리소스 이동을 오케스트레이션합니다. Resource Mover는 리소스 종속성을 분석하고 이동 프로세스 중에 리소스 상태를 유지 및 관리합니다. 
-**이동 컬렉션** |  이동 컬렉션은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) 개체입니다.<br/><br/> 이동 컬렉션은 구독에 있는 원본 및 대상 지역의 각 쌍 조합에 대해 지역 이동 프로세스 중에 생성됩니다. 컬렉션에는 이동할 리소스에 대한 메타데이터 및 구성 정보가 포함됩니다.<br/><br/>이동 컬렉션에 추가된 리소스는 동일한 구독에 있어야 하지만 다른 리소스 그룹에 있을 수 있습니다. 
+**Resource Mover** |  Resource Mover는 [Azure 리소스 공급자](../azure-resource-manager/management/resource-providers-and-types.md)와 조정하여 지역 간 리소스 이동을 오케스트레이션합니다. Resource Mover는 리소스 종속성을 분석하고 이동 프로세스 중에 리소스 상태를 유지 및 관리합니다. 
+**이동 컬렉션** |  이동 컬렉션은 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 개체입니다.<br/><br/> 이동 컬렉션은 구독에 있는 원본 및 대상 지역의 각 쌍 조합에 대해 지역 이동 프로세스 중에 생성됩니다. 컬렉션에는 이동할 리소스에 대한 메타데이터 및 구성 정보가 포함됩니다.<br/><br/>이동 컬렉션에 추가된 리소스는 동일한 구독에 있어야 하지만 다른 리소스 그룹에 있을 수 있습니다. 
 **리소스 이동** | 이동 컬렉션에 리소스를 추가하면 Resource Mover가 이동 리소스로 추적합니다.<br/><br/> Resource Mover는 이동 컬렉션의 모든 이동 리소스에 대한 정보를 유지하고 원본과 대상 리소스 간에 일대일 관계를 유지합니다. 
 **종속성** | Resource Mover는 컬렉션에 추가한 리소스의 유효성을 검사하고 이동 컬렉션에 없는 종속성이 리소스에 있는지 확인합니다.<br/><br/> 리소스에 대한 종속성을 식별한 후 종속성을 이동 컬렉션에 추가하고 이동하거나 대상 지역에서 다른 기존 리소스를 선택할 수 있습니다. 모든 종속성은 이동을 시작하기 전에 해결해야 합니다. 
 

@@ -6,16 +6,16 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: b81b592cf35d0ca13d1c7bd2281ce35cce827a3c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057861"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686024"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
-AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하는 경우 고객 데이터를 보호하려면 클러스터의 보안이 주요한 고려 사항입니다. Kubernetes에는 *네트워크 정책* 및 *비밀*과 같은 보안 구성 요소가 포함됩니다. Azure는 네트워크 보안 그룹 및 오케스트레이션된 클러스터 업그레이드와 같은 구성 요소를 추가합니다. 이러한 보안 구성 요소를 결합하여 AKS 클러스터에 최신 OS 보안 업데이트 및 Kubernetes 릴리스가 실행되고 안전한 Pod 트래픽 및 중요한 자격 증명에 액세스할 수 있도록 합니다.
+AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하는 경우 고객 데이터를 보호하려면 클러스터의 보안이 주요한 고려 사항입니다. Kubernetes에는 *네트워크 정책* 및 *비밀* 과 같은 보안 구성 요소가 포함됩니다. Azure는 네트워크 보안 그룹 및 오케스트레이션된 클러스터 업그레이드와 같은 구성 요소를 추가합니다. 이러한 보안 구성 요소를 결합하여 AKS 클러스터에 최신 OS 보안 업데이트 및 Kubernetes 릴리스가 실행되고 안전한 Pod 트래픽 및 중요한 자격 증명에 액세스할 수 있도록 합니다.
 
 이 문서에서는 AKS에서 애플리케이션을 보호하는 핵심 개념을 소개합니다.
 
@@ -36,7 +36,7 @@ AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관
 
 기본적으로 Kubernetes API 서버는 공용 IP 주소 및 FQDN (정규화 된 도메인 이름)을 사용 합니다. [권한 있는 IP 범위][authorized-ip-ranges]를 사용 하 여 API 서버 끝점에 대 한 액세스를 제한할 수 있습니다. 가상 네트워크에 대 한 API 서버 액세스를 제한 하는 완전 한 [개인 클러스터][private-clusters] 를 만들 수도 있습니다.
 
-Kubernetes RBAC (역할 기반 액세스 제어) 및 Azure Active Directory를 사용 하 여 API 서버에 대 한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
+Kubernetes RBAC (Kubernetes) 및 Azure RBAC를 사용 하 여 API 서버에 대 한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
 
 ## <a name="node-security"></a>노드 보안
 
@@ -50,7 +50,7 @@ Windows Server 노드의 경우 Windows 업데이트가 자동으로 실행되�
 
 스토리지를 제공하기 위해 노드는 Azure Managed Disks를 사용합니다. 대부분의 VM 노드 크기의 경우 해당되는 항목은 고성능 SSD로 지원되는 프리미엄 디스크입니다. 관리 디스크에 저장된 데이터는 미사용 시 Azure 플랫폼에서 자동으로 저장 데이터 암호화됩니다. 중복성을 높이기 위해 이러한 디스크는 Azure 데이터 센터 내에서 안전하게 복제됩니다.
 
-AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*또는 노드에 대 한 보다 세분화 되어 있는 역할 기반 액세스 제어 (RBAC)와 같은 추가 보안 기능을 사용 하 여 악용 하기 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크 로드를 격리 하는 방법에 대 한 자세한 내용은 [AKS의 클러스터 격리에 대 한 모범 사례][cluster-isolation]를 참조 하세요.
+AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. 이러한 추가 보안 기능 (예: *Pod 보안 정책*) 또는 노드에 대 한 보다 세분화 Kubernetes (역할 기반 액세스 제어) Kubernetes RBAC (역할 기반 액세스 제어)를 사용 하면 악용 하기가 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크 로드를 격리 하는 방법에 대 한 자세한 내용은 [AKS의 클러스터 격리에 대 한 모범 사례][cluster-isolation]를 참조 하세요.
 
 ### <a name="compute-isolation"></a>계산 격리
 
@@ -90,7 +90,7 @@ AKS 클러스터에 대 한 고유한 서브넷을 제공 하 고 트래픽 흐�
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 비밀
 
-Kubernetes *비밀*은 액세스 자격 증명이나 키와 같은 Pod에 중요한 데이터를 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 비밀을 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs*에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
+Kubernetes *비밀* 은 액세스 자격 증명이나 키와 같은 Pod에 중요한 데이터를 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 비밀을 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs* 에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 
 비밀을 사용하면 Pod 또는 서비스 YAML 매니페스트에 정의되는 중요한 정보가 줄어듭니다. 대신 Kubernetes API 서버에 저장된 비밀을 YAML 매니페스트의 일부로 요청합니다. 이 방법은 비밀에 대한 특정 Pod 액세스만 제공합니다. 참고: 원시 비밀 매니페스트 파일에는 base64 형식의 비밀 데이터가 포함 되어 있습니다. 자세한 내용은 [공식 설명서][secret-risks] 를 참조 하세요. 따라서이 파일은 중요 한 정보로 처리 되어야 하며 소스 제어에 커밋되지 않습니다.
 

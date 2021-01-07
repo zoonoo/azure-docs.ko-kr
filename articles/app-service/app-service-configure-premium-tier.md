@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e6b8c7d54cf24d810a1f32082d816c908966f63c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7ade24b6478f78a51e0be68ae69ae0b076ecff1f
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739690"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96607877"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Azure App Service에 대 한 PremiumV3 계층 구성
 
@@ -44,12 +44,12 @@ App Service 앱의 가격 책정 계층은 해당 앱이 실행되는 [App Servi
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 App Service 계획을 구성하는 경우 **가격 책정 계층** 을 선택합니다. 
 
-**프로덕션** 을 선택 하 고 **P1V3** , **P2V3** 또는 **P3V3** 를 선택한 다음 **적용** 을 클릭 합니다.
+**프로덕션** 을 선택 하 고 **P1V3**, **P2V3** 또는 **P3V3** 를 선택한 다음 **적용** 을 클릭 합니다.
 
 ![앱에 대해 권장 되는 가격 책정 계층을 보여 주는 스크린샷](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> **P1V3** , **P2V3** 및 **P3V3** 가 옵션으로 표시 되지 않거나 옵션이 회색으로 표시 된 경우에는 App Service 계획을 포함 하는 기본 App Service 배포에서 **PremiumV3** 를 사용할 수 없습니다. 자세한 내용은 [지원되지 않는 리소스 그룹 및 지역 조합에서 강화](#unsupported)를 참조합니다.
+> **P1V3**, **P2V3** 및 **P3V3** 가 옵션으로 표시 되지 않거나 옵션이 회색으로 표시 된 경우에는 App Service 계획을 포함 하는 기본 App Service 배포에서 **PremiumV3** 를 사용할 수 없습니다. 자세한 내용은 [지원되지 않는 리소스 그룹 및 지역 조합에서 강화](#unsupported)를 참조합니다.
 
 ## <a name="scale-up-an-existing-app-to-premiumv3-tier"></a>기존 앱을 PremiumV3 계층으로 확장
 
@@ -63,7 +63,7 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ![App service 계획을 확장 하는 방법을 보여 주는 스크린샷](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-**프로덕션** 을 선택 하 고 **P1V3** , **P2V3** 또는 **P3V3** 를 선택한 다음 **적용** 을 클릭 합니다.
+**프로덕션** 을 선택 하 고 **P1V3**, **P2V3** 또는 **P3V3** 를 선택한 다음 **적용** 을 클릭 합니다.
 
 ![앱에 대해 권장 되는 가격 책정 계층을 보여 주는 스크린샷](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
@@ -79,10 +79,10 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>지원되지 않는 리소스 그룹 및 지역 조합에서 강화
 
-**PremiumV3** 를 사용할 수 없는 App Service 배포에서 앱이 실행 되는 경우 또는 현재 **PremiumV3** 을 지원 하지 않는 지역에서 앱이 실행 되는 경우 **PremiumV3** 를 활용 하기 위해 앱을 다시 배포 해야 합니다.  다음과 같은 두 가지 옵션이 있습니다.
+**PremiumV3** 를 사용할 수 없는 App Service 배포에서 앱이 실행 되는 경우 또는 현재 **PremiumV3** 을 지원 하지 않는 지역에서 앱이 실행 되는 경우 **PremiumV3** 를 활용 하기 위해 앱을 다시 배포 해야 합니다.  다음 두 가지 옵션을 사용할 수 있습니다.
 
 - 새 리소스 그룹에 새 App Service 계획으로 앱을 만듭니다. App Service 계획을 만들 때 **PremiumV3** 계층을 선택 합니다. 이 단계를 수행 하면 App Service 계획이 **PremiumV3** 을 지 원하는 배포 단위로 배포 됩니다. 그런 다음 새로 만든 앱에 응용 프로그램 코드를 다시 배포 합니다. App Service 계획을 하위 계층으로 확장 하 여 비용을 절감 하는 경우에도 배포 단위에서 지원 하므로 항상 **PremiumV3** 로 크기를 조정할 수 있습니다.
-- 앱이 이미 기존 **프리미엄** 계층에서 실행 되는 경우 모든 앱 설정, 연결 문자열 및 배포 구성을 사용 하 여 앱을 **PremiumV3** 를 사용 하는 새 app service 계획으로 복제할 수 있습니다.
+- 앱이 이미 기존 **프리미엄** 계층에서 실행 되는 경우 모든 앱 설정, 연결 문자열 및 배포 구성을 사용 하 여 앱을 **PremiumV3** 를 사용 하는 새 app service 계획의 새 리소스 그룹으로 복제할 수 있습니다.
 
     ![앱을 복제 하는 방법을 보여 주는 스크린샷](media/app-service-configure-premium-tier/clone-app.png)
 
@@ -98,7 +98,7 @@ Preview Premium 컨테이너 SKU를 사용 하는 앱이 있고 새 프리미엄
 
 ### <a name="azure-cli"></a>Azure CLI
 
-다음 명령은 _P1V2_ 에서 App Service 계획을 만듭니다. Cloud Shell에서 실행할 수 있습니다. 의 옵션은 `--sku` P1V3, _P2V3_ 및 _P3V3_ 입니다.
+다음 명령은 _P1V3_ 에서 App Service 계획을 만듭니다. Cloud Shell에서 실행할 수 있습니다. 의 옵션은 `--sku` P1V3, _P2V3_ 및 _P3V3_ 입니다.
 
 ```azurecli-interactive
 az appservice plan create \
@@ -111,7 +111,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-다음 명령은 _P1V3_ 에서 App Service 계획을 만듭니다. `-WorkerSize`에 대한 옵션은 _Small_ , _Medium_ 및 _Large_ 입니다.
+다음 명령은 _P1V3_ 에서 App Service 계획을 만듭니다. `-WorkerSize`에 대한 옵션은 _Small_, _Medium_ 및 _Large_ 입니다.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 26d6bcb52099b15aeeb73a36a7144c14bdf481d6
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: ba27739ff9e9d992ffe6202629a1db19604b1409
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94497342"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96186119"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Azure Monitor의 Log Analytics 개요
 Log Analytics는 Azure Monitor 로그의 데이터로 로그 쿼리를 편집 및 실행 하는 데 사용 되는 Azure Portal 도구입니다. 레코드 집합을 반환 하는 간단한 쿼리를 작성 한 다음 Log Analytics 기능을 사용 하 여 정렬, 필터링 및 분석할 수 있습니다. 또는 통계 분석을 수행 하 고 차트에서 결과를 시각화 하 여 특정 추세를 식별 하는 고급 쿼리를 작성할 수 있습니다. 쿼리 결과를 대화형으로 사용 하거나 쿼리 경고 또는 통합 문서 로그와 같은 다른 Azure Monitor 기능과 함께 사용 하는 경우에는 쓰기 및 테스트를 사용 하는 도구 Log Analytics. 
 
 
 > [!TIP]
-> 이 문서에서는 Log Analytics 및 각 기능에 대 한 설명을 제공 합니다. 자습서로 바로 이동 하려면 [Log Analytics 자습서](get-started-portal.md)를 참조 하세요.
+> 이 문서에서는 Log Analytics 및 각 기능에 대 한 설명을 제공 합니다. 자습서로 바로 이동 하려면 [Log Analytics 자습서](./log-analytics-tutorial.md)를 참조 하세요.
 
 
 
@@ -37,7 +37,7 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 ### <a name="1-top-action-bar"></a>1. 위쪽 작업 모음
 쿼리 창에서 쿼리를 사용 하기 위한 컨트롤입니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |:---|:---|
 | Scope | 쿼리에 사용 되는 데이터의 범위를 지정 합니다. 이는 Log Analytics 작업 영역에 있는 모든 데이터 이거나 여러 작업 영역에서 특정 리소스에 대 한 데이터 일 수 있습니다. [쿼리 범위](scope.md)를 참조 하세요. |
 | 실행 단추 | 쿼리 창에서 선택한 쿼리를 실행 하려면 클릭 합니다. Shift + enter를 눌러 쿼리를 실행할 수도 있습니다. |
@@ -59,7 +59,7 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 |:---|:---|
 | 테이블 | 선택한 범위에 속하는 테이블을 나열 합니다. **그룹화** 방법을 선택 하 여 테이블 그룹화를 변경 합니다. 테이블 이름 위로 마우스를 이동 하 여 테이블에 대 한 설명이 포함 된 대화 상자를 표시 하 고 해당 설명서를 보고 데이터를 미리 볼 수 있습니다. 테이블을 확장 하 여 해당 열을 표시 합니다. 테이블 또는 열 이름을 두 번 클릭 하 여 쿼리에 추가 합니다. |
 | 쿼리 | 쿼리 창에서 열 수 있는 예제 쿼리 목록입니다. Log Analytics를 열 때 표시 되는 것과 동일한 목록입니다. **그룹화** 방법을 선택 하 여 쿼리 그룹화를 변경 합니다. 쿼리를 두 번 클릭 하 여 쿼리 창에 추가 하거나 다른 옵션에 대해 마우스로 가리킵니다. |
-| Assert | 쿼리 결과에 따라 필터 옵션을 만듭니다. 쿼리를 실행 한 후 결과와 다른 값이 포함 된 열이 표시 됩니다. 하나 이상의 값을 선택 하 고 **적용 & 실행** 을 클릭 하 여 쿼리에 **where** 명령을 추가 하 고 다시 실행 합니다. |
+| 필터 | 쿼리 결과에 따라 필터 옵션을 만듭니다. 쿼리를 실행 한 후 결과와 다른 값이 포함 된 열이 표시 됩니다. 하나 이상의 값을 선택 하 고 **적용 & 실행** 을 클릭 하 여 쿼리에 **where** 명령을 추가 하 고 다시 실행 합니다. |
 
 ### <a name="3-query-window"></a>3. 쿼리 창
 쿼리 창에서 쿼리를 편집 합니다. 여기에는 가독성을 높이기 위해 KQL 명령 및 색 구분을 위한 intellisense가 포함 됩니다. **+** 창 맨 위에 있는를 클릭 하 여 다른 탭을 엽니다.
@@ -79,7 +79,7 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 #### <a name="chart-view"></a>차트 보기
 사용 가능한 여러 차트 종류 중 하나로 결과를 표시 합니다. 쿼리의 **render** 명령에 차트 종류를 지정 하거나 **시각화 유형** 드롭다운에서 선택할 수 있습니다.
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |:---|:---|
 | **시각화 유형** | 표시할 차트의 유형입니다. |
 | **X 축** | X 축에 사용할 결과의 열입니다. 
@@ -91,5 +91,5 @@ Log Analytics를 시작할 때 가장 먼저 표시 되는 항목은 [예제 쿼
 Azure 데이터 탐색기 웹 UI를 이미 잘 알고 있는 경우에는 Log Analytics에 대해 잘 알고 있어야 합니다. Azure 데이터 탐색기을 기반으로 구축 되 고 동일한 Kusto 쿼리 언어 (KQL)를 사용 하기 때문입니다. Log Analytics 시간 범위를 기준으로 필터링, 쿼리에서 경고 규칙을 만드는 기능 등 Azure Monitor 관련 된 기능을 추가 합니다. 두 도구 모두에는 사용 가능한 테이블의 구조를 검색할 수 있는 탐색기가 포함 되어 있지만 Azure 데이터 탐색기 웹 UI는 기본적으로 Azure 데이터 탐색기 데이터베이스의 테이블을 사용 하 고 Log Analytics는 Log Analytics 작업 영역의 테이블에 대해 작동 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서](get-started-portal.md)를 안내 합니다.
+- [Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서](./log-analytics-tutorial.md)를 안내 합니다.
 - [쿼리 작성에 대 한 자습서](get-started-queries.md)를 안내 합니다.

@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 컨트롤
 description: Azure Policy 및 Azure RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
 ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4256f401e602a0641247dd06a1537289282f647b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420413"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842552"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 
@@ -82,7 +82,7 @@ Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는
 
 ## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 보안 로그온 프로시저
 
-이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
+이 청사진은 다단계 인증을 사용하지 않는 계정을 감사하는 Azure Policy 정의 세 개를 할당합니다. Azure AD Multi-Factor Authentication은 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 강력한 인증을 제공합니다. 다단계 인증을 사용하지 않고 계정을 모니터링하면 손상될 가능성이 더 높은 계정을 식별할 수 있습니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.

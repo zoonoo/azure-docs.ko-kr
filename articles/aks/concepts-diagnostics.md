@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8921152177d3e4534ca9fb48cf209aed6e1b27c
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79126598"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183365"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Azure Kubernetes Service 진단 (미리 보기) 개요
 
@@ -39,7 +39,7 @@ AKS 진단에 액세스 하려면:
 
 ## <a name="cluster-insights"></a>클러스터 정보
 
-다음 진단 검사는 **클러스터 정보**에서 사용할 수 있습니다.
+다음 진단 검사는 **클러스터 정보** 에서 사용할 수 있습니다.
 
 ### <a name="cluster-node-issues"></a>클러스터 노드 문제
 
@@ -82,5 +82,7 @@ Id 및 보안 관리는 클러스터와의 통신을 방해할 수 있는 인증
 ## <a name="next-steps"></a>다음 단계
 
 [AKS Perisprocesss](https://aka.ms/aksperiscope)를 사용 하 여 클러스터 문제를 추가로 해결 하는 데 도움이 되는 로그를 수집 합니다.
+
+AKS 운영 가이드의 [심사 방법 섹션](/azure/architecture/operator-guides/aks/aks-triage-practices) 을 참조 하세요.
 
 제목에 "[Diag]"를 추가 하 여 [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) 에서 질문이 나 의견을 게시 합니다.

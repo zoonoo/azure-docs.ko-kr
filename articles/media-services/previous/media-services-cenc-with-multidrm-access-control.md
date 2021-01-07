@@ -16,11 +16,11 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b98b66d8f0350c32e89d62d776ee1288d9271712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96010914"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
 
@@ -242,7 +242,7 @@ Azure AD에 대한 내용:
     <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
     ```
 
-    [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss**가 나타납니다.
+    [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss** 가 나타납니다.
 
     ![JWT](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
@@ -349,7 +349,7 @@ Azure AD에서 포인터 앱을 등록 및 구성하려면 다음 단계를 따�
 
 3. groupMembershipClaims 속성이 "groupMembershipClaims": "All"을 포함하도록 앱 매니페스트 파일을 업데이트합니다.
 
-4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 애플리케이션에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한**에서 **[resource_name] 액세스**를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
+4. 플레이어 웹앱을 가리키는 Azure AD 앱의 **다른 애플리케이션에 대한 권한** 섹션에서 1단계에서 추가한 리소스 앱을 추가합니다. **위임된 권한** 에서 **[resource_name] 액세스** 를 선택합니다. 이 옵션은 리소스 앱에 액세스하는 액세스 토큰을 만드는 웹앱 권한을 제공합니다. Visual Studio 및 Azure Web App으로 개발 중이라면 웹앱의 로컬 및 배포된 버전 모두에 대해 이 작업을 수행합니다.
 
 Azure AD에서 발급한 JWT가 포인터 리소스에 액세스하는 데 사용되는 액세스 토큰입니다.
 

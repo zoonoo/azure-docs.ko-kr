@@ -4,12 +4,12 @@ description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 3c363d13933e6554a6eefbeaf02d87dc6b382628
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578776"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936926"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -138,9 +138,9 @@ public static class BindingExpressionsExample
 
 빌드 프로세스는 build 폴더의 function 폴더에 *function.json* 파일을 만듭니다. 앞에서 설명한 대로 이 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 
 
-이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](functions-scale.md#how-the-consumption-and-premium-plans-work)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
+이 파일의 목적은 [소비 계획에 대 한 크기 조정을 결정](event-driven-scaling.md)하는 데 사용할 수 있도록 크기 조정 컨트롤러에 정보를 제공 하는 것입니다. 이러한 이유로 이 파일에는 트리거 정보만 있고 입력 또는 출력 바인딩은 없습니다.
 
-생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예를 들면 다음과 같습니다.
+생성된 *function.json* 파일에는 바인딩에 *function.json* 구성 대신 .NET 특성을 사용하도록 런타임에 지시하는 `configurationSource` 속성이 포함되어 있습니다. 예는 다음과 같습니다.
 
 ```json
 {
@@ -208,7 +208,7 @@ npm을 사용하여 핵심 도구를 설치하는 경우 Visual Studio에서 사
 
 ## <a name="readytorun"></a>ReadyToRun
 
-함수 앱을 [ReadyToRun 이진](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)파일로 컴파일할 수 있습니다. ReadyToRun는 [소비 계획](functions-scale.md#consumption-plan)에서 실행 될 때 [콜드 시작](functions-scale.md#cold-start) 의 영향을 줄이는 데 도움이 되는 시작 성능을 향상 시킬 수 있는 사전 컴파일 형태입니다.
+함수 앱을 [ReadyToRun 이진](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images)파일로 컴파일할 수 있습니다. ReadyToRun는 [소비 계획](consumption-plan.md)에서 실행 될 때 [콜드 시작](event-driven-scaling.md#cold-start) 의 영향을 줄이는 데 도움이 되는 시작 성능을 향상 시킬 수 있는 사전 컴파일 형태입니다.
 
 ReadyToRun는 .NET 3.0에서 사용할 수 있으며 [Azure Functions 런타임의 버전 3.0](functions-versions.md)이 필요 합니다.
 
@@ -327,6 +327,8 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 {
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
+
+함수를 구현 하는 방법에 대 한 자세한 `ILogger` 내용은 [원격 분석 데이터 수집](functions-monitoring.md#collecting-telemetry-data)을 참조 하세요. 접두사가 접두사로 붙은 범주는 `Function` 인스턴스를 사용 하 고 있다고 가정 `ILogger` 합니다. 대신를 사용 하도록 선택 하 `ILogger<T>` 는 경우 범주 이름은 대신을 기반으로 할 수 있습니다 `T` .  
 
 ### <a name="structured-logging"></a>구조적 로깅
 
@@ -513,14 +515,14 @@ namespace functionapp0915
             
             // Track a Dependency
             var dependency = new DependencyTelemetry
-                {
-                    Name = "GET api/planets/1/",
-                    Target = "swapi.co",
-                    Data = "https://swapi.co/api/planets/1/",
-                    Timestamp = start,
-                    Duration = DateTime.UtcNow - start,
-                    Success = true
-                };
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
         }
@@ -558,7 +560,7 @@ public static class EnvironmentVariablesExample
         log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
-    public static string GetEnvironmentVariable(string name)
+    private static string GetEnvironmentVariable(string name)
     {
         return name + ": " +
             System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);

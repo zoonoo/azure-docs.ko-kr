@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
 ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339291"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023468"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure API for FHIR 배포
 

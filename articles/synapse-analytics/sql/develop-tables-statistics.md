@@ -11,16 +11,16 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: b3e1c4b8dec0e62bb2a77939a36e38b61837033a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 52e3ea3e07a81495f64f70f72686154a02a654af
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638855"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96451796"
 ---
 # <a name="statistics-in-synapse-sql"></a>Synapse SQL의 통계
 
-이 문서에는 Synapse SQL 리소스 (전용 SQL 풀 및 서버 리스 SQL 풀 (미리 보기)를 사용 하 여 쿼리 최적화 통계를 만들고 업데이트 하기 위한 권장 사항 및 예제가 나와 있습니다.
+이 문서에서 제공 하는 권장 사항 및 예제는 Synapse SQL 리소스를 사용 하 여 쿼리 최적화 통계를 만들고 업데이트 하는 예제입니다. 전용 SQL 풀 및 서버 리스 SQL 풀.
 
 ## <a name="statistics-in-dedicated-sql-pool"></a>전용 SQL 풀의 통계
 
@@ -74,7 +74,7 @@ SET AUTO_CREATE_STATISTICS ON
 > [!NOTE]
 > 통계 생성은 다른 사용자 컨텍스트의 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)에 로깅됩니다.
 
-생성되는 자동 통계의 형식은 _WA_Sys_ <16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
+생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. 이미 생성된 통계는 [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령을 실행하여 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -557,7 +557,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - 사용자 지정 오류 2767은 지원되지 않습니다.
 
 
-## <a name="statistics-in-serverless-sql-pool-preview"></a>서버를 사용 하지 않는 SQL 풀의 통계 (미리 보기)
+## <a name="statistics-in-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀의 통계
 
 통계는 특정 데이터 세트(스토리지 경로)의 특정 열에 대해 생성됩니다.
 
@@ -566,7 +566,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="why-use-statistics"></a>통계를 사용하는 이유
 
-서버를 사용 하지 않는 SQL 풀 (미리 보기)에서 데이터에 대해 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
+서버를 사용 하지 않는 SQL 풀에서 데이터를 알고 있으므로 데이터에 대 한 쿼리를 더 빠르게 실행할 수 있습니다. 데이터에 대해 통계를 수집하는 것은 쿼리 최적화를 위해 할 수 있는 가장 중요한 작업입니다. 
 
 서버를 사용 하지 않는 SQL 풀 쿼리 최적화 프로그램은 비용 기반 최적화 프로그램입니다. 다양한 쿼리 계획의 비용을 비교한 다음, 비용이 가장 낮은 계획을 선택합니다. 선택된 계획은 대부분의 경우 가장 빠르게 실행되는 계획입니다. 
 

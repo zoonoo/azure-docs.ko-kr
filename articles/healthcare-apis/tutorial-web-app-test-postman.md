@@ -10,11 +10,11 @@ ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
 ms.openlocfilehash: 1c64468a2e420734ca51a5b9308bb52e13712c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852925"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96023315"
 ---
 # <a name="testing-the-fhir-api"></a>FHIR API 테스트
 이전 두 단계에서 Azure API for FHIR을 배포하고 클라이언트 애플리케이션을 등록했습니다. 이제 클라이언트 애플리케이션을 사용하여 Azure API for FHIR이 설정되었는지 테스트할 준비가 되었습니다. 
@@ -22,7 +22,7 @@ ms.locfileid: "87852925"
 ## <a name="retrieve-capability-statement"></a>Retrieve 기능 문
 먼저 Azure API for FHIR에 대한 기능 문을 가져옵니다. 
 1. Postman 열기
-1. GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata를 수행하여 기능 문을 검색합니다. 아래 이미지에서 FHIR 서버 이름은 **fhirserver**입니다.
+1. GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata를 수행하여 기능 문을 검색합니다. 아래 이미지에서 FHIR 서버 이름은 **fhirserver** 입니다.
 
 ![기능 문](media/tutorial-web-app/postman-capability-statement.png)
 
@@ -32,9 +32,9 @@ ms.locfileid: "87852925"
 ![실패한 환자](media/tutorial-web-app/postman-patient-authorization-failed.png)
 
 액세스 권한을 얻으려면 액세스 토큰이 필요합니다.
-1. Postman에서 **권한 부여**를 선택하고 유형을 **OAuth2.0**으로 설정합니다.
+1. Postman에서 **권한 부여** 를 선택하고 유형을 **OAuth2.0** 으로 설정합니다.
 1. **새 액세스 토큰 가져오기** 선택
-1. 필드를 입력하고 **요청 토큰**을 선택합니다. 아래에서 이 자습서의 각 필드에 대한 값을 확인할 수 있습니다.
+1. 필드를 입력하고 **요청 토큰** 을 선택합니다. 아래에서 이 자습서의 각 필드에 대한 값을 확인할 수 있습니다.
 
 |필드                |값                                                               |
 |---------------------|--------------------------------------------------------------------|
@@ -49,9 +49,9 @@ ms.locfileid: "87852925"
 |시스템 상태                |1234                                                                |
 |클라이언트 인증|본문에서 클라이언트 자격 증명 보내기                                     |
 
-4. 자격 증명을 사용하여 로그인하고 **수락**을 선택합니다.
-1. 결과에서 아래로 스크롤하고 **토큰 사용**을 선택합니다.
-1. 맨 위에서 **보내기**를 다시 선택하고 이번에는 ![성공 환자](media/tutorial-web-app/postman-patient-authorization-success.png) 결과를 얻어야 합니다.
+4. 자격 증명을 사용하여 로그인하고 **수락** 을 선택합니다.
+1. 결과에서 아래로 스크롤하고 **토큰 사용** 을 선택합니다.
+1. 맨 위에서 **보내기** 를 다시 선택하고 이번에는 ![성공 환자](media/tutorial-web-app/postman-patient-authorization-success.png) 결과를 얻어야 합니다.
 
 ## <a name="post-patient-into-fhir-server"></a>FHIR 서버에 환자 게시
 이제 액세스할 수 있으므로 새 환자를 만들 수 있습니다. 다음은 FHIR 서버에 추가할 수 있는 간단한 환자 샘플입니다. Postman의 **본문** 섹션에 아래 코드를 입력합니다.

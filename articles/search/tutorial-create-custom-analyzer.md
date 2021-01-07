@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: ac7cee2c1d72b4102fb397aa8093c2d38686fc88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b83ed506c0aa6299e5308e9e0c7276a21b7d9abe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397269"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652350"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>자습서: 전화 번호에 대한 사용자 지정 분석기 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "91397269"
 
 다음으로, Postman을 시작하고 [Azure-Samples/azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples)에서 다운로드한 컬렉션을 가져옵니다.
 
-컬렉션을 가져오려면 **파일** > **가져오기**로 차례로 이동한 다음, 가져올 컬렉션 파일을 선택합니다.
+컬렉션을 가져오려면 **파일** > **가져오기** 로 차례로 이동한 다음, 가져올 컬렉션 파일을 선택합니다.
 
 각 요청에 대해 다음을 수행해야 합니다.
 
@@ -59,9 +59,9 @@ ms.locfileid: "91397269"
 
 1. `<YOUR-ADMIN-API-KEY>`를 검색 서비스의 기본 키 또는 보조 키로 바꿉니다.
 
-  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman 요청 URL 및 헤더" border="false":::
+  :::image type="content" source="media/search-get-started-rest/postman-url.png" alt-text="Postman 요청 URL 및 헤더" border="false":::
 
-Postman에 익숙하지 않은 경우 [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
+Postman에 익숙하지 않은 경우 [Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)를 참조하세요.
 
 ## <a name="3---create-an-initial-index"></a>3 - 초기 인덱스 만들기
 
@@ -172,7 +172,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
   api-key: <YOUR-ADMIN-API-KEY>  
 ```
 
-이 쿼리는 **4개의 예상 결과 중 3개**를 반환하지만, **2개의 예기치 않은 결과**도 반환합니다.
+이 쿼리는 **4개의 예상 결과 중 3개** 를 반환하지만, **2개의 예기치 않은 결과** 도 반환합니다.
 
 ```json
 {
@@ -208,7 +208,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
   api-key: <YOUR-ADMIN-API-KEY>
 ```
 
-이 쿼리는 **4개의 올바른 일치 항목 중 하나**만 반환하므로 더 나쁩니다.
+이 쿼리는 **4개의 올바른 일치 항목 중 하나** 만 반환하므로 더 나쁩니다.
 
 ```json
 {
@@ -239,11 +239,11 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 
 아래 다이어그램에서는 이러한 세 가지 구성 요소가 함께 작동하여 문장을 토큰화하는 방법을 확인할 수 있습니다.
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="Postman 요청 URL 및 헤더":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/analyzers-explained.png" alt-text="문장을 토큰화하는 분석기 프로세스 다이어그램":::
 
 그런 다음, 이러한 토큰은 반전된 인덱스에 저장되어 전체 텍스트를 빠르게 검색할 수 있도록 허용합니다.  반전된 인덱스는 어휘 분석 중에 추출된 모든 고유한 용어를 해당 용어가 발생한 문서에 매핑하여 전체 텍스트 검색을 가능하게 합니다. 아래 다이어그램에서는 이 예를 확인할 수 있습니다.
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="Postman 요청 URL 및 헤더":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/inverted-index-explained.png" alt-text="반전된 인덱스 예":::
 
 모든 검색에서 반전된 인덱스에 저장된 용어를 검색하게 됩니다. 사용자가 쿼리를 실행하는 경우 다음과 같이 수행됩니다.
 
@@ -251,7 +251,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 1. 그런 다음, 반전된 인덱스에서 일치하는 용어가 있는 문서를 검색합니다.
 1. 마지막으로, [유사성 알고리즘](index-ranking-similarity.md)에 따라 검색된 문서의 순위를 매깁니다.
 
-  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Postman 요청 URL 및 헤더":::
+  :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="분석기 프로세스 순위 유사성 다이어그램":::
 
 쿼리 용어가 반전된 인덱스의 용어와 일치하지 않으면 결과가 반환되지 않습니다. 쿼리가 작동하는 방법에 대한 자세한 내용은 [전체 텍스트 검색에 대한 이 문서](search-lucene-query-architecture.md)를 참조하세요.
 
@@ -270,8 +270,8 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   api-key: <YOUR-ADMIN-API-KEY>
 
   {
-      "text": "(425) 555-0100",
-      "analyzer": "standard.lucene"
+    "text": "(425) 555-0100",
+    "analyzer": "standard.lucene"
   }
 ```
 
@@ -491,7 +491,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-firs
 
 사용자 지정 분석기를 사용하여 인덱스에 대해 몇 가지 샘플 쿼리를 수행하면 회수가 향상되고 일치하는 전화 번호가 모두 반환됩니다. 그러나 n-그램 토큰 필터로 인해 일부 가양성이 반환되기도 합니다. 이는 n-그램 토큰 필터의 일반적인 부작용입니다.
 
-가양성을 방지하기 위해 쿼리를 위한 별도의 분석기를 만듭니다. 이 분석기는 `custom_ngram_filter`를 **제외**하고는 이미 만든 분석기와 동일합니다.
+가양성을 방지하기 위해 쿼리를 위한 별도의 분석기를 만듭니다. 이 분석기는 `custom_ngram_filter`를 **제외** 하고는 이미 만든 분석기와 동일합니다.
 
 ```json
     {

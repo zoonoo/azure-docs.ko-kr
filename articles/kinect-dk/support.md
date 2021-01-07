@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, rgb, IR, 기록, 센서, sdk, 액세스, 깊이, 비디오, 카메라, imu, 동작, 센서, 오디오, 마이크, matroska, 센서 sdk, 다운로드, 본문, 추적, 지원
-ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357048"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587097"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Azure Kinect 지원 옵션 및 리소스
 
@@ -56,6 +56,8 @@ Azure 구독자는 Azure Portal에서 지원 요청을 만들고 관리할 수 �
 장치 또는 센서 기능, 펌웨어 업데이트 또는 구매 옵션에 대 한 [도움말](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) 을 확인 하세요.
 
 지원 서비스에 대 한 자세한 내용은 [비즈니스용 Microsoft 지원](https://support.microsoft.com/help/4341255/support-for-business)에서 자세히 알아보세요.
+
+Microsoft 하드웨어 제품에 대 한 EU 규정 준수 선언이 [여기](https://www.microsoft.com/en-us/eu-declarations-compliance?activetab=pivot1:primaryr3) 에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

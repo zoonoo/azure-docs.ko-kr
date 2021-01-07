@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/13/2020
+ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 95625886ed11256a40e5993540d7e545134d6dd6
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378897"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860867"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 
@@ -35,9 +35,9 @@ ms.locfileid: "92378897"
 
 ## <a name="terms-and-definitions"></a>용어 및 정의
 
-* **셀프 서비스 등록** : 사용자가 클라우드 서비스에 가입하고 해당 이메일 도메인을 기반으로 Azure AD에 ID가 자동으로 생성되게 하는 방법입니다.
-* **비관리형 Azure AD 디렉터리** : ID가 생성되는 디렉터리입니다. 관리되지 않는 디렉터리는 전역 관리자가 없는 디렉터리입니다.
-* **이메일로 확인된 사용자** : Azure AD의 사용자 계정의 한 유형입니다. 셀프 서비스 제공 사항에 등록한 후 자동으로 생성된 ID를 갖는 사용자를 메일로 확인된 사용자라고 합니다. 메일로 확인된 사용자는 creationmethod=EmailVerified로 태그가 지정된 디렉터리의 일반 멤버입니다.
+* **셀프 서비스 등록**: 사용자가 클라우드 서비스에 가입하고 해당 이메일 도메인을 기반으로 Azure AD에 ID가 자동으로 생성되게 하는 방법입니다.
+* **비관리형 Azure AD 디렉터리**: ID가 생성되는 디렉터리입니다. 관리되지 않는 디렉터리는 전역 관리자가 없는 디렉터리입니다.
+* **이메일로 확인된 사용자**: Azure AD의 사용자 계정의 한 유형입니다. 셀프 서비스 제공 사항에 등록한 후 자동으로 생성된 ID를 갖는 사용자를 메일로 확인된 사용자라고 합니다. 메일로 확인된 사용자는 creationmethod=EmailVerified로 태그가 지정된 디렉터리의 일반 멤버입니다.
 
 ## <a name="how-do-i-control-self-service-settings"></a>셀프 서비스 설정을 제어하는 방법
 
@@ -77,7 +77,13 @@ Flow 및 PowerApps 평가판 등록에 대한 자세한 내용은 다음 문서�
 
 ![셀프 서비스 등록 제어 순서도](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
-매개 변수 사용 방법에 대한 자세한 내용 및 예는 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 참조하세요.
+이 설정의 세부 정보는 다음 powershell cmdlet Get-MsolCompanyInformation에서 검색할 수 있습니다. 이에 대한 자세한 내용은 [Get-MsolCompanyInformation](/powershell/module/msonline/get-msolcompanyinformation)을 참조하세요.
+
+```powershell
+    Get-MsolCompanyInformation | Select AllowEmailVerifiedUsers, AllowAdHocSubscriptions
+```
+
+매개 변수 사용 방법에 대한 자세한 내용 및 예는 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -85,5 +91,5 @@ Flow 및 PowerApps 평가판 등록에 대한 자세한 내용은 다음 문서�
 * [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings)
 * [관리되지 않는 디렉터리에서 회사 또는 학교 계정 닫기](users-close-account.md)

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 70cb1297c4b47f22f9eb5cc6992e6fcd6c58b364
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a41cd2ce14ceb452d783b472955de347199d0870
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545041"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109473"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버를 위한 가상 네트워크 만들기 및 관리
 
@@ -62,21 +62,22 @@ az account set --subscription <subscription id>
     ```azurecli-interactive
     az mysql flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- 이미 존재 하는 가상 네트워크 및 서브넷을 사용 하 여 유연한 서버를 만듭니다. 제공 된 가상 네트워크 및 서브넷이 없는 경우에는 가상 네트워크와 기본 주소 접두사가 포함 된 서브넷이 생성 됩니다.
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
+    ```
+
 - 이미 존재 하는 가상 네트워크, 서브넷 및 서브넷 ID를 사용 하 여 유연한 서버를 만듭니다. 제공 된 서브넷은 다른 리소스를 배포 하지 않아야 하 고이 서브넷은 **Microsoft. DBforMySQL/flexibleServers** 에 위임 됩니다 (아직 위임 하지 않은 경우).
     ```azurecli-interactive
     az mysql flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > 가상 네트워크 및 서브넷은 유연한 서버와 동일한 지역 및 구독에 있어야 합니다.
-<!--
-- Create a flexible server using new virtual network, subnet with non-default address prefix
+<
+- 새 가상 네트워크를 사용 하 여 유연한 서버를 만듭니다. 기본 주소 접두사가 아닌 서브넷이 사용 됩니다.
     ```azurecli-interactive
-    az mysql flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
+    az mysql flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
 구성 가능한 CLI 매개 변수의 전체 목록은 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server) 를 참조 하세요.
 
 

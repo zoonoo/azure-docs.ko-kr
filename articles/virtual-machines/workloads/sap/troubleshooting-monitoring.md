@@ -7,18 +7,19 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d168ff36e63cc07dc1b334ae7817bfed45b4fcd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8d6fc6acb33af0c36978aa79dc90aeac3cf596
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042279"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966754"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 모니터링하는 방법
 
@@ -39,7 +40,7 @@ Azure Virtual Machines를 사용하여 위에 명시된 리소스 클래스가 �
 
 **디스크 공간:** 디스크 공간 사용량은 일반적으로 시간이 지남에 따라 증가합니다. 가장 일반적인 이유는 데이터 볼륨 증가, 트랜잭션 로그 백업 실행, 추적 파일 저장 및 스토리지 스냅샷 수행입니다. 따라서 디스크 공간 사용량을 모니터링하고 HANA 큰 인스턴스 단위와 연결된 디스크 공간을 관리하는 것이 중요합니다.
 
-HANA 대규모 인스턴스의 **유형 II SKU**에서 서버에는 미리 로드된 시스템 진단 도구가 포함됩니다. 이러한 진단 도구를 사용하여 시스템 상태 검사를 수행할 수 있습니다. 다음 명령을 실행하여 /var/log/health_check에서 상태 검사 로그 파일을 생성합니다.
+HANA 대규모 인스턴스의 **유형 II SKU** 에서 서버에는 미리 로드된 시스템 진단 도구가 포함됩니다. 이러한 진단 도구를 사용하여 시스템 상태 검사를 수행할 수 있습니다. 다음 명령을 실행하여 /var/log/health_check에서 상태 검사 로그 파일을 생성합니다.
 ```
 /opt/sgi/health_check/microsoft_tdi.sh
 ```

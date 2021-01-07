@@ -3,12 +3,12 @@ title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용하여 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491803"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920018"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -203,7 +203,7 @@ ms.locfileid: "94491803"
    ```
 
    이 명령은 _공용 네트워크에 대해 열린 스토리지 계정 감사_ 라는 정책 정의를 작성합니다.
-   사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create)를 참조하세요.
+   사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [az policy definition create](/cli/azure/policy/definition#az_policy_definition_create)를 참조하세요.
 
    위치 매개 변수 없이 호출할 경우 `az policy definition creation`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
 

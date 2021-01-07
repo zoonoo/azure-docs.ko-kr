@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.custom: contperfq1
-ms.openlocfilehash: 76f3ba000a9bde4a306d19e8281ebeb41f1616e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 4e23c6f25145724a5300c9e5cdcb55431fb0b4f2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335870"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028770"
 ---
 # <a name="network-security-groups"></a>네트워크 보안 그룹
 <a name="network-security-groups"></a>
@@ -56,19 +56,19 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|액세스 권한|
+|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|모두|Allow|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|액세스 권한|
+|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|모두|Allow|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|액세스 권한|
+|우선 순위|원본|원본 포트|대상|대상 포트|프로토콜|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|모두|거부|
 
@@ -76,23 +76,23 @@ Azure는 사용자가 만드는 각 네트워크 보안 그룹에 다음과 같�
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 모두 | Allow |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | 인터넷 | 0-65535 | 모두 | Allow |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | 액세스 권한 |
+|우선 순위|원본|원본 포트| 대상 | 대상 포트 | 프로토콜 | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 모두 | 거부 |
 
-**원본** 및 **대상** 열에서 *VirtualNetwork*, *AzureLoadBalancer* 및 *인터넷*은 IP 주소가 아닌 [서비스 태그](service-tags-overview.md)입니다. 프로토콜 열에는 TCP, UDP 및 ICMP **가 포함 됩니다** . 규칙을 만들 때 TCP, UDP, ICMP 또는 Any를 지정할 수 있습니다. **소스** 및 **대상** 열에서 *0.0.0.0/0*은 모든 주소를 나타냅니다. Azure Portal, Azure CLI 또는 PowerShell과 같은 클라이언트는이 식에 * 또는 any를 사용할 수 있습니다.
+**원본** 및 **대상** 열에서 *VirtualNetwork*, *AzureLoadBalancer* 및 *인터넷* 은 IP 주소가 아닌 [서비스 태그](service-tags-overview.md)입니다. 프로토콜 열에는 TCP, UDP 및 ICMP **가 포함 됩니다** . 규칙을 만들 때 TCP, UDP, ICMP 또는 Any를 지정할 수 있습니다. **소스** 및 **대상** 열에서 *0.0.0.0/0* 은 모든 주소를 나타냅니다. Azure Portal, Azure CLI 또는 PowerShell과 같은 클라이언트는이 식에 * 또는 any를 사용할 수 있습니다.
  
 기본 규칙을 제거할 수 없지만 더 높은 우선 순위의 규칙을 만들어서 재정의할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910273"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697665"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -32,17 +32,17 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 | 호환성 유형 | 주 버전| 부 버전 | 패치 |
 | --- | --- | --- | --- |
-| 클라이언트-서버 통신 호환성 | N | Y | Y |
-| 서버 간 호환성 | N | Y | Y |
-| 파일 형식 호환성 | N | Y | Y |
-| 클라이언트 API 호환성 | N | Y | Y |
-| 클라이언트 이진 호환성 | N | N | Y |
+| 클라이언트-서버 통신 호환성 | N | 지원 | 지원 |
+| 서버 간 호환성 | N | 지원 | 지원 |
+| 파일 형식 호환성 | N | 지원 | 지원 |
+| 클라이언트 API 호환성 | N | 지원 | 지원 |
+| 클라이언트 이진 호환성 | N | N | 지원 |
 | **서버 쪽 제한 API 호환성** |  |  |  |
-| Stable | N | Y | Y |
-| 진화 | N | N | Y |
+| Stable | N | 지원 | 지원 |
+| 진화 | N | N | 지원 |
 | 불안정 | N | N | N |
-| 종속성 호환성 | N | Y | Y |
-| 운영 호환성 | N | N | Y |
+| 종속성 호환성 | N | 지원 | 지원 |
+| 운영 호환성 | N | N | 지원 |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>동일한 Apache HBase 주 버전으로 업그레이드
 
@@ -223,7 +223,7 @@ Azure HDInsight에서 Apache HBase 클러스터를 업그레이드 하려면 다
    hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. HDInsight 3.6을 4.0로 업그레이드 하는 경우 아래 단계를 수행 하 고, 그렇지 않은 경우에는 10 단계로 건너뜁니다.
+1. HDInsight 3.6을 4.0로 업그레이드 하는 경우 아래 단계를 수행 합니다. 그렇지 않으면 13 단계로 건너뜁니다.
 
     1. **서비스**  >  **다시 시작 필요** 를 선택 하 여 Ambari에서 필요한 모든 서비스를 다시 시작 합니다.
     1. HBase 서비스를 중지 합니다.

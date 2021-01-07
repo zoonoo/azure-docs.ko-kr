@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/04/2021
 ms.author: victorh
-ms.openlocfilehash: 197d48a2f5368111ec194a18f86aedf5ad78e1b2
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 855c06b610fb8166f6f2dfcf37af34efb3713ffe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565622"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883227"
 ---
 # <a name="azure-firewall-dns-settings"></a>Azure 방화벽 DNS 설정
 
@@ -65,13 +65,16 @@ $azFw | Set-AzFirewall
 
 DNS 프록시 역할을 하도록 Azure 방화벽을 구성할 수 있습니다. Dns 프록시는 클라이언트 가상 컴퓨터에서 DNS 서버로의 DNS 요청에 대 한 중개자입니다. 사용자 지정 DNS 서버를 구성 하는 경우 dns 확인 불일치를 방지 하기 위해 DNS 프록시를 사용 하도록 설정 하 고 네트워크 규칙에서 FQDN (정규화 된 도메인 이름) 필터링을 사용 하도록 설정 합니다.
 
+:::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="사용자 지정 D N S 서버를 사용 하는 d N S 프록시 구성입니다.":::
+
+
 DNS 프록시를 사용 하지 않는 경우 클라이언트의 DNS 요청이 다른 시간에 DNS 서버로 이동 하거나 방화벽의 경우와 비교 하 여 다른 응답을 반환할 수 있습니다. DNS 프록시는 불일치를 방지 하기 위해 Azure 방화벽을 클라이언트 요청의 경로에 배치 합니다.
 
 Azure 방화벽이 DNS 프록시 인 경우 두 가지 캐싱 함수 형식이 가능 합니다.
 
-- **긍정 캐시** : DNS 확인에 성공 했습니다. 방화벽은 패킷 또는 개체의 TTL (time to live)을 사용 합니다. 
+- **긍정 캐시**: DNS 확인에 성공 했습니다. 방화벽은 패킷 또는 개체의 TTL (time to live)을 사용 합니다. 
 
-- **네거티브 캐시** : DNS 확인으로 인해 응답이 없거나 해결 되지 않습니다. 방화벽은 1 시간 동안이 정보를 캐시 합니다.
+- **네거티브 캐시**: DNS 확인으로 인해 응답이 없거나 해결 되지 않습니다. 방화벽은 1 시간 동안이 정보를 캐시 합니다.
 
 DNS 프록시는 네트워크 규칙에서 Fqdn의 모든 확인 된 IP 주소를 저장 합니다. IP 주소 하나를 확인 하는 Fqdn을 사용 하는 것이 가장 좋습니다.  
 

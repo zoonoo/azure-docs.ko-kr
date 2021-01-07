@@ -1,14 +1,14 @@
 ---
 title: 위임에 대한 액세스 권한 제거
 description: Azure Lighthouse의 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법에 대해 알아봅니다.
-ms.date: 08/12/2020
+ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3442bb9fd2f6e7423fd4bf28cace1f7fd91ad80
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167233"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608455"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
@@ -48,7 +48,7 @@ Azure Marketplace에 게시할 [관리 서비스 제품을 만들](../../marketp
 ### <a name="azure-portal"></a>Azure portal
 
 1. [내 고객 페이지](view-manage-customers.md)로 이동합니다.
-2. **위임**을 선택 합니다.
+2. **위임** 을 선택 합니다.
 3. 제거 하려는 위임을 찾은 다음 해당 행에 표시 되는 휴지통 아이콘을 선택 합니다.
 
 ### <a name="powershell"></a>PowerShell
@@ -98,4 +98,5 @@ az managedservices assignment delete --assignment <id or full resourceId>
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)에 대해 알아봅니다.
-- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
+- Azure Portal의 **내 고객** 으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.
+- [이전 위임을 업데이트](update-delegation.md)하는 방법을 알아봅니다.

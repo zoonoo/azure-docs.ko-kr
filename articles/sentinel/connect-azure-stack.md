@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ff70e7c05ca8de49f560fba3d59f0609785b8c4
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636778"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655972"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Azure 센티널에 Azure Stack 허브 가상 머신 연결
 
@@ -34,8 +34,8 @@ Azure 센티널을 사용 하면 Azure에서 실행 되는 Vm과 Azure Stack 허
 
 Azure Stack 허브에서 실행 되는 가상 머신에 **Azure Monitor, 업데이트 및 구성 관리** 가상 머신 확장을 추가 합니다. 
 
-1. 새 브라우저 탭에서 [Azure Stack 허브 포털](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal)에 로그인 합니다.
-2. **Virtual machines** 페이지로 이동 하 여 Azure 센티널로 보호할 가상 머신을 선택 합니다. Azure Stack Hub에서 가상 컴퓨터를 만드는 방법에 대 한 자세한 내용은 Azure Stack 허브 포털을 사용 하 여 [Windows SERVER Vm 만들기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Azure Stack 허브 포털을 사용 하 여 Linux 서버 vm 만들기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal)를 참조 하세요.
+1. 새 브라우저 탭에서 [Azure Stack 허브 포털](/azure-stack/user/azure-stack-use-portal#access-the-portal)에 로그인 합니다.
+2. **Virtual machines** 페이지로 이동 하 여 Azure 센티널로 보호할 가상 머신을 선택 합니다. Azure Stack Hub에서 가상 컴퓨터를 만드는 방법에 대 한 자세한 내용은 Azure Stack 허브 포털을 사용 하 여 [Windows SERVER Vm 만들기](/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Azure Stack 허브 포털을 사용 하 여 Linux 서버 vm 만들기](/azure-stack/user/azure-stack-quick-linux-portal)를 참조 하세요.
 3. **확장** 을 섡택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
 4. **추가** 탭을 클릭합니다. **새 리소스** 메뉴 블레이드가 열리고 사용 가능한 가상 머신 확장 목록이 표시됩니다. 
 5. **Azure Monitor, 업데이트 및 구성 관리** 확장을 선택 하 고 **만들기** 를 클릭 합니다. **설치 확장** 구성 창이 열립니다.
@@ -62,7 +62,7 @@ Azure의 Azure 센티널 포털의 **Virtual Machines** 에는 모든 vm 및 컴
 
 1. **Azure Stack 허브 포털** 을 엽니다.
 2. **가상 머신** 페이지로 이동하고 확장을 제거할 가상 머신을 선택합니다.
-3. **확장** , **Microsoft.EnterpriseCloud.Monitoring** 확장을 차례로 선택합니다.
+3. **확장**, **Microsoft.EnterpriseCloud.Monitoring** 확장을 차례로 선택합니다.
 4. **제거** 를 클릭 하 고 선택 내용을 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계

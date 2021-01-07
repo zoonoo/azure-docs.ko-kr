@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 5705eedfb919c792c558384f6309325dcded4b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
+ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96518824"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기
 
@@ -23,8 +23,6 @@ WAF 정책을 수신기와 연결 하면 단일 WAF 뒤에 여러 사이트가 �
 Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의 수신기에 다른 정책을 적용 하면 수신기의 정책이 적용 되지만, 수신기의 정책이 할당 된 수신기에 대해서만 적용 됩니다. Application Gateway 정책은 특정 정책이 할당 되지 않은 다른 모든 수신기에도 적용 됩니다. 
 
    > [!NOTE]
-   > URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-   > [!NOTE]
    > 방화벽 정책이 WAF에 연결 되 면 항상 해당 WAF에 연결 된 정책이 있어야 합니다. 해당 정책을 덮어쓸 수도 있지만 WAF에서 정책의 연결이 완전히 지원 되지 않습니다. 
 
 모든 새 웹 응용 프로그램 방화벽의 WAF 설정 (사용자 지정 규칙, 관리 되는 rulset 구성, 제외 등)은 WAF 정책 내에 살고 있습니다. 기존 WAF가 있는 경우 이러한 설정은 WAF 구성에 여전히 있을 수 있습니다. 새 WAF 정책으로 이동 하는 방법에 대 한 단계는이 문서의 뒷부분에 있는 waf [구성으로 Waf 구성 마이그레이션](#migrate) 을 참조 하세요. 
@@ -33,31 +31,31 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
 
 먼저 Azure Portal를 사용 하 여 관리 되는 기본 규칙 집합 (DRS)으로 기본 WAF 정책을 만듭니다.
 
-1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택 합니다. **Waf**를 검색 하 고, **웹 응용 프로그램 방화벽**을 선택 하 고, **만들기**를 선택 합니다.
-2. **WAF 정책 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력 하거나 선택 하 고 나머지 설정에 대 한 기본값을 적용 한 다음 **검토 + 만들기**를 선택 합니다.
+1. 포털의 왼쪽 위에서 **리소스 만들기** 를 선택 합니다. **Waf** 를 검색 하 고, **웹 응용 프로그램 방화벽** 을 선택 하 고, **만들기** 를 선택 합니다.
+2. **WAF 정책 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력 하거나 선택 하 고 나머지 설정에 대 한 기본값을 적용 한 다음 **검토 + 만들기** 를 선택 합니다.
 
    |설정  |값  |
    |---------|---------|
    |정책     |지역 WAF (Application Gateway)|
-   |Subscription     |구독 이름 선택|
+   |구독     |구독 이름 선택|
    |리소스 그룹     |리소스 그룹 선택|
    |정책 이름     |WAF 정책의 고유한 이름을 입력 합니다.|
-3. **연결** 탭에서 다음 설정 중 하나를 입력 한 다음 **추가**를 선택 합니다.
+3. **연결** 탭에서 다음 설정 중 하나를 입력 한 다음 **추가** 를 선택 합니다.
 
    |설정  |값  |
    |---------|---------|
    |Application Gateway 연결     |Application Gateway 프로필 이름을 선택 합니다.|
-   |수신기 연결     |Application Gateway 수신기의 이름을 선택한 다음 **추가**를 선택 합니다.|
+   |수신기 연결     |Application Gateway 수신기의 이름을 선택한 다음 **추가** 를 선택 합니다.|
 
    > [!NOTE]
    > 이미 정책을 보유 하 고 있는 Application Gateway (또는 수신기)에 정책을 할당 하는 경우 원래 정책을 덮어쓰고 새 정책으로 대체 합니다.
-4. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
+4. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다.
 
    ![WAF 정책 기본 사항](../media/create-waf-policy-ag/waf-policy-basics.png)
 
 ## <a name="configure-waf-rules-optional"></a>WAF 규칙 구성 (선택 사항)
 
-WAF 정책을 만들 때 기본적으로 *검색* 모드에 있습니다. 검색 모드에서는 WAF가 요청을 차단하지 않습니다  . 대신 일치 WAF 규칙이 WAF 로그에 로깅됩니다. 작동 중인 WAF를 보려면 모드 설정을 *방지*로 변경할 수 있습니다. 방지 모드에서는 선택한 CRS 규칙 집합에 정의 된 일치 규칙이 차단 및/또는 WAF 로그에 기록 됩니다.
+WAF 정책을 만들 때 기본적으로 *검색* 모드에 있습니다. 검색 모드에서는 WAF가 요청을 차단하지 않습니다  . 대신 일치 WAF 규칙이 WAF 로그에 로깅됩니다. 작동 중인 WAF를 보려면 모드 설정을 *방지* 로 변경할 수 있습니다. 방지 모드에서는 선택한 CRS 규칙 집합에 정의 된 일치 규칙이 차단 및/또는 WAF 로그에 기록 됩니다.
 
 ## <a name="managed-rules"></a>관리 규칙
 
@@ -67,7 +65,7 @@ Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되�
 
 ## <a name="custom-rules"></a>사용자 지정 규칙
 
-사용자 지정 규칙을 만들려면 **사용자** 지정 규칙 탭에서 **사용자 지정 규칙 추가** 를 선택 합니다. 그러면 사용자 지정 규칙 구성 페이지가 열립니다. 다음 스크린샷에서는 쿼리 문자열에 *blockme*텍스트가 포함 된 경우 요청을 차단 하도록 구성 된 예제 사용자 지정 규칙을 보여 줍니다.
+사용자 지정 규칙을 만들려면 **사용자** 지정 규칙 탭에서 **사용자 지정 규칙 추가** 를 선택 합니다. 그러면 사용자 지정 규칙 구성 페이지가 열립니다. 다음 스크린샷에서는 쿼리 문자열에 *blockme* 텍스트가 포함 된 경우 요청을 차단 하도록 구성 된 예제 사용자 지정 규칙을 보여 줍니다.
 
 [![사용자 지정 규칙 ](../media/create-waf-policy-ag/edit-custom-rule.png) 편집](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 

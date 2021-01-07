@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2020
+ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: bcbad58935300c765fdcccb1701b64f239de43fd
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357881"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916374"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -70,21 +70,17 @@ Security Center의 포털 페이지에서 다음 위치에 보안 점수가 표�
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Security Center 권장 사항 페이지의 보안 점수":::
 
-
-
 ### <a name="get-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
 
-보안 점수 API (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 [보안 점수 API](/rest/api/securitycenter/securescores) 를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 [점수 컨트롤 API](/rest/api/securitycenter/securescorecontrols) 를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+보안 점수 API를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 [보안 점수 API](/rest/api/securitycenter/securescores) 를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 [점수 컨트롤 API](/rest/api/securitycenter/securescorecontrols) 를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
 
 ![API를 통해 단일 보안 점수 검색](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 보안 점수 API를 기반으로 하는 도구에 대 한 예제는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조 하세요. 
 
-
-
 ### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Azure 리소스 그래프 (ARG)에서 보안 점수 가져오기
 
-Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 정렬 기능을 통해 클라우드 환경에서 리소스 정보에 즉시 액세스할 수 있습니다. Azure 구독 간에 프로그래밍 방식으로 또는 Azure Portal 내에서 정보를 쿼리하는 빠르고 효율적인 방법입니다. [Azure 리소스 그래프에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/governance/resource-graph/).
+Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 정렬 기능을 통해 클라우드 환경에서 리소스 정보에 즉시 액세스할 수 있습니다. Azure 구독 간에 프로그래밍 방식으로 또는 Azure Portal 내에서 정보를 쿼리하는 빠르고 효율적인 방법입니다. [Azure Resource Graph에 대한 자세한 정보](../governance/resource-graph/index.yml).
 
 인수를 사용 하 여 여러 구독의 보안 점수에 액세스 하려면:
 
@@ -114,13 +110,34 @@ Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 �
 
 1. **쿼리 실행** 을 선택 합니다.
 
+
+
+
+## <a name="tracking-your-secure-score-over-time"></a>시간에 따른 보안 점수 추적
+
+Pro 계정이 있는 사용자 Power BI 경우 **시간** 에 따른 보안 점수 Power BI 대시보드를 사용 하 여 시간에 따른 보안 점수를 추적 하 고 변경 내용을 조사할 수 있습니다.
+
+> [!TIP]
+> GitHub의 Azure Security Center 커뮤니티 전용 영역에서 보안 점수를 사용 하 여 프로그래밍 방식으로 작업 하는 데 사용할 수 있는 다른 도구 뿐만 아니라이 대시보드를 찾을 수 있습니다. https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score
+
+대시보드에는 보안 상태를 분석 하는 데 도움이 되는 다음과 같은 두 가지 보고서가 포함 되어 있습니다.
+
+- **리소스 요약** -리소스 상태와 관련 하 여 요약 된 데이터를 제공 합니다.
+- **보안 점수 요약** -점수 진행률과 관련 하 여 요약 된 데이터를 제공 합니다. "구독 당 시간에 따른 보안 점수" 차트를 사용 하 여 점수의 변화를 확인 합니다. 점수가 크게 변경 되는 경우 변경 될 수 있는 가능한 변경 내용에 대해서는 "보안 점수에 영향을 줄 수 있는 검색 된 변경 내용" 표를 확인 합니다. 이 테이블에는 권장 사항 중 하나에 대해 보안 상태가 변경 된 리소스, 새로 배포 된 리소스 또는 리소스가 삭제 됩니다.
+
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="시간에 따른 보안 점수를 추적 하 고 변경 내용을 조사 하는 데 필요한 선택적 보안 점수 PowerBI 대시보드":::
+
+
+
+
+
 ## <a name="how-your-secure-score-is-calculated"></a>보안 점수를 계산 하는 방법 
 
 전체적인 보안 점수에 대한 각 보안 컨트롤의 기여도는 권장 사항 페이지에 명확히 표시됩니다.
 
 [![향상된 보안 점수로 보안 컨트롤 도입](media/secure-score-security-controls/security-controls.png)](media/secure-score-security-controls/security-controls.png#lightbox)
 
-보안 컨트롤을 위한 가능한 모든 포인트를 구하려면 모든 리소스가 보안 컨트롤 내의 모든 보안 권장 사항을 준수해야 합니다. 예를 들어, Security Center에는 관리 포트를 보호하는 방법에 대한 여러 권장 사항이 있습니다. 과거에는 다른 문제는 해결되지 않은 상태로 두고, 관련되고 상호 종속되는 권장 사항 일부를 수정할 수 있으며 이 경우 보안 점수가 향상되었습니다. 그렇지만 객관적으로 보면 모든 문제가 해결될 때까지 보안이 개선되지 않았다고 주장하는 것이 쉽습니다. 따라서 이제는 보안 점수에 영향을 주려면 모든 문제를 수정해야 합니다.
+보안 컨트롤을 위한 가능한 모든 포인트를 구하려면 모든 리소스가 보안 컨트롤 내의 모든 보안 권장 사항을 준수해야 합니다. 예를 들어, Security Center에는 관리 포트를 보호하는 방법에 대한 여러 권장 사항이 있습니다. 보안 점수를 변경 하려면 모두 수정 해야 합니다.
 
 예를 들어 "시스템 업데이트 적용"이라는 보안 컨트롤의 최대 점수는 6포인트이며, 이 컨트롤의 잠재적 증가 값을 도구 설명에서 볼 수 있습니다.
 
@@ -128,8 +145,8 @@ Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 �
 
 시스템 업데이트 적용 컨트롤의 최대 점수는 항상 6입니다. 이 예제에는 50개의 리소스가 있습니다. 따라서 최대 점수를 50으로 나누면 결과적으로 모든 리소스는 0.12포인트를 기여합니다. 
 
-* **잠재적 증가** (0.12 x 8개의 비정상 리소스 = 0.96) - 컨트롤 내에서 사용할 수 있는 나머지 포인트입니다. 이 컨트롤의 모든 권장 사항을 수정하면 점수가 2%씩 증가합니다(이 경우 0.96포인트가 1포인트로 반올림됨). 
-* **현재 점수** (0.12 x 42개의 정상 리소스 = 5.04) - 이 컨트롤의 현재 점수입니다. 각 컨트롤의 점수로 전체 점수를 계산합니다. 이 예제에서 이 컨트롤은 현재 보안 합계에서 5.04포인트를 차지합니다.
+* **잠재적 증가**(0.12 x 8개의 비정상 리소스 = 0.96) - 컨트롤 내에서 사용할 수 있는 나머지 포인트입니다. 이 컨트롤의 모든 권장 사항을 수정하면 점수가 2%씩 증가합니다(이 경우 0.96포인트가 1포인트로 반올림됨). 
+* **현재 점수**(0.12 x 42개의 정상 리소스 = 5.04) - 이 컨트롤의 현재 점수입니다. 각 컨트롤의 점수로 전체 점수를 계산합니다. 이 예제에서 이 컨트롤은 현재 보안 합계에서 5.04포인트를 차지합니다.
 * **최대 점수** - 컨트롤 내의 모든 권장 사항을 완료하여 얻을 수 있는 최대 포인트입니다. 컨트롤의 최대 점수는 해당 컨트롤의 상대적 중요도를 나타냅니다. 가장 먼저 작업할 이슈를 심사하려면 최대 점수 값을 사용합니다. 
 
 
@@ -137,9 +154,9 @@ Azure 리소스 그래프를 사용 하면 강력한 필터링, 그룹화 및 �
 
 |메트릭|수식 및 예제|
 |-|-|
-|**보안 컨트롤의 현재 점수**|<br>![보안 컨트롤의 현재 점수를 계산하는 수식](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>각 개별 보안 컨트롤은 보안 점수에 기여합니다. 컨트롤 내의 권장 구성에 의해 영향을 받는 각 리소스는 컨트롤의 현재 점수에 기여합니다. 각 컨트롤의 현재 점수는 컨트롤 *내* 리소스의 상태를 측정한 것입니다.<br>![보안 컨트롤의 현재 점수를 계산할 때 사용되는 값을 보여 주는 도구 설명](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>이 예제에서 최대 점수 6은 정상 및 비정상 리소스의 합계인 78로 나뉩니다.<br>6 / 78 = 0.0769<br>이 값에 정상 리소스의 수(4)를 곱하여 현재 점수가 됩니다.<br>0.0769 * 4 = **0.31**<br><br>|
-|**보안 점수**<br>단일 구독|<br>![현재 보안 점수를 계산하는 수식](media/secure-score-security-controls/secure-score-equation.png)<br><br>![모든 컨트롤이 사용하도록 설정된 단일 구독 보안 점수](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>이 예제에는 모든 보안 컨트롤을 사용할 수 있는 단일 구독이 있습니다(잠재적 최대 점수 60포인트). 점수로는 가능한 60포인트 중에서 28포인트가 표시되고 나머지 32포인트는 보안 컨트롤의 "잠재적 점수 증가" 수치에 반영됩니다.<br>![컨트롤 목록 및 잠재적 점수 증가](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
-|**보안 점수**<br>여러 구독|<br>모든 구독에서 모든 리소스에 대한 현재 점수가 추가되고 단일 구독의 경우와 동일한 계산이 수행됩니다.<br><br>여러 구독을 볼 때 보안 점수는 설정된 모든 정책 내의 모든 리소스를 평가하고, 각 보안 컨트롤의 최대 점수에 미치는 조합된 영향을 그룹화합니다.<br>![모든 컨트롤이 사용하도록 설정된 여러 구독의 보안 점수](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>조합된 점수는 평균이 **아니며** , 모든 구독에서 모든 리소스의 상태를 평가한 것입니다.<br>여기서도 권장 사항 페이지로 이동하여 사용할 수 있는 잠재적 포인트를 추가하면 현재 점수(24)와 사용 가능한 최대 점수(60) 간에 차이가 있다는 것을 알 수 있습니다.|
+|**보안 컨트롤의 현재 점수**|<br>![보안 컨트롤의 점수를 계산 하는 수식](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>각 개별 보안 컨트롤은 보안 점수에 기여합니다. 컨트롤 내의 권장 구성에 의해 영향을 받는 각 리소스는 컨트롤의 현재 점수에 기여합니다. 각 컨트롤의 현재 점수는 컨트롤 *내* 리소스의 상태를 측정한 것입니다.<br>![보안 컨트롤의 현재 점수를 계산할 때 사용되는 값을 보여 주는 도구 설명](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>이 예제에서 최대 점수 6은 정상 및 비정상 리소스의 합계인 78로 나뉩니다.<br>6 / 78 = 0.0769<br>이 값에 정상 리소스의 수(4)를 곱하여 현재 점수가 됩니다.<br>0.0769 * 4 = **0.31**<br><br>|
+|**보안 점수**<br>단일 구독|<br>![구독의 보안 점수를 계산 하는 수식](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![모든 컨트롤이 사용하도록 설정된 단일 구독 보안 점수](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>이 예제에는 모든 보안 컨트롤을 사용할 수 있는 단일 구독이 있습니다(잠재적 최대 점수 60포인트). 점수로는 가능한 60포인트 중에서 28포인트가 표시되고 나머지 32포인트는 보안 컨트롤의 "잠재적 점수 증가" 수치에 반영됩니다.<br>![컨트롤 목록 및 잠재적 점수 증가](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**보안 점수**<br>여러 구독|<br>![여러 구독에 대 한 보안 점수를 계산 하는 수식](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>여러 구독에 대 한 결합 된 점수를 계산할 때 Security Center는 각 구독에 대 한 *가중치* 를 포함 합니다. 구독에 대 한 상대적 가중치는 리소스 수와 같은 요소에 따라 Security Center에 의해 결정 됩니다.<br>각 구독에 대 한 현재 점수는 단일 구독에 대 한 것과 동일한 방식으로 계산 되지만, 그 다음에는 수식에 표시 된 대로 가중치가 적용 됩니다.<br>여러 구독을 볼 때 보안 점수는 설정된 모든 정책 내의 모든 리소스를 평가하고, 각 보안 컨트롤의 최대 점수에 미치는 조합된 영향을 그룹화합니다.<br>![모든 컨트롤이 사용하도록 설정된 여러 구독의 보안 점수](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>조합된 점수는 평균이 **아니며**, 모든 구독에서 모든 리소스의 상태를 평가한 것입니다.<br>여기서도 권장 사항 페이지로 이동하여 사용할 수 있는 잠재적 포인트를 추가하면 현재 점수(24)와 사용 가능한 최대 점수(60) 간에 차이가 있다는 것을 알 수 있습니다.|
 ||||
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>보안 점수 계산에 포함 되는 권장 사항은 무엇입니까?
@@ -206,8 +223,8 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
     <td class="tg-lboi"; width=55%>- API 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- 함수 앱은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.<br>- 스토리지 계정에 보안 전송을 사용하도록 설정해야 합니다.<br>- 웹 애플리케이션은 HTTPS를 통해서만 액세스할 수 있어야 합니다.<br>- PostgreSQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.<br>- PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용 하도록 설정 해야 합니다.<br>- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용 하도록 설정 해야 함<br>- TLS는 API 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- TLS는 함수 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- TLS는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- FTPS는 API 앱에 필요 합니다.<br>- FTPS는 함수 앱에 필요 합니다.<br>- 웹 앱에서 FTPS가 필요 합니다.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리(최대 점수 4)</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br><a href="/azure/role-based-access-control/overview">RBAC(역할 기반 Access Control)</a>에서 역할 할당을 만들어 리소스에 대한 액세스를 제어합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
-    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Kubernetes Service(미리 보기)에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 웹 앱은 들어오는 모든 요청에 대해 SSL 인증서를 요청 해야 합니다.<br>- API 앱에서 관리 id를 사용 해야 합니다.<br>- 관리 id는 함수 앱에서 사용 해야 합니다.<br>- 관리 id는 웹 앱에서 사용 해야 합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리(최대 점수 4)</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br>Azure <a href="/azure/role-based-access-control/overview">RBAC (역할 기반 액세스 제어)</a>를 사용 하 여 역할 할당을 만들어 리소스에 대 한 액세스를 제어 합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
+    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Azure RBAC (역할 기반 액세스 제어)는 Kubernetes Services (미리 보기)에서 사용 해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- API 앱에서 관리 id를 사용 해야 합니다.<br>- 관리 id는 함수 앱에서 사용 해야 합니다.<br>- 관리 id는 웹 앱에서 사용 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정(최대 점수 4)</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>
@@ -215,7 +232,7 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한(최대 점수 4)</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).<br>- Azure 방화벽 (미리 보기)으로 가상 네트워크를 보호 해야 합니다.<br>- 개인 끝점은 MariaDB 서버에 대해 사용 하도록 설정 해야 합니다.<br>- MySQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.<br>- PostgreSQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 적응 네트워크 강화 권장 사항은 인터넷 연결 가상 컴퓨터에 적용 해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).<br>- Azure 방화벽 (미리 보기)으로 가상 네트워크를 보호 해야 합니다.<br>- 개인 끝점은 MariaDB 서버에 대해 사용 하도록 설정 해야 합니다.<br>- MySQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.<br>- PostgreSQL 서버에 대해 개인 끝점을 사용 하도록 설정 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용(최대 점수 3)</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 machine learning을 사용 하 여 컴퓨터 그룹의 알려진 안전한 응용 프로그램 목록을 만듭니다.<br>승인 된 응용 프로그램 목록에 대 한이 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공 합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>
@@ -242,8 +259,8 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
     <td class="tg-lboi"; width=55%>- Azure SQL Database 서버에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- 컴퓨터의 SQL server에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- Virtual Machines에서 Advanced threat protection을 사용 하도록 설정 해야 합니다.<br>- Azure App Service 요금제에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>- Azure Storage 계정에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>- Azure Kubernetes Service 클러스터에서 Advanced threat protection을 사용 하도록 설정 해야 함<br>- Azure Container Registry 레지스트리에서 Advanced threat protection을 사용 하도록 설정 해야 합니다.<br>- Azure Key Vault 자격 증명 모음에서 Advanced threat protection을 사용 하도록 설정 해야 함</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">보안 모범 사례 구현(최대 점수 0)</p></strong>최신 보안 방침에서는 네트워크 경계의 "침해를 가정"합니다. 이러한 이유로 이 컨트롤의 많은 모범 사례는 ID 관리에 중점을 둡니다.<br>키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. <a href="/azure/key-vault/key-vault-overview">Azure Key Vault</a>는 키, .pfx 파일 및 암호를 암호화하여 키와 암호를 보호합니다.<br>VPN(가상 사설망)은 가상 머신에 안전하게 액세스할 수 있는 방법입니다. VPN을 사용할 수 없는 경우 <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>과 같은 복잡한 암호 및 2단계 인증을 사용합니다. 2단계 인증은 사용자 이름 및 암호에만 의존하는 약점을 방지합니다.<br>강력한 인증 및 권한 부여 플랫폼을 사용하는 것이 또 다른 모범 사례입니다. 페더레이션된 ID를 사용하면 조직에서 권한 있는 ID의 관리를 위임할 수 있습니다. 직원의 채용을 끝내고 해당 액세스 권한을 취소해야 하는 경우에도 이러한 과정이 중요합니다.</td>
-    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>- 인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.<br>- 가상 컴퓨터에 대해 Azure Backup를 사용 하도록 설정 해야 합니다.<br>- Azure Database for MariaDB에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- Azure Database for MySQL에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- PHP는 API 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- PHP는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 API 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 함수 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Python을 API 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- Python은 함수 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Python은 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- SQL server에 대 한 감사 보존은 90 일 이상으로 설정 해야 합니다.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">보안 모범 사례 구현(최대 점수 0)</p></strong>최신 보안 방침에서는 네트워크 경계의 "침해를 가정"합니다. 이러한 이유로 이 컨트롤의 많은 모범 사례는 ID 관리에 중점을 둡니다.<br>키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. <a href="/azure/key-vault/key-vault-overview">Azure Key Vault</a>는 키, .pfx 파일 및 암호를 암호화하여 키와 암호를 보호합니다.<br>VPN(가상 사설망)은 가상 머신에 안전하게 액세스할 수 있는 방법입니다. Vpn을 사용할 수 없는 경우 <a href="/azure/active-directory/authentication/concept-mfa-howitworks">AZURE AD Multi-Factor Authentication</a>와 같은 복잡 한 암호 및 2 단계 인증을 사용 합니다. 2단계 인증은 사용자 이름 및 암호에만 의존하는 약점을 방지합니다.<br>강력한 인증 및 권한 부여 플랫폼을 사용하는 것이 또 다른 모범 사례입니다. 페더레이션된 ID를 사용하면 조직에서 권한 있는 ID의 관리를 위임할 수 있습니다. 직원의 채용을 끝내고 해당 액세스 권한을 취소해야 하는 경우에도 이러한 과정이 중요합니다.</td>
+    <td class="tg-lboi"; width=55%>- 구독에 최대 3명의 소유자를 지정해야 합니다.<br>- 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.<br>- 구독에서 읽기 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.<br>- 방화벽 및 가상 네트워크 구성을 사용한 스토리지 계정에 대한 액세스를 제한해야 합니다.<br>- RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙을 이벤트 허브 네임스페이스에서 제거해야 합니다.<br>- SQL 서버에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.<br>- 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.<br>- 이벤트 허브 인스턴스의 권한 부여 규칙을 정의해야 합니다.<br>- 스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다.<br>- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.<br>- [미리 보기] Windows Exploit Guard를 사용하도록 설정해야 합니다. <br>- [미리 보기] 모드 게스트 구성 에이전트를 설치해야 합니다.<br>- 인터넷에 연결 되지 않은 가상 컴퓨터는 네트워크 보안 그룹을 사용 하 여 보호 해야 합니다.<br>- 가상 컴퓨터에 대해 Azure Backup를 사용 하도록 설정 해야 합니다.<br>- Azure Database for MariaDB에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- Azure Database for MySQL에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용 하도록 설정 해야 합니다.<br>- PHP는 API 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- PHP는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 API 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 함수 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Java는 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Python을 API 앱에 대 한 최신 버전으로 업데이트 해야 합니다.<br>- Python은 함수 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- Python은 웹 앱에 대 한 최신 버전으로 업데이트 되어야 합니다.<br>- SQL server에 대 한 감사 보존은 90 일 이상으로 설정 해야 합니다.<br>- 웹 앱은 들어오는 모든 요청에 대해 SSL 인증서를 요청 해야 합니다.</td>
   </tr>
 </tbody>
 </table>
@@ -271,3 +288,4 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
 
 - [권장 사항의 다양한 요소에 대해 알아보기](security-center-recommendations.md)
 - [권장 사항을 수정하는 방법 알아보기](security-center-remediate-recommendations.md)
+- [안전한 점수를 사용 하 여 프로그래밍 방식으로 작업 하기 위한 GitHub 기반 도구 보기](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)

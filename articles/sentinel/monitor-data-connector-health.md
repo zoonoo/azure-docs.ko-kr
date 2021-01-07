@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428767"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656993"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>이 Azure 센티널 통합 문서를 사용 하 여 데이터 커넥터의 상태 모니터링
 
@@ -42,12 +42,12 @@ ms.locfileid: "94428767"
 
 1. **개요** 탭에는 선택한 작업 영역에 있는 데이터 수집의 일반적인 상태 (볼륨 측정, EPS 비율 및 마지막으로 받은 시간)가 표시 됩니다.
 
-1. **데이터 수집** 이상 탭은 테이블 및 데이터 소스에 따라 데이터 수집 프로세스의 비정상 상태를 검색 하는 데 도움이 됩니다. 각 탭에는 특정 테이블에 대 한 잘못 된 내용이 표시 됩니다. **일반** 탭에는 테이블 컬렉션이 포함 되어 있습니다. 변칙은 이상 **점수** 를 반환 하는 **series_decompose_anomalies ()** 함수를 사용 하 여 계산 됩니다. [이 함수에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). 계산할 함수에 대해 다음 매개 변수를 설정 합니다.
+1. **데이터 수집** 이상 탭은 테이블 및 데이터 소스에 따라 데이터 수집 프로세스의 비정상 상태를 검색 하는 데 도움이 됩니다. 각 탭에는 특정 테이블에 대 한 잘못 된 내용이 표시 됩니다. **일반** 탭에는 테이블 컬렉션이 포함 되어 있습니다. 변칙은 이상 **점수** 를 반환 하는 **series_decompose_anomalies ()** 함수를 사용 하 여 계산 됩니다. [이 함수에 대해 자세히 알아보세요](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). 계산할 함수에 대해 다음 매개 변수를 설정 합니다.
 
-    - **AnomaliesTimeRange** :이 시간 선택은 데이터 컬렉션 변칙 뷰에만 적용 됩니다.
-    - **SampleInterval** : 지정 된 시간 범위 내에서 데이터가 샘플링 되는 시간 간격입니다. 변칙 점수는 마지막 간격의 데이터에 대해서만 계산 됩니다.
-    - **PositiveAlertThreshold** :이 값은 긍정 변칙 점수 임계값을 정의 합니다. 10 진수 값을 허용 합니다.
-    - **NegativeAlertThreshold** :이 값은 음의 변칙 점수 임계값을 정의 합니다. 10 진수 값을 허용 합니다.
+    - **AnomaliesTimeRange**: 이 시간 선택기는 데이터 컬렉션 변칙 보기에만 적용됩니다.
+    - **SampleInterval**: 지정된 시간 범위 내에서 데이터가 샘플링되는 시간 간격입니다. 변칙 점수는 마지막 간격의 데이터에 대해서만 계산됩니다.
+    - **PositiveAlertThreshold**: 이 값은 양의 변칙 점수 임계값을 정의합니다. 10 진수 값을 허용 합니다.
+    - **NegativeAlertThreshold**: 이 값은 음의 변칙 점수 임계값을 정의합니다. 10 진수 값을 허용 합니다.
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="데이터 커넥터 상태 모니터링 통합 문서 예외 페이지" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 

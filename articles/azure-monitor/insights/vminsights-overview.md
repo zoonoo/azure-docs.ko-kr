@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eaf2d7075ca09aeb3cfaa2dfea81fd0f8d65ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022499"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685310"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>VM용 Azure Monitor란?
+# <a name="overview-of-azure-monitor-for-vms"></a>VM용 Azure Monitor 개요
 
 VM용 Azure Monitor는 실행 중인 프로세스 및 다른 리소스에 대 한 종속성을 포함 하 여 가상 머신 및 가상 머신 확장 집합의 성능 및 상태를 모니터링 합니다. 이를 통해 성능 병목 현상 및 네트워크 문제를 식별 하 여 중요 한 응용 프로그램의 예측 가능한 성능 및 가용성을 제공할 수 있으며 문제가 다른 종속성과 관련 되어 있는지 여부를 파악할 수도 있습니다.
 
@@ -26,8 +26,6 @@ VM용 Azure Monitor는 다음과 같은 Windows 및 Linux 운영 체제를 지�
 - 다른 클라우드 환경에서 호스트 되는 가상 컴퓨터
   
 
-
-
 VM용 Azure Monitor은 데이터를 Azure Monitor 로그에 저장 합니다 .이를 통해 강력한 집계 및 필터링을 제공 하 고 시간에 따른 데이터 추세를 분석할 수 있습니다. 가상 컴퓨터에서 직접 단일 VM의이 데이터를 보거나, Azure Monitor를 사용 하 여 여러 Vm의 집계 보기를 제공할 수 있습니다.
 
 ![Azure Portal의 가상 머신 인사이트 큐브 뷰](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -37,6 +35,7 @@ VM용 Azure Monitor은 데이터를 Azure Monitor 로그에 저장 합니다 .�
 VM용 Azure Monitor에 대 한 직접적인 비용은 없지만 Log Analytics 작업 영역에서 작업에 대 한 요금이 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 게시된 가격 책정에 따라, Azure Monitor용 VM에 다음에 대한 요금이 청구됩니다.
 
 - 데이터는 에이전트에서 수집 작업 영역에 저장 됩니다.
+- 게스트 상태에서 수집 된 상태 데이터 (미리 보기)
 - 로그 및 상태 데이터를 기반으로 하는 경고 규칙입니다.
 - 경고 규칙에서 전송 되는 알림입니다.
 

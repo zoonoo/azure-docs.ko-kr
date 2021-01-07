@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
 ms.openlocfilehash: a089631ab199b0fe997bba001561c6b027034e2c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628750"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993689"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 인터넷 정보 서비스 (IIS)는 Log Analytics 에이전트가 수집 하 고 [Azure Monitor 로그](data-platform.md)에 저장할 수 있는 로그 파일에 사용자 작업을 저장 합니다.

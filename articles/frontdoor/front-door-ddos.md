@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: jodowns
-ms.openlocfilehash: 58efeaebcc9f643c725cde54fcbda6f65c4bd700
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 24a8a559d72eae4dab0b6e740b34890f1d7ff114
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415167"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96350786"
 ---
 # <a name="ddos-protection-on-front-door"></a>DDoS protection on Front 도어
 
@@ -36,7 +36,7 @@ Azure Front 문에는 DDoS (분산 서비스 거부) 공격을 방지 하는 데
 
 ## <a name="caching"></a>캐싱
 
-[전면 도어의 캐싱 기능](./front-door-caching.md) 을 사용 하 여 공격에 의해 생성 된 대량 트래픽 볼륨의 백 엔드를 보호할 수 있습니다. 캐시 된 리소스는 프런트 도어에 지 노드에서 반환 되므로 백 엔드로 전달 되지 않습니다. 동적 응답에 대 한 짧은 캐시 만료 시간 (초 또는 분)도 백 엔드 서비스의 부하를 크게 줄일 수 있습니다. 캐싱 개념 및 패턴에 대 한 자세한 내용은 [캐싱 고려 사항](https://docs.microsoft.com/azure/architecture/best-practices/caching) 및 [캐시 배제 패턴](https://docs.microsoft.com/azure/architecture/patterns/cache-aside)을 참조 하세요.
+[전면 도어의 캐싱 기능](./front-door-caching.md) 을 사용 하 여 공격에 의해 생성 된 대량 트래픽 볼륨의 백 엔드를 보호할 수 있습니다. 캐시 된 리소스는 프런트 도어에 지 노드에서 반환 되므로 백 엔드로 전달 되지 않습니다. 동적 응답에 대 한 짧은 캐시 만료 시간 (초 또는 분)도 백 엔드 서비스의 부하를 크게 줄일 수 있습니다. 캐싱 개념 및 패턴에 대 한 자세한 내용은 [캐싱 고려 사항](/azure/architecture/best-practices/caching) 및 [캐시 배제 패턴](/azure/architecture/patterns/cache-aside)을 참조 하세요.
 
 ## <a name="web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)
 

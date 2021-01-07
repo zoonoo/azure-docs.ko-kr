@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
-ms.custom: contperfq1
-ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565926"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97034074"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
 
@@ -108,7 +108,7 @@ PowerShell, Azure Portal 또는 CLI를 사용 하 여 Express 경로 회로 프�
 다음 섹션에서는 Express 경로 파트너 연결 모델에 대 한 다양 한 Express 경로 회로 상태를 간략하게 설명 합니다.
 각 Express 경로 파트너 회로에는 두 가지 상태가 있습니다.
 
-* **ServiceProviderProvisioningState** 는 연결 공급자 측의 상태를 나타냅니다. *프로비전되지 않음*, *프로비전 중* 또는 *프로비전됨*일 수 있습니다. 피어 링을 구성 하기 위해 Express 경로 회로는 프로 비전 된 상태 여야 합니다. **이 상태는 express 경로 파트너 회로와만 관련 되며 express 경로 직접 회로의 속성에는 표시 되지**않습니다.
+* **ServiceProviderProvisioningState** 는 연결 공급자 측의 상태를 나타냅니다. *프로비전되지 않음*, *프로비전 중* 또는 *프로비전됨* 일 수 있습니다. 피어 링을 구성 하기 위해 Express 경로 회로는 프로 비전 된 상태 여야 합니다. **이 상태는 express 경로 파트너 회로와만 관련 되며 express 경로 직접 회로의 속성에는 표시 되지** 않습니다.
 
 * **상태** 는 Microsoft의 프로 비전 상태를 나타냅니다. Express 경로 회로를 만들 때이 속성을 사용으로 설정 합니다.
 
@@ -162,7 +162,7 @@ Status                           : Enabled
 
 Bgp 프로 비전 상태는 Microsoft edge에서 BGP 세션을 사용 하도록 설정 했는지 여부를 보고 합니다. 개인 또는 Microsoft 피어 링을 사용 하려면 상태를 사용 하도록 설정 해야 합니다.
 
-특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 *보급된 공용 접두사 상태*를 호출하는 다른 상태가 있습니다. 보급 된 공용 접두사 상태는 BGP 세션을 사용 하 고 라우팅이 종단 간에 작동 하기 위해 *구성* 된 상태 여야 합니다. 
+특히 Microsoft 피어링의 경우 BGP 세션 상태를 확인하는 것이 중요합니다. BGP 프로비전 상태 외에도 *보급된 공용 접두사 상태* 를 호출하는 다른 상태가 있습니다. 보급 된 공용 접두사 상태는 BGP 세션을 사용 하 고 라우팅이 종단 간에 작동 하기 위해 *구성* 된 상태 여야 합니다. 
 
 보급된 공용 접두사 상태가 *유효성 검사가 필요한* 상태로 설정된 경우 보급된 접두사가 라우팅 레지스트리의의 AS 번호와 일치하지 않기 때문에 BGP 세션을 사용하지 않습니다.
 

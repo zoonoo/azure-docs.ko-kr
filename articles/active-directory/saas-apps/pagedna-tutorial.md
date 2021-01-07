@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513831"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95993927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>자습서: PageDNA와 Azure Active Directory 통합
 
@@ -95,7 +95,7 @@ PageDNA에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 창에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 

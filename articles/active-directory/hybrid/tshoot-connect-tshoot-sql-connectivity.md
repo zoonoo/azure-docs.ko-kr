@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/14/2018
+ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f8b87684847089a05341a5a68f6ad3e2ac86b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce2525927b38a2d3300d15b7d34324f5ff59e4e5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85355865"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457420"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect와 관련된 SQL 연결 문제 해결
 이 문서에서는 Azure AD Connect와 SQL Server 간의 연결 문제를 해결하는 방법에 대해 설명합니다. 
@@ -29,10 +29,12 @@ ms.locfileid: "85355865"
 ![SQL 오류](./media/tshoot-connect-tshoot-sql-connectivity/sql1.png)
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
-PowerShell 창을 열고 ADSyncTools PowerShell 모듈을 가져옵니다.
+PowerShell 창을 열고 ADSyncTools Powershell 모듈을 가져옵니다.
 
 ``` powershell
-Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools.psm1" 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
+Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
 ```
 
 >[!NOTE]
@@ -40,13 +42,13 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 또는 [PowerShell 3.0/4.0용 PackageManagement PowerShell 모듈 미리 보기 - 2016년 3월](/powershell/module/PackageManagement)을 설치합니다. 
 
 - **모든 명령 표시**: `Get-Command -Module AdSyncTools` 
-- 다음 매개 변수를 사용 하 여 **powershell 함수를 실행 합니다**. `Connect-ADSyncDatabase`
+- 다음 매개 변수를 사용 하 여 **PowerShell 함수를 실행 합니다**. `Connect-ADSyncDatabase`
     - 서버. SQL Server 이름입니다.
     - Instance. (선택 사항) 사용할 SQL Server 인스턴스 이름 및 선택적 포트 번호입니다. 기본 인스턴스를 사용하려면 이 매개 변수를 지정하지 마세요.
-    - UserName. (선택 사항) 연결할 사용자 계정입니다. 비워 두는 경우 현재 로그인한 사용자가 사용됩니다. 원격 SQL Server에 연결하는 경우 Azure AD Connect SQL 연결에 대해 만든 사용자 지정 서비스 계정이어야 합니다. Azure AD Connect는 Azure AD Connect 동기화 서비스 계정을 사용하여 원격 SQL 서버를 인증합니다.
+    - UserName. (선택 사항) 연결할 사용자 계정입니다. 비워 두는 경우 현재 로그인한 사용자가 사용됩니다. 원격 SQL Server에 연결 하는 경우 SQL 연결을 Azure AD Connect 하기 위해 만든 사용자 지정 서비스 계정 이어야 합니다. Azure AD Connect는 Azure AD Connect 동기화 서비스 계정을 사용하여 원격 SQL 서버를 인증합니다.
     - Password. (선택 사항) 제공된 UserName에 대한 암호입니다.
 
-이 PowerShell 함수는 전달된 자격 증명을 사용하여 지정된 SQL Server 및 인스턴스에 바인딩하거나 현재 사용자의 자격 증명을 사용하려고 합니다. SQL Server를 찾을 수 없으면 스크립트에서 SQL Browser 서비스에 연결하여 사용하도록 설정된 프로토콜 및 포트를 확인하려고 합니다.
+이 PowerShell 함수는 전달 된 자격 증명을 사용 하 여 지정 된 SQL Server 및 인스턴스에 바인딩하거나 현재 사용자의 자격 증명을 사용 합니다. SQL Server를 찾을 수 없으면 스크립트에서 SQL Browser 서비스에 연결하여 사용하도록 설정된 프로토콜 및 포트를 확인하려고 합니다.
 
 서버 이름만 사용하는 예제:
 ```

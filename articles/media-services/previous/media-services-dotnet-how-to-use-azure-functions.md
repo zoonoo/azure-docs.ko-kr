@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 520ad8f68e0f995ea05456ebcf6de4c1ba3f9418
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913639"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030308"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input** 을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조하세요.
+이 문서에서는 Media Services를 사용하여 Azure Functions 만들기를 시작하는 방법을 보여 줍니다. 이 문서에 정의된 Azure 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input** 을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다. Azure Functions를 검토 하려면 **Azure Functions** 섹션에서 [개요](../../azure-functions/functions-overview.md) 및 기타 항목을 참조 하세요.
 
 Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배포하려는 경우 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 확인하세요. 이 리포지토리는 Blob Storage에서 직접 콘텐츠를 수집하고 Blob Storage에 콘텐츠를 인코딩 및 작성하는 데 관련된 워크플로를 표시하는 데 Media Services를 사용하는 예제를 포함합니다. 또한 WebHooks 및 Azure 큐를 통해 작업 알림을 모니터링하는 방법의 예도 포함되어 있습니다. [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 리포지토리의 예제를 기반으로 함수를 개발할 수도 있습니다. 함수를 배포하려면 **Azure에 배포** 단추를 누릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 첫 번째 함수를 만들기 전에 활성 Azure 계정이 있어야 합니다. Azure 계정이 아직 없는 경우 [체험 계정을 사용](https://azure.microsoft.com/free/)할 수 있습니다.
 - AMS(Azure Media Services) 계정에서 작업을 수행하거나 Media Services에서 보낸 이벤트를 수신 대기하는 Azure Functions를 만들려는 경우 [여기](media-services-portal-create-account.md)에 설명한 대로 AMS 계정을 만들어야 합니다.
@@ -49,15 +49,15 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 이 문서에 정의된 함수는 앱 설정에 다음 환경 변수가 있다고 가정합니다.
 
-**AMSAADTenantDomain** : Azure AD 테넌트 엔드포인트입니다. AMS API 연결에 대한 자세한 내용은 [이](media-services-use-aad-auth-to-access-ams-api.md) 문서를 참조하세요.
+**AMSAADTenantDomain**: Azure AD 테넌트 엔드포인트입니다. AMS API 연결에 대한 자세한 내용은 [이](media-services-use-aad-auth-to-access-ams-api.md) 문서를 참조하세요.
 
-**AMSRESTAPIEndpoint** : REST API 엔드포인트를 나타내는 URI입니다. 
+**AMSRESTAPIEndpoint**: REST API 엔드포인트를 나타내는 URI입니다. 
 
-**AMSClientId** : Azure AD 애플리케이션 클라이언트 ID입니다.
+**AMSClientId**: Azure AD 애플리케이션 클라이언트 ID입니다.
 
-**AMSClientSecret** : Azure AD 애플리케이션 클라이언트 암호입니다.
+**AMSClientSecret**: Azure AD 애플리케이션 클라이언트 암호입니다.
 
-**StorageConnection** : Media Services 계정과 연결된 계정의 스토리지 연결입니다. 이 값은 **function.json** 파일 및 **run.csx** 파일(아래 설명 참조)에서 사용됩니다.
+**StorageConnection**: Media Services 계정과 연결된 계정의 스토리지 연결입니다. 이 값은 **function.json** 파일 및 **run.csx** 파일(아래 설명 참조)에서 사용됩니다.
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -75,7 +75,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 4. **만들기** 를 클릭합니다. 
 
-## <a name="files"></a>파일
+## <a name="files"></a>Files
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. Azure Portal을 사용하여 함수를 만들 경우 **function.json** 및 **run.csx** 가 자동으로 만들어집니다. **project.json** 파일을 추가하고 업로드해야 합니다. 이 섹션의 나머지 부분에서는 각 파일을 간략하게 설명하고 해당 정의를 표시합니다.
 
@@ -83,7 +83,7 @@ Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연
 
 ### <a name="functionjson"></a>function.json
 
-function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합니다. 런타임은 이 파일을 사용하여 모니터링할 이벤트와 함수 실행에서 데이터를 전달하고 반환하는 방법을 결정합니다. 자세한 내용은 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-reference.md#function-code)을 참조하세요.
+function.json 파일은 함수 바인딩 및 기타 구성 설정을 정의합니다. 런타임은 이 파일을 사용하여 모니터링할 이벤트와 함수 실행에서 데이터를 전달하고 반환하는 방법을 결정합니다. 자세한 내용은 [HTTP 및 webhook 바인딩 Azure Functions](../../azure-functions/functions-reference.md#function-code)를 참조 하세요.
 
 >[!NOTE]
 >함수가 실행되지 않도록 **disabled** 속성을 **true** 로 설정합니다. 
@@ -129,7 +129,7 @@ project.json에 다음과 같은 정의를 추가합니다.
     
 ### <a name="runcsx"></a>run.csx
 
-함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input** (경로에 지정됨)을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
+함수에 대한 C# 코드입니다.  아래 정의된 함수는 새 MP4 파일에 대한 스토리지 계정 컨테이너 **input**(경로에 지정됨)을 모니터링합니다. 파일이 스토리지 컨테이너에 포함되면 blob 트리거가 함수를 실행합니다.
     
 이 섹션에 정의된 예제는 다음을 보여 줍니다. 
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442085"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860629"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
 
@@ -45,7 +45,7 @@ ms.locfileid: "92442085"
 ## <a name="limitations"></a>제한 사항
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Azure AD의 DNS 확인 도메인
-페더레이션 하려는 도메인은 Azure AD에서 DNS를 확인**하지**않아야 합니다. 비관리형(이메일 확인 또는 "바이럴") Azure AD 테넌트의 DNS는 확인되지 않으므로 이러한 테넌트와의 직접 페더레이션을 설정할 수 있습니다.
+페더레이션 하려는 도메인은 Azure AD에서 DNS를 확인 **하지** 않아야 합니다. 비관리형(이메일 확인 또는 "바이럴") Azure AD 테넌트의 DNS는 확인되지 않으므로 이러한 테넌트와의 직접 페더레이션을 설정할 수 있습니다.
 
 ### <a name="authentication-url"></a>인증 URL
 직접 페더레이션은 인증 URL의 도메인이 대상 도메인과 일치하거나 인증 URL이 다음과 같은 허용된 ID 공급자 중 하나인 정책에만 허용됩니다(이 목록은 변경될 수 있음).
@@ -66,7 +66,7 @@ ms.locfileid: "92442085"
 ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신합니다. 그러나 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
 
 ### <a name="limit-on-federation-relationships"></a>페더레이션 관계에 대한 제한
-현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션이 모두 포함됩니다.
+현재 최대 1,000개의 페더레이션 관계가 지원됩니다. 이 제한에는 [내부 페더레이션](/powershell/module/msonline/set-msoldomainfederationsettings) 및 직접 페더레이션이 모두 포함됩니다.
 
 ### <a name="limit-on-multiple-domains"></a>여러 도메인에 대한 제한
 현재 동일한 테넌트의 여러 도메인과의 직접 페더레이션을 지원하지 않습니다.
@@ -144,13 +144,13 @@ IdP에서 발급한 WS-Fed 토큰에 필요한 클레임은 다음과 같습니�
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 직접 페더레이션을 구성하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **외부 ID** > **모든 ID 공급자**를 차례로 선택합니다.
-3. ID 공급자를 선택한 다음, **새 SAML/WS-Fed IdP**를 선택합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. 
+2. **외부 ID** > **모든 ID 공급자** 를 차례로 선택합니다.
+3. 을 선택 하 고 **새 SAML/WS-급지됨 IdP** 를 선택 합니다.
 
     ![새 SAML 또는 WS-Fed IdP를 추가하는 단추를 보여주는 스크린샷](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. **새 SAML/WS-Fed IdP** 페이지의 **ID 공급자 프로토콜** 아래에서 **SAML** 또는 **WS-FED**를 선택합니다.
+4. **새 SAML/WS-Fed IdP** 페이지의 **ID 공급자 프로토콜** 아래에서 **SAML** 또는 **WS-FED** 를 선택합니다.
 
     ![SAML 또는 WS-Fed IdP 페이지의 구문 분석 단추를 보여주는 스크린샷](media/direct-federation/new-saml-wsfed-idp-parse.png)
 
@@ -163,7 +163,7 @@ IdP에서 발급한 WS-Fed 토큰에 필요한 클레임은 다음과 같습니�
    > [!NOTE]
    > 메타데이터 URL은 선택 사항이지만 사용하는 것이 좋습니다. 메타데이터 URL을 제공하면 Azure AD에서 만료되는 서명 인증서를 자동으로 갱신할 수 있습니다. 어떤 이유로든 인증서를 만료 시간 전에 회전하거나 메타데이터 URL을 제공하지 않으면 Azure AD에서 인증서를 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트해야 합니다.
 
-7. **저장**을 선택합니다. 
+7. **저장** 을 선택합니다. 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>PowerShell을 사용하여 Azure AD에서 직접 페더레이션을 구성하려면 다음을 수행합니다.
 
@@ -192,22 +192,22 @@ IdP에서 발급한 WS-Fed 토큰에 필요한 클레임은 다음과 같습니�
  
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>직접 페더레이션 관계를 편집하려면 어떻게 할까요?
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **외부 ID**를 선택합니다.
-3. **모든 ID 공급자**를 선택합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. 
+2. **외부 ID** 를 선택합니다.
+3. **모든 ID 공급자** 를 선택합니다.
 4. **SAML/WS-Fed ID 공급자** 아래에서 공급자를 선택합니다.
 5. ID 공급자 세부 정보 창에서 값을 업데이트합니다.
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>직접 페더레이션을 제거하려면 어떻게 할까요?
 직접 페더레이션 설정은 제거할 수 있습니다. 이 설정을 제거하면 이미 초대에 응한 직접 페더레이션 게스트 사용자는 로그인할 수 없습니다. 그러나 디렉터리에서 리소스를 삭제하고 다시 초대하여 리소스에 대한 액세스 권한을 다시 부여할 수 있습니다. Azure AD 포털에서 ID 공급자와 직접 페더레이션을 제거하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory**를 선택합니다. 
-2. **외부 ID**를 선택합니다.
-3. **모든 ID 공급자**를 선택합니다.
-4. ID 공급자를 선택한 다음, **삭제**를 선택합니다. 
-5. **예**를 선택하여 삭제를 확인합니다. 
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다. 
+2. **외부 ID** 를 선택합니다.
+3. **모든 ID 공급자** 를 선택합니다.
+4. ID 공급자를 선택한 다음, **삭제** 를 선택합니다. 
+5. **예** 를 선택하여 삭제를 확인합니다. 
 
 PowerShell을 사용하여 ID 공급자와 직접 페더레이션을 제거하려면 다음을 수행합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).

@@ -10,12 +10,12 @@ ms.date: 09/03/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dadoolab
-ms.openlocfilehash: 9265caa3054cde6af311e655db2b2496524e8d24
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: a24d9531b7b2d2d2f31eec275da7db7e48b9c74a
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757165"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96615875"
 ---
 Communication Services Python SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -47,7 +47,7 @@ Communication Services Python SMS 클라이언트 라이브러리를 사용하�
 mkdir sms-quickstart && cd sms-quickstart
 ```
 
-텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **send-sms.py**라는 파일을 만들고 기본 예외 처리를 비롯한 프로그램의 구조를 추가합니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
+텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **send-sms.py** 라는 파일을 만들고 기본 예외 처리를 비롯한 프로그램의 구조를 추가합니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
 
 ```python
 import os
@@ -67,7 +67,7 @@ except Exception as ex:
 애플리케이션 디렉터리에 있는 동안 `pip install` 명령을 사용하여 Python 패키지용 Azure Communication Services SMS 클라이언트 라이브러리를 설치합니다.
 
 ```console
-pip install azure-communication-sms
+pip install azure-communication-sms --pre
 ```
 
 ## <a name="object-model"></a>개체 모델
@@ -81,7 +81,7 @@ pip install azure-communication-sms
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-연결 문자열로 **SmsClient**를 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
+연결 문자열로 **SmsClient** 를 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
 
 ```python
 # This code demonstrates how to fetch your connection string
@@ -94,7 +94,7 @@ sms_client = SmsClient.from_connection_string(connection_string)
 
 ## <a name="send-an-sms-message"></a>SMS 메시지 보내기
 
-Send 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **send-sms.py**의 `try` 블록 끝에 추가합니다.
+Send 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **send-sms.py** 의 `try` 블록 끝에 추가합니다.
 
 ```python
 

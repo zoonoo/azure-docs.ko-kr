@@ -1,22 +1,22 @@
 ---
-title: Synapse Studio와 storage 간의 연결 문제 해결
-description: Synapse Studio와 storage 간의 연결 문제 해결
+title: Synapse Studio와 스토리지 간의 연결 문제 해결
+description: Synapse Studio와 스토리지 간의 연결 문제 해결
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b8a64d24242e6fb34c963b14429fdfee2398f62
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8cf440a517c1a3496b3df438fdd0d2534609908f
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557870"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733114"
 ---
-# <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Azure Synapse Analytics Synapse Studio와 저장소 간 연결 문제 해결
+# <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Azure Synapse Analytics Synapse Studio와 스토리지 간 연결 문제 해결
 
-Synapse Studio (미리 보기)에서 연결 된 저장소에 있는 데이터 리소스를 탐색할 수 있습니다. 이 가이드는 데이터 리소스에 액세스 하려고 할 때 연결 문제를 해결 하는 데 도움이 됩니다. 
+Synapse Studio에서는 연결 된 저장소에 있는 데이터 리소스를 탐색할 수 있습니다. 이 가이드는 데이터 리소스에 액세스 하려고 할 때 연결 문제를 해결 하는 데 도움이 됩니다. 
 
 ## <a name="case-1-storage-account-lacks-proper-permissions"></a>Case #1: 저장소 계정에 적절 한 사용 권한이 부족 합니다.
 
@@ -24,7 +24,11 @@ Synapse Studio (미리 보기)에서 연결 된 저장소에 있는 데이터 �
 
 자세한 오류 메시지는 다를 수 있지만 오류 메시지의 일반적인 의미는 "이 요청은이 작업을 수행할 권한이 없습니다."입니다.
 
-![저장소 연결 문제 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.1.png)
+연결 된 저장소 노드에서 다음을 수행 합니다.  
+![저장소 연결 문제 1](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1.png)
+
+저장소 컨테이너 노드에서 다음을 수행 합니다.  
+![저장소 연결 문제 1a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-1a.png)
 
 **해결** 방법: 계정을 적절 한 역할에 할당 하려면 Azure Portal를 [사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할 할당](../../storage/common/storage-auth-aad-rbac-portal.md) 을 참조 하세요.
 
@@ -33,7 +37,11 @@ Synapse Studio (미리 보기)에서 연결 된 저장소에 있는 데이터 �
 
 Synapse Studio에서 "Data"--> "연결 됨"의 저장소 구조를 확장 하는 화살표를 선택 하면 왼쪽 패널에 "REQUEST_SEND_ERROR" 문제가 표시 될 수 있습니다. 아래 문제 증상 스크린샷을 참조 하세요.
 
-![저장소 연결 문제 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue.2.png)
+연결 된 저장소 노드에서 다음을 수행 합니다.  
+![저장소 연결 문제 2](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2.png)
+
+저장소 컨테이너 노드에서 다음을 수행 합니다.  
+![저장소 연결 문제 2a](media/troubleshoot-synapse-studio-and-storage-connectivity/storage-connectivity-issue-2a.png)
 
 이 문제는 다음과 같은 몇 가지 이유로 발생할 수 있습니다.
 
@@ -51,6 +59,7 @@ Synapse Studio에서 "Data"--> "연결 됨"의 저장소 구조를 확장 하는
 
 * 액세스 하는 저장소 리소스가 Azure Data Lake Storage Gen2 되 고 방화벽 및 vNet (저장소 개인 끝점이 구성 된) 뒤에 있습니다.
 * 액세스 하는 컨테이너 리소스가 삭제 되었거나 존재 하지 않습니다.
+* 교차 테 넌 트: 사용자가 로그인 하는 데 사용한 작업 영역 테 넌 트가 저장소 계정의 테 넌 트와 동일 하지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

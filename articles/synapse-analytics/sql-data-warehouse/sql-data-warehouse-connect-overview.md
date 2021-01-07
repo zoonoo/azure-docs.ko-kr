@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL 풀에 연결
+title: Azure Synapse에서 SQL 풀에 연결
 description: SQL 풀에 연결 합니다.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,24 +10,24 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: ab169f7b814dedbc63f3cb6cddbfb822bdb57ab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
+ms.openlocfilehash: 3483fa03e8c05101b88bde5c964b74b382d32a52
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016447"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462841"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Synapse SQL 풀에 연결
+# <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Azure Synapse에서 SQL 풀에 연결 
 
-SQL 풀에 연결 합니다.
+Azure Synapse에서 SQL 풀에 연결 합니다.
 
 ## <a name="find-your-server-name"></a>서버 이름 찾기
 
 다음 예제의 서버 이름은 sqlpoolservername.database.windows.net입니다. 정규화된 서버 이름을 찾으려면:
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. **Azure Synapse Analytics**를 클릭 합니다.
+2. **Azure Synapse Analytics** 를 클릭 합니다.
 3. 연결 하려는 SQL 풀을 클릭 합니다.
 4. 전체 서버 이름을 찾습니다.
 
@@ -37,7 +37,7 @@ SQL 풀에 연결 합니다.
 
 SQL 풀은 [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)및 [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 지원 합니다. 최신 버전 및 설명서를 찾으려면 이전 드라이버 중 하나를 클릭합니다.
 
-Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시**를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
+Azure Portal에서 사용 중인 드라이버에 대한 연결 문자열을 자동으로 생성하려면 앞의 예제에서 **데이터베이스 연결 문자열 표시** 를 클릭합니다. 또한 각 드라이버에 대한 연결 문자열의 모양에 대한 몇 가지 예는 다음과 같습니다.
 
 > [!NOTE]
 > 사용 불가능한 짧은 시간 동안 연결이 효력을 유지하려면 연결 제한 시간을 300초로 설정하는 것이 좋습니다.
@@ -70,7 +70,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 SQL 풀은 연결 및 개체 생성 중에 몇 가지 설정을 표준화 합니다. 이러한 설정은 재정의되거나 다음을 포함할 수 없습니다.
 
-| 데이터베이스 설정 | 값 |
+| SQL 풀 설정 | 값 |
 |:--- |:--- |
 | [ANSI_NULLS](/sql/t-sql/statements/set-ansi-nulls-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |켜기 |
 | [QUOTED_IDENTIFIERS](/sql/t-sql/statements/set-quoted-identifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) |켜기 |

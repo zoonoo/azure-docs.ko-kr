@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b65553edf61d8e646e7238a5385656fe75a3156f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.openlocfilehash: a1a0b89dee5a6d57e6f317c5f6c8b61ffeda3c33
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311375"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97029076"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
 
@@ -339,8 +339,8 @@ hyperdrive_run = experiment.submit(hd_config)
 
 
 웜 시작은 샘플링 방법에 따라 다르게 처리 됩니다.
-- **Bayesian 샘플링** : 이전 실행에서의 평가판은 새 샘플을 선택 하 고 기본 메트릭을 개선 하기 위한 이전 기술 자료로 사용 됩니다.
-- **무작위 샘플링** 또는 **그리드 샘플링** : 조기 종료는 이전 실행의 정보를 사용 하 여 실행이 제대로 수행 되지 않는 것을 확인 합니다. 
+- **Bayesian 샘플링**: 이전 실행에서의 평가판은 새 샘플을 선택 하 고 기본 메트릭을 개선 하기 위한 이전 기술 자료로 사용 됩니다.
+- **무작위 샘플링** 또는 **그리드 샘플링**: 조기 종료는 이전 실행의 정보를 사용 하 여 실행이 제대로 수행 되지 않는 것을 확인 합니다. 
 
 준비 하려는 부모 실행 목록을 지정 합니다.
 

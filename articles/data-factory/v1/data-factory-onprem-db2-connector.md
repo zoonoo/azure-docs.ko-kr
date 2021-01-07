@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74931778"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96001068"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,7 +32,7 @@ ms.locfileid: "74931778"
 
 Data Factory는 현재 DB2 데이터베이스에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원하고, 다른 데이터 저장소에서 DB2 데이터베이스로 데이터를 이동하는 작업은 지원하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 Data Factory는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 사용하여 온-프레미스 DB2 데이터베이스에 연결하는 작업을 지원합니다. 데이터를 이동하기 위해 게이트웨이 데이터 파이프라인을 설정하는 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 DB2가 Azure IaaS VM에 호스팅되는 경우에도 게이트웨이가 필요합니다. 데이터 저장소와 동일한 IaaS VM에 게이트웨이를 설치할 수 있습니다. 게이트웨이에서 데이터베이스에 연결할 수 있으면 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -80,17 +80,17 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 | 속성 | Description | 필수 |
 | --- | --- | --- |
-| **type** |이 속성을 **OnPremisesDb2**로 설정해야 합니다. |예 |
-| **server** |DB2 서버의 이름입니다. |예 |
-| **database** |DB2 데이터베이스의 이름입니다. |예 |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
-| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
-| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
-| **password** |사용자 계정의 암호입니다. |아니요 |
-| **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
+| **type** |이 속성을 **OnPremisesDb2** 로 설정해야 합니다. |Yes |
+| **server** |DB2 서버의 이름입니다. |Yes |
+| **database** |DB2 데이터베이스의 이름입니다. |Yes |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |No |
+| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |Yes |
+| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |No |
+| **password** |사용자 계정의 암호입니다. |No |
+| **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
-데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob Storage, Azure Table Storage 등)에서 비슷합니다.
+데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy** 과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob Storage, Azure Table Storage 등)에서 비슷합니다.
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
@@ -99,7 +99,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **tableName** |연결된 서비스에서 참조하는 DB2 데이터베이스 인스턴스의 테이블 이름입니다. 대/소문자를 구분합니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
 ## <a name="copy-activity-properties"></a>복사 활동 속성
-복사 활동을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. **name**, **description**, **inputs** 테이블, **outputs** 테이블 및 **policy**와 같은 복사 활동 속성은 모든 유형의 활동에 사용할 수 있습니다. 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 대해 다릅니다. 복사 활동의 경우 속성은 데이터 원본 및 싱크의 형식에 따라 달라집니다.
+복사 활동을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. **name**, **description**, **inputs** 테이블, **outputs** 테이블 및 **policy** 와 같은 복사 활동 속성은 모든 유형의 활동에 사용할 수 있습니다. 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 대해 다릅니다. 복사 활동의 경우 속성은 데이터 원본 및 싱크의 형식에 따라 달라집니다.
 
 복사 활동의 경우 원본이 **RelationalSource** 형식인 경우(DB2 포함) **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
@@ -163,7 +163,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 샘플에서는 시계열 데이터에 대한 "timestamp"라는 열이 있는 "MyTable"이라는 DB2 테이블을 만들었다고 가정합니다.
 
-**external** 속성이 "true"로 설정되었습니다. 이 설정을 사용하는 경우 이 데이터 세트는 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory 서비스에 알려줍니다. **type** 속성은 **RelationalTable**로 설정되어 있습니다.
+**external** 속성이 "true"로 설정되었습니다. 이 설정을 사용하는 경우 이 데이터 세트는 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory 서비스에 알려줍니다. **type** 속성은 **RelationalTable** 로 설정되어 있습니다.
 
 
 ```json
@@ -251,7 +251,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 **복사 활동에 대한 파이프라인**
 
-파이프라인에는 지정된 입력 및 출력 데이터 세트를 사용하도록 구성되고 매 시간마다 실행하도록 예약된 복사 활동이 포함됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **Query** 속성에 지정 된 SQL 쿼리는 "Orders" 테이블에서 데이터를 선택 합니다.
+파이프라인에는 지정된 입력 및 출력 데이터 세트를 사용하도록 구성되고 매 시간마다 실행하도록 예약된 복사 활동이 포함됩니다. 파이프라인에 대한 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고 **sink** 형식은 **BlobSink** 로 설정됩니다. **Query** 속성에 지정 된 SQL 쿼리는 "Orders" 테이블에서 데이터를 선택 합니다.
 
 ```json
 {

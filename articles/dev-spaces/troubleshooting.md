@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: a30ae2d78d682427cf53c8f98b0ca70b441d72e1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf8c4d2040445fa3417fce02fb4b66216b21f3b5
+ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636812"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96548871"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -379,6 +379,17 @@ spec:
       [...]
 ```
 
+### <a name="error-cannot-get-connection-details-for-azure-dev-spaces-controller-abc-because-it-is-in-the-failed-state-something-wrong-might-have-happened-with-your-controller"></a>"Failed ' 상태 이므로 Azure Dev Spaces 컨트롤러 ' a s '에 대 한 연결 정보를 가져올 수 없습니다. 컨트롤러에서 문제가 발생 했을 수 있습니다. "
+
+이 문제를 해결 하려면 클러스터에서 Azure Dev Spaces 컨트롤러를 삭제 하 고 다시 설치 하십시오.
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+또한 Azure Dev Spaces 사용이 중지 될 때 마이그레이션을 고려 하 여 더 나은 환경을 제공 하는 [Kubernetes에](migrate-to-bridge-to-kubernetes.md) 연결 하세요.
+
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Azure Dev Spaces에서 Visual Studio 및 Visual Studio Code를 사용할 때 발생하는 일반적인 이슈
 
 ### <a name="error-required-tools-and-configurations-are-missing"></a>"필수 도구 및 구성이 누락되었습니다." 오류 발생
@@ -530,7 +541,7 @@ Azure Dev Spaces 컨트롤러에 액세스하는 사용자는 AKS 클러스터�
 서비스에 액세스하려고 할 때 이 오류가 표시될 수 있습니다. 예를 들어 브라우저에서 서비스의 URL로 이동하는 경우입니다. 이 오류는 컨테이너 포트를 사용할 수 없음을 의미합니다. 이 오류는 다음과 같은 이유로 발생할 수 있습니다.
 
 * 컨테이너가 아직 빌드 및 배포되는 중입니다. `azds up`을 시작하거나 디버거를 시작한 다음, 성공적으로 배포하기 전에 컨테이너에 액세스하려고 하는 경우 이 문제가 발생할 수 있습니다.
-* 포트 구성이 _Dockerfile_ , Helm 차트 및 포트를 여는 모든 서버 코드에서 일치하지 않습니다.
+* 포트 구성이 _Dockerfile_, Helm 차트 및 포트를 여는 모든 서버 코드에서 일치하지 않습니다.
 
 이 문제를 해결하려면
 

@@ -9,7 +9,7 @@
       href: rbac-and-directory-admin-roles.md
 - name: 빠른 시작
   items:
-    - name: 사용자에 대한 액세스 권한 보기
+    - name: 사용자에 대한 액세스 확인
       href: check-access.md
     - name: ARM 템플릿
       displayName: Resource Manager
@@ -82,7 +82,7 @@
           href: deny-assignments-powershell.md
         - name: REST API
           href: deny-assignments-rest.md
-    - name: 사용자 지정 역할 만들기 또는 업데이트
+    - name: 사용자 지정 역할 만들기
       items:
         - name: 개요
           href: custom-roles.md

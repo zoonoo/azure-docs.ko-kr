@@ -1,5 +1,5 @@
 ---
-title: 서버리스 SQL 풀(미리 보기)
+title: 서버리스 SQL 풀
 description: Azure Synapse Analytics의 서버리스 SQL 풀에 대해 알아봅니다.
 services: synapse analytics
 author: filippopovic
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e0d47567c3bc0b05c47efafa3bdc8b297a7bdbea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306860"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96463178"
 ---
-# <a name="serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 서버리스 SQL 풀(미리 보기) 
+# <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 서버리스 SQL 풀 
 
-모든 Azure Synapse Analytics 작업 영역(미리 보기)에는 레이크에 있는 데이터를 쿼리하는 데 사용할 수 있는 서버리스 SQL 풀(미리 보기) 엔드포인트가 제공됩니다.
+모든 Azure Synapse Analytics 작업 영역에는 레이크에 있는 데이터를 쿼리하는 데 사용할 수 있는 서버리스 SQL 풀 엔드포인트가 제공됩니다.
 
 서버리스 SQL 풀은 데이터 레이크의 데이터에 대한 쿼리 서비스입니다. 다음 기능을 통해 데이터에 액세스할 수 있도록 합니다.
  
@@ -123,7 +123,7 @@ ms.locfileid: "93306860"
 
   이 인증 방법은 사용자 이름과 암호를 사용합니다.
 
-- **Azure Active Directory 인증** :
+- **Azure Active Directory 인증**:
 
   이 인증 방법은 Azure Active Directory에서 관리하는 ID를 사용합니다. Azure AD 사용자의 경우 다단계 인증을 사용하도록 설정할 수 있습니다. [가능한 경우](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) Active Directory 인증(통합 보안)을 사용합니다.
 
@@ -141,7 +141,7 @@ Azure AD 인증을 사용하는 경우 사용자는 서버리스 SQL 풀 및 Azu
 
 - **SAS(공유 액세스 서명)** 는 스토리지 계정의 리소스에 대한 위임된 액세스를 제공합니다. SAS를 사용하면 계정 키를 공유하지 않고 스토리지 계정의 리소스에 대한 액세스 권한을 클라이언트에 부여할 수 있습니다. SAS는 SAS를 사용하는 클라이언트에 부여하는 액세스 유형에 대한 세부적인 제어(유효성 간격, 부여된 권한, 허용되는 IP 주소 범위 및 허용되는 프로토콜(https/http))를 제공합니다.
 
-- **사용자 ID** ("통과"라고도 함)는 서버리스 SQL 풀에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터에 대한 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 데이터에 액세스할 수 있는 권한을 부여해야 합니다. 이 권한 부여 유형은 서버리스 SQL 풀에 로그인한 Azure AD 사용자를 사용하므로 SQL 사용자 유형에는 지원되지 않습니다.
+- **사용자 ID**("통과"라고도 함)는 서버리스 SQL 풀에 로그인한 Azure AD 사용자의 ID를 사용하여 데이터에 대한 액세스 권한을 부여하는 권한 부여 유형입니다. 데이터에 액세스하기 전에 Azure Storage 관리자가 Azure AD 사용자에게 데이터에 액세스할 수 있는 권한을 부여해야 합니다. 이 권한 부여 유형은 서버리스 SQL 풀에 로그인한 Azure AD 사용자를 사용하므로 SQL 사용자 유형에는 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 엔드포인트 연결 및 파일 쿼리에 대한 추가 정보는 다음 문서에서 확인할 수 있습니다. 

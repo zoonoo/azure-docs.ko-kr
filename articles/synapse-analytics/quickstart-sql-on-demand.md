@@ -1,24 +1,24 @@
 ---
 title: '빠른 시작: 서버리스 SQL 풀 사용'
-description: 이 빠른 시작에서는 서버리스 SQL 풀(미리 보기)을 사용하여 다양한 형식의 파일을 얼마나 쉽게 쿼리할 수 있는지 알아봅니다.
+description: 이 빠른 시작에서는 서버리스 SQL 풀을 사용하여 다양한 형식의 파일을 얼마나 쉽게 쿼리할 수 있는지 알아봅니다.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321687"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96450499"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>빠른 시작: 서버리스 SQL 풀 사용
 
-Synapse 서버리스 SQL 풀(미리 보기)은 Azure Storage에 있는 파일에서 SQL 쿼리를 실행할 수 있는 서버리스 쿼리 서비스입니다. 이 빠른 시작에서는 서버리스 SQL 풀을 사용하여 다양한 형식의 파일을 쿼리하는 방법을 알아봅니다. 지원되는 형식은 [OPENROWSET](sql/develop-openrowset.md)에 나열되어 있습니다.
+Synapse 서버리스 SQL 풀은 Azure Storage에 있는 파일에서 SQL 쿼리를 실행할 수 있는 서버리스 쿼리 서비스입니다. 이 빠른 시작에서는 서버리스 SQL 풀을 사용하여 다양한 형식의 파일을 쿼리하는 방법을 알아봅니다. 지원되는 형식은 [OPENROWSET](sql/develop-openrowset.md)에 나열되어 있습니다.
 
 이 빠른 시작에서는 쿼리를 보여줍니다. CSV, Apache Parquet 및 JSON 파일.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487110"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661191"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -86,46 +86,46 @@ Location = East US <br>
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> 클래식 VNet 만들기
 
-클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
+클래식 VNet이 없는 상태에서 이 단계를 연습으로 실행하는 경우에는 [이 문서](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)와 위의 [예제](#values) 설정 값을 사용하여 VNet을 만들 수 있습니다.
 
 VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨이가 동적인지 확인합니다. 정적인 경우 [로컬 사이트를 구성](#local)하기 전에 먼저 VPN 게이트웨이를 삭제해야 합니다.
 
 1. [Azure 포털](https://ms.portal.azure.com)에서 Azure 계정으로 로그인합니다.
-2. **+ 리소스 만들기**를 클릭하여 '새' 페이지를 엽니다.
+2. **+ 리소스 만들기** 를 클릭하여 '새' 페이지를 엽니다.
 3. ‘Marketplace 검색’ 필드에 ‘Virtual Network’를 입력합니다. 대신, 네트워킹 -> Virtual Network를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
 4. 반환된 목록에서 'Virtual Network'를 찾아서 클릭하여 Virtual Network 페이지를 엽니다. 
 5. 가상 네트워크 페이지에서 '클래식'을 선택하여 클래식 VNet을 만듭니다. 여기에서 기본값을 사용하면, 대신 Resource Manager VNet을 사용하게 됩니다.
 
 ### <a name="2-configure-the-local-site"></a>2. <a name="local"></a> 로컬 사이트 구성
 
-1. **모든 리소스**로 이동하여 목록에서 **ClassicVNet**을 찾습니다.
+1. **모든 리소스** 로 이동하여 목록에서 **ClassicVNet** 을 찾습니다.
 2. 메뉴의 **설정** 섹션에서 **게이트웨이** 를 클릭 한 다음 배너를 클릭 하 여 게이트웨이를 만듭니다.
   ![VPN Gateway 구성](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "VPN Gateway 구성")
-3. **새 VPN 연결** 페이지에서 **연결 유형**으로 **사이트 간**을 선택합니다.
-4. **로컬 사이트**로 **필요한 설정 구성**을 클릭합니다. 그러면 **로컬 사이트** 페이지가 열립니다.
+3. **새 VPN 연결** 페이지에서 **연결 유형** 으로 **사이트 간** 을 선택합니다.
+4. **로컬 사이트** 로 **필요한 설정 구성** 을 클릭합니다. 그러면 **로컬 사이트** 페이지가 열립니다.
 5. **로컬 사이트** 페이지에서 리소스 관리자 VNet을 언급하는 이름을 만듭니다. 예: 'RMVNetLocal'.
 6. Resource Manager VNet에 대한 VPN 게이트웨이에 공용 IP 주소가 이미 있는 경우 **VPN 게이트웨이 IP 주소** 필드의 값을 사용합니다. 이 단계를 연습으로 수행하는 경우 또는 아직 Resource Manager VNet에 대한 가상 네트워크 게이트웨이가 없는 경우 자리 표시자 IP 주소를 만들 수 있습니다. 자리 표시자 IP 주소 형식이 올바른지 확인합니다. 나중에 자리 표시자 IP 주소를 Resource Manager 가상 네트워크 게이트웨이의 공용 IP 주소로 바꿉니다.
-7. **클라이언트 주소 공간**에 Resource Manager VNet에 대한 가상 네트워크 IP 주소 공간 [값](#connectoverview)을 사용합니다. 이 설정은 Resource Manager 가상 네트워크로 라우팅할 주소 공간을 지정하는 데 사용합니다. 이 예에서는 RMVNet의 주소 범위인 192.168.0.0/16을 사용합니다.
-8. **확인**을 클릭하여 값을 저장하고 **새 VPN 연결** 페이지로 돌아갑니다.
+7. **클라이언트 주소 공간** 에 Resource Manager VNet에 대한 가상 네트워크 IP 주소 공간 [값](#connectoverview)을 사용합니다. 이 설정은 Resource Manager 가상 네트워크로 라우팅할 주소 공간을 지정하는 데 사용합니다. 이 예에서는 RMVNet의 주소 범위인 192.168.0.0/16을 사용합니다.
+8. **확인** 을 클릭하여 값을 저장하고 **새 VPN 연결** 페이지로 돌아갑니다.
 
 ### <a name="3-create-the-virtual-network-gateway"></a><a name="classicgw"></a>3. 가상 네트워크 게이트웨이 만들기
 
 1. **새 VPN 연결** 페이지에서 **게이트웨이 즉시 만들기** 확인란을 선택합니다.
-2. **선택적 게이트웨이 구성**을 클릭하여 **게이트웨이 구성** 페이지를 엽니다.
+2. **선택적 게이트웨이 구성** 을 클릭하여 **게이트웨이 구성** 페이지를 엽니다.
 
    ![게이트웨이 구성 페이지 열기](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "게이트웨이 구성 페이지 열기")
-3. **서브넷 - 필요한 설정 구성**을 클릭하여 **서브넷 추가** 페이지를 엽니다. **이름**이 필수 값인 **GatewaySubnet**으로 이미 구성되어 있습니다.
-4. **주소 범위**는 게이트웨이 서브넷에 대한 범위를 나타냅니다. 게이트웨이 서브넷을 /29 주소 범위(주소 3개)로 만들 수 있지만 더 많은 IP 주소를 포함하는 게이트웨이 서브넷을 만드는 것이 좋습니다. 그러면 사용 가능한 IP 주소가 필요할 수 있는 향후 구성을 수용하게 됩니다. 가능하면 /27 또는 /28을 사용합니다. 이 단계를 연습으로 사용하는 경우 다음 [예제 값](#values)을 참조할 수 있습니다. 이 예제에서는 '10.0.0.32/28'을 사용합니다. **확인**을 클릭하여 게이트웨이 서브넷을 만듭니다.
-5. **게이트웨이 구성** 페이지에서 **크기**는 게이트웨이 SKU를 나타냅니다. VPN 게이트웨이에 대한 게이트웨이 SKU를 선택합니다.
-6. **라우팅 유형**이 **동적**인지 확인하고 **확인**을 클릭하여 **새 VPN 연결** 페이지로 돌아갑니다.
-7. **새 VPN 연결** 페이지에서 **확인**을 클릭하여 VPN 게이트웨이 만들기를 시작합니다. VPN 게이트웨이 만들기를 완료하는 데 최대 45분이 걸릴 수 있습니다.
+3. **서브넷 - 필요한 설정 구성** 을 클릭하여 **서브넷 추가** 페이지를 엽니다. **이름** 이 필수 값인 **GatewaySubnet** 으로 이미 구성되어 있습니다.
+4. **주소 범위** 는 게이트웨이 서브넷에 대한 범위를 나타냅니다. 게이트웨이 서브넷을 /29 주소 범위(주소 3개)로 만들 수 있지만 더 많은 IP 주소를 포함하는 게이트웨이 서브넷을 만드는 것이 좋습니다. 그러면 사용 가능한 IP 주소가 필요할 수 있는 향후 구성을 수용하게 됩니다. 가능하면 /27 또는 /28을 사용합니다. 이 단계를 연습으로 사용하는 경우 다음 [예제 값](#values)을 참조할 수 있습니다. 이 예제에서는 '10.0.0.32/28'을 사용합니다. **확인** 을 클릭하여 게이트웨이 서브넷을 만듭니다.
+5. **게이트웨이 구성** 페이지에서 **크기** 는 게이트웨이 SKU를 나타냅니다. VPN 게이트웨이에 대한 게이트웨이 SKU를 선택합니다.
+6. **라우팅 유형** 이 **동적** 인지 확인하고 **확인** 을 클릭하여 **새 VPN 연결** 페이지로 돌아갑니다.
+7. **새 VPN 연결** 페이지에서 **확인** 을 클릭하여 VPN 게이트웨이 만들기를 시작합니다. VPN 게이트웨이 만들기를 완료하는 데 최대 45분이 걸릴 수 있습니다.
 
 ### <a name="4-copy-the-virtual-network-gateway-public-ip-address"></a><a name="ip"></a>4. 가상 네트워크 게이트웨이 공용 IP 주소를 복사 합니다.
 
 가상 네트워크 게이트웨이를 만든 후에 게이트웨이 IP 주소를 볼 수 있습니다. 
 
-1. 클래식 VNet으로 이동한 후 **개요**를 클릭합니다.
-2. **VPN 연결**을 클릭하여 VPN 연결 페이지를 엽니다. VPN 연결 페이지에서 공용 IP 주소를 볼 수 있습니다. 이 주소는 가상 네트워크 게이트웨이에 할당된 공용 IP 주소입니다. IP 주소를 기록해 둡니다. 나중 단계에서 Resource Manager 로컬 네트워크 게이트웨이 구성 설정 관련 작업을 수행할 때 사용합니다. 
+1. 클래식 VNet으로 이동한 후 **개요** 를 클릭합니다.
+2. **VPN 연결** 을 클릭하여 VPN 연결 페이지를 엽니다. VPN 연결 페이지에서 공용 IP 주소를 볼 수 있습니다. 이 주소는 가상 네트워크 게이트웨이에 할당된 공용 IP 주소입니다. IP 주소를 기록해 둡니다. 나중 단계에서 Resource Manager 로컬 네트워크 게이트웨이 구성 설정 관련 작업을 수행할 때 사용합니다. 
 3. 게이트웨이 연결의 상태를 볼 수 있습니다. 만든 로컬 네트워크 사이트는 '연결 중'으로 표시됩니다. 연결을 만든 후에는 상태가 변경됩니다. 상태 보기를 마치면 이 페이지를 닫을 수 있습니다.
 
 ## <a name="section-2---configure-the-resource-manager-vnet-settings"></a><a name="rmvnet"></a>섹션 2 - Resource Manager VNet 설정 구성
@@ -184,7 +184,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 이 섹션에서는 로컬 사이트 설정을 지정할 때 사용한 자리 표시자 IP 주소를 Resource Manager VPN 게이트웨이 IP 주소와 바꿉니다. 이 섹션에서는 클래식(SM) PowerShell cmdlet을 사용합니다.
 
 1. Azure Portal에서 클래식 가상 네트워크로 이동합니다.
-2. 가상 네트워크에 대한 페이지에서 **개요**를 클릭합니다.
+2. 가상 네트워크에 대한 페이지에서 **개요** 를 클릭합니다.
 3. **VPN 연결** 섹션에서 그래픽의 로컬 사이트 이름을 클릭합니다.
 
    ![VPN-연결](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN 연결")
@@ -194,25 +194,25 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 5. 로컬 사이트에 대한 연결 페이지에서 로컬 사이트의 이름을 클릭하여 **로컬 사이트** 페이지를 엽니다.
 
    ![오픈 로컬 사이트](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "로컬 사이트 열기")
-6. **로컬 사이트** 페이지에서 **VPN 게이트웨이 IP 주소**를 리소스 관리자 게이트웨이의 IP 주소로 바꿉니다.
+6. **로컬 사이트** 페이지에서 **VPN 게이트웨이 IP 주소** 를 리소스 관리자 게이트웨이의 IP 주소로 바꿉니다.
 
    ![게이트웨이-ip 주소](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "게이트웨이 IP 주소")
-7. **확인**을 클릭하여 IP 주소를 업데이트합니다.
+7. **확인** 을 클릭하여 IP 주소를 업데이트합니다.
 
 ## <a name="section-4---create-resource-manager-to-classic-connection"></a><a name="RMtoclassic"></a>섹션 4 - 클래식 연결에 대해 Resource Manager 만들기
 
 이번 단계에서는 Azure Portal을 사용하여 Resource Manager VNet에서 클래식 VNet으로 연결을 구성합니다.
 
-1. **모든 리소스**에서 로컬 네트워크 게이트웨이를 찾습니다. 이 예제의 경우 로컬 네트워크 게이트웨이는 **ClassicVNetLocal**입니다.
-2. **구성**을 클릭하여 IP 주소 값이 클래식 VNet에 대한 VPN 게이트웨이인지 확인합니다. 필요한 경우 업데이트하고 **저장**을 클릭합니다. 페이지를 닫습니다.
-3. **모든 리소스**에서 로컬 네트워크 게이트웨이를 클릭합니다.
-4. **연결**을 클릭하여 연결 페이지를 엽니다.
+1. **모든 리소스** 에서 로컬 네트워크 게이트웨이를 찾습니다. 이 예제의 경우 로컬 네트워크 게이트웨이는 **ClassicVNetLocal** 입니다.
+2. **구성** 을 클릭하여 IP 주소 값이 클래식 VNet에 대한 VPN 게이트웨이인지 확인합니다. 필요한 경우 업데이트하고 **저장** 을 클릭합니다. 페이지를 닫습니다.
+3. **모든 리소스** 에서 로컬 네트워크 게이트웨이를 클릭합니다.
+4. **연결** 을 클릭하여 연결 페이지를 엽니다.
 5. **연결** 페이지에서 **+** 를 클릭하여 연결을 추가합니다.
 6. **연결 추가** 페이지에서 연결의 이름을 지정합니다. 예: 'RMtoClassic'.
-7. **사이트 간**이 페이지에 이미 선택되어 있습니다.
+7. **사이트 간** 이 페이지에 이미 선택되어 있습니다.
 8. 이 사이트와 연결할 가상 네트워크 게이트웨이를 선택합니다.
-9. **공유 키**를 만듭니다. 이 키는 클래식 VNet에서 Resource Manager VNet에 만드는 연결에도 사용됩니다. 키를 생성하거나 만들 수 있습니다. 이 예제에서는 'abc123'을 사용했지만 좀 더 복잡한 항목을 사용할 수 있고 사용해야 합니다.
-10. **확인**을 클릭하여 연결을 만듭니다.
+9. **공유 키** 를 만듭니다. 이 키는 클래식 VNet에서 Resource Manager VNet에 만드는 연결에도 사용됩니다. 키를 생성하거나 만들 수 있습니다. 이 예제에서는 'abc123'을 사용했지만 좀 더 복잡한 항목을 사용할 수 있고 사용해야 합니다.
+10. **확인** 을 클릭하여 연결을 만듭니다.
 
 ## <a name="section-5---create-classic-to-resource-manager-connection"></a><a name="classictoRM"></a>섹션 5 - 클래식에서 Resource Manager 연결 만들기
 
@@ -273,11 +273,11 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 ### <a name="3-create-the-connection"></a>3. 연결을 만듭니다.
 
-공유 키를 설정하고 클래식 VNet에서 Resource Manager VNet으로 연결을 만듭니다. 포털을 사용하여 공유 키를 설정할 수 없습니다. 클래식 버전의 PowerShell cmdlet을 사용하여 로그인한 상태에서 이러한 단계를 실행해야 합니다. 이 작업에는 **Add-AzureAccount**를 사용합니다. 그러지 않으면 '-AzureVNetGatewayKey'를 설정할 수 없습니다.
+공유 키를 설정하고 클래식 VNet에서 Resource Manager VNet으로 연결을 만듭니다. 포털을 사용하여 공유 키를 설정할 수 없습니다. 클래식 버전의 PowerShell cmdlet을 사용하여 로그인한 상태에서 이러한 단계를 실행해야 합니다. 이 작업에는 **Add-AzureAccount** 를 사용합니다. 그러지 않으면 '-AzureVNetGatewayKey'를 설정할 수 없습니다.
 
-- 이 예제에서 **-VNetName**은 클래식 VNet의 이름이며 네트워크 구성 파일에 있습니다. 
-- **-LocalNetworkSiteName**은 로컬 사이트에 대해 지정한 이름이며 네트워크 구성 파일에 있습니다.
-- **-Sharedkey** 는 생성 하 고 지정 하는 값입니다. 이 예제에서는 *abc123*을 사용했으나 좀 더 복잡한 항목을 생성할 수 있습니다. 중요한 점은 여기에서 지정한 값이 클래식 연결에 대해 Resource Manager를 만들 때 지정한 값과 동일해야 한다는 것입니다.
+- 이 예제에서 **-VNetName** 은 클래식 VNet의 이름이며 네트워크 구성 파일에 있습니다. 
+- **-LocalNetworkSiteName** 은 로컬 사이트에 대해 지정한 이름이며 네트워크 구성 파일에 있습니다.
+- **-Sharedkey** 는 생성 하 고 지정 하는 값입니다. 이 예제에서는 *abc123* 을 사용했으나 좀 더 복잡한 항목을 생성할 수 있습니다. 중요한 점은 여기에서 지정한 값이 클래식 연결에 대해 Resource Manager를 만들 때 지정한 값과 동일해야 한다는 것입니다.
 
 ```powershell
 Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `

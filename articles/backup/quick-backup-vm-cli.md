@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328822"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562341"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI를 사용하여 Azure에서 가상 머신 백업
+# <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure에서 가상 머신 백업
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure PowerShell](quick-backup-vm-powershell.md)을 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 이 단계를 수행할 수도 있습니다.
 
 이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure CLI를 사용하여 VM을 만들](../virtual-machines/linux/quick-create-cli.md) 수 있습니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0.18 이상을 사용해야 합니다. CLI 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+ - 이 빠른 시작에는 Azure CLI 버전 2.0.18 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -28,8 +28,8 @@ Recovery Services 자격 증명 모음은 Azure VM과 같은 각 보호된 리�
 
 [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create)를 사용하여 Recovery Services 자격 증명 모음을 만듭니다. 보호하려는 VM으로 동일한 리소스 그룹 및 위치를 지정합니다. [VM 빠른 시작](../virtual-machines/linux/quick-create-cli.md)을 사용한 경우 다음이 만들어집니다.
 
-- *myResourceGroup*이라는 이름의 리소스 그룹,
-- *myVM*이라는 이름의 VM,
+- *myResourceGroup* 이라는 이름의 리소스 그룹,
+- *myVM* 이라는 이름의 VM,
 - *eastus* 위치의 리소스.
 
 ```azurecli-interactive
@@ -83,7 +83,7 @@ az backup protection enable-for-vm \
 - `--item-name`은 VM의 이름임
 - `--retain-until` 값은 UTC 시간 형식(**dd-mm-yyyy**)인 최근 사용 가능한 날짜로 설정합니다. 여기서 복구 지점을 사용하려고 합니다.
 
-다음 예제에서는 *myVM*이라는 VM을 백업하고 복구 지점의 만료를 2017년 10월 18일로 설정합니다.
+다음 예제에서는 *myVM* 이라는 VM을 백업하고 복구 지점의 만료를 2017년 10월 18일로 설정합니다.
 
 ```azurecli-interactive
 az backup protection backup-now \
@@ -105,7 +105,7 @@ az backup job list \
     --output table
 ```
 
-출력은 다음 예제와 비슷합니다. 여기서는 백업 작업 상태가 *InProgress*라고 표시됩니다.
+출력은 다음 예제와 비슷합니다. 여기서는 백업 작업 상태가 *InProgress* 라고 표시됩니다.
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -114,7 +114,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-백업 작업의 *상태*가 *완료됨*으로 보고되는 경우 VM은 Recovery Services로 보호되고 전체 복구 지점이 저장됩니다.
+백업 작업의 *상태* 가 *완료됨* 으로 보고되는 경우 VM은 Recovery Services로 보호되고 전체 복구 지점이 저장됩니다.
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

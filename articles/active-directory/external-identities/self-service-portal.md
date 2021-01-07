@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9cd421224ad134b4df853b06b3bc34333a0613
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8a5b800e78448afcc970010535ba12b543d3cc74
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896109"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96860510"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Azure AD B2B 공동 작업 등록을 위한 셀프 서비스
 
@@ -28,7 +28,7 @@ ms.locfileid: "92896109"
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>Azure Active Directory B2B 초대 API
 
-조직에서는 [Microsoft Graph 초대 관리자 API](/graph/api/resources/invitation?view=graph-rest-1.0) 를 사용 하 여 B2B 게스트 사용자에 대 한 고유한 온 보 딩 환경을 만들 수 있습니다. 셀프 서비스 B2B 게스트 사용자 등록을 제공 하려는 경우 [AZURE AD 자격 관리](../governance/entitlement-management-overview.md)를 사용 하는 것이 좋습니다. 그러나 사용자 고유의 환경을 구축 하려는 경우 [초대 만들기 API](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) 를 사용 하 여 사용자 지정 된 초대 전자 메일을 B2B 사용자에 게 직접 자동으로 보낼 수 있습니다 (예:). 또는 앱이 생성 응답에서 반환 된 inviteRedeemUrl를 사용 하 여 초대 된 사용자에 게 원하는 통신 메커니즘을 통해 자신의 초대를 만들 수 있습니다.
+조직에서는 [Microsoft Graph 초대 관리자 API](/graph/api/resources/invitation) 를 사용 하 여 B2B 게스트 사용자에 대 한 고유한 온 보 딩 환경을 만들 수 있습니다. 셀프 서비스 B2B 게스트 사용자 등록을 제공 하려는 경우 [AZURE AD 자격 관리](../governance/entitlement-management-overview.md)를 사용 하는 것이 좋습니다. 그러나 사용자 고유의 환경을 구축 하려는 경우 [초대 만들기 API](/graph/api/invitation-post?tabs=http) 를 사용 하 여 사용자 지정 된 초대 전자 메일을 B2B 사용자에 게 직접 자동으로 보낼 수 있습니다 (예:). 또는 앱이 생성 응답에서 반환 된 inviteRedeemUrl를 사용 하 여 초대 된 사용자에 게 원하는 통신 메커니즘을 통해 자신의 초대를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

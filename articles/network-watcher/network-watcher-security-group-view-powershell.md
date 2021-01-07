@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 69fe84d6546e3fcb9e905a6b77ad3d9af3ed4d51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da4ebfa6a9ce64b03e6e1d29956f740f6cb3c1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077954"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960633"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -27,7 +27,7 @@ ms.locfileid: "87077954"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> 보안 그룹 보기 API는 더 이상 유지 되지 않으며 곧 사용 되지 않을 예정입니다. 동일한 기능을 제공 하는 [효과적인 보안 규칙 기능](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) 을 사용 하세요. 
+> 보안 그룹 보기 API는 더 이상 유지 되지 않으며 곧 사용 되지 않을 예정입니다. 동일한 기능을 제공 하는 [효과적인 보안 규칙 기능](./network-watcher-security-group-view-overview.md) 을 사용 하세요. 
 
 보안 그룹 보기는 가상 컴퓨터에 적용되는 효과적으로 구성된 네트워크 보안 규칙을 반환합니다. 이 기능은 VM에 구성된 네트워크 보안 그룹 및 규칙을 감사하고 진단하여 트래픽을 올바르게 허용하거나 거부하는 데 유용합니다. 이 문서에서는 PowerShell을 사용하여 가상 컴퓨터에 구성된 효과적인 보안 규칙을 검색하는 방법을 설명합니다.
 
@@ -70,7 +70,7 @@ $secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatche
 
 ## <a name="viewing-the-results"></a>결과 보기
 
-다음 예제는 반환된 결과의 축약된 응답입니다. 결과는 **NetworkInterfaceSecurityRules**, **DefaultSecurityRules** 및 **EffectiveSecurityRules**라는 그룹으로 구분되는 가상 머신에서 효과적으로 적용된 보안 규칙을 모두 표시합니다.
+다음 예제는 반환된 결과의 축약된 응답입니다. 결과는 **NetworkInterfaceSecurityRules**, **DefaultSecurityRules** 및 **EffectiveSecurityRules** 라는 그룹으로 구분되는 가상 머신에서 효과적으로 적용된 보안 규칙을 모두 표시합니다.
 
 ```
 NetworkInterfaces : [
@@ -132,5 +132,3 @@ NetworkInterfaces : [
 ## <a name="next-steps"></a>다음 단계
 
 [Network Watcher를 사용하여 NSG(네트워크 보안 그룹) 감사](network-watcher-nsg-auditing-powershell.md)를 방문하여 네트워크 보안 그룹의 유효성 검사를 자동화하는 방법을 알아봅니다.
-
-

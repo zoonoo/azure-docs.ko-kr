@@ -10,13 +10,13 @@ ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 04/14/2020
-ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/16/2020
+ms.openlocfilehash: 49dfed7faac1e55a40bc7b7ddd5e9555519350a2
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782861"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617309"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
 
-## <a name="using-powershell"></a>PowerShell 사용
+## <a name="using-powershell"></a>PowerShell 사용하기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -100,7 +100,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 > [!NOTE]
 > SQL Server 참여자 역할에는 LTR 백업을 삭제할 수 있는 권한이 없습니다.
 
-RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 서버에 속하는 LTR 백업에 액세스 하려면 해당 서버의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
+Azure RBAC 권한은 *구독* 또는 *리소스 그룹* 범위에서 부여할 수 있습니다. 그러나 삭제 된 서버에 속하는 LTR 백업에 액세스 하려면 해당 서버의 *구독* 범위에서 사용 권한을 부여 해야 합니다.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -203,6 +203,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 
 ## <a name="limitations"></a>제한 사항
 - LTR 백업에서 복원 하는 경우에는 읽기 크기 조정 속성이 비활성화 됩니다. 복원 된 데이터베이스의 크기를 설정 하려면 데이터베이스를 만든 후 데이터베이스를 업데이트 합니다.
+- 데이터베이스가 탄력적 풀에 있을 때 생성 된 LTR 백업에서 복원 하는 경우 대상 서비스 수준 목표를 지정 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

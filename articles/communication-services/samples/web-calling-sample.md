@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6fc3441fac5fe037e9a268d26012761d1fece70
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463226"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888966"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
@@ -58,7 +58,7 @@ SDK가 초기화되면 다음과 같이 표시됩니다.
 
 ## <a name="placing-and-receiving-calls"></a>전화 걸기 및 받기
 
-Communication Services 웹 통화 SDK는 **1:1** , **1:N** 및 **그룹** 통화를 허용합니다.
+Communication Services 웹 통화 SDK는 **1:1**, **1:N** 및 **그룹** 통화를 허용합니다.
 
 1:1 또는 1:N 발신 전화의 경우 쉼표로 구분된 값을 사용하여 통화할 여러 Communication Services 사용자 ID를 지정할 수 있습니다. 쉼표로 구분된 값을 사용하여 통화할 기존(PSTN) 전화 번호를 지정할 수도 있습니다. 
 
@@ -95,7 +95,7 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 
 - [통화 클라이언트 라이브러리 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
 - [호출 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기
-- [API 참조 문서](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js) 검토
+- [API 참조 문서](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js) 검토
 
 ## <a name="additional-reading"></a>추가 자료
 
@@ -103,4 +103,4 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 - [Redux](https://redux.js.org/) - 클라이언트 쪽 상태 관리
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft 기반 UI 라이브러리
 - [React](https://reactjs.org/) - 사용자 인터페이스 빌드용 라이브러리
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - 웹 애플리케이션 빌드용 프레임워크
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - 웹 애플리케이션 빌드용 프레임워크

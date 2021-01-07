@@ -4,12 +4,12 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 066ffff5979e658a7c06fe10bd668a9fac839a14
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342181"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460844"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -122,7 +122,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 > [!NOTE]
 >
-> 다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도*보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
+> 다음 경우에 추가 된 시계열의 첫 번째 평가가 누락 될 가능성을 줄이기 위해 *평가 빈도* 보다 큰 *집계 세분성 (기간)* 을 선택 하는 것이 좋습니다.
 > - 여러 차원을 모니터링 하는 메트릭 경고 규칙-새 차원 값 조합이 추가 된 경우
 > - 여러 리소스를 모니터링 하는 메트릭 경고 규칙-범위에 새 리소스를 추가 하는 경우
 > - 연속으로 내보내지 않는 메트릭을 모니터링 하는 메트릭 경고 규칙 (스파스 메트릭) – 시간을 내보내지 않은 24 시간 보다 오래 된 메트릭을 내보내는 경우
@@ -176,6 +176,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure에서 메트릭 경고를 만들고, 보고, 관리 하는 방법을 알아봅니다.](alerts-metric.md)
+- [Azure 모니터 메트릭 탐색기 내에서 경고를 만드는 방법에 대해 알아봅니다.](./metrics-charts.md#create-alert-rules)
 - [Azure Resource Manager 템플릿을 사용한 메트릭 경고 배포 방법 알아보기](./alerts-metric-create-templates.md)
 - [작업 그룹에 대 한 자세한 정보](action-groups.md)
 - [동적 임계값 조건 형식에 대해 자세히 알아봅니다](alerts-dynamic-thresholds.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b625a81ff328e6760ec0ad8d9acb5735f402df73
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424063"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96455624"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -98,7 +98,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 - [인바운드 IP 주소를 제한 하는 방법](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
-- [DDoS 보호를 구성 하는 방법](../virtual-network/manage-ddos-protection.md)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -384,7 +384,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 - [Logic Apps에서 데이터를 보호 하 고 액세스 하는 방법](logic-apps-securing-a-logic-app.md)
 
-- [Azure Key Vault에서 비밀을 설정 하 고 검색 하는 방법](../key-vault/secrets/quick-create-portal.md)
+- [Azure Key Vault에서 비밀을 설정 하 고 검색 하는 방법](../key-vault/general/quick-create-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -486,7 +486,7 @@ Azure Active Directory (Azure AD) OAuth를 사용 하는 커넥터의 경우 연
 
 Logic Apps에 대 한 지원이 있는 경우 관리 되는 id를 사용 하 여 Azure Active Directory (Azure AD)로 보호 되는 다른 리소스에 쉽게 액세스 하 고 자격 증명이 나 암호 대신 로그인 하지 않고 id를 인증 합니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다.
 
-Azure Logic Apps는 시스템 할당 및 사용자 할당 관리 id를 모두 지원 합니다. 논리 앱은 시스템이 할당한 ID 또는 단일 사용자가 할당한 ID를 사용할 수 있습니다. 이러한 ID는 논리 앱 그룹 간에 공유할 수 있지만 둘 다 공유할 수는 없습니다. 현재 특정 기본 제공 트리거 및 작업만 관리 ID를 지원하며, 관리형 커넥터 또는 연결은 지원하지 않습니다. 예를 들어 다음과 같습니다.
+Azure Logic Apps는 시스템이 할당한 관리 ID 및 사용자가 할당한 관리 ID를 모두 지원합니다. 논리 앱은 시스템이 할당한 ID 또는 단일 사용자가 할당한 ID를 사용할 수 있습니다. 이러한 ID는 논리 앱 그룹 간에 공유할 수 있지만 둘 다 공유할 수는 없습니다. 현재 특정 기본 제공 트리거 및 작업만 관리 ID를 지원하며, 관리형 커넥터 또는 연결은 지원하지 않습니다. 예를 들어 다음과 같습니다.
 
 -  HTTP
 
@@ -496,7 +496,7 @@ Azure Logic Apps는 시스템 할당 및 사용자 할당 관리 id를 모두 �
 
 -  Azure App Services 
 
-- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 - [Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증](create-managed-service-identity.md)
 
@@ -1284,9 +1284,9 @@ Soft-Delete를 사용 하도록 설정 하 고 Key Vault 보호를 제거 하 �
 
 **지침**: Microsoft Engagement 규칙에 따라 침투 테스트가 microsoft 정책을 위반 하지 않는지 확인 합니다. Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프로그램에 대 한 레드 팀 및 라이브 사이트 침투 테스트의 전략과 실행을 사용 합니다.
 
-- [Engagement의 침투 테스트 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [침투 테스트 시행 규칙](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft 클라우드 Red 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center 모니터링**: 해당 없음
 

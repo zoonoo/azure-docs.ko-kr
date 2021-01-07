@@ -1,19 +1,19 @@
 ---
 title: CloudSimple 별 azure VMware 솔루션-사설 클라우드의 id 원본으로 Azure AD 사용
 description: Azure AD를 CloudSimple 사설 클라우드의 id 공급자로 추가 하 여 Azure에서 CloudSimple에 액세스 하는 사용자를 인증 하는 방법을 설명 합니다.
-author: sharaths-cs
-ms.author: b-shsury
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f55a0f52f5e028f9cbf7a9fabbb3c24ad43c3800
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532531"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898609"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Azure AD를 CloudSimple 사설 클라우드에서 vCenter에 대 한 id 공급자로 사용
 
@@ -85,14 +85,14 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 
     | **옵션** | **설명** |
     |------------|-----------------|
-    | **이름** | Id 원본의 이름입니다. |
+    | **Name** | Id 원본의 이름입니다. |
     | **사용자의 기본 DN** | 사용자의 기본 고유 이름입니다.  Azure AD의 경우 다음을 사용 `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 합니다. 예: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **도메인 이름** | 도메인의 FQDN (예: example.com)입니다. 이 텍스트 상자에 IP 주소를 제공 하지 마십시오. |
     | **도메인 별칭** | *(선택 사항)* 도메인 NetBIOS 이름입니다. SSPI 인증을 사용 하는 경우 Active Directory 도메인의 NetBIOS 이름을 id 원본의 별칭으로 추가 합니다. |
     | **그룹의 기본 DN** | 그룹에 대 한 기본 고유 이름입니다. Azure AD의 경우 다음을 사용 합니다. `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  예: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
-    | **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br> `ldaps://hostname:port` 양식을 사용합니다. 포트는 일반적으로 LDAPS 연결의 636입니다. <br><br> `ldaps://`   주 또는 보조 LDAP URL에서를 사용 하는 경우 ACTIVE DIRECTORY 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 합니다. |
+    | **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br>`ldaps://hostname:port` 형식을 사용합니다. 포트는 일반적으로 LDAPS 연결의 636입니다. <br><br>주 또는 보조 LDAP URL에서를 사용 하는 경우 Active Directory 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 `ldaps://` 합니다. |
     | **보조 서버 URL** | 장애 조치 (failover)에 사용 되는 보조 도메인 컨트롤러 LDAP 서버의 주소입니다. |
-    | **인증서 선택** | Active Directory LDAP 서버 또는 OpenLDAP 서버 id 원본에서 LDAPS를 사용 하려는 경우  `ldaps://`   URL 텍스트 상자에를 입력 하면 인증서 선택 단추가 표시 됩니다. 보조 URL은 필요 하지 않습니다. |
+    | **인증서 선택** | Active Directory LDAP 서버 또는 OpenLDAP 서버 id 원본에서 LDAPS를 사용 하려는 경우 `ldaps://` URL 텍스트 상자에를 입력 하면 인증서 선택 단추가 표시 됩니다. 보조 URL은 필요 하지 않습니다. |
     | **사용자 이름** | 도메인에서 사용자 및 그룹의 기본 DN에 대 한 읽기 전용 액세스 권한이 있는 사용자의 ID입니다. |
     | **암호** | 사용자 이름으로 지정 된 사용자의 암호입니다. |
 
@@ -101,7 +101,7 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 5. VMware 토픽 [Vcenter Single Sign-On 그룹에 멤버 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 설명 된 대로 Azure AD의 사용자/그룹을 vcenter 그룹에 추가 합니다.
 
 > [!CAUTION]
-> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *Administrators* 그룹에 추가 해야 합니다.
+> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m* i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *Administrators* 그룹에 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 34baa054104a6cf2c78864cc2827b16c1eedb084
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613308"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169412"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
-이 빠른 시작에서는 Express와 함께 Node.js를 사용하여 빌드한 웹 애플리케이션에서 OpenID Connect 인증을 설정하는 방법을 알아봅니다. 샘플은 모든 플랫폼에서 실행되도록 설계되었습니다.
+이 빠른 시작에서는 Express와 함께 Node.js를 사용하여 빌드된 웹 애플리케이션에서 OpenID Connect 인증을 설정하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 샘플은 모든 플랫폼에서 실행되도록 설계되었습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -31,12 +31,12 @@ ms.locfileid: "91613308"
 ## <a name="register-your-application"></a>애플리케이션 등록
 1. [Azure Portal](https://portal.azure.com/)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정이 여러 Azure AD 테넌트에 있는 경우:
-    - 페이지의 오른쪽 위 모서리에 있는 메뉴에서 프로필을 선택한 다음, **디렉터리를 전환**합니다.
+    - 페이지의 오른쪽 위 모서리에 있는 메뉴에서 프로필을 선택한 다음, **디렉터리를 전환** 합니다.
     - 애플리케이션을 만들려는 Azure AD 테넌트로 세션을 변경합니다.
 
 1. [Azure Active Directory > 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)으로 이동하여 앱을 등록합니다.
 
-1. **새 등록**을 선택합니다.
+1. **새 등록** 을 선택합니다.
 
 1. **애플리케이션 등록** 페이지가 표시되면 앱의 등록 정보를 입력합니다.
     - **이름** 섹션에서 앱 사용자에게 표시할 의미 있는 이름을 입력합니다. 예를 들면 다음과 같습니다. MyWebApp
@@ -44,20 +44,20 @@ ms.locfileid: "91613308"
 
     리디렉션 URI가 여러 개 있는 경우 나중에 앱이 성공적으로 만들어진 후 **인증** 탭에서 URI를 추가해야 합니다.
 
-1. **등록**을 선택하여 앱을 만듭니다.
+1. **등록** 을 선택하여 앱을 만듭니다.
 
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 뒷부분에서 애플리케이션을 구성할 때 이 값이 필요합니다.
 
-1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-    - **리디렉션 URI** 섹션의 콤보 상자에서 **웹**을 선택하고 다음 리디렉션 URI를 입력합니다. `http://localhost:3000/auth/openid/return`
-    - **고급 설정** 섹션에서 **로그아웃 URL**을 `https://localhost:3000`으로 설정합니다.
-    - 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 허용 흐름](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow)을 사용하도록 설정해야 하므로, **고급 설정 > 암시적 허용** 섹션에서 **ID 토큰**을 선택합니다.
+1. 앱의 페이지 목록에서 **인증** 을 선택합니다.
+    - **리디렉션 URI** 섹션의 콤보 상자에서 **웹** 을 선택하고 다음 리디렉션 URI를 입력합니다. `http://localhost:3000/auth/openid/return`
+    - **고급 설정** 섹션에서 **로그아웃 URL** 을 `https://localhost:3000`으로 설정합니다.
+    - 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 허용 흐름](./v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 하므로, **고급 설정 > 암시적 허용** 섹션에서 **ID 토큰** 을 선택합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
-1. **인증서 및 비밀** 페이지의 **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 선택합니다.
+1. **인증서 및 비밀** 페이지의 **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
     - 키 설명(인스턴스 앱 비밀에 대한)을 입력합니다.
-    - 키 기간을 **1년 후, 2년 후** 또는 **만료 기한 제한 없음**으로 선택합니다.
+    - 키 기간을 **1년 후, 2년 후** 또는 **만료 기한 제한 없음** 으로 선택합니다.
     - **추가** 단추를 클릭하면 키 값이 표시됩니다. 키 값을 복사하여 안전한 위치에 저장합니다.
 
     나중에 애플리케이션을 구성할 때 이 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 다른 어떤 방법으로도 검색할 수 없으므로, Azure Portal에 표시되는 즉시 기록해 두어야 합니다.

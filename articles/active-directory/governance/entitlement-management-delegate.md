@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362555"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746680"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
@@ -76,7 +76,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 자격 관리에는 자격 관리와 관련 된 다음과 같은 역할이 있습니다.
 
-| 자격 관리 역할 | 설명 |
+| 자격 관리 역할 | Description |
 | --- | --- |
 | 카탈로그 작성자 | 카탈로그를 만들고 관리 합니다. 일반적으로 전역 관리자가 아닌 IT 관리자 또는 리소스 컬렉션에 대 한 리소스 소유자입니다. 카탈로그를 만드는 사람은 자동으로 카탈로그의 첫 번째 카탈로그 소유자가 되며 카탈로그 소유자를 더 추가할 수 있습니다. 카탈로그 작성자는 소유 하지 않은 카탈로그를 관리 하거나 볼 수 없으며 소유 하지 않은 리소스를 카탈로그에 추가할 수 없습니다. 카탈로그 작성자가 다른 카탈로그를 관리 하거나 소유 하지 않은 리소스를 추가 해야 하는 경우 해당 카탈로그 또는 리소스의 공동 소유자가 되도록 요청할 수 있습니다. |
 | 카탈로그 소유자 | 기존 카탈로그를 편집 하 고 관리 합니다. 일반적으로 IT 관리자 또는 리소스 소유자 이거나 카탈로그 소유자가 지정 하는 사용자입니다. |
@@ -85,14 +85,14 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 또한 액세스 패키지의 지정 된 승인자와 요청자는 역할이 아니라 권한도 갖습니다.
 
-| 오른쪽 | 설명 |
+| 오른쪽 | Description |
 | --- | --- |
 | 승인자 | 패키지에 대 한 액세스 요청을 승인 하거나 거부 하기 위해 정책에서 권한을 부여 합니다. 단, 액세스 패키지 정의는 변경할 수 없습니다. |
 | Requestor | 액세스 패키지를 요청 하는 액세스 패키지의 정책에 의해 권한이 부여 됩니다. |
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| Task | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
+| 작업 | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -130,8 +130,8 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [Exchange 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [팀 서비스 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [SharePoint 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
-| [클라우드 애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [응용 프로그램 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [클라우드 응용 프로그램 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
 > [!NOTE]

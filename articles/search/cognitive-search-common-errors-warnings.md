@@ -3,17 +3,17 @@ title: 인덱서 오류 및 경고
 titleSuffix: Azure Cognitive Search
 description: 이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 manager: nitinme
-author: amotley
-ms.author: abmotley
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6625cd5ad91826ac5cdf8ec63382e9f94d8a2c08
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362817"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895942"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "91362817"
 
 오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
 
-인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 여기에 설명 된 `maxFailedItems` 대로 및를 업데이트 하는 것이 좋습니다 `maxFailedItemsPerBatch` . [here](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)
+인덱서를 통해 이러한 오류를 무시 하 고 "실패 한 문서"를 건너뛰도록 하려면 여기에 설명 된 `maxFailedItems` 대로 및를 업데이트 하는 것이 좋습니다 `maxFailedItemsPerBatch` . [](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers)
 
 > [!NOTE]
 > 문서 키 (사용 가능한 경우)와 함께 실패 한 각 문서는 인덱서 실행 상태에서 오류로 표시 됩니다. 오류가 허용 되도록 인덱서를 설정한 경우 [인덱스 api](/rest/api/searchservice/addupdate-or-delete-documents) 를 활용 하 여 나중에 수동으로 문서를 업로드할 수 있습니다.
@@ -237,7 +237,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>경고: 기술 입력 ' languageCode '에 다음 언어 코드 ' X, Y, Z '가 하나 이상 잘못 되었습니다.
 다운스트림 기술에 대 한 선택적 입력으로 전달 된 값 중 하나 이상이 `languageCode` 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
 
-데이터 집합이 모두 한 언어로 표시 되는 경우 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) `languageCode` 해당 기술에 대 한 언어가 지원 되는 것으로 가정 하면 LanguageDetectionSkill 및 기술 입력을 제거 하 고 `defaultLanguageCode` 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
+데이터 집합이 모두 한 언어로 표시 되는 경우 [](cognitive-search-skill-language-detection.md) `languageCode` 해당 기술에 대 한 언어가 지원 되는 것으로 가정 하면 LanguageDetectionSkill 및 기술 입력을 제거 하 고 `defaultLanguageCode` 해당 기술에 대 한 기술 매개 변수를 대신 사용 해야 합니다.
 
 데이터 집합에 여러 언어가 포함 되어 있으므로 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 및 입력이 필요 하다 고 생각 되 면 `languageCode` 텍스트를 다운스트림 기술로 전달 하기 전에 지원 되지 않는 언어를 사용 하 여 텍스트를 필터링 하는 [ConditionalSkill](cognitive-search-skill-conditional.md) 를 추가 하는 것이 좋습니다.  EntityRecognitionSkill에 대 한 예는 다음과 같습니다.
 
@@ -348,8 +348,8 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>경고: Cosmos DB 컬렉션 ' X '에 지연 인덱싱 정책이 있습니다. 일부 데이터가 손실 될 수 있습니다.
 
-[지연](/azure/cosmos-db/index-policy#indexing-mode) 인덱싱 정책을 사용 하는 컬렉션은 일관 되 게 쿼리할 수 없습니다 .이로 인해 인덱서가 데이터를 누락 하 게 됩니다. 이 경고를 해결 하려면 인덱싱 정책을 일관 되 게 변경 합니다.
+[지연](../cosmos-db/index-policy.md#indexing-mode) 인덱싱 정책을 사용 하는 컬렉션은 일관 되 게 쿼리할 수 없습니다 .이로 인해 인덱서가 데이터를 누락 하 게 됩니다. 이 경고를 해결 하려면 인덱싱 정책을 일관 되 게 변경 합니다.
 
 ## <a name="warning-the-document-contains-very-long-words-longer-than-64-characters-these-words-may-result-in-truncated-andor-unreliable-model-predictions"></a>경고: 문서에 매우 긴 단어가 포함 되어 있습니다 (64 자 초과). 이러한 단어를 통해 모델 예측이 잘릴 수도 있고 그렇지 않을 수도 있습니다.
 
-이 경고는 Text Analytics 서비스에서 전달 됩니다.  경우에 따라 문서에 긴 URL이 포함 된 경우 (예: 키 구 또는 주행 감정 등)에는이 경고를 무시 해도 안전 합니다.  단어가 64 자 보다 길면 모델 예측에 영향을 줄 수 있는 64 문자로 잘립니다.  
+이 경고는 Text Analytics 서비스에서 전달 됩니다.  경우에 따라 문서에 긴 URL이 포함 된 경우 (예: 키 구 또는 주행 감정 등)에는이 경고를 무시 해도 안전 합니다.  단어가 64 자 보다 길면 모델 예측에 영향을 줄 수 있는 64 문자로 잘립니다.

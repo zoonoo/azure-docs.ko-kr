@@ -6,18 +6,19 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
+ms.subservice: deployment
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 335a63faa440e057c282f992b67b301289a7a4bb
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145857"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97356960"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Windows 가상 머신에서 SQL Server 2017 만들기
 
@@ -82,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **SQL Server 설정** 탭에서 다음 옵션을 구성합니다.
 
-1. **보안 및 네트워킹** 에서 **SQL 연결** 에 _공개(인터넷_ )를 선택하고 포트를 `1401`로 변경하여 공개 시나리오에서 잘 알려진 포트 번호를 사용하지 않도록 합니다. 
+1. **보안 및 네트워킹** 에서 **SQL 연결** 에 _공개(인터넷_)를 선택하고 포트를 `1401`로 변경하여 공개 시나리오에서 잘 알려진 포트 번호를 사용하지 않도록 합니다. 
 1. **SQL 인증** 아래에서 **사용** 을 선택합니다. SQL 로그인 자격 증명은 VM에 구성한 것과 동일한 사용자 이름 및 암호로 설정됩니다. [**Azure Key Vault 통합**](azure-key-vault-integration-configure.md)에 대한 기본 설정을 사용합니다. **스토리지 구성** 은 기본 SQL Server VM 이미지에 사용할 수 없지만 [스토리지 구성](storage-configuration.md#new-vms)에서 다른 이미지에 사용할 수 있는 옵션에 대한 자세한 정보를 찾을 수 있습니다.  
 
    ![SQL 서버 보안 설정](./media/sql-vm-create-portal-quickstart/sql-server-settings.png)
@@ -106,7 +107,7 @@ Azure Portal에서 배포를 모니터링할 수 있습니다. 화면 맨 위에
 1. 인터넷에 연결된 다른 컴퓨터에서 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 엽니다.
 
 
-1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. VM의 공용 IP 주소를 입력합니다. 그런 다음, 쉼표를 추가하고 새 VM을 구성할 때 지정한 사용자 지정 포트( **1401** )를 추가합니다. 예들 들어 `11.22.33.444,1401`입니다.
+1. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자에서 **서버 이름** 값을 편집합니다. VM의 공용 IP 주소를 입력합니다. 그런 다음, 쉼표를 추가하고 새 VM을 구성할 때 지정한 사용자 지정 포트(**1401**)를 추가합니다. 예들 들어 `11.22.33.444,1401`입니다.
 
 1. **인증** 상자에 **SQL Server 인증** 을 선택합니다.
 

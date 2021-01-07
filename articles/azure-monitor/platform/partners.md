@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: d603e130d4e65667edb34121a4c89b7b0e02b819
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636744"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96500243"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -263,7 +263,7 @@ Serverless360는 Azure 서버 리스 구성 요소를 운영, 관리 및 모니�
 
 ![SignalFX 로고](./media/partners/signalfx.png)
 
-SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 기존 지점 도구를 대체 하 고 오늘날의 동적 환경에 대 한 실시간 가시성을 제공 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 *Telegraf* , *statsd* 및 *collectd* 와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 되어 Azure에 대 한 최상의 클래스 대시보드, 분석 및 경고를 제공 합니다.
+SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 기존 지점 도구를 대체 하 고 오늘날의 동적 환경에 대 한 실시간 가시성을 제공 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 *Telegraf*, *statsd* 및 *collectd* 와 같은 오픈 소스 커넥터를 통해 Azure Monitor와 직접 통합 되어 Azure에 대 한 최상의 클래스 대시보드, 분석 및 경고를 제공 합니다.
 
 [signalfx 설명서](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -310,6 +310,20 @@ Sumo Logic은 안전한 클라우드 기반, 머신 데이터 분석 서비스�
 Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 애플리케이션이 IaaS 및 PaaS 계층에 대한 컴퓨팅, 스토리지 및 네트워크 전체에서 해당 SLA를 제공하는 데 필요한 리소스를 계속해서 얻고 불필요한 리소스가 할당되지 않도록 자산을 지속적으로 최적화하여 조직이 해당 Azure 자산을 탄력적으로 활용할 수 있도록 지원합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
 
 [Turbonomic 소개](https://turbonomic.com/)
+
+## <a name="partner-tools-with-event-hub-integration"></a>Event hubs 통합을 사용한 파트너 도구
+
+Azure Monitor를 사용 하 여 Azure 이벤트 허브로 모니터링 데이터를 라우트하 면 일부 외부 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다. 다음 파트너는 이벤트 허브를 통해 통합 하는 것으로 알려져 있습니다. 
+
+| 도구 | Azure에서 호스트 | 설명 |
+|:---|:---| :---|
+|  IBM QRadar | 아니요 | Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Qradar DSM 구성](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)에서 Azure와의 통합에 대해 자세히 알아볼 수 있습니다. |
+| Splunk | 아니요 | [Splunk에 대 한 Microsoft Azure Add-On](https://splunkbase.splunk.com/app/3757/) 은 기능은 splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. <br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우 예를 들어, 프록시를 사용 하거나 Splunk 클라우드에서 실행 하는 경우 Event hub의 새 메시지에 의해 트리거되는 [Splunk 용 Azure Function](https://github.com/Microsoft/AzureFunctionforSplunkVS)을 사용 하 여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. |
+| sumologic | 아니요 | Event hub의 데이터를 사용 하는 SumoLogic를 설정 하는 방법에 대 한 지침은 [Event hub의 Azure 감사 앱에 대 한 로그 수집](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)에서 사용할 수 있습니다. |
+| ArcSight | 아니요 | ArcSight Azure 이벤트 허브 스마트 커넥터는 [arcsight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 사용할 수 있습니다. |
+| Syslog 서버 | 아니요 | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수를 기반으로](https://github.com/miguelangelopereira/azuremonitor2syslog/)하는 솔루션을 사용할 수 있습니다.
+| LogRhythm | 아니요| 이벤트 허브에서 로그를 수집 하도록 LogRhythm를 설정 하는 지침은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 제공 됩니다. 
+|Logz.io | 예 | 자세한 내용은 [Azure에서 실행 되는 Java 앱에 대 한 Logz.io를 사용 하 여 모니터링 및 로깅 시작](/azure/developer/java/fundamentals/java-get-started-with-logzio) 을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

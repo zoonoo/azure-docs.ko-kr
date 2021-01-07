@@ -5,16 +5,17 @@ author: MashaMSFT
 ms.author: mathoma
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.openlocfilehash: a8eb112b0895d1c7a927621e6fb9e5160038692d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 1ef7943586123a1870ed9a2d0c21aa8b5fd38c1c
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557771"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97360002"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 자동 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +35,7 @@ Azure Portal에서 자동 등록 기능을 사용 하 여 Azure Virtual Machines
 > [!IMPORTANT]
 > SQL IaaS 에이전트 확장은 Azure Virtual Machines 내에서 SQL Server를 사용 하는 경우 고객에 게 선택적 혜택을 제공 하기 위한 express 용도의 데이터를 수집 합니다. Microsoft는 고객의 사전 동의가 없는 라이선스 감사에는이 데이터를 사용 하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 취급 방침](/sql/sql-server/sql-server-privacy#non-personal-data) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 
@@ -56,7 +57,7 @@ Azure Portal에서 SQL Server Vm의 자동 등록을 사용 하도록 설정 하
 1. 약관을 읽고 동의 하면 동의 **함** 을 선택 합니다. 
 1. **등록** 을 선택 하 여 기능을 사용 하도록 설정 하 고 SQL IaaS 에이전트 확장을 사용 하 여 현재 및 미래의 모든 SQL Server vm을 자동으로 등록 합니다. 이는 Vm에서 SQL Server 서비스를 다시 시작 하지 않습니다. 
 
-## <a name="disable"></a>사용 안 함
+## <a name="disable"></a>사용 중지
 
 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps) 를 사용 하 여 자동 등록 기능을 사용 하지 않도록 설정 합니다. 자동 등록 기능을 사용 하지 않도록 설정 하면 구독에 추가 된 SQL Server Vm을 SQL IaaS 에이전트 확장에 수동으로 등록 해야 합니다. 이미 등록 된 기존 SQL Server Vm의 등록은 취소 되지 않습니다.
 
@@ -92,7 +93,7 @@ PowerShell을 사용 하 여 여러 Azure 구독에 대 한 자동 등록 기능
 1. 스크립트를 실행 하 여 구독 Id를 매개 변수로 전달 합니다.   
    `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
 
-   예를 들면 다음과 같습니다. 
+   예를 들어: 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb

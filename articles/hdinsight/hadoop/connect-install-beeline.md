@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ms.date: 05/27/2020
-ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a0a693b2dc2c236cbac79ec4789b2a480ce65427
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547591"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97028940"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>HDInsight의 Apache Beeline에 연결 하거나 로컬로 설치
 
@@ -128,7 +128,7 @@ Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 �
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        그런 다음 **ctrl + X** , **Y** 를 차례로 누른 다음를 입력 합니다.
+        그런 다음 **ctrl + X**, **Y** 를 차례로 누른 다음를 입력 합니다.
 
 1. Hadoop 및 Beeline 보관 파일을 다운로드 하 고 다음 명령을 입력 합니다.
 
@@ -156,7 +156,7 @@ Beeline는 헤드 노드에 포함 되지만 로컬에서 설치 하는 것이 �
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. 그런 다음 **ctrl + X** , **Y** 를 차례로 누른 다음를 입력 합니다.
+    1. 그런 다음 **ctrl + X**, **Y** 를 차례로 누른 다음를 입력 합니다.
 
 1. Bash 세션을 닫았다가 다시 엽니다.
 

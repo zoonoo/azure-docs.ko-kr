@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517090"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511283"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -38,7 +38,7 @@ ms.locfileid: "94517090"
 
 ### <a name="perform-static-code-analysis"></a>정적 코드 분석 수행
 
-[정적 코드 분석](https://owasp.org/www-community/controls/Static_Code_Analysis)( *소스 코드 분석* 이라고도 함)은 일반적으로 코드 검토의 일부로 수행됩니다. 정적 코드 분석은 일반적으로 정적 코드 분석 도구를 실행하고 [오류 검사](https://en.wikipedia.org/wiki/Taint_checking) 및 [데이터 흐름 분석](https://en.wikipedia.org/wiki/Data-flow_analysis) 같은 기술을 사용하여 비-실행 코드의 잠재적 취약성을 찾는 것을 의미합니다.
+[정적 코드 분석](https://owasp.org/www-community/controls/Static_Code_Analysis)(*소스 코드 분석* 이라고도 함)은 일반적으로 코드 검토의 일부로 수행됩니다. 정적 코드 분석은 일반적으로 정적 코드 분석 도구를 실행하고 [오류 검사](https://en.wikipedia.org/wiki/Taint_checking) 및 [데이터 흐름 분석](https://en.wikipedia.org/wiki/Data-flow_analysis) 같은 기술을 사용하여 비-실행 코드의 잠재적 취약성을 찾는 것을 의미합니다.
 
 Azure Marketplace는 정적 코드 분석을 수행하 고 코드 검토를 지원하는 [개발자 도구](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review)를 제공합니다.
 
@@ -48,15 +48,15 @@ Azure Marketplace는 정적 코드 분석을 수행하 고 코드 검토를 지�
 
 올바른 형식의 데이터만 워크플로에 진입하도록 데이터 흐름 초기에 입력의 유효성을 검사해야 합니다. 잘못된 형식의 데이터를 데이터베이스에 유지하거나 다운스트림 구성 요소에서 오작동을 트리거하도록 두면 안 됩니다.
 
-입력 구문 유효성 검사에 일반적으로 사용되는 방법은 차단 목록 및 허용 목록입니다.
+블록 목록 및 allowlisting 입력 구문 유효성 검사를 수행 하는 두 가지 일반적인 방법입니다.
 
-  - 차단 목록은 특정 사용자 입력에 "악의적인 것으로 알려진" 콘텐츠가 포함되지 않았는지 확인하려고 시도합니다.
+  - Blocklisting는 지정 된 사용자 입력에 "악의적인 것으로 알려진" 콘텐츠가 포함 되지 않았는지 확인 하려고 시도 합니다.
 
-  - 허용 목록은 특정 사용자 입력이 "알려진 양호한" 입력 세트와 일치하는지 확인하려고 시도합니다. 문자 기반 허용 목록은 애플리케이션에서 사용자 입력에 "알려진 좋은" 문자만 들어 있거나 입력이 알려진 형식과 일치하는지 확인하는 형식의 허용 목록입니다.
+  - Allowlisting는 지정 된 사용자 입력이 "알려진 양호" 입력 집합과 일치 하는지 확인 하려고 시도 합니다. 문자 기반 allowlisting 응용 프로그램에서 사용자 입력이 "알려진 양호" 문자만 포함 하거나 해당 입력이 알려진 형식과 일치 하는지 확인 하는 allowlisting 형식입니다.
     예를 들어 사용자 이름에 영숫자만 포함되어 있거나 정확히 두 개의 숫자가 포함되어 있는지 확인할 수 있습니다.
 
-허용 목록은 안전한 소프트웨어를 빌드하려는 개발자들이 선호하는 방법입니다.
-차단 목록은 잠재적인 악성 입력을 하나도 놓치지 않고 완전한 목록을 생각한다는 것이 불가능하기 때문에 오류가 발생하기 쉽습니다.
+Allowlisting 보안 소프트웨어를 빌드하기 위한 기본 방법입니다.
+블록 목록에는 잠재적으로 잘못 된 입력의 전체 목록을 고려할 수 없기 때문에 오류가 발생 하기 쉽습니다.
 
 이 방법은 서버에만 사용하고 클라이언트 쪽(또는 서버와 클라이언트 쪽)에는 사용하지 마세요.
 
@@ -64,7 +64,7 @@ Azure Marketplace는 정적 코드 분석을 수행하 고 코드 검토를 지�
 
 시각적으로 또는 문서 내에서 표시하는 모든 출력은 항상 인코딩 및 이스케이프되어야 합니다. *출력 인코딩* 이라고도 하는 [이스케이프](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29)는 신뢰할 수 없는 데이터가 삽입 공격의 수단으로 사용되지 않도록 하는 데 사용됩니다. 이스케이프를 데이터 유효성 검사와 함께 사용하면 계층형 방어를 통해 시스템 보안을 전체적으로 강화할 수 있습니다.
 
-이스케이프를 사용하면 모든 항목이 *출력* 으로 표시됩니다. 또한 이스케이프를 통해 실행용 데이터가 아니라는 것을 인터프리터에 알릴 수 있으며, 이렇게 하면 공격이 작동하지 못하게 차단됩니다. 이것을 *XSS(사이트 간 스크립팅* )라고 하며 또 다른 형태의 일반적인 공격 기술입니다.
+이스케이프를 사용하면 모든 항목이 *출력* 으로 표시됩니다. 또한 이스케이프를 통해 실행용 데이터가 아니라는 것을 인터프리터에 알릴 수 있으며, 이렇게 하면 공격이 작동하지 못하게 차단됩니다. 이것을 *XSS(사이트 간 스크립팅*)라고 하며 또 다른 형태의 일반적인 공격 기술입니다.
 
 타사 웹 프레임워크를 사용하는 경우 [OWASP XSS 방지 참고 자료](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.md)를 사용하여 웹 사이트에서 출력 인코딩에 대한 옵션을 확인할 수 있습니다.
 

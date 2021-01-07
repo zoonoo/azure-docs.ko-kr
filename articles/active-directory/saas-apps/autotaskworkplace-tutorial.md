@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 36d6d40b471edb20f2e4294a4ba29323fac2ebc6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8010bf25cc62d2de1b8b6ff9c0ecdc140c02c6a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457489"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>자습서: Autotask Workplace와 Azure Active Directory 통합
 
@@ -67,7 +67,7 @@ Autotask Workplace의 Azure AD 통합을 구성하려면 갤러리의 Autotask W
 
 4. 검색 상자에 **Autotask Workplace** 를 입력하고 결과 패널에서 **Autotask Workplace** 를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록에서 Autotask Workplace](common/search-new-app.png)
+    ![결과 목록에서 Autotask Workplace](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -149,7 +149,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
     ![Autotask Single Sign-On 승인 구성](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig2.png)
 
-    다. **I confirm this information is correct and I trust this IdP** 확인란을 선택합니다.
+    다. **I confirm this information is correct and I trust this IdP(이 정보가 정확한지 확인하고, 이 IdP를 신뢰합니다)** 확인란을 선택합니다.
 
     d. **승인** 을 클릭합니다.
 
@@ -160,7 +160,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -173,7 +173,7 @@ Autotask Workplace에서 Azure AD Single Sign-On을 구성하려면 다음 단�
     ![사용자 대화 상자](common/user-properties.png)
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-  
+
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 

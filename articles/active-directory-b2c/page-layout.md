@@ -11,20 +11,28 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 868d99a82009dc8545fc24ad1cfa1da3959da131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852068"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97108504"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
 페이지 레이아웃 패키지는 주기적으로 업데이트 되어 페이지 요소에 수정 및 향상 된 기능이 포함 됩니다. 다음 변경 로그는 각 버전에 도입 된 변경 내용을 지정 합니다.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지 (selfasserted)
+
+**2.1.1**
+
+- `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.
+- ICloud 키 집합에 암호를 저장 하기 위한 지원이 추가 되었습니다.
+- 정책 또는 QueryString 매개 변수를 사용 하 여 `pageFlavor` 레이아웃 (클래식, oceanBlue 또는 slateGray)을 선택 하는 기능이 추가 되었습니다.
+- 자체 어설션된 페이지에 대 한 부인 추가
+- 이제 페이지가 로드 될 때 첫 번째 편집 가능한 필드에 포커스가 배치 됩니다.
+- 이제 여러 필드에 오류가 있을 때 첫 번째 오류 필드에 포커스가 배치 됩니다.
+- 이제 전자 메일 확인 코드를 확인 한 후 포커스가 ' 변경 ' 단추에 배치 됩니다.
 
 **2.1.0**
 
@@ -39,11 +47,16 @@ ms.locfileid: "88852068"
 - 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
 - 사용자 환경을 개선 하기 위해 구성 가능한 사용자 입력 유효성 검사 지연을 추가 했습니다.
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+- 이제 내레이터가 오류 메시지를 읽을 수 있도록 접근성 문제를 수정 했습니다. 
+- 이제 전자 메일을 확인 한 후에 포커스가 암호 필드에 배치 됩니다.
+- `autofocus`Checkbox 컨트롤에서 제거 되었습니다. 
+- 전화 번호 확인을 위한 표시 컨트롤에 대 한 지원이 추가 되었습니다.
+- 이제 `data-preload="true"` html 태그에 특성을 추가할 수 있습니다. (사용자 지정-html. md # 지침-
   - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
   - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
-- Chrome 변환 지원
+- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안을 제공 합니다.
+- Chrome 변환을 지원 합니다.
+- 사용자 흐름 페이지에서 회사 브랜딩에 대 한 지원이 추가 되었습니다.
 
 **1.1.0**
 
@@ -58,6 +71,15 @@ ms.locfileid: "88852068"
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>암호 재설정 링크를 사용 하는 통합 로그인 등록 페이지 (unifiedssp)
 
+**2.1.1**
+- `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.
+- 정책 또는 QueryString 매개 변수를 사용 하 여 `pageFlavor` 레이아웃 (클래식, oceanBlue 또는 slateGray)을 선택 하는 기능이 추가 되었습니다.
+- ICloud 키 집합에 암호를 저장 하기 위한 지원이 추가 되었습니다.
+- 이제 여러 필드에 오류가 있을 때 첫 번째 오류 필드에 포커스가 배치 됩니다.
+- 이제 페이지가 로드 될 때 첫 번째 편집 가능한 필드에 포커스가 배치 됩니다.
+- 클레임 공급자 선택 링크에 대 한 새 위치를 추가 했습니다 `bottomUnderFormClaimsProviderSelections` .
+- 더 이상 사용 되지 않는 UXStrings을 제거 했습니다.
+
 **2.1.0**
 
 - 여러 등록 링크에 대 한 지원이 추가 되었습니다.
@@ -67,11 +89,12 @@ ms.locfileid: "88852068"
 
 - 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
   - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
   - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
-- Chrome 변환 지원
+- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안을 제공 합니다.
+- Chrome 변환을 지원 합니다.
+- 사용자 흐름 페이지에서 테 넌 트 브랜딩에 대 한 지원이 추가 되었습니다.
 
 **1.1.0**
 
@@ -83,6 +106,12 @@ ms.locfileid: "88852068"
 
 ## <a name="mfa-page-multifactor"></a>MFA 페이지 (다단계)
 
+**1.2.2**
+- IOS를 사용할 때 확인 코드 자동 채우기 문제를 수정 했습니다.
+- Android 웹 보기에서 신뢰 당사자에 게 토큰을 리디렉션하는 문제를 해결 했습니다. 
+- `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.  
+- 정책 또는 QueryString 매개 변수를 사용 하 여 `pageFlavor` 레이아웃 (클래식, oceanBlue 또는 slateGray)을 선택 하는 기능이 추가 되었습니다.
+
 **1.2.1**
 
 - 기본 템플릿에 대 한 내게 필요한 옵션 수정
@@ -90,11 +119,12 @@ ms.locfileid: "88852068"
 **1.2.0**
 
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
   - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
   - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
 - 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
-- Chrome 변환 지원
+- Chrome 변환을 지원 합니다.
+- 사용자 흐름 페이지에서 테 넌 트 브랜딩에 대 한 지원이 추가 되었습니다.
 
 **1.1.0**
 
@@ -115,7 +145,7 @@ ms.locfileid: "88852068"
 **1.2.0**
 
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
   - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
   - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
 - 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
@@ -136,7 +166,7 @@ ms.locfileid: "88852068"
 **1.2.0**
 
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
   - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
   - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
 - 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
@@ -148,4 +178,4 @@ ms.locfileid: "88852068"
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 정책에서 응용 프로그램의 사용자 인터페이스를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스](custom-policy-ui-customization.md)사용자 지정을 참조 하세요.
+사용자 지정 정책에서 응용 프로그램의 사용자 인터페이스를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스](customize-ui-with-html.md)사용자 지정을 참조 하세요.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331118"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612674"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -254,7 +254,7 @@ ExpressRoute 회로가 가상 허브에 연결되면 온-프레미스와 Azure �
 현재 동작은 VNet 간 연결에서 허브 간 경로보다 ExpressRoute 회로 경로를 선호합니다. 그러나 가상 WAN 설정에서는 이 방법을 권장하지 않습니다. ExpressRoute 경로보다 허브 간 경로를 선호하도록 Virtual WAN 팀에서 픽스를 개발하는 중입니다. 여러 ExpressRoute 회로(여러 공급자)를 하나의 허브에 연결하고 Virtual WAN에서 제공하는 허브 간 연결을 지역 간 트래픽 흐름에 사용하는 것이 좋습니다.
 
 ### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Virtual WAN의 다른 리소스 그룹에 허브를 만들 수 있나요?
-예. 이 옵션은 현재 powershell을 통해서만 사용할 수 있습니다. Virtual WAN 포털은 Virtual WAN 리소스 자체와 동일한 리소스 그룹의 허브를 요구합니다.
+예. 이 옵션은 현재 PowerShell을 통해서만 사용할 수 있습니다. Virtual WAN 포털은 Virtual WAN 리소스 자체와 동일한 리소스 그룹의 허브를 요구합니다.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
 
@@ -273,3 +273,11 @@ Azure Firewall을 통해 인터넷이 중단되는 지점 및 사이트 간(사�
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Virtual WAN 유형(기본 및 표준) 사이의 차이점은 무엇인가요?
 
 [기본 및 표준 Virtual WAN](../articles/virtual-wan/virtual-wan-about.md#basicstandard)을 참조하세요. 가격 책정에 대해서는 [가격 책정](https://azure.microsoft.com/pricing/details/virtual-wan/) 페이지를 참조하세요.
+
+### <a name="does-virtual-wan-store-customer-data"></a>Virtual WAN은 고객 데이터를 저장하나요? 
+
+아니요. Virtual WAN은 고객 데이터를 저장하지 않습니다.
+
+### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>서비스로서의 사용자용 Virtual WAN을 관리할 수 있는 관리되는 서비스 공급자가 있나요? 
+
+예. Azure Marketplace를 통해 사용하도록 설정된 MSP(관리되는 서비스 공급자) 솔루션 목록은 [Azure Networking MSP 파트너에서 제공하는 Azure Marketplace](../articles/networking/networking-partners-msp.md#msp)를 참조하세요.

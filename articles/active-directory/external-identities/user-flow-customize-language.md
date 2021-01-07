@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7cddb40a6a43c38079906699d9fa4865c4daf558
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576515"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837093"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 언어 지정(미리 보기)
 
@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory)의 사용자 언어 지정을 사용하면 사�
 4. **언어** 를 선택합니다.
 5. 사용자 흐름에 대한 **언어** 페이지에서 사용자 지정하려는 언어를 선택합니다.
 6. **특성 모음 페이지** 를 확장합니다.
-7. **기본값 다운로드** (또는 이전에 이 언어를 편집한 경우 **재정의 다운로드** )를 선택합니다.
+7. **기본값 다운로드**(또는 이전에 이 언어를 편집한 경우 **재정의 다운로드**)를 선택합니다.
 
 이러한 단계는 문자열 편집을 시작하는 데 사용할 수 있는 JSON 파일을 제공합니다.
 
@@ -146,7 +146,7 @@ Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원�
 
 ## <a name="supported-languages"></a>지원되는 언어
 
-Azure AD에는 다음 언어에 대한 지원이 포함되어 있습니다. 사용자 흐름 언어는 Azure AD에서 제공합니다. MFA(다단계 인증) 알림 언어는 [Azure MFA](../authentication/concept-mfa-howitworks.md)에서 제공합니다.
+Azure AD에는 다음 언어에 대한 지원이 포함되어 있습니다. 사용자 흐름 언어는 Azure AD에서 제공합니다. MFA (multi-factor authentication) 알림 언어는 [AZURE AD mfa](../authentication/concept-mfa-howitworks.md)에서 제공 됩니다.
 
 | 언어              | 언어 코드 | 사용자 흐름         | MFA 알림  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

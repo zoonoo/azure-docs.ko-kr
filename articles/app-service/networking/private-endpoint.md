@@ -9,17 +9,17 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 880100c3d67dfe10aacf10ed5bb57dec6e2c2a83
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217068"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96183042"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Azure 웹 앱에 대 한 개인 끝점 사용
 
 > [!IMPORTANT]
-> 개인 끝점은 이러한 App Service 계획에서 호스트 되는 Windows 및 Linux 웹 앱에 대해 사용할 수 있습니다. **격리**된, **PremiumV2**, **PremiumV3**, **함수 프리미엄** (탄력적 프리미엄 요금제 라고도 함). 
+> 개인 끝점은 이러한 App Service 계획에서 호스트 되는 Windows 및 Linux 웹 앱에 대해 사용할 수 있습니다. **격리** 된, **PremiumV2**, **PremiumV3**, **함수 프리미엄** (탄력적 프리미엄 요금제 라고도 함). 
 
 Azure 웹앱용 프라이빗 엔드포인트를 사용하여 프라이빗 네트워크에 있는 클라이언트가 Private Link를 통해 앱에 안전하게 액세스할 수 있도록 할 수 있습니다. 프라이빗 엔드포인트는 Azure VNet 주소 공간의 IP 주소를 사용합니다. 프라이빗 네트워크에 있는 클라이언트와 웹앱 간의 네트워크 트래픽은 VNet을 통해 이동하고 Microsoft 백본 네트워크의 Private Link를 통해 공용 인터넷 노출을 방지합니다.
 
@@ -68,7 +68,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 기본적으로 개인 끝점을 사용 하지 않고 웹 앱의 공개 이름은 클러스터에 대 한 정식 이름입니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |Type |값 |
+|Name |유형 |값 |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -78,7 +78,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 개인 끝점을 배포할 때 정식 이름 mywebapp.privatelink.azurewebsites.net을 가리키도록 DNS 항목을 업데이트 합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |Type |값 |설명 |
+|Name |유형 |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -86,10 +86,10 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 |cloudservicename.cloudapp.net|A|40.122.110.154|<--이 공용 IP는 개인 끝점이 아니므로 403 오류를 받게 됩니다.|
 
 개인 DNS 서버 또는 Azure DNS 개인 영역을 설정 해야 합니다. 테스트를 위해 테스트 컴퓨터의 호스트 항목을 수정할 수 있습니다.
-만들어야 하는 DNS 영역은 **privatelink.azurewebsites.net**입니다. A 레코드와 개인 끝점 IP를 사용 하 여 웹 앱에 대 한 레코드를 등록 합니다.
+만들어야 하는 DNS 영역은 **privatelink.azurewebsites.net** 입니다. A 레코드와 개인 끝점 IP를 사용 하 여 웹 앱에 대 한 레코드를 등록 합니다.
 예를 들어 이름 확인은 다음과 같습니다.
 
-|Name |Type |값 |설명 |
+|Name |유형 |값 |설명 |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<-Azure 공용 DNS에서이 항목을 만들어 app service가 privatelink를 가리키도록 합니다 .이 항목은 microsoft에서 관리 합니다.|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-개인 끝점 IP 주소를 가리키도록 DNS 시스템에서이 항목을 관리 합니다.|
@@ -101,7 +101,7 @@ VNet과 웹앱 사이에 보안 연결이 필요한 경우 서비스 엔드포�
 
 Kudu 콘솔 또는 Kudu REST API (예: Azure DevOps 자체 호스팅 에이전트로 배포)의 경우 Azure DNS 개인 영역 또는 사용자 지정 DNS 서버에서 두 개의 레코드를 만들어야 합니다. 
 
-| Name | Type | 값 |
+| Name | 유형 | 값 |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
@@ -144,7 +144,7 @@ Private Link 기능 및 프라이빗 엔드포인트는 정기적으로 개선�
 [dnsvalidation]: ../app-service-web-tutorial-custom-domain.md
 [pllimitations]: ../../private-link/private-endpoint-overview.md#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide1]: ../../private-link/create-private-endpoint-webapp-portal.md
+[howtoguide1]: ../../private-link/tutorial-private-endpoint-webapp-portal.md
 [howtoguide2]: ../scripts/cli-deploy-privateendpoint.md
 [howtoguide3]: ../scripts/powershell-deploy-private-endpoint.md
 [howtoguide4]: ../scripts/template-deploy-private-endpoint.md

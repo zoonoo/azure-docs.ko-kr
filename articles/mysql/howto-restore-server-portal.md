@@ -7,18 +7,18 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
 ms.openlocfilehash: 9bc31cf8fee2669634ff366caac77cb090baf075
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539144"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96000303"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -30,7 +30,7 @@ Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을
 > 서버가 만들어지면 지리적으로 중복되거나 로컬로 중복된 중복 형식은 전환할 수 없습니다.
 >
 
-Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창에서 서버에 대해 **로컬 중복** 또는 **지역 중복** 백업을 선택합니다. 또한 이 창에서는 **백업 보존 기간** (서버 백업을 저장하려는 기간(일))도 선택할 수 있습니다.
+Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창에서 서버에 대해 **로컬 중복** 또는 **지역 중복** 백업을 선택합니다. 또한 이 창에서는 **백업 보존 기간**(서버 백업을 저장하려는 기간(일))도 선택할 수 있습니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="가격 책정 계층 - 백업 중복 선택":::
 
@@ -62,10 +62,10 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
 3. 필요한 정보로 복원 양식을 채웁니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - 복원 정보":::
-   - **복원 지점** : 복원하려는 특정 시점을 선택합니다.
-   - **대상 서버** : 새 서버에 대한 이름을 제공합니다.
-   - **위치** : 하위 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
-   - **가격 책정 계층** : 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
+   - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
+   - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
+   - **위치**: 하위 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
+   - **가격 책정 계층**: 특정 시점 복원을 수행할 때 이러한 매개 변수는 변경할 수 없습니다. 원본 서버와 동일합니다. 
 
 4. **확인** 을 클릭하여 특정 시점으로 복원할 서버를 복원합니다. 
 
@@ -92,7 +92,7 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
 
 3. **데이터 원본** 으로 **백업** 을 선택 합니다. 이 작업은 지역 중복 백업을 사용 하도록 설정 된 서버 목록을 제공 하는 드롭다운을 로드 합니다.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="데이터 원본을 선택 합니다.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="데이터 원본을 선택합니다.":::
     
    > [!NOTE]
    > 서버가 처음 생성될 때는 지역 복원에 즉시 사용 가능하지 않을 수 있습니다. 필요한 메타데이터를 채우는 데 몇 시간 정도 걸릴 수 있습니다.
@@ -106,13 +106,13 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
    
    :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="백업을 선택 합니다.":::
 
-6. 서버는 **vcores** 수, **백업 보존 기간** , **백업 중복성 옵션** , **엔진 버전** 및 **관리자 자격 증명** 에 대 한 값을 기본값으로 표시 합니다. **계속** 을 선택합니다. 
+6. 서버는 **vcores** 수, **백업 보존 기간**, **백업 중복성 옵션**, **엔진 버전** 및 **관리자 자격 증명** 에 대 한 값을 기본값으로 표시 합니다. **계속** 을 선택합니다. 
    
    :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="백업을 계속 합니다.":::
 
 7. 나머지 양식은 기본 설정으로 작성합니다. **위치** 를 선택할 수 있습니다.
 
-    위치를 선택한 후 **서버 구성** 을 선택 하 여 **계산 생성** (선택한 지역에서 사용 가능한 경우), **Vcores** 수, **백업 보존 기간** 및 **백업 중복성 옵션** 을 업데이트할 수 있습니다. **가격 책정 계층** (기본, 범용 또는 메모리 최적화) 또는 **스토리지** 크기는 복원하는 동안 변경할 수 없습니다.
+    위치를 선택한 후 **서버 구성** 을 선택 하 여 **계산 생성** (선택한 지역에서 사용 가능한 경우), **Vcores** 수, **백업 보존 기간** 및 **백업 중복성 옵션** 을 업데이트할 수 있습니다. **가격 책정 계층**(기본, 범용 또는 메모리 최적화) 또는 **스토리지** 크기는 복원하는 동안 변경할 수 없습니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="채우기 양식."::: 
 

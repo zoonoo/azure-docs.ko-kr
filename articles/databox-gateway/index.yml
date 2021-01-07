@@ -1,0 +1,75 @@
+### YamlMime:Landing
+title: Azure Data Box Gateway 설명서 - 온라인 전송
+summary: 클라우드 보관 목적, 재해 복구 또는 클라우드 규모의 데이터 처리를 위해 네트워크를 통한 데이터 전송을 위해 Azure Data Box Gateway 디바이스를 사용합니다.
+metadata:
+  title: Azure Data Box Gateway 설명서 - 온라인 전송
+  description: Azure로 네트워크 데이터 전송을 통해 고성능을 발휘하기 위한 Data Box Gateway 설명서
+  services: databox
+  ms.service: databox
+  ms.subservice: gateway
+  ms.topic: landing-page
+  ms.collection: collection
+  author: v-dalc
+  ms.author: alkohli
+  ms.date: 10/29/2020
+  ms.openlocfilehash: 811d0555e6fd39f372b4742501a3114bbc9a25b4
+  ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 12/03/2020
+  ms.locfileid: "96579948"
+landingContent:
+- title: Data Box Gateway 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Data Box Gateway란?
+      url: data-box-gateway-overview.md
+  - linkListType: architecture
+    links:
+    - text: 데이터 전송 옵션 선택
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+    - text: 네트워크 또는 오프라인 전송 사용
+      url: /azure/storage/common/storage-solution-large-dataset-low-network#offline-transfer-or-network-transfer
+  - linkListType: whats-new
+    links:
+    - text: 2007 릴리스 정보 - 현재
+      url: data-box-gateway-2007-release-notes.md
+- title: 요구 사항 및 제한 사항
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 요구 사항
+      url: data-box-gateway-system-requirements.md
+    - text: 제한
+      url: data-box-gateway-limits.md
+- title: 배포
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 배포 준비
+      url: data-box-gateway-deploy-prep.md
+    - text: Hyper-V에서 프로비전
+      url: data-box-gateway-deploy-provision-hyperv.md
+    - text: 연결, 설정, 활성화
+      url: data-box-gateway-deploy-connect-setup-activate.md
+    - text: 데이터 전송
+      url: data-box-gateway-deploy-add-shares.md
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 공유 관리
+      url: data-box-gateway-manage-shares.md
+    - text: PowerShell을 통해 관리
+      url: data-box-gateway-connect-powershell-interface.md
+- title: 문제 해결
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 문제 해결
+      url: data-box-gateway-troubleshoot.md
+    - text: 모니터
+      url: data-box-gateway-monitor.md
+    - text: 지원 티켓 열기
+      url: ../databox-online/azure-stack-edge-contact-microsoft-support.md

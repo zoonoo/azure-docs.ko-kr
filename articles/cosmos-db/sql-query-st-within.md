@@ -5,20 +5,20 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/23/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 565b3429f8e8398a93f981969f96984bdac52db0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e808f6f56041e6cdc577164140910af8d6c42731
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93334993"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96004401"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 첫 번째 인수에 지정된 GeoJSON 개체(Point, Polygon 또는 LineString)가 두 번째 인수의 GeoJSON(Point, Polygon 또는 LineString) 내에 있는지 여부를 나타내는 부울 식을 반환합니다.  
+ 첫 번째 인수에 지정 된 GeoJSON 개체 (Point, Polygon, MultiPolygon 또는 LineString)가 두 번째 인수의 GeoJSON (Point, Polygon, MultiPolygon 또는 LineString) 내에 있는지 여부를 나타내는 부울 식을 반환 합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -35,7 +35,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   부울 값을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는를 사용 하 여 다각형 내에서 모든 패밀리 문서를 찾는 방법을 보여 줍니다 `ST_WITHIN` .  
   

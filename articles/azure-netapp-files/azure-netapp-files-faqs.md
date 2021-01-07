@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 01/05/2020
 ms.author: b-juche
-ms.openlocfilehash: d4e66511ce3017749076615f081a8fb56d8b8452
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591549"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913501"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -60,7 +60,7 @@ ms.locfileid: "94591549"
 
 NFSv 4.1 클라이언트와 Azure NetApp Files 볼륨 간의 데이터 트래픽은 AES-256 암호화를 사용 하는 Kerberos를 사용 하 여 암호화할 수 있습니다. 자세한 내용은 [nfsv 4.1 Kerberos 암호화 구성 Azure NetApp Files을](configure-kerberos-encryption.md) 참조 하세요.   
 
-NFSv3 또는 SMBv3 클라이언트 간의 데이터 트래픽이 Azure NetApp Files 볼륨으로 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
+NFSv3 또는 SMB3 클라이언트 간의 데이터 트래픽이 Azure NetApp Files 볼륨으로 암호화 되지 않습니다. 그러나 Azure VM (NFS 또는 SMB 클라이언트를 실행 하는)에서 Azure NetApp Files로의 트래픽은 다른 Azure VM 간 트래픽과도 안전 합니다. 이 트래픽은 Azure 데이터 센터 네트워크에 대 한 로컬 트래픽입니다. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>미사용 저장소를 암호화할 수 있나요?
 
@@ -138,6 +138,16 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 
 예를 들어 라는 볼륨을 만듭니다 `vol1` . 그런 다음 다른 `vol1` 용량 풀에 있지만 동일한 구독 및 지역에 있는 다른 볼륨을 만듭니다. 이 경우 동일한 볼륨 이름을 사용 하면 오류가 발생 `vol1` 합니다. 동일한 파일 경로를 사용 하려면 이름이 다른 지역 또는 구독에 있어야 합니다.
 
+### <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Windows 클라이언트를 통해 NFS 볼륨에 액세스 하려고 할 때 클라이언트에서 폴더와 하위 폴더를 검색 하는 데 시간이 오래 걸리는 이유는 무엇 인가요?
+
+`CaseSensitiveLookup`Windows 클라이언트에서를 사용 하 여 폴더 및 하위 폴더의 조회 속도를 높일 수 있는지 확인 합니다.
+
+1. 다음 PowerShell 명령을 사용 하 여 CaseSensitiveLookup를 사용 하도록 설정 합니다.   
+    `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
+2. Windows 서버에 볼륨을 탑재 합니다.   
+    예제:   
+    `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
 ## <a name="smb-faqs"></a>SMB FAQ
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Azure NetApp Files에서 지 원하는 SMB 버전은 무엇 인가요?
@@ -167,6 +177,10 @@ Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory 
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>SMB 클라이언트에서 사용 가능한 공간에 프로 비전 된 크기가 표시 되지 않는 이유는 무엇 인가요?
 
 SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
+
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다. 어떻게 해야 합니까?
+
+컴퓨터 클록 동기화에 대 한 최대 허용 오차를 5 분으로 설정 하는 것이 가장 좋습니다. 자세한 내용은 [컴퓨터 클록 동기화에 대 한 최대 허용 오차](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11))를 참조 하세요. 
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

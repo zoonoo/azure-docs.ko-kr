@@ -9,13 +9,13 @@ ms.topic: overview
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.custom: contperfq1, azuread-video-2020
-ms.openlocfilehash: b61da9710b51ad4802b46cae7625d6ba9a66e86c
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.custom: contperf-fy21q1, azuread-video-2020
+ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91595813"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033921"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
@@ -42,13 +42,13 @@ Azure RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법�
 
 ### <a name="security-principal"></a>보안 주체
 
-*보안 주체*는 사용자, 그룹, 서비스 주체 또는 Azure 리소스에 대한 액세스를 요청하는 관리 ID를 나타내는 개체입니다. 이러한 보안 주체에 역할을 할당할 수 있습니다.
+*보안 주체* 는 사용자, 그룹, 서비스 주체 또는 Azure 리소스에 대한 액세스를 요청하는 관리 ID를 나타내는 개체입니다. 이러한 보안 주체에 역할을 할당할 수 있습니다.
 
 ![역할 할당에 대한 보안 주체](./media/shared/rbac-security-principal.png)
 
 ### <a name="role-definition"></a>역할 정의
 
-*역할 정의*는 권한 컬렉션입니다. 일반적으로 단지 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 역할은 소유자처럼 대략적일 수도 있고 가상 머신 판독기처럼 구체적일 수도 있습니다.
+*역할 정의* 는 권한 컬렉션입니다. 일반적으로 단지 *역할* 이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 역할은 소유자처럼 대략적일 수도 있고 가상 머신 판독기처럼 구체적일 수도 있습니다.
 
 ![역할 할당에 대한 역할 정의](./media/shared/rbac-role-definition.png)
 
@@ -64,7 +64,7 @@ Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있
 
 ### <a name="scope"></a>범위
 
-*범위*는 액세스가 적용되는 리소스의 세트입니다. 역할에 할당할 때 범위를 정의하여 허용되는 작업을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 [웹 사이트 기여자](built-in-roles.md#website-contributor)로 지정하려는 경우에 유용합니다.
+*범위* 는 액세스가 적용되는 리소스의 세트입니다. 역할에 할당할 때 범위를 정의하여 허용되는 작업을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 [웹 사이트 기여자](built-in-roles.md#website-contributor)로 지정하려는 경우에 유용합니다.
 
 Azure는 4개 수준([관리 그룹](../governance/management-groups/overview.md), 구독, [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups) 또는 리소스)에서 범위를 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다. 이러한 범위 수준에서 역할을 할당할 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure는 4개 수준([관리 그룹](../governance/management-groups/overview.md
 
 ### <a name="role-assignments"></a>역할 할당
 
-*역할 할당*은 액세스 권한을 부여하기 위해 특정 범위에서 역할 정의를 사용자, 그룹, 서비스 주체 또는 관리 ID에 연결하는 프로세스입니다. 역할 할당을 만들어서 액세스 권한을 부여하고, 역할 할당을 제거하여 액세스 권한을 취소합니다.
+*역할 할당* 은 액세스 권한을 부여하기 위해 특정 범위에서 역할 정의를 사용자, 그룹, 서비스 주체 또는 관리 ID에 연결하는 프로세스입니다. 역할 할당을 만들어서 액세스 권한을 부여하고, 역할 할당을 제거하여 액세스 권한을 취소합니다.
 
 다음 다이어그램은 역할 할당의 예를 보여줍니다. 이 예제에서 마케팅 그룹에는 pharma-sales 리소스 그룹에 대한 [기여자](built-in-roles.md#contributor) 역할이 할당되었습니다. 즉, 마케팅 그룹의 해당 사용자가 pharma-sales 리소스 그룹에 Azure 리소스를 만들거나 관리할 수 있습니다. 마케팅 사용자는 다른 역할 할당에 포함되지 않는 한, pharma-sales 리소스 그룹 외부에 있는 리소스에 액세스할 수 없습니다.
 
@@ -92,7 +92,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="deny-assignments"></a>거부 할당
 
-이전에는 Azure RBAC가 거부가 없는 허용 전용 모델이었지만 이제 Azure RBAC는 제한된 방식으로 거부 할당을 지원합니다. *거부 할당*은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹, 서비스 주체 또는 관리 ID에게 거부 작업 세트를 연결합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다.
+이전에는 Azure RBAC가 거부가 없는 허용 전용 모델이었지만 이제 Azure RBAC는 제한된 방식으로 거부 할당을 지원합니다. *거부 할당* 은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹, 서비스 주체 또는 관리 ID에게 거부 작업 세트를 연결합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다.
 
 자세한 내용은 [Azure 거부 할당 이해](deny-assignments.md)를 참조하세요.
 

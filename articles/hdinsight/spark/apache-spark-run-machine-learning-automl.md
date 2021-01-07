@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/13/2019
-ms.openlocfilehash: 6e472c65897fa57cdb1e0b09d94c62913e268040
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3397c57f793c6994847786ff8247e5ccfa453ec0
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087473"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821250"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>HDInsight의 Apache Spark에서 자동화 된 Machine Learning을 사용 하 여 Azure Machine Learning 작업 실행
 
@@ -24,7 +24,7 @@ Azure Machine Learning는 기계 학습 모델의 빌드, 학습 및 배포를 �
 모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK와 함께 사전 설치 됩니다.
 
 > [!Note]
-> Azure Machine Learning 패키지는 Python3 conda 환경에 설치됩니다. 설치된 Jupyter 노트는 PySpark3 커널을 사용하여 실행해야 합니다.
+> Azure Machine Learning 패키지는 Python3 conda 환경에 설치됩니다. PySpark3 커널을 사용 하 여 설치 된 Jupyter Notebook를 실행 해야 합니다.
 
 Zeppelin 노트북을 사용 하 여 AutoML도 사용할 수 있습니다.
 
@@ -35,7 +35,7 @@ Zeppelin 노트북을 사용 하 여 AutoML도 사용할 수 있습니다.
 
 작업 영역을 만들고 실험을 제출하려면 인증 토큰이 필요합니다. 이 토큰은 [Azure AD 애플리케이션](../../active-directory/develop/app-objects-and-service-principals.md)을 사용하여 생성할 수 있습니다. 계정에서 Multi-Factor Authentication을 사용하도록 설정하지 않은 경우 [Azure AD 사용자](/azure/python/python-sdk-azure-authenticate)를 사용하여 필수 인증 토큰을 생성할 수도 있습니다.  
 
-다음 코드 조각은 **Azure AD 애플리케이션**을 사용하여 인증 토큰을 만듭니다.
+다음 코드 조각은 **Azure AD 애플리케이션** 을 사용하여 인증 토큰을 만듭니다.
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -46,7 +46,7 @@ auth_sp = ServicePrincipalAuthentication(
 )
 ```
 
-다음 코드 조각은 **Azure AD 사용자**를 사용하여 인증 토큰을 만듭니다.
+다음 코드 조각은 **Azure AD 사용자** 를 사용하여 인증 토큰을 만듭니다.
 
 ```python
 from azure.common.credentials import UserPassCredentials
@@ -55,7 +55,7 @@ credentials = UserPassCredentials('user@domain.com', 'my_smart_password')
 
 ## <a name="loading-dataset"></a>데이터 세트 로드
 
-Spark의 자동화된 기계 학습은 데이터에 대해 느리게 평가되는 변경할 수 없는 작업에 해당하는 **데이터 흐름**을 사용합니다.  데이터 흐름은 공용 읽기 액세스를 사용하여 Blob에서 또는 SAS 토큰을 사용하여 Blob URL에서 데이터 세트를 로드할 수 있습니다.
+Spark의 자동화된 기계 학습은 데이터에 대해 느리게 평가되는 변경할 수 없는 작업에 해당하는 **데이터 흐름** 을 사용합니다.  데이터 흐름은 공용 읽기 액세스를 사용하여 Blob에서 또는 SAS 토큰을 사용하여 Blob URL에서 데이터 세트를 로드할 수 있습니다.
 
 ```python
 import azureml.dataprep as dprep

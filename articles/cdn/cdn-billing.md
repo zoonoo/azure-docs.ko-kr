@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779172"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018684"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -48,7 +48,7 @@ Azure CDN 청구 지역은 최종 사용자에게 콘텐츠를 배달하는 원�
 예를 들어 멕시코에 위치한 사용자가 요청을 발급하고 이 요청이 피어링 또는 트래픽 상황으로 인해 미국 POP에 있는 서버를 통해 처리되는 경우 청구 지역은 미국이 됩니다.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>청구 가능 Azure CDN 트랜잭션이란?
-CDN에서 종료되는 모든 HTTP(S) 요청은 청구 가능 이벤트로, 모든 응답 형식(성공, 실패 또는 기타)을 포함합니다. 그러나 응답에 따라 트래픽 양이 달라질 수 있습니다. 예를 들어 *304 수정되지 않음* 및 헤더에만 적용되는 기타 응답은 작은 헤더 응답이기 때문에 트래픽을 거의 생성하지 않습니다. 마찬가지로, 오류 응답(예: *404 찾을 수 없음* )은 청구 가능하지만 응답 페이로드가 아주 작기 때문에 적은 비용이 발생합니다.
+CDN에서 종료되는 모든 HTTP(S) 요청은 청구 가능 이벤트로, 모든 응답 형식(성공, 실패 또는 기타)을 포함합니다. 그러나 응답에 따라 트래픽 양이 달라질 수 있습니다. 예를 들어 *304 수정되지 않음* 및 헤더에만 적용되는 기타 응답은 작은 헤더 응답이기 때문에 트래픽을 거의 생성하지 않습니다. 마찬가지로, 오류 응답(예: *404 찾을 수 없음*)은 청구 가능하지만 응답 페이로드가 아주 작기 때문에 적은 비용이 발생합니다.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Azure CDN 사용과 관련된 기타 Azure 비용으로 어떤 것이 있나요?
 Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대한 사용 요금이 발생합니다. 이러한 비용은 일반적으로 전체 CDN 사용 비용의 일부입니다.
@@ -105,7 +105,7 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Front Door Service
 - Azure Bastion
 - Azure App Service
-- Azure Functions
+- Azure 기능
 - Azure 데이터 팩터리
 - Azure API Management
 - Azure Batch 

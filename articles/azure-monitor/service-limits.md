@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: fffdc88e1d54622ec17d27cdb3bc574d4ced1111
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 49a9c6663f0505d5104f54630b6925af98ec243f
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505757"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318078"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 서비스 제한
 
@@ -29,6 +29,10 @@ ms.locfileid: "94505757"
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
+
+## <a name="data-collection-rules"></a>데이터 수집 규칙
+
+[!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
 ## <a name="log-queries-and-language"></a>로그 쿼리 및 언어
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
@@ -43,6 +47,6 @@ ms.locfileid: "94505757"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)
+- [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)
 - [Azure Monitor의 모니터링 사용량 및 예상 비용](platform/usage-estimated-costs.md)
 - [Application Insights의 사용량 및 비용 관리](app/pricing.md)

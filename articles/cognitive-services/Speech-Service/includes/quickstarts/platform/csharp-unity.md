@@ -12,11 +12,11 @@ ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fd592b6f565cb23d7a922af2a68e6328911c2dc0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096932"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96188417"
 ---
 이 가이드에서는 [Unity](https://unity3d.com/)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
@@ -41,7 +41,7 @@ Unity용 Speech SDK를 설치하려면 다음 단계를 수행합니다.
 
    [![Unity 편집기의 Unity 패키지 가져오기 대화 상자](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png#lightbox)
 
-1. 모든 파일이 선택되었는지 확인하고, **가져오기**를 선택합니다. 잠시 후에 Unity 자산 패키지를 프로젝트로 가져옵니다.
+1. 모든 파일이 선택되었는지 확인하고, **가져오기** 를 선택합니다. 잠시 후에 Unity 자산 패키지를 프로젝트로 가져옵니다.
 
 자산 패키지를 Unity로 가져오는 방법에 대한 자세한 내용은 [Unity 설명서](https://docs.unity3d.com/Manual/AssetPackages.html)를 참조하세요.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413295"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96489771"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -81,7 +81,7 @@ NSG는 애플리케이션 계층 검사 또는 인증된 액세스 제어를 제
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC Just-In-Time VM 액세스
 
-[Azure 보안 센터](../../security-center/security-center-introduction.md)는 적절한 RBAC[역할 기반 액세스 제어](../../role-based-access-control/overview.md) 사용 권한이 있는 사용자가 액세스를 요청할 때까지 VM에서 NSG를 관리하고 VM에 대한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
+[Azure security center](../../security-center/security-center-introduction.md) 는 Vm에서 nsgs를 관리 하 고 적절 한 azure 역할 기반 액세스 제어 [azure RBAC](../../role-based-access-control/overview.md) 권한이 있는 사용자가 액세스를 요청할 때까지 vm에 대 한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
 
 자세한 정보:
 
@@ -332,7 +332,7 @@ Microsoft에서는 Azure 플랫폼의 일부로 **기본** 으로 알려진 DDoS
 
 자세한 정보:
 
-* [DDOS 보호 개요](../../virtual-network/ddos-protection-overview.md)
+* [DDOS 보호 개요](../../ddos-protection/ddos-protection-overview.md)
 
 ## <a name="azure-front-door"></a>Azure Front Door
 

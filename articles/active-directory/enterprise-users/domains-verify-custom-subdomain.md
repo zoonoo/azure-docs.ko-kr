@@ -7,19 +7,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b85bc6485c4ea21cbdc224a6978db40d8dcdf105
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 734e6824f13e62ad080500eff18c4892e1f76807
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93402214"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503678"
 ---
 # <a name="change-subdomain-authentication-type-in-azure-active-directory"></a>Azure Active Directory에서 하위 도메인 인증 유형 변경
 

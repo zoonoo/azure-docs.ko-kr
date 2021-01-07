@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397402"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693727"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>기존 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러) 설치
 
@@ -46,7 +46,7 @@ AGIC를 설치 하기 전에 __Application Gateway의 구성을 백업__ 하세�
 
 1. [투구](../aks/kubernetes-helm.md) 를 설치 하 고 다음을 실행 하 여 투구 패키지를 추가 합니다 `application-gateway-kubernetes-ingress` .
 
-    - *RBAC 사용* AKS 클러스터
+    - *KUBERNETES RBAC 사용* AKS 클러스터
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -54,7 +54,7 @@ AGIC를 설치 하기 전에 __Application Gateway의 구성을 백업__ 하세�
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - *RBAC 사용 안 함* AKS 클러스터
+    - *KUBERNETES RBAC 사용 안 함* AKS 클러스터
 
     ```bash
     helm init
@@ -187,7 +187,7 @@ armAuth:
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     
@@ -296,7 +296,7 @@ appgw:
 kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
 ```
 
-이름에서 암시 하는 개체는 `prohibit-all-targets` AGIC에서 호스트 및 경로에 대 *any* 한 구성을 변경 하는 것을 금지 합니다.
+이름에서 암시 하는 개체는 `prohibit-all-targets` AGIC에서 호스트 및 경로에 대  한 구성을 변경 하는 것을 금지 합니다.
 를 사용 하 `appgw.shared=true` 는 투구 설치는 AGIC를 배포 하지만 Application Gateway를 변경 하지는 않습니다.
 
 
@@ -323,7 +323,7 @@ kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>기존 AGIC 설치를 사용 하도록 설정
-클러스터에 이미 작동 중인 AKS, Application Gateway 및 구성 된 AGIC 있다고 가정해 보겠습니다. 에 대 한 수신 `prod.contosor.com` 이 있으며 AKS에서이에 대 한 트래픽을 처리 하 고 있습니다. `staging.contoso.com`기존 Application Gateway에 추가 하 고 [VM](https://azure.microsoft.com/services/virtual-machines/)에서 호스트 해야 합니다. 기존 Application Gateway를 다시 사용 하 고에 대 한 수신기 및 백 엔드 풀을 수동으로 구성 하겠습니다 `staging.contoso.com` . 그러나 Application Gateway 구성 ( [포털](https://portal.azure.com), [ARM Api](/rest/api/resources/) 또는 [terraform](https://www.terraform.io/)을 통해)을 수동으로 조정 하는 것은 AGIC의 전체 소유권 가정과 충돌 합니다. 변경 내용을 적용 하 고 나면 잠시 후 AGIC에서 덮어쓰거나 삭제 합니다.
+클러스터에 이미 작동 중인 AKS, Application Gateway 및 구성 된 AGIC 있다고 가정해 보겠습니다. 에 대 한 수신 `prod.contoso.com` 이 있으며 AKS에서이에 대 한 트래픽을 처리 하 고 있습니다. `staging.contoso.com`기존 Application Gateway에 추가 하 고 [VM](https://azure.microsoft.com/services/virtual-machines/)에서 호스트 해야 합니다. 기존 Application Gateway를 다시 사용 하 고에 대 한 수신기 및 백 엔드 풀을 수동으로 구성 하겠습니다 `staging.contoso.com` . 그러나 Application Gateway 구성 ( [포털](https://portal.azure.com), [ARM Api](/rest/api/resources/) 또는 [terraform](https://www.terraform.io/)을 통해)을 수동으로 조정 하는 것은 AGIC의 전체 소유권 가정과 충돌 합니다. 변경 내용을 적용 하 고 나면 잠시 후 AGIC에서 덮어쓰거나 삭제 합니다.
 
 AGIC 구성의 하위 집합을 변경 하지 못하도록 방지할 수 있습니다.
 

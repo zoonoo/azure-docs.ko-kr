@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396691"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647905"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Azure Lab Services에서 Windows 템플릿 컴퓨터를 설정 하는 방법에 대 한 가이드
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>OneDrive 사용자 지정
 
-[OneDrive에 대해 수행할 수 있는 많은 사용자 지정](https://docs.microsoft.com/onedrive/use-group-policy)이 있습니다. 몇 가지 일반적인 사용자 지정 항목을 살펴보겠습니다.
+[OneDrive에 대해 수행할 수 있는 많은 사용자 지정](/onedrive/use-group-policy)이 있습니다. 몇 가지 일반적인 사용자 지정 항목을 살펴보겠습니다.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Windows의 알려진 폴더를 OneDrive로 자동 이동
 
@@ -61,7 +61,7 @@ Active Directory를 사용 하지 않는 컴퓨터에 있는 경우 사용자가
 
 가상 컴퓨터가 Active Directory에 연결 된 경우 학생에 게 자동으로 알려진 폴더를 OneDrive로 이동 하도록 템플릿 컴퓨터를 설정할 수 있습니다.  
 
-먼저 조직 ID를 검색 해야 합니다.  자세한 지침은 [Microsoft 365 조직 ID 찾기](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id)를 참조 하세요.  다음 PowerShell을 사용 하 여 조직 ID를 가져올 수도 있습니다.
+먼저 조직 ID를 검색 해야 합니다.  자세한 지침은 [Microsoft 365 조직 ID 찾기](/onedrive/find-your-office-365-tenant-id)를 참조 하세요.  다음 PowerShell을 사용 하 여 조직 ID를 가져올 수도 있습니다.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Microsoft 365 업데이트 채널 변경
 
-Office 구성 도구를 사용 하 여 Office에서 업데이트를 수신 하는 빈도를 설정할 수 있습니다. 그러나 설치 후 Office에서 업데이트를 수신 하는 빈도를 수정 해야 하는 경우에는 업데이트 채널 URL을 변경할 수 있습니다. 채널 URL 주소 업데이트 [는 조직의 장치에 대 한 Microsoft 365 앱 업데이트 채널 변경](https://docs.microsoft.com/deployoffice/change-update-channels)에서 찾을 수 있습니다. 아래 예제에서는 월별 업데이트 채널을 사용 하도록 Microsoft 365를 설정 하는 방법을 보여 줍니다.
+Office 구성 도구를 사용 하 여 Office에서 업데이트를 수신 하는 빈도를 설정할 수 있습니다. 그러나 설치 후 Office에서 업데이트를 수신 하는 빈도를 수정 해야 하는 경우에는 업데이트 채널 URL을 변경할 수 있습니다. 채널 URL 주소 업데이트 [는 조직의 장치에 대 한 Microsoft 365 앱 업데이트 채널 변경](/deployoffice/change-update-channels)에서 찾을 수 있습니다. 아래 예제에서는 월별 업데이트 채널을 사용 하도록 Microsoft 365를 설정 하는 방법을 보여 줍니다.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ PowerShell을 사용 하 여 이미 설치 된 Microsoft Store 응용 프로그�
 
 ### <a name="stop-automatic-windows-updates"></a>자동 Windows 업데이트 중지
 
-Windows를 최신 버전으로 업데이트 한 후 Windows 업데이트를 중지 하는 것을 고려할 수 있습니다.  자동 업데이트는 예약 된 클래스 시간에 방해가 될 수 있습니다.  코스가 더 오래 실행 되는 경우 학생에 게 수동으로 업데이트를 확인 하거나 예약 된 클래스 시간 외의 시간에 자동 업데이트를 설정 하도록 요청 하는 것이 좋습니다.  Windows 업데이트에 대 한 사용자 지정 옵션에 대 한 자세한 내용은 [추가 Windows 업데이트 설정 관리](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings)를 참조 하세요.
+Windows를 최신 버전으로 업데이트 한 후 Windows 업데이트를 중지 하는 것을 고려할 수 있습니다.  자동 업데이트는 예약 된 클래스 시간에 방해가 될 수 있습니다.  코스가 더 오래 실행 되는 경우 학생에 게 수동으로 업데이트를 확인 하거나 예약 된 클래스 시간 외의 시간에 자동 업데이트를 설정 하도록 요청 하는 것이 좋습니다.  Windows 업데이트에 대 한 사용자 지정 옵션에 대 한 자세한 내용은 [추가 Windows 업데이트 설정 관리](/windows/deployment/update/waas-wu-settings)를 참조 하세요.
 
 다음 PowerShell 스크립트를 사용 하 여 자동 Windows 업데이트를 중지할 수 있습니다.
 

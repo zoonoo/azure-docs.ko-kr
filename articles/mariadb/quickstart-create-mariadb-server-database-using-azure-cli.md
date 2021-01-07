@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 서버 만들기 - Azure CLI - Azure Database for MariaDB'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB 서버를 만드는 방법을 살펴봅니다.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3279150d0cb7b287f0a78581094a51356033596c
+ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424491"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96435742"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -21,9 +21,9 @@ Azure CLI를 사용하여 명령줄 또는 스크립트에서 Azure 리소스를
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-CLI를 로컬로 설치하여 사용하는 경우 이 빠른 시작에서는 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. CLI를 설치하거나 업그레이드해야 하는 경우에는 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+- 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 구독이 여러 개인 경우 리소스 또는 구독 요금이 청구되는 구독을 선택합니다. 계정에 속한 특정 구독 ID를 선택하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
 
@@ -51,12 +51,12 @@ name | **mydemoserver** | Azure Database for MariaDB 서버를 식별하는 고�
 resource-group | **myresourcegroup** | Azure 리소스 그룹의 이름을 입력합니다.
 sku-name | **GP_Gen5_2** | SKU의 이름입니다. *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 축약형으로 따릅니다. **sku-name** 매개 변수에 대한 자세한 내용은 이 표 다음에 나오는 섹션을 참조하세요.
 backup-retention | **7** | 백업을 보존하는 기간입니다. 단위는 일입니다. 범위: 7 ~ 35 
-geo-redundant-backup | **사용 안 함** | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용** , **사용 안 함**
+geo-redundant-backup | **사용 안 함** | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
 위치 | **westus** | 서버에 대한 Azure 위치입니다.
-ssl-enforcement | **Enabled** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용** , **사용 안 함**
+ssl-enforcement | **Enabled** | 이 서버에 SSL을 사용할 것인지 여부를 결정합니다. 허용되는 값은 다음과 같습니다. **사용**, **사용 안 함**
 storage-size | **51200** | 서버의 스토리지 용량입니다(단위는 메가바이트). 유효한 스토리지 크기는 5,120MB(최소)이고 1,024MB 단위로 증가합니다. 스토리지 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요. 
 버전 | **10.2** | MariaDB 주 엔진 버전입니다.
-admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser** , **admin** , **administrator** , **root** , **guest** 또는 **public** 일 수 없습니다.
+admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public** 일 수 없습니다.
 admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
 
 sku-name 매개 변수 값은 아래 예에서와 같이 {가격 책정 계층}\_{컴퓨팅 세대}\_{vCores} 규칙을 따릅니다.

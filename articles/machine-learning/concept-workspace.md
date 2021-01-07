@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 65cdf444386d1b10cf225010c55170e5b47b3eb4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541354"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701656"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -89,7 +89,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 작업 영역을 만드는 방법에는 여러 가지가 있습니다.  
 
 * 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) 를 사용 하 여 각 단계를 안내 합니다.
-* [Python 용 AZURE MACHINE LEARNING SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
+* [Python 용 AZURE MACHINE LEARNING SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) 를 사용 하 여 python 스크립트 또는 Jupyter 노트북에서 즉시 작업 영역 만들기
 * 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
 * Visual Studio Code에서 작업 하는 경우 [VS Code 확장](how-to-manage-resources-vscode.md#create-a-workspace)을 사용 합니다.
 

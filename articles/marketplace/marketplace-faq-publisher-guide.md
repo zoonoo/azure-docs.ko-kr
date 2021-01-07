@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 584e1e943f215aa4a69368fb71cb3053b1444a01
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491480"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660222"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -87,7 +87,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 게시자는 고객이 구매 흐름의 일부로 수락해야 하는 소프트웨어 솔루션에 대한 사용 약관을 설정합니다. Microsoft는 업무를 간소화하고 가속화하기 위해 사용 약관에 포함할 수 있는 표준 계약을 제공합니다. 이를 통해 고객은 표준 계약을 한 번 검토하고 법률 및 구매 팀의 승인을 받은 후 각 제품에 대한 수정 사항에 집중할 수 있습니다.
 
-모든 고객에게 적용되는 변경 사항을 만들거나 특정 고객에 맞게 변경 사항을 만들 수 있습니다. 텍스트 상자에 입력하거나 웹 주소로 표시되는 웹 사이트에서 호스트될 수 있는 사용 약관을 완전히 사용자 지정할 수도 있습니다.
+모든 고객에게 적용되는 변경 사항을 만들거나 특정 고객에 맞게 변경 사항을 만들 수 있습니다. 파트너 센터의 입력란에 입력할 수 있는 사용 약관을 완전히 사용자 지정할 수도 있습니다.
 
 자세한 내용은 [Microsoft 상업용 워크스페이스 표준 계약](standard-contract.md)을 참조하세요.
 
@@ -102,7 +102,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 - ‘관리자’: 디렉터리에서 파트너 센터 사용자를 관리하고 제품을 만들고 업데이트할 수 있는 권한을 제공합니다.
 - ‘개발자’: 사용자가 제품을 만들고 업데이트할 수 있습니다.
 - ‘재무 기여자’: 지급 보고를 볼 수 있는 권한을 제공합니다.
-- *소유자* : 지급 계정 및 세금 프로필을 설정할 수 있습니다. 게시자 계약을 수락한 사용자는 기본적으로 소유자가 됩니다.
+- *소유자*: 지급 계정 및 세금 프로필을 설정할 수 있습니다. 게시자 계약을 수락한 사용자는 기본적으로 소유자가 됩니다.
 
 새 사용자 계정을 만들거나 기본 디렉터리에 게스트 계정을 초대하려면 Azure AD(Azure Active Directory) ‘전역 관리자’ 권한이 필요합니다. 파트너 센터는 Azure AD를 ID 모델에 적용하고 조직의 Azure AD 인스턴스는 종종 IT 또는 보안 팀에서 관리하고 제어합니다.
 

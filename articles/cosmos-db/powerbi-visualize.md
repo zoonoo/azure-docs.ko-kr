@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3b47c7e8f31b51d51f5fad20cc068debb1dc2927
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b27bab9ea3029264143caaacf094f0a799894356
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339736"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359866"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +27,12 @@ ms.locfileid: "93339736"
 > [!NOTE]
 > Azure Cosmos DB와 Power BI 커넥터 연결은 현재 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 Power BI 자습서의 지침을 따르기 전에 다음 리소스에 액세스할 수 있는지 확인하세요.
 
 * [최신 버전의 Power BI Desktop 다운로드](https://powerbi.microsoft.com/desktop).
 
-* GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)를 다운로드합니다.
+* GitHub에서 [샘플 화산 데이터](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json)를 다운로드합니다.
 
 * [Azure Cosmos 데이터베이스 계정을 만들고](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) [Azure Cosmos DB 데이터 마이그레이션 도구](import-data.md)를 사용 하 여 화산 데이터를 가져옵니다. 데이터를 가져올 때 데이터 마이그레이션 도구의 원본 및 대상에 대한 다음 설정을 고려합니다.
 
@@ -76,7 +76,7 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 1. Power BI Desktop을 실행합니다.
 
-2. 시작 화면에서 직접 **데이터를 가져오고** , **최근 원본** 또는 **다른 보고서를 열 수** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
+2. 시작 화면에서 직접 **데이터를 가져오고**, **최근 원본** 또는 **다른 보고서를 열 수** 있습니다. 화면을 닫으려면 오른쪽 상단 모서리의 “X”를 선택합니다. Power BI 데스크톱의 **보고서** 뷰가 표시됩니다.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Power BI 데스크톱 보고서 보기 - Power BI 커넥터":::
 
@@ -96,9 +96,9 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
     
 8. 계정이 성공적으로 연결되면 **탐색기** 창이 표시됩니다. **탐색기** 는 계정의 데이터베이스 목록을 표시합니다.
 
-9. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장하고, **volcanodb** (데이터베이스 이름은 다를 수 있음)를 선택합니다.   
+9. 보고서의 데이터를 가져올 데이터베이스를 클릭하여 확장하고, **volcanodb**(데이터베이스 이름은 다를 수 있음)를 선택합니다.   
 
-10. 이제 검색할 데이터포를 함하는 컬렉션을 선택하고 **volcano1** (컬렉션 이름은 다를 수 있음)을 선택합니다.
+10. 이제 검색할 데이터포를 함하는 컬렉션을 선택하고 **volcano1**(컬렉션 이름은 다를 수 있음)을 선택합니다.
     
     미리 보기 창에는 **레코드** 항목의 목록이 표시됩니다.  문서는 Power BI에서 **레코드** 형식으로 나타납니다. 마찬가지로, 문서 내의 중첩된 JSON 블록도 **레코드** 입니다.
     

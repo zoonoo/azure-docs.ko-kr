@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Gr
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074219"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694394"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
 
@@ -78,7 +78,7 @@ az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -206,7 +206,7 @@ Are you sure you want to continue? (y/n):
 
 이 빠른 시작에서 만든 리소스를 다 사용했으면 다음 Azure CLI 명령을 사용하여 모두 삭제할 수 있습니다. 리소스 그룹을 삭제하면 해당 그룹에 포함된 모든 리소스가 영구적으로 삭제됩니다.
 
-**경고** : 이 작업은 되돌릴 수 없습니다. 이 명령을 실행하기 전에 해당 그룹의 리소스가 더 이상 필요하지 않은지 확인하세요.
+**경고**: 이 작업은 되돌릴 수 없습니다. 이 명령을 실행하기 전에 해당 그룹의 리소스가 더 이상 필요하지 않은지 확인하세요.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

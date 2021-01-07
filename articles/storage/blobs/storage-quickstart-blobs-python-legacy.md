@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: a01b6e644ce3afda451d94d3e00eda278a645adf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851327"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523310"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>빠른 시작: Python v2.1 SDK로 Blob 관리
 
@@ -137,7 +137,7 @@ block_blob_service.set_container_acl(
 클라우드 Blob 컨테이너가 있으면 관심 있는 특정 Blob을 가리키는 **CloudBlockBlob** 개체를 인스턴스화합니다. 그런 다음, 필요에 따라 Blob을 업로드하고, 다운로드하고, 복사합니다.
 
 > [!IMPORTANT]
-> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
+> 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
 ### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
@@ -145,7 +145,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 Blob에 파일을 업로드하려면 디렉터리 이름을 로컬 드라이브의 파일 이름과 조인하여 전체 파일 경로를 가져옵니다. 그런 다음, `create_blob_from_path` 메서드를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
 
-샘플 코드는 시스템에서 업로드 및 다운로드에 사용하는 로컬 파일을 만들고 시스템에서 *full_path_to_file* 및 Blob 이름 *local_file_name*으로 업로드하는 파일을 저장합니다. 이 예제에서는 `quickstartblobs`라는 컨테이너에 파일을 업로드합니다.
+샘플 코드는 시스템에서 업로드 및 다운로드에 사용하는 로컬 파일을 만들고 시스템에서 *full_path_to_file* 및 Blob 이름 *local_file_name* 으로 업로드하는 파일을 저장합니다. 이 예제에서는 `quickstartblobs`라는 컨테이너에 파일을 업로드합니다.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -184,7 +184,7 @@ for blob in generator:
 
 
 `get_blob_to_path` 메서드를 사용하여 Blob를 로컬 디스크에 다운로드합니다.
-다음 코드는 이전에 업로드한 Blob을 다운로드합니다. 시스템은 로컬 디스크에서 두 파일을 확인할 수 있도록 *_DOWNLOADED*를 Blob 이름에 추가합니다.
+다음 코드는 이전에 업로드한 Blob을 다운로드합니다. 시스템은 로컬 디스크에서 두 파일을 확인할 수 있도록 *_DOWNLOADED* 를 Blob 이름에 추가합니다.
 
 ```python
 # Download the blob(s).
@@ -216,7 +216,7 @@ Blob 스토리지를 사용하는 Python 개발에 대한 자세한 내용은 �
 
 ### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
 
-- Python 클라이언트 라이브러리에 대한 자세한 내용은 [Python용 Azure Storage 라이브러리](https://docs.microsoft.com/python/api/overview/azure/storage)를 참조하세요.
+- Python 클라이언트 라이브러리에 대한 자세한 내용은 [Python용 Azure Storage 라이브러리](/python/api/overview/azure/storage)를 참조하세요.
 - Python 클라이언트 라이브러리를 사용하여 작성된 [Blob Storage 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob)을 탐색하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,12 +9,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ab7749c93f39d0c7b630b63e0b0e68589b61ede2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a12fc991734fe74e450aa14a477f3a4500ba659c
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090950"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96937256"
 ---
 # <a name="list-blob-containers-with-net"></a>.NET을 사용 하 여 blob 컨테이너 나열
 
@@ -60,7 +60,7 @@ ms.locfileid: "92090950"
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="ListContainers":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="Snippet_ListContainers":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
@@ -119,7 +119,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [컨테이너 나열](/rest/api/storageservices/list-containers2)
 - [Blob 리소스 열거](/rest/api/storageservices/enumerating-blob-resources)

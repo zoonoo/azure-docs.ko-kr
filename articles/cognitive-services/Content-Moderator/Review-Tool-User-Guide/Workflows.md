@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 0be77dc1ac249c37f9b59078451d8fbe35f17458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6eb2a2d2762b60a12bb9a24b92e2edae4b846cd1
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72754247"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904145"
 ---
 # <a name="define-and-use-moderation-workflows"></a>중재 워크플로 정의 및 사용
 
@@ -23,11 +23,11 @@ ms.locfileid: "72754247"
 
 ## <a name="create-a-new-workflow"></a>새 워크플로 만들기
 
-[Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 여 로그인 합니다. **설정** 탭에서 **워크플로**를 선택합니다.
+[Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 여 로그인 합니다. **설정** 탭에서 **워크플로** 를 선택합니다.
 
 ![워크플로 설정](images/2-workflows-0.png)
 
-다음 화면에서 **워크플로 추가**를 선택 합니다.
+다음 화면에서 **워크플로 추가** 를 선택 합니다.
 
 ![워크플로 추가](images/2-workflows-1.png)
 
@@ -39,9 +39,9 @@ ms.locfileid: "72754247"
 
 ### <a name="define-evaluation-criteria"></a>평가 기준 정의
 
-다음 화면에서 **If** 섹션으로 이동 합니다. 위쪽 드롭다운 메뉴에서 **조건**을 선택 합니다. 이렇게 하면 워크플로에서 작업을 수행할 조건을 구성할 수 있습니다. 여러 조건을 사용 하려면 대신 **조합** 을 선택 합니다. 
+다음 화면에서 **If** 섹션으로 이동 합니다. 위쪽 드롭다운 메뉴에서 **조건** 을 선택 합니다. 이렇게 하면 워크플로에서 작업을 수행할 조건을 구성할 수 있습니다. 여러 조건을 사용 하려면 대신 **조합** 을 선택 합니다. 
 
-다음으로 커넥터를 선택 합니다. 이 예제에서는 **Content Moderator**를 사용합니다. 선택한 커넥터에 따라 데이터 출력에 대 한 다른 옵션을 사용할 수 있습니다. 다른 커넥터를 설정 하는 방법을 알아보려면 검토 도구 설정 가이드의 [커넥터](./configure.md#connectors) 섹션을 참조 하세요.
+다음으로 커넥터를 선택 합니다. 이 예제에서는 **Content Moderator** 를 사용합니다. 선택한 커넥터에 따라 데이터 출력에 대 한 다른 옵션을 사용할 수 있습니다. 다른 커넥터를 설정 하는 방법을 알아보려면 검토 도구 설정 가이드의 [커넥터](./configure.md#connectors) 섹션을 참조 하세요.
 
 ![워크플로 커넥터 선택](images/image-workflow-connect-to.PNG)
 
@@ -83,4 +83,4 @@ ms.locfileid: "72754247"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 중재 워크플로를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로 워크플로를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-workflow.md) 를 참조 하세요.
+이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 중재 워크플로를 설정 하 고 사용 하는 방법을 알아보았습니다. 그런 다음 프로그래밍 방식으로 워크플로를 만드는 방법을 알아보려면 [API 콘솔 가이드](../try-review-api-workflow.md) 를 참조 하세요.

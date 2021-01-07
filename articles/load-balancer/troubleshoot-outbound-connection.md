@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628998"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696356"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> 아웃 바운드 연결 오류 문제 해결
 
 이 문서는 Azure Load Balancer의 아웃 바운드 연결에서 일반적인 문제에 대 한 해결 방법을 제공 하기 위한 것입니다. 고객이 경험 하는 아웃 바운드 연결에 대 한 대부분의 문제는 SNAT 포트 소모 및 연결 시간 제한으로 인해 삭제 된 패킷이 전달 되기 때문입니다. 이 문서에서는 이러한 각 문제를 완화 하는 단계를 제공 합니다.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
-[PAT](load-balancer-outbound-connections.md) 에 사용 되는 사용 [후 삭제 포트](load-balancer-outbound-connections.md) 는 공용 Ip [주소가 없는 독립 실행형 vm](load-balancer-outbound-connections.md) 및 [공용 ip 주소가 없는 부하 분산 vm](load-balancer-outbound-connections.md)에 설명 된 대로 소모 성 리소스입니다. 사용 후 삭제 포트의 사용량을 모니터링 하 고 현재 할당을 비교 하 여의 위험을 확인 하거나 [이](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용 하 여 SNAT 소모를 확인할 수 있습니다.
+[PAT](load-balancer-outbound-connections.md) 에 사용 되는 사용 [후 삭제 포트](load-balancer-outbound-connections.md) 는 공용 Ip [주소가 없는 독립 실행형 vm](load-balancer-outbound-connections.md) 및 [공용 ip 주소가 없는 부하 분산 vm](load-balancer-outbound-connections.md)에 설명 된 대로 소모 성 리소스입니다. 사용 후 삭제 포트의 사용량을 모니터링 하 고 현재 할당을 비교 하 여의 위험을 확인 하거나 [이](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) 가이드를 사용 하 여 SNAT 소모를 확인할 수 있습니다.
 
 동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](load-balancer-outbound-connections.md)에서 사용하는 미리 할당된 [삭제 포트](load-balancer-outbound-connections.md#preallocatedports))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "91628998"
 그다음으로 큰 백 엔드 풀 크기 계층으로 확장하는 경우, 할당된 포트를 다시 할당해야 하면 잠재적으로 일부 아웃바운드 연결이 시간 초과될 수 있습니다.  SNAT 포트 중 일부만 사용하는 경우 그다음으로 큰 백 엔드 풀 크기로 확장하는 것이 중요하지 않습니다.  기존 포트 절반은 다음 백 앤드 풀 계층으로 이동할 때마다 다시 할당됩니다.  이러한 경우를 방지하려면 배포를 계층 크기에 맞게 조정해야 합니다.  또는 애플리케이션이 필요에 따라 검색하고 다시 시도할 수 있게 합니다.  TCP Keepalive는 다시 할당되어 SNAT 포트가 더 이상 작동하지 않는 경우의 검색을 지원할 수 있습니다.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>keepalive를 사용하여 아웃바운드 유휴 시간 제한 다시 설정
-아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 [아웃바운드 규칙](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout)을 통해 조정할 수 있습니다. 전송(예: TCP keepalive) 또는 애플리케이션 계층 keepalive를 사용하여 유휴 흐름을 새로 고치고, 필요한 경우 이 유휴 시간 제한을 다시 설정할 수도 있습니다.  
+아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 [아웃바운드 규칙](outbound-rules.md)을 통해 조정할 수 있습니다. 전송(예: TCP keepalive) 또는 애플리케이션 계층 keepalive를 사용하여 유휴 흐름을 새로 고치고, 필요한 경우 이 유휴 시간 제한을 다시 설정할 수도 있습니다.  
 
 TCP Keepalive를 사용하는 경우 연결의 한 쪽에서 사용하도록 설정하는 것으로 충분합니다. 예를 들어 서버 쪽에서만 사용하도록 설정해도 흐름의 유휴 타이머가 다시 설정되며 양쪽에서 TCP Keepalive를 시작하지 않아도 됩니다.  데이터베이스 클라이언트 서버 구성을 포함하여 애플리케이션 계층에 대한 유사한 개념이 있습니다.  서버 쪽에서 응용 프로그램별 keepalives에 대 한 옵션을 확인 합니다.
 

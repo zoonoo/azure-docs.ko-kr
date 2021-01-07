@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 548393353d38082c175cde20eef1e93017cdd31a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: 6ffe631dc237e7efaf1d6bfd9ac79ab7431c7371
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639279"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023142"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 가상 데스크톱 RDP Shortpath (미리 보기)
 
@@ -36,7 +36,7 @@ RDP Shortpath는 RDP 다중 전송 기능을 확장 하 고 있습니다. 역방
 
 UDP 포트 3390는 역방향 연결 전송을 통해 인증 된 들어오는 Shortpath 트래픽에만 사용 됩니다. RDP Shortpath listener는 역방향 연결 세션과 일치 하지 않는 한 수신기에 대 한 모든 연결 시도를 무시 합니다.
 
-RDP Shortpath는 세션 호스트의 인증서를 사용 하 여 클라이언트와 세션 호스트 간의 TLS 연결을 사용 합니다. 기본적으로 RDP 암호화에 사용 되는 인증서는 배포 하는 동안 OS에 의해 자체 생성 됩니다. 원할 경우 고객은 엔터프라이즈 인증 기관에서 발급 한 중앙에서 관리 되는 인증서를 배포할 수 있습니다. 인증서 구성에 대 한 자세한 내용은 [Windows Server 설명서](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations.md)를 참조 하십시오.
+RDP Shortpath는 세션 호스트의 인증서를 사용 하 여 클라이언트와 세션 호스트 간의 TLS 연결을 사용 합니다. 기본적으로 RDP 암호화에 사용 되는 인증서는 배포 하는 동안 OS에 의해 자체 생성 됩니다. 원할 경우 고객은 엔터프라이즈 인증 기관에서 발급 한 중앙에서 관리 되는 인증서를 배포할 수 있습니다. 인증서 구성에 대 한 자세한 내용은 [Windows Server 설명서](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations)를 참조 하십시오.
 
 ## <a name="rdp-shortpath-connection-sequence"></a>RDP Shortpath 연결 시퀀스
 
@@ -99,7 +99,7 @@ PowerShell을 사용 하 여 그룹 정책을 구성할 수도 있습니다.
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'fUseUdpPortRedirector' -Value 1 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 Set-GPPrefRegistryValue -Key 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations' -ValueName 'UdpPortNumber' -Value 3390 -Type:DWord  -Action:Create -Context:Computer -Name $policyName -Domain $domainName
 ```
@@ -139,7 +139,7 @@ PowerShell을 사용 하 여 그룹 정책을 구성할 수도 있습니다.
 # Replace $domainName value with the name of your Active Directory domain
 # Replace $policyName value with the name of existing Group Policy Object
 $domainName = "contoso.com"
-$policyName = "Default Domain Policy"
+$policyName = "RDP Shortpath Policy"
 $gpoSession = Open-NetGPO -PolicyStore "$domainName\$policyName"
 New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action Allow -Description 'Inbound rule for the Remote Desktop service to allow RDP traffic. [UDP 3390]' -Group '@FirewallAPI.dll,-28752' -Name 'RemoteDesktop-UserMode-In-Shortpath-UDP'  -PolicyStore PersistentStore -Profile Domain, Private -Service TermService -Protocol udp -LocalPort 3390 -Program '%SystemRoot%\system32\svchost.exe' -Enabled:True
 ```
@@ -151,6 +151,7 @@ New-NetFirewallRule -DisplayName 'Remote Desktop - Shortpath (UDP-In)'  -Action 
 
 * **원본**  -  클라이언트가 있는 **모든** 또는 IP 범위
 * **원본 포트 범위** -* *\** _ _ **대상**  -  **Any**
+* **대상 포트 범위**  -  **3390**
 * **프로토콜**  -  **UDP**
 * **작업**  -  **허용**
 * 필요에 따라 **우선 순위** 를 변경 합니다. 이 우선 순위는 규칙이 적용되는 순서에 영향을 줍니다. 숫자 값이 적을수록 규칙이 먼저 적용됩니다.
@@ -175,7 +176,7 @@ RDP Shortpath 전송을 사용 하 여에서 특정 서브넷을 차단 해야 �
 세션에서 RDP Shortpath 전송을 사용 중인지 확인 하려면 다음을 수행 합니다.
 
 1. Windows Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
-2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그 > Microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > 운영**
+2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그 > microsoft > Windows > RemoteDesktopServices-RdpCoreCDV > RdpCoreCDV/Operational**
 3. RDP Shortpath 전송이 사용 되는지 확인 하려면 이벤트 ID 131를 확인 합니다.
 
 ### <a name="using-log-analytics-to-verify-shortpath-connectivity"></a>Log Analytics를 사용 하 여 Shortpath 연결 확인
@@ -186,7 +187,7 @@ RDP Shortpath 전송을 사용 하 여에서 특정 서브넷을 차단 해야 �
 * **0** -사용자 연결에서 RDP Shortpath를 사용 하지 않음
 * **1** -사용자 연결이 RDP Shortpath를 사용 하 고 있습니다.
   
-다음 쿼리 목록에서 연결 정보를 검토할 수 있습니다. [Log Analytics 쿼리 편집기](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries)에서이 쿼리를 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
+다음 쿼리 목록에서 연결 정보를 검토할 수 있습니다. [Log Analytics 쿼리 편집기](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query)에서이 쿼리를 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;
@@ -245,6 +246,11 @@ RDP Shortpath 전송을 사용 하지 않도록 설정 해야 하는 경우도 �
 1. 세션 호스트에서 **gpedit.msc** 를 실행 합니다.
 2. **컴퓨터 구성 > 관리 템플릿 > Windows 구성 요소 > 원격 데스크톱 서비스 >** 원격 데스크톱 연결 > 연결로 이동 합니다.
 3. **"RDP 전송 프로토콜 선택"** 설정을 **TCP로만** 설정
+
+## <a name="public-preview-feedback"></a>공개 미리 보기 피드백
+
+이 공개 미리 보기를 사용 하 여 사용자의 경험에 대 한 의견을 듣고 싶습니다.
+* 질문, 요청, 의견 및 기타 피드백은 [이 사용자 의견 양식을 사용](https://aka.ms/RDPShortpathFeedback)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

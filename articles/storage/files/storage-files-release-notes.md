@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/5/2020
+ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0b85bbbbd69338f54f9e698d9d47058f78c32057
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630076"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674500"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V 11.1 릴리스- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 2020 년 11 월 4 일 | 지원 됨-Flighting |
+| V 11.1 릴리스- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 2020 년 11 월 4 일 | 지원됨 |
 | V 10.1 릴리스- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 6 월 5 일, 2020 | 지원됨 |
 | 2020년 5월 업데이트 롤업 - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 2020년 5월 19일 | 지원됨 |
 | V10 릴리스 - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 2020년 4월 9일 | 지원됨 |

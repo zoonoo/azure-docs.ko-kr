@@ -13,11 +13,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89068539"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96173433"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
 
@@ -185,8 +185,8 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory**  >  **앱 등록** 를 선택 하 여 등록 된 앱 >
-1. **인증**선택  >  **플랫폼**  >  **iOS/macos** 추가
-1. 번들 ID를 입력 하 고 **구성**을 선택 합니다.
+1. **인증** 선택  >  **플랫폼**  >  **iOS/macos** 추가
+1. 번들 ID를 입력 하 고 **구성** 을 선택 합니다.
 
     코드에 포함 되도록 **리디렉션 uri** 텍스트 상자에 표시 되는 생성 된 리디렉션 uri를 복사 합니다.
 
@@ -239,7 +239,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 MSAL은 Url을 사용 하 여 broker를 호출한 다음 앱으로 돌아갑니다. 이러한 라운드트립을 완료 하려면 [Azure Portal](https://portal.azure.com)을 사용 하 여 앱에 대 한 **리디렉션 URI** 를 등록 해야 합니다.
 
-응용 프로그램에 대 한 리디렉션 URI의 형식은 APK에 서명 하는 데 사용 되는 인증서에 따라 다릅니다. 예를 들면 다음과 같습니다.
+응용 프로그램에 대 한 리디렉션 URI의 형식은 APK에 서명 하는 데 사용 되는 인증서에 따라 다릅니다. 예를 들어:
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
@@ -315,7 +315,7 @@ MSAL이 broker를 사용 하도록 구성 되었지만 broker가 설치 되어 �
 
 예를 들어의 리디렉션 URI가 있는 경우 `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` 매니페스트는 다음 XML 조각과 같이 표시 됩니다.
 
-`/`값의 시그니처 앞에 슬래시 () `android:path` 가 **있어야**합니다.
+`/`값의 시그니처 앞에 슬래시 () `android:path` 가 **있어야** 합니다.
 
 ```xml
 <!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.
@@ -347,7 +347,7 @@ MSAL이 broker를 사용 하도록 구성 되었지만 broker가 설치 되어 �
   - Microsoft Authenticator 로그 보기:
 
     1. 앱의 오른쪽 위 모퉁이에 있는 메뉴 단추를 선택 합니다.
-    1. **도움말**  >  **로그 보내기**  >  **보기 로그**를 선택 합니다.
+    1. **도움말**  >  **로그 보내기**  >  **보기 로그** 를 선택 합니다.
     1. **모두 복사** 를 선택 하 여 브로커 로그를 장치의 클립보드에 복사 합니다.
 
     이러한 로그를 사용 하 여 디버그 하는 가장 좋은 방법은 자신에 게 전자 메일을 보내고 개발 컴퓨터에서 보는 것입니다. 장치 자체 대신 컴퓨터의 로그를 구문 분석 하는 것이 더 쉬울 수 있습니다. Android에서 테스트 편집기를 사용 하 여 로그를 텍스트 파일로 저장 한 다음 USB 케이블을 사용 하 여 파일을 컴퓨터에 복사할 수도 있습니다.

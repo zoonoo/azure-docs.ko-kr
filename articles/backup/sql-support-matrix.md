@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 Azure Vm의 SQL Server를 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174062"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734796"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure Vm의 SQL Server 백업에 대 한 지원 매트릭스
 
@@ -36,10 +36,10 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 >[!NOTE]
 > [자세한 Resource Planner를 다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) 하 여 VM 리소스, 대역폭 및 백업 정책에 따라 서버 별로 권장 되는 보호 된 데이터베이스의 대략적인 수를 계산 합니다.
 
-* SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원 되지 않습니다.
+* SQL Server 백업은 Azure Portal 또는 **PowerShell** 에서 구성할 수 있습니다. CLI는 지원 되지 않습니다.
 * 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](../azure-resource-manager/management/deployment-models.md)에서 모두 지원됩니다.
 * 모든 백업 유형 (전체/차등/로그) 및 복구 모델 (단순/전체/대량 로그)이 지원 됩니다.
-* 전체 및 복사 전용 전체 백업 유형은 **읽기 전용** 데이터베이스에 대해 지원 됩니다.
+* **읽기** 전용 데이터베이스의 경우: 전체 및 복사 전용 전체 백업만 지원 되는 백업 유형입니다.
 * SQL 네이티브 압축은 백업 정책에서 사용자가 명시적으로 사용 하도록 설정한 경우에만 지원 됩니다. Azure Backup은 사용자가 설정한 대로이 컨트롤의 값에 따라 압축/NO_COMPRESSION 절을 사용 하 여 인스턴스 수준 기본값을 재정의 합니다.
 * TDE 사용 데이터베이스 백업이 지원 됩니다. TDE로 암호화 된 데이터베이스를 다른 SQL Server 복원 하려면 먼저 [대상 서버에 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다. SQL Server 2016 이상 버전에 대 한 TDE 지원 데이터베이스의 백업 압축을 사용할 수 있지만 [여기](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)에 설명 된 대로 낮은 전송 크기를 사용할 수 있습니다.
 * 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
@@ -62,17 +62,17 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 **백업 유형** | **Node**
 --- | ---
-전체 | 기본
-차등 | 기본
-로그 |  기본
-복사 전용 전체 |  기본
+전체 | 주
+차등 | 주
+로그 |  주
+복사 전용 전체 |  주
 
 #### <a name="backup-preference-secondary-only"></a>백업 기본 설정: 보조만
 
 **백업 유형** | **Node**
 --- | ---
-전체 | 기본
-차등 | 기본
+전체 | 주
+차등 | 주
 로그 |  보조
 복사 전용 전체 |  보조
 
@@ -80,8 +80,8 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 **백업 유형** | **Node**
 --- | ---
-전체 | 기본
-차등 | 기본
+전체 | 주
+차등 | 주
 로그 |  보조
 복사 전용 전체 |  보조
 
@@ -89,8 +89,8 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 **백업 유형** | **Node**
 --- | ---
-전체 | 기본
-차등 | 기본
+전체 | 주
+차등 | 주
 로그 |  보조
 복사 전용 전체 |  보조
 

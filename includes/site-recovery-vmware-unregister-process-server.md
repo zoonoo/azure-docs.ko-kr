@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: bff9457220efbb6a6b318550a5b2dd9af4ae230f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361395"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96019197"
 ---
 특정 상황에 맞는 단계를 따릅니다.
 
 ### <a name="unregister-a-connected-process-server"></a>연결된 프로세스 서버 등록 취소
 
 1. 관리자 권한으로 프로세스 서버에 대한 원격 연결을 설정합니다.
-2. **제어판**에서 **프로그램 > 프로그램 제거**를 차례로 엽니다.
+2. **제어판** 에서 **프로그램 > 프로그램 제거** 를 차례로 엽니다.
 3. **Microsoft Azure Site Recovery Mobility Service/마스터 대상 서버** 프로그램을 제거합니다.
 4. **Microsoft Azure Site Recovery 구성/프로세스 서버** 프로그램을 제거합니다.
-5. 3단계 및 4단계의 프로그램이 제거되면 **Microsoft Azure Site Recovery 구성/프로세스 서버 종속성**을 제거합니다.
+5. 3단계 및 4단계의 프로그램이 제거되면 **Microsoft Azure Site Recovery 구성/프로세스 서버 종속성** 을 제거합니다.
 
 ### <a name="unregister-a-disconnected-process-server"></a>연결이 끊긴 프로세스 서버 등록 취소
 

@@ -10,11 +10,11 @@ ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504482"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96185507"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro를 사용하여 데이터 변환
 
@@ -90,7 +90,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
     3. **공유 추가** 블레이드에서 공유 이름을 입력하고 공유 유형을 선택합니다.
     4. Edge 공유를 탑재하려면 **Edge 컴퓨팅과 공유 사용** 확인란을 선택합니다.
-    5. **스토리지 계정** , **스토리지 서비스** , 기존 사용자를 선택한 다음, **만들기** 를 선택합니다.
+    5. **스토리지 계정**, **스토리지 서비스**, 기존 사용자를 선택한 다음, **만들기** 를 선택합니다.
 
         ![Edge 공유 추가](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 

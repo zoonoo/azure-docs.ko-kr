@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: bb978f30104b1e38bd8930ccb058c4057d394e51
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d6c3dbc28da7bee0bc24a6dc24608c78e480c20e
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899664"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462175"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -86,7 +86,7 @@ Data Lake Storage는 Azure Event Hubs 또는 Apache Storm을 통한 이벤트 �
 
 ### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure Synapse Analytics (이전의 SQL DW)는 준비 된 결과를 저장 하는 데 적절 한 선택입니다. Azure HDInsight를 사용 하 여 Azure Synapse Analytics에 대해 이러한 서비스를 수행할 수 있습니다.
+Azure Synapse Analytics는 준비 된 결과를 저장 하는 데 적절 한 선택입니다. Azure HDInsight를 사용 하 여 Azure Synapse Analytics에 대해 이러한 서비스를 수행할 수 있습니다.
 
 Azure Synapse Analytics는 분석 워크 로드에 최적화 된 관계형 데이터베이스 저장소입니다. Azure SQL Data Warehouse의 크기는 분할된 테이블에 따라 조정됩니다. 테이블은 여러 노드에 걸쳐 분할될 수 있습니다. 노드는 테이블을 만들 때 선택됩니다. 사후에 크기를 조정할 수 있지만, 이 경우 데이터 이동이 필요할 수 있는 활성 프로세스입니다. 자세한 내용은 [Azure Synapse Analytics에서 계산 관리](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
 

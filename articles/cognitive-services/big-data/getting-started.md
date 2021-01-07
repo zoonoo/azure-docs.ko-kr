@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 37239f9c7857a8e72bb293cfa3caeb429962a542
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 095f2c3ed17042bb616fb091d1af52a64c913709
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363343"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96460496"
 ---
 # <a name="getting-started"></a>시작
 
@@ -37,13 +37,13 @@ ms.locfileid: "94363343"
 
 애플리케이션 또는 워크로드에서 대규모 데이터 세트를 사용하거나 프라이빗 네트워킹이 필요하거나 클라우드에 연결할 수 없는 경우 클라우드 서비스와 통신하지 못할 수 있습니다. 이 경우 컨테이너화된 Cognitive Services에는 다음과 같은 이점이 있습니다.
 
-* **낮은 연결 수준** : 컨테이너화된 Cognitive Services는 온-클라우드 및 오프-클라우드 컴퓨팅 환경 모두에서 배포할 수 있습니다. 애플리케이션에서 클라우드에 연결할 수 없는 경우 컨테이너화된 Cognitive Services를 애플리케이션에 배포하는 것이 좋습니다.
+* **낮은 연결 수준**: 컨테이너화된 Cognitive Services는 온-클라우드 및 오프-클라우드 컴퓨팅 환경 모두에서 배포할 수 있습니다. 애플리케이션에서 클라우드에 연결할 수 없는 경우 컨테이너화된 Cognitive Services를 애플리케이션에 배포하는 것이 좋습니다.
 
-* **짧은 대기 시간** : 컨테이너화된 서비스에는 클라우드와의 왕복 통신이 필요하지 않으므로 응답이 훨씬 더 짧은 대기 시간으로 반환됩니다.
+* **짧은 대기 시간**: 컨테이너화된 서비스에는 클라우드와의 왕복 통신이 필요하지 않으므로 응답이 훨씬 더 짧은 대기 시간으로 반환됩니다.
 
-* **개인 정보 및 데이터 보안** : 중요한 데이터가 네트워크를 떠나지 않도록 컨테이너화된 서비스를 개인 네트워크에 배포할 수 있습니다.
+* **개인 정보 및 데이터 보안**: 중요한 데이터가 네트워크를 떠나지 않도록 컨테이너화된 서비스를 개인 네트워크에 배포할 수 있습니다.
 
-* **높은 확장성** : 컨테이너화된 서비스에는 "요금 제한"이 없으며, 사용자 관리 컴퓨터에서 실행됩니다. 따라서 훨씬 더 큰 워크로드를 처리하기 위해 Cognitive Services의 크기를 무제한으로 조정할 수 있습니다.
+* **높은 확장성**: 컨테이너화된 서비스에는 "요금 제한"이 없으며, 사용자 관리 컴퓨터에서 실행됩니다. 따라서 훨씬 더 큰 워크로드를 처리하기 위해 Cognitive Services의 크기를 무제한으로 조정할 수 있습니다.
 
 [이 가이드](../cognitive-services-container-support.md?tabs=luis)에 따라 컨테이너화된 Cognitive Service를 만듭니다.
 
@@ -65,14 +65,14 @@ Azure Databricks는 한 번 클릭 설정, 간소화된 워크플로 및 대화�
     * 클러스터에 라이브러리 설치  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
-### <a name="synapse-analytics-optional"></a>Synapse Analytics(선택 사항)
+### <a name="azure-synapse-analytics-optional"></a>Azure Synapse Analytics(선택 사항)
 
-필요에 따라 Synapse Analytics를 사용하여 Spark 클러스터를 만들 수 있습니다. Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 통합합니다. 서버리스 주문형 리소스 또는 프로비저닝된 리소스를 규모에 맞게 사용하여 데이터를 사용자의 용어로 자유롭게 쿼리할 수 있습니다. Synapse Analytics 사용을 시작하려면 다음 단계를 수행합니다.
+필요에 따라 Synapse Analytics를 사용하여 Spark 클러스터를 만들 수 있습니다. Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 통합합니다. 서버리스 주문형 리소스 또는 프로비저닝된 리소스를 규모에 맞게 사용하여 데이터를 사용자의 용어로 자유롭게 쿼리할 수 있습니다. Azure Synapse Analytics 사용을 시작하려면 다음 단계를 수행합니다.
 
 1. [Synapse 작업 영역(미리 보기) 만들기](../../synapse-analytics/quickstart-create-workspace.md)
 1. [Azure Portal을 사용하여 새 서버리스 Apache Spark 풀(미리 보기)을 만듭니다](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-Synapse Analytics에서 Cognitive Services용 빅 데이터가 기본적으로 설치됩니다.
+Azure Synapse Analytics에는 Cognitive Services용 빅 데이터가 기본적으로 설치됩니다.
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 

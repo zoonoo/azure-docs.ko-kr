@@ -3,16 +3,17 @@ title: Azure의 Red Hat 워크로드 개요 | Microsoft Docs
 description: Azure에서 제공되는 Red Hat 제품에 대해 알아봅니다.
 author: asinn826
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 61f7461633aba18a21fcc18709055dc790ffee7b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 09612ff3d86c669801f9e824d367a2b9a5bb10ac
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993238"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830652"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Azure의 Red Hat 워크로드
 
@@ -35,7 +36,7 @@ Azure는 다양한 RHEL 종량제 이미지를 제공합니다. 이러한 이미
 ### <a name="red-hat-gold-images"></a>Red Hat Gold 이미지
 
 Azure는 Red Hat Gold 이미지도 제공합니다(`rhel-byos`). 이러한 이미지는 기존 Red Hat 구독을 보유하고 있으며 Azure에서 기존 구독을 사용하려는 고객에게 유용할 수 있습니다. Azure에서 사용하려면 먼저 Red Hat Cloud Access에 대한 기존 Red Hat 구독을 활성화해야 합니다. 이러한 이미지에 대한 액세스 권한은 Red Hat 구독을 Cloud Access에 사용하도록 설정하고 자격 요구 사항을 충족할 때 자동으로 부여됩니다. 이러한 이미지를 사용하면 고객은 종량제 이미지를 사용할 때 발생할 수 있는 이중 청구를 방지할 수 있습니다.
-* [Azure를 사용하여 Cloud Access에 Red Hat 구독을 사용하도록 설정](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs)하는 방법을 알아봅니다.
+* [Azure를 사용하여 Cloud Access에 Red Hat 구독을 사용하도록 설정](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access)하는 방법을 알아봅니다.
 * [Azure Portal, Azure CLI 또는 PowerShell Cmdlet에서 Red Hat Gold 이미지를 찾는](./byos.md) 방법을 알아봅니다.
 
 > [!NOTE]

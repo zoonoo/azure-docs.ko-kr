@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 6840b2188f3d7e7524c4c98d7e1b6d32440e6812
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 0374886482b43eefe6df5e107fd4da371633099d
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339362"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359785"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Gremlin API에 대 한 질문과 대답
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -95,7 +95,7 @@ g.V('mary').out('knows').executionProfile()
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>그래프 데이터베이스에서 쿼리 실행 시 RU/s는 어떻게 청구되나요?
 
-모든 그래프 개체, 꼭짓점 및 모서리는 백 엔드에서 JSON 문서로 표시됩니다. 하나의 Gremlin 쿼리가 한 번에 하나 이상의 그래프 개체를 수정할 수 있으므로 쿼리와 연결된 비용은 쿼리에서 처리하는 개체인 모서리와 직접 관련이 있습니다. 이것은 Azure Cosmos DB가 모든 다른 API에 사용하는 것과 동일한 프로세스입니다. 자세한 내용은 [Azure Cosmos DB의 요청 단위](request-units.md)를 참조 하세요.
+모든 그래프 개체, 꼭짓점 및 모서리는 백 엔드에서 JSON 문서로 표시됩니다. 하나의 Gremlin 쿼리가 한 번에 하나 이상의 그래프 개체를 수정할 수 있으므로 쿼리와 연결된 비용은 쿼리에서 처리하는 개체인 모서리와 직접 관련이 있습니다. 이것은 Azure Cosmos DB가 모든 다른 API에 사용하는 것과 동일한 프로세스입니다. 자세한 내용은 [Azure Cosmos DB의 요청 단위](request-units.md)를 참조하세요.
 
 RU 청구는 결과 집합이 아닌 횡단의 유효 데이터 집합에 기반합니다. 예를 들어 쿼리가 결과로 단일 꼭짓점을 획득하려고 하지만 도중에 둘 이상의 다른 개체를 트래버스해야 한다면 비용은 한 개의 결과 꼭짓점을 컴퓨팅하기 위해 사용되는 모든 그래프 개체에 기반합니다.
 
@@ -109,7 +109,7 @@ Azure Cosmos DB Gremlin API는 서비스의 기본 커넥터로 오픈 소스 �
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin 드라이버를 사용하여 삽입 공격을 방지하려면 어떻게 하나요?
 
-대부분의 기본 Apache Tinkerpop Gremlin 드라이버는 쿼리 실행을 위한 매개 변수 사전을 제공 하는 옵션을 허용 합니다. 다음은 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
+대부분의 기본 Apache Tinkerpop Gremlin 드라이버는 쿼리 실행을 위한 매개 변수 사전을 제공 하는 옵션을 허용 합니다. 다음은 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/main/app.js)에서 수행하는 방법의 예제입니다.
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>"Gremlin 쿼리 컴파일 오류: 메서드를 찾을 수 없습니다." 오류가 발생 하는 이유는 무엇 인가요?
 

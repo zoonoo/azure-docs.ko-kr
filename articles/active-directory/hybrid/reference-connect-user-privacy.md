@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279570"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95997701"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>사용자 개인 정보 및 Azure AD Connect 
 
@@ -37,9 +37,9 @@ ms.locfileid: "89279570"
 Azure AD Connect 팀은 두 번째 옵션이 구현 및 유지 관리가 더 용이하므로 권장합니다.
 
 Azure AD Connect 동기화 서버는 다음 사용자 개인 정보 데이터를 저장합니다.
-1.  **Azure AD Connect 데이터베이스**에 있는 사람에 관한 데이터
+1.  **Azure AD Connect 데이터베이스** 에 있는 사람에 관한 데이터
 2.  사람에 관한 정보를 포함할 수 있는 **Windows 이벤트 로그** 파일의 데이터
-3.  사람에 관해 포함할 수있는 **Azure AD Connect 설치 로그 파일**의 데이터
+3.  사람에 관해 포함할 수있는 **Azure AD Connect 설치 로그 파일** 의 데이터
 
 사용자 데이터를 제거할 때 Azure AD Connect 고객은 다음 지침을 사용해야 합니다.
 1.  적어도 48시간마다 Azure AD Connect 설치 로그 파일이 들어있는 폴더의 내용을 정기적으로 삭제하세요.
@@ -67,18 +67,18 @@ If ($File.ToUpper() -ne "$env:programdata\aadconnect\PERSISTEDSTATE.XML".toupper
 ### <a name="schedule-this-script-to-run-every-48-hours"></a>이 스크립트가 48시간마다 실행되도록 예약합니다.
 스크립트가 48시간마다 실행되도록 예약하려면 다음 단계를 사용합니다.
 
-1.  확장명이 **&#46;PS1**인 파일에 스크립트를 저장한 다음, 제어판을 열고 **시스템 및 보안**을 클릭합니다.
+1.  확장명이 **&#46;PS1** 인 파일에 스크립트를 저장한 다음, 제어판을 열고 **시스템 및 보안** 을 클릭합니다.
     ![시스템](./media/reference-connect-user-privacy/gdpr2.png)
 
-2.  관리 도구 제목 아래에서 **Schedule Tasks**를 클릭합니다.
+2.  관리 도구 제목 아래에서 **Schedule Tasks** 를 클릭합니다.
     ![Task](./media/reference-connect-user-privacy/gdpr3.png)
-3.  작업 스케줄러에서 **Task Schedule Library**를 마우스 오른쪽 단추로 클릭하고 **Create Basic 작업...** 을 클릭합니다.
-4.  새 작업의 이름을 입력하고 **다음**을 클릭합니다.
-5.  작업 트리거로 **매일**을 선택하고 **다음**을 클릭합니다.
-6.  되풀이를 **2일**로 설정하고 **다음**을 클릭합니다.
-7.  **프로그램**을 작업으로 선택하고 **다음**을 클릭합니다.
-8.  프로그램/스크립트 상자에 **PowerShell**을 입력하고 **인수 추가(선택 사항)** 상자에 앞서 만든 스크립트의 전체 경로를 입력한 다음, **다음**을 클릭합니다.
-9.  다음 화면에는 작성하려는 작업의 요약이 표시됩니다. 값을 확인하고 **마침**을 클릭하여 작업을 만듭니다.
+3.  작업 스케줄러에서 **Task Schedule Library** 를 마우스 오른쪽 단추로 클릭하고 **Create Basic 작업...** 을 클릭합니다.
+4.  새 작업의 이름을 입력하고 **다음** 을 클릭합니다.
+5.  작업 트리거로 **매일** 을 선택하고 **다음** 을 클릭합니다.
+6.  되풀이를 **2일** 로 설정하고 **다음** 을 클릭합니다.
+7.  **프로그램** 을 작업으로 선택하고 **다음** 을 클릭합니다.
+8.  프로그램/스크립트 상자에 **PowerShell** 을 입력하고 **인수 추가(선택 사항)** 상자에 앞서 만든 스크립트의 전체 경로를 입력한 다음, **다음** 을 클릭합니다.
+9.  다음 화면에는 작성하려는 작업의 요약이 표시됩니다. 값을 확인하고 **마침** 을 클릭하여 작업을 만듭니다.
 
 
 

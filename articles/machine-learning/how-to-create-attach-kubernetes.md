@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318061"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831927"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -44,6 +44,8 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 
     권한 있는 IP 범위는 표준 Load Balancer 에서만 작동 합니다.
 
+- AKS 클러스터를 **연결** 하는 경우 Azure Machine Learning 작업 영역과 동일한 Azure 구독에 있어야 합니다.
+
 - Azure 개인 링크를 사용 하 여 개인 AKS 클러스터를 사용 하려면 먼저 클러스터를 만든 다음 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [개인 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조 하세요.
 
 - AKS 클러스터에 대 한 계산 이름은 Azure ML 작업 영역 내에서 고유 해야 합니다.
@@ -54,7 +56,7 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
    
  - **GPU** 노드나 **FPGA** 노드 (또는 특정 sku)에 모델을 배포 하려면 특정 sku를 사용 하 여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포 하는 것은 지원 되지 않습니다.
  
-- 클러스터를 만들거나 연결할 때 __개발-테스트__ 또는 __프로덕션__ 을 위해 클러스터를 만들지 여부를 선택할 수 있습니다. 프로덕션 대신 __개발__ , __유효성 검사__ 및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 __클러스터 용도__ 를 개발 __-테스트__ 로 설정 합니다. 클러스터 용도를 지정 하지 않으면 __프로덕션__ 클러스터가 만들어집니다. 
+- 클러스터를 만들거나 연결할 때 __개발-테스트__ 또는 __프로덕션__ 을 위해 클러스터를 만들지 여부를 선택할 수 있습니다. 프로덕션 대신 __개발__, __유효성 검사__ 및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 __클러스터 용도__ 를 개발 __-테스트__ 로 설정 합니다. 클러스터 용도를 지정 하지 않으면 __프로덕션__ 클러스터가 만들어집니다. 
 
     > [!IMPORTANT]
     > __개발-테스트__ 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장 하지 않습니다.
@@ -124,7 +126,7 @@ Result
 1.16.13
 ```
 
-**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수 **attached** 있는 사용 가능한 버전이 포함 되어 있습니다.
+**사용 가능한 버전을 프로그래밍 방식으로 확인** 하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수  있는 사용 가능한 버전이 포함 되어 있습니다.
 
 Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 기본 버전을 찾으려면 `orchestratorType` 가이 `Kubernetes` 고 `default` 가 인 항목을 찾습니다 `true` . 연결 된 `orchestratorVersion` 값이 기본 버전입니다. 다음 JSON 코드 조각은 예제 항목을 보여 줍니다.
 
@@ -147,7 +149,7 @@ Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 �
 
 ## <a name="create-a-new-aks-cluster"></a>새 AKS 클러스터 만들기
 
-**예상 시간** : 약 10 분
+**예상 시간**: 약 10 분
 
 작업 영역에 대 한 일회성 프로세스는 AKS 클러스터를 만들거나 연결 하는 것입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 클러스터를 포함 하는 리소스 그룹을 삭제 하는 경우 다음에를 배포 해야 할 때 새 클러스터를 만들어야 합니다. 여러 AKS 클러스터를 작업 영역에 연결할 수 있습니다.
 
@@ -219,7 +221,7 @@ Azure 구독에 AKS 클러스터가 이미 있고 버전이 1.17 이하인 경�
 
 Azure CLI 또는 포털을 사용 하 여 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [AKS 클러스터 만들기(CLI)](/cli/azure/aks?bc=%252fazure%252fbread%252ftoc.json&preserve-view=true&toc=%252fazure%252faks%252fTOC.json&view=azure-cli-latest#az-aks-create)
+* [AKS 클러스터 만들기(CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&preserve-view=true&toc=%2fazure%2faks%2fTOC.json&view=azure-cli-latest#az-aks-create)
 * [AKS 클러스터 만들기 (포털)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [AKS 클러스터 만들기 (Azure 빠른 시작 템플릿의 ARM 템플릿)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
@@ -279,6 +281,78 @@ az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w m
 
 ---
 
+## <a name="create-or-attach-an-aks-cluster-with-tls-termination"></a>TLS 종료를 사용 하 여 AKS 클러스터 만들기 또는 연결
+[AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md)때 **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** 및 **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 구성 개체를 사용 하 여 TLS 종료를 사용 하도록 설정할 수 있습니다. 두 메서드는 모두 **enable_ssl** 메서드가 있는 구성 개체를 반환 하 고 **enable_ssl** 메서드를 사용 하 여 TLS를 사용 하도록 설정할 수 있습니다.
+
+다음 예제에서는 내부적으로 Microsoft 인증서를 사용 하 여 자동 TLS 인증서 생성 및 구성을 통해 TLS 종료를 사용 하도록 설정 하는 방법을 보여 줍니다.
+```python
+   from azureml.core.compute import AksCompute, ComputeTarget
+   
+   # Enable TLS termination when you create an AKS cluster by using provisioning_config object enable_ssl method
+
+   # Leaf domain label generates a name using the formula
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # where "######" is a random series of characters
+   provisioning_config.enable_ssl(leaf_domain_label = "contoso")
+   
+   # Enable TLS termination when you attach an AKS cluster by using attach_config object enable_ssl method
+
+   # Leaf domain label generates a name using the formula
+   # "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+   # where "######" is a random series of characters
+   attach_config.enable_ssl(leaf_domain_label = "contoso")
+
+
+```
+다음 예제에서는 사용자 지정 인증서 및 사용자 지정 도메인 이름으로 TLS 종료를 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 도메인 및 인증서를 사용 하는 경우 점수 매기기 끝점의 IP 주소를 가리키도록 DNS 레코드를 업데이트 해야 합니다. [Dns 업데이트](how-to-secure-web-service.md#update-your-dns) 를 참조 하세요.
+
+```python
+   from azureml.core.compute import AksCompute, ComputeTarget
+
+   # Enable TLS termination with custom certificate and custom domain when creating an AKS cluster
+   
+   provisioning_config.enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+    
+   # Enable TLS termination with custom certificate and custom domain when attaching an AKS cluster
+
+   attach_config.enable_ssl(ssl_cert_pem_file="cert.pem",
+                                        ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
+
+
+```
+>[!NOTE]
+> AKS 클러스터에서 모델 배포를 보호 하는 방법에 대 한 자세한 내용은 [TLS를 사용 하 여 웹 서비스 보안 Azure Machine Learning](how-to-secure-web-service.md) 을 참조 하세요.
+
+## <a name="create-or-attach-an-aks-cluster-to-use-internal-load-balancer-with-private-ip"></a>개인 IP를 사용 하 여 내부 Load Balancer를 사용 하는 AKS 클러스터 만들기 또는 연결
+AKS 클러스터를 만들거나 연결할 때 내부 Load Balancer를 사용 하도록 클러스터를 구성할 수 있습니다. 내부 Load Balancer를 사용 하는 경우 AKS에 대 한 배포의 점수 매기기 끝점은 가상 네트워크 내에서 개인 IP를 사용 합니다. 다음 코드 조각에서는 AKS 클러스터에 대 한 내부 Load Balancer를 구성 하는 방법을 보여 줍니다.
+```python
+   
+   from azureml.core.compute.aks import AksUpdateConfiguration
+   from azureml.core.compute import AksCompute, ComputeTarget
+   
+   # When you create an AKS cluster, you can specify Internal Load Balancer to be created with provisioning_config object
+   provisioning_config = AksCompute.provisioning_configuration(load_balancer_type = 'InternalLoadBalancer')
+
+   # when you attach an AKS cluster, you can update the cluster to use internal load balancer after attach
+   aks_target = AksCompute(ws,"myaks")
+
+   # Change to the name of the subnet that contains AKS
+   subnet_name = "default"
+   # Update AKS configuration to use an internal load balancer
+   update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+   aks_target.update(update_config)
+   # Wait for the operation to complete
+   aks_target.wait_for_completion(show_output = True)
+   
+   
+```
+>[!IMPORTANT]
+> Azure Machine Learning는 내부 Load Balancer의 TLS 종료를 지원 하지 않습니다. 내부 Load Balancer에는 개인 IP가 있고 개인 IP는 다른 네트워크에 있을 수 있으며 인증서를 사용할 수 있습니다. 
+
+>[!NOTE]
+> 추론 환경을 보호 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning 추론 환경 보안 유지](how-to-secure-inferencing-vnet.md) 를 참조 하세요.
+
 ## <a name="detach-an-aks-cluster"></a>AKS 클러스터 분리
 
 작업 영역에서 클러스터를 분리 하려면 다음 방법 중 하나를 사용 합니다.
@@ -302,9 +376,56 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Machine Learning studio에서 __계산__ , __유추 클러스터__ 및 제거 하려는 클러스터를 선택 합니다. __분리__ 링크를 사용 하 여 클러스터를 분리 합니다.
+Azure Machine Learning studio에서 __계산__, __유추 클러스터__ 및 제거 하려는 클러스터를 선택 합니다. __분리__ 링크를 사용 하 여 클러스터를 분리 합니다.
+
+---
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="update-the-cluster"></a>클러스터 업데이트
+
+Azure Kubernetes Service 클러스터에 설치 된 Azure Machine Learning 구성 요소에 대 한 업데이트를 수동으로 적용 해야 합니다. 
+
+Azure Machine Learning 작업 영역에서 클러스터를 분리 하 여 이러한 업데이트를 적용 한 다음 클러스터를 작업 영역에 다시 연결할 수 있습니다. 클러스터에서 TLS를 사용 하는 경우 클러스터를 다시 연결할 때 TLS/SSL 인증서와 개인 키를 제공 해야 합니다. 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+TLS/SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에서 생성 한 인증서를 사용 하는 경우를 사용 하 여 클러스터에 연결 하 `kubectl` 고 암호를 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다 `azuremlfessl` .
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. `cert.pem` `key.pem` 에 제공 하기 전에 비밀의 및 구성 요소를 64으로 디코드 해야 `attach_config.enable_ssl` 합니다. 
+
+### <a name="webservice-failures"></a>웹 서비스 오류
+
+를 사용 하 여 클러스터에 연결 하 여 AKS의 많은 웹 서비스 오류를 디버그할 수 있습니다 `kubectl` . 을 `kubeconfig.json` 실행 하 여 AKS 클러스터에 대 한를 가져올 수 있습니다.
+
+```azurecli-interactive
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
 * [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
 * [Azure Kubernetes Service 클러스터에 모델 배포](how-to-deploy-azure-kubernetes-service.md)

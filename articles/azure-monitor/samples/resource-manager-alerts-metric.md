@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893984"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510569"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Azure Monitor의 메트릭 경고 규칙에 대한 Resource Manager 템플릿 샘플
 
@@ -343,7 +343,7 @@ ms.locfileid: "92893984"
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ ms.locfileid: "92893984"
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -712,10 +712,10 @@ ms.locfileid: "92893984"
 2. **ApiName** - **GetBlob** 및 **PutBlob** 차원 값에 대해서만 다른 시계열이 모니터링됩니다.
 
 예를 들어 이 경고 규칙으로 모니터링되는 몇 가지 잠재적인 시계열은 다음과 같습니다.
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 ### <a name="template-file"></a>템플릿 파일
 
@@ -875,7 +875,7 @@ ms.locfileid: "92893984"
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -903,10 +903,10 @@ ms.locfileid: "92893984"
 2. **ApiName** - **GetBlob** 및 **PutBlob** 차원 값에 대해서만 다른 시계열이 모니터링됩니다.
 
 예를 들어 이 경고 규칙으로 모니터링되는 몇 가지 잠재적인 시계열은 다음과 같습니다.
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 >[!NOTE]
 > 동적 임계값을 사용하는 메트릭 경고 규칙에는 현재 여러 조건이 지원되지 않습니다.

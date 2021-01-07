@@ -1,6 +1,6 @@
 ---
 title: 서버리스 SQL 풀에서 쿼리 결과 저장
-description: 이 문서에서는 서버리스 SQL 풀(미리 보기)을 사용하여 쿼리 결과를 스토리지에 저장하는 방법을 알아봅니다.
+description: 이 문서에서는 서버리스 SQL 풀을 사용하여 쿼리 결과를 스토리지에 저장하는 방법을 알아봅니다.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 50897d81ed5ef2fc33e458bd46d9229f6184fea8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dd989d5925da864728e944e84962086c0cfb08ea
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322617"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96462321"
 ---
-# <a name="store-query-results-to-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀(미리 보기)을 사용하여 스토리지에 쿼리 결과 저장
+# <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지에 쿼리 결과 저장
 
-이 문서에서는 서버리스 SQL 풀(미리 보기)을 사용하여 쿼리 결과를 스토리지에 저장하는 방법을 알아봅니다.
+이 문서에서는 서버리스 SQL 풀을 사용하여 쿼리 결과를 스토리지에 저장하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

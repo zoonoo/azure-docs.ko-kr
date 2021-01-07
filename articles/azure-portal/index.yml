@@ -5,19 +5,15 @@ metadata:
   title: Azure Portal 문서
   description: Azure Portal 웹 기반 콘솔을 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대해 알아봅니다. Azure Portal은 명령줄 도구 대신 사용할 수 있습니다.
   services: Azure portal
-  ms.service: azure-portal
-  ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: mblythe
-  ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: c1617f295a101ae645743d60fdbe82a09d936ea2
+  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92089284"
+  ms.lasthandoff: 12/07/2020
+  ms.locfileid: "96749014"
 landingContent:
 - title: Azure Portal 정보
   linkLists:

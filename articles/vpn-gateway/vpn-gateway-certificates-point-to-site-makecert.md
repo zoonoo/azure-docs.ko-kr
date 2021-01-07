@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 926de9f3fd357cd9d9ca067e4f7beff7d03eec95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e22ebec5853d6b4f10b53be8e24f4dbebe4e1f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394192"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659780"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
@@ -26,7 +26,7 @@ ms.locfileid: "89394192"
 
 다음 단계에서는 MakeCert를 사용하여 자체 서명된 인증서를 만드는 방법을 보여 줍니다. 이러한 단계는 배포 모델에 한정되지 않습니다. 리소스 관리자와 클래식에 대해 모두 유효합니다.
 
-1. [Makecert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)를 다운로드 하 여 설치 합니다.
+1. [Makecert.exe](/windows/win32/seccrypto/makecert)를 다운로드 하 여 설치 합니다.
 2. 설치 후에는 일반적으로 ' C:\Program Files (x86) \Windows Kits\10\bin arch> ' 경로에서 makecert.exe 유틸리티를 찾을 수 있습니다 \<arch> . 하지만 다른 위치에 설치되었을 수도 있습니다. 관리자 권한으로 명령 프롬프트를 열고 MakeCert 유틸리티의 위치로 이동합니다. 적절한 위치에 대해 조정하여 다음 예제를 사용할 수 있습니다.
 
    ```cmd
@@ -61,7 +61,7 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
 1. 자체 서명된 인증서를 만드는 데 사용한 동일한 컴퓨터에서 관리자로 명령 프롬프트를 엽니다.
 2. 샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다.
    * *"P2SRootCert"* 는 클라이언트 인증서를 생성 중인 자체 서명된 루트의 이름으로 변경합니다. 루트 인증서의 이름을 사용하고 있는지 확인합니다. 이 경우에 'CN=' 값은 자체 서명된 루트를 만들 때 지정한 값입니다.
-   * *P2SChildCert*는 생성하는 클라이언트 인증서에 사용할 이름으로 변경합니다.
+   * *P2SChildCert* 는 생성하는 클라이언트 인증서에 사용할 이름으로 변경합니다.
 
    다음 예제를 수정하지 않고 실행하면 루트 인증서 P2SRootCert에서 생성된 클라이언트 인증서 P2SChildcert가 개인 인증서 저장소에 저장됩니다.
 

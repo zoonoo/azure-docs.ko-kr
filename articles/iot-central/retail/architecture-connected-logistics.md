@@ -8,18 +8,18 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.custom: mqtt
-ms.openlocfilehash: 8925b98269b67bfb8a96cb057982ee4e396f17ed
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41232ba3899d098c019674e4ca4a0a8f2f7d465f
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81686208"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97345962"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>IoT Central 커넥티드 물류 애플리케이션 템플릿의 아키텍처
 
 
 
-파트너 및 고객은 앱 템플릿과 다음 지침을 사용하여 엔드투엔드 **연결된 물류 솔루션**을 개발할 수 있습니다.
+파트너 및 고객은 앱 템플릿과 다음 지침을 사용하여 엔드투엔드 **연결된 물류 솔루션** 을 개발할 수 있습니다.
 
 > [!div class="mx-imgBorder"]
 > ![커넥티드 물류 대시보드](./media/concept-connected-logistics-architecture/connected-logistics-architecture.png)
@@ -27,7 +27,7 @@ ms.locfileid: "81686208"
 1. 게이트웨이 디바이스로 원격 분석 데이터를 보내는 IoT 태그 세트
 2. 원격 분석 및 집계된 인사이트를 IoT Central로 보내는 게이트웨이 디바이스
 3. 데이터는 조작을 위해 원하는 Azure 서비스로 라우팅됩니다.
-4. ASA 또는 Azure Functions 같은 Azure 서비스를 사용하여 데이터 스트림 형식을 다시 지정하고 원하는 스토리지 계정으로 보낼 수 있습니다. 
+4. ASA 또는 Azure Functions 같은 Azure 서비스를 사용하여 데이터 스트림 형식을 다시 지정하고 원하는 스토리지 계정으로 보낼 수 있습니다.
 5. 최종 사용자 비즈니스 애플리케이션으로 다양한 비즈니스 워크플로를 지원할 수 있습니다.
 
 ## <a name="details"></a>세부 정보

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 122e44da7bbf4229f932eefdae4c70dc49f43bfe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e051eca990ae0aa0b5a79c208a594e1b2332bcb2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371286"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612596"
 ---
 이 빠른 시작을 통해 Bing Image Search 클라이언트 라이브러리를 사용하여 첫 번째 이미지 검색을 수행합니다. 
 
@@ -36,8 +36,6 @@ C# 애플리케이션을 만들어 이미지 검색 쿼리를 보내고, JSON �
 ## <a name="create-a-console-project"></a>콘솔 프로젝트 만들기
 
 먼저 새 C# 콘솔 애플리케이션을 만듭니다.
-
-## <a name="create-a-console-project"></a>콘솔 프로젝트 만들기
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visualstudio)
 
@@ -129,12 +127,12 @@ if (imageResults != null)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Image Search 단일 페이지 앱 자습서](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Image Search 단일 페이지 앱 자습서](../../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Bing Image Search란?](../../overview.md)  
 * [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 * [Azure Cognitive Services SDK에 대한 .Net 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
-* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Azure Cognitive Services 설명서](../../../index.yml)
+* [Bing Image Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

@@ -5,22 +5,22 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218683"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96018565"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
 Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 보관합니다. 이 문서에서는 Azure Data Lake Tools for Visual Studio에서 작업 브라우저 및 작업 보기를 사용하여 기존 작업 정보를 찾는 방법에 대해 배웁니다. 
 
 기본적으로 Data Lake Analytics 서비스는 작업을 30일간 보존합니다. 만료 기간은 Azure Portal에서 사용자 지정 만료 정책을 구성하여 구성할 수 있습니다. 만료 후에는 작업 정보에 액세스할 수 없습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 [Data Lake Tools for Visual Studio 필수 구성 요소](data-lake-analytics-data-lake-tools-get-started.md#prerequisites)를 참조하세요.
 
 ## <a name="open-the-job-browser"></a>작업 브라우저 열기
-작업 브라우저는 Visual Studio에서 **서버 탐색기>Azure>Data Lake Analytics>작업**을 통해 액세스합니다.  작업 브라우저를 사용하여 Data Lake Analytics 계정의 쿼리 저장소에 액세스할 수 있습니다. 작업 브라우저의 왼쪽 쿼리 저장소에는 기본 작업 정보가 표시되고 오른쪽 작업 보기에는 세부적인 작업 정보가 표시됩니다.
+작업 브라우저는 Visual Studio에서 **서버 탐색기>Azure>Data Lake Analytics>작업** 을 통해 액세스합니다.  작업 브라우저를 사용하여 Data Lake Analytics 계정의 쿼리 저장소에 액세스할 수 있습니다. 작업 브라우저의 왼쪽 쿼리 저장소에는 기본 작업 정보가 표시되고 오른쪽 작업 보기에는 세부적인 작업 정보가 표시됩니다.
 
 ## <a name="job-view"></a>작업 보기
 작업 보기에는 작업에 대한 세부 정보가 표시됩니다. 작업을 열려면 작업 브라우저에서 작업을 두 번 클릭하거나 Data Lake에서 작업 보기를 클릭하여 엽니다. 작업 URL이 표시된 대화 상자가 나타납니다.

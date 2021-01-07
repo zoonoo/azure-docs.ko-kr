@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1c12b1c7fd393227cb22d011f8b88f914cfded59
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071509"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96445486"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC 쌍 모듈 및 종속성을 처음부터 배포
 
@@ -113,11 +113,11 @@ OPC 쌍 모듈은 IoT Edge에서 실행 되며 OPC 장치 쌍 및 레지스트�
 
 Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 방법은 Azure Portal를 통하는 것입니다.  
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 1. OPC 쌍 [종속성](howto-opc-twin-deploy-dependencies.md) 을 배포 하 고 결과 파일을 가져옵니다 `.env` . `hub name` `PCS_IOTHUBREACT_HUB_NAME` 결과 파일에 배포 된 변수를 확인 `.env` 합니다.
 
-2. [Linux](../iot-edge/how-to-install-iot-edge-linux.md) 또는 [Windows](../iot-edge/how-to-install-iot-edge-windows.md) IoT Edge 게이트웨이를 등록 하 고 시작 하 고이를 확인 `device id` 합니다.
+2. [Linux](../iot-edge/how-to-install-iot-edge.md) 또는 [Windows](../iot-edge/how-to-install-iot-edge.md) IoT Edge 게이트웨이를 등록 하 고 시작 하 고이를 확인 `device id` 합니다.
 
 ### <a name="deploy-to-an-edge-device"></a>에 지 장치에 배포
 
@@ -127,7 +127,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 3. 디바이스 목록에서 대상 디바이스의 ID를 클릭합니다.
 
-4. **모듈 설정**을 선택 합니다.
+4. **모듈 설정** 을 선택 합니다.
 
 5. 페이지의 **배포 모듈** 섹션에서 **추가** 를 선택 하 고 **모듈을 IoT Edge 합니다.**
 
@@ -137,7 +137,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
    mcr.microsoft.com/iotedge/opc-twin:latest
    ```
 
-   *컨테이너 만들기 옵션*으로 다음 JSON을 사용 합니다.
+   *컨테이너 만들기 옵션* 으로 다음 JSON을 사용 합니다.
 
    ```json
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
@@ -145,7 +145,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
    필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](../iot-edge/module-composition.md#define-or-update-desired-properties)을 참조하세요.
 
-7. **저장** 을 선택 하 고 **5**단계를 반복 합니다.  
+7. **저장** 을 선택 하 고 **5** 단계를 반복 합니다.  
 
 8. 사용자 지정 모듈 IoT Edge 대화 상자에서 `opcpublisher` 모듈의 as 이름과 컨테이너 *이미지 URI* 를로 사용 합니다. 
 
@@ -153,7 +153,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
    mcr.microsoft.com/iotedge/opc-publisher:latest
    ```
 
-   *컨테이너 만들기 옵션*으로 다음 JSON을 사용 합니다.
+   *컨테이너 만들기 옵션* 으로 다음 JSON을 사용 합니다.
 
    ```json
    {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--tm","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
@@ -174,13 +174,13 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
     그리고 **다음** 을 선택 합니다.
 
-11. 배포 정보 및 매니페스트를 검토 합니다.  위의 배포 매니페스트와 같이 표시 됩니다.  **제출**을 선택합니다.
+11. 배포 정보 및 매니페스트를 검토 합니다.  위의 배포 매니페스트와 같이 표시 됩니다.  **제출** 을 선택합니다.
 
 12. 디바이스에 모듈을 배포하면 포털의 **디바이스 세부 정보** 페이지에서 모두 볼 수 있습니다. 이 페이지에서는 배포 상태 및 종료 코드와 같은 유용한 정보뿐만 아니라 배포된 각 모듈의 이름을 표시합니다.
 
 ## <a name="deploying-using-azure-cli"></a>Azure CLI를 사용 하 여 배포
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 1. [여기](/cli/azure/install-azure-cli?view=azure-cli-latest)에서 [Azure 명령줄 인터페이스 (AZ)](/cli/azure/?view=azure-cli-latest) 의 최신 버전을 설치 합니다.
 

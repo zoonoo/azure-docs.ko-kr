@@ -10,12 +10,13 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: data4ml
+ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913265"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347509"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>자습서: 다중 클래스 이미지 분류를 위한 레이블 지정 프로젝트 만들기 
 
@@ -103,10 +104,10 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
 1. 다음 입력을 **데이터 저장소에서 데이터 세트 만들기** 양식에 사용합니다.
 
     1. **기본 정보** 양식에서 이름을 추가합니다. 여기서는 **images-for-tutorial** 을 사용합니다.  원하는 경우 설명을 추가합니다.  그런 후 **다음** 을 선택합니다.
-    1. **데이터 저장소 선택** 양식에서 드롭다운을 사용하여 **이전에 만든 데이터 저장소** (예: **tutorial_images(Azure Blob Storage)** )를 선택합니다.
+    1. **데이터 저장소 선택** 양식에서 드롭다운을 사용하여 **이전에 만든 데이터 저장소**(예: **tutorial_images(Azure Blob Storage)** )를 선택합니다.
     1. 다음으로, 여전히 **데이터 저장소 선택** 양식에서 **찾아보기** 를 선택한 다음, **MultiClass - DogsCats** 를 선택합니다.  **저장** 을 선택하여 **/MultiClass - DogsCats** 를 경로로 사용합니다.
     1. **다음** 을 선택하여 세부 정보를 확인한 다음, **만들기** 를 선택하여 데이터 세트를 만듭니다.
-    1. 목록에서 데이터 세트 이름(예: **images-for-tutorial** ) 옆에 있는 원을 선택합니다.
+    1. 목록에서 데이터 세트 이름(예: **images-for-tutorial**) 옆에 있는 원을 선택합니다.
 
 1. **다음** 을 선택하여 프로젝트 만들기를 계속합니다.
 
@@ -118,7 +119,7 @@ Azure Machine Learning 데이터 저장소는 구독 ID 및 토큰 권한 부여
 
 ### <a name="label-classes"></a>레이블 클래스
 
-1. **레이블 클래스** 양식에서 레이블 이름을 입력한 다음, **+ 레이블 추가** 를 선택하여 다음 레이블을 입력합니다.  이 프로젝트의 경우 레이블은 **고양이** , **개** 및 **불확실** 입니다.
+1. **레이블 클래스** 양식에서 레이블 이름을 입력한 다음, **+ 레이블 추가** 를 선택하여 다음 레이블을 입력합니다.  이 프로젝트의 경우 레이블은 **고양이**, **개** 및 **불확실** 입니다.
 
 1. 모든 레이블이 추가되었으면 **다음** 을 선택합니다.
 
@@ -194,7 +195,7 @@ Azure 리소스가 설정되고 데이터 레이블 지정 프로젝트가 구�
 
 1. 프로젝트 이름 링크를 선택합니다.
 
-1. **내보내기** , **Azure ML 데이터 세트로 내보내기** 를 차례로 선택합니다. 
+1. **내보내기**, **Azure ML 데이터 세트로 내보내기** 를 차례로 선택합니다. 
 
     내보내기 상태가 **내보내기** 단추 바로 아래에 표시됩니다. 
 

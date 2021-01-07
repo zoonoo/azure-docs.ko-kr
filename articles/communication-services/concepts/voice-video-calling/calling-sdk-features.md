@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977870"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505548"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -69,7 +69,36 @@ ms.locfileid: "91977870"
 
 *이전 두 릴리스 외에도 최신 버전의 Chrome이 지원됩니다.<br/>
 
-**Safari 버전 13.1+가 지원됩니다. Safari macOS에 대한 보내는 비디오는 아직 지원되지 않지만 iOS에서 지원됩니다. 보내는 화면 공유는 데스크톱 iOS에서만 지원됩니다.
+**Safari 버전 13.1+가 지원됩니다. Safari macOS에 대한 보내는 비디오는 아직 지원되지 않지만 iOS에서 지원됩니다. 보내는 화면 공유는 데스크톱 iOS에서만 지원됩니다. 현재 Safari에서는 1:1 및 그룹 통화를 사용할 수 없습니다.
+
+## <a name="calling-client---browser-security-model"></a>클라이언트 - 브라우저 보안 모델 호출
+
+### <a name="user-webrtc-over-https"></a>HTTPS를 통한 사용자 WebRTC
+
+`getUserMedia`와 같은 WebRTC API에서는 이러한 API를 호출하는 앱이 HTTPS를 통해 제공되어야 합니다.
+
+로컬 개발의 경우 `http://localhost`를 사용할 수 있습니다.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Communication Service 호출 SDK를 iframe에 포함
+
+다양한 브라우저에서 새 [권한 정책(기능 정책이라고도 함)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute)을 채택하고 있습니다. 이 정책은 애플리케이션이 원본 간 iframe 요소를 통해 디바이스의 카메라 및 마이크에 액세스할 수 있는 방법을 제어하여 호출 시나리오에 영향을 줍니다.
+
+Iframe을 사용하여 다른 도메인에서 앱의 일부를 호스팅하려면 iframe에 올바른 값이 포함된 `allow` 특성을 추가해야 합니다.
+
+예를 들어 이 iframe은 카메라와 마이크 액세스를 모두 허용합니다.
+
+```html
+<iframe allow="camera *; microphone *">
+```
+
+## <a name="calling-client-library-streaming-support"></a>통화 클라이언트 라이브러리 스트리밍 지원
+Communication Services 통화 클라이언트 라이브러리는 다음과 같은 스트리밍 구성을 지원합니다.
+
+|           |웹 | Android/iOS|
+|-----------|----|------------|
+|# 동시에 보낼 수 있는 나가는 스트림 수 |비디오 1개 + 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
+|# 동시에 렌더링할 수 있는 들어오는 스트림 수 |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
+
 
 ## <a name="next-steps"></a>다음 단계
 

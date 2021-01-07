@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413227"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608785"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "94413227"
 - 오픈 소스, 일반적으로 kubeadm을 사용하여 배포되는 업스트림 Kubernetes
 
 > [!IMPORTANT]
-> * Kubernetes의 지원 되는 최소 버전은 v 1.17입니다.
+> * Kubernetes의 지원 되는 최소 버전은 v 1.17입니다. 자세한 내용은 [알려진 문제](./release-notes.md#known-issues) 를 참조 하세요. 
 > * 지원 되는 최소 버전의 OCP는 4.3입니다.
 > * 환경 및 Azure 간에 필요한 연결을 이해 하려면 [연결 요구 사항](connectivity.md) 을 참조 하세요.
 > * 영구 저장소를 구성 하는 방법에 대 한 세부 정보를 이해 하려면 [저장소 구성 지침](storage-configuration.md) 을 참조 하세요.
@@ -64,10 +64,10 @@ ms.locfileid: "94413227"
 Azure Arc 데이터 컨트롤러를 만드는 방법에는 여러 가지가 있습니다.
 
 > **작업을 시도해보시겠습니까?**  
-> Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 를 빠르게 시작 하세요.
+> Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) 를 빠르게 시작 하세요.
 > 
 - [를 사용 하 여 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Azure Data Studio를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-azure-data-studio.md)
 - [Azure Data Studio에서 Jupyter 노트북을 통해 Azure Portal에서 데이터 컨트롤러를 만듭니다.](create-data-controller-resource-in-azure-portal.md)
 - [Kubectl 또는 oc와 같은 Kubernetes 도구를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-using-kubernetes-native-tools.md)
-- [테스트 배포의 가속화 된 환경을 위한 Azure Arc Jumpstart를 사용 하 여 데이터 컨트롤러 만들기](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)
+- [테스트 배포의 가속화 된 환경을 위한 Azure Arc Jumpstart를 사용 하 여 데이터 컨트롤러 만들기](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)

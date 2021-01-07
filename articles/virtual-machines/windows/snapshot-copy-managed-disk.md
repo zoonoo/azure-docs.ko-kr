@@ -10,11 +10,11 @@ ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322316"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014315"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>포털 또는 PowerShell을 사용 하 여 스냅숏 만들기
 
@@ -25,15 +25,15 @@ ms.locfileid: "89322316"
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용 
 
 스냅숏을 만들려면 다음 단계를 완료 합니다. 
-1.  [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 선택 합니다.
-2. **스냅숏**을 검색 하 고 선택 합니다.
-3. **스냅샷** 창에서 만들기 **만들기**를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
-4. 스냅샷의 **이름**을 입력합니다.
+1.  [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
+2. **스냅숏** 을 검색 하 고 선택 합니다.
+3. **스냅샷** 창에서 만들기 **만들기** 를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
+4. 스냅샷의 **이름** 을 입력합니다.
 5. 기존 [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
-6. Azure 데이터 센터 **위치**를 선택합니다.  
-7. **원본 디스크**에서 스냅샷을 만들 관리 디스크를 선택합니다.
-8. 스냅샷 저장에 사용할 **계정 유형**을 선택합니다. 스냅샷이 고성능 디스크에 저장되어야 하는 경우가 아니면 **Standard_HDD**를 선택합니다.
-9. **만들기**를 선택합니다.
+6. Azure 데이터 센터 **위치** 를 선택합니다.  
+7. **원본 디스크** 에서 스냅샷을 만들 관리 디스크를 선택합니다.
+8. 스냅샷 저장에 사용할 **계정 유형** 을 선택합니다. 스냅샷이 고성능 디스크에 저장되어야 하는 경우가 아니면 **Standard_HDD** 를 선택합니다.
+9. **만들기** 를 선택합니다.
 
 ## <a name="use-powershell"></a>PowerShell 사용
 

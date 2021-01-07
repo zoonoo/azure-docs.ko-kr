@@ -10,17 +10,17 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 94c30cad1e09a01686a9042a6271a152d0f433fd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738535"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95995389"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장 Apache Spark 기록 서버를 사용 하 여 Apache Spark 응용 프로그램 디버그 및 진단
 
 이 문서에서는 확장 Apache Spark 기록 서버를 사용 하 여 완료 된 Spark 응용 프로그램을 디버깅 및 진단 하는 방법에 대 한 지침을 제공 합니다.
 
-확장에는 데이터 탭, 그래프 탭 및 진단 탭이 포함 되어 있습니다. **데이터** 탭을 사용 하 여 Spark 작업의 입력 및 출력 데이터를 확인 합니다. **그래프** 탭은 작업 그래프의 데이터 흐름과 재생을 보여 줍니다. **진단** 탭에는 **데이터 기울이기** , **시간 오차** 및 **실행자 사용 현황 분석이** 표시 됩니다.
+확장에는 데이터 탭, 그래프 탭 및 진단 탭이 포함 되어 있습니다. **데이터** 탭을 사용 하 여 Spark 작업의 입력 및 출력 데이터를 확인 합니다. **그래프** 탭은 작업 그래프의 데이터 흐름과 재생을 보여 줍니다. **진단** 탭에는 **데이터 기울이기**, **시간 오차** 및 **실행자 사용 현황 분석이** 표시 됩니다.
 
 ## <a name="access-the-apache-spark-history-server"></a>Apache Spark 기록 서버에 액세스
 
@@ -56,7 +56,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 보려는 작업의 작업 ID를 선택 합니다. 그런 다음 도구 메뉴에서 **데이터** 를 선택 하 여 데이터 뷰를 가져옵니다. 이 섹션에서는 데이터 탭에서 다양 한 작업을 수행 하는 방법을 보여 줍니다.
 
-* 각 탭을 선택하여 **입력** , **출력** 및 **테이블 작업** 을 확인합니다.
+* 각 탭을 선택하여 **입력**, **출력** 및 **테이블 작업** 을 확인합니다.
 
     ![Spark 응용 프로그램 탭에 대 한 데이터](./media/apache-spark-history-server/apache-spark-data-tabs.png)
 
@@ -126,7 +126,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 |Orange|다시 시도 됨: 실패 한 작업의 인스턴스는 작업의 최종 결과에 영향을 주지 않습니다. 해당 작업에는 중복 또는 다시 시도 인스턴스가 있었으며, 나중에 성공할 수 있습니다.|
 |파랑|실행 중: 태스크가 실행 되 고 있습니다.|
 |흰색|대기 중이거나 건너뜀: 태스크가 실행 되기를 기다리고 있거나 단계를 건너뛰었습니다.|
-|빨간색|실패: 태스크가 실패 했습니다.|
+|빨강|실패: 태스크가 실패 했습니다.|
 
 다음 이미지는 녹색, 주황색 및 파란색 상태 색을 보여 줍니다.
 
@@ -190,9 +190,9 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 ## <a name="explore-the-diagnosis-tab-in-apache-spark-history-server"></a>Apache Spark 기록 서버에서 진단 탭 살펴보기
 
-진단 탭에 액세스 하려면 작업 ID를 선택 합니다. 그런 다음 도구 메뉴에서 **진단** 을 선택 하 여 작업 진단 보기를 가져옵니다. 진단 탭에는 **데이터 기울이기** , **시간 기울이기** 및 **실행기 사용량 분석** 이 포함되어 있습니다.
+진단 탭에 액세스 하려면 작업 ID를 선택 합니다. 그런 다음 도구 메뉴에서 **진단** 을 선택 하 여 작업 진단 보기를 가져옵니다. 진단 탭에는 **데이터 기울이기**, **시간 기울이기** 및 **실행기 사용량 분석** 이 포함되어 있습니다.
 
-각 탭을 선택하여 **데이터 기울이기** , **시간 기울이기** 및 **실행기 사용량 분석** 을 확인합니다.
+각 탭을 선택하여 **데이터 기울이기**, **시간 기울이기** 및 **실행기 사용량 분석** 을 확인합니다.
 
 ![SparkUI 진단 데이터 기울이기 탭 다시](./media/apache-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -224,7 +224,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 Executor 사용 그래프는 Spark 작업 실행 기의 할당 및 실행 상태를 시각화 합니다.  
 
-1. **Executor 사용 분석** 을 선택 합니다. 그러면 **할당 된 실행자** , **실행 실행자** , **유휴 실행자** 및 **Max executor 인스턴스** 를 포함 하 여 executor 사용에 대 한 네 가지 유형의 곡선이 초안입니다. 할당 된 실행 기의 경우 각 "Executor 추가" 또는 "Executor 제거" 이벤트는 할당 된 실행자를 늘리거나 줄입니다. 자세한 비교를 위해 “작업” 탭에서 “이벤트 타임라인”을 확인할 수 있습니다.
+1. **Executor 사용 분석** 을 선택 합니다. 그러면 **할당 된 실행자**, **실행 실행자**, **유휴 실행자** 및 **Max executor 인스턴스** 를 포함 하 여 executor 사용에 대 한 네 가지 유형의 곡선이 초안입니다. 할당 된 실행 기의 경우 각 "Executor 추가" 또는 "Executor 제거" 이벤트는 할당 된 실행자를 늘리거나 줄입니다. 자세한 비교를 위해 “작업” 탭에서 “이벤트 타임라인”을 확인할 수 있습니다.
 
    ![sparkui 진단 실행자 탭](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

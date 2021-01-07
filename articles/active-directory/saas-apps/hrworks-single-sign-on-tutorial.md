@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -138,9 +138,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **Single Sign-On 사용** 확인란을 선택합니다.
 
-    b. **Meta data input method** (메타데이터 입력 방법)에 **XML 메타데이터** 를 선택합니다.
+    b. **Meta data input method**(메타데이터 입력 방법)에 **XML 메타데이터** 를 선택합니다.
 
-    다. **Value for NameID** (NameID 값)에 **Individual NameID identifier** (개별 NameID 식별자)를 선택합니다.
+    다. **Value for NameID**(NameID 값)에 **Individual NameID identifier**(개별 NameID 식별자)를 선택합니다.
 
     d. 메모장에서, Azure Portal에서 다운로드한 메타데이터 XML을 열고 해당 콘텐츠를 복사한 다음, **메타데이터** 텍스트 상자에 붙여넣습니다.
 
@@ -154,7 +154,7 @@ Azure AD 사용자가 HRworks Single Sign-On에 로그인할 수 있도록 하�
 
 1. HRworks Single Sign-On에 관리자로 로그인합니다.
 
-1. 메뉴 모음 왼쪽에서 **관리자** > **Persons** (개인) > **Persons** (개인) > **New person** (새로운 개인)을 클릭합니다.
+1. 메뉴 모음 왼쪽에서 **관리자** > **Persons**(개인) > **Persons**(개인) > **New person**(새로운 개인)을 클릭합니다.
 
      ![스크린샷은 사람 및 새로운 사람이 선택된 HR 작업 페이지를 보여줍니다.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
@@ -162,7 +162,7 @@ Azure AD 사용자가 HRworks Single Sign-On에 로그인할 수 있도록 하�
 
     ![스크린샷은 사용자를 위해 선택할 수 있는 국가 목록을 보여줍니다.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
-1. **Create new person with country for legal terms** (약관의 국가로 새로운 개인 만들기)에서 **이름** , **성** 과 같은 해당 세부 정보를 채우고 **만들기** 를 클릭합니다.
+1. **Create new person with country for legal terms**(약관의 국가로 새로운 개인 만들기)에서 **이름**, **성** 과 같은 해당 세부 정보를 채우고 **만들기** 를 클릭합니다.
 
     ![스크린샷은 사용자의 성과 이름을 입력할 수 있는 텍스트 상자를 보여줍니다.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 

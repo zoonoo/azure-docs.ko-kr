@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: 공유 설명서
   items:
+    - name: 데이터베이스 배포
+      items:
+        - name: Github Actions
+          href: how-to-deploy-github-action.md
     - name: 마이그레이션
       items:
         - name: pg_dump 및 pg_restore를 사용하여 데이터 마이그레이션
@@ -106,8 +110,6 @@
       items:
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
-        - name: Azure Policy 기본 제공 기능
-          href: ./policy-reference.md
     - name: 개념
       items:
         - name: 서버
@@ -147,6 +149,9 @@
             - name: 인프라 이중 암호화
               href: concepts-infrastructure-double-encryption.md
               displayName: 'security, infrastructure encryption'
+            - name: Azure Policy의 보안 컨트롤
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: 보안 기준
               href: security-baseline.md
         - name: 네트워킹
@@ -201,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: 앱 개발
           items:
+            - name: 모범 사례
+              href: application-best-practices.md
             - name: 연결 라이브러리
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -415,10 +422,16 @@
               href: flexible-server/connect-python.md
     - name: 자습서
       items:
-        - name: 가상 네트워크에서 웹앱 만들기
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Django 앱 배포
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: AKS를 사용하여 빌드
+          items:
+            - name: Kubernetes에 Python 앱 배포
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: App Services를 사용하여 빌드
+          items:
+            - name: 가상 네트워크에서 웹앱 만들기
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: App Service에 Django 앱 배포
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: 개념
       items:
         - name: 서버
@@ -465,6 +478,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: Azure CLI
               href: flexible-server/how-to-manage-server-cli.md
+            - name: 연결 및 쿼리 가이드
+              href: flexible-server/how-to-connect-query-guide.md
         - name: 예약된 유지 관리
           items:
             - name: Azure portal
@@ -538,6 +553,12 @@
               displayName: 'portal, create hyperscale'
     - name: 자습서
       items:
+        - name: 서버 그룹 만들기
+          href: tutorial-hyperscale-server-group.md
+        - name: 데이터 모델링 및 로드
+          items:
+            - name: 작업자 노드의 분할 데이터
+              href: tutorial-hyperscale-shard.md
         - name: 다중 테넌트 데이터베이스 설계
           href: tutorial-design-database-hyperscale-multi-tenant.md
           displayName: 'hyperscale, tutorial, multi-tenant'
@@ -602,8 +623,14 @@
           href: reference-hyperscale-metadata.md
     - name: 방법 가이드
       items:
-        - name: 서버 그룹 스케일링
-          href: howto-hyperscale-scaling.md
+        - name: 서버 그룹 크기
+          items:
+            - name: 처음 크기 선택
+              href: howto-hyperscale-scale-initial.md
+            - name: 서버 그룹 스케일링
+              href: howto-hyperscale-scale-grow.md
+            - name: 분할 균형 다시 맞추기
+              href: howto-hyperscale-scale-rebalance.md
         - name: 방화벽 규칙
           items:
             - name: Azure portal
@@ -638,6 +665,9 @@
       href: /rest/api/postgresql
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

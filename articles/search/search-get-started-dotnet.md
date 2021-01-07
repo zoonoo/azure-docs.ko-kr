@@ -8,20 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/05/2020
+ms.date: 11/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 53deb7dc853de969ad6b6679ee728a3f132b6309
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 448f2b3e42e98d78652a005f5d1c11f55acdebb3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759085"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021187"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>빠른 시작: Azure.Search.Documents 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 
 새로운 [Azure.Search.Documents(버전 11) 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme)를 사용하여 C#에서 검색 인덱스를 만들고 로드하고 쿼리하는 .NET Core 콘솔 애플리케이션을 만듭니다.
 
-[소스 코드를 다운로드](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11)하여 완성된 프로젝트로 시작하거나 이 문서의 단계에 따라 새 프로젝트를 만듭니다.
+[소스 코드를 다운로드](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11)하여 완성된 프로젝트로 시작하거나 이 문서의 단계에 따라 새 프로젝트를 직접 만들 수 있습니다.
 
 > [!NOTE]
 > 이전 버전을 찾고 있나요? [Microsoft.Azure.Search v10을 사용하여 검색 인덱스 만들기](search-get-started-dotnet-v10.md)를 참조하세요.
@@ -36,7 +36,9 @@ ms.locfileid: "91759085"
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드는 Visual Studio 2019의 Community 평가판 버전에서 테스트되었습니다.
 
-+ [Azure.Search.Documents NuGet 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)
+프로젝트를 설정할 때 [Azure.Search.Documents NuGet 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)를 다운로드합니다.
+
+.NET용 Azure SDK는 [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support)을 준수합니다. 이는 최소 요구 사항으로 .NET Framework 4.6.1 및 .NET Core 2.0을 의미합니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -50,9 +52,9 @@ ms.locfileid: "91759085"
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
-2. **설정** > **키**에서 서비스에 대한 모든 권한이 있는 관리자 키를 가져옵니다. 개체를 만들거나 삭제할 때 필요합니다. 상호 교환 가능한 기본 키와 보조 키가 있습니다. 둘 중 아무 키나 사용할 수 있습니다.
+2. **설정** > **키** 에서 서비스에 대한 모든 권한이 있는 관리자 키를 가져옵니다. 개체를 만들거나 삭제할 때 필요합니다. 상호 교환 가능한 기본 키와 보조 키가 있습니다. 둘 중 아무 키나 사용할 수 있습니다.
 
-   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-postman/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
+   ![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
@@ -60,17 +62,19 @@ ms.locfileid: "91759085"
 
 프로젝트를 만든 후 클라이언트 라이브러리를 추가합니다. [Azure.Search.Documents 패키지](https://www.nuget.org/packages/Azure.Search.Documents/)는 .NET에서 검색 서비스를 사용하는 데 필요한 모든 API를 제공하는 하나의 클라이언트 라이브러리로 구성됩니다.
 
-1. **도구** > **NuGet 패키지 관리자**에서 **솔루션의 NuGet 패키지 관리...** 를 선택합니다. 
+1. Visual Studio를 시작하고 .NET Core 콘솔 애플리케이션을 만듭니다.
 
-1. **찾아보기**를 클릭합니다.
+1. **도구** > **NuGet 패키지 관리자** 에서 **솔루션의 NuGet 패키지 관리...** 를 선택합니다. 
+
+1. **찾아보기** 를 클릭합니다.
 
 1. `Azure.Search.Documents`를 검색하여 11.0 이상 버전을 선택합니다.
 
-1. 오른쪽에서 **설치**를 클릭하여 프로젝트 및 솔루션에 어셈블리를 추가합니다.
+1. 오른쪽에서 **설치** 를 클릭하여 프로젝트 및 솔루션에 어셈블리를 추가합니다.
 
 ### <a name="create-a-search-client"></a>검색 클라이언트 만들기
 
-1. **Program.cs**에서 네임스페이스를 `AzureSearch.SDK.Quickstart.v11`로 변경하고 다음 `using` 지시문을 추가합니다.
+1. **Program.cs** 에서 네임스페이스를 `AzureSearch.SDK.Quickstart.v11`로 변경하고 다음 `using` 지시문을 추가합니다.
 
    ```csharp
    using Azure;
@@ -86,16 +90,16 @@ ms.locfileid: "91759085"
    static void Main(string[] args)
    {
        string serviceName = "<YOUR-SERVICE-NAME>";
-       string indexName = "hotels-quickstart-v11";
+       string indexName = "hotels-quickstart";
        string apiKey = "<YOUR-ADMIN-API-KEY>";
 
-       // Create a SearchIndexClient to send create/delete index commands
-       Uri serviceEndpoint = new Uri($"https://{serviceName}.search.windows.net/");
-       AzureKeyCredential credential = new AzureKeyCredential(apiKey);
-       SearchIndexClient idxclient = new SearchIndexClient(serviceEndpoint, credential);
+        // Create a SearchIndexClient to send create/delete index commands
+        Uri serviceEndpoint = new Uri($"https://{serviceName}.search.windows.net/");
+        AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+        SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, credential);
 
-       // Create a SearchClient to load and query documents
-       SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
+        // Create a SearchClient to load and query documents
+        SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
     ```
 
 ## <a name="1---create-an-index"></a>1 - 인덱스 만들기
@@ -106,64 +110,106 @@ ms.locfileid: "91759085"
 
 1. 다음과 같이 프로젝트에 빈 클래스 정의를 추가합니다. **Hotel.cs**
 
-1. **Hotel.cs**에서 호텔 문서 구조를 정의합니다.
+1. **Hotel.cs** 에 다음 코드를 복사하여 호텔 문서의 구조를 정의합니다. 필드의 특성은 필드가 애플리케이션에서 사용되는 방식을 결정합니다. 예를 들어 `IsFilterable` 특성은 필터 식을 지원하는 모든 필드에 할당해야 합니다.
 
     ```csharp
     using System;
     using System.Text.Json.Serialization;
+    using Azure.Search.Documents.Indexes;
+    using Azure.Search.Documents.Indexes.Models;
 
-    namespace AzureSearch.SDK.Quickstart.v11
+    namespace AzureSearch.Quickstart
     {
-        public class Hotel
+        public partial class Hotel
         {
-            [JsonPropertyName("hotelId")]
-            public string Id { get; set; }
+            [SimpleField(IsKey = true, IsFilterable = true)]
+            public string HotelId { get; set; }
 
-            [JsonPropertyName("hotelName")]
-            public string Name { get; set; }
+            [SearchableField(IsSortable = true)]
+            public string HotelName { get; set; }
 
-            [JsonPropertyName("hotelCategory")]
+            [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
+            public string Description { get; set; }
+
+            [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
+            [JsonPropertyName("Description_fr")]
+            public string DescriptionFr { get; set; }
+
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string Category { get; set; }
 
-            [JsonPropertyName("baseRate")]
-            public Int32 Rate { get; set; }
+            [SearchableField(IsFilterable = true, IsFacetable = true)]
+            public string[] Tags { get; set; }
 
-            [JsonPropertyName("lastRenovationDate")]
-            public DateTime Updated { get; set; }
+            [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public bool? ParkingIncluded { get; set; }
+
+            [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public DateTimeOffset? LastRenovationDate { get; set; }
+
+            [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public double? Rating { get; set; }
+
+            [SearchableField]
+            public Address Address { get; set; }
         }
     }
     ```
 
-1. **Program.cs**에서 [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 개체를 만든 다음, [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) 메서드를 호출하여 검색 서비스에서 인덱스를 표시합니다.
+   Azure.Search.Documents 클라이언트 라이브러리에서 [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) 및 [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield)를 사용하여 필드 정의를 간소화할 수 있습니다. 둘 다 [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield)의 파생물이며 잠재적으로 코드를 단순화할 수 있습니다.
+
+   + `SimpleField`는 모든 데이터 형식일 수 있으며, 항상 검색할 수 없지만(전체 텍스트 검색 쿼리에서 무시됨) 조회할 수는 있습니다(숨겨지지 않음). 다른 특성은 기본적으로 꺼져 있지만 사용하도록 설정할 수 있습니다. 필터, 패싯 또는 점수 매기기 프로필에만 사용되는 문서 ID 또는 필드에는 `SimpleField`를 사용할 수 있습니다. 그렇다면 문서 ID에 대한 `IsKey = true`와 같이 시나리오에 필요한 특성을 적용해야 합니다. 자세한 내용은 소스 코드의 [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs)를 참조하세요.
+
+   + `SearchableField`는 문자열이어야 하며, 항상 검색할 수 있고 조회할 수 있습니다. 다른 특성은 기본적으로 꺼져 있지만 사용하도록 설정할 수 있습니다. 이 필드 형식은 검색할 수 있으므로 동의어와 분석기 속성의 전체 보충을 지원합니다. 자세한 내용은 소스 코드의 [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs)를 참조하세요.
+
+   기본 `SearchField` API를 사용하든지 도우미 모델 중 하나를 사용하든지 간에 필터, 패싯 및 정렬 특성을 명시적으로 사용하도록 설정해야 합니다. 예를 들어 [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable) 및 [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable)은 위의 샘플처럼 명시적으로 특성을 지정해야 합니다. 
+
+1. 다음과 같이 프로젝트에 두 번째 빈 클래스 정의를 추가합니다. **Address.cs**.  다음 코드를 클래스에 복사합니다.
 
    ```csharp
-    // Define an index schema using SearchIndex
-    // Create the index using SearchIndexClient
-    SearchIndex index = new SearchIndex(indexName)
-    {
-        Fields =
-            {
-                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
-                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
-                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
-                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
-                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
-            }
-    };
+   using Azure.Search.Documents.Indexes;
 
-    Console.WriteLine("{0}", "Creating index...\n");
-    idxclient.CreateIndex(index);
+    namespace AzureSearch.Quickstart
+    {
+        public partial class Address
+        {
+            [SearchableField(IsFilterable = true)]
+            public string StreetAddress { get; set; }
+
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public string City { get; set; }
+
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public string StateProvince { get; set; }
+
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public string PostalCode { get; set; }
+
+            [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+            public string Country { get; set; }
+        }
+    }
    ```
 
-필드의 특성은 필드가 애플리케이션에서 사용되는 방식을 결정합니다. 예를 들어 `IsFilterable` 특성은 필터 식을 지원하는 모든 필드에 할당해야 합니다.
+1. 두 개 이상의 클래스를 만듭니다. ToString() 재정의에 대한 **Hotel.Methods.cs** 및 **Address.Methods.cs**. 이러한 클래스는 콘솔 출력에서 검색 결과를 렌더링하는 데 사용됩니다.  이러한 클래스의 콘텐츠는 이 문서에서 제공되지 않지만 [GitHub의 파일](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11)에서 코드를 복사할 수 있습니다.
 
-Azure.Search.Documents 클라이언트 라이브러리에서 [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) 및 [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield)를 사용하여 필드 정의를 간소화할 수 있습니다. 둘 다 [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield)의 파생물이며 잠재적으로 코드를 단순화할 수 있습니다.
+1. **Program.cs** 에서 [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 개체를 만든 다음, [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) 메서드를 호출하여 검색 서비스에서 인덱스를 표시합니다. 인덱스에는 지정된 필드에서 자동 완성을 사용하도록 설정하는 [SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester)도 포함되어 있습니다.
 
-+ `SimpleField`는 모든 데이터 형식일 수 있으며, 항상 검색할 수 없지만(전체 텍스트 검색 쿼리에서 무시됨) 조회할 수는 있습니다(숨겨지지 않음). 다른 특성은 기본적으로 꺼져 있지만 사용하도록 설정할 수 있습니다. 필터, 패싯 또는 점수 매기기 프로필에만 사용되는 문서 ID 또는 필드에는 `SimpleField`를 사용할 수 있습니다. 그렇다면 문서 ID에 대한 `IsKey = true`와 같이 시나리오에 필요한 특성을 적용해야 합니다. 자세한 내용은 소스 코드의 [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs)를 참조하세요.
+   ```csharp
+    // Create hotels-quickstart index
+    private static void CreateIndex(string indexName, SearchIndexClient adminClient)
+    {
+        FieldBuilder fieldBuilder = new FieldBuilder();
+        var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-+ `SearchableField`는 문자열이어야 하며, 항상 검색할 수 있고 조회할 수 있습니다. 다른 특성은 기본적으로 꺼져 있지만 사용하도록 설정할 수 있습니다. 이 필드 형식은 검색할 수 있으므로 동의어와 분석기 속성의 전체 보충을 지원합니다. 자세한 내용은 소스 코드의 [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs)를 참조하세요.
+        var definition = new SearchIndex(indexName, searchFields);
 
-기본 `SearchField` API를 사용하든지 도우미 모델 중 하나를 사용하든지 간에 필터, 패싯 및 정렬 특성을 명시적으로 사용하도록 설정해야 합니다. 예를 들어 [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable) 및 [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable)은 위의 샘플처럼 명시적으로 특성을 지정해야 합니다. 
+        var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
+        definition.Suggesters.Add(suggester);
+
+        adminClient.CreateOrUpdateIndex(definition);
+    }
+   ```
 
 <a name="load-documents"></a>
 
@@ -171,28 +217,127 @@ Azure.Search.Documents 클라이언트 라이브러리에서 [SearchableField](/
 
 Azure Cognitive Search는 서비스에 저장된 콘텐츠를 검색합니다. 이 단계에서는 방금 만든 호텔 인덱스를 따르는 JSON 문서를 로드합니다.
 
-Azure Cognitive Search에서 검색 문서는 인덱싱에 대한 입력과 쿼리의 출력 모두에 해당하는 데이터 구조입니다. 외부 데이터 소스에서 가져온, 문서 입력은 데이터베이스의 행, Blob Storage의 Blob 또는 디스크의 JSON 문서일 수 있습니다. 이 예제에서는 손쉬운 방법을 사용하여 5개 호텔에 대한 JSON 문서를 코드 자체에 포함합니다. 
+Azure Cognitive Search에서 검색 문서는 인덱싱에 대한 입력과 쿼리의 출력 모두에 해당하는 데이터 구조입니다. 외부 데이터 소스에서 가져온, 문서 입력은 데이터베이스의 행, Blob Storage의 Blob 또는 디스크의 JSON 문서일 수 있습니다. 이 예에서는 손쉬운 방법을 사용하여 4개 호텔에 대한 JSON 문서를 코드 자체에 포함합니다. 
 
 문서를 업로드할 때 [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) 개체를 사용해야 합니다. `IndexDocumentsBatch` 개체에는 [Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)의 컬렉션이 포함되며, 각 컬렉션에는 수행할 작업([upload, merge, delete 및 mergeOrUpload](search-what-is-data-import.md#indexing-actions))을 Azure Cognitive Search에 알려주는 속성과 문서가 포함됩니다.
 
-1. **Program.cs**에서 문서 및 인덱스 작업의 배열을 만든 다음, 배열을 `IndexDocumentsBatch`에 전달합니다. 아래 문서는 호텔 클래스에서 정의한 대로 hotels-quickstart-v11 인덱스를 준수합니다.
+1. **Program.cs** 에서 문서 및 인덱스 작업의 배열을 만든 다음, 배열을 `IndexDocumentsBatch`에 전달합니다. 아래 문서는 호텔 클래스에서 정의한 대로 hotels-quickstart 인덱스를 준수합니다.
 
     ```csharp
-    // Load documents (using a subset of fields for brevity)
-    IndexDocumentsBatch<Hotel> batch = IndexDocumentsBatch.Create(
-        IndexDocumentsAction.Upload(new Hotel { Id = "78", Name = "Upload Inn", Category = "hotel", Rate = 279, Updated = new DateTime(2018, 3, 1, 7, 0, 0) }),
-        IndexDocumentsAction.Upload(new Hotel { Id = "54", Name = "Breakpoint by the Sea", Category = "motel", Rate = 162, Updated = new DateTime(2015, 9, 12, 7, 0, 0) }),
-        IndexDocumentsAction.Upload(new Hotel { Id = "39", Name = "Debug Motel", Category = "motel", Rate = 159, Updated = new DateTime(2016, 11, 11, 7, 0, 0) }),
-        IndexDocumentsAction.Upload(new Hotel { Id = "48", Name = "NuGet Hotel", Category = "hotel", Rate = 238, Updated = new DateTime(2016, 5, 30, 7, 0, 0) }),
-        IndexDocumentsAction.Upload(new Hotel { Id = "12", Name = "Renovated Ranch", Category = "motel", Rate = 149, Updated = new DateTime(2020, 1, 24, 7, 0, 0) }));
+    // Upload documents in a single Upload request.
+    private static void UploadDocuments(SearchClient searchClient)
+    {
+        IndexDocumentsBatch<Hotel> batch = IndexDocumentsBatch.Create(
+            IndexDocumentsAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "1",
+                    HotelName = "Secret Point Motel",
+                    Description = "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+                    DescriptionFr = "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+                    Category = "Boutique",
+                    Tags = new[] { "pool", "air conditioning", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate = new DateTimeOffset(1970, 1, 18, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 3.6,
+                    Address = new Address()
+                    {
+                        StreetAddress = "677 5th Ave",
+                        City = "New York",
+                        StateProvince = "NY",
+                        PostalCode = "10022",
+                        Country = "USA"
+                    }
+                }),
+            IndexDocumentsAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "2",
+                    HotelName = "Twin Dome Motel",
+                    Description = "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+                    DescriptionFr = "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+                    Category = "Boutique",
+                    Tags = new[] { "pool", "free wifi", "concierge" },
+                    ParkingIncluded = false,
+                    LastRenovationDate = new DateTimeOffset(1979, 2, 18, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 3.60,
+                    Address = new Address()
+                    {
+                        StreetAddress = "140 University Town Center Dr",
+                        City = "Sarasota",
+                        StateProvince = "FL",
+                        PostalCode = "34243",
+                        Country = "USA"
+                    }
+                }),
+            IndexDocumentsAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "3",
+                    HotelName = "Triple Landscape Hotel",
+                    Description = "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+                    DescriptionFr = "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+                    Category = "Resort and Spa",
+                    Tags = new[] { "air conditioning", "bar", "continental breakfast" },
+                    ParkingIncluded = true,
+                    LastRenovationDate = new DateTimeOffset(2015, 9, 20, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 4.80,
+                    Address = new Address()
+                    {
+                        StreetAddress = "3393 Peachtree Rd",
+                        City = "Atlanta",
+                        StateProvince = "GA",
+                        PostalCode = "30326",
+                        Country = "USA"
+                    }
+                }),
+            IndexDocumentsAction.Upload(
+                new Hotel()
+                {
+                    HotelId = "4",
+                    HotelName = "Sublime Cliff Hotel",
+                    Description = "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+                    DescriptionFr = "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+                    Category = "Boutique",
+                    Tags = new[] { "concierge", "view", "24-hour front desk service" },
+                    ParkingIncluded = true,
+                    LastRenovationDate = new DateTimeOffset(1960, 2, 06, 0, 0, 0, TimeSpan.Zero),
+                    Rating = 4.60,
+                    Address = new Address()
+                    {
+                        StreetAddress = "7400 San Pedro Ave",
+                        City = "San Antonio",
+                        StateProvince = "TX",
+                        PostalCode = "78216",
+                        Country = "USA"
+                    }
+                })
+            );
 
-    IndexDocumentsOptions idxoptions = new IndexDocumentsOptions { ThrowOnAnyError = true };
-
-    Console.WriteLine("{0}", "Loading index...\n");
-    srchclient.IndexDocuments(batch, idxoptions);
+        try
+        {
+            IndexDocumentsResult result = searchClient.IndexDocuments(batch);
+        }
+        catch (Exception)
+        {
+            // If for some reason any documents are dropped during indexing, you can compensate by delaying and
+            // retrying. This simple demo just logs the failed document keys and continues.
+            Console.WriteLine("Failed to index some of the documents: {0}");
+        }
+    }
     ```
 
     [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) 개체를 초기화 한 후에는 [SearchClient](/dotnet/api/azure.search.documents.searchclient) 개체에서 [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments)를 호출하여 이 개체를 인덱스에 전송할 수 있습니다.
+
+1. Main()에 다음 줄을 추가합니다. 문서 로드는 SearchClient를 사용하여 수행되지만 작업에는 일반적으로 SearchIndexClient와 관련된 서비스에 대한 관리자 권한도 있어야 합니다. 이 작업을 설정하는 한 가지 방법은 SearchIndexClient(이 예제에서는 adminClient)를 통해 SearchClient를 가져오는 것입니다.
+
+   ```csharp
+    SearchClient ingesterClient = adminClient.GetSearchClient(indexName);
+
+    // Load documents
+    Console.WriteLine("{0}", "Uploading documents...\n");
+    UploadDocuments(ingesterClient);
+   ```
 
 1. 이 앱은 모든 명령을 순차적으로 실행하는 콘솔 앱이므로 인덱싱과 쿼리 사이에 2초 대기 시간을 추가합니다.
 
@@ -212,80 +357,139 @@ Azure Cognitive Search에서 검색 문서는 인덱싱에 대한 입력과 쿼�
 
 [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) 클래스는 결과를 나타냅니다.
 
-1. **Program.cs**에서 검색 결과를 콘솔에 출력하는 WriteDocuments 메서드를 만듭니다.
+1. **Program.cs** 에서 검색 결과를 콘솔에 출력하는 **WriteDocuments** 메서드를 만듭니다.
 
     ```csharp
+    // Write search results to console
     private static void WriteDocuments(SearchResults<Hotel> searchResults)
     {
-        foreach (SearchResult<Hotel> response in searchResults.GetResults())
+        foreach (SearchResult<Hotel> result in searchResults.GetResults())
         {
-            Hotel doc = response.Document;
-            var score = response.Score;
-            Console.WriteLine($"Name: {doc.Name}, Type: {doc.Category}, Rate: {doc.Rate}, Last-update: {doc.Updated}, Score: {score}");
+            Console.WriteLine(result.Document);
         }
 
         Console.WriteLine();
     }
     ```
 
-1. 쿼리를 실행하고 결과를 반환하는 RunQueries 메서드를 만듭니다. 결과는 Hotel 개체입니다.
+1. 쿼리를 실행하고 결과를 반환하는 **RunQueries** 메서드를 만듭니다. 결과는 Hotel 개체입니다. 이 샘플에서는 메서드 서명과 첫 번째 쿼리를 보여줍니다. 이 쿼리는 문서에서 선택한 필드를 사용하여 결과를 작성할 수 있도록 하는 Select 매개 변수를 보여줍니다.
 
     ```csharp
+    // Run queries, use WriteDocuments to print output
     private static void RunQueries(SearchClient srchclient)
     {
         SearchOptions options;
         SearchResults<Hotel> response;
 
-        Console.WriteLine("Query #1: Search on the term 'motel' and list the relevance score for each match...\n");
+        Console.WriteLine("Query #1: Search on empty term '*' to return all documents, showing a subset of fields...\n");
 
         options = new SearchOptions()
         {
+            IncludeTotalCount = true,
             Filter = "",
             OrderBy = { "" }
         };
 
-        response = srchclient.Search<Hotel>("motel", options);
-        WriteDocuments(response);
-
-        Console.WriteLine("Query #2: Find hotels where 'type' equals hotel...\n");
-
-        options = new SearchOptions()
-        {
-            Filter = "hotelCategory eq 'hotel'",
-        };
+        options.Select.Add("HotelId");
+        options.Select.Add("HotelName");
+        options.Select.Add("Address/City");
 
         response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
+        ```
 
-        Console.WriteLine("Query #3: Filter on rates less than $200 and sort by when the hotel was last updated...\n");
-
-        options = new SearchOptions()
-        {
-            Filter = "baseRate lt 200",
-            OrderBy = { "lastRenovationDate desc" }
-        };
-
-        response = srchclient.Search<Hotel>("*", options);
-        WriteDocuments(response);
-    }
-    ```
-
-1. RunQueries를 `Main()`에 추가합니다.
+1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
 
     ```csharp
-    Console.WriteLine("Starting queries...\n");
-    RunQueries(srchclient);
+    Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");
+
+    options = new SearchOptions()
+    {
+        Filter = "Rating gt 4",
+        OrderBy = { "Rating desc" }
+    };
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Rating");
+
+    response = srchclient.Search<Hotel>("hotels", options);
+    WriteDocuments(response);
     ```
 
-이 예제에서는 [쿼리에서 용어를 매칭하는 두 가지 방법](search-query-overview.md#types-of-queries)인 전체 텍스트 검색 및 필터를 보여줍니다.
+1. 세 번째 쿼리는 전체 텍스트 검색 작업의 범위를 특정 필드로 지정하는 데 사용되는 searchFields를 보여줍니다.
 
-+ 전체 텍스트 검색은 인덱스의 검색 가능 필드에서 하나 이상의 용어를 쿼리합니다. 첫 번째 쿼리는 전체 텍스트 검색입니다. 전체 텍스트 검색은 결과의 순위를 매기는 데 사용되는 관련성 점수를 생성합니다.
+    ```csharp
+    Console.WriteLine("Query #3: Limit search to specific fields (pool in Tags field)...\n");
 
-+ 필터는 인덱스의 [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) 필드를 통해 평가되는 부울 식입니다. 필터는 포함 또는 제외 값을 쿼리합니다. 따라서 필터 쿼리와 관련된 관련성 점수가 없습니다. 마지막 두 개의 쿼리는 필터 검색을 보여줍니다.
+    options = new SearchOptions()
+    {
+        SearchFields = { "Tags" }
+    };
 
-전체 텍스트 검색과 필터를 함께 사용하거나 별도로 사용할 수 있습니다.
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Tags");
 
-검색 및 필터는 모두 [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) 메서드를 사용하여 수행됩니다. 검색 쿼리는 `searchText` 문자열로 전달할 수 있는 반면, 필터 식은 [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) 클래스의 [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) 속성으로 전달할 수 있습니다. 검색하지 않고 필터링하려면 [Search](/dotnet/api/azure.search.documents.searchclient.search) 메서드의 `searchText` 매개 변수에 대한 `"*"`를 전달합니다. 필터링하지 않고 검색하려면 `Filter` 속성을 설정하지 않고 그대로 두거나 `SearchOptions` 인스턴스에 전달하지 않아야 합니다.
+    response = srchclient.Search<Hotel>("pool", options);
+    WriteDocuments(response);
+    ```
+
+1. 네 번째 쿼리는 패싯 탐색 구조를 구조화하는 데 사용할 수 있는 패싯을 보여줍니다. 
+
+   ```csharp
+    Console.WriteLine("Query #4: Facet on 'Category'...\n");
+
+    options = new SearchOptions()
+    {
+        Filter = ""
+    };
+
+    options.Facets.Add("Category");
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Category");
+
+    response = srchclient.Search<Hotel>("*", options);
+    WriteDocuments(response);
+   ```
+
+1. 다섯 번째 쿼리에서 특정 문서를 반환합니다. 문서 조회는 결과 집합의 OnClick 이벤트에 대한 일반적인 응답입니다.
+
+   ```csharp
+    Console.WriteLine("Query #5: Look up a specific document...\n");
+
+    Response<Hotel> lookupResponse;
+    lookupResponse = srchclient.GetDocument<Hotel>("3");
+
+    Console.WriteLine(lookupResponse.Value.HotelId);
+   ```
+
+1. 마지막 쿼리는 인덱스에서 정의한 제안기와 연결된 sourceFields에서 가능한 두 개의 일치 항목으로 확인되는 "sa"의 부분 사용자 입력을 시뮬레이션하는 자동 구문을 보여줍니다.
+
+   ```csharp
+    Console.WriteLine("Query #6: Call Autocomplete on HotelName that starts with 'sa'...\n");
+
+    var autoresponse = srchclient.Autocomplete("sa", "sg");
+    WriteDocuments(autoresponse);
+   ```
+
+1. **RunQueries** 를 Main()에 추가합니다.
+
+    ```csharp
+    // Call the RunQueries method to invoke a series of queries
+    Console.WriteLine("Starting queries...\n");
+    RunQueries(srchclient);
+
+    // End the program
+    Console.WriteLine("{0}", "Complete. Press any key to end this program...\n");
+    Console.ReadKey();
+    ```
+
+이전 쿼리는 전체 텍스트 검색, 필터 및 자동 완성과 같은 [쿼리에서 용어를 일치시키는 여러 방법](search-query-overview.md#types-of-queries)을 보여줍니다.
+
+전체 텍스트 검색 및 필터는 [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) 메서드를 사용하여 수행됩니다. 검색 쿼리는 `searchText` 문자열로 전달할 수 있는 반면, 필터 식은 [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) 클래스의 [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) 속성으로 전달할 수 있습니다. 검색하지 않고 필터링하려면 [Search](/dotnet/api/azure.search.documents.searchclient.search) 메서드의 `searchText` 매개 변수에 대한 `"*"`를 전달합니다. 필터링하지 않고 검색하려면 `Filter` 속성을 설정하지 않고 그대로 두거나 `SearchOptions` 인스턴스에 전달하지 않아야 합니다.
 
 ## <a name="run-the-program"></a>프로그램 실행
 

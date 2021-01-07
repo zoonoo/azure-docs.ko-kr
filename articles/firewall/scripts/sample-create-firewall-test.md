@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca8591be42e34a52f15913e0ec4058505cc0b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4158bc07373a2d0aa6fb6ceaf2dce62b50bb6bd7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079064"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658369"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
 
@@ -72,12 +72,11 @@ Remove-AzResourceGroup -Name AzfwSampleScriptEastUS -Force
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm) | 가상 머신을 만듭니다. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
-|[New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)| 새 Azure Firewall을 만듭니다.|
-|[Get-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/get-azfirewall)|Azure Firewall 개체를 가져옵니다.|
-|[New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule)|새 Azure Firewall 애플리케이션 규칙을 만듭니다.|
-|[Set-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/set-azfirewall)|Azure Firewall 개체의 변경 내용을 커밋합니다.|
+|[New-AzFirewall](/powershell/module/az.network/new-azfirewall)| 새 Azure Firewall을 만듭니다.|
+|[Get-AzFirewall](/powershell/module/az.network/get-azfirewall)|Azure Firewall 개체를 가져옵니다.|
+|[New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)|새 Azure Firewall 애플리케이션 규칙을 만듭니다.|
+|[Set-AzFirewall](/powershell/module/az.network/set-azfirewall)|Azure Firewall 개체의 변경 내용을 커밋합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/)를 참조하세요.
-

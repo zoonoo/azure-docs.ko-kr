@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 87cb0f93201b5111e4d5e954ee62451405436fa0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 40792585fbc52aaeec8a535b6a82decfce7618f2
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538733"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533692"
 ---
 # <a name="detect-popular-brands-in-images"></a>이미지에서 인기 있는 브랜드 검색
 
@@ -23,7 +23,7 @@ ms.locfileid: "94538733"
 
 Computer Vision 서비스는 지정된 이미지에 브랜드 로고가 있는지 여부를 검색합니다. 이 경우 브랜드 이름, 신뢰도 점수 및 로고 주변의 경계 상자 좌표를 반환합니다.
 
-기본 제공 로고 데이터베이스는 가전제품, 의류 등의 인기 있는 브랜드를 포함하고 있습니다. 찾고 있는 브랜드가 Computer Vision 서비스에서 검색되지 않는 경우 [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 서비스를 사용하여 사용자 고유의 로고 검색기를 만들고 학습하는 것이 더 좋을 수 있습니다.
+기본 제공 로고 데이터베이스는 가전제품, 의류 등의 인기 있는 브랜드를 포함하고 있습니다. 찾고 있는 브랜드가 Computer Vision 서비스에서 검색되지 않는 경우 [Custom Vision](../custom-vision-service/index.yml) 서비스를 사용하여 사용자 고유의 로고 검색기를 만들고 학습하는 것이 더 좋을 수 있습니다.
 
 ## <a name="brand-detection-example"></a>브랜드 검색 예제
 
@@ -76,5 +76,4 @@ Computer Vision 서비스는 지정된 이미지에 브랜드 로고가 있는�
 
 브랜드 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부 입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Brands` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"brands"` .
 
-* [빠른 시작: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398014"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938718"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -35,7 +35,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 * 학습 곡선이 없는 [기존 부하 분산 장치 솔루션에 빌드](#build-cross-region-solution-on-existing-azure-load-balancer)
 
 > [!IMPORTANT]
-> 영역 간 부하 분산 장치는 현재 미리 보기로 제공 되며 일반적으로 사용할 수 없습니다.  지역 간 부하 분산 장치에 대 한 미리 보기에 액세스 하려면에 문의 [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) 하세요. </br> </br>
+> 지역 간 부하 분산 장치는 현재 미리 보기 상태이며 미리 보기 포털에서 숨겨집니다. 에 로그인 하 여 **https://preview.portal.azure.com** 기능을 확인 하 고 배포 합니다. </br> </br>
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 지역 간 부하 분산은 지역 표준 부하 분산 장치 처럼 고성능 및 짧은 대기 시간으로 동일한 이점을 제공 합니다. 
@@ -51,7 +51,7 @@ Azure 표준 Load Balancer는 다음과 같은 지역 중복 HA 시나리오를 
 
 전역 프런트 엔드 공용 IP 주소를 기존 부하 분산 장치에 추가 하 여 지역별 중복성을 구성 합니다. 
 
-한 지역이 실패 하는 경우 트래픽이 가장 가까운 다음으로 정상적인 지역 부하 분산 장치로 라우팅됩니다.  
+한 지역이 실패하는 경우 트래픽이 다음의 가장 가까운 정상적인 지역 부하 분산 장치로 라우팅됩니다.  
 
 지역 간 부하 분산 장치의 상태 프로브는 20 초 마다 가용성에 대 한 정보를 수집 합니다. 한 지역 부하 분산 장치에서 가용성을 0으로 설정 하면 지역 간 부하 분산 장치에서 오류를 검색 합니다. 그러면 지역 부하 분산 장치는 순환에서 제외 됩니다. 
 
@@ -74,7 +74,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 
 지역 부하 분산 장치의 구성 된 부하 분산 모드는 지리적 근접성에 여러 지역 부하 분산 장치를 사용 하는 경우 최종 라우팅 결정을 내리는 데 사용 됩니다.
 
-자세한 내용은 [Azure Load Balancer의 배포 모드 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode)을 참조하세요.
+자세한 내용은 [Azure Load Balancer의 배포 모드 구성](./load-balancer-distribution-mode.md)을 참조하세요.
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>단일 끝점을 확장/축소 하는 기능
@@ -84,7 +84,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>고정 IP
-영역 간 부하 분산 장치에는 IP 주소가 동일 하 게 유지 되도록 하는 고정 공용 IP가 제공 됩니다. 고정 IP에 대해 자세히 알아보려면 여기를 참조 [하세요](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method) .
+영역 간 부하 분산 장치에는 IP 주소가 동일 하 게 유지 되도록 하는 고정 공용 IP가 제공 됩니다. 고정 IP에 대해 자세히 알아보려면 여기를 참조 [하세요](../virtual-network/public-ip-addresses.md#allocation-method) .
 
 ### <a name="client-ip-preservation"></a>클라이언트 IP 유지
 영역 간 부하 분산 장치는 계층 4 통과 네트워크 부하 분산 장치입니다. 이 통과는 패킷의 원래 IP를 유지 합니다.  원본 IP는 가상 머신에서 실행 되는 코드에서 사용할 수 있습니다. 이러한 유지를 통해 IP 주소와 관련 된 논리를 적용할 수 있습니다.
@@ -100,7 +100,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남아시아
+* 동남 아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남아시아 
+* 동남 아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 
@@ -149,6 +149,6 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
  
 ## <a name="next-steps"></a>다음 단계
 
-- 부하 분산 장치를 사용하여 시작하려면 [공용 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
+- 영역 간 부하 분산 장치를 만들려면 [자습서: Azure Portal을 사용 하 여 지역 간 부하 분산 장치 만들기](tutorial-cross-region-portal.md) 를 참조 하세요.
+- 표준 지역 부하 분산 장치를 만들려면 [공용 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md) 를 참조 하세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
-- 부하 분산 장치 [faq](load-balancer-faqs.md)

@@ -4,11 +4,11 @@ description: 이 Azure Policy 패턴은 정책 정의에서 count 연산자를 �
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076405"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96005421"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Azure Policy 패턴: count 연산자
 
@@ -24,9 +24,9 @@ ms.locfileid: "92076405"
 
 **count** 연산자의 핵심 구성 요소는 _필드_, _where_ 및 조건입니다. 각각은 아래 코드 조각에서 강조 표시됩니다.
 
-- _필드_는 멤버를 평가하는 [별칭](../concepts/definition-structure.md#aliases) 수를 알려줍니다. 여기서는 네트워크 보안 그룹의 **securityRules\[\*\]** 별칭 _배열_을 살펴봅니다.
+- _필드_ 는 멤버를 평가하는 [별칭](../concepts/definition-structure.md#aliases) 수를 알려줍니다. 여기서는 네트워크 보안 그룹의 **securityRules\[\*\]** 별칭 _배열_ 을 살펴봅니다.
 - _여기서_ 정책 언어를 사용하여 해당 조건을 충족하는 _배열_ 멤버를 정의합니다. 이 예제에서 **allOf** 논리 연산자는 별칭 _배열_ 속성의 세 가지 조건 평가(_direction_, _access_ 및 _destinationPortRange_)를 그룹화합니다.
-- 이 예제의 개수 조건은 **greater**입니다. 개수는 별칭 _배열_의 하나 이상의 멤버가 _where_ 절과 일치하면 true로 평가됩니다.
+- 이 예제의 개수 조건은 **greater** 입니다. 개수는 별칭 _배열_ 의 하나 이상의 멤버가 _where_ 절과 일치하면 true로 평가됩니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-count-operator.json" range="12-32" highlight="3,4,20":::
 

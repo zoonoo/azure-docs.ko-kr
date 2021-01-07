@@ -6,19 +6,19 @@ author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
-ms.date: 10/27/2020
+ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 61d860def7209908e65e9456a4bcde87eed522fc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbd890117c78274392d5745e0563332371b404c5
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746389"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96452576"
 ---
 # <a name="use-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Synapse Studio를 사용 하 여 작업 영역 파이프라인 실행 모니터링
 
-Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, 데이터 변환 및 계산 작업을 자동화 하 고 통합할 수 있는 복잡 한 파이프라인을 만들 수 있습니다. Synapse Studio (미리 보기)를 사용 하 여 이러한 파이프라인을 작성 하 고 모니터링할 수 있습니다.
+Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, 데이터 변환 및 계산 작업을 자동화 하 고 통합할 수 있는 복잡 한 파이프라인을 만들 수 있습니다. Synapse Studio를 사용 하 여 이러한 파이프라인을 작성 하 고 모니터링할 수 있습니다.
 
 이 문서에서는 파이프라인 실행을 모니터링 하 여 파이프라인의 최신 상태, 문제 및 진행률을 확인할 수 있는 방법을 설명 합니다.
 
@@ -41,8 +41,6 @@ Azure Synapse Analytics를 사용 하면 솔루션 내에서 데이터 이동, �
 파이프라인 실행 목록을 관심 있는 항목으로 필터링 할 수 있습니다. 화면 위쪽의 필터를 사용 하 여 필터링 할 필드를 지정할 수 있습니다.
 
 예를 들어 뷰를 필터링 하 여 "휴일" 이라는 파이프라인에 대 한 파이프라인 실행만 볼 수 있습니다.
-
-![필터 단추](./media/common/filter-button.png)
 
 ![샘플 필터](./media/how-to-monitor-pipeline-runs/filter-example.png)
 

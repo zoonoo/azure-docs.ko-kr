@@ -29,10 +29,6 @@
           href: learn/quick-collect-windows-computer.md
     - name: 애플리케이션 모니터링
       items:
-        - name: .NET 애플리케이션
-          href: learn/quick-monitor-portal.md
-        - name: .NET Core 애플리케이션
-          href: learn/dotnetcore-quick-start.md
         - name: Node.js 애플리케이션
           href: learn/nodejs-quick-start.md
         - name: 모바일 애플리케이션
@@ -89,6 +85,8 @@
               href: samples/resource-manager-web-app.md
             - name: Azure 기능
               href: samples/resource-manager-function-app.md
+        - name: 데이터 수집 규칙
+          href: samples/resource-manager-data-collection-rules.md
         - name: 진단 설정
           href: samples/resource-manager-diagnostic-settings.md
         - name: Log Analytics 작업 영역
@@ -164,6 +162,7 @@
         - name: Azure Monitor 배포
           href: deploy.md
         - name: 대규모 배포
+          displayName: 'Azure Policy, Policy'
           href: deploy-scale.md
     - name: 관리 및 구성
       items:
@@ -180,6 +179,23 @@
               href: app/pricing.md
             - name: 로그 데이터 사용량 및 비용
               href: platform/manage-cost-storage.md
+    - name: Azure Monitor 메트릭
+      items:
+        - name: 개요
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: 메트릭 탐색기
+          items:
+            - name: 메트릭 탐색기로 시작
+              href: platform/metrics-getting-started.md
+            - name: 메트릭 탐색기의 고급 기능
+              href: platform/metrics-charts.md
+            - name: 메트릭 탐색기에서 여러 리소스 보기
+              href: platform/metrics-dynamic-scope.md
+            - name: 메트릭 차트의 예
+              href: platform/metric-chart-samples.md
+            - name: 메트릭 차트 문제 해결
+              href: platform/metrics-troubleshoot.md
     - name: Azure Monitor 로그
       items:
         - name: 개요
@@ -233,9 +249,11 @@
               href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
             - name: 표준 열
               href: platform/log-standard-columns.md
+            - name: 감사 쿼리
+              href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -254,29 +272,22 @@
                   href: log-query/resource-expression.md
                 - name: 애플리케이션 데이터 리소스 통합
                   href: log-query/unify-app-resource-data.md
+                - name: Azure Monitor와 Azure Data Explorer 간의 교차 서비스 쿼리 개요
+                  href: platform/azure-data-explorer-monitor-cross-service-query.md
+                - name: Azure Monitor에서 Azure Data Explorer 쿼리
+                  href: platform/azure-monitor-data-explorer-proxy.md
         - name: 데이터 내보내기
           items:
             - name: 작업 영역 데이터 내보내기
               href: platform/logs-data-export.md
             - name: Logic Apps를 사용하여 내보내기
               href: platform/logs-export-logic-app.md
-            - name: 데이터 탐색기를 사용하여 내보낸 데이터 쿼리
+            - name: Azure Data Explorer를 사용하여 데이터 쿼리
               href: platform/azure-data-explorer-query-storage.md
-    - name: Azure Monitor 메트릭
-      items:
-        - name: 개요
-          displayname: Metrics
-          href: platform/data-platform-metrics.md
-        - name: 메트릭 탐색기
-          items:
-            - name: 메트릭 탐색기로 시작
-              href: platform/metrics-getting-started.md
-            - name: 메트릭 탐색기의 고급 기능
-              href: platform/metrics-charts.md
-            - name: 메트릭 차트의 예
-              href: platform/metric-chart-samples.md
-            - name: 메트릭 차트 문제 해결
-              href: platform/metrics-troubleshoot.md
+            - name: Excel로 보내기
+              href: log-query/log-excel.md
+            - name: Power BI로 보내기
+              href: log-query/log-powerbi.md
     - name: 플랫폼 로그
       items:
         - name: 개요
@@ -347,6 +358,9 @@
             - name: 개요
               displayname: Azure Monitor agent
               href: platform/azure-monitor-agent-overview.md
+            - name: 설치
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-install.md
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
@@ -530,16 +544,40 @@
           href: platform/alerts-resource-move.md
         - name: IT 서비스 관리
           items:
-            - name: IT Service Management Connector
+            - name: ITSM 커넥터 개요
               href: platform/itsmc-overview.md
-            - name: IT Service Management 연결
-              href: platform/itsmc-connections.md
-            - name: 보안 내보내기와 통합
-              href: platform/it-service-management-connector-secure-webhook-connections.md
-            - name: Service Manager 웹앱 만들기
-              href: platform/itsmc-service-manager-script.md
-            - name: ServiceNow ITSM 동기화 문제 수정
+            - name: ITSM 커넥터 파트너 설치
+              items:
+                - name: 개요
+                  href: platform/itsmc-connections.md
+                - name: ServiceNow
+                  href: platform/itsmc-connections-servicenow.md
+                - name: System Center Service Manager
+                  items:
+                    - name: 설치 프로그램
+                      href: platform/itsmc-connections-scsm.md
+                    - name: Service Manager 웹앱 만들기
+                      href: platform/itsmc-service-manager-script.md
+                - name: Cherwell
+                  href: platform/itsmc-connections-cherwell.md
+                - name: Provance
+                  href: platform/itsmc-connections-provance.md
+            - name: ITSM 커넥터 Azure Configuration
+              href: platform/itsmc-definition.md
+            - name: ITSM 제품에서 동기화된 데이터
+              href: platform/itsmc-synced-data.md
+            - name: ITSM 커넥터의 문제 해결
               href: platform/itsmc-resync-servicenow.md
+            - name: 보안 내보내기와 통합
+              items:
+                - name: 개요
+                  href: platform/it-service-management-connector-secure-webhook-connections.md
+                - name: Azure Configuration 보안 내보내기
+                  href: platform/itsm-connector-secure-webhook-connections-azure-configuration.md
+                - name: BMC
+                  href: platform/itsmc-secure-webhook-connections-bmc.md
+                - name: ServiceNow
+                  href: platform/itsmc-secure-webhook-connections-servicenow.md
         - name: 클래식 경고 규칙 마이그레이션
           items:
             - name: 클래식 경고 정보
@@ -575,12 +613,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: HTTP가 아닌 앱/백그라운드 앱
+              items:
+                - name: ASP.NET 앱 모니터링
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: ASP.NET 문제 해결
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: 비 HTTP/백그라운드 앱
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: .NET 콘솔
+            - name: ASP.NET 콘솔
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -590,18 +632,10 @@
                   href: app/java-get-started.md
                 - name: 로그 추적
                   href: app/java-trace-logs.md
-                - name: Unix 메트릭
-                  href: app/java-collectd.md
                 - name: 종속성
                   href: app/java-agent.md
                 - name: 필터 원격 분석
                   href: app/java-filter-telemetry.md
-                - name: 마이크로미터 메트릭
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Spring Boot 앱
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: 문제 해결
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -637,8 +671,6 @@
             - name: Application Insights API 요약
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: ASP.NET 문제 해결
-              href: app/asp-net-troubleshoot-no-data.md
             - name: Application Insights 제거
               href: app/remove-application-insights.md
         - name: 코드 없는 모니터링
@@ -670,6 +702,10 @@
                       href: app/java-standalone-telemetry-processors.md
                     - name: JVM 인수 설정
                       href: app/java-standalone-arguments.md
+                    - name: 2.x SDK에서 업그레이드
+                      href: app/java-standalone-upgrade-from-2x.md
+                    - name: 문제 해결
+                      href: app/java-standalone-troubleshoot.md
             - name: 온-프레미스 서버
               items:
                 - name: ASP.NET
@@ -742,6 +778,8 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: 로그 기반 메트릭 정의
               href: platform/app-insights-metrics.md
+            - name: 표준 메트릭
+              href: app/standard-metrics.md
         - name: 검색
           href: app/diagnostic-search.md
         - name: 프로파일러
@@ -774,6 +812,8 @@
               href: app/snapshot-debugger.md
             - name: App Service의 스냅샷 디버거를 사용하도록 설정
               href: app/snapshot-debugger-appservice.md
+            - name: 함수 앱에 대해 스냅샷 디버거 사용
+              href: app/snapshot-debugger-function-app.md
             - name: 다른 환경의 스냅샷 디버거를 사용하도록 설정
               href: app/snapshot-debugger-vm.md
             - name: 스냅샷 디버거 업그레이드
@@ -878,8 +918,6 @@
               items:
                 - name: 웹앱 및 서비스 심층 진단
                   href: app/devops.md
-                - name: 웹 애플리케이션의 성능 모니터링
-                  href: app/web-monitor-performance.md
                 - name: '개발, 테스트 및 프로덕션 구분'
                   href: app/separate-resources.md
                 - name: Application Insights에서 어떻게 할까요?
@@ -946,14 +984,28 @@
           href: insights/vminsights-maps.md
         - name: 성능 모니터링
           href: insights/vminsights-performance.md
-        - name: 변경 내용 모니터링
-          href: insights/vminsights-change-analysis.md
+        - name: 게스트 상태 모니터링(미리 보기)
+          items:
+            - name: 개요
+              href: insights/vminsights-health-overview.md
+            - name: 사용
+              href: insights/vminsights-health-enable.md
+            - name: 경고
+              href: insights/vminsights-health-alerts.md
+            - name: 포털에서 모니터 구성
+              href: insights/vminsights-health-configure.md
+            - name: 대규모로 모니터 구성
+              href: insights/vminsights-health-configure-dcr.md
+            - name: 문제 해결
+              href: insights/vminsights-health-troubleshoot.md
         - name: 로그 쿼리를 사용하여 데이터 분석
           href: insights/vminsights-log-search.md
+        - name: 성능 모니터링
+          href: insights/vminsights-alerts.md
+        - name: 변경 내용 모니터링
+          href: insights/vminsights-change-analysis.md
         - name: 통합 문서를 사용하여 데이터 시각화
           href: insights/vminsights-workbooks.md
-        - name: 경고 규칙 만들기
-          href: insights/vminsights-alerts.md
         - name: 모니터링 사용 안 함
           href: insights/vminsights-optout.md
     - name: 컨테이너용 Azure Monitor
@@ -990,6 +1042,8 @@
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: 영구 볼륨(PV) 모니터링
           href: insights/container-insights-persistent-volumes.md
+        - name: 보고서 탭
+          href: insights/container-insights-reports.md
         - name: 라이브 데이터 보기
           items:
             - name: 라이브 데이터(미리 보기) 개요
@@ -1036,6 +1090,8 @@
           href: insights/redis-cache-insights-overview.md
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
+        - name: Azure Data Explorer(미리 보기)
+          href: insights/data-explorer.md
         - name: 네트워크
           href: insights/network-insights-overview.md
         - name: Key Vault
@@ -1121,6 +1177,8 @@
               href: platform/workbooks-tree-visualizations.md
             - name: 그래프
               href: platform/workbooks-graph-visualizations.md
+            - name: 맵
+              href: platform/workbooks-map-visualizations.md
             - name: 벌집
               href: platform/workbooks-honey-comb.md
             - name: 복합 막대
@@ -1149,6 +1207,8 @@
               href: platform/workbooks-automate.md
             - name: 그룹
               href: platform/workbooks-groups.md
+            - name: 사용자 고유의 스토리지 가져오기
+              href: platform/workbooks-bring-your-own-storage.md
             - name: JSONPath를 사용하여 JSON 데이터 변환
               href: platform/workbooks-jsonpath.md
             - name: 다른 지역으로 통합 문서 이동
@@ -1241,6 +1301,8 @@
               href: app/release-notes.md
             - name: 웹앱 확장
               href: app/web-app-extension-release-notes.md
+            - name: 스냅샷 디버거
+              href: app/snapshot-collector-release-notes.md
         - name: 데이터 모델
           items:
             - name: 개요
@@ -1323,6 +1385,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Key Vault Analytics(사용되지 않음)
           href: insights/azure-key-vault-deprecated.md
+        - name: Unix 메트릭
+          href: app/java-collectd.md
+        - name: 마이크로미터 메트릭
+          displayname: java
+          href: app/micrometer-java.md
         - name: 보기
           items:
             - name: 뷰 디자이너

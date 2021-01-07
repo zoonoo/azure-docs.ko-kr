@@ -3,12 +3,15 @@ title: Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs
 description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 사이트의 확장된 애플리케이션 성능 모니터링.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: a4ce1ad6a8248680b8bdeec8a98195c3dbfe31a1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+author: MS-jgol
+ms.custom: devx-track-java
+ms.author: jgol
+ms.openlocfilehash: 5ec928a0dc3cbcde3c6dd50b1795a05b5e092bde
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532871"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96601274"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>collectd: Application Insights의 Linux 성능 메트릭 [사용 되지 않음]
 

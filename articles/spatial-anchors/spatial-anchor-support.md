@@ -1,19 +1,19 @@
 ---
 title: 지원 옵션
 description: Azure 공간 앵커 지원 팀에서 요청을 여는 방법에 대 한 정보입니다.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 371cb9ade54da42af1ed75c3e9857b6d1a7a0f4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74276981"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494712"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure 공간 앵커 지원 옵션
 
@@ -25,7 +25,7 @@ Azure Portal에서 Azure 공간 앵커에 대 한 기술 지원 티켓을 열려
 
 ![Azure Portal 도움말 및 지원](./media/spatial-anchor-support.png)
 
-1. 도움말 + 지원 페이지가 열리면 **+ 새 지원 요청**을 선택 합니다.
+1. 도움말 + 지원 페이지가 열리면 **+ 새 지원 요청** 을 선택 합니다.
 
 ![새 지원 요청 Azure Portal](./media/spatial-anchor-support2.png)
 

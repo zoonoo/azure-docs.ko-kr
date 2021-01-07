@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425700"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96006828"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -56,7 +56,7 @@ ms.locfileid: "92425700"
 
 ## <a name="type-properties"></a>형식 속성
 
-Name | 설명 | Type | 필수 여부
+Name | Description | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
@@ -65,7 +65,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 > [!NOTE]
 > 
 > * **ByteArray** 형식의 원본 열은 지원되지 않습니다.
-> * **구조체**는 데이터 세트 정의에서 지원되지 않습니다. 텍스트 서식 파일의 경우 헤더 행을 사용하여 열 이름을 입력합니다.
+> * **구조체** 는 데이터 세트 정의에서 지원되지 않습니다. 텍스트 서식 파일의 경우 헤더 행을 사용하여 열 이름을 입력합니다.
 > * 조회 원본이 JSON 파일인 경우 JSON 개체의 모양을 변경하는 `jsonPathDefinition` 설정이 지원되지 않습니다. 전체 개체가 검색됩니다.
 
 ## <a name="use-the-lookup-activity-result"></a>조회 작업 결과 사용
@@ -114,8 +114,8 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="pipeline"></a>파이프라인
 
-- 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset**를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
-- 복사 작업은 조회 작업의 출력 (SQL 테이블의 이름)을 사용 합니다. **SourceDataset**의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
+- 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset** 를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
+- 복사 작업은 조회 작업의 출력 (SQL 테이블의 이름)을 사용 합니다. **SourceDataset** 의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 
 
 ```json
 {
@@ -346,7 +346,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 
 ### <a name="sourcetablejson"></a>sourcetable.json
 
-파일 ** 의sourcetable.js** 에 대해 다음 두 종류의 형식을 사용할 수 있습니다.
+파일 **의sourcetable.js** 에 대해 다음 두 종류의 형식을 사용할 수 있습니다.
 
 #### <a name="set-of-objects"></a>개체의 집합
 

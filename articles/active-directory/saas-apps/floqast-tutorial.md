@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 162c1341c792844dab27f98e67ebf7a48282bfc5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ed35a0b6e6f2ad620b528283a332507845e4f00d
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92452735"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588300"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>자습서: FloQast와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -51,7 +51,6 @@ FloQast의 Azure AD 통합을 구성하려면 갤러리의 FloQast를 관리되�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **FloQast** 를 입력합니다.
 1. 결과 패널에서 **FloQast** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-floqast"></a>FloQast에 대한 Azure AD Single Sign-On 구성 및 테스트
 
@@ -92,9 +91,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     | 속성 | 원본 특성|
     | ------------- | -------------- |
-    | FirstName           | user.givenname |
-    | LastName            | user.surname |
-    | Email               | user.mail    |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail    |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -104,11 +103,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![SAML 서명 인증서 편집](common/edit-certificate.png)
 
-    a. **서명 옵션** 에서 **SAML 응답 및 어설션 서명** 을 선택합니다.
-    
-    b. 페이지 맨 아래에 있는 **저장**
+    1. **서명 옵션** 에서 **SAML 응답 및 어설션 서명** 을 선택합니다.
 
-    ![Communifire 서명 옵션](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
+    1. 페이지 맨 아래에 있는 **저장**
+
+        ![Communifire 서명 옵션](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
 
 1. **FloQast 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -118,11 +117,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -160,9 +159,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

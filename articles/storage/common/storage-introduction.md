@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
+ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781960"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96498152"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -131,7 +131,7 @@ Azure Storage 클라이언트 라이브러리는 네트워크를 통해 전송 �
 
 ## <a name="redundancy"></a>중복
 
-데이터를 지속적으로 유지 하기 위해 Azure Storage는 데이터의 복사본을 여러 개 저장 합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)을 참조하세요.
+데이터를 지속적으로 유지 하기 위해 Azure Storage는 데이터의 복사본을 여러 개 저장 합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 자세한 내용은 [Azure Storage 중복성](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Azure Storage 간 데이터 전송
 

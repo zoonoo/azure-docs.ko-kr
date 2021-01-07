@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 9d1ba226e3ca1276658f7e72e9094918f0379a77
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335488"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653540"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management Eapr 통합 정책
 
@@ -57,7 +57,7 @@ template:
 
 ### <a name="examples"></a>예
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 예제에서는 "echo" 라는 마이크로 서비스에서 "back" 이라는 메서드를 호출 하는 방법을 보여 줍니다. `set-backend-service`정책은 대상 URL을 설정 합니다. `forward-request`정책은 요청을 마이크로 서비스로 전달 하는 Aapr 런타임으로 디스패치합니다.
 
@@ -83,19 +83,19 @@ template:
 
 ### <a name="elements"></a>요소
 
-| 요소             | 설명  | 필수 |
+| 요소             | Description  | 필수 |
 |---------------------|--------------|----------|
-| set-backend-service | 루트 요소 | yes      |
+| set-backend-service | 루트 요소 | 예      |
 
 ### <a name="attributes"></a>특성
 
-| 특성        | 설명                     | 필수 | 기본값 |
+| 특성        | Description                     | 필수 | Default |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | "Eapr"로 설정 해야 합니다.           | 예      | 해당 없음     |
 | i 4-앱 id      | 대상 마이크로 서비스의 이름입니다. 는 Eapr의 [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
 | aapr-메서드      | 대상 마이크로 서비스 호출할 메서드 또는 URL의 이름입니다. D 4의 [메서드 이름](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) 매개 변수에 매핑됩니다.| 예 | 해당 없음 |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -118,7 +118,7 @@ template:
 
 ### <a name="examples"></a>예
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 예제에서는 현재 요청의 본문을 "orders" Pub/Sub [구성 요소의](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters)"new" [항목](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) 으로 보내는 방법을 보여 줍니다. 6Apr 런타임에서 받은 응답은 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 개체의 Variables 컬렉션의 "' d 4-응답 ' 항목에 저장 됩니다.
 
@@ -151,13 +151,13 @@ template:
 
 ### <a name="elements"></a>요소
 
-| 요소             | 설명  | 필수 |
+| 요소             | Description  | 필수 |
 |---------------------|--------------|----------|
-| 게시-d 4 월     | 루트 요소 | yes      |
+| 게시-d 4 월     | 루트 요소 | 예      |
 
 ### <a name="attributes"></a>특성
 
-| 특성        | 설명                     | 필수 | 기본값 |
+| 특성        | Description                     | 필수 | Default |
 |------------------|---------------------------------|----------|---------|
 | pubsub 이름      | 대상 PubSub 구성 요소의 이름입니다. 은 (는) d 4에서 [pubceparameter](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) 에 매핑됩니다. 표시 되지 않는 경우 __토픽__ 특성 값은 형식 이어야 합니다 `pubsub-name/topic-name` .    | 예       | None    |
 | 토픽            | 항목의 이름입니다. 는 d 4의 [토픽](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) 매개 변수에 매핑됩니다.               | 예      | 해당 없음     |
@@ -167,7 +167,7 @@ template:
 | template | 메시지 콘텐츠를 변환 하는 데 사용할 템플릿 엔진입니다. "액체"는 유일 하 게 지원 되는 값입니다. | 예 | None |
 | content-type | 메시지 내용의 유형입니다. "application/json"은 유일 하 게 지원 되는 값입니다. | 예 | None |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 
@@ -195,7 +195,7 @@ template:
 
 ### <a name="examples"></a>예
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 예제에서는 작업 이름이 "만들기" 인 "외부 시스템", "원본" 및 "클라이언트 ip" 라는 두 개의 키/값 항목으로 구성 된 메타 데이터, 원래 요청에서 오는 본문으로 명명 된 아웃 바운드 바인딩의 트리거를 보여 줍니다. Eapr 런타임에서 받은 응답은 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 개체의 Variables 컬렉션의 "바인딩-응답" 항목에 캡처됩니다.
 
@@ -234,16 +234,16 @@ template:
 
 ### <a name="elements"></a>요소
 
-| 요소             | 설명  | 필수 |
+| 요소             | Description  | 필수 |
 |---------------------|--------------|----------|
-| 호출-차원 4-바인딩 | 루트 요소 | yes      |
+| 호출-차원 4-바인딩 | 루트 요소 | 예      |
 | metadata            | 특정 메타 데이터를 키/값 쌍의 형식으로 바인딩합니다. 는 Eapr의 [metadata](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 |
 | 데이터            | 메시지 내용입니다. 는 d 4의 [데이터](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 |
 
 
 ### <a name="attributes"></a>특성
 
-| 특성        | 설명                     | 필수 | 기본값 |
+| 특성        | Description                     | 필수 | Default |
 |------------------|---------------------------------|----------|---------|
 | name            | 대상 바인딩 이름입니다. 은 (는) d 4에서 [정의](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) 된 바인딩의 이름과 일치 해야 합니다.           | 예      | 해당 없음     |
 | operation       | 대상 작업 이름 (바인딩 관련)입니다. 는 d 4의 [작업](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 | None |
@@ -253,7 +253,7 @@ template:
 | template | 메시지 콘텐츠를 변환 하는 데 사용할 템플릿 엔진입니다. "액체"는 유일 하 게 지원 되는 값입니다. | 예 | None |
 | content-type | 메시지 내용의 유형입니다. "application/json"은 유일 하 게 지원 되는 값입니다. | 예 | None |
 
-### <a name="usage"></a>사용량
+### <a name="usage"></a>사용
 
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
 

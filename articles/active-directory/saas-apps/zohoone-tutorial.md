@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: fa63cc2c76d8bd47ca80050a369bda7211f5db24
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 98c9012969051e4370239a0f4098e0ea1d7a55a0
+ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896755"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96348316"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>자습서: Zoho One과 Azure Active Directory 통합
 
@@ -106,7 +106,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     b. **회신 URL** 텍스트 상자에서 `https://accounts.zoho.com/samlresponse/<saml-identifier>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 위의 **회신 URL** 값은 실제 값이 아닙니다. 자습서의 뒷부분에서 설명하는 **Zoho One Single Sign-On 구성** 섹션의 4단계에서 `<saml-identifier>` 값을 가져올 것입니다.
+    > 위의 **회신 URL** 값은 실제 값이 아닙니다. 자습서의 뒷부분에서 설명하는 **Zoho One Single Sign-On 구성** 섹션의 4단계에서 `<saml-identifier>` 값을 가져옵니다.
 
     다. **추가 URL 설정** 을 클릭합니다.
 
@@ -178,7 +178,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -202,7 +202,7 @@ Zoho One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zoho One에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Zoho One** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Zoho One** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -240,7 +240,7 @@ Azure AD 사용자가 Zoho One에 로그인하려면 Zoho One에 프로비저닝
 
     ![Zoho One 사용자 추가](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-    a. **이름** 텍스트 상자에 사용자 이름(예: **Britta Simon** )을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자 이름(예: **Britta Simon**)을 입력합니다.
     
     b. **이메일 주소** 텍스트 상자에 brittasimon@contoso.com과 같은 사용자의 이메일을 입력합니다.
 

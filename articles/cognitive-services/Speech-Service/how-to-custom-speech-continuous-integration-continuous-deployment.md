@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555824"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591619"
 ---
 # <a name="cicd-for-custom-speech"></a>Custom Speech용 CI/CD
 
 학습 및 테스트 데이터에 업데이트를 적용할 때 Custom Speech 모델을 지속적으로 향상 시킬 수 있도록 자동화 된 학습, 테스트 및 릴리스 관리를 구현 합니다. CI/CD 워크플로를 효과적으로 구현 하 여 가장 적합 한 Custom Speech 모델에 대 한 끝점을 항상 사용할 수 있는지 확인할 수 있습니다.
 
-CI ( [지속적인 통합](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) )는 공유 리포지토리에서 업데이트를 자주 커밋하고이에 대 한 자동화 된 빌드를 수행 하는 엔지니어링 방법입니다. Custom Speech에 대 한 CI 워크플로는 데이터 원본에서 새 모델을 학습 하 고 새 모델에 대 한 자동화 된 테스트를 수행 하 여 이전 모델 보다 더 잘 수행 되도록 합니다.
+CI ( [지속적인 통합](/azure/devops/learn/what-is-continuous-integration) )는 공유 리포지토리에서 업데이트를 자주 커밋하고이에 대 한 자동화 된 빌드를 수행 하는 엔지니어링 방법입니다. Custom Speech에 대 한 CI 워크플로는 데이터 원본에서 새 모델을 학습 하 고 새 모델에 대 한 자동화 된 테스트를 수행 하 여 이전 모델 보다 더 잘 수행 되도록 합니다.
 
-CD ( [지속적인](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) 업데이트)는 CI 프로세스에서 모델을 사용 하 고 향상 된 각 Custom Speech 모델에 대 한 끝점을 만듭니다. CD를 사용 하면 끝점을 쉽게 솔루션에 통합할 수 있습니다.
+CD ( [지속적인](/azure/devops/learn/what-is-continuous-delivery) 업데이트)는 CI 프로세스에서 모델을 사용 하 고 향상 된 각 Custom Speech 모델에 대 한 끝점을 만듭니다. CD를 사용 하면 끝점을 쉽게 솔루션에 통합할 수 있습니다.
 
 사용자 지정 CI/CD 솔루션은 가능 하지만 미리 작성 된 강력한 솔루션의 경우 GitHub 작업을 사용 하 여 CI/CD 워크플로를 실행 하는 [음성 DevOps 템플릿 리포지토리](https://github.com/Azure-Samples/Speech-Service-DevOps-Template)를 사용 합니다.
 
@@ -31,7 +31,7 @@ CD ( [지속적인](https://docs.microsoft.com/azure/devops/learn/what-is-contin
 
 이러한 워크플로의 목적은 각 Custom Speech 모델이 이전 빌드 보다 인식 정확도를 향상 하는지 확인 하는 것입니다. 테스트 및/또는 학습 데이터에 대 한 업데이트가 정확성을 향상 시키는 경우 이러한 워크플로는 새 Custom Speech 끝점을 만듭니다.
 
-GitHub 및 Azure DevOps와 같은 git 서버는 병합, 끌어오기 요청 등의 특정 Git 이벤트가 발생 하는 경우 자동화 된 워크플로를 실행할 수 있습니다. 예를 들어 테스트 데이터에 대 한 업데이트가 *master* 분기로 푸시되는 경우 CI 워크플로를 트리거할 수 있습니다. 다른 Git 서버에는 서로 다른 도구가 있지만 빌드 서버에서 실행할 수 있도록 CLI (명령줄 인터페이스) 명령을 사용할 수 있습니다.
+GitHub 및 Azure DevOps와 같은 git 서버는 병합, 끌어오기 요청 등의 특정 Git 이벤트가 발생 하는 경우 자동화 된 워크플로를 실행할 수 있습니다. 예를 들어 테스트 데이터에 대 한 업데이트가 *주* 분기로 푸시되 면 CI 워크플로를 트리거할 수 있습니다. 다른 Git 서버에는 서로 다른 도구가 있지만 빌드 서버에서 실행할 수 있도록 CLI (명령줄 인터페이스) 명령을 사용할 수 있습니다.
 
 이 과정에서 워크플로는 데이터, 테스트, 테스트 파일, 모델 및 끝점의 이름을 지정 하 고 저장 해야 합니다. 또한 테스트 데이터와 학습 데이터를 업데이트 한 후에 생성 된 것을 쉽게 확인할 수 있도록 이러한 자산의 이름을 결정 하는 것이 유용 합니다.
 
@@ -73,7 +73,7 @@ CI/CD 워크플로의 주요 목적은 학습 데이터를 사용 하 여 새 �
 
 Custom Speech에 대 한 CI/CD 자동화 워크플로에 대 한 다음 도구를 사용 합니다.
 
-- Azure 서비스 주체 인증을 만들고 azure 구독을 쿼리 하 고 테스트 결과를 Azure Blob에 저장 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 합니다.
+- Azure 서비스 주체 인증을 만들고 azure 구독을 쿼리 하 고 테스트 결과를 Azure Blob에 저장 [Azure CLI](/cli/azure/?view=azure-cli-latest) 합니다.
 - 명령줄 또는 자동화 된 워크플로에서 음성 서비스와 상호 작용 하는 [Azure SPEECH CLI](spx-overview.md) .
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>GitHub 작업을 사용 하 Custom Speech에 대 한 DevOps 솔루션
@@ -84,7 +84,7 @@ Custom Speech에 대해 이미 구현 된 DevOps 솔루션의 경우 [음성 dev
 
 - 템플릿 리포지토리를 GitHub 계정에 복사한 다음, GitHub 작업 CI/CD 워크플로에 대 한 Azure 리소스 및 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) 를 만듭니다.
 - "[Dev inner loop](https://mitchdenny.com/the-inner-loop/)"를 살펴봅니다. 기능 분기에서 학습 및 테스트 데이터를 업데이트 하 고, 임시 개발 모델을 사용 하 여 변경 내용을 테스트 하 고, 변경 내용을 제안 하 고 검토 하는 끌어오기 요청을 발생 시킵니다.
-- *Master* 에 대 한 끌어오기 요청에서 학습 데이터를 업데이트 하는 경우 GITHUB 작업 CI 워크플로를 사용 하 여 모델을 학습 합니다.
+- *주* 에 대 한 끌어오기 요청에서 학습 데이터를 업데이트 하는 경우 GITHUB 작업 CI 워크플로를 사용 하 여 모델을 학습 합니다.
 - 자동화 된 정확도 테스트를 수행 하 여 모델의 WER ( [오류 요금](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) )를 설정 합니다. Azure Blob에 테스트 결과를 저장 합니다.
 - WER이 개선 되 면 CD 워크플로를 실행 하 여 끝점을 만듭니다.
 

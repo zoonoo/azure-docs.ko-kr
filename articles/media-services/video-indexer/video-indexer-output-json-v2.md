@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050865"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831569"
 ---
 # <a name="examine-the-video-indexer-output"></a>Video Indexer 출력 검사
 
-비디오가 인덱싱되는 경우 poduces은 지정 된 비디오 정보에 대 한 세부 정보가 포함 된 JSON 콘텐츠를 Video Indexer 합니다. 이 정보에는 성적 증명서, OCRs, 얼굴, 토픽, 블록 등이 포함 됩니다. 각 정보 형식에는 비디오에 정보를 표시 하는 시간 범위 인스턴스가 포함 됩니다. 
+비디오가 인덱싱되는 경우 Video Indexer는 지정 된 비디오 정보에 대 한 세부 정보가 포함 된 JSON 콘텐츠를 생성 합니다. 이 정보에는 성적 증명서, OCRs, 얼굴, 토픽, 블록 등이 포함 됩니다. 각 정보 형식에는 비디오에 정보를 표시 하는 시간 범위 인스턴스가 포함 됩니다. 
 
 [Video Indexer](https://www.videoindexer.ai/) 웹 사이트의 비디오에서 **재생** 단추를 눌러 비디오의 요약 된 정보를 시각적으로 검사할 수 있습니다. 
 
@@ -38,7 +38,7 @@ ms.locfileid: "89050865"
 
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트로 이동하고 로그인합니다.
 1. 검사 하려는 출력에 대 한 비디오를 찾습니다.
-1. **재생**을 누릅니다.
+1. **재생** 을 누릅니다.
 1. **Insights** 탭 (요약 된 정보) 또는 **타임 라인** 탭 (관련 정보를 필터링 할 수 있음)을 선택 합니다.
 1. 아티팩트 및 아티팩트를 다운로드 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "89050865"
 
 ## <a name="root-elements-of-the-insights"></a>정보에 대 한 루트 요소
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |accountId|재생 목록의 VI 계정 ID입니다.|
 |id|재생 목록의 ID입니다.|
@@ -113,7 +113,7 @@ ms.locfileid: "89050865"
 
 ## <a name="videos"></a>videos
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |accountId|비디오의 VI 계정 ID입니다.|
 |id|비디오의 ID입니다.|
@@ -132,7 +132,7 @@ ms.locfileid: "89050865"
 |publishedUrlProxy|비디오를 스트림하는 URL입니다(Apple 디바이스용).|
 |viewToken|비디오를 스트림하기 위한 단기 보기 토큰입니다.|
 |sourceLanguage|비디오의 소스 언어입니다.|
-|언어|비디오의 실제 언어입니다(변환).|
+|language|비디오의 실제 언어입니다(변환).|
 |indexingPreset|비디오를 인덱싱하는 데 사용되는 기본 설정입니다.|
 |streamingPreset|비디오를 게시하는 데 사용되는 기본 설정입니다.|
 |linguisticModelId|비디오를 인쇄하는 데 사용되는 CRIS 모델입니다.|
@@ -172,7 +172,7 @@ ms.locfileid: "89050865"
 |버전|코드 버전|
 |---|---|
 |sourceLanguage|비디오의 소스 언어입니다(하나의 마스터 언어를 가정함). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
-|언어|인사이트 언어입니다(소스 언어에서 변환됨). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
+|language|인사이트 언어입니다(소스 언어에서 변환됨). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
 |대본|[성적 증명서](#transcript) 입니다.|
 |ocr|[OCR](#ocr) 정보를 파악 합니다.|
 |키워드|[키워드](#keywords) 를 파악 합니다.|
@@ -187,6 +187,7 @@ ms.locfileid: "89050865"
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) 통찰력입니다.|
 |emotions| [감정을](#emotions) 통찰력입니다.|
 |topics|[항목](#topics) 에 대해 자세히 설명 합니다.|
+|있어야|[강연자](#speakers) 통찰력입니다.|
 
 예제:
 
@@ -218,50 +219,59 @@ id|블록의 ID입니다.|
 
 #### <a name="transcript"></a>대본
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|줄 ID입니다.|
-|text|자체 대본입니다.|
-|언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
+|텍스트|자체 대본입니다.|
+|신뢰도|성적 증명서의 정확도입니다.|
+|speakerId|스피커의 ID입니다.|
+|language|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
 예제:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
-|text|OCR 텍스트입니다.|
+|텍스트|OCR 텍스트입니다.|
 |신뢰도|인식 신뢰도입니다.|
-|언어|OCR 언어입니다.|
+|language|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
 |키|OCR 사각형의 높이입니다.|
 |top|Px의 위쪽 위치입니다.|
@@ -291,12 +301,12 @@ id|블록의 ID입니다.|
 
 #### <a name="keywords"></a>키워드
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|키워드 ID입니다.|
-|text|키워드 텍스트입니다.|
+|텍스트|키워드 텍스트입니다.|
 |신뢰도|키워드의 인식 신뢰도입니다.|
-|언어|키워드 언어(번역된 경우)입니다.|
+|language|키워드 언어(번역된 경우)입니다.|
 |인스턴스|키워드가 표시되는 시간 범위 목록(키워드가 여러 번 나타날 수 있음)입니다.|
 
 ```json
@@ -326,7 +336,7 @@ id|블록의 ID입니다.|
 
 얼굴 (애니메이션 문자 아님)이 있는 경우 Video Indexer 모든 비디오 프레임에서 Face API를 사용 하 여 얼굴 및 유명인을 감지 합니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴의 이름입니다. 'Unknown #0, 즉 식별된 유명인 또는 고객이 학습한 사람일 수 있습니다.|
@@ -371,11 +381,11 @@ id|블록의 ID입니다.|
 
 #### <a name="labels"></a>레이블
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
-|언어|레이블 이름 언어(번역된 경우)입니다. BCP-47|
+|language|레이블 이름 언어(번역된 경우)입니다. BCP-47|
 |인스턴스|레이블이 나타나는 시간 범위 목록(레이블은 여러 번 나타날 수 있음)입니다. 인스턴스마다 신뢰도 필드가 있습니다. |
 
 
@@ -430,7 +440,7 @@ id|블록의 ID입니다.|
 
 #### <a name="scenes"></a>장면
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|장면 ID입니다.|
 |인스턴스|이 장면의 시간 범위 목록입니다 (장면에는 인스턴스가 1 개만 있을 수 있음).|
@@ -463,7 +473,7 @@ id|블록의 ID입니다.|
 
 #### <a name="shots"></a>샷
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 키 프레임 목록 (각각 ID와 인스턴스 시간 범위의 목록이 있음). 각 키 프레임 인스턴스에는 키 프레임의 미리 보기 ID를 포함 하는 thumbnailId 필드가 있습니다.|
@@ -513,7 +523,7 @@ id|블록의 ID입니다.|
 
 음성 텍스트 변환 전사 및/또는 Video OCR에서 감지된 비즈니스 및 제품 브랜드 이름입니다. 여기에는 브랜드 또는 로고 감지의 시각적 인식이 포함되지 않습니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|브랜드 ID입니다.|
 |name|브랜드 이름입니다.|
@@ -572,7 +582,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -582,10 +592,10 @@ id|블록의 ID입니다.|
 
 #### <a name="audioeffects"></a>audioEffects
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|오디오 효과 ID입니다.|
-|type|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
+|형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
 |인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다.|
 
 ```json
@@ -611,7 +621,7 @@ id|블록의 ID입니다.|
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -650,7 +660,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|시각 콘텐츠 조정 ID입니다.|
 |adultScore|성인 점수(Content Moderator 기반)입니다.|
@@ -686,7 +696,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|텍스트 콘텐츠 조정 ID입니다.|
 |bannedWordsCount |금지된 단어의 수입니다.|
@@ -696,10 +706,10 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 Video Indexer는 음성 및 오디오 신호를 기반으로 감정을를 식별 합니다. 식별 되는 emotion는 분노, sadness 또는 일 수 있습니다.
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|감정 ID입니다.|
-|type|음성 및 오디오 신호를 기반으로 식별 된 emotion 순간입니다. Emotion, sadness, 또는 그에 대 한 것입니다.|
+|형식|음성 및 오디오 신호를 기반으로 식별 된 emotion 순간입니다. Emotion, sadness, 또는 그에 대 한 것입니다.|
 |인스턴스|이 감정이 나타난 시간 범위의 목록입니다.|
 
 ```json
@@ -786,13 +796,13 @@ Video Indexer는 음성 및 오디오 신호를 기반으로 감정을를 식별
 
 Video Indexer는 전사에서 주요 주제를 추정합니다. 가능 하면 두 번째 수준 [IPTC](https://iptc.org/standards/media-topics/) 분류가 포함 됩니다. 
 
-|Name|Description|
+|이름|Description|
 |---|---|
 |id|주제 ID입니다.|
 |name|주제 이름입니다(예: "제약").|
 |referenceId|주제 계층 구조를 반영하는 이동 경로입니다. 예: "보건 및 복지 / 의료 및 건강 / 제약"|
 |신뢰도|범위의 신뢰도 점수[0,1]입니다. 점수가 높을수록 더 신뢰할 수 있습니다.|
-|언어|주제에 사용된 언어입니다.|
+|language|주제에 사용된 언어입니다.|
 |iptcName|IPTC 미디어 코드 이름입니다(검색된 경우).|
 |인스턴스 |현재 Video Indexer는 주제를 시간 간격으로 인덱싱하지 않으므로 전체 비디오가 간격으로 사용됩니다.|
 
@@ -827,6 +837,42 @@ Video Indexer는 전사에서 주요 주제를 추정합니다. 가능 하면 �
 . . .
 ```
 
+#### <a name="speakers"></a>있어야
+
+|이름|Description|
+|---|---|
+|id|스피커 ID입니다.|
+|name|"스피커 #1"와 같은 "스피커 #" 형식의 스피커 이름 *<number>* 입니다.|
+|인스턴스 |이 스피커가 나타난 시간 범위 목록입니다.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>다음 단계
 
 [Video Indexer 개발자 포털](https://api-portal.videoindexer.ai)

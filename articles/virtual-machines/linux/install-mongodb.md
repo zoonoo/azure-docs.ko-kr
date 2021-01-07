@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49a0e48977393aeab7ff93b79e28acc55a87b51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3bc8ed2745e06096e05f17319a8f7896f87f80f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504622"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702041"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Linux VM에 MongoDB를 설치하고 구성하는 방법
 
@@ -31,13 +31,13 @@ ms.locfileid: "87504622"
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>VM에서 MongoDB 수동 설치 및 구성
 MongoDB는 Red Hat/CentOS, SUSE, Ubuntu 및 Debian을 포함하는 Linux 배포판에 대한 [설치 지침을 제공](https://docs.mongodb.com/manual/administration/install-on-linux/)합니다. 다음 예제는 *CentOS* VM을 만듭니다. 이 환경을 만들려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
-[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 SSH 공개 키 인증을 사용하여 *azureuser*라는 사용자로 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 SSH 공개 키 인증을 사용하여 *azureuser* 라는 사용자로 *myVM* 이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -71,7 +71,7 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
-다음과 같이 **yum**을 사용하여 MongoDB를 설치합니다.
+다음과 같이 **yum** 을 사용하여 MongoDB를 설치합니다.
 
 ```bash
 sudo yum install -y mongodb-org
@@ -119,16 +119,16 @@ GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 단일 
 
 * [CentOS의 기본 MongoDB 인스턴스](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-이 환경을 만들려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+이 환경을 만들려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 MongoDB 템플릿을 배포합니다. 메시지가 표시되면 *newStorageAccountName*, *dnsNameForPublicIP* 및 사용자 이름과 암호에 대한 고유한 값을 입력합니다.
+다음으로 [az deployment group create](/cli/azure/deployment/group)를 사용 하 여 MongoDB 템플릿을 배포 합니다. 메시지가 표시되면 *newStorageAccountName*, *dnsNameForPublicIP* 및 사용자 이름과 암호에 대한 고유한 값을 입력합니다.
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
@@ -170,16 +170,16 @@ GitHub의 다음과 같은 Azure 빠른 시작 템플릿을 사용하여 복합�
 > [!WARNING]
 > 이러한 복합적인 MongoDB 분할된 클러스터를 배포하려면 20개가 넘는 코어가 필요하며, 일반적으로 이 수치는 구독에 대한 지역당 기본 코어 수입니다. 코어 수를 늘리려면 Azure 지원 요청을 생성하십시오.
 
-이 환경을 만들려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+이 환경을 만들려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다. 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-다음으로 [az group deployment create](/cli/azure/group/deployment)를 사용하여 MongoDB 템플릿을 배포합니다. *mongoAdminUsername*, *sizeOfDataDiskInGB* 및 *configNodeVmSize* 등에 필요한 대로, 고유한 리소스 이름 및 크기를 정의합니다.
+다음으로 [az deployment group create](/cli/azure/deployment/group)를 사용 하 여 MongoDB 템플릿을 배포 합니다. *mongoAdminUsername*, *sizeOfDataDiskInGB* 및 *configNodeVmSize* 등에 필요한 대로, 고유한 리소스 이름 및 크기를 정의합니다.
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --parameters '{"adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "mongoAdminUsername": {"value": "mongoadmin"},
@@ -198,10 +198,10 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-이 배포는 모든 VM 인스턴스를 배포하고 구성하는 데 1시간 이상이 걸릴 수 있습니다. 템플릿 배포가 Azure 플랫폼에서 수락되면 명령 프롬프트로 제어를 반환하는 이전 명령의 끝에 `--no-wait` 플래그가 사용됩니다. 그런 다음 [az group deployment show](/cli/azure/group/deployment)를 사용하여 배포 상태를 볼 수 있습니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myMongoDBCluster* 배포에 대한 상태를 볼 수 있습니다.
+이 배포는 모든 VM 인스턴스를 배포하고 구성하는 데 1시간 이상이 걸릴 수 있습니다. 템플릿 배포가 Azure 플랫폼에서 수락되면 명령 프롬프트로 제어를 반환하는 이전 명령의 끝에 `--no-wait` 플래그가 사용됩니다. 그런 다음 [az deployment group show](/cli/azure/deployment/group)를 사용 하 여 배포 상태를 볼 수 있습니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myMongoDBCluster* 배포에 대한 상태를 볼 수 있습니다.
 
 ```azurecli
-az group deployment show \
+az deployment group show \
     --resource-group myResourceGroup \
     --name myMongoDBCluster \
     --query [properties.provisioningState] \

@@ -12,12 +12,12 @@ ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: fa6fc11441811589967ddd7728501b521f9f9155
+ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410932"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96169276"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -315,7 +315,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS700022 | InvalidMultipleResourcesScope - 입력 매개 변수 범위에 대해 제공한 값이 둘 이상의 리소스를 포함하므로 잘못되었습니다. |
 | AADSTS700023 | InvalidResourcelessScope - 액세스 토큰을 요청할 때 입력 매개 변수 범위에 대해 제공한 값이 잘못되었습니다. |
 | AADSTS7000215 | 잘못된 클라이언트 비밀을 제공합니다. 개발자 오류-앱에서 필수 또는 올바른 인증 매개 변수를 사용 하지 않고 로그인 하려고 합니다.|
-| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal를 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다. [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided-제공 된 클라이언트 비밀 키가 만료 되었습니다. Azure Portal를 방문 하 여 앱에 대 한 새 키를 만들거나, 추가 보안을 위해 인증서 자격 증명을 사용 하는 것이 좋습니다. [https://aka.ms/certCreds](./active-directory-certificate-credentials.md) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant 제공 된 권한 부여 코드는 다른 테 넌 트에 대해 사용 하기 위한 것 이므로 거부 됩니다. OAuth2 인증 코드는에 대해 획득 한 것과 동일한 테 넌 트에 대해 (또는/또는 Tenant-id} 적절 하 게) 회수 되어야 합니다. |
 | AADSTS1000000 | UserNotBoundError - 바인딩 API를 사용하려면 Azure AD 사용자가 외부 IDP에도 인증해야 하는데, 아직 인증하지 않았습니다. |
 | AADSTS1000002 | BindCompleteInterruptError - 바인딩이 성공적으로 완료되었지만 사용자에게 알려야 합니다. |

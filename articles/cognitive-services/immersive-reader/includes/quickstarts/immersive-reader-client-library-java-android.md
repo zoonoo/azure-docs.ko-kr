@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 4118ef478f43c5887e2c5fba4595314e5a4ac02d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779726"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612660"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -38,13 +38,13 @@ Android Studio에서 새 프로젝트를 시작합니다. 이 예제에 대한 �
 
 ![새 프로젝트 - Android](../../media/android/java/android-studio-create-project.png)
 
-**프로젝트 선택** 창에서 **빈 작업**을 선택한 후, **다음**을 선택합니다.
+**프로젝트 선택** 창에서 **빈 작업** 을 선택한 후, **다음** 을 선택합니다.
 
 ![빈 작업 프로젝트 - Android](../../media/android/java/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>프로젝트 구성
 
-프로젝트 이름을 **QuickstartJava**로 지정하고 저장할 위치를 선택합니다. 프로그래밍 언어로 **Java**를 선택한 다음, **마침**을 선택합니다.
+프로젝트 이름을 **QuickstartJava** 로 지정하고 저장할 위치를 선택합니다. 프로그래밍 언어로 **Java** 를 선택한 다음, **마침** 을 선택합니다.
 
 ![프로젝트 구성 - Android](../../media/android/java/android-studio-configure-project.png)
 
@@ -54,7 +54,7 @@ Android Studio에서 새 프로젝트를 시작합니다. 이 예제에 대한 �
 
 ![새 자산 폴더 만들기 - Android](../../media/android/java/android-studio-assets-folder.png)
 
- 자산 폴더 내에 **env**라는 파일을 만듭니다. 다음 이름과 값을 추가하고 적절한 값을 제공합니다. 이 env 파일에는 공개되어서는 안 되는 비밀이 있으므로 소스 제어로 커밋하지 마세요.
+ 자산 폴더 내에 **env** 라는 파일을 만듭니다. 다음 이름과 값을 추가하고 적절한 값을 제공합니다. 이 env 파일에는 공개되어서는 안 되는 비밀이 있으므로 소스 제어로 커밋하지 마세요.
 
 ![새 env 파일 만들기 - Android](../../media/android/java/android-studio-create-env-file.png)
 
@@ -87,7 +87,7 @@ dependencies {
 
 ## <a name="update-app-strings-and-layout-resources"></a>앱 문자열 및 레이아웃 리소스 업데이트
 
-**res/strings/strings.xml**의 콘텐츠를 앱에서 사용할 다음 문자열로 바꿉니다.
+**res/strings/strings.xml** 의 콘텐츠를 앱에서 사용할 다음 문자열로 바꿉니다.
 
 ![앱 strings.xml - Android](../../media/android/java/android-studio-strings.png)
 
@@ -105,7 +105,7 @@ dependencies {
 </resources>
 ```
 
-**res/layout/activity_main.xml**의 콘텐츠를 앱에서 사용할 다음 XML로 바꿉니다. 이 XML은 앱의 UI 레이아웃입니다.
+**res/layout/activity_main.xml** 의 콘텐츠를 앱에서 사용할 다음 XML로 바꿉니다. 이 XML은 앱의 UI 레이아웃입니다.
 
 ![앱 activity_main.xml - Android](../../media/android/java/android-studio-activity-main-xml.png)
 
@@ -206,7 +206,7 @@ dependencies {
 
 ## <a name="add-the-web-view-layout"></a>웹 보기 레이아웃 추가
 
-**res/layout/** 폴더에서 새 레이아웃 리소스 파일을 만들고, 이름을 **activity_immersive_reader**로 지정합니다. 그런 다음, 해당 콘텐츠를 다음 XML로 바꿉니다. 이 XML은 이후 단계에서 만들어지는 IRActivity Java 코드에서 사용할 WebView 구성 요소를 추가합니다. 지금은 정의되지 않으며 오류가 발생합니다.
+**res/layout/** 폴더에서 새 레이아웃 리소스 파일을 만들고, 이름을 **activity_immersive_reader** 로 지정합니다. 그런 다음, 해당 콘텐츠를 다음 XML로 바꿉니다. 이 XML은 이후 단계에서 만들어지는 IRActivity Java 코드에서 사용할 WebView 구성 요소를 추가합니다. 지금은 정의되지 않으며 오류가 발생합니다.
 
 ![새 레이아웃 리소스 파일 만들기 - Android](../../media/android/java/android-studio-new-layout-resource.png)
 
@@ -292,7 +292,7 @@ public class MainActivity extends Activity {
 
 **/Java/com.example.quickstartjava** 폴더에 16개의 Java 클래스 파일을 추가로 만듭니다. 이러한 클래스 각각은 앱에서 몰입형 리더 SDK를 통합하는 데 사용됩니다. 각각의 새 파일에는 아직 존재하지 않으며 나중에 만들어지는 코드에서 참조되는 몇 가지 클래스가 있습니다. 모든 클래스가 생성된 후에는 null 참조 오류가 없어야 합니다.
 
-새 **ImmersiveReader.java** Java 클래스를 만들려면 Android Studio에서 마우스 오른쪽 단추로 폴더를 클릭하고 **새로 만들기**를 선택한 다음, **Java 클래스**를 선택합니다. 사용자가 만든 각 새 Java 클래스 파일에 대해 동일한 방법을 사용하여 Java 클래스 파일을 만듭니다.
+새 **ImmersiveReader.java** Java 클래스를 만들려면 Android Studio에서 마우스 오른쪽 단추로 폴더를 클릭하고 **새로 만들기** 를 선택한 다음, **Java 클래스** 를 선택합니다. 사용자가 만든 각 새 Java 클래스 파일에 대해 동일한 방법을 사용하여 Java 클래스 파일을 만듭니다.
 
 ![ImmersiveReader - Android](../../media/android/java/android-studio-immersivereader-java.png)
 
@@ -318,7 +318,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -402,7 +401,6 @@ import java.lang.ref.WeakReference;
  * ImmersiveReader immersiveReader = new ImmersiveReader(Activity, IRAuthenticator);
  * immersiveReader.read(ReadableTextChunk);
  */
-
 
 @Keep
 public class ImmersiveReader {
@@ -770,7 +768,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             urlStringBuilder.append("/oauth2/token");
             URL tokenUrl = new URL(urlStringBuilder.toString());
 
-
             StringBuilder formStringBuilder = new StringBuilder();
             formStringBuilder.append("grant_type=client_credentials&resource=https://cognitiveservices.azure.com/&client_id=");
             formStringBuilder.append(clientId);
@@ -793,7 +790,6 @@ public class IRAuthenticator implements ImmersiveReader.IAuthenticator {
             if (responseCode == HTTP_OK) {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
                 StringBuffer response = new StringBuffer();
-
 
                 String line = bufferedReader.readLine();
                 while (!TextUtils.isEmpty(line)) {
@@ -1293,7 +1289,7 @@ public class WebAppInterface {
 
 ## <a name="add-the-app-html-to-the-web-view"></a>웹 보기에 앱 HTML 추가
 
-웹 보기 구현에는 HTML을 사용해야 합니다. 마우스 오른쪽 단추로 **/assets** 폴더를 클릭하고, 새 파일을 만들고, 이름을 **immersiveReader.html**로 지정합니다.
+웹 보기 구현에는 HTML을 사용해야 합니다. 마우스 오른쪽 단추로 **/assets** 폴더를 클릭하고, 새 파일을 만들고, 이름을 **immersiveReader.html** 로 지정합니다.
 
 ![새 html 파일 만들기 - Android](../../media/android/java/android-studio-immersive-reader-html.png)
 
@@ -1356,7 +1352,7 @@ Licensed under the MIT License. -->
 
 ![AndroidManifest - Android](../../media/android/java/android-studio-android-manifest-xml.png)
 
-애플리케이션이 작동하려면 몰입형 리더 SDK에 대한 네트워크를 호출해야 하므로 네트워크 액세스를 허용하도록 앱 권한이 구성되어야 합니다. **/manifests/AndroidManifest.xml**의 콘텐츠를 다음 XML로 바꿉니다.
+애플리케이션이 작동하려면 몰입형 리더 SDK에 대한 네트워크를 호출해야 하므로 네트워크 액세스를 허용하도록 앱 권한이 구성되어야 합니다. **/manifests/AndroidManifest.xml** 의 콘텐츠를 다음 XML로 바꿉니다.
 
 ```AndroidManifest.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1389,7 +1385,7 @@ Licensed under the MIT License. -->
 
 ## <a name="run-the-app"></a>앱 실행
 
-Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더**를 선택하면 몰입형 리더가 앱의 콘텐츠와 함께 열립니다.
+Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더** 를 선택하면 몰입형 리더가 앱의 콘텐츠와 함께 열립니다.
 
 ![몰입형 리더 - Android](../../media/android/java/android-studio-device-emulator.png)
 

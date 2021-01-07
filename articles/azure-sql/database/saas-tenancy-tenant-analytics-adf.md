@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 97dc53c9870112dc5d547ab477e54f15f802cc05
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dc47c996748b126841cbeff1ea3f6f18f423951f
+ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310654"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96457638"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Azure SQL Database, Azure Synapse Analytics, Data Factory 또는 Power BI를 사용한 SaaS 분석 살펴보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 대규모로 분산되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하는 한 가지 방법은 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출하여 쿼리하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 엔드투엔드 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소는 SQL Database 또는 전용 SQL 풀일 수 있습니다. 이 자습서에서는 [Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)를 분석 저장소로 사용합니다.
+이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 엔드투엔드 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소는 SQL Database 또는 전용 SQL 풀일 수 있습니다. 이 자습서에서는 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)를 분석 저장소로 사용합니다.
 
 다음으로, 추출된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환해 로드합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.
 
@@ -85,7 +85,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 ### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Azure Synapse Analytics, Data Factory 및 Blob Storage 배포
 
-Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이터베이스에 배포됩니다. ADF(Azure Data Factory)는 데이터 웨어하우스로 이 데이터의 ELT(추출, 로드, 변환)를 오케스트레이션하는 데 사용됩니다. Azure Synapse Analytics(이전 명칭 SQL Data Warehouse)로 데이터를 가장 효율적으로 로드하기 위해 ADF는 데이터를 중간 Blob 파일로 추출한 다음, [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md)를 사용하여 데이터를 데이터웨어하우스로 로드합니다.
+Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이터베이스에 배포됩니다. ADF(Azure Data Factory)는 데이터 웨어하우스로 이 데이터의 ELT(추출, 로드, 변환)를 오케스트레이션하는 데 사용됩니다. Azure Synapse Analytics로 데이터를 가장 효율적으로 로드하기 위해 ADF는 데이터를 중간 Blob 파일로 추출한 다음, [PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md)를 사용하여 데이터를 데이터 웨어하우스로 로드합니다.
 
 이 단계에서는 자습서에서 사용되는 추가 리소스를 배포합니다. 즉, _tenantanalytics_ 라는 전용 SQL 풀, _dbtodwload-\<user\>_ 라는 Azure Data Factory 및 _wingtipstaging\<user\>_ 이라는 Azure 스토리지 계정입니다. 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
 
@@ -107,8 +107,8 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 1. Databases 노드를 확장하여 테넌트 데이터베이스 목록을 확인합니다.
 1. *catalog-dpt-&lt;user&gt;* 서버를 확장합니다.
 1. 다음 개체가 포함된 저장소 분석이 표시되는지 확인합니다.
-    1. 테이블 **raw_Tickets** , **raw_Customers** , **raw_Events** 및 **raw_Venues** 은 테넌트 데이터베이스에서 추출된 원시 데이터를 보유합니다.
-    1. 스타 스키마 테이블은 **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** , **dim_Dates** 입니다.
+    1. 테이블 **raw_Tickets**, **raw_Customers**, **raw_Events** 및 **raw_Venues** 은 테넌트 데이터베이스에서 추출된 원시 데이터를 보유합니다.
+    1. 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates** 입니다.
     1. 저장된 프로시저 **sp_transformExtractedData** 는 데이터를 변환하여 스타 스키마 테이블에 로드하는 데 사용됩니다.
 
 ![다양한 데이터베이스 개체를 보여 주기 위해 테이블이 확장된 개체 탐색기를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
@@ -138,7 +138,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 ## <a name="extract-load-and-transform-data"></a>데이터 ELT(추출, 로드, 변환)
 
-Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레이션하는 데 사용됩니다. 이 자습서에서는 각 테넌트 데이터베이스에서 **rawTickets** , **rawCustomers** , **rawEvents** 및 **rawVenues** 의 4개 SQL 보기로부터 데이터를 추출합니다. 이러한 뷰에는 장소 ID가 포함되어 데이터 웨어하우스의 각 장소와 데이터를 구별할 수 있습니다. 데이터는 데이터 웨어하우스에서 **raw_Tickets** , **raw_customers** , **raw_Events** 및 **raw_Venue** 드의 해당 준비 테이블로 로드됩니다. 저장된 프로시저는 원시 데이터를 변환하여 **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** 및 **dim_Dates** 등의 스타 스키마 테이블을 채웁니다.
+Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레이션하는 데 사용됩니다. 이 자습서에서는 각 테넌트 데이터베이스에서 **rawTickets**, **rawCustomers**, **rawEvents** 및 **rawVenues** 의 4개 SQL 보기로부터 데이터를 추출합니다. 이러한 뷰에는 장소 ID가 포함되어 데이터 웨어하우스의 각 장소와 데이터를 구별할 수 있습니다. 데이터는 데이터 웨어하우스에서 **raw_Tickets**, **raw_customers**, **raw_Events** 및 **raw_Venue** 드의 해당 준비 테이블로 로드됩니다. 저장된 프로시저는 원시 데이터를 변환하여 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** 및 **dim_Dates** 등의 스타 스키마 테이블을 채웁니다.
 
 이전 섹션에서 데이터 팩터리를 포함하여 필요한 Azure 리소스를 배포하고 초기화했습니다. 배포된 데이터 팩터리는 테넌트 데이터를 추출, 로드 및 변환하는 데 필요한 파이프라인, 데이터 세트, 연결된 서비스 등을 포함합니다. 데이터를 데이터베이스에서 데이터 웨어하우스로 이동하려면 이러한 개체를 추가 탐색한 다음, 파이프라인을 트리거해 봅니다.
 
@@ -157,7 +157,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 
 **파이프라인 2 - DBCopy** 는 Blob Storage에 저장된 구성 파일에서 열과 원본 테이블의 이름을 조회합니다.  **TableCopy** 파이프라인은 TicketFacts, CustomerFacts, EventFacts 및 VenueFacts의 4개 테이블 각각에 대해 실행됩니다. **[Foreach](../../data-factory/control-flow-for-each-activity.md)** 활동은 20개 데이터베이스 모두에 대해 병렬로 실행됩니다. ADF를 사용하면 최대 20회 루프 반복을 병렬로 실행할 수 있습니다. 더 많은 데이터베이스에 대한 여러 파이프라인을 만듭니다.
 
-**파이프라인 3 - TableCopy** 는 SQL Database( _rowversion_ )에서 행 버전 번호를 사용하여 변경되거나 업데이트된 행을 식별합니다. 이 작업은 원본 테이블에서 행을 추출하기 위해 시작 및 마지막 행 버전을 찾습니다. 각 테넌트 데이터베이스에 저장된 **CopyTracker** 테이블은 각각 실행되는 각 원본 테이블에서 추출된 마지막 행을 추적합니다. 새로운 또는 변경된 행은 데이터 웨어하우스에서 **raw_Tickets** , **raw_Customers** , **raw_Venues** 및 **raw_Events** 의 해당 준비 테이블로 복사됩니다. 마지막으로 마지막 행 버전은 **CopyTracker** 테이블에 저장되어 다음 추출에 대한 초기 행 버전으로 사용됩니다.
+**파이프라인 3 - TableCopy** 는 SQL Database(_rowversion_)에서 행 버전 번호를 사용하여 변경되거나 업데이트된 행을 식별합니다. 이 작업은 원본 테이블에서 행을 추출하기 위해 시작 및 마지막 행 버전을 찾습니다. 각 테넌트 데이터베이스에 저장된 **CopyTracker** 테이블은 각각 실행되는 각 원본 테이블에서 추출된 마지막 행을 추적합니다. 새로운 또는 변경된 행은 데이터 웨어하우스에서 **raw_Tickets**, **raw_Customers**, **raw_Venues** 및 **raw_Events** 의 해당 준비 테이블로 복사됩니다. 마지막으로 마지막 행 버전은 **CopyTracker** 테이블에 저장되어 다음 추출에 대한 초기 행 버전으로 사용됩니다.
 
 원본 SQL Database, 대상 전용 SQL 풀 및 중간 Blob 스토리지에 데이터 팩토리를 연결하는 세 개의 매개 변수가 있는 연결된 서비스가 있습니다. 다음 그림에 설명된 것 처럼 **작성자** 탭에서 **연결** 을 클릭하여 연결된 서비스를 탐색합니다.
 
@@ -167,7 +167,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
   
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 
-Azure Synapse(이전 명칭 SQL Data Warehouse)는 테넌트 데이터에 대해 집계를 수행하기 위한 분석 저장소로 사용됩니다. 이 샘플에서 PolyBase는 데이터 웨어하우스에 데이터를 로드하는 데 사용됩니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 부하 패턴을 보여줍니다. ![데이터베이스 테이블의 부하 패턴을 보여 주는 다이어그램](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+Azure Synapse는 테넌트 데이터에 대해 집계를 수행하기 위한 분석 저장소로 사용됩니다. 이 샘플에서 PolyBase는 데이터 웨어하우스에 데이터를 로드하는 데 사용됩니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 부하 패턴을 보여줍니다. ![데이터베이스 테이블의 부하 패턴을 보여 주는 다이어그램](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 테이블의 경우 CREATE TABLE AS SELECT... (CTAS) 문은 서로게이트 키와 함께 기존 수정 및 미수정 행을 포함하는 임시 테이블을 만드는 데 사용됩니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
 
@@ -204,15 +204,15 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 1. Power BI Desktop을 실행합니다.
 2. 홈 리본에서 **데이터 가져오기** 를 선택하고 메뉴에서 **자세히…** 를 선택합니다. (채널 만들기...)을 선택합니다.
 3. **데이터 가져오기** 창에서 **Azure SQL Database** 를 선택합니다.
-4. 데이터베이스 로그인 창에 서버 이름( **catalog-dpt-&lt;User&gt;.database.windows.net** )을 입력합니다. **데이터 연결 모드** 에서 **가져오기** 를 선택하고 **확인** 을 클릭합니다.
+4. 데이터베이스 로그인 창에 서버 이름(**catalog-dpt-&lt;User&gt;.database.windows.net**)을 입력합니다. **데이터 연결 모드** 에서 **가져오기** 를 선택하고 **확인** 을 클릭합니다.
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer* , 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블( **fact_Tickets** , **dim_Events** , **dim_Venues** , **dim_Customers** 및 **dim_Dates** )을 선택합니다. 그런 다음 **로드** 를 선택합니다.
+6. **탐색기** 패널의 분석 데이터베이스 아래에서 스타 스키마 테이블(**fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** 및 **dim_Dates**)을 선택합니다. 그런 다음 **로드** 를 선택합니다.
 
 축하합니다! Power BI에 데이터를 성공적으로 로드했습니다. 지금부터 시각화 데이터를 탐색하여 테넌트에 대한 유용한 정보를 얻습니다. 분석을 사용하여 Wingtip Tickets 비즈니스 팀에게 일부 데이터 기반 권장 사항을 제공하는 방법을 살펴보겠습니다. 권장 사항을 바탕으로 비즈니스 모델과 고객 경험을 최적화할 수 있습니다.
 

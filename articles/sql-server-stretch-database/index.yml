@@ -10,19 +10,19 @@ metadata:
   author: craigg-msft
   ms.author: craigg
   ms.date: 03/30/2020
-  ms.openlocfilehash: 7795ebe8e988cfe2cea41e7fcadf955a354d9a5e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 6205f11a9c6e0ba47541474b874397cad90e7464
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "80422947"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95024265"
 landingContent:
 - title: 시작하기
   linkLists:
   - linkListType: overview
     links:
     - text: Azure SQL Server Stretch Database란?
-      url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database
+      url: /sql/sql-server/stretch-database/stretch-database
   - linkListType: video
     links:
     - text: Azure SQL Server Stretch Database 비디오
@@ -30,6 +30,6 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Data Migration Assistant를 사용하여 Stretch Database용 데이터베이스 및 테이블 식별
-      url: https://docs.microsoft.com/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+      url: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
     - text: Stretch에 데이터베이스 사용 마법사를 실행하여 시작
-      url: https://docs.microsoft.com/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+      url: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard

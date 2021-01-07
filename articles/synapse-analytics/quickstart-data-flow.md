@@ -1,6 +1,6 @@
 ---
-title: 매핑 데이터 흐름을 사용 하 여 데이터를 변환 하는 빠른 시작
-description: 이 자습서에서는 Azure Synapse Analytics를 사용 하 여 데이터 흐름 매핑 데이터를 변환 하는 방법에 대 한 단계별 지침을 제공 합니다.
+title: '빠른 시작: 매핑 데이터 흐름을 사용 하 여 데이터 변환'
+description: 이 자습서에서는 Azure Synapse Analytics를 사용 하 여 데이터 흐름 매핑 데이터를 변환 하는 단계별 지침을 제공 합니다.
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 0bf1611dee2b3f7f9a3059e3118ddbf08c00f886
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343006"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743850"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>빠른 시작: 매핑 데이터 흐름을 사용 하 여 데이터 변환
 
-이 빠른 시작에서는 Azure Synapse Analytics를 사용 하 여 데이터 흐름 매핑을 사용 하 여 ADLS (Azure Data Lake Storage) Gen2 원본에서 ADLS Gen2 싱크로 데이터를 변환 하는 파이프라인을 만듭니다. 이 빠른 시작의 구성 패턴은 데이터 흐름 매핑을 사용 하 여 데이터를 변환할 때 확장 될 수 있습니다.
+이 빠른 시작에서는 Azure Synapse Analytics를 사용 하 여 데이터 흐름 매핑을 사용 하 여 Azure Data Lake Storage Gen2 (ADLS Gen2) 원본의 데이터를 ADLS Gen2 싱크로 변환 하는 파이프라인을 만듭니다. 이 빠른 시작의 구성 패턴은 데이터 흐름 매핑을 사용 하 여 데이터를 변환할 때 확장 될 수 있습니다.
 
 이 빠른 시작에서는 다음 단계를 수행 합니다.
 
@@ -29,20 +29,20 @@ ms.locfileid: "93343006"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Synapse 작업 영역** : [빠른 시작: Synapse 작업 영역 만들기](quickstart-create-workspace.md)의 지침에 따라 Azure Portal를 사용 하 여 Synapse 작업 영역을 만듭니다.
-* **Azure storage 계정** : ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Synapse 작업 영역**: [빠른 시작: Synapse 작업 영역 만들기](quickstart-create-workspace.md)의 지침에 따라 Azure Portal를 사용 하 여 Synapse 작업 영역을 만듭니다.
+* **Azure storage 계정**: ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 
     이 자습서에서 변형 하는 파일은 [여기](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv)에서 찾을 수 있는 MoviesDB.csv 되었습니다. GitHub에서 파일을 검색 하려면 해당 내용을 원하는 텍스트 편집기에 복사 하 여 로컬에 .csv 파일로 저장 합니다. 저장소 계정에 파일을 업로드 하려면 [Azure Portal을 사용 하 여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조 하세요. 예제는 ' sample-s t r i n s ' 라는 컨테이너를 참조 합니다.
 
-### <a name="navigate-to-the-synapse-studio"></a>Synapse Studio로 이동 합니다.
+### <a name="navigate-to-the-synapse-studio"></a>Synapse Studio로 이동
 
 Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Synapse Studio를 열 수 있습니다.
 
-* [Azure Portal](https://ms.portal.azure.com/#home)에서 Synapse 작업 영역을 엽니다. 개요 섹션의 위쪽에서 **Synapse Studio 시작** 을 선택합니다.
-* [Azure Synapse Analytics](https://web.azuresynapse.net/) 를 열고 작업 영역에 로그인 합니다.
+* [Azure Portal](https://ms.portal.azure.com/#home)에서 Synapse 작업 영역을 엽니다. 시작 아래에서 open Synapse Studio 카드에서 **열기** 를 선택 합니다.
+* [Azure Synapse Analytics](https://web.azuresynapse.net/)를 열고, 작업 영역에 로그인합니다.
 
-이 빠른 시작에서는 "adftest2020" 이라는 작업 영역을 예로 사용 합니다. 그러면 자동으로 Synapse Studio 홈 페이지로 이동 합니다.
+이 빠른 시작에서는 "adftest2020"이라는 작업 영역을 예로 사용합니다. 그러면 자동으로 Synapse Studio 홈 페이지로 이동합니다.
 
 ![Synapse Studio 홈 페이지](media/doc-common-process/synapse-studio-home.png)
 
@@ -50,7 +50,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 파이프라인에는 일련의 활동을 실행하기 위한 논리적 흐름이 포함됩니다. 이 섹션에서는 데이터 흐름 작업을 포함 하는 파이프라인을 만듭니다.
 
-1. **통합** 탭으로 이동 합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘을 선택 하 고 파이프라인을 선택 합니다.
+1. **통합** 탭으로 이동합니다. 파이프라인 헤더 옆에 있는 더하기 아이콘, [파이프라인]을 차례로 선택합니다.
 
    ![새 파이프라인 만들기](media/doc-common-process/new-pipeline.png)
 

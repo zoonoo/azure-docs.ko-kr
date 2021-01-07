@@ -3,16 +3,17 @@ title: SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항 
 description: SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 1f71d95d61e401e12c76ca5589368eed6cc29ce6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 5638b60b60f3952ab40fa000e457082f4748ac35
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993282"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "96484348"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -62,7 +63,7 @@ ms.locfileid: "91993282"
 > [!NOTE]
 > 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure Virtual Machines가 온-프레미스 도메인의 멤버인 SAP 시스템의 프레미스 간 배포가 지원됩니다. 일부 또는 전체 SAP 지형을 Azure로 배포하기 위한 크로스-프레미스 구성이 지원됩니다. Azure에서 전체 SAP 환경을 실행하는 경우에도 해당 VM이 온-프레미스 도메인 및 Active Directory/LDAP에 속해야 합니다. 
 >
-> 이전 버전의 설명서에서는 하이브리드 IT 시나리오에 대해 설명했습니다. *하이브리드*라는 용어는 온-프레미스와 Azure 간에 크로스-프레미스 연결이 있다는 사실에서 비롯되었습니다. 이 경우 하이브리드는 Azure의 VM이 온-프레미스 Active Directory의 일부임을 의미하기도 합니다.
+> 이전 버전의 설명서에서는 하이브리드 IT 시나리오에 대해 설명했습니다. *하이브리드* 라는 용어는 온-프레미스와 Azure 간에 크로스-프레미스 연결이 있다는 사실에서 비롯되었습니다. 이 경우 하이브리드는 Azure의 VM이 온-프레미스 Active Directory의 일부임을 의미하기도 합니다.
 >
 >
 
@@ -159,8 +160,8 @@ IOPS 요구 사항이 단일 VHD가 제공할 수 있는 작업을 초과 하는
 >
 > Linux에서 소프트웨어 RAID를 빌드하는 경우 MDADM 및 LVM(논리 볼륨 관리자)만 지원됩니다. 자세한 내용은 다음을 참조하세요.
 >
-> - [Linux에서 소프트웨어 RAID 구성](../../linux/configure-raid.md)(MDADM 사용)
-> - [Azure에서 Linux VM에 LVM 구성](../../linux/configure-lvm.md)(LVM 사용)
+> - [Linux에서 소프트웨어 RAID 구성](/previous-versions/azure/virtual-machines/linux/configure-raid)(MDADM 사용)
+> - [Azure에서 Linux VM에 LVM 구성](/previous-versions/azure/virtual-machines/linux/configure-lvm)(LVM 사용)
 >
 >
 
@@ -176,7 +177,7 @@ Azure Ultra disk의 경우 디스크 크기와는 독립적으로 IOPS 및 디�
 ### <a name="managed-or-nonmanaged-disks"></a>관리되거나 관리되지 않는 디스크
 Azure Storage 계정은 관리 구성 요소일뿐 아니라 제한의 대상이 됩니다. Standard Storage 계정 및 Premium Storage 계정 간에 제한 사항이 다릅니다. 기능 및 제한 사항에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../../../storage/common/scalability-targets-standard-account.md)를 참조하세요.
 
-Standard Storage의 경우 스토리지 계정당 IOPS에 제한이 있다는 점에 주의하세요. [Azure Storage 확장성 및 성능 목표](../../../storage/common/scalability-targets-standard-account.md) 문서에서 **총 요청 비율**이 포함된 행을 참조하세요. Azure 구독당 스토리지 계정 수의 초기 제한도 있습니다. 이러한 스토리지 계정의 제한에 도달하지 않도록 다른 스토리지 계정에서 더 큰 SAP 환경에 맞게 VHD의 균형을 조정합니다. 이는 1,000개가 넘는 VHD가 있는 수백 개의 가상 머신에 대해 설명하는 것은 지루한 작업입니다.
+Standard Storage의 경우 스토리지 계정당 IOPS에 제한이 있다는 점에 주의하세요. [Azure Storage 확장성 및 성능 목표](../../../storage/common/scalability-targets-standard-account.md) 문서에서 **총 요청 비율** 이 포함된 행을 참조하세요. Azure 구독당 스토리지 계정 수의 초기 제한도 있습니다. 이러한 스토리지 계정의 제한에 도달하지 않도록 다른 스토리지 계정에서 더 큰 SAP 환경에 맞게 VHD의 균형을 조정합니다. 이는 1,000개가 넘는 VHD가 있는 수백 개의 가상 머신에 대해 설명하는 것은 지루한 작업입니다.
 
 SAP 워크 로드와 함께 DBMS 배포에 standard storage를 사용 하는 것은 권장 되지 않습니다. 따라서 표준 저장소에 대 한 참조와 권장 사항은이 짧은 [문서로](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance) 제한 됩니다.
 
@@ -213,7 +214,7 @@ Standard Storage의 경우 가능한 캐시 유형은 다음과 같습니다.
 * 읽기
 * 읽기/쓰기
 
-일관성 있고 결정적 성능을 얻으려면 DBMS 관련 데이터 파일, 로그 및 다시 실행 파일, 테이블 공간을 포함하는 모든 디스크에 대한 캐시를 표준 스토리지에서 **없음**으로 설정합니다. 기본 VHD의 캐싱은 기본값으로 유지할 수 있습니다.
+일관성 있고 결정적 성능을 얻으려면 DBMS 관련 데이터 파일, 로그 및 다시 실행 파일, 테이블 공간을 포함하는 모든 디스크에 대한 캐시를 표준 스토리지에서 **없음** 으로 설정합니다. 기본 VHD의 캐싱은 기본값으로 유지할 수 있습니다.
 
 Azure premium storage의 경우 다음과 같은 캐싱 옵션이 있습니다.
 
@@ -223,7 +224,7 @@ Azure premium storage의 경우 다음과 같은 캐싱 옵션이 있습니다.
 * 없음 + Write Accelerator(Azure M 시리즈 VM에만 해당)
 * 읽기 + Write Accelerator(Azure M 시리즈 VM에만 해당)
 
-Premium Storage의 경우 SAP 데이터베이스의 **데이터 파일 읽기 캐싱**을 사용하고 **로그 파일의 디스크에 대한 캐싱 없음**을 선택하는 것이 좋습니다.
+Premium Storage의 경우 SAP 데이터베이스의 **데이터 파일 읽기 캐싱** 을 사용하고 **로그 파일의 디스크에 대한 캐싱 없음** 을 선택하는 것이 좋습니다.
 
 M 시리즈 배포의 경우 DBMS 배포에 Azure Write Accelerator를 사용하는 것이 좋습니다. Azure Write Accelerator에 대한 세부 정보, 제한 및 배포는 [Write Accelerator 사용](../../how-to-enable-write-accelerator.md)을 참조하세요.
 
