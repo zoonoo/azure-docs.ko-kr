@@ -3,16 +3,16 @@ title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 개요
 description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 ISM PROTECTED 제어를 평가하는 데 도움이 됩니다.
 ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: 4e6b1db0d2f4ecff13068c8e673f2237740ffec2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f18c7a34bdf39ebbc2031b187d033c999165a9
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90038697"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955572"
 ---
 # <a name="overview-of-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플 개요
 
-ISM 거버넌스 청사진 샘플은 ISM PROTECTED 증명(2020년 2월 버전)에 도움이 되는 [Azure 정책](../../../policy/overview.md)을 사용하여 거버넌스 가드 레일 세트를 제공합니다. 이 청사진은 고객이 ISM 프레임워크의 인증 또는 준수가 필요한 Azure 배포 아키텍처에 일련의 핵심 정책을 배포하는 데 도움이 됩니다. 컨트롤 매핑 섹션에서는 이 이니셔티브에 포함된 정책에 대한 세부 정보와 이러한 정책이 ISM 프레임워크에서 정의된 다양한 컨트롤을 어떻게 충족하는지를 설명합니다. 아키텍처에 할당된 리소스는 할당된 정책을 준수하지 않는지 Azure 정책에서 평가될 것입니다.
+ISM 거버넌스 청사진 샘플은 ISM PROTECTED 증명(2020년 2월 버전)에 도움이 되는 [Azure 정책](../../../policy/overview.md)을 사용하여 거버넌스 가드 레일 세트를 제공합니다. 이 청사진은 고객이 ISM 프레임워크의 인증 또는 준수가 필요한 Azure 배포 아키텍처에 일련의 핵심 정책을 배포하는 데 도움이 됩니다. 
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 
