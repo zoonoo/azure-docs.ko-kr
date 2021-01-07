@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e58cef5ae1fc727235539a91e80e424e6ed3be34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f9b79e193c06b6492cfffcbf25811edb5c40d3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496375"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967024"
 ---
 # <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Azure CLI와 함께 특수 한 이미지 버전을 사용 하 여 확장 집합 만들기
 
 공유 이미지 갤러리에 저장 된 [특수 이미지 버전](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) 에서 확장 집합을 만듭니다. 일반화 된 이미지 버전을 사용 하 여 확장 집합을 만들려면 [일반화 된 이미지에서 확장 집합 만들기](instance-generalized-image-version-cli.md)를 참조 하세요.
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.4.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.4.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 
@@ -49,7 +49,7 @@ az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-   --Specialized
+   --specialized
 ```
 
 

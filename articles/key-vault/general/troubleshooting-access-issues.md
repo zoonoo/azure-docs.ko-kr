@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 78b42a8ad3685d07b61c4faca384c7ee8f5a5f94
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616391"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901218"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
@@ -32,10 +32,10 @@ ms.locfileid: "97616391"
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>액세스 정책을 수정할 수 없습니다. 사용하도록 설정하려면 어떻게 해야 하나요?
 액세스 정책을 수정하려면 사용자에게 충분한 AAD 권한이 있어야 합니다. 이 경우 사용자에게 더 높은 기여자 역할이 있어야 합니다.
 
-### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>'알 수 없는 정책' 오류가 표시됩니다. 어떤 의미인가요?
+### <a name="i-am-seeing-unknown-policy-error-what-does-that-mean"></a>'알 수 없는 정책' 오류가 표시됩니다. 어떤 의미인가요?
 알 수 없는 섹션에서 액세스 정책을 볼 수 있는 두 가지 다른 가능성이 있습니다.
 * 액세스 권한이 있는 이전 사용자가 있을 수 있으며, 어떤 이유로 인해 사용자가 존재하지 않을 수 있습니다.
-* Powershell을 통해 액세스 정책이 추가되고 서비스 priciple 대신 애플리케이션 objectid에 대한 액세스 정책이 추가된 경우
+* Powershell을 통해 액세스 정책이 추가되고 서비스 주체 대신 애플리케이션 objectid에 대한 액세스 정책이 추가된 경우입니다.
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>키 자격 증명 모음 개체별로 액세스 제어를 할당하려면 어떻게 해야 하나요? 
 

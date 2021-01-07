@@ -9,12 +9,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44a37a912c5c7a882d21631b8ce2da2c7ba9c05e
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448831"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967704"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 요청 할당량이 늘어납니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,23 +25,23 @@ ms.locfileid: "91448831"
 
 다음 단계를 사용 하 여 SQL Database에 대 한 Azure Portal에서 새 지원 요청을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **도움말 + 지원** 을 선택합니다.
 
    ![도움말 + 지원 링크](./media/quota-increase-request/help-plus-support.png)
 
-1. **도움말 + 지원**에서 **새 지원 요청**을 선택합니다.
+1. **도움말 + 지원** 에서 **새 지원 요청** 을 선택합니다.
 
     ![새 지원 요청 만들기](./media/quota-increase-request/new-support-request.png)
 
-1. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
+1. **문제 유형** 에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
    ![문제 유형 선택](./media/quota-increase-request/select-quota-issue-type.png)
 
-1. **구독**의 경우 할당량을 늘릴 구독을 선택 합니다.
+1. **구독** 의 경우 할당량을 늘릴 구독을 선택 합니다.
 
    ![증가 된 할당량에 대 한 구독 선택](./media/quota-increase-request/select-subscription-support-request.png)
 
-1. **할당량 유형**에서 다음 할당량 유형 중 하나를 선택 합니다.
+1. **할당량 유형** 에서 다음 할당량 유형 중 하나를 선택 합니다.
 
    - 단일 데이터베이스 및 탄력적 풀 할당량에 대 한 **SQL Database** 합니다.
    - 관리 되는 인스턴스의 **SQL Database Managed Instance** 입니다.
@@ -105,20 +105,22 @@ ms.locfileid: "91448831"
 
 1. **위치 선택** 목록에서 사용할 Azure 지역을 선택 합니다. 할당량은 각 지역의 구독당입니다.
 
-1. **구매 모델**및 **예상 사용량** 세부 정보를 입력 합니다.
+1. **구매 모델** 및 **예상 사용량** 세부 정보를 입력 합니다.
 
    ![요청 영역 액세스](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> 지역에 대 한 M 시리즈 액세스 사용
+<!--
+### <a id="mseries"></a> Enable M-series access to a region
 
-구독 및 지역에 M 시리즈 하드웨어를 사용 하도록 설정 하려면 지원 요청을 열어야 합니다.
+To enable M-series hardware for a subscription and region, a support request must be opened.
 
-1. **M 시리즈 지역 액세스** 할당량 유형을 선택 합니다.
+1. Select the **M-series region access** quota type.
 
-1. **위치 선택** 목록에서 사용할 Azure 지역을 선택 합니다. 할당량은 각 지역의 구독당입니다.
+1. In the **Select a location** list, select the Azure region to use. The quota is per subscription in each region.
 
 
-   ![M 시리즈 영역 액세스 요청](./media/quota-increase-request/quota-m-series.png)
+   ![Request M-series region access](./media/quota-increase-request/quota-m-series.png)
+-->
 
 ## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> SQL Managed Instance 할당량 유형
 
@@ -126,7 +128,7 @@ ms.locfileid: "91448831"
 
 1. **지역** 목록에서 대상으로 할 Azure 지역을 선택 합니다.
 
-1. **서브넷** 및 **vcore**에 대해 요청 하는 새 제한을 입력 합니다.
+1. **서브넷** 및 **vcore** 에 대해 요청 하는 새 제한을 입력 합니다.
 
    ![SQL Managed Instance 할당량 정보](./media/quota-increase-request/quota-details-managed-instance.png)
 
@@ -134,7 +136,7 @@ ms.locfileid: "91448831"
 
 ## <a name="submit-your-request"></a>요청 제출
 
-마지막 단계는 SQL Database 할당량 요청에 대한 나머지 세부 정보를 입력하는 것입니다. 그런 다음, **Next: 검토 + 만들기>>** 를 선택하고 요청 세부 정보를 검토한 후 **만들기**를 클릭하여 요청을 제출합니다.
+마지막 단계는 SQL Database 할당량 요청에 대한 나머지 세부 정보를 입력하는 것입니다. 그런 다음, **Next: 검토 + 만들기>>** 를 선택하고 요청 세부 정보를 검토한 후 **만들기** 를 클릭하여 요청을 제출합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

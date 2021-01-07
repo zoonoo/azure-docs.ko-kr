@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/29/2020
-ms.openlocfilehash: 34a5dfb44ee78245b56c1774701f48b3b8a494df
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 12/30/2020
+ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827481"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967041"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Logic Apps REST API를 사용하여 ISE(통합 서비스 환경) 만들기
 
@@ -121,7 +121,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
             }
          ]
       },
-      // Include `certificates` object to enable self-signed certiificate and certificate issued by Enterprise Certificate Authority
+      // Include `certificates` object to enable self-signed certificate and the certificate issued by Enterprise Certificate Authority
       "certificates": {
          "testCertificate": {
             "publicCertificate": "{base64-encoded-certificate}",
@@ -185,6 +185,7 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
    }
 }
 ```
+
 ## <a name="add-custom-root-certificates"></a>사용자 지정 루트 인증서 추가
 
 종종 ISE를 사용 하 여 가상 네트워크 또는 온-프레미스의 사용자 지정 서비스에 연결 합니다. 이러한 사용자 지정 서비스는 엔터프라이즈 인증 기관 또는 자체 서명 된 인증서와 같은 사용자 지정 루트 인증 기관에서 발급 한 인증서로 보호 되는 경우가 많습니다. 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요. ISE가 TLS (Transport Layer Security)를 통해 이러한 서비스에 성공적으로 연결 하려면 ISE에서 이러한 루트 인증서에 액세스 해야 합니다. 사용자 지정 신뢰할 수 있는 루트 인증서를 사용 하 여 ISE를 업데이트 하려면 다음 HTTPS 요청을 수행 합니다 `PATCH` .

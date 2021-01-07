@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 3b7b405e34b6ca82da593507ad6103d360c5df1e
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895651"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968588"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>보안 및 액세스 제어 문제 Azure Data Factory 문제 해결
 
@@ -151,16 +151,6 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
 다음 스크린샷에 표시 된 것 처럼 사용자 인터페이스에서 공용 네트워크 액세스를 사용 하도록 설정 해 봅니다.
 
 ![네트워킹 창에서 "공용 네트워크 액세스 허용"에 대 한 "사용" 제어의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
-
-### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>다른 IR을 기반으로 하는 경우 파이프라인 런타임이 다릅니다.
-
-#### <a name="symptoms"></a>증상
-
-단순히 데이터 집합에서 연결 된 서비스 드롭다운을 전환 하는 것은 동일한 파이프라인 활동을 수행 하지만 실행 시간은 크게 다릅니다. 데이터 집합이 관리 되는 Virtual Network Integration Runtime를 기반으로 하는 경우 실행을 완료 하는 데는 평균적으로 2 분 넘게 걸리며 기본 Integration Runtime 기반으로 하는 경우 완료 하는 데 약 20 초가 걸립니다.
-
-#### <a name="cause"></a>원인
-
-파이프라인 실행에 대 한 세부 정보를 확인 하면 속도가 Azure IR에서 실행 되는 동안 저속 파이프라인이 관리 VNet (Virtual Network) IR에서 실행 되는 것을 볼 수 있습니다. 기본적으로 관리 되는 VNet IR은 데이터 팩터리에서 하나의 계산 노드를 예약 하지 않으므로 Azure IR 보다 큐 시간이 더 오래 걸립니다. 따라서 각 복사 작업을 시작 하는 데 2 분 정도 걸릴 수 있으며 주로 Azure IR 대신 VNet 조인에 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

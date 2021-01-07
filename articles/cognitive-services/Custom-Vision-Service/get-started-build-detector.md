@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018377"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912987"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드
 
@@ -100,6 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - **정밀도** 는 정확한 것으로 식별된 분류 부분을 나타냅니다. 예를 들어 모델에서 100개 이미지를 강아지로 식별했는데 그중 99개가 실제로 강아지 이미지였다면 정밀도는 99%입니다.
 - **재현율** 은 정확하게 식별된 실제 분류 부분을 나타냅니다. 예를 들어 실제 사과 이미지가 100개인데 모델이 80개를 사과로 식별했다면 재현율은 80%입니다.
+- **mAP(mean Average Precision)** 는 AP(평균 정밀도)의 평균 값입니다. AP는 정밀도/재현율 곡선(각 예측의 재현율에 대해 그려진 정밀도) 아래의 영역입니다.
 
 ![학습 결과는 전체적인 정밀도와 재현율 및 평균 정밀도를 보여 줍니다.](./media/get-started-build-detector/trained-performance.png)
 

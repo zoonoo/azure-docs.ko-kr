@@ -5,12 +5,12 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
-ms.openlocfilehash: f565fcef60b2cb4726b180eb67e6ac1fcaefc24b
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f501fb6b5bca5b19e15eb03d9639d08b848ad02f
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347849"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968605"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 
@@ -38,6 +38,7 @@ ms.locfileid: "97347849"
 - [Ruby 2.6 설치](https://www.ruby-lang.org/en/documentation/installation/)
 - [Ruby on Rails 5.1 설치](https://guides.rubyonrails.org/v5.1/getting_started.html)
 - [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="prepare-local-postgres"></a>로컬 Postgres 준비
@@ -291,7 +292,7 @@ git remote add azure <paste-copied-url-here>
 Azure 원격 위치에 푸시하여 Ruby on Rails 애플리케이션을 배포합니다. 배포 사용자를 만드는 작업의 일부로 이전에 제공한 암호를 묻는 메시지가 표시됩니다.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 배포하는 동안 Azure App Service는 진행 상황을 Git에 전합니다.
@@ -302,7 +303,7 @@ Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
+remote: Updating branch 'main'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
@@ -421,7 +422,7 @@ Git에서 모든 변경 내용을 커밋한 다음 Azure에 코드 변경 내용
 ```bash
 git add .
 git commit -m "added complete checkbox"
-git push azure master
+git push azure main
 ```
 
 `git push`가 완료되면 Azure 앱으로 이동하여 새 기능을 테스트합니다.

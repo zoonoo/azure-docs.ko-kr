@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489720"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968945"
 ---
 # <a name="penetration-testing"></a>침투 테스트
 
@@ -28,11 +28,11 @@ ms.locfileid: "96489720"
 
 환경을 신속 하 게 만드는 것이 좋지만 정상적인 보안 성실을 수행 해야 합니다. 수행 하려는 작업 중 하나는 Azure에 배포 하는 응용 프로그램을 침투 테스트 하는 것입니다.
 
-Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 수행하는 것에 관해 어쩌면 이미 알고 계실 것입니다. 이러한 테스트를 통해 Azure의 향상 된 기능을 활용할 수 있습니다.
+Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)를 수행하는 것에 관해 어쩌면 이미 알고 계실 것입니다. 이 테스트는 Azure 개선에 많은 도움이 됩니다.
 
 응용 프로그램에 대 한 침투 테스트를 수행 하지는 않지만, 사용자가 원하는 응용 프로그램에 대 한 테스트를 수행 해야 한다는 것을 이해 하 고 있습니다. 이는 응용 프로그램의 보안을 향상 시킬 때 전체 Azure 에코 시스템의 보안을 강화 하는 데 도움이 되기 때문입니다.
 
-2017 년 6 월 15 일부 터 Microsoft는 더 이상 Azure 리소스에 대 한 침투 테스트를 수행 하기 위해 사전 승인이 필요 하지 않습니다. 이 프로세스는 다른 Microsoft 클라우드 서비스에 적용할 수 없고 Microsoft Azure에만 관련됩니다.
+Microsoft에는 2017년 6월 15일부터 Azure 리소스에 대한 침투 테스트를 수행하기 위해 더 이상 사전 승인이 필요하지 않습니다. 이 프로세스는 다른 Microsoft 클라우드 서비스에 적용할 수 없고 Microsoft Azure에만 관련됩니다.
 
 >[!IMPORTANT]
 >보안 테스트 작업을 수행한다는 것을 Microsoft에 알리는 작업은 더 이상 필수가 아니지만 고객은 여전히 [Microsoft 클라우드 통합 보안 테스트 지침서](https://technet.microsoft.com/mt784683)를 준수해야 합니다.
@@ -46,7 +46,7 @@ Microsoft가 [Azure 환경에서의 침투 테스트](https://gallery.technet.mi
 사용자가 수행할 수 없는 일종의 펜 테스트는 [DoS (서비스 거부)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 공격입니다. 이 테스트에는 DoS 공격 자체를 시작 하거나 모든 유형의 DoS 공격을 확인, 시연 또는 시뮬레이션할 수 있는 관련 테스트를 수행 하는 작업이 포함 됩니다.
 
 >[!Note]
->Microsoft는 BreakingPoint Cloud와 협력하여 시뮬레이션을 위해 DDoS Protection을 사용하도록 설정된 공용 IP 주소에 대한 트래픽을 생성할 수 있는 인터페이스를 구축했습니다. 중단점 클라우드 시뮬레이션에 대 한 자세한 내용은 [DDoS 검색 유효성 검사](../../ddos-protection/manage-ddos-protection.md#validate-and-test)를 참조 하세요.
+>Microsoft는 BreakingPoint Cloud와 협력하여 시뮬레이션을 위해 DDoS Protection을 사용하도록 설정된 공용 IP 주소에 대한 트래픽을 생성할 수 있는 인터페이스를 구축했습니다. 간 클라우드 시뮬레이션에 대 한 자세한 내용은 [시뮬레이션을 통한 테스트](../../ddos-protection/test-through-simulations.md)를 참조 하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

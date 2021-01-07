@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746612"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968537"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -269,7 +269,7 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 > [!NOTE]
 >
-> ["Ms-python >= 2020.5.78807 version은이 확장에서 지원 되지](#issues-changed) 않습니다."가 해결 되었습니다. 최신 ms python 버전을 지금 사용할 수 있습니다.
+> ["Ms-python >= 2020.5.78807 version이이 확장에서 지원 되지](#issues-changed) 않습니다."가 해결 되었습니다. 지금 **ms-python** 을 **최신 버전** 으로 업데이트 하세요.
 
 ## <a name="submit-pyspark-batch-job"></a>PySpark 일괄 작업 제출
 
@@ -353,34 +353,34 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
   
   **요청 본문**
 
-  | name | description | type |
+  | name | description | 형식 |
   | --- | --- | --- |
   | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
-  | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
-  | className | 애플리케이션 Java/Spark 주 클래스 | String |
+  | proxyUser | 작업을 실행할 때 가장할 사용자 | 문자열 |
+  | className | 애플리케이션 Java/Spark 주 클래스 | 문자열 |
   | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
   | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
   | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
   | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
-  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
+  | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | 문자열 |
   | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
-  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |
+  | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | 문자열 |
   | executorCores | 각 실행기에 사용할 코어 수 | Int |
   | numExecutors | 이 세션에서 시작할 실행기 수 | Int |
   | archives | 이 세션에서 사용할 보관 파일 | 문자열 목록 |
   | queue | 제출할 YARN 큐의 이름입니다.| String |
-  | name | 이 세션의 이름 | String |
+  | name | 이 세션의 이름 | 문자열 |
   | conf | Spark 구성 속성 | 키=값 맵 |
 
   **응답 본문** 만든 일괄 처리 개체입니다.
 
-  | name | description | type |
+  | name | description | 형식 |
   | --- | ---| --- |
   | ID | 세션 ID | Int |
-  | appId | 이 세션의 응용 프로그램 ID | String |
+  | appId | 이 세션의 응용 프로그램 ID | 문자열 |
   | appInfo | 자세한 응용 프로그램 정보 | 키=값 맵 |
   | log | 로그 줄 | 문자열 목록 |
-  | state |일괄 처리 상태 | String |
+  | state |일괄 처리 상태 | 문자열 |
 
   > [!NOTE]
   > 할당 된 Livy 구성은 스크립트를 제출할 때 출력 창에 표시 됩니다.
@@ -491,7 +491,7 @@ Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제
 
 ## <a name="issues-changed"></a>변경 된 문제
 
-이 문제에 대 한 "ms-python >= 2020.5.78807 버전은이 확장에서 지원 되지 않습니다."가 해결 되었으므로 지금은 **최신 ms python 버전** 을 사용할 수 있습니다.
+이 문제는 "ms-python >= 2020.5.78807 버전이이 확장에서 지원 되지 않습니다."가 해결 되었습니다. 이제 **ms python** 을 **최신 버전** 으로 업데이트 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

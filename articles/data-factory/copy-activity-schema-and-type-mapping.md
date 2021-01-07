@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507526"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968877"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>복사 활동의 스키마 및 데이터 형식 매핑
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "97507526"
 2. 정의 된 매핑을 적용 합니다.
 3. 싱크에 데이터를 씁니다.
 
-다음에 대해 자세히 알아봅니다.
+다음에 대해 자세히 알아보세요.
 
 - [테이블 형식 소스에서 테이블 형식 싱크로](#tabular-source-to-tabular-sink)
 - [계층적 원본에서 테이블 형식 싱크로](#hierarchical-source-to-tabular-sink)
@@ -283,7 +283,7 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 
 원본에서 싱크로의 중간 형식 간에는 다음과 같은 데이터 형식 변환이 지원 됩니다.
 
-| Source\Sink | 부울 | 바이트 배열 | Decimal | 날짜/시간 <small>(1)</small> | 부동 소수점 <small>(2)</small> | GUID | 정수 <small>(3)</small> | String | TimeSpan |
+| Source\Sink | 부울 | 바이트 배열 | Decimal | 날짜/시간 <small>(1)</small> | 부동 소수점 <small>(2)</small> | GUID | 정수 <small>(3)</small> | 문자열 | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
 | 부울     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | 바이트 배열  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
@@ -292,7 +292,7 @@ Data Factory 제작 UI에서 이러한 매핑을 정의할 수 있습니다.
 | 부동 소수점 | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
 | 정수     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| 문자열      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) 날짜/시간에는 DateTime 및 DateTimeOffset이 포함 됩니다.

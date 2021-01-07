@@ -2,16 +2,16 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/30/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 0b6a6cbf51ef2ff1f1ef53b53a2b84c7a4f9510d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5f39f727deaf3a53db5e2928e5af23779c298318
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185559"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97911581"
 ---
-1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다. **클라우드 저장소 게이트웨이 > 스토리지 계정** 으로 차례로 이동합니다.
 
 2. 디바이스 명령 모음에서 **+ 스토리지 계정 추가** 를 선택합니다. 
 

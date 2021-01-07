@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/30/2020
+ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: e6591762ed6a7e2b462a209730276f3198d86ae8
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821471"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97967126"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -113,7 +113,7 @@ ms.locfileid: "97821471"
 
 - **해결 방법**: MongoDB 연결 문자열에서 "**uuIDRepresentation=standard**" 옵션을 추가합니다. 자세한 내용은 [MongoDB 연결 문자열](connector-mongodb.md#linked-service-properties)을 참조하세요.
             
-## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB(SQL API)
+## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB (SQL API)
 
 ### <a name="error-code--cosmosdbsqlapioperationfailed"></a>오류 코드: CosmosDbSqlApiOperationFailed
 
@@ -458,34 +458,15 @@ ms.locfileid: "97821471"
 - **원인**: Azure Storage에서 외부 테이블을 쿼리 하는 동안 Azure Synapse Analytics 적중 문제가 발생 했습니다.
 
 - **해결 방법**: SSMS에서 동일한 쿼리를 실행하고 동일한 결과가 표시되는지 확인합니다. 그렇다면 Azure Synapse Analytics에 대 한 지원 티켓을 열고 Azure Synapse 분석 서버 및 데이터베이스 이름을 제공 하 여 추가로 문제를 해결 합니다.
-            
-
-### <a name="low-performance-when-load-data-into-azure-sql"></a>Azure SQL로 데이터를 로드할 때 성능이 낮습니다.
-
-- **증상**: Azure SQL에 데이터를 복사 하는 속도가 느립니다.
-
-- **원인**: 문제의 근본 원인은 주로 Azure SQL 측의 병목 현상에 의해 트리거됩니다. 몇 가지 가능한 원인은 다음과 같습니다.
-
-    - Azure DB 계층이 충분히 크지 않습니다.
-
-    - Azure DB DTU 사용량이 100%에 가깝습니다. [성능을 모니터링](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) 하 고 DB 계층을 업그레이드할 수 있습니다.
-
-    - 인덱스가 올바르게 설정 되지 않았습니다. 데이터를 로드 하기 전에 모든 인덱스를 제거 하 고 로드가 완료 된 후 다시 만듭니다.
-
-    - WriteBatchSize가 스키마 행 크기에 맞게 크지 않습니다. 문제에 대 한 속성을 확대 합니다.
-
-    - 대량 삽입 대신 저장 프로시저를 사용 하 여 성능이 저하 될 것으로 예상 됩니다. 
-
-- **해결** 방법: [복사 활동 성능](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting) 에 대 한 TSG을 참조 하세요.
 
 
 ### <a name="performance-tier-is-low-and-leads-to-copy-failure"></a>성능 계층이 적고 복사 실패가 발생 합니다.
 
-- **증상**: Azure SQL로 데이터를 복사 하는 동안 다음 오류 메시지가 발생 했습니다. `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
+- **증상**: 데이터를 Azure SQL Database로 복사 하는 동안 다음 오류 메시지가 발생 했습니다. `Database operation failed. Error message from database execution : ExecuteNonQuery requires an open and available Connection. The connection's current state is closed.`
 
-- **원인**: Azure SQL s1이 사용 되며, 이러한 경우 IO 제한에 도달 합니다.
+- **원인**: Azure SQL Database s1이 사용 되 고 있으며,이 경우 IO 제한에 도달 합니다.
 
-- **해결** 방법: 문제를 해결 하려면 Azure SQL 성능 계층을 업그레이드 합니다. 
+- **해결** 방법: 문제를 해결 하려면 Azure SQL Database 성능 계층을 업그레이드 합니다. 
 
 
 ### <a name="sql-table-cannot-be-found"></a>SQL 테이블을 찾을 수 없습니다. 
@@ -619,31 +600,6 @@ ms.locfileid: "97821471"
 - **원인**: dynamics 서버에 액세스할 수 있거나 액세스할 수 없거나 네트워크에 문제가 발생 했습니다.
 
 - **권장 사항**: 자세한 내용은 네트워크 연결을 확인 하거나 dynamics 서버 로그를 확인 하세요. 자세한 도움말은 dynamics 지원에 문의 하세요.
-
-
-## <a name="excel-format"></a>Excel 형식
-
-### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>대량 Excel 파일을 구문 분석할 때 시간 초과 또는 성능 저하
-
-- **증상**:
-
-    - Excel 데이터 집합을 만들고 연결/저장소에서 스키마를 가져오거나 데이터를 미리 보거나 워크시트를 새로 고칠 때 excel 파일 크기가 큰 경우 시간 초과 오류가 발생할 수 있습니다.
-
-    - 복사 작업을 사용 하 여 대량 Excel 파일 (>= 100 MB)에서 다른 데이터 저장소로 데이터를 복사 하는 경우 성능이 저하 되거나 OOM 문제가 발생할 수 있습니다.
-
-- **원인**: 
-
-    - 스키마 가져오기, 데이터 미리 보기, excel 데이터 집합의 워크시트 나열 등의 작업을 수행 하려면 시간 제한이 100 s와 정적입니다. 대량 Excel 파일의 경우 이러한 작업은 제한 시간 값 내에 완료 되지 않을 수 있습니다.
-
-    - ADF 복사 작업은 전체 Excel 파일을 메모리로 읽은 다음 지정 된 워크시트와 데이터를 읽을 셀을 찾습니다. 이 동작은 기본 SDK ADF에서 사용 되기 때문에 발생 합니다.
-
-- **해결 방법**: 
-
-    - 스키마를 가져올 때 원본 파일의 하위 집합인 작은 샘플 파일을 생성 하 고 "연결/저장소에서 스키마 가져오기" 대신 "샘플 파일에서 스키마 가져오기"를 선택할 수 있습니다.
-
-    - 목록 워크시트의 경우 워크시트 드롭다운에서 "편집"을 클릭 하 고 시트 이름/인덱스를 대신 입력할 수 있습니다.
-
-    - 대량 excel 파일 (>100 MB)을 다른 저장소로 복사 하려면 스포츠 스트리밍이 읽고 수행 하는 데이터 흐름 Excel 원본을 사용할 수 있습니다.
     
 
 ## <a name="ftp"></a>FTP
@@ -875,7 +831,7 @@ ms.locfileid: "97821471"
     - OriginalType 형식이 지원 되는지 두 번 확인 합니다. 이러한 특수 기호를 사용 하지 마십시오 `,;{}()\n\t=` . 
 
 
-## <a name="rest"></a>REST (영문)
+## <a name="rest"></a>REST
 
 ### <a name="error-code--restsinkcallfailed"></a>오류 코드: RestSinkCallFailed
 

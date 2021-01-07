@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955198"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968469"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -35,12 +35,12 @@ ms.locfileid: "97955198"
 
 모델을 학습 하는 첫 번째 단계는 학습 데이터를 업로드 하는 것입니다. 사용자에 게 레이블이 지정 된 텍스트 (길이 발언 및 발음)를 준비 하는 단계별 지침은 [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md) 를 참조 하세요. 학습 데이터를 업로드 한 후 다음 지침에 따라 모델에 대 한 학습을 시작 합니다.
 
-1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다.
+1. [Custom Speech 포털](https://speech.microsoft.com/customspeech)에 로그인 합니다. 오디오 + 사람이 레이블이 지정 된 기록 데이터 집합을 사용 하 여 모델을 학습 하려면 교육을 위한 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에서 음성 구독을 선택 합니다.
 2. **음성 텍스트**  >  **Custom Speech**  >  **[프로젝트 이름]**  >  **학습** 으로 이동 합니다.
 3. **모델 학습** 을 선택 합니다.
 4. 교육에 **이름** 및 **설명을** 제공 합니다.
 5. **시나리오 및 기준 모델** 목록에서 도메인에 가장 적합 한 시나리오를 선택 합니다. 선택할 시나리오를 잘 모르는 경우에는 **일반** 을 선택 합니다. 기준선 모델은 학습을 위한 시작점입니다. 일반적으로 최신 모델을 선택 하는 것이 가장 좋습니다.
-6. **학습 데이터 선택** 페이지에서 학습에 사용할 오디오 + 사람이 레이블 지정 된 기록 데이터 집합을 하나 이상 선택 합니다.
+6. **학습 데이터 선택** 페이지에서 학습에 사용할 하나 이상의 관련 텍스트 데이터 집합 또는 오디오 + 사람이 레이블 지정 된 기록 데이터 집합을 선택 합니다. 새 모델을 학습 하는 경우 관련 텍스트를 사용 하 여 시작 합니다. 오디오 + 사용자 레이블이 지정 된 기록을 사용한 교육은 훨씬 더 오래 걸릴 수 있습니다 (최대 [며칠](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
 7. 학습을 완료 한 후에는 새로 학습 된 모델에 대 한 정확도 테스트를 수행할 수 있습니다. 이 단계는 선택 사항입니다.
 8. 만들기를 선택 하 여 사용자 지정 모델을 **만듭니다** .
 
@@ -80,7 +80,7 @@ Custom Speech 모델 정확도를 평가 하 고 개선 [하는 방법을](how-t
 
 * [사용자 지정 모델을 사용 하는 방법 알아보기](how-to-specify-source-language.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 - [데이터 검사](how-to-custom-speech-inspect-data.md)

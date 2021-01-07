@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cc63a9787a3611f28e6466564735d029bf65b757
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912776"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968401"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
 
@@ -32,7 +32,7 @@ ms.locfileid: "95912776"
 
   ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  해당 없음
+  해당 사항 없음
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -236,7 +236,7 @@ pip install azure-storage-blob==12.4.0
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-해당 없음
+해당 사항 없음
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -437,7 +437,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 예에서는 쿼리 가속 API로 쿼리를 전송 하 고 결과를 다시 스트리밍합니다.
+이 예에서는 쿼리 가속 API로 쿼리를 전송 하 고 결과를 다시 스트리밍합니다. `blob`도우미 함수에 전달 된 개체는 `queryHemingway` [blockblobclient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient)유형입니다. [Blockblobclient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) 개체를 가져오는 방법에 대 한 자세한 내용은 빠른 시작 [: JavaScript v12 SDK를 사용 하 여 Node.js에서 blob 관리 ](storage-quickstart-blobs-nodejs.md)를 참조 하세요.
 
 ```javascript
 async function queryHemingway(blob)

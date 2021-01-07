@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/26/2020
+ms.date: 01/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: a1c3fcf868af76865eec9fa2be4f0fdb58074867
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 539ea6f80604eabdbbe56a3280cf5ddb367c0439
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964459"
+ms.locfileid: "97966786"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>소 버린 클라우드의 음성 서비스
 
@@ -41,15 +41,7 @@ ms.locfileid: "97964459"
   - 신경망
   - Custom Voice
 - **지원 되는 언어:**
-  - 아랍어 (ar-*)
-  - 중국어 (zh-cn-*)
-  - 영어(en-*)
-  - 프랑스어 (fr-fr-*)
-  - 독일어 (de-*)
-  - 힌디어 (hi)
-  - 한국어(ko-KR)
-  - 러시아어(ru-RU)
-  - 스페인어 (es-*)
+  - [여기](language-support.md) 에서 지원 되는 언어 목록을 참조 하세요.
 
 ### <a name="endpoint-information"></a>엔드포인트 정보
 

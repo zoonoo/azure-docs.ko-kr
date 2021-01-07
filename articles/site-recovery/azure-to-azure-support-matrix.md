@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: a6a5d78385cc61838a606a3f3d2a7277f6b66a4d
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858538"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968305"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -197,7 +197,8 @@ Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운�
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
 Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다. 장애 조치(failover) 후 수동으로 설치해야 합니다.
-근접 배치 그룹 | 지원됨 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 있습니다.
+근접 배치 그룹 | 지원 여부 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 있습니다.
+태그  | 지원 여부 | 원본 가상 컴퓨터에 적용 된 사용자 생성 태그는 테스트 장애 조치 (failover) 또는 장애 조치 (failover) 후 대상 가상 컴퓨터로 전달 됩니다.
 
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
@@ -234,7 +235,7 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 스토리지 공간 | 지원됨 |
 미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.
 미사용 암호화(CMK) | 지원됨 | 관리 디스크에는 소프트웨어 및 HSM 키가 모두 지원됩니다.
-휴지 상태의 이중 암호화 | 지원됨 | [Windows](../virtual-machines/disk-encryption.md) 및 [Linux](../virtual-machines/disk-encryption.md) 에 대해 지원 되는 지역에 대 한 자세한 정보
+휴지 상태의 이중 암호화 | 지원 여부 | [Windows](../virtual-machines/disk-encryption.md) 및 [Linux](../virtual-machines/disk-encryption.md) 에 대해 지원 되는 지역에 대 한 자세한 정보
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크를 사용하는 VM을 지원합니다. | 비관리 디스크를 사용하는 VM은 지원되지 않습니다. <br/><br/> HSM 보호 키는 지원되지 않습니다. <br/><br/> 단일 디스크에서 개별 볼륨 암호화는 지원되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 관리 디스크를 사용하는 VM을 지원합니다. | 비관리 디스크를 사용하는 VM은 지원되지 않습니다. <br/><br/> HSM 보호 키는 지원되지 않습니다. <br/><br/> 단일 디스크에서 개별 볼륨 암호화는 지원되지 않습니다. <br><br> 복제를 사용 하는 것과 관련 된 알려진 문제입니다. [자세한 정보](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 SAS 키 회전 | 지원되지 않음 | 저장소 계정에 대 한 SAS 키를 회전 하는 경우 고객은 복제를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다. |
@@ -254,8 +255,9 @@ ZRS | 지원되지 않음 |
 2세대(UEFI 부팅) | 지원됨
 NVMe 디스크 | 지원되지 않음
 Azure 공유 디스크 | 지원되지 않음
-보안 전송 옵션 | 지원됨
+보안 전송 옵션 | 지원 여부
 쓰기 가속기 사용 디스크 | 지원되지 않음
+태그  | 사용자가 생성 한 태그는 24 시간 마다 복제 됩니다.
 
 >[!IMPORTANT]
 > 성능 문제를 방지하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM에 대한 VM 디스크 확장성 및 성능 목표를 따라야 합니다. 기본 설정을 사용하는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 스토리지 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 따릅니다.
@@ -302,6 +304,7 @@ Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 �
 Palo Alto 네트워크 어플라이언스 | 지원되지 않음 | 타사 어플라이언스를 사용하는 경우 공급자가 가상 머신 내부에서 적용하는 제한 사항이 있는 경우가 흔합니다. Azure Site Recovery가 에이전트, 확장 및 아웃바운드 연결을 사용할 수 있어야 합니다. 하지만 어플라이언스는 가상 머신 내에서 아웃바운드 작업을 구성하는 것을 허용하지 않습니다.
 IPv6  | 지원되지 않음 | IPv4 및 IPv6을 모두 포함하는 혼합 구성도 지원되지 않습니다. Site Recovery 작업을 수행하기 전에 IPv6 범위의 서브넷을 확보하세요.
 Site Recovery 서비스에 대 한 개인 링크 액세스 | 지원됨 | [자세히 알아보기](azure-to-azure-how-to-enable-replication-private-endpoints.md)
+태그  | 지원 여부 | Nic의 사용자 생성 태그는 24 시간 마다 복제 됩니다.
 
 
 

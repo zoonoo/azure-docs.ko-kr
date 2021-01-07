@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 7fa47b83eb8fa06c028079cf47ea0cb46df31860
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325233"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968996"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -121,6 +121,7 @@ VM 백업을 구성할 때 다음 사례를 따르는 것이 좋습니다.
 - 단일 자격 증명 모음에서 Vm을 복원 하는 경우에는 다른 [범용 v2 저장소 계정을](../storage/common/storage-account-upgrade.md) 사용 하 여 대상 저장소 계정이 제한 되지 않도록 하는 것이 좋습니다. 예를 들어 각 VM에는 다른 저장소 계정이 있어야 합니다. 예를 들어 10 개의 Vm을 복원 하는 경우 10 개의 서로 다른 저장소 계정을 사용 합니다.
 - 즉시 복원에 premium storage를 사용 하는 Vm을 백업 하는 경우 할당 된 총 저장소 공간 *50%* 의 사용 가능한 공간을 할당 하는 것이 좋습니다 .이는 첫 번째 백업에 **만** 필요 합니다. 50%의 사용 가능한 공간은 첫 번째 백업이 완료 된 후 백업에 대 한 요구 사항이 아닙니다.
 - 스토리지 계정당 디스크 수 제한은 IaaS(서비스 제공 인프라) VM에서 실행되는 애플리케이션에서 디스크에 액세스하는 수준과 관련되어 있습니다. 일반적으로 단일 스토리지 계정에 디스크가 5~10개 이상 있으면 일부 디스크를 별도의 스토리지 계정으로 이동하여 부하를 분산합니다.
+- PowerShell을 사용 하 여 관리 디스크를 사용 하는 Vm을 복원 하려면 추가 매개 변수 **_TargetResourceGroupName_* _를 제공 하 여 관리 되는 디스크를 복원할 리소스 그룹을 지정 합니다. [여기서 자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
 
 ## <a name="backup-costs"></a>백업 비용
 
@@ -130,7 +131,7 @@ Azure Backup으로 백업된 Azure VM에는 [Azure Backup 가격 책정](https:/
 
 지정된 VM에 대한 요금 청구는 보호가 중지되고 모든 백업 데이터가 삭제된 경우에만 중단됩니다. 보호가 중지되고 활성 백업 작업이 없으면 마지막으로 성공한 VM 백업이 월별 청구에 사용되는 보호된 인스턴스 크기가 됩니다.
 
-보호 된 인스턴스 크기 계산은 VM의 *실제* 크기를 기반으로 합니다. VM의 크기는 임시 저장소를 제외 하 고 VM에 있는 모든 데이터의 합계입니다. 가격은 VM에 연결 된 각 데이터 디스크에 대해 지원 되는 최대 크기가 아니라 데이터 디스크에 저장 된 실제 데이터를 기반으로 합니다.
+보호 된 인스턴스 크기 계산은 VM의 _actual * 크기를 기준으로 합니다. VM의 크기는 임시 저장소를 제외 하 고 VM에 있는 모든 데이터의 합계입니다. 가격은 VM에 연결 된 각 데이터 디스크에 대해 지원 되는 최대 크기가 아니라 데이터 디스크에 저장 된 실제 데이터를 기반으로 합니다.
 
 마찬가지로, 백업 저장소 요금은 Azure Backup에 저장 된 데이터의 양을 기준으로 합니다. 즉, 각 복구 지점에 있는 실제 데이터의 합계입니다.
 

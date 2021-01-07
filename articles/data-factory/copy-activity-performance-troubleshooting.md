@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/07/2021
+ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921932"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968894"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -53,7 +53,7 @@ ms.locfileid: "96921932"
 
 복사 작업 모니터링 보기의 아래쪽에 있는 실행 세부 정보 및 기간은 복사 작업의 핵심 단계에 대해 설명 합니다 .이는 복사 성능 문제를 해결 하는 데 특히 유용 합니다. 복사 실행에 대 한 병목 상태는 기간이 가장 긴 것입니다. 각 단계의 정의에서 다음 표를 참조 하 고, [Azure IR의 복사 작업 문제를 해결](#troubleshoot-copy-activity-on-azure-ir) 하 고 [자체 호스팅 IR에서](#troubleshoot-copy-activity-on-self-hosted-ir) 이러한 정보를 사용 하 여 복사 작업의 문제를 해결 하는 방법을 알아봅니다.
 
-| 단계           | Description                                                  |
+| 단계           | 설명                                                  |
 | --------------- | ------------------------------------------------------------ |
 | 큐           | 통합 런타임에 복사 작업이 실제로 시작 될 때까지 경과 된 시간입니다. |
 | 사전 복사 스크립트 | IR에서 시작 하는 복사 작업과 복사 작업에서 싱크 데이터 저장소의 사전 복사 스크립트 실행을 완료 하는 데 걸리는 시간입니다. 데이터베이스 싱크에 대해 사전 복사 스크립트를 구성할 때 적용 됩니다. 예를 들어 Azure SQL Database에 데이터를 쓸 때 새 데이터를 복사 하기 전에 정리 작업을 수행할 수 있습니다. |
@@ -142,7 +142,7 @@ ms.locfileid: "96921932"
 
   - Azure Portal > 데이터 팩터리-> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인 합니다. CPU 사용량이 크거나 사용 가능한 메모리가 부족 한 경우 [IR을 확장/축소](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 하는 것이 좋습니다.
 
-  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 예를 들어:
+  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 예를 들면 다음과 같습니다.
 
     - [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)에서 데이터를 복사 하는 경우 데이터를 병렬로 복사 하도록 데이터 파티션 옵션을 사용 하도록 설정 합니다.
 
@@ -172,6 +172,60 @@ ms.locfileid: "96921932"
 
   - [병렬 복사](copy-activity-performance-features.md)를 점차적으로 조정 하는 것이 좋습니다. 병렬 복사본이 너무 많으면 성능이 저하 될 수 있습니다.
 
+
+## <a name="connector-and-ir-performance"></a>커넥터 및 IR 성능
+
+이 섹션에서는 특정 커넥터 형식 또는 통합 런타임에 대 한 몇 가지 성능 문제 해결 가이드를 살펴봅니다.
+
+### <a name="activity-execution-time-varies-using-azure-ir-vs-azure-vnet-ir"></a>활동 실행 시간은 Azure IR vs Azure VNet IR을 사용 하 여 다릅니다.
+
+작업 실행 시간은 데이터 집합이 다른 Integration Runtime를 기반으로 하는 경우에 다릅니다.
+
+- **증상**: 데이터 집합에서 연결 된 서비스 드롭다운을 전환 하는 것은 동일한 파이프라인 활동을 수행 하지만 실행 시간은 크게 다릅니다. 데이터 집합이 관리 되는 Virtual Network Integration Runtime를 기반으로 하는 경우 실행을 완료 하는 데는 평균적으로 2 분 넘게 걸리며 기본 Integration Runtime 기반으로 하는 경우 완료 하는 데 약 20 초가 걸립니다.
+
+- **원인**: 파이프라인 실행의 세부 정보를 확인 하는 중 Virtual Network이 고 Azure IR에서 실행 되는 속도가 느려지는 것을 확인할 수 있습니다. 기본적으로 관리 되는 VNet IR은 데이터 팩터리에서 하나의 계산 노드를 예약 하지 않으므로 Azure IR 보다 큐 시간이 더 오래 걸립니다. 따라서 각 복사 작업을 시작 하는 데 2 분 정도 걸릴 수 있으며 주로 Azure IR 대신 VNet 조인에 발생 합니다.
+
+    
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Azure SQL Database으로 데이터를 로드할 때 성능이 낮습니다.
+
+- **증상**: Azure SQL Database에 데이터를 복사 하는 속도가 느립니다.
+
+- **원인**:이 문제의 근본 원인은 대부분 Azure SQL Database 측의 병목 현상에 의해 트리거됩니다. 몇 가지 가능한 원인은 다음과 같습니다.
+
+    - Azure SQL Database 계층이 충분히 크지 않습니다.
+
+    - Azure SQL Database DTU 사용량이 100%에 가깝습니다. [성능을 모니터링](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) 하 고 Azure SQL Database 계층을 업그레이드 하는 것을 고려할 수 있습니다.
+
+    - 인덱스가 올바르게 설정 되지 않았습니다. 데이터를 로드 하기 전에 모든 인덱스를 제거 하 고 로드가 완료 된 후 다시 만듭니다.
+
+    - WriteBatchSize가 스키마 행 크기에 맞게 크지 않습니다. 문제에 대 한 속성을 확대 합니다.
+
+    - 대량 삽입 대신 저장 프로시저를 사용 하 여 성능이 저하 될 것으로 예상 됩니다. 
+
+- **해결** 방법: [복사 작업 성능 문제 해결](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)을 참조 하세요.
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>대량 Excel 파일을 구문 분석할 때 시간 초과 또는 성능 저하
+
+- **증상**:
+
+    - Excel 데이터 집합을 만들고 연결/저장소에서 스키마를 가져오거나 데이터를 미리 보거나 워크시트를 새로 고칠 때 excel 파일 크기가 큰 경우 시간 초과 오류가 발생할 수 있습니다.
+
+    - 복사 작업을 사용 하 여 대량 Excel 파일 (>= 100 MB)에서 다른 데이터 저장소로 데이터를 복사 하는 경우 성능이 저하 되거나 OOM 문제가 발생할 수 있습니다.
+
+- **원인**: 
+
+    - 스키마 가져오기, 데이터 미리 보기, excel 데이터 집합의 워크시트 나열 등의 작업을 수행 하려면 시간 제한이 100 s와 정적입니다. 대량 Excel 파일의 경우 이러한 작업은 제한 시간 값 내에 완료 되지 않을 수 있습니다.
+
+    - ADF 복사 작업은 전체 Excel 파일을 메모리로 읽은 다음 지정 된 워크시트와 데이터를 읽을 셀을 찾습니다. 이 동작은 기본 SDK ADF에서 사용 되기 때문에 발생 합니다.
+
+- **해결 방법**: 
+
+    - 스키마를 가져올 때 원본 파일의 하위 집합인 작은 샘플 파일을 생성 하 고 "연결/저장소에서 스키마 가져오기" 대신 "샘플 파일에서 스키마 가져오기"를 선택할 수 있습니다.
+
+    - 목록 워크시트의 경우 워크시트 드롭다운에서 "편집"을 클릭 하 고 시트 이름/인덱스를 대신 입력할 수 있습니다.
+
+    - 대량 excel 파일 (>100 MB)을 다른 저장소로 복사 하려면 스포츠 스트리밍이 읽고 수행 하는 데이터 흐름 Excel 원본을 사용할 수 있습니다.
+    
 ## <a name="other-references"></a>기타 참조
 
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
