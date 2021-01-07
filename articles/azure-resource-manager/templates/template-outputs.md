@@ -3,16 +3,16 @@ title: 템플릿의 출력
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934733"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964017"
 ---
 # <a name="outputs-in-arm-templates"></a>ARM 템플릿의 출력
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다. 배포 된 리소스에서 값을 반환 해야 하는 경우 출력을 사용 합니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 출력 값을 정의 하는 방법을 설명 합니다. `outputs`배포 된 리소스에서 값을 반환 해야 하는 경우를 사용 합니다.
 
 각 출력 값의 형식은 [데이터 형식](template-syntax.md#data-types)중 하 나와 일치 해야 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "97934733"
 
 ## <a name="conditional-output"></a>조건부 출력
 
-출력 섹션에서 조건부로 값을 반환할 수 있습니다. 일반적으로 리소스를 [조건부로 배포한](conditional-resource-deployment.md) 경우 출력에서 조건을 사용 합니다. 다음 예제에서는 새 항목을 배포 했는지 여부에 따라 공용 IP 주소에 대 한 리소스 ID를 조건부로 반환 하는 방법을 보여 줍니다.
+섹션에서 `outputs` 조건부로 값을 반환할 수 있습니다. 일반적으로 `condition` `outputs` 리소스를 [조건부로 배포한](conditional-resource-deployment.md) 경우에서를 사용 합니다. 다음 예제에서는 새 항목을 배포 했는지 여부에 따라 공용 IP 주소에 대 한 리소스 ID를 조건부로 반환 하는 방법을 보여 줍니다.
 
 ```json
 "outputs": {
@@ -112,7 +112,7 @@ az deployment group show \
 
 다음 예제에서는 출력을 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
 |[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |

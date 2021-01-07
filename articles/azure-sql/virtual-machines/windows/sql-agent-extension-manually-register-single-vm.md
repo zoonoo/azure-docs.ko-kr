@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505633"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964527"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,7 +45,7 @@ SQL IaaS 에이전트 확장을 사용 하려면 먼저 [ **SqlVirtualMachine** 
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 
-- [Azure 구독](https://azure.microsoft.com/free/)
+- [Azure 구독](https://azure.microsoft.com/free/).
 - [SQL Server 2008](https://www.microsoft.com/sql-server/sql-server-downloads) 이상이 있는 Azure 리소스 모델 [Windows Server 2008 이상 가상 컴퓨터](../../../virtual-machines/windows/quick-create-portal.md) (또는 그 이상)가 공용 또는 Azure Government 클라우드에 배포 되었습니다. 
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 Azure PowerShell의 최신 버전 [(5.0 이상)](/powershell/azure/install-az-ps) 
 
@@ -188,6 +188,9 @@ $sqlvm.SqlManagementType
 ## <a name="upgrade-to-full"></a>전체로 업그레이드  
 
 확장을 *경량* 모드로 등록 한 SQL Server vm은 Azure Portal, Azure CLI 또는 Azure PowerShell를 사용 하 여 _전체_ 로 업그레이드할 수 있습니다. _에이전트 없음_ 모드의 SQL Server VM은 OS를 Windows 2008 R2 이상으로 업그레이드한 후 _전체_ 모드로 업그레이드할 수 있습니다. 다운 그레이드할 수는 없습니다. 이렇게 하려면 SQL IaaS 에이전트 확장에서 SQL Server VM [등록을 취소](#unregister-from-extension) 해야 합니다. 이렇게 하면 **SQL 가상 머신** _리소스_ 가 제거되지만 실제 가상 머신은 삭제되지 않습니다. 
+
+> [!NOTE]
+> SQL IaaS 확장에 대 한 관리 모드를 full로 업그레이드 하면 SQL Server 서비스가 다시 시작 됩니다. 경우에 따라 컴퓨터를 다시 시작 하면 SQL Server 서비스와 연결 된 Spn (서비스 사용자 이름)이 잘못 된 사용자 계정으로 변경 될 수 있습니다. 관리 모드를 full로 업그레이드 한 후 연결 문제가 있는 경우 [spn을 등록 취소 하 고](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections)등록 합니다.
 
 
 ### <a name="azure-portal"></a>Azure portal

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 023dc877158c7074f46945893d40291e94ab2f09
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629559"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964435"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>가상 컴퓨터 제품에 대 한 계획을 만드는 방법
 
@@ -42,7 +42,7 @@ ms.locfileid: "94629559"
 > [!NOTE]
 > **만들기** 를 선택한 후에는 플랜 ID를 변경할 수 없습니다.
 
-**계획 이름을** 입력 합니다. 이 이름은 제품 내에서 선택할 플랜을 결정할 때 고객에게 표시됩니다. 플랜 간의 차이를 명확하게 나타내는 고유한 이름을 만듭니다. 예를 들어 *종량제* , *BYOL* , *고급* 및 *엔터프라이즈* 플랜이 포함된 **Windows Server** 를 입력할 수 있습니다.
+**계획 이름을** 입력 합니다. 이 이름은 제품 내에서 선택할 플랜을 결정할 때 고객에게 표시됩니다. 플랜 간의 차이를 명확하게 나타내는 고유한 이름을 만듭니다. 예를 들어 *종량제*, *BYOL*, *고급* 및 *엔터프라이즈* 플랜이 포함된 **Windows Server** 를 입력할 수 있습니다.
 
 **만들기** 를 선택합니다. 그러면 **계획 설정** 페이지가 열립니다.
 
@@ -139,9 +139,9 @@ Microsoft **세금 송금만** 선택을 선택 하 여 microsoft 송금 판매�
 
 모든 사용자에게 표시되거나 미리 선택한 사용자에게만 표시되도록 각 플랜을 설계할 수 있습니다. Azure 구독 ID를 사용하여 제한된 대상 그룹의 멤버 자격을 할당합니다.
 
-**공용** : 플랜이 모든 사용자에게 표시됩니다.
+**공용**: 플랜이 모든 사용자에게 표시됩니다.
 
-**비공개** : 미리 선택 된 대상 사용자 에게만 계획이 표시 되도록 합니다. 프라이빗 플랜으로 게시된 후에는 대상 그룹을 업데이트하거나 퍼블릭으로 변경할 수 있습니다. 퍼블릭 플랜으로 책정되면 퍼블릭으로 유지해야 하며, 프라이빗 플랜으로 다시 변경할 수 없습니다.
+**비공개**: 미리 선택 된 대상 사용자 에게만 계획이 표시 되도록 합니다. 프라이빗 플랜으로 게시된 후에는 대상 그룹을 업데이트하거나 퍼블릭으로 변경할 수 있습니다. 퍼블릭 플랜으로 책정되면 퍼블릭으로 유지해야 하며, 프라이빗 플랜으로 다시 변경할 수 없습니다.
 
 **Azure 구독 ID** 를 사용 하 여이 비공개 요금제에 대 한 액세스 권한을 보유 하는 대상 그룹을 할당 합니다. 필요에 따라 할당 하는 각 Azure 구독 ID에 대 한 **설명을** 포함 합니다. CSV 스프레드시트를 가져오는 경우 최대 10 개의 구독 Id를 수동으로 추가 하거나 최대 2만까지 추가 하세요. Azure 구독 Id는 Guid로 표시 되며 모든 문자는 소문자 여야 합니다.
 
@@ -191,7 +191,7 @@ VM에서 **가속 네트워킹을 지 원하는** 경우를 선택 합니다. �
 
 1. 새 제품을 만들 때 **생성 유형을** 선택 하 고 요청 된 세부 정보를 입력 합니다.
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="생성 드롭다운 상자의 뷰입니다.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="파트너 센터에서 생성 세부 정보 섹션의 뷰입니다.":::
 
 2. 계획에 다른 세대를 추가 하려면 **생성 추가**...를 선택 합니다.
 
@@ -203,9 +203,7 @@ VM에서 **가속 네트워킹을 지 원하는** 경우를 선택 합니다. �
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. 이미 게시 된 1 세대를 포함 하는 기존 VM을 업데이트 하려면이 **기술 구성** 페이지에서 세부 정보를 편집 합니다.
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="계획 기술 구성 페이지의 뷰입니다.":::
+3. 이미 게시 된 1 세대를 포함 하는 기존 VM을 업데이트 하려면 **기술 구성** 페이지에서 세부 정보를 편집 합니다.
 
 1 세대와 2 세대 기능 간의 차이점에 대 한 자세한 내용은 [Azure의 2 세대 vm에 대 한 지원](../virtual-machines/generation-2.md)을 참조 하세요.
 
@@ -215,8 +213,8 @@ VM에서 **가속 네트워킹을 지 원하는** 경우를 선택 합니다. �
 
 이러한 두 필수 필드는 위의 이전 이미지에 표시 됩니다.
 
-- **디스크 버전** : 제공 하는 이미지의 버전입니다.
-- **OS vhd 링크** : 운영 체제 vhd에 대 한 Azure storage 계정 내의 위치입니다. SAS URI를 가져오는 방법을 알아보려면 [VM 이미지에 대 한 공유 액세스 서명 URI 가져오기](azure-vm-get-sas-uri.md)를 참조 하세요.
+- **디스크 버전**: 제공 하는 이미지의 버전입니다.
+- **OS vhd 링크**: 운영 체제 vhd에 대 한 Azure storage 계정 내의 위치입니다. SAS URI를 가져오는 방법을 알아보려면 [VM 이미지에 대 한 공유 액세스 서명 URI 가져오기](azure-vm-get-sas-uri.md)를 참조 하세요.
 
 데이터 디스크 ( **추가 데이터 디스크 (최대 16 개)** 선택)는 Azure storage 계정에 저장 된 VHD 공유 액세스 서명 uri 이기도 합니다. 플랜에서 제출당 하나의 이미지만 추가합니다.
 

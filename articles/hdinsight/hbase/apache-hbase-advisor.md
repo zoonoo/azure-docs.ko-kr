@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893297"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964595"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Azure HDInsight의 Apache HBase 권고
 
@@ -21,9 +21,9 @@ ms.locfileid: "97893297"
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>가장 최근에 쓴 데이터를 읽도록 HBase 최적화
 
-Azure HDInsight에서 Apache HBase를 사용 하는 경우 응용 프로그램에서 가장 최근에 쓴 데이터를 읽는 시나리오에 대해 HBase 구성을 최적화할 수 있습니다. 고성능을 위해 HBase 읽기가 원격 저장소 대신 memstore에서 제공 되는 것이 가장 좋습니다.
+사용 사례가 HBase에서 가장 최근에 작성 된 데이터를 읽는 경우이 권고는 도움이 될 수 있습니다. 고성능을 위해 HBase 읽기가 원격 저장소 대신 memstore에서 제공 되는 것이 가장 좋습니다.
 
-쿼리 권고는 테이블의 지정 된 열 패밀리에 대해 memstore에서 제공 되는 > 75% 읽기가 있음을 나타냅니다. 이 지표는 memstore에서 플러시가 발생 하더라도 최근 파일에 액세스 해야 하며 캐시에 있어야 함을 나타냅니다. 데이터는 먼저 memstore에 기록 되며, 시스템은 해당 데이터에 최근 데이터에 액세스 합니다. 내부 HBase 플 러 셔 스레드에서는 지정 된 지역이 128m (기본값) 크기에 도달 했음을 감지 하 고 플러시를 트리거할 수 있습니다. 이 시나리오는 memstore의 크기가 128M 일 때 작성 된 최신 데이터에도 발생 합니다. 따라서 나중에 이러한 최근 레코드를 읽으면 memstore가 아닌 파일을 읽어야 할 수 있습니다. 따라서 최근에 플러시된 최근 데이터도 캐시에 상주할 수 있도록 최적화 하는 것이 가장 좋습니다.
+쿼리 권고는 테이블의 지정 된 열 패밀리에 대해 memstore에서 제공 되는 75% 읽기 > 함을 나타냅니다. 이 지표는 memstore에서 플러시가 발생 하더라도 최근 파일에 액세스 해야 하며 캐시에 있어야 함을 나타냅니다. 데이터는 먼저 memstore에 기록 되며, 시스템은 해당 데이터에 최근 데이터에 액세스 합니다. 내부 HBase 플 러 셔 스레드에서는 지정 된 지역이 128m (기본값) 크기에 도달 했음을 감지 하 고 플러시를 트리거할 수 있습니다. 이 시나리오는 memstore의 크기가 128M 일 때 작성 된 최신 데이터에도 발생 합니다. 따라서 나중에 이러한 최근 레코드를 읽으면 memstore가 아닌 파일을 읽어야 할 수 있습니다. 따라서 최근에 플러시된 최근 데이터도 캐시에 상주할 수 있도록 최적화 하는 것이 가장 좋습니다.
 
 캐시의 최근 데이터를 최적화 하려면 다음 구성 설정을 고려 하십시오.
 
@@ -33,9 +33,9 @@ Azure HDInsight에서 Apache HBase를 사용 하는 경우 응용 프로그램�
 
 3. 2 단계를 수행 하 고 compactionThreshold를 설정 하는 경우 예를 들어 `hbase.hstore.compaction.max` 더 높은 값으로 변경 하 `100` 고, 예를 들어 구성 값을 `hbase.hstore.blockingStoreFiles` 더 큰 값으로 늘립니다 `300` .
 
-4. 최근 데이터에서 읽기만 해야 하는 경우 `hbase.rs.cachecompactedblocksonwrite` **에** 는 구성을 켜기로 설정 합니다. 이 구성은 압축이 발생 하더라도 데이터가 캐시에 남아 있음을 시스템에 알립니다. 구성은 패밀리 수준 에서도 설정할 수 있습니다. 
+4. 최근 데이터만 읽어야 하는 경우 `hbase.rs.cachecompactedblocksonwrite` 구성을 **켜기** 로 설정 합니다. 이 구성은 압축이 발생 하더라도 데이터가 캐시에 남아 있음을 시스템에 알립니다. 구성은 패밀리 수준 에서도 설정할 수 있습니다. 
 
-   HBase 셸에서 다음 명령을 실행 합니다.
+   HBase 셸에서 다음 명령을 실행 하 여 config를 설정 합니다 `hbase.rs.cachecompactedblocksonwrite` .
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Azure HDInsight에서 Apache HBase를 사용 하는 경우 응용 프로그램�
 
 5. 테이블의 지정 된 패밀리에 대해 블록 캐시를 해제할 수 있습니다. 가장 최근의 데이터 읽기를 포함 하는 **제품군에 대해 설정 되어** 있는지 확인 합니다. 기본적으로 블록 캐시는 테이블의 모든 패밀리에 대해 설정 됩니다. 패밀리의 블록 캐시를 사용 하지 않도록 설정 하 고 사용 하도록 설정 해야 하는 경우 hbase 셸에서 alter 명령을 사용 합니다.
 
-   이러한 구성을 통해 데이터를 캐시에 유지 하 고 최근 데이터를 압축 하지 않을 수 있습니다. 시나리오에서 TTL을 사용할 수 있는 경우에는 날짜 계층 압축을 사용 하는 것이 좋습니다. 자세한 내용은 [Apache HBase 참조 가이드: 날짜 계층화 된 압축](https://hbase.apache.org/book.html#ops.date.tiered) 을 참조 하세요.  
+   이러한 구성은 데이터를 캐시에서 사용할 수 있도록 하 고 최근 데이터가 압축 되지 않도록 하는 데 도움이 됩니다. 시나리오에서 TTL을 사용할 수 있는 경우에는 날짜 계층 압축을 사용 하는 것이 좋습니다. 자세한 내용은 [Apache HBase 참조 가이드: 날짜 계층화 된 압축](https://hbase.apache.org/book.html#ops.date.tiered) 을 참조 하세요.  
 
 ## <a name="optimize-the-flush-queue"></a>플러시 큐 최적화
 
-플러시 큐 최적화 권고는 HBase 플러시가 튜닝이 필요할 수 있음을 나타냅니다. 플러시 처리기가 구성 된 만큼 충분히 크지 않을 수 있습니다.
+이 권고는 HBase 플러시에 조정이 필요할 수 있음을 나타냅니다. 플러시 핸들러에 대 한 현재 구성이 쓰기 트래픽을 처리할 수 있을 만큼 충분히 크지 않을 수 있으며이로 인해 플러시 속도가 느려질 수 있습니다.
 
 지역 서버 UI에서 플러시 큐가 100 이상 증가 하는지 확인 합니다. 이 임계값은 플러시 속도가 느리고 구성을 조정 해야 할 수 있음을 나타냅니다   `hbase.hstore.flusher.count` . 기본적으로이 값은 2입니다. 최대 플 러 셔 스레드가 6을 초과 하지 않도록 합니다.
 
-또한 지역 개수 튜닝에 대 한 권장 사항이 있는지 확인 합니다. 그렇다면 먼저 영역 튜닝을 시도 하 여 더 빠른 플러시에 도움이 되는지 확인 합니다. 플 러 셔 스레드를 조정 하면 다음과 같은 여러 가지 방법으로 도움이 될 수 있습니다. 
+또한 지역 개수 튜닝에 대 한 권장 사항이 있는지 확인 합니다. 예를 사용 하는 경우이를 통해 더 빠르게 플러시할 수 있는지 확인 하기 위해 지역 튜닝을 시도 하는 것이 좋습니다. 그러지 않으면 플 러 셔 스레드를 조정 하는 데 도움이 될 수 있습니다.
 
 ## <a name="region-count-tuning"></a>지역 수 튜닝
 
@@ -65,7 +65,7 @@ Azure HDInsight에서 Apache HBase를 사용 하는 경우 응용 프로그램�
 
 - 이러한 설정이 적용 되 면 지역 수가 100입니다. 이제 4gb 전역 memstore가 100 지역에 걸쳐 분할 됩니다. 따라서 사실상 각 지역은 memstore에 대해 40 MB만을 얻습니다. 쓰기가 균일 하면 시스템은 가장 자주 플러시를 수행 하 고 크기는 40 < 합니다. 여러 플 러 셔 스레드가 있으면 플러시 속도가 늘어날 수 있습니다 `hbase.hstore.flusher.count` .
 
-이 권고는 서버 당 지역 수, 힙 크기 및 전역 memstore 크기 구성과 함께 플러시 스레드 튜닝을 사용 하 여 이러한 업데이트를 차단할 수 있도록 하는 것이 좋을 수 있음을 의미 합니다.
+이 권고는 업데이트 차단 방지를 위해 플러시 스레드 조정과 함께 서버당 지역 수, 힙 크기 및 전역 memstore 크기 구성을 다시 고려할 수 있음을 의미 합니다.
 
 ## <a name="compaction-queue-tuning"></a>압축 큐 튜닝
 

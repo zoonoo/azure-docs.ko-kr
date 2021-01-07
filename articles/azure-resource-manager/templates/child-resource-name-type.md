@@ -3,12 +3,12 @@ title: 템플릿의 자식 리소스
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 자식 리소스의 이름 및 형식을 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934308"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963915"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>자식 리소스의 이름 및 형식 설정
 
@@ -137,5 +137,4 @@ Azure Resource Manager 템플릿 (ARM 템플릿)에서 부모 리소스 또는 �
 ## <a name="next-steps"></a>다음 단계
 
 * ARM 템플릿을 만드는 방법에 대 한 자세한 내용은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-
 * 리소스를 참조할 때 리소스 이름 형식에 대 한 자세한 내용은 [참조 함수](template-functions-resource.md#reference)를 참조 하세요.

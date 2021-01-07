@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 8ef3ff20c67eefa2091ffb1732ced813b169e596
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d6b3d60a44725869d68dd9f1158d2279f3cf3e86
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929755"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963983"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -102,7 +102,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     using Azure.Identity;
     ```
 
-1. 앱 구성에 직접 저장 된 값에만 액세스 하려는 경우 `CreateWebHostBuilder` 메서드를 대체 하 여 메서드를 업데이트 합니다 `config.AddAzureAppConfiguration()` .
+1. 앱 구성에 직접 저장 된 값에만 액세스 하려는 경우 `CreateWebHostBuilder` 메서드를 대체 하 여 메서드를 업데이트 `config.AddAzureAppConfiguration()` 합니다 (패키지에 있음 `Microsoft.Azure.AppConfiguration.AspNetCore` ).
 
     > [!IMPORTANT]
     > .NET Core 3.0에서 `CreateHostBuilder`는 `CreateWebHostBuilder`를 대체합니다.  사용자 환경에 따라 올바른 구문을 선택합니다.

@@ -7,11 +7,11 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.openlocfilehash: 26efa840bacd3ee542816cf861cf2ef586b0582f
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 88fb9c823df6ae5df345911ccce1c579009fba02
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 01/07/2021
 ms.locfileid: "96780215"
 ---
 # <a name="supported-data-stores"></a>지원되는 데이터 저장소
@@ -20,19 +20,18 @@ ms.locfileid: "96780215"
 
 ## <a name="purview-data-sources"></a>부서의 범위 데이터 원본
 
-|**범주**|  **데이터 저장소**  |**메타 데이터 추출**|**전체 검색**|**증분 검색**|**범위 검색**|**분류**|**계보**|
+|**범주**|  **데이터 저장소**  |**메타 데이터 추출**|**전체 검사**|**증분 검색**|**범위 검색**|**분류**|**계보**|
 |---|---|---|---|---|---|---|---|
 | Azure | [Azure Blob Storage](register-scan-azure-blob-storage-source.md)| 예| 예| 예| 예| 예| 예|
 ||[Azure Cosmos DB](register-scan-azure-cosmos-database.md)|예| 예| 예| 예| 예| 예|
 ||[Azure Data Explorer](register-scan-azure-data-explorer.md)|예| 예| 예| 예| 예| 예|
 ||[Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)|예| 예| 예| 예| 예| 예|
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|예| 예| 예| 예| 예| 예|
-||[Azure SQL Database](register-scan-azure-sql-database.md)|예| 예| 아니요| 예| 예| 예|
-||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 아니요| 예| 예| 예|
-||[Azure Synapse Analytics (이전의 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 아니요| 예| 예| 예|
-|데이터베이스|[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 아니요| 예| 예| 예|
-||[Teradata(미리 보기)](register-scan-teradata-source.md)|예| 예| 아니요| 아니요| 아니요| 예|
-|Power BI|[Power BI](register-scan-power-bi-tenant.md)|예| 예| 아니요| 아니요| 아니요| 예|
+||[Azure SQL Database](register-scan-azure-sql-database.md)|예| 예| 예| 예| 예| 예|
+||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|예| 예| 예| 예| 예| 예|
+||[Azure Synapse Analytics (이전의 SQL DW)](register-scan-azure-synapse-analytics.md)|예| 예| 예| 예| 예| 예|
+|데이터베이스|[SQL Server](register-scan-on-premises-sql-server.md)|예| 예| 예| 예| 예| 예|
+|Power BI|[Power BI](register-scan-power-bi-tenant.md)|예| 예| 예| 예| 예| 예|
 
 ## <a name="next-steps"></a>다음 단계
 

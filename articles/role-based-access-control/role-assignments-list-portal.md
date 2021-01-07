@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007441"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964374"
 ---
-# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당 나열
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당을 나열합니다.
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] 이 문서에서는 Azure Portal를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] 이 문서에서는 Azure Portal를 사용 하 여 역할 할당을 나열 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
@@ -83,7 +83,7 @@ ms.locfileid: "97007441"
 
 1. **액세스 권한 확인** 탭을 클릭합니다.
 
-    ![리소스 그룹 액세스 제어-액세스 권한 확인 탭](./media/role-assignments-list-portal/rg-access-control-check-access.png)
+    ![리소스 그룹 액세스 제어 - 액세스 권한 확인 탭](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
 1. **찾기** 목록에서 액세스를 확인 하려는 사용자, 그룹, 서비스 주체 또는 관리 id를 선택 합니다.
 
@@ -93,11 +93,11 @@ ms.locfileid: "97007441"
 
 1. 보안 주체를 클릭하여 **할당** 창을 엽니다.
 
-    이 창에서 선택한 보안 주체에 대 한 액세스를이 범위에서 볼 수 있으며이 범위에 상속 됩니다. 자식 범위의 할당은 나열 되지 않습니다. 다음 할당이 표시 됩니다.
+    이 창의 이 범위에서 선택한 보안 주체에 대한 액세스 권한을 볼 수 있으며 이 범위로 상속됩니다. 자식 범위의 할당은 나열되지 않습니다. 다음 할당이 표시됩니다.
 
-    - Azure RBAC를 사용 하 여 역할 할당을 추가 했습니다.
-    - Azure 청사진 또는 Azure 관리 되는 앱을 사용 하 여 추가 된 거부 할당.
-    - 클래식 배포에 대 한 클래식 서비스 관리자 또는 Co-Administrator 할당 
+    - Azure RBAC를 사용하여 역할 할당을 추가했습니다.
+    - Azure Blueprints 또는 Azure 관리형 앱을 사용하여 추가된 할당을 거부합니다.
+    - 클래식 배포를 위한 클래식 서비스 관리자 또는 공동 관리자 할당. 
 
     ![할당 창](./media/shared/rg-check-access-assignments-user.png)
 

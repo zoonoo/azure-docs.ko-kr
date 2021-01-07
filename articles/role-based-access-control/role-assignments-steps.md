@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648279"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964255"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] 이 문서에서는 [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md)또는 [REST API](role-assignments-rest.md)를 사용 하 여 역할 할당을 추가 하는 개략적인 단계를 설명 합니다.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 이 문서에서는 [Azure Portal](role-assignments-portal.md), [Azure PowerShell](role-assignments-powershell.md), [Azure CLI](role-assignments-cli.md)또는 [REST API](role-assignments-rest.md)를 사용 하 여 역할 할당을 추가 하는 개략적인 단계를 설명 합니다.
 
 ## <a name="step-1-determine-who-needs-access"></a>1 단계: 액세스 해야 하는 사용자 확인
 
@@ -62,7 +62,7 @@ ms.locfileid: "94648279"
 
 ![역할 할당 범위](./media/shared/rbac-scope.png)
 
-부모 범위에서 역할을 할당 하는 경우 해당 사용 권한은 자식 범위로 상속 됩니다. 예를 들어:
+부모 범위에서 역할을 할당 하는 경우 해당 사용 권한은 자식 범위로 상속 됩니다. 예를 들면 다음과 같습니다.
 
 - 관리 그룹 범위에서 사용자에 게 읽기 [권한자](built-in-roles.md#reader) 역할을 할당 하는 경우 해당 사용자는 관리 그룹의 모든 구독에 있는 모든 항목을 읽을 수 있습니다.
 - 구독 범위에서 그룹에 [청구 읽기 권한자](built-in-roles.md#billing-reader) 역할을 할당 하는 경우 해당 그룹의 구성원은 구독의 모든 리소스 그룹 및 리소스에 대 한 청구 데이터를 읽을 수 있습니다.
