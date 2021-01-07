@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762965"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976812"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -53,9 +53,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 아랍어 (아랍에미리트)      | `ar-AE` | 언어 모델                                   |
 | 불가리아어(불가리아)               | `bg-BG` | 언어 모델                                   |
 | 카탈로니아어(스페인)                    | `ca-ES` | 언어 모델                                   |
-| 중국어(광둥어, 번체)   | `zh-HK` | 언어 모델                                   |
+| 중국어(광둥어, 번체)   | `zh-HK` | 음향 모델<br>언어 모델                 |
 | 중국어 (북경어, 간체)     | `zh-CN` | 음향 모델<br>언어 모델                 |
-| 중국어(대만어)       | `zh-TW` | 언어 모델                                   |
+| 중국어(대만어)       | `zh-TW` | 음향 모델<br>언어 모델                 |
 | 크로아티아어(크로아티아)                 | `hr-HR` | 언어 모델                                   |
 | 체코어(체코)             | `cs-CZ` | 언어 모델                                   |
 | 덴마크어(덴마크)                   | `da-DK` | 언어 모델                                   |
@@ -76,15 +76,15 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | 핀란드어(핀란드)                  | `fi-FI` | 언어 모델                                   |
 | 프랑스어(캐나다)                    | `fr-CA` | 음향 모델<br>언어 모델                 |
 | 프랑스어(프랑스)                    | `fr-FR` | 음향 모델<br>언어 모델<br>발음|
-| 독일어 (독일)                   | `de-DE` | 음향 모델<br>언어 모델<br>발음|
+| 독일어(독일)                   | `de-DE` | 음향 모델<br>언어 모델<br>발음|
 | 그리스어(그리스)                     | `el-GR` | 언어 모델                                   |
 | 구자라트어(인도)                  | `gu-IN` | 언어 모델                                   |
 | 힌디어(인도)                      | `hi-IN` | 음향 모델<br>언어 모델                 |
 | 헝가리어(헝가리)                | `hu-HU` | 언어 모델                                   |
 | 아일랜드어 (아일랜드)                     | `ga-IE` | 언어 모델                                   |
 | 이탈리아어(이탈리아)                    | `it-IT` | 음향 모델<br>언어 모델<br>발음|
-| 일본어(일본)                   | `ja-JP` | 언어 모델                                   |
-| 한국어(한국)                     | `ko-KR` | 언어 모델                                   |
+| 일본어(일본)                   | `ja-JP` | 음향 모델<br>언어 모델                 |
+| 한국어(한국)                     | `ko-KR` | 음향 모델<br>언어 모델                 |
 | 라트비아어(라트비아)                   | `lv-LV` | 언어 모델                                   |
 | 리투아니아어(리투아니아)             | `lt-LT` | 언어 모델                                   |
 | 몰타어 (몰타)                     | `mt-MT` | 언어 모델                                   |
@@ -143,7 +143,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 > 모든 음성이 synthesizing 때 다른 샘플 요금으로 upsample 하거나 다운 샘플링할 수 있습니다.
 
 
-| 언어 | 로캘 | 성별 | 음성 이름 | 스타일 지원 |
+| 언어 | Locale | 성별 | 음성 이름 | 스타일 지원 |
 |---|---|---|---|---|
 | 아랍어(이집트) | `ar-EG` | Female | `ar-EG-SalmaNeural` | 일반 |
 | 아랍어(이집트) | `ar-EG` | Male | `ar-EG-ShakirNeural` <sup>새로 만들기</sup> | 일반 |
@@ -199,7 +199,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 독일어(오스트리아) | `de-AT` | Female | `de-AT-IngridNeural` | 일반 |
 | 독일어(오스트리아) | `de-AT` | Male | `de-AT-JonasNeural` <sup>새로 만들기</sup> | 일반 |
 | 독일어(독일) | `de-DE` | Female | `de-DE-KatjaNeural` | 일반 |
-| 독일어 (독일) | `de-DE` | Male | `de-DE-ConradNeural` | 일반 |
+| 독일어(독일) | `de-DE` | Male | `de-DE-ConradNeural` | 일반 |
 | 독일어(스위스) | `de-CH` | Female | `de-CH-LeniNeural` | 일반 |
 | 독일어(스위스) | `de-CH` | Male | `de-CH-JanNeural` <sup>새로 만들기</sup> | 일반 |
 | 그리스어(그리스) | `el-GR` | Female | `el-GR-AthinaNeural` | 일반 |
@@ -264,7 +264,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 신경망 아래에는 공개 미리 보기로 제공 됩니다. 
 
-| 언어                         | 로캘  | 성별 | 음성 이름                             | 스타일 지원 |
+| 언어                         | Locale  | 성별 | 음성 이름                             | 스타일 지원 |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaohanNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 스타일 |
 | 중국어 (북경어, 간체) | `zh-CN` | Female | `zh-CN-XiaomoNeural` | 일반적으로 [SSML을 사용 하 여](speech-synthesis-markup.md#adjust-speaking-styles) 사용할 수 있는 여러 역할 재생 및 스타일 |
@@ -346,7 +346,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 | 프랑스어(스위스) | `fr-CH` | Male | `fr-CH-Guillaume`|
 | 독일어(오스트리아) | `de-AT` | Male | `de-AT-Michael`|
 | 독일어(독일) | `de-DE` | Female | `de-DE-HeddaRUS`|
-| 독일어 (독일) | `de-DE` | Male | `de-DE-Stefan`|
+| 독일어(독일) | `de-DE` | Male | `de-DE-Stefan`|
 | 독일어(스위스) | `de-CH` | Male | `de-CH-Karsten`|
 | 그리스어(그리스) | `el-GR` | Male | `el-GR-Stefanos`|
 | 히브리어(이스라엘) | `he-IL` | Male | `he-IL-Asaf`|

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/22/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 87bc3b172fdbd99130dbb36cceb5f3d16fc39dbd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839886"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976948"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -282,7 +282,7 @@ CLI 명령을 사용 하는 경우:
 
 3. 다음과 같이 매개 변수를 설정 합니다.
 
-    | 매개 변수 | Description |
+    | 매개 변수 | 설명 |
     |--|--|
     | IP 주소 | 센서 IP 주소 |
     | 서브넷 마스크 | 마스크 주소 |
@@ -299,7 +299,7 @@ CLI 명령을 사용 하는 경우:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="시간과 지역을 구성 합니다.":::
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |--|--|
 | 표준 시간대 | 다음에 대 한 표준 시간대 정의:<br />-경고<br />-추세 및 통계 위젯<br />-데이터 마이닝 보고서<br />   -위험 평가 보고서<br />-공격 벡터 |
 | 날짜 형식 | 다음 서식 옵션 중 하나를 선택 합니다.<br />-dd/MM/yyyy HH: MM: ss<br />-MM/dd/yyyy HH: MM: ss<br />-yyyy/MM/dd HH: MM: ss |
@@ -426,8 +426,6 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 - 연결 끊김 센서
 
 - 원격 백업 실패
-
-:::image type="content" source="media/how-to-work-with-system-notifications/image81.png" alt-text="관리 시스템 상태 메일 보기의 스크린샷 (media/image80.png)! [관리 시스템 상태 메일 보기의 스크린샷":::
 
 이 정보는 시스템 알림에 대 한 전달 규칙을 만들 때 전송 됩니다.
 

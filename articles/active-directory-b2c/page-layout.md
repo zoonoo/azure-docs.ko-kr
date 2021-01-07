@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108504"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976506"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
@@ -51,7 +51,7 @@ ms.locfileid: "97108504"
 - 이제 전자 메일을 확인 한 후에 포커스가 암호 필드에 배치 됩니다.
 - `autofocus`Checkbox 컨트롤에서 제거 되었습니다. 
 - 전화 번호 확인을 위한 표시 컨트롤에 대 한 지원이 추가 되었습니다.
-- 이제 `data-preload="true"` html 태그에 특성을 추가할 수 있습니다. (사용자 지정-html. md # 지침-
+- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가할 수 있습니다.
   - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
   - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
 - 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안을 제공 합니다.

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: 74cab14cd162ba608a9c5d0168485e9055661f55
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 01/06/2021
+ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590796"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976863"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>승인 된 기본을 사용 하 여 가상 컴퓨터를 만드는 방법
 
@@ -40,15 +40,11 @@ Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 �
 2. **가상 머신** 을 선택합니다.
 3. **+ 추가** 를 선택 하 여 **가상 머신 만들기** 화면을 엽니다.
 4. 드롭다운 목록에서 이미지를 선택 하거나 **모든 공용 및 개인 이미지 찾아보기** 를 선택 하 여 사용 가능한 모든 가상 머신 이미지를 검색 하거나 검색 합니다.
-5. **Gen 1** vm을 만들려면 **디스크** 탭으로 이동 하 고 **관리 디스크 사용** 옵션을 **아니요** 로 설정 하 여 지정 된 저장소 계정에서 vm의 VHD를 가져올 수 있도록 합니다.
-
-   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="관리 되지 않는 디스크를 선택 합니다.":::
-   
-6. **Gen 2** VM을 만들려면 **고급** 탭으로 이동 하 여 **gen 2** 옵션을 선택 합니다.
+5. **Gen 2** VM을 만들려면 **고급** 탭으로 이동 하 여 **gen 2** 옵션을 선택 합니다.
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Gen 1 또는 Gen 2를 선택 합니다.":::
 
-7. 배포할 VM의 크기를 선택 합니다.
+6. 배포할 VM의 크기를 선택 합니다.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="선택한 이미지에 대해 권장 되는 VM 크기를 선택 합니다.":::
 
@@ -56,7 +52,6 @@ Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 �
 8. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. **유효성 검사 통과** 메시지가 표시 되 면 **만들기** 를 선택 합니다.
 
 Azure에서 지정한 가상 머신의 프로비저닝을 시작합니다. 왼쪽 메뉴에서 **Virtual Machines** 탭을 선택 하 여 진행 상황을 추적 합니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터의 상태가 **실행 중** 으로 변경 됩니다.
-
 
 ## <a name="configure-the-vm"></a>VM 구성
 

@@ -1,5 +1,5 @@
 ---
-title: 모니터링 되는 트래픽 제어
+title: 모니터링된 트래픽 제어
 description: 센서는이에 대 한 심층 패킷 검색을 자동으로 수행 하 고 장치 특성 및 네트워크 동작과 같은 네트워크 장치에 대 한 정보를 확인 합니다. 각 센서가 검색 하는 트래픽 유형을 제어 하는 데 사용할 수 있는 여러 도구가 있습니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 08afba8ade30775a49492f337bb5337320b9e282
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841038"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977078"
 ---
-# <a name="control-what-traffic-is-monitored"></a>모니터링 되는 트래픽 제어
+# <a name="control-what-traffic-is-monitored"></a>모니터링된 트래픽 제어
 
 센서는이에 대 한 심층 패킷 검색을 자동으로 수행 하 고 장치 특성 및 동작과 같은 네트워크 장치에 대 한 정보를 확인 합니다. 각 센서가 검색 하는 트래픽 유형을 제어 하는 데 사용할 수 있는 여러 도구가 있습니다.
 
@@ -157,7 +157,7 @@ OT 장치에서 포커스를 사용 하도록 설정 하기 위해 IT 장치는 
 
 각 센서에 동적 IP 주소를 정의 하면 IP 주소 변경의 인스턴스에서 포괄적인 투명 지원을 사용할 수 있습니다. 이렇게 하면 각 고유 장치에 대 한 포괄적인 보고가 보장 됩니다.
 
-센서 콘솔은 장치와 연결 된 최신 IP 주소를 표시 하 고 동적 장치를 나타냅니다. 예를 들면 다음과 같습니다.
+센서 콘솔은 장치와 연결 된 최신 IP 주소를 표시 하 고 동적 장치를 나타냅니다. 다음은 그 예입니다. 
 
 - 데이터 마이닝 보고서 및 장치 인벤토리 보고서는 IP 주소 변경에 관계 없이 장치에서 배운 모든 활동을 하나의 엔터티로 통합 합니다. 이러한 보고서는 DHCP 주소로 정의 된 주소를 표시 합니다.
 
@@ -228,7 +228,7 @@ DNS 서버를 정의 하려면:
 
 3. **서버에 대 한 DNS 역방향 조회 테스트** 대화 상자에서 **조회 주소** 에 주소를 입력 합니다.
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="조회 주소 영역을 보여 주는 스크린샷":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="조회 주소 영역을 보여 주는 스크린샷":::
 
 4. **테스트** 를 선택합니다.
 

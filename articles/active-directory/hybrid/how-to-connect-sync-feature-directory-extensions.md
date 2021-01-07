@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74bc659c11c4f43ab3cf85cdc53f704cd07a1cde
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 25d4152783129fa1c5950d6cf6287332bf90d32a
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96172370"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976880"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [확장](/graph/extensibility-overview
@@ -46,7 +46,7 @@ ms.locfileid: "96172370"
 
 
 >[!NOTE]
-> Azure AD Connect는 다중값 Active Directory 특성을 Azure AD에 다중값 디렉터리 확장으로 동기화하는 것을 지원하지만, 현재는 다중값 디렉터리 확장 특성에 업로드된 데이터를 검색/소비할 방법이 없습니다.
+> 다중 값 Active Directory 특성을 다중 값 특성 확장으로 Azure AD에 동기화 Azure AD Connect 후에는 SAML 클레임에 특성을 포함할 수 있습니다. 그러나 API 호출을 통해이 데이터를 사용할 수 없습니다.
 
 특성 목록은 Azure AD Connect 설치 도중에 만들어진 스키마 캐시에서 읽힙니다. 추가 특성을 사용하여 Active Directory 스키마를 확장한 경우 [스키마를 새로 고쳐야](how-to-connect-installation-wizard.md#refresh-directory-schema) 이러한 새 특성을 볼 수 있습니다.
 

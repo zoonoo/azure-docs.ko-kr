@@ -4,15 +4,15 @@ description: 이 가이드에서는 일반적으로 사용 되는 수평선 메�
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 11/19/2020
+ms.date: 1/7/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3266517b9ddc8fc7ac7b06a137286c05ea9a28fa
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6d2e3fccd6a61fe129050faa29cb7bb77674ccfe
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839702"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976908"
 ---
 # <a name="horizon-api"></a>수평 API 
 
@@ -24,7 +24,7 @@ CyberX 플랫폼을 사용 하는 방법에 대 한 자세한 내용은 다음�
 
 - 수평 ODE (Open Development Environment) SDK의 경우 CyberX 담당자에 게 문의 하세요.
 - 지원 및 문제 해결 정보는에 문의 하세요 <support@cyberx-labs.com> .
-- CyberX 콘솔에서 Cyberx 사용자 가이드에 액세스 하려면를 선택 하 :::image type="icon" source="media/references-horizon-api//image3.png"::: 고 **사용자 가이드 다운로드** 를 선택 합니다.
+- CyberX 콘솔에서 Cyberx 사용자 가이드에 액세스 하려면를 선택 하 :::image type="icon" source="media/references-horizon-api/profile-icon.png"::: 고 **사용자 가이드 다운로드** 를 선택 합니다.
 
 ## `horizon::protocol::BaseParser`
 

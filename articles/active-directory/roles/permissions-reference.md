@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919741"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976829"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -1434,6 +1434,14 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
+| microsoft. directory/응용 프로그램/a p i/업데이트 | 응용 프로그램 역할을 관리 하 고 응용 프로그램에 대 한 위임 된 권한을 요청 합니다. |
+| microsoft.directory/applications/audience/update | 모든 유형의 응용 프로그램에서 대상 그룹을 업데이트 합니다. |
+| microsoft.directory/applications/authentication/update | 모든 유형의 응용 프로그램에 대 한 인증을 업데이트 합니다. |
+| microsoft.directory/applications/basic/update | 모든 유형의 응용 프로그램에 대 한 기본 속성을 업데이트 합니다. |
+| microsoft.directory/applications/credentials/update | 모든 유형의 응용 프로그램에서 자격 증명을 업데이트 합니다. |
+| microsoft.directory/applications/owners/update | 모든 유형의 응용 프로그램에서 소유자를 업데이트 합니다. |
+| microsoft.directory/applications/permissions/update | 모든 유형의 응용 프로그램에 대해 노출 된 권한 및 필요한 권한을 업데이트 합니다. |
+| microsoft.directory/applications/policies/update | Azure Active Directory에서 applications.policies 속성을 업데이트합니다. |
 | microsoft.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
@@ -1467,6 +1475,14 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 
 | **actions** | **설명** |
 | --- | --- |
+| microsoft. directory/응용 프로그램/a p i/업데이트 | 응용 프로그램 역할을 관리 하 고 응용 프로그램에 대 한 위임 된 권한을 요청 합니다. |
+| microsoft.directory/applications/audience/update | 모든 유형의 응용 프로그램에서 대상 그룹을 업데이트 합니다. |
+| microsoft.directory/applications/authentication/update | 모든 유형의 응용 프로그램에 대 한 인증을 업데이트 합니다. |
+| microsoft.directory/applications/basic/update | 모든 유형의 응용 프로그램에 대 한 기본 속성을 업데이트 합니다. |
+| microsoft.directory/applications/credentials/update | 모든 유형의 응용 프로그램에서 자격 증명을 업데이트 합니다. |
+| microsoft.directory/applications/owners/update | 모든 유형의 응용 프로그램에서 소유자를 업데이트 합니다. |
+| microsoft.directory/applications/permissions/update | 모든 유형의 응용 프로그램에 대해 노출 된 권한 및 필요한 권한을 업데이트 합니다. |
+| microsoft.directory/applications/policies/update | Azure Active Directory에서 applications.policies 속성을 업데이트합니다. |
 | microsoft.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |

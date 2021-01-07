@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861776"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976846"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -50,6 +50,8 @@ Windows용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확
 ### <a name="internet-connectivity"></a>인터넷 연결
 
 GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드해야 하는 경우 추가 방화벽 및 네트워크 보안 그룹 포트를 열어야 합니다. 예를 들어 스크립트가 Azure Storage에 있으면 [Storage](../../virtual-network/network-security-groups-overview.md#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스하도록 허용할 수 있습니다.
+
+CustomScript 확장에는 인증서 유효성 검사를 무시 하는 방법이 없습니다. 따라서 예를 들어 보안 위치에서 다운로드 하는 경우 자체 서명 된 인증서 인 경우 *"유효성 검사 절차에 따르면 원격 인증서가 잘못* 되었습니다."와 같은 오류가 발생할 수 있습니다. 가상 컴퓨터의 *"신뢰할 수 있는 루트 인증 기관"* 저장소에 인증서가 제대로 설치 되어 있는지 확인 하세요.
 
 스크립트가 로컬 서버에 있으면 추가 방화벽 및 네트워크 보안 그룹 포트도 열어야 합니다.
 

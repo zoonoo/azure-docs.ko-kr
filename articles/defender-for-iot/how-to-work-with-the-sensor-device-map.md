@@ -1,18 +1,18 @@
 ---
-title: 센서 장치 맵 사용
+title: 센서 디바이스 맵 작업
 description: 장치 맵은 검색 된 네트워크 장치를 그래픽으로 표시 합니다. 지도를 사용 하 여 장치 정보, 네트워크 조각을 분석 하 고 관리 하며 보고서를 생성 합니다.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97843857"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976761"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>장치 맵의 센서 검색 조사
 
@@ -36,7 +36,7 @@ ms.locfileid: "97843857"
 
 사용자 역할은 장치 맵 창에서 사용할 수 있는 도구를 결정 합니다. 사용자 역할에 대 한 자세한 내용은 [사용자 만들기 및 관리](how-to-create-and-manage-users.md) 를 참조 하세요.
 
-| Symbol | Description |
+| Symbol | 설명 |
 |---|---|
 | :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::| 특정 장치에 대 한 IP 주소 또는 MAC 주소를 검색 합니다. 텍스트 상자에 IP 주소 또는 MAC 주소를 입력 합니다. 지도에는 연결 된 장치로 검색 한 장치가 표시 됩니다. |
 | 그룹 강조 표시 및 필터 <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="그룹이 강조 표시 되 고 필터가 강조 표시 됩니다."::: | 기본 및 사용자 지정 장치 그룹을 기준으로 맵을 필터링 하거나 강조 표시 합니다. |
@@ -59,7 +59,7 @@ ms.locfileid: "97843857"
 
 아래 그림은 27 개의 IT 네트워크 요소를 포함 하는 축소 된 IT 서브넷을 보여 줍니다.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="27 IT 네트워크 요소를 포함 하는 축소 된 IT 서브넷":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="27 IT 네트워크 요소를 포함 하는 축소 된 IT 서브넷":::
 
 IT 네트워크 축소 기능을 사용 하려면 다음을 수행 합니다.
 
@@ -118,9 +118,9 @@ IT 서브넷을 축소 하려면:
 
 다음과 같은 미리 정의 된 그룹을 사용할 수 있습니다.
 
-| 그룹 이름 | Description |
+| 그룹 이름 | 설명 |
 |--|--|
-| **알려진 응용 프로그램 또는 비-기타 rad 포트 (기본값)** | TCP와 같은 예약 된 포트를 사용 하는 장치 비표준 포트 또는 별칭이 할당 되지 않은 포트를 사용 하는 장치입니다. |
+| **알려진 응용 프로그램 또는 비표준 포트 (기본값)** | TCP와 같은 예약 된 포트를 사용 하는 장치 비표준 포트 또는 별칭이 할당 되지 않은 포트를 사용 하는 장치입니다. |
 | **OT 프로토콜 (기본값)** | OT 트래픽을 처리 하는 장치입니다. |
 | **권한 부여 (기본값)** | 학습 프로세스 중에 네트워크에서 검색 된 장치 또는 공식적으로 네트워크에 추가 된 장치 |
 | **장치 인벤토리 필터** | 필터에 따라 그룹화 된 장치는 장치 인벤토리 테이블에 저장 됩니다. |
@@ -226,7 +226,7 @@ IT 서브넷을 축소 하려면:
 
 자세히 보기에는 다음 정보를 포함 하는 장치 및 장치 레이블과 표시기가 표시 됩니다.
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="상세 보기":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="상세 보기":::
 
 ### <a name="control-the-zoom-view"></a>확대/축소 뷰 제어
 
@@ -236,7 +236,7 @@ IT 서브넷을 축소 하려면:
 
 ### <a name="enable-simplified-zoom-views"></a>단순화 된 확대/축소 보기 사용
 
-보안 분석가 및 RO 사용자에 게 Brid의 아이 및 장치 및 유형 연결 보기에 액세스 하려는 관리자는 단순화 된 보기 옵션을 사용 하도록 설정 해야 합니다.
+보안 분석가와 RO 사용자에 게 Bird 및 장치 및 유형 연결 보기에 대 한 액세스 권한을 원하는 관리자는 단순화 된 보기 옵션을 사용 하도록 설정 해야 합니다.
 
 단순화 된 지도 보기를 사용 하려면 다음을 수행 합니다.
 
@@ -266,7 +266,7 @@ IT 서브넷을 축소 하려면:
 
 맵의 장치에 다음 레이블과 표시기가 나타날 수 있습니다.
 
-| 장치 레이블 | Description |
+| 장치 레이블 | 설명 |
 |--|--|
 | :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="IP 호스트 이름"::: | IP 주소 호스트 이름 및 IP 주소 또는 서브넷 주소 |
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="경고 수"::: | 장치와 연결 된 경고 수 |
@@ -314,22 +314,22 @@ IT 서브넷을 축소 하려면:
 
   - Description
 
-| 항목 | Description |
+| 항목 | 설명 |
 |--|--|
 | 기본 정보 | 필요한 기본 정보입니다. |
 | Name | 디바이스 이름. <br /> 기본적으로 센서는 네트워크에 정의 된 대로 장치 이름을 검색 합니다. 예를 들어 DNS 서버에 정의 된 이름이 있습니다. <br /> 이러한 이름을 정의 하지 않으면 장치 IP 주소가이 필드에 표시 됩니다. <br /> 장치 이름을 수동으로 변경할 수 있습니다. 장치에 해당 기능을 반영 하는 의미 있는 이름을 지정 합니다. |
-| 유형 | 센서에서 감지한 장치 유형입니다. <br /> 자세한 내용은 [장치 형식 보기](#view-device-types)를 참조 하세요. |
+| 형식 | 센서에서 감지한 장치 유형입니다. <br /> 자세한 내용은 [장치 형식 보기](#view-device-types)를 참조 하세요. |
 | Vendor | 장치 공급 업체입니다. |
 | 운영 체제 | 장치 OS입니다. |
 | Purdue 계층 | 다음을 포함 하 여이 장치에 대 한 센서에 의해 식별 되는 Purdue 계층입니다. <br /> -자동 <br /> -Process 컨트롤 <br /> -감독 기관과 이러한 <br /> - 엔터프라이즈 |
-| Description | 자유 텍스트 필드입니다. <br /> 장치에 대 한 추가 정보를 추가 합니다. |
+| 설명 | 자유 텍스트 필드입니다. <br /> 장치에 대 한 추가 정보를 추가 합니다. |
 | 특성 | 학습 기간 동안 장치에 대해 검색 되었으며 다른 범주에 속하지 않는 추가 정보는 특성 섹션에 표시 됩니다. <br /> 정보는 RO입니다. |
 | 설정 | 가양성을 방지 하기 위해 장치 설정을 수동으로 변경할 수 있습니다. <br /> - **권한 있는 장치**: 학습 기간 동안 네트워크에서 검색 된 모든 장치가 승인 된 장치로 식별 됩니다. 학습 기간 후에 장치가 검색 되 면 기본적으로 권한이 없는 장치로 표시 됩니다. 이 정의를 수동으로 변경할 수 있습니다. <br /> - **스캐너로 알려짐**:이 장치를 스캐너 라고 하 고 사용자에 게 경고 하지 않아도 되는 경우이 옵션을 사용 하도록 설정 합니다. <br /> - **프로그래밍 장치**:이 장치를 프로그래밍 장치 라고 하 고 사용자에 게 경고할 필요가 없는 경우이 옵션을 사용 하도록 설정 합니다. |
 | 사용자 지정 그룹 | 이 장치가 참여 하는 장치 맵의 사용자 지정 그룹입니다. |
-| 주 | 장치의 보안 및 권한 부여 상태: <br /> - `Secured` 경고가 없는 경우 상태입니다. <br /> -장치에 대 한 경고가 표시 되 면 경고 수가 표시 됩니다. <br /> - `Unauthorized` 학습 기간 후 네트워크에 추가 된 장치에 대 한 상태가 표시 됩니다. 설정에서 장치를 수동으로 정의할 수 있습니다. `Authorized Device` <br /> -이 장치의 주소가 동적 주소로 정의 되는 경우 `DHCP` 가 상태에 추가 됩니다. |
+| 시스템 상태 | 장치의 보안 및 권한 부여 상태: <br /> - `Secured` 경고가 없는 경우 상태입니다. <br /> -장치에 대 한 경고가 표시 되 면 경고 수가 표시 됩니다. <br /> - `Unauthorized` 학습 기간 후 네트워크에 추가 된 장치에 대 한 상태가 표시 됩니다. 설정에서 장치를 수동으로 정의할 수 있습니다. `Authorized Device` <br /> -이 장치의 주소가 동적 주소로 정의 되는 경우 `DHCP` 가 상태에 추가 됩니다. |
 
 
-| 네트워크 | Description |
+| 네트워크 | 설명 |
 |--|--|
 | 인터페이스 | 장치 인터페이스입니다. RO 필드입니다. |
 | 프로토콜 | 장치에서 사용 하는 프로토콜입니다. RO 필드입니다. |
@@ -488,11 +488,11 @@ PLC에 여러 개의 모듈이 랙 및 슬롯으로 분리 되어 있으면 모�
 
 :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="프로그래밍 타임 라인 창":::
 
-|프로그래밍 타임 라인 형식 | Description |
+|프로그래밍 타임 라인 형식 | 설명 |
 |--|--|
 | 프로그래밍 장치 | 호스트 이름 및 파일을 포함 하 여 프로그래밍 된 장치에 대 한 세부 정보를 제공 합니다. |
 | 최근 이벤트 | 센서에서 검색 된 최신 이벤트 50를 표시 합니다. <br />이벤트를 강조 표시 하려면 해당 이벤트 위로 마우스를 이동 하 고 별을 클릭 합니다. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> 최근 50 이벤트를 볼 수 있습니다. |
-| Files | 프로그램에서 선택한 날짜 및 파일 크기에 대해 검색 된 파일을 표시 합니다. <br /> 기본적으로 장치당 표시할 수 있는 파일의 최대 수는 300입니다. <br /> 기본적으로 각 파일의 최대 파일 크기는 15mb입니다. |
+| 파일 | 프로그램에서 선택한 날짜 및 파일 크기에 대해 검색 된 파일을 표시 합니다. <br /> 기본적으로 장치당 표시할 수 있는 파일의 최대 수는 300입니다. <br /> 기본적으로 각 파일의 최대 파일 크기는 15mb입니다. |
 | 파일 상태 :::image type="icon" source="media/how-to-work-with-maps/status-v2.png" border="false"::: | 파일 레이블은 다음을 포함 하 여 장치에 있는 파일의 상태를 표시 합니다. <br /> **추가** 됨: 선택한 날짜 또는 시간의 끝점에 파일이 추가 되었습니다. <br /> **업데이트** 됨: 파일이 선택한 날짜 또는 시간에 업데이트 되었습니다. <br /> **삭제** 됨:이 파일이 제거 되었습니다. <br /> **레이블 없음**: 파일이 변경 되지 않았습니다.   |
 | 프로그래밍 장치 | 프로그래밍을 변경한 장치입니다. 여러 장치에서 프로그래밍 된 단일 장치에 대 한 프로그래밍 변경을 수행 했을 수 있습니다. 호스트 이름, 날짜 또는 변경 시간 및 로그인 한 사용자가 표시 됩니다. |
 | :::image type="icon" source="media/how-to-work-with-maps/current.png" border="false"::: | 프로그램 장치에 설치 된 현재 파일을 표시 합니다. |
@@ -543,7 +543,7 @@ PLC에 여러 개의 모듈이 랙 및 슬롯으로 분리 되어 있으면 모�
 
 프로그래밍 타임 라인의 세부 정보를 검토 하는 것 외에도 장치 속성 창 및 장치 인벤토리에서 프로그래밍 정보에 액세스할 수 있습니다.
 
-| 디바이스 유형 | Description |
+| 디바이스 유형 | 설명 |
 |--|--|
 | 디바이스 속성 | 장치 속성 창은 device\. 검색 된 마지막 프로그래밍 이벤트에 대 한 정보를 제공 합니다. :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="장치의 속성"::: |
 | 장치 인벤토리 | 장치 인벤토리는 장치가 프로그래밍 장치 인지 여부를 나타냅니다. :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="장치 인벤토리"::: |

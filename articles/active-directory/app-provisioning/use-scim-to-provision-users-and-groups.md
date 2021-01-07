@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a0abbacc55cff2f561323a22dd83311c87b1511d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 90debef39b3e657bf96221dfaf5fa762d332a364
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584496"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976523"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>자습서 - Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -1217,7 +1217,7 @@ OAuth 코드 부여 흐름의 단계:
 > [!NOTE]
 > 현재는 비갤러리 애플리케이션에서 OAuth를 설정하는 것이 불가능하지만, 권한 부여 서버에서 액세스 토큰을 수동으로 생성하고 비갤러리 애플리케이션의 비밀 토큰 필드에 해당 토큰을 입력할 수 있습니다. 이렇게 하면 OAuth 코드 부여를 지원하는 앱 갤러리에 온보딩하기 전에 Azure AD SCIM 클라이언트와 SCIM 서버의 호환성을 확인할 수 있습니다.  
 
-**수명이 긴 OAuth 전달자 토큰:** 애플리케이션이 OAuth 인증 코드 부여 흐름을 지원하지 않는 경우 관리자가 프로비저닝 통합을 설정하는 데 사용할 수 있는 것보다 수명이 긴 OAuth 전달자 토큰을 생성할 수도 있습니다. 토큰은 영구적이어야 합니다. 그렇지 않은 경우 토큰이 만료되면 프로비저닝 작업이 [격리](application-provisioning-quarantine-status.md)됩니다. 이 토큰의 크기는 1KB 미만이어야 합니다.  
+**수명이 긴 OAuth 전달자 토큰:** 애플리케이션이 OAuth 인증 코드 부여 흐름을 지원하지 않는 경우 관리자가 프로비저닝 통합을 설정하는 데 사용할 수 있는 것보다 수명이 긴 OAuth 전달자 토큰을 생성할 수도 있습니다. 토큰은 영구적이어야 합니다. 그렇지 않은 경우 토큰이 만료되면 프로비저닝 작업이 [격리](application-provisioning-quarantine-status.md)됩니다.
 
 추가 인증 및 권한 부여 방법에 대한 자세한 내용은 [UserVoice](https://aka.ms/appprovisioningfeaturerequest)에 알려주세요.
 

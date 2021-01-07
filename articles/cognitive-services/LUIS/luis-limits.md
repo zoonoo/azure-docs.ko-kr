@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: c855be6d31a1ee46434ecadbeae7a36dd6a3ff95
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018806"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976795"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대 한 제한
 LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의도, 엔터티 및 기능을 제어 하는 [모델 제한](#model-limits)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 제한의 세 번째 영역은 LUIS 웹 사이트를 제어 하는 [키보드 조합](#keyboard-controls) 입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다.
@@ -30,7 +30,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 | 외부 엔터티 | 제한 없음 |
 | [의도][intents]|응용 프로그램당 500:499 사용자 지정 의도 및 필요한 _없음_ 의도입니다.<br>[디스패치 기반](https://aka.ms/dispatch-tool) 응용 프로그램에는 해당 하는 500 디스패치 소스가 있습니다.|
 | [엔터티 나열](./luis-concept-entity-types.md) | 부모: 50, 자식: 20,000개 항목 정식 이름은 *기본 문자 최댓값입니다. 동의어 값에는 길이 제한이 없습니다. |
-| [기계 학습 엔터티 + 역할](./luis-concept-entity-types.md):<br> 합성할<br>쉽게<br>엔터티 역할|100 부모 엔터티 또는 330 엔터티 중 하나는 사용자가 먼저 적중 하는 것을 제한 합니다. 역할은이 제한의 용도에 대 한 엔터티로 계산 됩니다. 예를 들어 두 개의 역할이 있는 복합 엔터티는 1 개의 복합 + 1 단순 + 2 역할 = 4 인 330 엔터티입니다.<br>하위 엔터티는 최대 5 수준까지 중첩할 수 있습니다.|
+| [기계 학습 엔터티 + 역할](./luis-concept-entity-types.md):<br> 합성할<br>쉽게<br>엔터티 역할|100 부모 엔터티 또는 330 엔터티 중 하나는 사용자가 먼저 적중 하는 것을 제한 합니다. 역할은이 제한의 용도에 대 한 엔터티로 계산 됩니다. 예를 들어 두 개의 역할이 있는 복합 엔터티는 1 개의 복합 + 1 단순 + 2 역할 = 4 인 330 엔터티입니다.<br>하위 엔터티는 수준 당 최대 10 개까지 최대 5 수준까지 중첩 될 수 있습니다.|
 |기능으로 서의 모델| 특정 모델의 기능으로 사용할 수 있는 모델의 최대 수를 10 개 모델로 사용할 수 있습니다. 특정 모델의 기능으로 사용 되는 최대 문구 목록 수를 10 개 구 목록으로 표시 합니다.|
 | [미리 보기-동적 목록 엔터티](./luis-migration-api-v3.md)|2-쿼리 예측 끝점 요청당 ~ 1k 목록|
 | [패턴](luis-concept-patterns.md)|애플리케이션당 500개 패턴.<br>패턴의 최대 길이는 400자입니다.<br>패턴당 3개의 Pattern.any 엔터티<br>패턴에 최대 2개의 선택적 중첩 텍스트|
@@ -52,7 +52,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 개체 이름은 같은 수준의 다른 개체와 비교 했을 때 고유 해야 합니다.
 
-|개체|제한 사항|
+|개체|제한|
 |--|--|
 |의도, 엔터티|모든 의도 및 엔터티 이름은 앱 버전에서 고유 해야 합니다.|
 |ML 엔터티 구성 요소|모든 기계 학습 엔터티 구성 요소 (자식 엔터티)는 동일한 수준의 구성 요소에 대 한 해당 엔터티 내에서 고유 해야 합니다.|
@@ -76,7 +76,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 ### <a name="authoring-resource-limits"></a>리소스 한도 작성
 
-_kind_ `LUIS.Authoring` Azure Portal에서 리소스를 필터링 할 때 종류를 사용 합니다. LUIS는 Azure 제작 리소스 당 500 응용 프로그램을 제한 합니다.
+ `LUIS.Authoring` Azure Portal에서 리소스를 필터링 할 때 종류를 사용 합니다. LUIS는 Azure 제작 리소스 당 500 응용 프로그램을 제한 합니다.
 
 |제작 리소스|TPS 제작|
 |--|--|
@@ -89,7 +89,7 @@ _kind_ `LUIS.Authoring` Azure Portal에서 리소스를 필터링 할 때 종류
 
 ### <a name="query-prediction-resource-limits"></a>쿼리 예측 리소스 제한
 
-_kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용 합니다. 런타임에 사용 되는 LUIS 쿼리 예측 끝점 리소스는 끝점 쿼리에만 유효 합니다.
+ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용 합니다. 런타임에 사용 되는 LUIS 쿼리 예측 끝점 리소스는 끝점 쿼리에만 유효 합니다.
 
 |쿼리 예측 리소스|쿼리 TPS|
 |--|--|
@@ -108,7 +108,7 @@ _kind_ `LUIS` Azure Portal에서 리소스를 필터링 할 때 종류를 사용
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | Description |
+|키보드 입력 | 설명 |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 

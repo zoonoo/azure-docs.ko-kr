@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955109"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977016"
 ---
 # <a name="about-defender-for-iot-console-users"></a>IoT 콘솔 사용자를 위한 Defender 정보
 
@@ -223,8 +223,6 @@ CyberX 또는 지원 사용자에 대 한 암호를 다시 설정 하려면:
     > 암호 복구 파일을 변경 하지 마세요. 서명 된 파일이 며 변조 하는 경우 작동 하지 않습니다.
 
 1. **암호 복구** 화면에서 **업로드** 를 선택 합니다. **암호 복구 파일 업로드** 창이 열립니다.
-
-   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="복구 파일을 업로드 하 여 새 암호를 가져옵니다.":::
 
 1. **찾아보기** 를 선택 하 여 `password_recovery.zip` 파일을 찾거나를 `password_recovery.zip` 창으로 끌어 놓습니다.
 
